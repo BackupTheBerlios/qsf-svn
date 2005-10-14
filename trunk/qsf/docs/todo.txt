@@ -1,0 +1,36 @@
+SUBSCRIPTIONS
+Rework mass mailing in general to no longer use a 'bogus' to address while hiding all the receipients in the BCC field
+
+TRANSLATIONS
+Translation of all the new fields created for the admin cp
+
+MOD CP
+Break down admin cp into smaller bits so user groups can be granted small access such as 'ban users' or 'create forum' without having super user access
+
+SKINS
+Unskinnable images found so far ( meaning you can't change the names or image type ):
+
+BOARD_FORUM template: {$topic_new} calls for:
+topic_new.png
+topic_old.png
+
+TOPIC_POST template: {$Poster_Icons} calls for:
+email.png
+www.png
+icq.png
+aim.png
+yahoo.png
+msn.png
+gtalk.png
+pm.png
+
+TOPIC_POST template: {$options} calls for:
+edit.png
+delete.png
+
+TOPIC_MAIN template: {$replylink} calls for:
+addreply.png
+noreply.png
+
+FORUM_TOPIC
+poll.png - set by forum.php hardcode

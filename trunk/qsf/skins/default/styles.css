@@ -1,0 +1,68 @@
+body          {font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; cursor:default; background-color:#ffffff;}
+td            {font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+hr            {height:1px; border:0px; border-top:1px solid #666666;}
+form          {margin:0px;}
+img           {border:0px;}
+table.stand   {border-collapse:collapse; width:95%; margin-left:2.5%; margin-right:2.5%;}
+.input        {font-size:11px; background-color:#ffffff; color:#000000; font-family:Verdana, Arial, Helvetica, sans-serif; border:1px solid #555555; padding:1px;}
+.select       {font-size:11px; background-color:#ffffff; color:#000000; font-family:Verdana, Arial, Helvetica, sans-serif;}
+
+.tablelight   {font-size:11px; border:1px solid #555555; background-color:#eeeeee; color:#000000;}
+.tabledark    {font-size:11px; border:1px solid #555555; background-color:#e0e0e0; color:#000000;}
+
+td.header     {font-size:11px; border:1px solid #555555; color:#000000; font-weight:bold; background-image:url(./images/header.png);}
+a.header      {font-size:11px; color:#000000; font-weight:bold; cursor:pointer;}
+a:hover.header{font-size:11px; color:#ffffff; font-weight:bold; cursor:pointer;}
+
+td.subheader     {font-size:11px; color:#000000; font-weight:bold; border:1px solid #555555; background-image:url(./images/subheader.png);}
+a.subheader      {font-size:11px; color:#000000; font-weight:bold; cursor:pointer; text-decoration:none}
+a:hover.subheader{font-size:11px; color:#000000; font-weight:bold; cursor:pointer; text-decoration:underline}
+
+a.small       {font-size:11px; color:#000000; cursor:pointer;}
+a:hover.small {font-size:11px; color:#000000; text-decoration:none; cursor:pointer;}
+
+a             {color:#000000; cursor:pointer;}
+a.postlink    {font-size:12px; color:#000000; cursor:pointer;}
+a:hover.pages {font-size:11px; color:#CC0000; cursor:pointer;}
+a:hover.pagelinks {color:#CC0000; cursor:pointer;}
+
+td.navover    {font-size:11px; border:1px solid #555555; color:#000000; background-image:url(./images/header.png);}
+td.nav        {font-size:11px; border:1px solid #555555; color:#000000; background-image:url(./images/headerbw.png);}
+a.nav         {font-size:11px; color:#000000; text-decoration:none; cursor:pointer; font-weight:bold}
+a.navbold     {font-size:11px; color:#ff0000; text-decoration:none; cursor:pointer; font-weight:bold}
+
+td.footer     {font-size:11px; border:1px solid #555555; background-color:#FF9900; color:#000000;}
+.signature    {font-size:11px; color:#333333;}
+.copyright    {font-size:11px; text-align:center; line-height:14px;}
+.post         {font-size:12px;}
+.quote        {font-size:11px; background-color:#FEFEFE; color:#333333; border:1px #555555 solid;}
+
+div.code      {margin-left:20px; margin-top:5px;}
+div.codetitle {font-size:12px; color:#000000; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-bottom:2px;}
+.codelines    {width:1em; font-size:11px; background-color:#EEEEEE; color:#333333; border:1px #555555 solid; border-right:0; font-family:Courier New, Courier, serif; text-align:right; float:left; padding:3px;}
+pre.codedata  {width:61em; font-size:11px; background-color:#FEFEFE; color:#333333; border:1px #555555 solid; font-family:Courier New, Courier, monospace; text-align:left; overflow:auto; padding:3px;}
+
+.pages        {font-size:11px; color:#333333;}
+.mbcSelect    {font-size:11px; background-color:#ECECEC; color:#000000;}
+.mbcButton    {font-size:11px; background-color:#ECECEC; color:#000000; border:1px #555555 solid;}
+.stats        {font-weight:bold;}
+.adminstat    {text-align:center;}
+td textarea   {width:100%} /* help give larger text areas */
+table.quotebox {width:90%; margin-left:5%; margin-right:5%;} /* Copied from global.php */
+	
+/* Stuff for the AdminCP mods */
+ul            {line-height:150%}
+.tiny         {font-size:10px; font-weight:normal}
+.small        {font-size:11px}
+.med          {font-size:14px; font-weight:bold}
+.highlighted  {font-size:11px; background-color:#ff0000; color:#000000}
+div.fieldset  {border:1px solid #999999; padding:10px; background-color:#f3f3f3; margin:3px 0px 3px 0px}
+div.legend    {border:1px solid #999999; padding:3px 5px 0px 5px; background-color:#f3f3f3; font-size:12px; font-weight:bold; position:relative; top:-15px; white-space:nowrap; border-bottom:0px; display:inline; height:18px;}
+.labellight   {font-size:11px; border:1px solid #555555; background-color:#EEEEEE; color:#000000; font-weight:bold}
+.labeldark    {font-size:11px; border:1px solid #555555; background-color:#DDDDDD; color:#000000; font-weight:bold}
+input.free, select.free {display:block; float:left; width:150px; margin:0px; margin-bottom:10px}
+input.freec   {display:block; float:left; margin:0px; margin-bottom:10px; padding:0px}
+label.free    {display:block; float:left; width:100px; text-align:right; padding-right:20px}
+br.free       {clear:left}
+span.red      {color:red}
+
