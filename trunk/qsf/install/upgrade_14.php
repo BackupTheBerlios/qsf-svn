@@ -28,6 +28,8 @@ $need_templates = array(
     'MAIN',
     'MAIN_COPYRIGHT',
     'MAIN_HEADER_MEMBER',
+    'MAIN_HEADER_GUEST',
+    'MAIN_REMINDER',
     'PM_FOLDER',
     'PM_FOLDER_MESSAGE',
     'PM_NO_MESSAGES',
