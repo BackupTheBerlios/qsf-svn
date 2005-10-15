@@ -163,7 +163,7 @@ class pm extends qsfglobal
 				if ($reply['pm_to'] == $this->user['user_id']) {
 					$to    = $reply['user_name'];
 					$title = $this->format($reply['pm_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
-					if (stripos($title, 'Re:') === false) {
+					if (strpos($title, 'Re:') === false) {
 						$title = 'Re: ' . $title;
 					}
 					$msg   = '[quote]' . $this->format($reply['pm_message'], FORMAT_HTMLCHARS | FORMAT_CENSOR) . "[/quote]\n\n";
