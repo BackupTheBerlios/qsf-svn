@@ -130,7 +130,7 @@ class database
 			$this->debug($query);
 		}
 
-		$result = mysql_query($query, $this->connection) or error(MERCURY_QUERY_ERROR, mysql_error($this->connection), $query, mysql_errno($this->connection));
+		$result = mysql_query($query, $this->connection) or error(QUICKSILVER_QUERY_ERROR, mysql_error($this->connection), $query, mysql_errno($this->connection));
 		return $result;
 	}
 
