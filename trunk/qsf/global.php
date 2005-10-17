@@ -62,6 +62,9 @@ class qsfglobal
 	var $lang;                        // Loaded words @var object
 	var $query;                       // The query string @var string
 
+    var $macro;                       // Array of code to execute for each template
+    var $modlets;                     // Array of modlet objects for running in templates
+    
 	/**
 	 * Constructor; sets up variables
 	 *
@@ -924,7 +927,8 @@ class qsfglobal
 		{
             // Check for IF statements
 			$template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)(<ELSE>(.*?))?</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'], \'\\3\')', $template['template_html']);
-			// $template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'])', $template['template_html']);
+            // Check for MODLET with optional parameter
+			$template['template_html'] = preg_replace('/<MODLET\s+(.*?)\((.*?)\)\s*>/se', '$this->run_modlet(\'\\1\', \'\\2\', $template[\'template_name\'])', $template['template_html']);
 			$templates[$template['template_name']] = $template['template_html'];
 		}
 
@@ -960,10 +964,55 @@ class qsfglobal
 	function get_templates_callback($condition, $code, $piece, $falseCode = '')
 	{
 		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
+        if ($falseCode) {
+            // Strip off the <ELSE>
+            $falseCode = substr($falseCode, 6);
+        }
 		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = ((' . $condition . ') ? "' . $code . '" : "' . $falseCode . '"); ';
 		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
 	}
 
+   	/**
+	 * Creates the modlet and stores modlet run statements into an array
+	 *
+	 * @param string modlet to run
+	 * @param string template
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @return string replace modlet statements with a var
+	 **/
+	function run_modlet($modlet, $parameter, $piece)
+	{
+		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
+        $parameter = addslashes($parameter); // Be safe
+        
+        // Check the modlet uses valid characters
+        if (preg_match('/[^a-zA-Z0-9_\-]/', $modlet)) {
+            return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a valid modlet name -->';
+        }
+        if (!isset($this->modlets[$modlet])) {
+            require_once('./modlets/' . $modlet . '.php');
+            $this->modlets[$modlet] =& new $modlet($this);
+            if ($this->validate($modlet, TYPE_OBJECT, 'modlet')) {
+                return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a type of modlet -->';
+            }
+        }
+        
+		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = (isset($this)) ? $this->modlets["'. $modlet . '"]->run("' . $parameter . '") : $qsf->modlets["'. $modlet . '"]->run("' . $parameter . '"); ';
+		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
+    }
+    
+   	/**
+	 * Run any extra initialisation on modlets. This lets them do stuff AFTER all templates are loaded
+	 *
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 **/
+    function init_modlets()
+    {
+        foreach ($this->modlets as $modlet) {
+            $modlet->init();
+        }
+    }
+    
 	/**
 	 * Determines if a user has been banned
 	 *

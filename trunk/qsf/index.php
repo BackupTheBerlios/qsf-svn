@@ -31,6 +31,7 @@ require './lib/' . $set['dbtype'] . '.php';
 require './global.php';
 require './lib/perms.php';
 require './lib/user.php';
+require './lib/modlet.php';
 
 if (!$set['installed']) {
 	header('Location: ./install/index.php');
@@ -105,6 +106,8 @@ $qsf->perms->get_perms($qsf->user['user_group'], $qsf->user['user_id'], ($qsf->u
 
 $qsf->temps = $qsf->get_templates($qsf->get['a']);
 
+$qsf->init_modlets();
+
 $qsf->table  = eval($qsf->template('MAIN_TABLE'));
 $qsf->etable = eval($qsf->template('MAIN_ETABLE'));
 
@@ -152,16 +155,6 @@ default: $item = 0;
 
 if (!$qsf->perms->is_guest) {
 	$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES ({$qsf->user['user_id']}, '{$qsf->get['a']}', $item, $qsf->time, '$qsf->ip', '$qsf->agent', '{$qsf->session['id']}')");
-
-	$NewMessages = $qsf->get_messages();
-
-	if (!$NewMessages) {
-		$MessageLink = '';
-		$messageclass = 'nav';
-	} else {
-		$MessageLink = " ($NewMessages {$qsf->lang->main_new})";
-		$messageclass = 'navbold';
-	}
 } else {
 	$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (" . USER_GUEST_UID . ", '{$qsf->get['a']}', $item, $qsf->time, '$qsf->ip', '$qsf->agent', '{$qsf->session['id']}')");
 }
