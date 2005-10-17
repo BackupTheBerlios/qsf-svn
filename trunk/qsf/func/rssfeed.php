@@ -69,12 +69,13 @@ class rssfeed extends recent
 		LIMIT {$this->sets['rss_feed_posts']}" );
       while( $row = $this->db->nqfetch( $query ) )
       {
+            $title = htmlspecialchars( $row['topic_title'] );
             $desc = substr( $row['post_text'], 0, 500 );
             $desc = htmlspecialchars( $desc );
             $pubdate = $this->mbdate( DATE_ISO822, $row['post_time'] );
 
             $out .= "<item>
-              <title>{$row['topic_title']} {$this->lang->rssfeed_posted_by} {$row['user_name']}</title>
+              <title>{$title} {$this->lang->rssfeed_posted_by} {$row['user_name']}</title>
               <link>{$this->sets['loc_of_board']}{$this->mainfile}?a=topic&amp;t={$row['topic_id']}</link>
               <description>{$desc}</description>
               <pubDate>{$pubdate}</pubDate>
