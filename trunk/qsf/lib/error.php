@@ -180,27 +180,11 @@ function error_report($type, $message, $file, $line)
 		$qsf = $GLOBALS['qsfglobal'];
 	}
 
-	if ($type != QUICKSILVER_QUERY_ERROR) {
-		$fp = @fopen($file, 'r');
-
-		if ($fp) {
-			$contents = fread($fp, 4096);
-			fclose($fp);
-
-			preg_match('/\$Id.+?\$/', $contents, $file_version);
-			$file_version = $file_version[0];
-		} else {
-			$file_version = $file;
-		}
-	} else {
-		$file_version = $file;
-	}
-
 	$mysql_version   = mysql_result(mysql_query('SELECT VERSION() as version'), 0, 0);
 	$server_software = isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 0;
 	$safe_mode       = get_cfg_var('safe_mode') ? 1 : 0;
 
-	$str = serialize(array($error_version, $qsf->version, PHP_VERSION, $mysql_version, $file_version, $message, $server_software, PHP_OS, $safe_mode, $line));
+	$str = serialize(array($error_version, $qsf->version, PHP_VERSION, $mysql_version,$message, $server_software, PHP_OS, $safe_mode, $line));
 	return urlencode(base64_encode(md5($str) . $str));
 }
 
