@@ -225,15 +225,11 @@ foreach ($out as $filename => $contents)
 
 	$contents = preg_replace("/(\r\n|\r)/", "\n", $contents);
 
-	if (preg_replace('/\$Id: lang_sync.php,v 1.20 2005/05/21 16:25:54 jason Exp $/', '$Id' . '$', $old) != $contents) {
-		echo "<b>$filename - " . $qsf->get_lang_name($filename) . "$encoding</b><br />";
+    echo "<b>$filename - " . $qsf->get_lang_name($filename) . "$encoding</b><br />";
 
-		$fp = fopen('../languages/' . $filename . '.php', 'w');
-		fwrite($fp, $contents);
-		fclose($fp);
-	} else {
-		echo "$filename - " . $qsf->get_lang_name($filename) . "$encoding<br />";
-	}
+    $fp = fopen('../languages/' . $filename . '.php', 'w');
+    fwrite($fp, $contents);
+    fclose($fp);
 }
 
 echo '<br />Done';
