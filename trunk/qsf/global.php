@@ -983,7 +983,6 @@ class qsfglobal
 	function run_modlet($modlet, $parameter, $piece)
 	{
 		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
-        $parameter = addslashes($parameter); // Be safe
         
         // Check the modlet uses valid characters
         if (preg_match('/[^a-zA-Z0-9_\-]/', $modlet)) {
