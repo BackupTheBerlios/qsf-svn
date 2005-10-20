@@ -63,7 +63,7 @@ class qsfglobal
 	var $query;                       // The query string @var string
 
     var $macro;                       // Array of code to execute for each template
-    var $modlets;                     // Array of modlet objects for running in templates
+    var $modlets = array();           // Array of modlet objects for running in templates
     
 	/**
 	 * Constructor; sets up variables
