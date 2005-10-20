@@ -743,6 +743,7 @@ class ru
 		$this->pm_personal_msging = '������ ���������';
 		$this->pm_pm = '��';
 		$this->pm_posts = '���������';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = '����������';
 		$this->pm_reply = '��������';
 		$this->pm_send = '�������';

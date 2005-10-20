@@ -742,6 +742,7 @@ class zh
 		$this->pm_personal_msging = '˽����Ϣ';
 		$this->pm_pm = '����Ϣ';
 		$this->pm_posts = '����';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = '�ظ�';
 		$this->pm_send = '����';

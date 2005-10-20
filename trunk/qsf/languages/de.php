@@ -742,6 +742,7 @@ class de
 		$this->pm_personal_msging = 'Private Nachrichten';
 		$this->pm_pm = 'PN';
 		$this->pm_posts = 'Post';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Empf�nger';
 		$this->pm_reply = 'Antworten';
 		$this->pm_send = 'Senden';

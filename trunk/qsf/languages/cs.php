@@ -742,6 +742,7 @@ class cs
 		$this->pm_personal_msging = 'Osobn� Messaging';
 		$this->pm_pm = 'Soukrom� zpr�va';
 		$this->pm_posts = 'P��sp�vk�';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Odpov��';
 		$this->pm_send = 'Poslat';

@@ -33,6 +33,7 @@ $need_templates = array(
     'PM_FOLDER',
     'PM_FOLDER_MESSAGE',
     'PM_NO_MESSAGES',
+    'PM_SEND',
     'CP_PROFILE',
     'FORUM_MAIN'
 );
@@ -1480,4 +1481,22 @@ $queries['RECENT_TOPIC_PINNED'] = "INSERT INTO {$pre}templates (template_skin, t
       </table>
     </td>
   </tr>', 'Recent Pinned Topics', 'Format the look of the pinned topics in the recent topics view.', 2)";
+$queries['PM_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_PREVIEW', '
+{\$this->table}
+<tr>
+  <td class=\"header\">{\$preview_title}</td></tr>
+<tr>
+  <td class=\'tablelight\'>
+    <table border=\'0\' width=\'100%\' cellpadding=\'4\' cellspacing=\'0\'>
+      <tr>
+        <td class=\'post\' valign=\'top\'>
+          {\$preview_text}
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+{\$this->etable}
+<br />
+', 'PM Preview', 'A private message being previewed with formatting', 6)";
 ?>

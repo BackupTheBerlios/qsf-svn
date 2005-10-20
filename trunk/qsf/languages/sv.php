@@ -743,6 +743,7 @@ class sv
 		$this->pm_personal_msging = 'Personligt Meddelande';
 		$this->pm_pm = 'PM'; //Translate
 		$this->pm_posts = 'Inl�gg';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Svara';
 		$this->pm_send = 'Skicka';

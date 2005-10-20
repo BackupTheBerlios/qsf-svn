@@ -742,6 +742,7 @@ class sk
 		$this->pm_personal_msging = 'Posielanie odkazu';
 		$this->pm_pm = 'PM'; //Translate
 		$this->pm_posts = 'Pr�spevky';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Odpoveda?';
 		$this->pm_send = 'Posla?';

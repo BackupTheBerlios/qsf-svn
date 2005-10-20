@@ -742,6 +742,7 @@ class es
 		$this->pm_personal_msging = 'Mensajeria Personal';
 		$this->pm_pm = 'MP';
 		$this->pm_posts = 'Publicaciones';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Respuestas';
 		$this->pm_send = 'Enviar';

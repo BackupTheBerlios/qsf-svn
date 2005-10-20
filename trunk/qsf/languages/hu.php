@@ -742,6 +742,7 @@ class hu
 		$this->pm_personal_msging = 'Priv�t �zenet k�ld�se';
 		$this->pm_pm = 'P�';
 		$this->pm_posts = 'Be�r�s';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'V�lasz';
 		$this->pm_send = 'K�ld�s';

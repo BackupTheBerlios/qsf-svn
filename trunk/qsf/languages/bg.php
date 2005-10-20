@@ -742,6 +742,7 @@ class bg
 		$this->pm_personal_msging = 'Personal Messaging'; //Translate
 		$this->pm_pm = '��';
 		$this->pm_posts = '������';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = '��������';
 		$this->pm_send = '�������';

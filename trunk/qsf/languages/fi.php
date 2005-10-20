@@ -742,6 +742,7 @@ class fi
 		$this->pm_personal_msging = 'L�hetet��n viesti�';
 		$this->pm_pm = 'Viestitin';
 		$this->pm_posts = 'Viestej�';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Vastaa';
 		$this->pm_send = 'L�het�';

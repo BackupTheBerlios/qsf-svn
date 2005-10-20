@@ -742,6 +742,7 @@ class he
 		$this->pm_personal_msging = '���� �����';
 		$this->pm_pm = '����� �����';
 		$this->pm_posts = '������';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Reply'; //Translate
 		$this->pm_send = ' ��� ';

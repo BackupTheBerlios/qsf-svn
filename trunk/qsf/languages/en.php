@@ -742,6 +742,7 @@ class en
 		$this->pm_personal_msging = 'Personal Messaging';
 		$this->pm_pm = 'PM';
 		$this->pm_posts = 'Posts';
+		$this->pm_preview = 'Preview';
 		$this->pm_recipients = 'Recipients';
 		$this->pm_reply = 'Reply';
 		$this->pm_send = 'Send';

@@ -2362,7 +2362,26 @@ $queries['PM_FOLDER_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, tem
   </tr>
 ', 'Message', 'A message entry in the list', 2)";
 $queries['PM_NO_MESSAGES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_NO_MESSAGES', '<tr><td colspan=\'5\' class=\'tablelight\' align=\'center\'><br />{\$this->lang->pm_nomsg}<br /><br /></td></tr>', 'No Messages', 'To display when there are no messages', 5)";
+$queries['PM_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_PREVIEW', '
+{\$this->table}
+<tr>
+  <td class=\"header\">{\$preview_title}</td></tr>
+<tr>
+  <td class=\'tablelight\'>
+    <table border=\'0\' width=\'100%\' cellpadding=\'4\' cellspacing=\'0\'>
+      <tr>
+        <td class=\'post\' valign=\'top\'>
+          {\$preview_text}
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+{\$this->etable}
+<br />
+', 'PM Preview', 'A private message being previewed with formatting', 6)";
 $queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_SEND', '
+{\$preview}
 <form action=\'{\$this->self}?a=pm&amp;s=send\' method=\'post\'>
 {\$this->table}
   <tr>
@@ -2381,7 +2400,9 @@ $queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set,
     <td class=\'tablelight\'><textarea class=\'input\' name=\'message\' cols=\'60\' rows=\'12\'>{\$msg}</textarea></td>
   </tr>
   <tr>
-    <td colspan=\'2\' class=\'footer\' align=\'center\'><input name=\'submit\' type=\'submit\' value=\'{\$this->lang->pm_send}\' /></td>
+    <td colspan=\'2\' class=\'footer\' align=\'center\'>
+    <input name=\'submit\' type=\'submit\' value=\'{\$this->lang->pm_send}\' />
+    <input type=\"submit\" name=\"preview\" value=\"{\$this->lang->pm_preview}\" /></td>
   </tr>
 {\$this->etable}
 </form>

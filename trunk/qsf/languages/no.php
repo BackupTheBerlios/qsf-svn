@@ -742,6 +742,7 @@ class no
 		$this->pm_personal_msging = 'Personligt melding';
 		$this->pm_pm = 'PM'; //Translate
 		$this->pm_posts = 'Innlegg';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Recipients'; //Translate
 		$this->pm_reply = 'Svar';
 		$this->pm_send = 'Send'; //Translate

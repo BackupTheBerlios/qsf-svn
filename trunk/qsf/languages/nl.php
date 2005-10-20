@@ -743,6 +743,7 @@ class nl
 		$this->pm_personal_msging = 'PB sturen';
 		$this->pm_pm = 'PB';
 		$this->pm_posts = 'Antwoorden';
+		$this->pm_preview = 'Preview'; //Translate
 		$this->pm_recipients = 'Ontvangers';
 		$this->pm_reply = 'Beantwoord';
 		$this->pm_send = 'Verstuur';
