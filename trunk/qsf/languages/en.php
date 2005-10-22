@@ -999,6 +999,8 @@ class en
 		$this->register_passwd = 'Password';
 		$this->register_reg = 'Register';
 		$this->register_reging = 'Registering';
+		$this->register_tos_i_agree = 'I agree to the above terms';
+		$this->register_tos_read = 'Please read the following terms of service';
 	}
 
 	function rssfeed()
@@ -1158,6 +1160,7 @@ class en
 		$this->settings_spider_name_msg = 'Enter the name that you wish to display for each of the above spiders on Active List. You need to place the spider\'s name on the same line as the spider\'s user agent above. For example, if you place \'googlebot\' on the third line for the user agent place \'Google\' on the third line for the Spider Name.';
 		$this->settings_timezone = 'Time Zone';
 		$this->settings_topics_page = 'Topics Per Forum Page';
+		$this->settings_tos = 'Terms of Service';
 		$this->settings_updated = 'Settings have been updated.';
 	}
 

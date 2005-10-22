@@ -152,6 +152,7 @@ $queries[] = "CREATE TABLE {$pre}replacements (
 $queries[] = "DROP TABLE IF EXISTS {$pre}settings";
 $queries[] = "CREATE TABLE {$pre}settings (
   settings_id tinyint(2) unsigned NOT NULL auto_increment,
+  settings_tos text,
   settings_data text NOT NULL,
   PRIMARY KEY  (settings_id)
 ) TYPE=MyISAM";

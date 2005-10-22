@@ -51,6 +51,7 @@ class settings extends admin
 			$this->lang->timezones(); //For $this->select_timezones()
 
 			$group = $this->db->fetch("SELECT group_name FROM {$this->pre}groups WHERE group_id=" . USER_AWAIT);
+			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
 
 			$attachsize = ($this->sets['attach_upload_size'] / 1024);
 			$attachtypes = implode("\r\n", $this->sets['attach_types']);
@@ -75,6 +76,7 @@ class settings extends admin
 				break;
 			}
 
+			$tos_text = stripslashes($this->post['tos']);
 			$vartypes = array(
 				'db_host' => 'string',
 				'db_name' => 'string',
@@ -135,6 +137,8 @@ class settings extends admin
 
 			foreach ($this->post as $var => $val)
 			{
+				if ($var == 'tos')
+					continue;
 				if (($vartypes[$var] == 'int') || ($vartypes[$var] == 'bool')) {
 					$val = intval($val);
 				} elseif ($vartypes[$var] == 'float') {
@@ -167,6 +171,7 @@ class settings extends admin
 				$this->db->query("UPDATE {$this->pre}users SET user_language='{$this->post['default_lang']}', user_skin='{$this->post['default_skin']}' WHERE user_id=" . USER_GUEST_UID);
 				$this->sets['spider_name'] = $this->array_combine($this->sets['spider_agent'], $this->sets['spider_name']);
 				$this->write_sets();
+                                $this->db->query("UPDATE {$this->pre}settings SET settings_tos='{$tos_text'");
 			}
 
 			return $this->message($this->lang->settings, $this->lang->settings_updated);

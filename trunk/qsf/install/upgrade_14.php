@@ -35,7 +35,8 @@ $need_templates = array(
     'PM_NO_MESSAGES',
     'PM_SEND',
     'CP_PROFILE',
-    'FORUM_MAIN'
+    'FORUM_MAIN',
+    'REGISTER_MAIN'
 );
 
 $this->sets['rss_feed_posts'] = 5;
@@ -94,7 +95,7 @@ $this->sets['optional_modules'] = array(
 	'rssfeed'
 );
 
-
+$queries[] = "ALTER TABLE {$pre}settings ADD setings_tos text AFTER settings_id";
 $queries[] = "ALTER TABLE {$pre}users ADD user_title_custom TINYINT(1) UNSIGNED NOT NULL AFTER user_title";
 $queries[] = "ALTER TABLE {$pre}users MODIFY user_aim VARCHAR(32) NOT NULL";
 $queries[] = "ALTER TABLE {$pre}users ADD user_gtalk varchar(32) NOT NULL AFTER user_aim";
@@ -335,6 +336,14 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
    <span class=\'tiny\'>{\$this->lang->settings_modname_only}</span></td>
   <td class=\'tablelight\'>
    <textarea class=\'input\' name=\'optional_modules\' rows=\'5\' cols=\'37\'>{\$optionalModules}</textarea>
+  </td>
+ </tr>
+ <tr>
+  <td class=\'labeldark\' valign=\'top\' colspan=\'2\'>{\$this->lang->settings_tos}</td>
+ </tr>
+ <tr>
+  <td class=\'tabledark\' colspan=\'2\'>
+   <textarea class=\'input\' name=\'tos\' rows=\'10\' cols=\'37\'>{\$tos[\'settings_tos\']}</textarea>
   </td>
  </tr>
  <tr>

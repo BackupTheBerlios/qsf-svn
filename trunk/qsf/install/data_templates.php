@@ -286,6 +286,14 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   </td>
  </tr>
  <tr>
+  <td class=\'labeldark\' valign=\'top\' colspan=\'2\'>{\$this->lang->settings_tos}</td>
+ </tr>
+ <tr>
+  <td class=\'tabledark\' colspan=\'2\'>
+   <textarea class=\'input\' name=\'tos\' rows=\'10\' cols=\'37\'>{\$tos[\'settings_tos\']}</textarea>
+  </td>
+ </tr>
+ <tr>
   <td class=\'footer\' colspan=\'2\'>&nbsp;</td>
  </tr>
 {\$this->etable}
@@ -3517,31 +3525,40 @@ $queries['REGISTER_IMAGE'] = "INSERT INTO {$pre}templates (template_skin, templa
 $queries['REGISTER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'register', 'REGISTER_MAIN', '
 <form action=\'{\$this->self}?a=register\' method=\'post\'>
 {\$this->table}
-  <tr>
-    <td colspan=\'2\' class=\'header\'>{\$this->lang->register_reging}</td>
-  </tr>
-  <tr>
-   <td style=\'width:30%\' class=\'tablelight\'>{\$this->lang->register_new_user}</td>
-   <td class=\'tablelight\'><input class=\'input\' type=\'text\' name=\'desuser\' size=\'50\' /></td>
-  </tr>
-  <tr>
-   <td class=\'tabledark\'>{\$this->lang->register_email}</td>
-   <td class=\'tabledark\'><input class=\'input\' type=\'text\' name=\'email\' size=\'50\' /></td>
-  </tr>
-  <tr>
-   <td class=\'tablelight\'>{\$this->lang->register_passwd}</td>
-   <td class=\'tablelight\'><input class=\'input\' type=\'password\' name=\'passA\' size=\'50\' /></td>
-  </tr>
-  <tr>
-   <td class=\'tabledark\'>{\$this->lang->register_confirm_passwd}</td>
-   <td class=\'tabledark\'><input class=\'input\' type=\'password\' name=\'passB\' size=\'50\' /></td>
-  </tr>
-  {\$image}
-  <tr>
-   <td colspan=\'2\' align=\'center\' class=\'footer\'>
-     <input type=\'submit\' name=\'submit\' value=\'{\$this->lang->register_reg}\' />
-   </td>
-  </tr>
+ <tr>
+  <td colspan=\'2\' class=\'header\'>{\$this->lang->register_reging}</td>
+ </tr>
+ <tr>
+  <td style=\'width:30%\' class=\'tablelight\'>{\$this->lang->register_new_user}</td>
+  <td class=\'tablelight\'><input class=\'input\' type=\'text\' name=\'desuser\' size=\'50\' /></td>
+ </tr>
+ <tr>
+  <td class=\'tabledark\'>{\$this->lang->register_email}</td>
+  <td class=\'tabledark\'><input class=\'input\' type=\'text\' name=\'email\' size=\'50\' /></td>
+ </tr>
+ <tr>
+  <td class=\'tablelight\'>{\$this->lang->register_passwd}</td>
+  <td class=\'tablelight\'><input class=\'input\' type=\'password\' name=\'passA\' size=\'50\' /></td>
+ </tr>
+ <tr>
+  <td class=\'tabledark\'>{\$this->lang->register_confirm_passwd}</td>
+  <td class=\'tabledark\'><input class=\'input\' type=\'password\' name=\'passB\' size=\'50\' /></td>
+ </tr>
+ {\$image}
+ <tr>
+  <td class=\'tablelight\' colspan=\'2\' align=\'center\'><b>{\$this->lang->register_tos_read}:</b></td>
+ </tr>
+ <tr>
+  <td class=\'tabledark\' colspan=\'2\'>{\$tos[\'settings_tos\']}</td>
+ </tr>
+ <tr>
+  <td class=\'tablelight\' colspan=\'2\' align=\'center\'><b>{\$this->lang->register_tos_i_agree}</b><input type=\'checkbox\' name=\'terms\' /></td>
+ </tr>
+ <tr>
+  <td colspan=\'2\' align=\'center\' class=\'footer\'>
+   <input type=\'submit\' name=\'submit\' value=\'{\$this->lang->register_reg}\' />
+  </td>
+ </tr>
 {\$this->etable}
 </form>
 ', 'Register View', 'Change the appearance of the register screen', 0)";

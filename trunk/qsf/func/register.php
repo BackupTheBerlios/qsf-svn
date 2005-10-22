@@ -61,6 +61,7 @@ class register extends qsfglobal
 			} else {
 				$image = null;
 			}
+			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
 
 			return eval($this->template('REGISTER_MAIN'));
 		} else {
@@ -85,6 +86,10 @@ class register extends qsfglobal
 
 			if (strlen($username) > 20) {
 				return $this->message($this->lang->register_reging, $this->lang->register_name_invalid);
+			}
+
+			if (!isset($this->post['terms'])) {
+				return $this->message("Terms of Service", "You did not agree to the terms.");
 			}
 
 			if ($this->sets['register_image']) {
