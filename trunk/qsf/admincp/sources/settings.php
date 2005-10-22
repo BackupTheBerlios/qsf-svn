@@ -171,7 +171,7 @@ class settings extends admin
 				$this->db->query("UPDATE {$this->pre}users SET user_language='{$this->post['default_lang']}', user_skin='{$this->post['default_skin']}' WHERE user_id=" . USER_GUEST_UID);
 				$this->sets['spider_name'] = $this->array_combine($this->sets['spider_agent'], $this->sets['spider_name']);
 				$this->write_sets();
-                                $this->db->query("UPDATE {$this->pre}settings SET settings_tos='{$tos_text'");
+                                $this->db->query("UPDATE {$this->pre}settings SET settings_tos='{$tos_text}'");
 			}
 
 			return $this->message($this->lang->settings, $this->lang->settings_updated);

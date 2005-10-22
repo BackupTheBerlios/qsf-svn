@@ -95,7 +95,7 @@ $this->sets['optional_modules'] = array(
 	'rssfeed'
 );
 
-$queries[] = "ALTER TABLE {$pre}settings ADD setings_tos text AFTER settings_id";
+$queries[] = "ALTER TABLE {$pre}settings ADD settings_tos text AFTER settings_id";
 $queries[] = "ALTER TABLE {$pre}users ADD user_title_custom TINYINT(1) UNSIGNED NOT NULL AFTER user_title";
 $queries[] = "ALTER TABLE {$pre}users MODIFY user_aim VARCHAR(32) NOT NULL";
 $queries[] = "ALTER TABLE {$pre}users ADD user_gtalk varchar(32) NOT NULL AFTER user_aim";
