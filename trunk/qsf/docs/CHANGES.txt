@@ -46,4 +46,7 @@ New features and modifications for 1.1.5:
 * Support for optional modules which can be enabled/disabled in the AdminCP.
 * More CSS control over quote box style.
 * ISO822 Date formatting added to mbdate() function. Used by RSS feeds.
+* <ELSE> now allowed in templates in addition to <IF>
+* Private message preview
+* Show ToS for newly registering users
 * FAQ added - Jonathan West <jon@quicksilverforums.com>
