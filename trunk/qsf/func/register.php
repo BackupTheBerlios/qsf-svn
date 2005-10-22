@@ -63,6 +63,7 @@ class register extends qsfglobal
 			}
 			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
 			$tos_text = stripslashes($tos['settings_tos']);
+			$tos_text = nl2br($tos_text);
 
 			return eval($this->template('REGISTER_MAIN'));
 		} else {
