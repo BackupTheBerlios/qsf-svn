@@ -290,7 +290,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
  </tr>
  <tr>
   <td class=\'tabledark\' colspan=\'2\'>
-   <textarea class=\'input\' name=\'tos\' rows=\'10\' cols=\'37\'>{\$tos[\'settings_tos\']}</textarea>
+   <textarea class=\'input\' name=\'tos\' rows=\'10\' cols=\'37\'>{\$tos_text}</textarea>
   </td>
  </tr>
  <tr>
@@ -3549,7 +3549,7 @@ $queries['REGISTER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, templat
   <td class=\'tablelight\' colspan=\'2\' align=\'center\'><b>{\$this->lang->register_tos_read}:</b></td>
  </tr>
  <tr>
-  <td class=\'tabledark\' colspan=\'2\'>{\$tos[\'settings_tos\']}</td>
+  <td class=\'tabledark\' colspan=\'2\'>{\$tos_text}</td>
  </tr>
  <tr>
   <td class=\'tablelight\' colspan=\'2\' align=\'center\'><b>{\$this->lang->register_tos_i_agree}</b><input type=\'checkbox\' name=\'terms\' /></td>

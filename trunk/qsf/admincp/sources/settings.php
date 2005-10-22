@@ -52,6 +52,7 @@ class settings extends admin
 
 			$group = $this->db->fetch("SELECT group_name FROM {$this->pre}groups WHERE group_id=" . USER_AWAIT);
 			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
+			$tos_text = stripslashes($tos['settings_tos']);
 
 			$attachsize = ($this->sets['attach_upload_size'] / 1024);
 			$attachtypes = implode("\r\n", $this->sets['attach_types']);
@@ -76,7 +77,7 @@ class settings extends admin
 				break;
 			}
 
-			$tos_text = stripslashes($this->post['tos']);
+			$tos_text = addslashes($this->post['tos']);
 			$vartypes = array(
 				'db_host' => 'string',
 				'db_name' => 'string',

@@ -62,6 +62,7 @@ class register extends qsfglobal
 				$image = null;
 			}
 			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
+			$tos_text = stripslashes($tos['settings_tos']);
 
 			return eval($this->template('REGISTER_MAIN'));
 		} else {
