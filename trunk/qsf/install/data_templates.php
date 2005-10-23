@@ -2009,7 +2009,7 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
   <b>{\$qsf->db->querycount}</b> {\$qsf->lang->main_queries} - 
   <b>{\$server_load}</b> {\$qsf->lang->main_load}
 <IF \$qsf->perms->auth(\'is_admin\')>
-  [<a href=\"{\$qsf->self}?{\$qsf->query}&amp;debug=1\" class=\'small\'>{\$qsf->lang->main_full}</a>]
+  [<a href=\'{\$qsf->self}?{\$qsf->query}&amp;debug=1\' class=\'small\'>{\$qsf->lang->main_full}</a>]
 </IF>
 </p>
 
