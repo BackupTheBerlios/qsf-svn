@@ -24,6 +24,22 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to upgrade.');
 }
 
+$query = $db->query("SELECT post_id as id, INET_ATON( post_ip ) as newip FROM {$pre}posts");
+
+while($upg14_data = $db->nqfetch($query))
+{
+	$sql = "UPDATE {$pre}posts SET post_ip='" . $upg14_data['newip'] . "' WHERE post_id='" . $upg14_data['id'] . "'";
+	$db->query($sql);
+}
+
+$query = $db->query("SELECT active_id as id, INET_ATON( active_ip ) as newip FROM {$pre}active");
+
+while($upg14_data = $db->nqfetch($query))
+{
+	$sql = "UPDATE {$pre}active SET active_ip='" . $upg14_data['newip'] . "' WHERE active_id='" . $upg14_data['id'] . "'";
+	$db->query($sql);
+}
+
 $need_templates = array(
     'MAIN',
     'MAIN_COPYRIGHT',
@@ -95,6 +111,8 @@ $this->sets['optional_modules'] = array(
 	'rssfeed'
 );
 
+$queries[] = "ALTER TABLE {$pre}posts CHANGE post_ip post_ip INT UNSIGNED NOT NULL DEFAULT '0'";
+$queries[] = "ALTER TABLE {$pre}active CHANGE active_ip active_ip INT UNSIGNED NOT NULL DEFAULT '0'";
 $queries[] = "ALTER TABLE {$pre}settings ADD settings_tos text AFTER settings_id";
 $queries[] = "ALTER TABLE {$pre}users ADD user_title_custom TINYINT(1) UNSIGNED NOT NULL AFTER user_title";
 $queries[] = "ALTER TABLE {$pre}users MODIFY user_aim VARCHAR(32) NOT NULL";

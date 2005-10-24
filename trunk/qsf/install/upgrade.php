@@ -159,6 +159,12 @@ class upgrade extends qsfglobal
 
 			$this->write_sets();
 
+			// New fields in forum tables need to be fixed in case the old install was a conversion
+			require_once './installutils.php';
+			$utils = new installutils;
+			$utils->updateForumTrees($this);
+			$utils->RecountForums($this);
+
 			echo 'Upgrade successful.<br />';
 			echo "<a href='../index.php'>To the board</a>";
 			break;

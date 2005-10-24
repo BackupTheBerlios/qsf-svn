@@ -154,9 +154,9 @@ default: $item = 0;
 }
 
 if (!$qsf->perms->is_guest) {
-	$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES ({$qsf->user['user_id']}, '{$qsf->get['a']}', $item, $qsf->time, '$qsf->ip', '$qsf->agent', '{$qsf->session['id']}')");
+	$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES ({$qsf->user['user_id']}, '{$qsf->get['a']}', $item, $qsf->time, INET_ATON('$qsf->ip'), '$qsf->agent', '{$qsf->session['id']}')");
 } else {
-	$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (" . USER_GUEST_UID . ", '{$qsf->get['a']}', $item, $qsf->time, '$qsf->ip', '$qsf->agent', '{$qsf->session['id']}')");
+	$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (" . USER_GUEST_UID . ", '{$qsf->get['a']}', $item, $qsf->time, INET_ATON('$qsf->ip'), '$qsf->agent', '{$qsf->session['id']}')");
 }
 
 $output = $qsf->execute();

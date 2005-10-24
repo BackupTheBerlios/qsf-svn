@@ -27,7 +27,7 @@ if (!defined('INSTALLER')) {
 $queries[] = "DROP TABLE IF EXISTS {$pre}active";
 $queries[] = "CREATE TABLE {$pre}active (
   active_id int(10) unsigned NOT NULL default '0',
-  active_ip varchar(15) NOT NULL default 'Unknown',
+  active_ip INT UNSIGNED NOT NULL default '0',
   active_user_agent varchar(100) NOT NULL default 'Unknown',
   active_action varchar(32) NOT NULL default '',
   active_item int(10) unsigned NOT NULL default '0',
@@ -130,7 +130,7 @@ $queries[] = "CREATE TABLE {$pre}posts (
   post_text text NOT NULL,
   post_time int(10) unsigned NOT NULL default '0',
   post_icon varchar(32) NOT NULL default '',
-  post_ip varchar(15) NOT NULL default 'Unknown',
+  post_ip INT UNSIGNED NOT NULL default '0',
   post_edited_by varchar(32) NOT NULL default '',
   post_edited_time int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (post_id),

@@ -805,7 +805,7 @@ else if( $_GET['action'] == 'posts' )
       /* Try and clean up some of the junk in Invisionboard posts. MySQL isn't happy about some of it. */
       $row['post'] = strip_invision_tags( $row['post'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['topic_id']}, '{$row['author_id']}', {$row['use_emo']}, 1, '{$row['post']}', {$row['post_date']}, '', '{$row['ip_address']}', '{$row['edit_name']}', '{$row['edit_time']}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['topic_id']}, '{$row['author_id']}', {$row['use_emo']}, 1, '{$row['post']}', {$row['post_date']}, '', INET_ATON('$row['ip_address']'), '{$row['edit_name']}', '{$row['edit_time']}' )" );
       $i++;
    }
    if( $i == $all )

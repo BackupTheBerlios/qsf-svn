@@ -63,22 +63,22 @@ $need_templates = array(
 	'TOPIC_POSTER_MEMBER'
 );
 
-$qsf->sets['default_email_shown'] = 1;
-$qsf->sets['default_lang'] = 'en';
-$qsf->sets['default_group'] = USER_MEMBER;
-$qsf->sets['default_timezone'] = 0;
-$qsf->sets['default_pm'] = 1;
-$qsf->sets['default_view_avatars'] = 1;
-$qsf->sets['default_view_sigs'] = 1;
-$qsf->sets['default_view_emots'] = 1;
-$qsf->sets['flood_time_pm'] = 30;
-$qsf->sets['flood_time_search'] = 10;
+$this->sets['default_email_shown'] = 1;
+$this->sets['default_lang'] = 'en';
+$this->sets['default_group'] = USER_MEMBER;
+$this->sets['default_timezone'] = 0;
+$this->sets['default_pm'] = 1;
+$this->sets['default_view_avatars'] = 1;
+$this->sets['default_view_sigs'] = 1;
+$this->sets['default_view_emots'] = 1;
+$this->sets['flood_time_pm'] = 30;
+$this->sets['flood_time_search'] = 10;
 
-while ($qsf->perms->get_group())
+while ($this->perms->get_group())
 {
-	$qsf->perms->set_xy('pm_noflood', false);
-	$qsf->perms->set_xy('search_noflood', false);
-	$qsf->perms->update();
+	$this->perms->set_xy('pm_noflood', false);
+	$this->perms->set_xy('search_noflood', false);
+	$this->perms->update();
 }
 
 $queries[] = "ALTER TABLE {$pre}pmsystem ADD pm_bcc text NOT NULL";

@@ -185,8 +185,7 @@ $queries[] = "UPDATE {$pre}templates SET template_html='{\$this->table}
 {\$this->etable}' WHERE template_name='PROFILE_MAIN'";
 
 $queries[] = "DELETE FROM {$pre}active";
-$queries[] = "ALTER TABLE {$pre}active
-ADD active_session varchar(32) NOT NULL default '',
+$queries[] = "ALTER TABLE {$pre}active ADD active_session varchar(32) NOT NULL default '',
 DROP PRIMARY KEY,
 ADD UNIQUE KEY active_session (active_session),
 ADD UNIQUE KEY active_ip (active_ip)";

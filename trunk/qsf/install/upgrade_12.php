@@ -26,5 +26,5 @@ if (!defined('INSTALLER')) {
 
 $need_templates = true;
 
-$qsf->sets['banned_ips'] = array();
+$this->sets['banned_ips'] = array();
 ?>
