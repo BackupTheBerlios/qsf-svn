@@ -38,6 +38,7 @@ require '../global.php';
 require '../lib/perms.php';
 require '../lib/user.php';
 require './admin.php';
+require '../lib/modlet.php';
 
 set_error_handler('error');
 

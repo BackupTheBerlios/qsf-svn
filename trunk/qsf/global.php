@@ -909,12 +909,6 @@ class qsfglobal
 	 **/
 	function get_templates($a, $getMain = true, $getAdmin = false)
 	{
-		if (!$this->perms->auth('is_admin')) {
-			$admin_replace = '';
-		} else {
-			$admin_replace = '\\1';
-		}
-
 		if ($getMain) {
 			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND (template_set='Main' OR template_set='$a')");
 		} elseif ($getAdmin) {
@@ -928,7 +922,7 @@ class qsfglobal
             // Check for IF statements
 			$template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)(<ELSE>(.*?))?</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'], \'\\3\')', $template['template_html']);
             // Check for MODLET with optional parameter
-			$template['template_html'] = preg_replace('/<MODLET\s+(.*?)\((.*?)\)\s*>/se', '$this->run_modlet(\'\\1\', \'\\2\', $template[\'template_name\'])', $template['template_html']);
+			$template['template_html'] = preg_replace('/<MODLET\s+(.*?)\((.*?)\)\s*>/se', '$this->run_modlet(\'\\1\', \'\\2\', $template[\'template_name\'], $getAdmin)', $template['template_html']);
 			$templates[$template['template_name']] = $template['template_html'];
 		}
 
@@ -938,7 +932,6 @@ class qsfglobal
 			$dir = file_exists('./skins/' . $this->skin) && is_dir('./skins/' . $this->skin);
 
 		if (isset($templates) && $dir) {
-//			$templates = preg_replace('~<ADMIN>(.*)</ADMIN>~', $admin_replace, $templates);
 			$templates = str_replace(array('\\', '"', '\\$'), array('\\\\', '\\"', '\\\\$'), $templates);
 
 			return $templates;
@@ -977,10 +970,11 @@ class qsfglobal
 	 *
 	 * @param string modlet to run
 	 * @param string template
+	 * @param bool $getMain Are we loading admincp templates
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 * @return string replace modlet statements with a var
 	 **/
-	function run_modlet($modlet, $parameter, $piece)
+	function run_modlet($modlet, $parameter, $piece, $getAdmin)
 	{
 		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
         
@@ -989,7 +983,11 @@ class qsfglobal
             return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a valid modlet name -->';
         }
         if (!isset($this->modlets[$modlet])) {
-            require_once('./modlets/' . $modlet . '.php');
+            if ($getAdmin) {
+                require_once('../modlets/' . $modlet . '.php');
+            } else {
+                require_once('./modlets/' . $modlet . '.php');
+            }
             $this->modlets[$modlet] =& new $modlet($this);
             if ($this->validate($modlet, TYPE_OBJECT, 'modlet')) {
                 return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a type of modlet -->';
