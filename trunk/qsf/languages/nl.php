@@ -23,7 +23,7 @@
 /**
  * Dutch language module
  *
- * @author Daniï¿½l Rokven <rokven@gmail.com>
+ * @author Daniël Rokven <rokven@gmail.com>
  * @author Sander Knape <hetisik@gmail.com>
  * @since 1.0.0 Beta 4.0
  **/
@@ -326,7 +326,7 @@ class nl
 		$this->forum_moved = 'Verplaatst';
 		$this->forum_msg = '%s bericht';
 		$this->forum_new = 'Nieuw';
-		$this->forum_new_poll = 'Creeï¿½r een stembus';
+		$this->forum_new_poll = 'Creeër een stembus';
 		$this->forum_new_topic = 'Start nieuw onderwerp';
 		$this->forum_no_topics = 'Er zijn geen onderwerpen om weer te geven op dit forum.';
 		$this->forum_noexist = 'Het gekozen forum bestaat niet.';
@@ -494,7 +494,7 @@ class nl
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
 		$this->main_max_load = 'Onze excuses, maar %s is nu niet beschikbaar, door een te groot aantal ingelogde gebruikers.';
 		$this->main_members = 'Leden';
-		$this->main_messenger = 'Privï¿½ berichten';
+		$this->main_messenger = 'Privé berichten';
 		$this->main_new = 'Nieuw';
 		$this->main_next = 'Volgende';
 		$this->main_prev = 'Vorige';
@@ -726,9 +726,9 @@ class nl
 		$this->pm_folder_sentbox = 'Verstuurd';
 		$this->pm_from = 'Van';
 		$this->pm_group = 'Groep';
-		$this->pm_guest = 'Als gast, kunt u geen privï¿½ berichten versturen. Login of Registreer, aub.';
+		$this->pm_guest = 'Als gast, kunt u geen privé berichten versturen. Login of Registreer, aub.';
 		$this->pm_joined = 'Lid sinds';
-		$this->pm_messenger = 'Privï¿½ berichten';
+		$this->pm_messenger = 'Privé berichten';
 		$this->pm_msgtext = 'Bericht:';
 		$this->pm_multiple = 'Scheid verschillende ontvangers met een ;';
 		$this->pm_no_folder = 'U moet een map kiezen.';
@@ -750,7 +750,7 @@ class nl
 		$this->pm_sendamsg = 'Stuur een bericht';
 		$this->pm_sendingpm = 'Stuur een PB';
 		$this->pm_sendon = 'Verstuurd op';
-		$this->pm_success = 'Je privï¿½ bericht is met succes verstuurd';
+		$this->pm_success = 'Je privé bericht is met succes verstuurd';
 		$this->pm_sure_del = 'Weet je zeker dat u dit bericht wilt verwijderen?';
 		$this->pm_sure_delall = 'Weet je zeker dat je alle berichten wilt verwijderen in deze map??';
 		$this->pm_title = 'Titel:';
@@ -778,7 +778,7 @@ class nl
 		$this->post_create_poll = 'Maak een stembus';
 		$this->post_create_topic = 'Maak onderwerp';
 		$this->post_creating = 'Maak onderwerp';
-		$this->post_creating_poll = 'Creeï¿½r stembus';
+		$this->post_creating_poll = 'Creeër stembus';
 		$this->post_flood = 'Je hebt een bericht geplaatst in de afgelopen %s seconden, en je kunt op dit ogenblik geen bericht plaatsen<br /><br />probeer aub nog eens over een paar seconden.';
 		$this->post_guest = 'Gast';
 		$this->post_icon = 'Bericht Icoontje';
@@ -910,7 +910,7 @@ class nl
 		$this->profile_not_post = 'Heeft nog niets geplaatst.';
 		$this->profile_offline = 'This member is currently offline'; //Translate
 		$this->profile_online = 'Deze gebruiker is momenteel online';
-		$this->profile_pm = 'Privï¿½ Berichten';
+		$this->profile_pm = 'Privé Berichten';
 		$this->profile_postcount = '%s totaal, %s per dag';
 		$this->profile_posts = 'Berichten:';
 		$this->profile_private = '[ Prive ]';
@@ -949,7 +949,7 @@ class nl
 		$this->recent_moved = 'Verplaatst';
 		$this->recent_msg = '%s bericht';
 		$this->recent_new = 'Nieuw';
-		$this->recent_new_poll = 'Creeï¿½r een stembus';
+		$this->recent_new_poll = 'Creeër een stembus';
 		$this->recent_new_topic = 'Start nieuw onderwerp';
 		$this->recent_no_topics = 'Er zijn geen onderwerpen om weer te geven op dit forum.';
 		$this->recent_noexist = 'Het gekozen forum bestaat niet.';
@@ -990,7 +990,7 @@ class nl
 		$this->register_email_used = 'Het door jou ingegeven E-mail adres is al aan een andere gebruiker toegewezen.';
 		$this->register_fields = 'Je hebt niet alle velden ingevuld.';
 		$this->register_image = 'Gelieve de tekst in te geven die in het beeld wordt getoond.';
-		$this->register_image_invalid = 'Om te verifiï¿½ren dat je een menselijke registrant bent en geen robot, moet je de tekst zoals aangetoond in het beeld typen.';
+		$this->register_image_invalid = 'Om te verifiëren dat je een menselijke registrant bent en geen robot, moet je de tekst zoals aangetoond in het beeld typen.';
 		$this->register_must_activate = 'Je bent geregistreerd. Er is een e-mail gestuurd naar %s met de activerings-informatie. Je account heeft beperkte mogelijkheden tot je account geactiveerd is.';
 		$this->register_name_invalid = 'Je hebt een ongeldige naam ingevoerd.';
 		$this->register_name_taken = 'Die gebruikersnaam is al bezet.';
@@ -1349,7 +1349,7 @@ class nl
 		$this->topic_quote = 'Citeer';
 		$this->topic_reply = 'Antwoord op onderwerp';
 		$this->topic_split = 'Verdeel';
-		$this->topic_split_finish = 'Beï¿½indig Al het Verdelen';
+		$this->topic_split_finish = 'Beëindig Al het Verdelen';
 		$this->topic_split_keep = 'Verplaats dit bericht niet';
 		$this->topic_split_move = 'Verplaats dit bericht';
 		$this->topic_subscribe = 'Stuur me een E-mail wanneer er gereageerd is op dit onderwerp';
