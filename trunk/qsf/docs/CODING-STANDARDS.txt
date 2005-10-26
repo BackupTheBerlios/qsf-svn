@@ -1,18 +1,17 @@
-===============================
- MercuryBoard Coding Standards
-===============================
+-------------------------------------------
+=== Quicksilver Forums Coding Standards ===
+-------------------------------------------
 
-Please follow these guidelines when modifying or adding to the MercuryBoard
-source. They are slightly modified PEAR (http://pear.php.net) coding standards.
+Please follow these guidelines when modifying or adding to the Quicksilver
+Forums source. They are slightly modified PEAR (http://pear.php.net) coding
+standards.
 
-Indenting and Space
-=====================
+== Indenting and Space ==
  Use an indent of 1 tab. After the first non-tab character on a line, spaces
  should be used for whitespace. There should not be any space at the end of a
  line.
 
-Control Structures
-=====================
+== Control Structures ==
  These include if, for, while, switch, etc. Here is an example if statement,
  since it is the most complicated of them:
 
@@ -46,8 +45,7 @@ Control Structures
  	break;
  }
 
-Function Calls
-=====================
+== Function Calls ==
  Functions should be called with no spaces between the function name, the
  opening parenthesis, and the first parameter; spaces between commas and each
  parameter, and no space between the last parameter, the closing parenthesis,
@@ -63,8 +61,7 @@ Function Calls
  $short         = foo($bar);
  $long_variable = foo($baz);
 
-Function Definitions
-=====================
+== Function Definitions ==
  Function declarations follow the "one true brace" convention:
 
  function fooFunction($arg1, $arg2 = '')
@@ -94,8 +91,7 @@ Function Definitions
  	return true;
  }
 
-Comments
-=====================
+== Comments ==
  Inline source documentation should work with phpDocumentor. More information
  about PHPDoc can be found here: http://www.phpdoc.org
 
@@ -106,8 +102,7 @@ Comments
  C style comments (/* */) and standard C++ comments (//) are both fine. Use of
  Perl/shell style comments (#) is discouraged.
 
-Including Code
-=====================
+== Including Code ==
  Anywhere you are unconditionally including a class file, use require().
  Anywhere you are conditionally including a class file (for example, factory
  methods), use include().
@@ -115,14 +110,12 @@ Including Code
  Note: include() and require() are statements, not functions. You don't need
  parentheses around the filename to be included.
 
-PHP Code Tags
-=====================
+== PHP Code Tags ==
  Always use <?php ?> to delimit PHP code, not the <? ?> shorthand. This is
  required for PEAR compliance and is also the most portable way to include PHP
  code on differing operating systems and setups.
 
-Strings and Arrays
-=====================
+== Strings and Arrays ==
  Always use '' for strings that don't contain variables. For strings that
  contain variables, either close the string and concatenate the variables, or
  use double quotes.
@@ -139,15 +132,15 @@ Strings and Arrays
  $foo = "There are no variables in this string.";
  $foo = "The key is $bar[baz]";
 
-Header Comment Blocks
-=====================
- All source code files in the core MercuryBoard distribution should contain the
- following comment block as the header:
+== Header Comment Blocks ==
+ All source code files in the core Quicksilver Forums distribution should
+ contain the following comment block as the header:
 
  /**
-  * MercuryBoard
-  * Copyright (c) 2001-2003 The Mercury Development Team
-  *
+  * Quicksilver Forums
+  * Copyright (c) 2005 The Quicksilver Forums Development Team
+  *  http://www.quicksilverforums.com/
+  * 
   * This program is free software; you can redistribute it and/or
   * modify it under the terms of the GNU General Public License
   * as published by the Free Software Foundation; either version 2
@@ -158,29 +151,21 @@ Header Comment Blocks
   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   * GNU General Public License for more details.
   *
-  * $Id
   **/
 
- Note: Add another $ after $Id. It must be documented this way to prevent CVS
- from adding a version string into this documentation file.
-
-Example URLs
-=====================
+== Example URLs ==
  Use "example.com" for all example URLs, per RFC 2606.
 
-Naming Conventions
-=====================
+== Naming Conventions ==
  Generally speaking, the names of classes, functions and variables should
  always be descriptive enough to easily tell the reader of the code what they
  are used for.
 
-Classes
-=====================
+== Classes ==
  Classes should be given descriptive names. Avoid using abbreviations where
  possible. Class names should be all-lowercase.
 
-Functions and Methods
-=====================
+== Functions and Methods ==
  Functions and methods should be named descriptively with underscores
  separating words, all-lowercase. A verb-noun combination is recommended.
 
@@ -190,24 +175,20 @@ Functions and Methods
  get_data()
  build_some_widget()
 
-Constants
-=====================
+== Constants ==
  Constants should always be all-uppercase, with underscores to separate words.
  Constants go in ./func/constants.php. Their names should reflect the context
  of their use.
 
  Constants are preferred over magic numbers.
 
-Global Variables
-=====================
+== Global Variables ==
  Don't use global variables in any file with a class.
 
-True, false, null
-=====================
+== True, false, null ==
  PHP's built-in values true, false and null must be written in lower-case.
 
-Compatibility
-=====================
+== Compatibility ==
  All code must work with PHP 4.0.0. If this isn't feasible, check availability
  with function_exists(). Don't bother coding for PHP3.
 
@@ -229,5 +210,3 @@ Compatibility
  keep it compatible with all versions newer than 3.22.x.
 
  Keep all code compatible with all web servers, primarily Apache and IIS.
-
-$Id: CODING-STANDARDS.txt,v 1.3 2003/08/23 14:43:28 jason Exp $
