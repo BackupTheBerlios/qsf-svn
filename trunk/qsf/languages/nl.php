@@ -200,7 +200,7 @@ class nl
 		$this->cp_been_updated_prefs = 'Jouw opties zijn gewijzigd.';
 		$this->cp_changing_pass = 'Wijzig wachtwoord';
 		$this->cp_contact_pm = 'Sta je anderen jouw toe om jou prive berichten te sturen?';
-		$this->cp_cp = 'Controlle paneel';
+		$this->cp_cp = 'Controlepaneel';
 		$this->cp_current_avatar = 'Huidige avatar';
 		$this->cp_current_time = 'Het is nu %s.';
 		$this->cp_custom_title = 'Custom Member Title'; //Translate
@@ -505,7 +505,7 @@ class nl
 		$this->main_register = 'Registreren';
 		$this->main_reminder = 'Attentie';
 		$this->main_reminder_closed = 'Het forum is gesloten en alleen te zien door beheerders.';
-		$this->main_said = 'Gezegd';
+		$this->main_said = 'Schreef';
 		$this->main_search = 'Zoeken';
 		$this->main_welcome = 'Welkom';
 		$this->main_welcome_guest = 'Welkom gast!';
