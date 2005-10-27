@@ -61,9 +61,10 @@ class qsfglobal
 	var $etable;                      // End to an HTML table @var string
 	var $lang;                        // Loaded words @var object
 	var $query;                       // The query string @var string
+	var $tz_adjust;                   // Timezone offset in seconds
 
-    var $macro;                       // Array of code to execute for each template
-    var $modlets = array();           // Array of modlet objects for running in templates
+	var $macro;                       // Array of code to execute for each template
+	var $modlets = array();           // Array of modlet objects for running in templates
     
 	/**
 	 * Constructor; sets up variables
@@ -919,9 +920,9 @@ class qsfglobal
 
 		while ($template = $this->db->nqfetch($temp_query))
 		{
-            // Check for IF statements
+			// Check for IF statements
 			$template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)(<ELSE>(.*?))?</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'], \'\\3\')', $template['template_html']);
-            // Check for MODLET with optional parameter
+			// Check for MODLET with optional parameter
 			$template['template_html'] = preg_replace('/<MODLET\s+(.*?)\((.*?)\)\s*>/se', '$this->run_modlet(\'\\1\', \'\\2\', $template[\'template_name\'], $getAdmin)', $template['template_html']);
 			$templates[$template['template_name']] = $template['template_html'];
 		}
@@ -957,10 +958,10 @@ class qsfglobal
 	function get_templates_callback($condition, $code, $piece, $falseCode = '')
 	{
 		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
-        if ($falseCode) {
-            // Strip off the <ELSE>
-            $falseCode = substr($falseCode, 6);
-        }
+		if ($falseCode) {
+			// Strip off the <ELSE>
+			$falseCode = substr($falseCode, 6);
+		}
 		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = ((' . $condition . ') ? "' . $code . '" : "' . $falseCode . '"); ';
 		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
 	}
@@ -978,37 +979,37 @@ class qsfglobal
 	{
 		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
         
-        // Check the modlet uses valid characters
-        if (preg_match('/[^a-zA-Z0-9_\-]/', $modlet)) {
-            return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a valid modlet name -->';
-        }
-        if (!isset($this->modlets[$modlet])) {
-            if ($getAdmin) {
-                require_once('../modlets/' . $modlet . '.php');
-            } else {
-                require_once('./modlets/' . $modlet . '.php');
-            }
-            $this->modlets[$modlet] =& new $modlet($this);
-            if ($this->validate($modlet, TYPE_OBJECT, 'modlet')) {
-                return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a type of modlet -->';
-            }
-        }
+		// Check the modlet uses valid characters
+		if (preg_match('/[^a-zA-Z0-9_\-]/', $modlet)) {
+			return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a valid modlet name -->';
+		}
+		if (!isset($this->modlets[$modlet])) {
+			if ($getAdmin) {
+				require_once('../modlets/' . $modlet . '.php');
+			} else {
+				require_once('./modlets/' . $modlet . '.php');
+			}
+			$this->modlets[$modlet] =& new $modlet($this);
+			if ($this->validate($modlet, TYPE_OBJECT, 'modlet')) {
+				return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a type of modlet -->';
+			}
+		}
         
 		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = (isset($this)) ? $this->modlets["'. $modlet . '"]->run("' . $parameter . '") : $qsf->modlets["'. $modlet . '"]->run("' . $parameter . '"); ';
 		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
-    }
+	}
     
    	/**
 	 * Run any extra initialisation on modlets. This lets them do stuff AFTER all templates are loaded
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 **/
-    function init_modlets()
-    {
-        foreach ($this->modlets as $modlet) {
-            $modlet->init();
-        }
-    }
+	function init_modlets()
+	{
+        	foreach ($this->modlets as $modlet) {
+            		$modlet->init();
+        	}
+	}
     
 	/**
 	 * Determines if a user has been banned
@@ -1095,8 +1096,7 @@ class qsfglobal
 			$time = $this->time;
 		}
 
-		$adjust = ($this->user['user_timezone'] - $this->sets['servertime']) * 3600;
-		$time += $adjust;
+		$time += $this->tz_adjust;
 
 		if (is_int($format)) {
 			switch($format)
@@ -1133,13 +1133,15 @@ class qsfglobal
 			}
 
 			if ($date_format) {
-				$date = date($date_format, $time);
-				$usertime = $this->time + $adjust;
+				$daysplit = intval($time / DAY_IN_SECONDS) * DAY_IN_SECONDS;
+				$usertime = $this->time + $this->tz_adjust;
 
-				if ($date == date($date_format, $usertime)) {
+				if (($this->time > $daysplit) && ($this->time < ($daysplit + DAY_IN_SECONDS))) {
 					$date = $this->lang->today;
-				} elseif ($date == date($date_format, strtotime('-1 day', $usertime))) {
+				} elseif (($usertime > ($daysplit - DAY_IN_SECONDS)) && ($usertime < $daysplit)) {
 					$date = $this->lang->yesterday;
+				} else {
+					$date = date($date_format, $time);
 				}
 			} else {
 				$date = '';

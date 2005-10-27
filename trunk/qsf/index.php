@@ -99,6 +99,9 @@ if (!isset($qsf->get['skin'])) {
 	$qsf->skin = $qsf->get['skin'];
 }
 
+// set timezone offset
+$qsf->tz_adjust = ($qsf->user['user_timezone'] - $qsf->sets['servertime']) * 3600;
+
 $qsf->perms = new permissions;
 $qsf->perms->db  = &$qsf->db;
 $qsf->perms->pre = &$qsf->pre;
