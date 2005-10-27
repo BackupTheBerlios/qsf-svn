@@ -35,11 +35,8 @@ require_once '../settings.php';
 require_once '../func/constants.php';
 require_once '../lib/' . $set['dbtype'] . '.php';
 require_once '../global.php';
-require_once './installutils.php';
 
 define('CONVERTER_NAME', 'Ikonboard 3.12a Convertor');
-
-$utils = new installutils;
 
 $qsf = new qsfglobal;
 $qsf->db = new database( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
@@ -353,8 +350,9 @@ if( $_GET['action'] == '' )
    if( $posts == '2' || $oldset['converted'] == '2' )
    {
       $qsf->db->query( "DROP TABLE IF EXISTS {$qsf->pre}ikon_ids" );
-      $utils->updateForumTrees($qsf);
-      $utils->RecountForums($qsf);
+      $qsf->sets = $qsf->get_settings($qsf->sets);
+      $qsf->updateForumTrees();
+      $qsf->RecountForums();
       
       include 'templates/convert_ikon_finished.php';
    }
