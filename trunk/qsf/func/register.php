@@ -134,7 +134,7 @@ class register extends qsfglobal
 			}
 
 			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone)
-			VALUES ('$username', '$pass', $group_id, '{$level['user_title']}', $this->time, '$email', '{$this->sets['default_skin']}', {$this->sets['default_view_avatars']}, {$this->sets['default_view_emots']}, {$this->sets['default_view_sigs']}, '{$this->sets['default_lang']}', {$this->sets['default_email_shown']}, {$this->sets['default_pm']}, {$this->sets['default_timezone']})");
+			VALUES ('$username', '$pass', $group_id, '{$level['user_title']}', $this->time, '$email', '{$this->sets['default_skin']}', {$this->sets['default_view_avatars']}, {$this->sets['default_view_emots']}, {$this->sets['default_view_sigs']}, '{$this->user['user_language']}', {$this->sets['default_email_shown']}, {$this->sets['default_pm']}, {$this->sets['default_timezone']})");
 
 			$this->sets['last_member'] = $username;
 			$this->sets['last_member_id'] = $this->db->insert_id();

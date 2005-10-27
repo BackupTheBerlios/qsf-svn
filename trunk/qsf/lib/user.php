@@ -28,7 +28,11 @@
  **/
 class user
 {
-
+	/**
+	 * Constructor
+	 *
+	 * @param $qsf - Quicksilver Forums module
+	 **/
 	function user(&$qsf)
 	{
 		$this->db  = &$qsf->db;
@@ -40,7 +44,13 @@ class user
 		$this->time    = &$qsf->time;
 	}
 
-	function login()
+	/**
+	 * Check for a session or cookie for a logged in user and return it or return
+     * the guest user using USER_GUEST_UID
+	 *
+	 * @return user record set
+	 **/
+    function login()
 	{
 		if(isset($this->cookie[$this->sets['cookie_prefix'] . 'user']) && isset($this->cookie[$this->sets['cookie_prefix'] . 'pass'])){
 			$cookie_user = intval($this->cookie[$this->sets['cookie_prefix'] . 'user']);
@@ -54,15 +64,33 @@ class user
 
 		}else{
 			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon FROM {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level LIMIT 1");
+            $user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);
 		}
 
 		if (!isset($user['user_id'])) {
 			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon FROM {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level LIMIT 1");
 			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
 			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
+            $user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);
 		}
 
 		return $user;
 	}
+    
+   	/**
+	 * Look at the information the browser has sent and try and find a language
+	 *
+     * @param $deflang Fallback language to use
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.1.5
+	 * @return character code for language to use
+	 **/
+    function get_browser_lang($deflang)
+    {
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && strlen($_SERVER['HTTP_ACCEPT_LANGUAGE']) >= 2) {
+            return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        }
+        return $deflang;
+    }
 }
 ?>
