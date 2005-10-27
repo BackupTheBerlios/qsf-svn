@@ -44,7 +44,7 @@ class sv
 		$this->active_modules_post = 'Skapar Inlägg';
 		$this->active_modules_printer = 'Skriver inlägg: %s';
 		$this->active_modules_profile = 'Visa profil: %s';
-		$this->active_modules_recent = 'Viewing recent posts'; //Translate
+		$this->active_modules_recent = 'Kollar nya inlägg';
 		$this->active_modules_search = 'Söker';
 		$this->active_modules_topic = 'Visa ämne: %s';
 		$this->active_time = 'Tid';
@@ -54,102 +54,102 @@ class sv
 
 	function admin()
 	{
-		$this->admin_add_emoticons = 'Add emoticons'; //Translate
-		$this->admin_add_member_titles = 'Add automatic member titles'; //Translate
-		$this->admin_add_templates = 'Add HTML templates'; //Translate
-		$this->admin_ban_ips = 'Ban IP addresses'; //Translate
-		$this->admin_censor = 'Censor words'; //Translate
-		$this->admin_create_forum = 'Create a forum'; //Translate
-		$this->admin_create_group = 'Create a group'; //Translate
-		$this->admin_create_help = 'Create a help article'; //Translate
-		$this->admin_create_skin = 'Create a skin'; //Translate
-		$this->admin_db = 'Database'; //Translate
-		$this->admin_db_backup = 'Backup the database'; //Translate
-		$this->admin_db_conn = 'Edit connection settings'; //Translate
-		$this->admin_db_optimize = 'Optimize the database'; //Translate
-		$this->admin_db_query = 'Execute an SQL query'; //Translate
-		$this->admin_db_restore = 'Restore a backup'; //Translate
-		$this->admin_delete_forum = 'Delete a forum'; //Translate
-		$this->admin_delete_group = 'Delete a group'; //Translate
-		$this->admin_delete_help = 'Delete a help article'; //Translate
-		$this->admin_delete_member = 'Delete a member'; //Translate
-		$this->admin_delete_template = 'Delete HTML template'; //Translate
-		$this->admin_edit_emoticons = 'Edit or delete emoticons'; //Translate
-		$this->admin_edit_forum = 'Edit a forum'; //Translate
-		$this->admin_edit_group_name = 'Edit a group\'s name'; //Translate
-		$this->admin_edit_group_perms = 'Edit a group\'s permissions'; //Translate
-		$this->admin_edit_help = 'Edit a help article'; //Translate
-		$this->admin_edit_member = 'Edit a member'; //Translate
-		$this->admin_edit_member_perms = 'Edit a member\'s permissions'; //Translate
-		$this->admin_edit_member_titles = 'Edit or delete automatic member titles'; //Translate
-		$this->admin_edit_settings = 'Edit board settings'; //Translate
-		$this->admin_edit_skin = 'Edit or delete a skin'; //Translate
-		$this->admin_edit_templates = 'Edit HTML templates'; //Translate
-		$this->admin_emoticons = 'Emoticons'; //Translate
-		$this->admin_export_skin = 'Export a skin'; //Translate
-		$this->admin_fix_stats = 'Fix the member statistics'; //Translate
-		$this->admin_forum_order = 'Change the forum ordering'; //Translate
-		$this->admin_forums = 'Forums and Categories'; //Translate
-		$this->admin_groups = 'Groups'; //Translate
-		$this->admin_help = 'Help Articles'; //Translate
-		$this->admin_install_emoticons = 'Install emoticons'; //Translate
-		$this->admin_install_skin = 'Install a skin'; //Translate
-		$this->admin_logs = 'View moderator actions'; //Translate
-		$this->admin_mass_mail = 'Send an email to your members'; //Translate
-		$this->admin_members = 'Members'; //Translate
-		$this->admin_phpinfo = 'View PHP information'; //Translate
-		$this->admin_recount_forums = 'Recount topics and replies'; //Translate
-		$this->admin_settings = 'Settings'; //Translate
-		$this->admin_skins = 'Skins'; //Translate
-		$this->admin_stats = 'Statistics center'; //Translate
-		$this->admin_your_board = 'Your Board'; //Translate
+		$this->admin_add_emoticons = 'Lägg till emoticons'; //emoticons or smileys are commonly used in swedish
+		$this->admin_add_member_titles = 'lägg till automatiska medlems titlar';
+		$this->admin_add_templates = 'Lägg till HTML mallar';
+		$this->admin_ban_ips = 'Blockera IP adresser';
+		$this->admin_censor = 'Censurerade ord';
+		$this->admin_create_forum = 'Skapa ett forum';
+		$this->admin_create_group = 'Skapa en grupp';
+		$this->admin_create_help = 'Skapa en hjälp artikel';
+		$this->admin_create_skin = 'Skapa ett skal';
+		$this->admin_db = 'Databas';
+		$this->admin_db_backup = 'Gör en backup av databasen';
+		$this->admin_db_conn = 'Ändra anslutnings inställningar';
+		$this->admin_db_optimize = 'Optimera databasen';
+		$this->admin_db_query = 'Kör en SQL förfrågan';
+		$this->admin_db_restore = 'Återställ en backup';
+		$this->admin_delete_forum = 'Ta bort ett forum';
+		$this->admin_delete_group = 'Ta bort en grupp';
+		$this->admin_delete_help = 'Ta bort en hjälp artikel';
+		$this->admin_delete_member = 'Ta bort en medlem';
+		$this->admin_delete_template = 'Ta bort en HTML mall';
+		$this->admin_edit_emoticons = 'Ändra eller ta bort emoticons';
+		$this->admin_edit_forum = 'Ändra ett forum';
+		$this->admin_edit_group_name = 'Ändra en grupps namn';
+		$this->admin_edit_group_perms = 'Ändra en grupps befogenheter';
+		$this->admin_edit_help = 'Ändra en hjälp artikel';
+		$this->admin_edit_member = 'Ändra en medlem';
+		$this->admin_edit_member_perms = 'Ändra en medlems befogenheter';
+		$this->admin_edit_member_titles = 'Ändra eller ta bort automatiska medlems titlar';
+		$this->admin_edit_settings = 'Ändra forumets inställningar';
+		$this->admin_edit_skin = 'Ändra eller ta bort ett skal';
+		$this->admin_edit_templates = 'Ändra HTML mallar';
+		$this->admin_emoticons = 'Emoticons';
+		$this->admin_export_skin = 'Exportera ett skal';
+		$this->admin_fix_stats = 'Justera medlems statistiken';
+		$this->admin_forum_order = 'Ändra forumens ordning';
+		$this->admin_forums = 'Forum och kategorier';
+		$this->admin_groups = 'Grupper';
+		$this->admin_help = 'Hjälp Artiklar';
+		$this->admin_install_emoticons = 'Installera emoticons';
+		$this->admin_install_skin = 'Installera ett skal';
+		$this->admin_logs = 'Visa moderator händelser';
+		$this->admin_mass_mail = 'Skicka e-post till dina medlemmar';
+		$this->admin_members = 'Medlemmar';
+		$this->admin_phpinfo = 'Visa PHP information';
+		$this->admin_recount_forums = 'Räkna om ämnen och svar';
+		$this->admin_settings = 'Inställningar';
+		$this->admin_skins = 'Skal';
+		$this->admin_stats = 'Statistik Avdelning';
+		$this->admin_your_board = 'Ditt Forum';
 	}
 
 	function backup()
 	{
-		$this->backup_create = 'Backup Database'; //Translate
-		$this->backup_done = 'The database has been backed up to the main Quicksilver Forums directory.';
-		$this->backup_found = 'The following backups were found in the Quicksilver Forums directory';
-		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.'; //Translate
-		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.'; //Translate
-		$this->backup_restore = 'Restore Backup'; //Translate
-		$this->backup_restore_done = 'The database has been restored successfully.'; //Translate
-		$this->backup_warning = 'Warning: This will overwrite all existing data used by Quicksilver Forums.'; //Translate
+		$this->backup_create = 'Skapa backup av databasen';
+		$this->backup_done = 'En backup av databasen har skapats i huvudmappen för Quicksilver Forums.';
+		$this->backup_found = 'Följande backuper hittades i Quicksilver Forums mappen';
+		$this->backup_invalid = 'Backupen verkar inte vara giltig. Inga förändingar gjordes av databasen.';
+		$this->backup_none = 'Inga backuper hittades i Quicksilver Forums mappen.';
+		$this->backup_restore = 'Återställ Backup';
+		$this->backup_restore_done = 'Återställningen av Databasen lyckades.';
+		$this->backup_warning = 'Varning: Detta kommer att skriva över all befintlig information som används av Quicksilver Forums.';
 	}
 
 	function ban()
 	{
-		$this->ban = 'Ban'; //Translate
-		$this->ban_banned_ips = 'Ban IP Addresses'; //Translate
-		$this->ban_banned_members = 'Banned Members'; //Translate
-		$this->ban_ip = 'Ban IP Addresses'; //Translate
-		$this->ban_member_explain1 = 'To ban users, change their user group to'; //Translate
-		$this->ban_member_explain2 = 'in the member controls.'; //Translate
-		$this->ban_members = 'Ban Members'; //Translate
-		$this->ban_nomembers = 'There are currently no banned members.'; //Translate
-		$this->ban_one_per_line = 'One address per line.'; //Translate
-		$this->ban_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more digits.'; //Translate
-		$this->ban_settings = 'Ban Settings'; //Translate
-		$this->ban_users_banned = 'Users banned.'; //Translate
+		$this->ban = 'Blockera';
+		$this->ban_banned_ips = 'Blockera IP Adresser';
+		$this->ban_banned_members = 'Blockerade Medlemmar';
+		$this->ban_ip = 'Blockera IP Adresser';
+		$this->ban_member_explain1 = 'för att blockera medlemmar ändra deras användargrupp till';
+		$this->ban_member_explain2 = 'i medlemmens kontroller.';
+		$this->ban_members = 'Blockera Medlemmar';
+		$this->ban_nomembers = 'Det finns just nu inga blockerade medlemmar.';
+		$this->ban_one_per_line = 'En adress per rad.';
+		$this->ban_regex_allowed = 'Reguljära uttryck är tillåtna. Du kan använda ett * som jokertecken för ett eller flera siffror.';
+		$this->ban_settings = 'Blockerings Inställningar';
+		$this->ban_users_banned = 'Användare blockerade.';
 	}
 
 	function board()
 	{
 		$this->board_active_users = 'Aktiva Användare';
 		$this->board_birthdays = 'Dagens Födelsedagar:';
-		$this->board_bottom_page = 'Go to the bottom of the page'; //Translate
+		$this->board_bottom_page = 'Gå till botten av sidan';
 		$this->board_can_post = 'Du kan svara i detta forum.';
 		$this->board_can_topics = 'Du kan läsa men inte skapa ämnen i detta forum.';
 		$this->board_cant_post = 'Du kan inte svara i detta forum.';
 		$this->board_cant_topics = 'Du kan inte läsa eller skapa ämnen i detta forum.';
-		$this->board_forum = 'Forum'; //Translate
+		$this->board_forum = 'Forum';
 		$this->board_guests = 'gäster';
 		$this->board_last_post = 'Senaste Inlägg';
 		$this->board_mark = 'Markerar Inlägg Som Läst';
 		$this->board_mark1 = 'Alla inlägg och forum har markerats som lästa.';
 		$this->board_members = 'medlemmar';
 		$this->board_message = '%s Meddelande';
-		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
+		$this->board_most_online = 'Flest användare online någonsin var %d %s.';
 		$this->board_nobday = 'Inga medlemmar fyller år idag.';
 		$this->board_nobody = 'Det är för tillfället inga medlemmar online.';
 		$this->board_nopost = 'Inga Inlägg';
@@ -158,7 +158,7 @@ class sv
 		$this->board_replies = 'Svar';
 		$this->board_stats = 'Statistik';
 		$this->board_stats_string = 'Hittills har %s personer registrerat sig. Våran nyaste medlem är: %s.<br /> Det finns %s ämnen och %s svar vilket totalt är %s inlägg.';
-		$this->board_top_page = 'Go to the top of the page'; //Translate
+		$this->board_top_page = 'Gå till toppen av sidan';
 		$this->board_topics = 'Ämnen';
 		$this->board_topics_new = 'Det finns nya inlägg i detta forum.';
 		$this->board_topics_old = 'Det finns inga nya inlägg i detta forum.';
@@ -168,17 +168,17 @@ class sv
 
 	function censoring()
 	{
-		$this->censor = 'Censor Words'; //Translate
-		$this->censor_one_per_line = 'One per line.'; //Translate
-		$this->censor_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more characters.'; //Translate
-		$this->censor_updated = 'Word list updated.'; //Translate
+		$this->censor = 'Censurerade Ord';
+		$this->censor_one_per_line = 'Ett per rad.';
+		$this->censor_regex_allowed =  'Reguljära uttryck är tillåtna. Du kan använda ett * som jokertecken för ett eller flera tecken.';
+		$this->censor_updated = 'Listan på ord uppdaterad.';
 	}
 
 	function cp()
 	{
 		$this->cp_aim = 'AIM namn';
 		$this->cp_already_member = 'E-post adressen du skrev in är upptagen.';
-		$this->cp_apr = 'April'; //Translate
+		$this->cp_apr = 'April';
 		$this->cp_aug = 'Augusti';
 		$this->cp_avatar_current = 'Din nuvarande avatar';
 		$this->cp_avatar_error = 'Avatar Fel';
@@ -203,9 +203,9 @@ class sv
 		$this->cp_cp = 'Kontrollpanelen';
 		$this->cp_current_avatar = 'Nuvarande Avatar';
 		$this->cp_current_time = 'Klockan är %s.';
-		$this->cp_custom_title = 'Custom Member Title'; //Translate
-		$this->cp_custom_title2 = 'This is a privledge reserved for board administrators'; //Translate
-		$this->cp_dec = 'December'; //Translate
+		$this->cp_custom_title = 'Egen Medlems Titel';
+		$this->cp_custom_title2 = 'Detta är ett privilegie reserverat för forum administratörer';
+		$this->cp_dec = 'December';
 		$this->cp_editing_avatar = 'Redigerar Avatar';
 		$this->cp_editing_profile = 'Redigerar Profil';
 		$this->cp_email = 'E-post';
@@ -216,7 +216,7 @@ class sv
 		$this->cp_feb = 'Februari';
 		$this->cp_file_type = 'Avataren är ej giltig. Försäkra dig om att webadressen är korrekt skriven och att filtypen är .gif, .jpg, eller .png';
 		$this->cp_format = 'Namn';
-		$this->cp_gtalk = 'GTalk Account'; //Translate
+		$this->cp_gtalk = 'GTalk konto';
 		$this->cp_header = 'Kontrollpanel';
 		$this->cp_height = 'Höjd';
 		$this->cp_icq = 'ICQ Nummer';
@@ -241,7 +241,7 @@ class sv
 		$this->cp_new_pass = 'Nytt Lösenord';
 		$this->cp_no_flash = 'Flash avatarer är inte tillåtna.';
 		$this->cp_not_exist = 'Datumet du skrivit in (%s) finns inte!';
-		$this->cp_nov = 'November'; //Translate
+		$this->cp_nov = 'November';
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Ditt gamla lösenord är ej korrekt.';
 		$this->cp_old_pass = 'Gammalt Lösenord';
@@ -249,12 +249,12 @@ class sv
 		$this->cp_preferences = 'Ändrar Inställningar';
 		$this->cp_privacy = 'Privata Inställningar';
 		$this->cp_repeat_pass = 'Repetera Nytt Lösenord';
-		$this->cp_sept = 'September'; //Translate
+		$this->cp_sept = 'September';
 		$this->cp_show_active = 'Visa dina aktiviteter när du använder forumet?';
 		$this->cp_show_email = 'Visa E-post adress i din profil?';
 		$this->cp_signature = 'Signatur';
 		$this->cp_size_max = 'Avataren är för stor. Max tillåtna storlek är %s x %s pixlar.';
-		$this->cp_skin = 'Skin';
+		$this->cp_skin = 'Skal';
 		$this->cp_sub_change = 'Ändra prenumerationer';
 		$this->cp_sub_delete = 'Radera';
 		$this->cp_sub_expire = 'Utgångsdatum';
@@ -294,17 +294,17 @@ class sv
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons'; //Translate
-		$this->emote_add = 'Add Emoticons'; //Translate
-		$this->emote_added = 'Emoticon added.'; //Translate
-		$this->emote_clickable = 'Clickable'; //Translate
-		$this->emote_edit = 'Edit Emoticons'; //Translate
-		$this->emote_image = 'Image'; //Translate
-		$this->emote_install = 'Install Emoticons'; //Translate
-		$this->emote_install_done = 'Emoticons have been successfully reinstalled.'; //Translate
-		$this->emote_install_warning = 'This will erase all existing emoticon settings and import uploaded emoticons from your currently selected skin into the database.'; //Translate
-		$this->emote_no_text = 'No emoticon text was given.'; //Translate
-		$this->emote_text = 'Text'; //Translate
+		$this->emote = 'Emoticons';
+		$this->emote_add = 'Lägg till Emoticons';
+		$this->emote_added = 'Emoticon tillagd.';
+		$this->emote_clickable = 'Klickbar';
+		$this->emote_edit = 'Ändra Emoticons';
+		$this->emote_image = 'Bild';
+		$this->emote_install = 'Installera Emoticons';
+		$this->emote_install_done = 'Ominstallationen av Emoticons lyckades.';
+		$this->emote_install_warning = 'Detta kommer att ta bort alla existerande emoticon inställningar och importera uppladdade emoticons från ditt nu valda skal till databasen.';
+		$this->emote_no_text = 'Ingen emoticon text gavs.';
+		$this->emote_text = 'Text';
 	}
 
 	function forum()
@@ -316,7 +316,7 @@ class sv
 		$this->forum_cant_topics = 'Du kan inte läsa ämnen i detta forum.';
 		$this->forum_dot = 'Prick';
 		$this->forum_dot_detail = 'Visar att du skrivit inlägg i ämnet';
-		$this->forum_forum = 'Forum'; //Translate
+		$this->forum_forum = 'Forum';
 		$this->forum_guest = 'Gäst';
 		$this->forum_hot = 'Het';
 		$this->forum_icon = 'Meddelande Ikon';
@@ -354,86 +354,86 @@ class sv
 
 	function forums()
 	{
-		$this->forum_controls = 'Forum Controls'; //Translate
-		$this->forum_create = 'Create Forum'; //Translate
-		$this->forum_create_cat = 'Create a Category'; //Translate
-		$this->forum_created = 'Forum Created'; //Translate
-		$this->forum_default_perms = 'Default Permissions'; //Translate
-		$this->forum_delete = 'Delete Forum'; //Translate
-		$this->forum_delete_warning = 'Are you sure you want to delete this forum, its topics, and its posts?<br />This action cannot be reversed.'; //Translate
-		$this->forum_deleted = 'The forum has been deleted.'; //Translate
-		$this->forum_description = 'Description'; //Translate
-		$this->forum_edit = 'Edit Forum'; //Translate
-		$this->forum_edited = 'The forum was edited successfully.'; //Translate
-		$this->forum_empty = 'The forum name is empty. Please go back and enter a name.'; //Translate
-		$this->forum_is_subcat = 'This forum is a subcategory only.'; //Translate
-		$this->forum_name = 'Name'; //Translate
-		$this->forum_no_orphans = 'You cannot orphan a forum by deleting its parent.'; //Translate
-		$this->forum_none = 'There are no forums to manipulate.'; //Translate
-		$this->forum_ordered = 'Forum Order Updated'; //Translate
-		$this->forum_ordering = 'Change Forum Ordering'; //Translate
-		$this->forum_parent = 'You can\'t change a forum\'s parent in that way.'; //Translate
-		$this->forum_parent_cat = 'Parent Category'; //Translate
-		$this->forum_quickperm_select = 'Select an existing forum to copy its permissions.'; //Translate
-		$this->forum_quickperms = 'Quick Permissions'; //Translate
-		$this->forum_recount = 'Recount Topics and Replies'; //Translate
-		$this->forum_select_cat = 'Select an existing category to create a forum.'; //Translate
-		$this->forum_subcat = 'Subcategory'; //Translate
+		$this->forum_controls = 'Forum Kontroller';
+		$this->forum_create = 'Skapa Forum';
+		$this->forum_create_cat = 'Skapa en Kategori';
+		$this->forum_created = 'Forum Skapat';
+		$this->forum_default_perms = 'Förvalda befogenheter';
+		$this->forum_delete = 'Ta bort Forum';
+		$this->forum_delete_warning = 'Är du säker på att du vill ta bort detta forum, dess ämnen, och dess inlägg?<br />Denna åtgärd kan inte ångras.';
+		$this->forum_deleted = 'Forumet har tagits bort.';
+		$this->forum_description = 'Beskrivning';
+		$this->forum_edit = 'Ändra Forum';
+		$this->forum_edited = 'Forumet har ändrats.';
+		$this->forum_empty = 'Forum namnet är tomt. Gå tillbaks och skriv i ett namn.';
+		$this->forum_is_subcat = 'Detta forum är en underkategori bara.';
+		$this->forum_name = 'Namn';
+		$this->forum_no_orphans = 'Du kan inte You cannot göra forumet föräldralöst genom att ta bort dess förälder.';
+		$this->forum_none = 'Det finns inga forum att manipulera.';
+		$this->forum_ordered = 'Forum Ordning Uppdaterad';
+		$this->forum_ordering = 'Ändra Forum Ordning';
+		$this->forum_parent = 'Du kan inte ändra ett forums förälder på det sättet.';
+		$this->forum_parent_cat = 'Ovanliggande kategori';
+		$this->forum_quickperm_select = 'Välj ett existerande forum för att kopiera dess befogenheter.';
+		$this->forum_quickperms = 'Snabb Befogenheter';
+		$this->forum_recount = 'Räkna om Ämnen och Svar';
+		$this->forum_select_cat = 'Välj en existerande kategori för att skapa ett forum.';
+		$this->forum_subcat = 'Under Kategori';
 	}
 
 	function groups()
 	{
-		$this->groups_bad_format = 'You must use %s in the format, which represents the group name.'; //Translate
-		$this->groups_based_on = 'based on'; //Translate
-		$this->groups_create = 'Create Group'; //Translate
-		$this->groups_create_new = 'Create a new user group named'; //Translate
-		$this->groups_created = 'Group Created'; //Translate
-		$this->groups_delete = 'Delete Group'; //Translate
-		$this->groups_deleted = 'Group Deleted.'; //Translate
-		$this->groups_edit = 'Edit Group'; //Translate
-		$this->groups_edited = 'Group Edited.'; //Translate
-		$this->groups_formatting = 'Display Formatting'; //Translate
-		$this->groups_i_confirm = 'I confirm that I want to delete this member group.'; //Translate
-		$this->groups_name = 'Name'; //Translate
-		$this->groups_no_action = 'No action was taken.'; //Translate
-		$this->groups_no_delete = 'There are no custom groups to delete.<br />The core groups are necessary for Quicksilver Forums to function, and cannot be deleted.'; //Translate
-		$this->groups_no_group = 'No group was specified.'; //Translate
-		$this->groups_no_name = 'No group name was given.'; //Translate
-		$this->groups_only_custom = 'Note: You can only delete custom member groups. The core groups are necessary for Quicksilver Forums to function.'; //Translate
-		$this->groups_the = 'The group'; //Translate
-		$this->groups_to_edit = 'Group to edit'; //Translate
-		$this->groups_type = 'Group Type'; //Translate
-		$this->groups_will_be = 'will be deleted.'; //Translate
-		$this->groups_will_become = 'Users from the deleted group will become'; //Translate
+		$this->groups_bad_format = 'Du måtse använda %s i formateringen, vilket representerar gruppens namn.';
+		$this->groups_based_on = 'Baserad på';
+		$this->groups_create = 'Skapa Grupp';
+		$this->groups_create_new = 'Skapa en ny användargrupp med namnet';
+		$this->groups_created = 'Grupp Skapad';
+		$this->groups_delete = 'Ta bort Grupp';
+		$this->groups_deleted = 'Grupp Borttagen.';
+		$this->groups_edit = 'Ändra Grupp';
+		$this->groups_edited = 'Grupp Ändrad.';
+		$this->groups_formatting = 'Visa Formatering';
+		$this->groups_i_confirm = 'Jag bekräftar att jag vill ta bort den här medlemsgruppen.';
+		$this->groups_name = 'Namn';
+		$this->groups_no_action = 'Ingen åtgärd utfördes.';
+		$this->groups_no_delete = 'Det finns inga egna grupper att ta bort.<br />Kärn grupperna behövs för att Quicksilver Forums ska fungera, och kan inte tas bort.';
+		$this->groups_no_group = 'Ingen grupp specifierades.';
+		$this->groups_no_name = 'Inget gruppnamn gavs.';
+		$this->groups_only_custom = 'Notera: Du kan endats ta bort egna medlemsgrupper. Kärn grupperna behövs för att Quicksilver Forums ska fungera.';
+		$this->groups_the = 'Gruppen';
+		$this->groups_to_edit = 'Grupp som ska ändras';
+		$this->groups_type = 'Grupp Typ';
+		$this->groups_will_be = 'kommer att tas bort.';
+		$this->groups_will_become = 'ANvändare från den borttagna gruppen kommer att bli';
 	}
 
 	function help()
 	{
-		$this->help_add = 'Add Help Article'; //Translate
-		$this->help_article = 'Help Article Control'; //Translate
+		$this->help_add = 'Lägg till Hjälp Artikel';
+		$this->help_article = 'Hjälp Artikel Kontroll';
 		$this->help_available_files = 'Hjälp';
-		$this->help_confirm = 'Are you sure you want to delete'; //Translate
-		$this->help_content = 'Article content'; //Translate
-		$this->help_delete = 'Delete Help Article'; //Translate
-		$this->help_deleted = 'Help Article Deleted.'; //Translate
-		$this->help_edit = 'Edit Help Article'; //Translate
-		$this->help_edited = 'Help article updated.'; //Translate
-		$this->help_inserted = 'Article inserted into the database.'; //Translate
-		$this->help_no_articles = 'No help articles were found in the database.'; //Translate
-		$this->help_no_title = 'You can\'t create a help article without a title.'; //Translate
+		$this->help_confirm = 'Är du säker på att du vill ta bort';
+		$this->help_content = 'Artikel innehåll';
+		$this->help_delete = 'Ta bort Hjälp Artikel';
+		$this->help_deleted = 'Hjälp Artikel Borttagen.';
+		$this->help_edit = 'Ändra Hjälp Artikele';
+		$this->help_edited = 'Hjälp artikel uppdaterad.';
+		$this->help_inserted = 'Artikel inlaggd i databasen.';
+		$this->help_no_articles = 'Inga hjälp artikelar hittades i databasen.';
+		$this->help_no_title = 'Du kan inte skapa en hjälp artikel utan titel.';
 		$this->help_none = 'Det finns inga hjälpfiler i databasen';
-		$this->help_not_exist = 'That help article does not exist.'; //Translate
-		$this->help_select = 'Please select a help article to edit'; //Translate
-		$this->help_select_delete = 'Please select a help article to delete'; //Translate
-		$this->help_title = 'Title'; //Translate
+		$this->help_not_exist = 'Den hjälp artikeln finns inte.';
+		$this->help_select = 'Välj en hjälp artikel att ändra';
+		$this->help_select_delete = 'Välj en hjälp artikel att ta bort';
+		$this->help_title = 'Titel';
 	}
 
 	function home()
 	{
-		$this->admin_cp_denied = 'Access Denied'; //Translate
-		$this->admin_cp_warning = 'The Admin CP is disabled until you delete your <b>install</b> directory, as it poses a serious security risk.'; //Translate
-		$this->home_choose = 'Choose a task to begin.'; //Translate
-		$this->home_menu_title = 'Admin CP Menu'; //Translate
+		$this->admin_cp_denied = 'Tillång Nekad';
+		$this->admin_cp_warning = 'Admin CP är avstängd tills du har tagit bort <b>install</b> mapp, eftersom den utgör en säkerhets risk.';
+		$this->home_choose = 'Välj en uppgift för att börja.';
+		$this->home_menu_title = 'Admin CP Meny';
 	}
 
 	function login()
@@ -447,7 +447,7 @@ class sv
 		$this->login_out = 'Loggar Ut';
 		$this->login_pass = 'Lösenord';
 		$this->login_pass_no_id = 'Det finns ingen medlem med detta namn.';
-		$this->login_pass_request = 'To complete the password reset, please click on the link sent to the email address associated with your account.'; //Translate
+		$this->login_pass_request = 'För att slutföra återställningen av lösenordet, var snäll och klicka på länken som skickade till e-postadressen associerad med ditt konto.';
 		$this->login_pass_reset = 'Nollställ Lösenordet';
 		$this->login_pass_sent = 'Ditt lösenord har nollställts. Det nya lösenordet har skickats till din epostadress som uppgavs i ditt användarkonto.';
 		$this->login_sure = 'Är du säker på att du vill logga ut från \'%s\'?';
@@ -456,25 +456,25 @@ class sv
 
 	function logs()
 	{
-		$this->logs_action = 'Action'; //Translate
-		$this->logs_deleted_post = 'Deleted a post'; //Translate
-		$this->logs_deleted_topic = 'Deleted a topic'; //Translate
-		$this->logs_edited_post = 'Edited a post'; //Translate
-		$this->logs_edited_topic = 'Edited a topic'; //Translate
-		$this->logs_id = 'IDs'; //Translate
-		$this->logs_locked_topic = 'Locked a topic'; //Translate
-		$this->logs_moved_from = 'from forum'; //Translate
-		$this->logs_moved_to = 'to forum'; //Translate
-		$this->logs_moved_topic = 'Moved a topic'; //Translate
-		$this->logs_moved_topic_num = 'Moved topic #'; //Translate
-		$this->logs_pinned_topic = 'Pinned a topic'; //Translate
-		$this->logs_post = 'Post'; //Translate
-		$this->logs_time = 'Time'; //Translate
-		$this->logs_topic = 'Topic'; //Translate
-		$this->logs_unlocked_topic = 'Unlocked a topic'; //Translate
-		$this->logs_unpinned_topic = 'Unpinned a topic'; //Translate
-		$this->logs_user = 'User'; //Translate
-		$this->logs_view = 'View Moderator Actions'; //Translate
+		$this->logs_action = 'Händelse';
+		$this->logs_deleted_post = 'Tog bort ett inlägg';
+		$this->logs_deleted_topic = 'Tog bort ett ämne';
+		$this->logs_edited_post = 'Ändrade ett inlägg';
+		$this->logs_edited_topic = 'Ändrade ett ämne';
+		$this->logs_id = 'IDs';
+		$this->logs_locked_topic = 'Låste ett ämne';
+		$this->logs_moved_from = 'från forum';
+		$this->logs_moved_to = 'till forum';
+		$this->logs_moved_topic = 'Flyttade ett ämne';
+		$this->logs_moved_topic_num = 'Flyttade ämne #';
+		$this->logs_pinned_topic = 'Nålade ett ämne';
+		$this->logs_post = 'Inlägg';
+		$this->logs_time = 'Tid';
+		$this->logs_topic = 'Ämne';
+		$this->logs_unlocked_topic = 'Låste upp ett ämne';
+		$this->logs_unpinned_topic = 'Avnålade ett ämne';
+		$this->logs_user = 'Användare';
+		$this->logs_view = 'Visa Moderator Händelser';
 	}
 
 	function main()
@@ -490,8 +490,8 @@ class sv
 		$this->main_load = 'belastning';
 		$this->main_login = 'logga in';
 		$this->main_logout = 'logga ut';
-		$this->main_mark = 'mark all'; //Translate
-		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_mark = 'markera alla';
+		$this->main_mark1 = 'Markera alla ämnen som lästa';
 		$this->main_max_load = 'Tyvärr är %s för tillfället otillgänglig p.g.a. hög belastning.';
 		$this->main_members = 'medlemmar';
 		$this->main_messenger = 'Snabbmeddelanden';
@@ -500,8 +500,8 @@ class sv
 		$this->main_prev = 'förra';
 		$this->main_queries = 'förfrågningar';
 		$this->main_quote = 'Citera';
-		$this->main_recent = 'recent posts'; //Translate
-		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
+		$this->main_recent = 'nya inlägg';
+		$this->main_recent1 = 'Visa nya ämnen sen ditt senaste besök';
 		$this->main_register = 'registrera';
 		$this->main_reminder = 'Påminnelse: Detta forum är stängt och kan endast läsas av administratörer.';
 		$this->main_reminder_closed = 'Forumet är stängt! det kan endast ses av administratörer.';
@@ -513,67 +513,67 @@ class sv
 
 	function mass_mail()
 	{
-		$this->mail = 'Mass Mail'; //Translate
-		$this->mail_announce = 'Announcement From'; //Translate
-		$this->mail_groups = 'Recipient Groups'; //Translate
-		$this->mail_members = 'members.'; //Translate
-		$this->mail_message = 'Message'; //Translate
-		$this->mail_select_all = 'Select All'; //Translate
-		$this->mail_send = 'Send Mail'; //Translate
-		$this->mail_sent = 'Your message has been sent to'; //Translate
+		$this->mail = 'E-post till alla';
+		$this->mail_announce = 'Tillkännagivande Från';
+		$this->mail_groups = 'Mottagangde Grupper';
+		$this->mail_members = 'medlemamr.';
+		$this->mail_message = 'Meddelande';
+		$this->mail_select_all = 'Välj Alla';
+		$this->mail_send = 'Skicka E-post';
+		$this->mail_sent = 'Ditt meddelande har skickats till';
 	}
 
 	function member_control()
 	{
-		$this->mc = 'Member Control'; //Translate
-		$this->mc_confirm = 'Are you sure you want to delete'; //Translate
-		$this->mc_delete = 'Delete Member'; //Translate
-		$this->mc_deleted = 'Member Deleted.'; //Translate
-		$this->mc_edit = 'Edit Member'; //Translate
-		$this->mc_edited = 'Member Updated'; //Translate
-		$this->mc_find = 'Find members with names containing'; //Translate
-		$this->mc_found = 'The following members were found. Please select one.'; //Translate
-		$this->mc_guest_needed = 'The guest account is necessary for Quicksilver Forums to function.'; //Translate
-		$this->mc_not_found = 'No members were found matching'; //Translate
-		$this->mc_user_aim = 'AIM Name'; //Translate
-		$this->mc_user_avatar = 'Avatar'; //Translate
-		$this->mc_user_avatar_height = 'Avatar Height'; //Translate
-		$this->mc_user_avatar_type = 'Avatar Type'; //Translate
-		$this->mc_user_avatar_width = 'Avatar Width'; //Translate
-		$this->mc_user_birthday = 'Birthday'; //Translate
-		$this->mc_user_email = 'Email Address'; //Translate
-		$this->mc_user_email_show = 'Email Is Public'; //Translate
-		$this->mc_user_group = 'Group'; //Translate
-		$this->mc_user_gtalk = 'GTalk Account'; //Translate
-		$this->mc_user_homepage = 'Homepage'; //Translate
-		$this->mc_user_icq = 'ICQ Number'; //Translate
-		$this->mc_user_id = 'User ID'; //Translate
-		$this->mc_user_interests = 'Interests'; //Translate
-		$this->mc_user_joined = 'Member Since'; //Translate
-		$this->mc_user_language = 'Language'; //Translate
-		$this->mc_user_lastpost = 'Last Post'; //Translate
-		$this->mc_user_lastvisit = 'Last Visit'; //Translate
-		$this->mc_user_level = 'Level'; //Translate
-		$this->mc_user_location = 'Location'; //Translate
-		$this->mc_user_msn = 'MSN Identity'; //Translate
-		$this->mc_user_name = 'Name'; //Translate
-		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
-		$this->mc_user_posts = 'Posts'; //Translate
-		$this->mc_user_signature = 'Signature'; //Translate
-		$this->mc_user_skin = 'Skin'; //Translate
-		$this->mc_user_timezone = 'Time Zone'; //Translate
-		$this->mc_user_title = 'Member Title'; //Translate
-		$this->mc_user_title_custom = 'Use a Custom Member Title'; //Translate
-		$this->mc_user_view_avatars = 'Viewing Avatars'; //Translate
-		$this->mc_user_view_emoticons = 'Viewing Emoticons'; //Translate
-		$this->mc_user_view_signatures = 'Viewing Signatures'; //Translate
-		$this->mc_user_yahoo = 'Yahoo Identity'; //Translate
+		$this->mc = 'Medlems Kontroll';
+		$this->mc_confirm = 'Är du säker på att du vill ta bort';
+		$this->mc_delete = 'Ta bort Medlem';
+		$this->mc_deleted = 'Medlem Borttagen.';
+		$this->mc_edit = 'Ändra Medlem';
+		$this->mc_edited = 'Medlem Uppdaterad';
+		$this->mc_find = 'Hitta medlemmar vars namn innehåller';
+		$this->mc_found = 'Följande medlemmar hittades. Var snäll och välj en.';
+		$this->mc_guest_needed = 'Gästkontot behövs för att Quicksilver Forumet ska fungera.';
+		$this->mc_not_found = 'Inga medlemmar som matchade hittades';
+		$this->mc_user_aim = 'AIM Namn';
+		$this->mc_user_avatar = 'Visningsbild';
+		$this->mc_user_avatar_height = 'Visningsbild Höjd';
+		$this->mc_user_avatar_type = 'Visningsbild Typ';
+		$this->mc_user_avatar_width = 'Visningsbild Bredd';
+		$this->mc_user_birthday = 'Födelsedag';
+		$this->mc_user_email = 'E-post Adress';
+		$this->mc_user_email_show = 'E-posten Är Publik';
+		$this->mc_user_group = 'Grupp';
+		$this->mc_user_gtalk = 'GTalk Konto';
+		$this->mc_user_homepage = 'Hemsida';
+		$this->mc_user_icq = 'ICQ Nummer';
+		$this->mc_user_id = 'Användar ID';
+		$this->mc_user_interests = 'Intressen';
+		$this->mc_user_joined = 'Medlem Sedan';
+		$this->mc_user_language = 'Språk';
+		$this->mc_user_lastpost = 'Senaste Inlägg';
+		$this->mc_user_lastvisit = 'Senaste Besök';
+		$this->mc_user_level = 'Nivå';
+		$this->mc_user_location = 'Plats';
+		$this->mc_user_msn = 'MSN Identitet';
+		$this->mc_user_name = 'Namn';
+		$this->mc_user_pm = 'Accepterar Personliga Meddelanden';
+		$this->mc_user_posts = 'Inlägg';
+		$this->mc_user_signature = 'Signatur';
+		$this->mc_user_skin = 'Skal';
+		$this->mc_user_timezone = 'Tids Zon';
+		$this->mc_user_title = 'Medlems Titel';
+		$this->mc_user_title_custom = 'Använd en Egen Medlems Titel';
+		$this->mc_user_view_avatars = 'Visar Visningsbilder';
+		$this->mc_user_view_emoticons = 'Visar Emoticons';
+		$this->mc_user_view_signatures = 'Visar Signaturer';
+		$this->mc_user_yahoo = 'Yahoo Identitet';
 	}
 
 	function membercount()
 	{
-		$this->mcount = 'Fix Member Statistics'; //Translate
-		$this->mcount_updated = 'Member Count Updated.'; //Translate
+		$this->mcount = 'Justera Medlems Statistiken';
+		$this->mcount_updated = 'Medlems Antal Uppdaterat.';
 	}
 
 	function members()
@@ -585,7 +585,7 @@ class sv
 		$this->members_joined = 'Registreringsdatum';
 		$this->members_list = 'Medlemslista';
 		$this->members_member = 'Medlem';
-		$this->members_pm = 'PM'; //Translate
+		$this->members_pm = 'PM';
 		$this->members_posts = 'Inlägg';
 		$this->members_send_pm = 'Skicka ett personligt meddelande till denna användare';
 		$this->members_title = 'Titel';
@@ -601,7 +601,7 @@ class sv
 		$this->mod_error_move_category = 'Du kan inte flytta ett ämne till en kategori.';
 		$this->mod_error_move_create = 'Du har inte tillåtelse att flytta ämen till det forumet';
 		$this->mod_error_move_forum = 'Du kan inte flytta ett ämne till ett forum som inte existerar.';
-		$this->mod_error_move_global = 'You cannot move a global topic. Edit the topic before moving it.'; //Translate
+		$this->mod_error_move_global = 'Du kan inte flytta ett globalt ämne. Ändra ämnet innan du flyttar det.';
 		$this->mod_error_move_same = 'Du kan inte flytta ett ämne till det forum det redan befinner sig i.';
 		$this->mod_label_controls = 'Moderator Kontroller';
 		$this->mod_label_description = 'Beskrivning';
@@ -648,79 +648,79 @@ class sv
 
 	function optimize()
 	{
-		$this->optimize = 'Optimize Database'; //Translate
-		$this->optimized = 'The tables in the database have been optimized for maximum performance.'; //Translate
+		$this->optimize = 'Optimera Databasen';
+		$this->optimized = 'Tabellerna i databasen har nu optimerats för bästa prestanda.';
 	}
 
 	function perms()
 	{
-		$this->perm = 'Permission'; //Translate
-		$this->perms = 'Permissions'; //Translate
-		$this->perms_board_view = 'View the board index'; //Translate
-		$this->perms_board_view_closed = 'Use Quicksilver Forums when it is closed'; //Translate
-		$this->perms_do_anything = 'Use Quicksilver Forums'; //Translate
-		$this->perms_edit_for = 'Edit permissions for'; //Translate
-		$this->perms_email_use = 'Send emails to members via the board'; //Translate
-		$this->perms_forum_view = 'View the forum'; //Translate
-		$this->perms_is_admin = 'Access the admin control panel'; //Translate
-		$this->perms_only_user = 'Use only group permissions for this user'; //Translate
-		$this->perms_override_user = 'This will override the group permissions for this user.'; //Translate
-		$this->perms_pm_noflood = 'Exempt from personal messenger flood control'; //Translate
-		$this->perms_poll_create = 'Create polls'; //Translate
-		$this->perms_poll_vote = 'Create votes'; //Translate
-		$this->perms_post_attach = 'Attach uploads to posts'; //Translate
-		$this->perms_post_attach_download = 'Download post attachments'; //Translate
-		$this->perms_post_create = 'Create replies'; //Translate
-		$this->perms_post_delete = 'Delete any post'; //Translate
-		$this->perms_post_delete_own = 'Delete only posts the user has created'; //Translate
-		$this->perms_post_edit = 'Edit any post'; //Translate
-		$this->perms_post_edit_own = 'Edit only posts the user has created'; //Translate
-		$this->perms_post_noflood = 'Exempt from post flood control'; //Translate
-		$this->perms_post_viewip = 'View user IP addresses'; //Translate
-		$this->perms_search_noflood = 'Exempt from search flood control'; //Translate
-		$this->perms_title = 'User Group Control'; //Translate
-		$this->perms_topic_create = 'Create topics'; //Translate
-		$this->perms_topic_delete = 'Delete any topic'; //Translate
-		$this->perms_topic_delete_own = 'Delete only topics the user has created'; //Translate
-		$this->perms_topic_edit = 'Edit any topic'; //Translate
-		$this->perms_topic_edit_own = 'Edit only topics the user has created'; //Translate
-		$this->perms_topic_global = 'Make a topic visible from all forums'; //Translate
-		$this->perms_topic_lock = 'Lock any topic'; //Translate
-		$this->perms_topic_lock_own = 'Lock topics the user has created'; //Translate
-		$this->perms_topic_move = 'Move any topic'; //Translate
-		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
-		$this->perms_topic_pin = 'Pin any topic'; //Translate
-		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
-		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
-		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
-		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
-		$this->perms_topic_unlock_mod = 'Unlock a moderator\'s lock'; //Translate
-		$this->perms_topic_unlock_own = 'Unlock only topics the user has created'; //Translate
-		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
-		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
-		$this->perms_topic_view = 'View topics'; //Translate
-		$this->perms_updated = 'Permissions have been updated.'; //Translate
-		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
+		$this->perm = 'Befogenhet';
+		$this->perms = 'Befogenheter';
+		$this->perms_board_view = 'Visa Forumets index';
+		$this->perms_board_view_closed = 'Använd Quicksilver Forumet när det är stängt';
+		$this->perms_do_anything = 'Använd Quicksilver Forumet';
+		$this->perms_edit_for = 'Ändra befogenheter för';
+		$this->perms_email_use = 'Skicka e-post till medlemmarna via forumet';
+		$this->perms_forum_view = 'Kolla Forumet';
+		$this->perms_is_admin = 'Access adminkotrollpanelen';
+		$this->perms_only_user = 'Använd endast gruppbefogenheter för den här användaren';
+		$this->perms_override_user = 'Detta kommer att ersätta gruppbefogenheterna för den här användaren.';
+		$this->perms_pm_noflood = 'Undanta från floodkontrollen för personliga meddelanden';
+		$this->perms_poll_create = 'Skapa Röstningar';
+		$this->perms_poll_vote = 'Skapa röster';
+		$this->perms_post_attach = 'Fäst uppladdningar till inlägget';
+		$this->perms_post_attach_download = 'Ladda ner inläggets filer';
+		$this->perms_post_create = 'Skapa svar';
+		$this->perms_post_delete = 'Ta bort valfritt inlägg';
+		$this->perms_post_delete_own = 'Ta bort endast inlägg som användaren gjort';
+		$this->perms_post_edit = 'Ändra valfritt inlägg';
+		$this->perms_post_edit_own = 'Ändra endast inlägg som användaren gjort';
+		$this->perms_post_noflood = 'Undanta från flood kontroll för inlägg';
+		$this->perms_post_viewip = 'Kolla användares IP adresser';
+		$this->perms_search_noflood = 'Undanta från flood kontroll för sökningar';
+		$this->perms_title = 'Användar Grupp Kontroll';
+		$this->perms_topic_create = 'Skapa ämnen';
+		$this->perms_topic_delete = 'Ta bort valfritt ämne';
+		$this->perms_topic_delete_own = 'Ta bort endast ämnen som användaren skapat';
+		$this->perms_topic_edit = 'Ändra valfritt ämne';
+		$this->perms_topic_edit_own = 'Endast ändra ämnen som användaren skapat';
+		$this->perms_topic_global = 'Göra ett ämne synligt från alla forum';
+		$this->perms_topic_lock = 'Låsa valfritt ämne';
+		$this->perms_topic_lock_own = 'Låsa ämnen användaren har skapat';
+		$this->perms_topic_move = 'Flytta valfritt ämne';
+		$this->perms_topic_move_own = 'Endast flytta ämnen som användaren skapat';
+		$this->perms_topic_pin = 'Nåla valfritt ämne';
+		$this->perms_topic_pin_own = 'Nåla ämnen som användaren skapat';
+		$this->perms_topic_split = 'Dela valfritt ämne till flera ämnen';
+		$this->perms_topic_split_own = 'Endast dela ämnen användaren skapat till flera ämnen';
+		$this->perms_topic_unlock = 'Låsa upp valfritt ämne';
+		$this->perms_topic_unlock_mod = 'Låsa upp en moderators lås';
+		$this->perms_topic_unlock_own = 'Endast låsa upp ämnen användaren har skapat';
+		$this->perms_topic_unpin = 'Avnåla valfritt ämne';
+		$this->perms_topic_unpin_own = 'Endast avnåla ämnen som användaren skapat';
+		$this->perms_topic_view = 'Kolla på ämnen';
+		$this->perms_updated = 'Befogenheter har uppdaterats.';
+		$this->perms_user_inherit = 'Användaren kommer ärva gruppens befogenheter.';
 	}
 
 	function php_info()
 	{
-		$this->php_error = 'Error'; //Translate
-		$this->php_error_msg = 'phpinfo() can not be executed. It appears that your host has disabled this feature.'; //Translate
+		$this->php_error = 'FEL';
+		$this->php_error_msg = 'phpinfo() kan inte exekveras. Det verkar som om din värd har stängt av den här funktionen.';
 	}
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar'; //Translate
+		$this->pm_avatar = 'Visningsbild';
 		$this->pm_cant_del = 'Du har inte tillåtelse att radera detta meddelande.';
 		$this->pm_delallmsg = 'Radera Alla Meddelanden';
 		$this->pm_delete = 'Radera';
-		$this->pm_delete_selected = 'Delete Selected Messages'; //Translate
+		$this->pm_delete_selected = 'Ta bort valda meddelanden';
 		$this->pm_deleted = 'Meddelande Raderat.';
 		$this->pm_deleted_all = 'Meddelanden Raderade.';
-		$this->pm_error = 'There were problems sending your message to some of the recipients.<br /><br />The following members do not exist: %s<br /><br />The following members are not accepting personal messages: %s'; //Translate
+		$this->pm_error = 'Det uppstod problem med att skicka ditt meddelande till vissa mottagare.<br /><br />Följande medlemmar finns inte: %s<br /><br />Följande medlemmar accepterar inte personliga meddelanden: %s';
 		$this->pm_fields = 'Meddelandet kunde inte skickat. Försäkra dig om att alla fält är ifyllda.';
-		$this->pm_flood = 'You have sent a message in the past %s seconds, and you may not send another right now.<br /><br />Please try again in a few seconds.'; //Translate
+		$this->pm_flood = 'Du har skickat ett meddelande under de senaste %s sekunderna, du kan inte skicka ett till just nu.<br /><br />Försök igen om några sekunder.';
 		$this->pm_folder_inbox = 'Inkorg';
 		$this->pm_folder_new = '%s nya';
 		$this->pm_folder_sentbox = 'Sent';
@@ -730,21 +730,21 @@ class sv
 		$this->pm_joined = 'Gick Med';
 		$this->pm_messenger = 'Snabbmeddelande';
 		$this->pm_msgtext = 'Meddelande Text';
-		$this->pm_multiple = 'Separate multiple recipients with ;'; //Translate
+		$this->pm_multiple = 'Separera flera mottagare med ett ;';
 		$this->pm_no_folder = 'Du måste välja en katalog.';
 		$this->pm_no_member = 'Inget meddelande kunde hittas med ett sådant ID.';
 		$this->pm_no_number = 'Inget meddelande kunde hittas med det numret.';
 		$this->pm_no_title = 'Inget Ämne';
 		$this->pm_nomsg = 'Det finns inga meddelanden i denna katalog.';
 		$this->pm_noview = 'Du har inte tillåtelse att läsa detta meddelande.';
-		$this->pm_offline = 'This member is currently offline'; //Translate
-		$this->pm_online = 'This member is currently online'; //Translate
+		$this->pm_offline = 'Den här medlemmen är inte inloggad just nu';
+		$this->pm_online = 'Den här medlemmen är inloggad just nu';
 		$this->pm_personal = 'Snabbmeddelande';
 		$this->pm_personal_msging = 'Personligt Meddelande';
-		$this->pm_pm = 'PM'; //Translate
+		$this->pm_pm = 'PM';
 		$this->pm_posts = 'Inlägg';
-		$this->pm_preview = 'Preview'; //Translate
-		$this->pm_recipients = 'Recipients'; //Translate
+		$this->pm_preview = 'Förhandsgranska';
+		$this->pm_recipients = 'Mottagare';
 		$this->pm_reply = 'Svara';
 		$this->pm_send = 'Skicka';
 		$this->pm_sendamsg = 'Skicka Ett Meddelande';
@@ -785,7 +785,7 @@ class sv
 		$this->post_last_five = 'Senaste Fem Inläggen I Bakvänd Ordning';
 		$this->post_length = 'Kontrollera Längd';
 		$this->post_mbcode_address = 'Skriv in en adress';
-		$this->post_mbcode_arial = 'Arial'; //Translate
+		$this->post_mbcode_arial = 'Arial';
 		$this->post_mbcode_blue = 'Blå';
 		$this->post_mbcode_bold = 'Fet';
 		$this->post_mbcode_bold1 = 'F';
@@ -793,7 +793,7 @@ class sv
 		$this->post_mbcode_code = 'Kod';
 		$this->post_mbcode_color = 'Färg';
 		$this->post_mbcode_coral = 'Korall';
-		$this->post_mbcode_courier = 'Courier'; //Translate
+		$this->post_mbcode_courier = 'Courier';
 		$this->post_mbcode_crimson = 'Blodröd';
 		$this->post_mbcode_darkblue = 'Mörkblå';
 		$this->post_mbcode_darkred = 'Mörkröd';
@@ -801,22 +801,22 @@ class sv
 		$this->post_mbcode_detail = 'Skriv in en beskrivning';
 		$this->post_mbcode_email = 'E-post';
 		$this->post_mbcode_firered = 'Eldröd';
-		$this->post_mbcode_font = 'Font'; //Translate
+		$this->post_mbcode_font = 'Teckensnitt';
 		$this->post_mbcode_green = 'Grön';
 		$this->post_mbcode_huge = 'Störst';
 		$this->post_mbcode_image = 'Bild';
 		$this->post_mbcode_image1 = 'Bild';
-		$this->post_mbcode_impact = 'Impact'; //Translate
-		$this->post_mbcode_indigo = 'Indigo'; //Translate
+		$this->post_mbcode_impact = 'Impact';
+		$this->post_mbcode_indigo = 'Indigo';
 		$this->post_mbcode_italic = 'Kursiv';
-		$this->post_mbcode_italic1 = 'I'; //Translate
+		$this->post_mbcode_italic1 = 'K';
 		$this->post_mbcode_large = 'Stor';
 		$this->post_mbcode_length = 'Ditt inlägg är "+length+" tecken.';
 		$this->post_mbcode_limegreen = 'Lime Grön';
-		$this->post_mbcode_medium = 'Medium'; //Translate
-		$this->post_mbcode_orange = 'Orange'; //Translate
+		$this->post_mbcode_medium = 'Medel';
+		$this->post_mbcode_orange = 'Orange';
 		$this->post_mbcode_orangered = 'Orange Röd';
-		$this->post_mbcode_php = 'PHP'; //Translate
+		$this->post_mbcode_php = 'PHP';
 		$this->post_mbcode_purple = 'Purpur';
 		$this->post_mbcode_quote = 'Citat';
 		$this->post_mbcode_red = 'Röd';
@@ -824,23 +824,23 @@ class sv
 		$this->post_mbcode_sandybrown = 'Sand';
 		$this->post_mbcode_seagreen = 'Sjögrön';
 		$this->post_mbcode_sienna = 'Brun';
-		$this->post_mbcode_silver = 'Silver'; //Translate
+		$this->post_mbcode_silver = 'Silver';
 		$this->post_mbcode_size = 'Storlek';
 		$this->post_mbcode_skyblue = 'Himmelsblå';
 		$this->post_mbcode_small = 'Liten';
 		$this->post_mbcode_strike = 'Genomstruken';
-		$this->post_mbcode_strike1 = 'S'; //Translate
-		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
+		$this->post_mbcode_strike1 = 'S'; //There is no shortcomamnd for strike in swedish, so translating the letter used for it is impossible
+		$this->post_mbcode_tahoma = 'Tahoma';
 		$this->post_mbcode_teal = 'Turkos';
-		$this->post_mbcode_times = 'Times'; //Translate
+		$this->post_mbcode_times = 'Times';
 		$this->post_mbcode_tiny = 'Minst';
 		$this->post_mbcode_tomato = 'Tomat';
 		$this->post_mbcode_underline = 'Understruken';
-		$this->post_mbcode_underline1 = 'U'; //Translate
-		$this->post_mbcode_url = 'URL'; //Translate
-		$this->post_mbcode_verdana = 'Verdana'; //Translate
+		$this->post_mbcode_underline1 = 'U';
+		$this->post_mbcode_url = 'URL';
+		$this->post_mbcode_verdana = 'Verdana';
 		$this->post_mbcode_wood = 'Beige';
-		$this->post_mbcode_yellow = 'Yellow'; //Translate
+		$this->post_mbcode_yellow = 'Gul';
 		$this->post_msg = 'Meddelande';
 		$this->post_must_msg = 'Du måste skriva något när du gör ett inlägg.';
 		$this->post_must_options = 'Du måste inkludera alterntiv när du skapar en ny röstning.';
@@ -886,16 +886,16 @@ class sv
 	function profile()
 	{
 		$this->profile_aim_sn = 'AIM Namn';
-		$this->profile_av_sign = 'Avatar och Signatur';
-		$this->profile_avatar = 'Avatar'; //Translate
+		$this->profile_av_sign = 'Visningsbild och Signatur';
+		$this->profile_avatar = 'Visningsbild';
 		$this->profile_bday = 'Födelsedag';
 		$this->profile_contact = 'Kontakta';
 		$this->profile_email_address = 'E-post Adress';
 		$this->profile_fav = 'Favorit Forum';
 		$this->profile_fav_forum = '%s (%d%% av dessa medlemsinlägg)';
-		$this->profile_gtalk = 'GTalk Account'; //Translate
+		$this->profile_gtalk = 'GTalk Konto';
 		$this->profile_icq_uin = 'ICQ Nummer';
-		$this->profile_info = 'Information'; //Translate
+		$this->profile_info = 'Information';
 		$this->profile_interest = 'Intressen';
 		$this->profile_joined = 'Sammanfodade';
 		$this->profile_last_post = 'Senaste Inlägg';
@@ -908,9 +908,9 @@ class sv
 		$this->profile_no_member = 'Det finns ingen medlem med det användarnumret. Kontot kan ha blivit raderat.';
 		$this->profile_none = '[ Ingen ]';
 		$this->profile_not_post = 'har inte gjort något inlägg ännu.';
-		$this->profile_offline = 'This member is currently offline'; //Translate
-		$this->profile_online = 'This member is currently online'; //Translate
-		$this->profile_pm = 'Privata Meddelanden';
+		$this->profile_offline = 'Den här medlemmen är inte inloggad just nu';
+		$this->profile_online = 'Den här medlemmen är inloggad just nu';
+		$this->profile_pm = 'Personliga Meddelanden';
 		$this->profile_postcount = '%s totalt, %s per dag';
 		$this->profile_posts = 'Inlägg';
 		$this->profile_private = '[ Privat ]';
@@ -924,10 +924,10 @@ class sv
 
 	function query()
 	{
-		$this->query = 'Query Interface'; //Translate
-		$this->query_fail = 'failed.'; //Translate
-		$this->query_success = 'executed successfully.'; //Translate
-		$this->query_your = 'Your query'; //Translate
+		$this->query = 'Förfråge Gränssnitt';
+		$this->query_fail = 'Misslyckades.';
+		$this->query_success = 'Exekvering lyckad.';
+		$this->query_your = 'Din förfrågan';
 	}
 
 	function recent()
@@ -939,7 +939,7 @@ class sv
 		$this->recent_cant_topics = 'Du kan inte läsa ämnen i detta forum.';
 		$this->recent_dot = 'Prick';
 		$this->recent_dot_detail = 'Visar att du skrivit inlägg i ämnet';
-		$this->recent_forum = 'Forum'; //Translate
+		$this->recent_forum = 'Forum';
 		$this->recent_guest = 'Gäst';
 		$this->recent_hot = 'Het';
 		$this->recent_icon = 'Meddelande Ikon';
@@ -984,9 +984,9 @@ class sv
 		$this->register_done = 'Du är registrerad! Du kan nu logga in.';
 		$this->register_email = 'E-post Adress';
 		$this->register_email_invalid = 'E-post adressen du skrivit in är ogiltig.';
-		$this->register_email_msg = 'This is an automated email generated by Quicksilver Forums, and sent to you in order'; //Translate
-		$this->register_email_msg2 = 'for you to activate your account with'; //Translate
-		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
+		$this->register_email_msg = 'Det här är ett automatikst e-post genererat av Quicksilver Forumet, och skickat till dig för att';
+		$this->register_email_msg2 = 'du ska kunna aktivera ditt konto';
+		$this->register_email_msg3 = 'Klicka på den nedanstående länlen eller klistra in den i din webläsare:';
 		$this->register_email_used = 'E-post adressen du skrivit in används redan av en medlem.';
 		$this->register_fields = 'Alla fält är inte ifyllda.';
 		$this->register_image = 'Var god skriv av den text som visas i bilden';
@@ -1000,32 +1000,32 @@ class sv
 		$this->register_passwd = 'Lösenord';
 		$this->register_reg = 'Registrera';
 		$this->register_reging = 'Registrerar';
-		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
-		$this->register_tos_read = 'Please read the following terms of service'; //Translate
+		$this->register_tos_i_agree = 'Jag godkänner ovanstående vilkor';
+		$this->register_tos_read = 'Var snäll och lässa följande vilkor för tjänsten';
 	}
 
 	function rssfeed()
 	{
-		$this->rssfeed_posted_by = 'Posted by'; //Translate
+		$this->rssfeed_posted_by = 'Skrivet av';
 	}
 
 	function search()
 	{
 		$this->search_advanced = 'Avancerade Alternativ';
-		$this->search_avatar = 'Avatar'; //Translate
+		$this->search_avatar = 'Visningsbild';
 		$this->search_basic = 'Enkel Sökning';
 		$this->search_characters = 'bokstäverna av ett inlägg';
 		$this->search_day = 'dag';
 		$this->search_days = 'dagar';
 		$this->search_exact_name = 'exakt namn';
-		$this->search_flood = 'You have searched in the past %s seconds, and you may not search right now.<br /><br />Please try again in a few seconds.'; //Translate
+		$this->search_flood = 'Du har sökt under de senaste %s sekunderna, och du kan inte söka just nu.<br /><br />Var snäll och försök igen om några sekunder.';
 		$this->search_for = 'Sök Efter';
-		$this->search_forum = 'Forum'; //Translate
+		$this->search_forum = 'Forum';
 		$this->search_group = 'Grupp';
 		$this->search_guest = 'Gäst';
 		$this->search_in = 'Sök inom';
 		$this->search_in_posts = 'Sök endast i inlägg';
-		$this->search_ip = 'IP'; //Translate
+		$this->search_ip = 'IP';
 		$this->search_joined = 'Gick Med';
 		$this->search_level = 'Medlemsstatus';
 		$this->search_match = 'Sök med matchning';
@@ -1036,16 +1036,16 @@ class sv
 		$this->search_newer = 'nyare';
 		$this->search_no_results = 'Din sökning gav inget resultat.';
 		$this->search_no_words = 'Du måste specificera några söktermer.<br /><br />Varje term måste vara minst 3 tecken inklusive bokstäver, nummer, apostrofer och understreck.';
-		$this->search_offline = 'This member is currently offline'; //Translate
+		$this->search_offline = 'Den här medlemmen är inte inloggad just nu';
 		$this->search_older = 'äldre';
-		$this->search_online = 'This member is currently online'; //Translate
+		$this->search_online = 'Den här medlemmen är inloggad just nu';
 		$this->search_only_display = 'Visa endast de första';
 		$this->search_partial_name = 'delar av namnet';
 		$this->search_post_icon = 'Inläggs Ikon';
 		$this->search_posted_on = 'Skrivet';
 		$this->search_posts = 'Inlägg';
 		$this->search_posts_by = 'Endast inlägg av';
-		$this->search_regex = 'Sök med vanligt uttryck';
+		$this->search_regex = 'Sök med reguljärt uttryck';
 		$this->search_regex_failed = 'Ditt uttryck misslyckades. Var god se MSQL-dokumentationen: hjälp för vanliga uttryck ';
 		$this->search_relevance = 'Relevans: %d%%';
 		$this->search_replies = 'Inlägg';
@@ -1065,240 +1065,240 @@ class sv
 
 	function settings()
 	{
-		$this->settings = 'Settings'; //Translate
-		$this->settings_active = 'Active Users Settings'; //Translate
-		$this->settings_allow = 'Allow'; //Translate
-		$this->settings_antibot = 'Anti-Robot Registration'; //Translate
-		$this->settings_attach_ext = 'Attachments - File Extensions'; //Translate
-		$this->settings_attach_one_per = 'One per line. No periods.'; //Translate
-		$this->settings_avatar = 'Avatar Settings'; //Translate
-		$this->settings_avatar_flash = 'Flash Avatars'; //Translate
-		$this->settings_avatar_max_height = 'Maximum Avatar Height'; //Translate
-		$this->settings_avatar_max_width = 'Maximum Avatar Width'; //Translate
-		$this->settings_avatar_upload = 'Uploaded Avatars - Max File Size'; //Translate
-		$this->settings_basic = 'Edit Board Settings'; //Translate
-		$this->settings_blank = 'Use <i>_blank</i> for a new window.'; //Translate
-		$this->settings_board_enabled = 'Board Enabled'; //Translate
-		$this->settings_board_location = 'Location of Board'; //Translate
-		$this->settings_board_name = 'Board Name'; //Translate
-		$this->settings_board_rss = 'RSS Feed Settings'; //Translate
-		$this->settings_board_rssfeed_desc = 'RSS Feed Description'; //Translate
-		$this->settings_board_rssfeed_posts = 'Number of posts to list on RSS Feed'; //Translate
-		$this->settings_board_rssfeed_time = 'Refresh time in minutes'; //Translate
-		$this->settings_board_rssfeed_title = 'RSS Feed Title'; //Translate
-		$this->settings_clickable = 'Clickable Smilies Per Row'; //Translate
-		$this->settings_cookie = 'Cookie and Flood Settings'; //Translate
-		$this->settings_cookie_path = 'Cookie Path'; //Translate
-		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
-		$this->settings_cookie_time = 'Time to Remain Logged In'; //Translate
-		$this->settings_db = 'Edit Connection Settings'; //Translate
-		$this->settings_db_host = 'Database Host'; //Translate
-		$this->settings_db_leave_blank = 'Leave blank for none.'; //Translate
-		$this->settings_db_multiple = 'For installing multiple boards on one database.'; //Translate
-		$this->settings_db_name = 'Database Name'; //Translate
-		$this->settings_db_password = 'Database Password'; //Translate
-		$this->settings_db_port = 'Database Port'; //Translate
-		$this->settings_db_prefix = 'Table Prefix'; //Translate
-		$this->settings_db_socket = 'Database Socket'; //Translate
-		$this->settings_db_username = 'Database Username'; //Translate
-		$this->settings_default_lang = 'Default Language'; //Translate
-		$this->settings_default_no = 'Default No'; //Translate
-		$this->settings_default_skin = 'Default Skin'; //Translate
-		$this->settings_default_yes = 'Default Yes'; //Translate
-		$this->settings_disabled = 'Disabled'; //Translate
-		$this->settings_disabled_notice = 'Disabled Notice'; //Translate
-		$this->settings_email = 'E-Mail Settings'; //Translate
-		$this->settings_email_fake = 'For display only. Should not be a real e-mail address.'; //Translate
-		$this->settings_email_from = 'E-mail From Address'; //Translate
-		$this->settings_email_place1 = 'Place members in the'; //Translate
-		$this->settings_email_place2 = 'group until they verify their e-mail'; //Translate
-		$this->settings_email_place3 = 'Do not require e-mail activation'; //Translate
-		$this->settings_email_real = 'Should be a real e-mail address.'; //Translate
-		$this->settings_email_reply = 'E-mail Reply-To Address'; //Translate
-		$this->settings_email_smtp = 'SMTP Mail Server'; //Translate
-		$this->settings_email_valid = 'New Member E-mail Validation'; //Translate
-		$this->settings_enabled = 'Enabled'; //Translate
-		$this->settings_enabled_modules = 'Enabled Modules'; //Translate
-		$this->settings_foreign_link = 'Foreign Link Target'; //Translate
-		$this->settings_general = 'General Settings'; //Translate
-		$this->settings_group_after = 'Group After Registration'; //Translate
-		$this->settings_hot_topic = 'Posts for a Hot Topic'; //Translate
-		$this->settings_kilobytes = 'Kilobytes'; //Translate
-		$this->settings_max_attach_size = 'Attachments - Maximum File Size'; //Translate
-		$this->settings_members = 'Member Settings'; //Translate
-		$this->settings_modname_only = 'Module name only. Do not include .php'; //Translate
-		$this->settings_no_allow = 'Do Not Allow'; //Translate
-		$this->settings_nodata = 'No data was sent from POST'; //Translate
-		$this->settings_one_per = 'One per line'; //Translate
-		$this->settings_pixels = 'Pixels'; //Translate
-		$this->settings_pm_flood = 'Personal Messenger Flood Control'; //Translate
-		$this->settings_pm_min_time = 'Minimum time between messages.'; //Translate
-		$this->settings_polls = 'Polls'; //Translate
-		$this->settings_polls_no = 'Users cannot vote in a poll after viewing its results'; //Translate
-		$this->settings_polls_yes = 'Users can vote in a poll after viewing its results'; //Translate
-		$this->settings_post_flood = 'Post Flood Control'; //Translate
-		$this->settings_post_min_time = 'Minimum time between posts.'; //Translate
-		$this->settings_posts_topic = 'Posts Per Topic Page'; //Translate
-		$this->settings_search_flood = 'Search Flood Control'; //Translate
-		$this->settings_search_min_time = 'Minimum time between searches.'; //Translate
-		$this->settings_server = 'Server Settings'; //Translate
-		$this->settings_server_gzip = 'GZIP Compression'; //Translate
-		$this->settings_server_gzip_msg = 'Improves speed. Disable if the board appears jumbled or blank.'; //Translate
-		$this->settings_server_maxload = 'Maximum Server Load'; //Translate
-		$this->settings_server_maxload_msg = 'Disables board under excessive server strain. Enter 0 to disable.'; //Translate
-		$this->settings_server_timezone = 'Server Time Zone'; //Translate
-		$this->settings_show_avatars = 'Show Avatars'; //Translate
-		$this->settings_show_email = 'Show Email Address'; //Translate
-		$this->settings_show_emotes = 'Show Emoticons'; //Translate
-		$this->settings_show_notice = 'Shown when the board is disabled'; //Translate
-		$this->settings_show_pm = 'Accept Personal Messages'; //Translate
-		$this->settings_show_sigs = 'Show Signatures'; //Translate
-		$this->settings_spider_agent = 'Spider User Agent'; //Translate
-		$this->settings_spider_agent_msg = 'Enter all or part of the spider\'s unique HTTP USER AGENT.'; //Translate
-		$this->settings_spider_enable = 'Enable Spider Display'; //Translate
-		$this->settings_spider_enable_msg = 'Enable the names of search engine spiders on Active List.'; //Translate
-		$this->settings_spider_name = 'Spider Name'; //Translate
-		$this->settings_spider_name_msg = 'Enter the name that you wish to display for each of the above spiders on Active List. You need to place the spider\'s name on the same line as the spider\'s user agent above. For example, if you place \'googlebot\' on the third line for the user agent place \'Google\' on the third line for the Spider Name.'; //Translate
-		$this->settings_timezone = 'Time Zone'; //Translate
-		$this->settings_topics_page = 'Topics Per Forum Page'; //Translate
-		$this->settings_tos = 'Terms of Service'; //Translate
-		$this->settings_updated = 'Settings have been updated.'; //Translate
+		$this->settings = 'Inställningar';
+		$this->settings_active = 'Aktiva Användares Inställninar';
+		$this->settings_allow = 'Tillåt';
+		$this->settings_antibot = 'Anti-Robot Registration';
+		$this->settings_attach_ext = 'Bifogade filer - Fil Typer';
+		$this->settings_attach_one_per = 'En per rad. Inga punkter.';
+		$this->settings_avatar = 'Inställnigar för Visningsbild';
+		$this->settings_avatar_flash = 'Flash Visningsbilder';
+		$this->settings_avatar_max_height = 'Maximal Höjd på Visningsbild';
+		$this->settings_avatar_max_width = 'Maximal Bredd på Visningsbild';
+		$this->settings_avatar_upload = 'Ladda upp Visningsbild - Maximal Fil Storlek';
+		$this->settings_basic = 'Ändra Forum Inställningar';
+		$this->settings_blank = 'Använd <i>_blank</i> för ett nytt fönster.';
+		$this->settings_board_enabled = 'Forum Aktiverat';
+		$this->settings_board_location = 'Placering av Forumet';
+		$this->settings_board_name = 'Fourm Namn';
+		$this->settings_board_rss = 'Inställningar för RSS Matning';
+		$this->settings_board_rssfeed_desc = 'Beskrivning av RSS Matningen';
+		$this->settings_board_rssfeed_posts = 'Antal inlägg att lista genom RSS Matningen';
+		$this->settings_board_rssfeed_time = 'Omladdnings tid i minuter';
+		$this->settings_board_rssfeed_title = 'RSS Matningens Titel';
+		$this->settings_clickable = 'Klickbara Emoticons Per Rad';
+		$this->settings_cookie = 'Cookie och Flood Inställningar';
+		$this->settings_cookie_path = 'Cookie Sökväg';
+		$this->settings_cookie_prefix = 'Cookie Prefix';
+		$this->settings_cookie_time = 'Tid för att kvarstå som inloggad';
+		$this->settings_db = 'Ändra Inställningar för Anslutning';
+		$this->settings_db_host = 'Databas Värd';
+		$this->settings_db_leave_blank = 'Lämna tom on ingen.';
+		$this->settings_db_multiple = 'För att installera flera forum i en databas.';
+		$this->settings_db_name = 'Databas Namn';
+		$this->settings_db_password = 'Databas Lösenord';
+		$this->settings_db_port = 'Databas Port';
+		$this->settings_db_prefix = 'Tabell Prefix';
+		$this->settings_db_socket = 'Databas Socket';
+		$this->settings_db_username = 'Database Användarnamn';
+		$this->settings_default_lang = 'Förvalt Språk';
+		$this->settings_default_no = 'Förvalt Nej';
+		$this->settings_default_skin = 'Förval Skal';
+		$this->settings_default_yes = 'Förval Ja';
+		$this->settings_disabled = 'Avaktiverad';
+		$this->settings_disabled_notice = 'Meddelande vig Avaktiverad';
+		$this->settings_email = 'E-Post Inställningar';
+		$this->settings_email_fake = 'För visning endast. Borde inte vara en riktig e-postadress.';
+		$this->settings_email_from = 'E-post Från Adress';
+		$this->settings_email_place1 = 'Placera medlemmar i gruppen';
+		$this->settings_email_place2 = 'tills de verifierat sin e-post';
+		$this->settings_email_place3 = 'Kräv inte e-post aktivering';
+		$this->settings_email_real = 'Ska vara en riktig e-postadress.';
+		$this->settings_email_reply = 'E-post Svara-Till Adress';
+		$this->settings_email_smtp = 'SMTP Post Server';
+		$this->settings_email_valid = 'Ny medlems E-post Verifiering';
+		$this->settings_enabled = 'Aktiverad';
+		$this->settings_enabled_modules = 'Aktiverade Moduler';
+		$this->settings_foreign_link = 'Mål för Främande Länkar';
+		$this->settings_general = 'Allmäna Inställningar';
+		$this->settings_group_after = 'Grupp Efter Registrering';
+		$this->settings_hot_topic = 'Inlägg för ett Hett Ämne';
+		$this->settings_kilobytes = 'Kilobytes';
+		$this->settings_max_attach_size = 'Bifogade filer - Maximal Fil Storlek';
+		$this->settings_members = 'Medlems Inställningar';
+		$this->settings_modname_only = 'Modulnamn endast. Inkludera inte .php';
+		$this->settings_no_allow = 'Tillåt Inte';
+		$this->settings_nodata = 'Ingen data sändes från POST';
+		$this->settings_one_per = 'En per rad';
+		$this->settings_pixels = 'Pixelar';
+		$this->settings_pm_flood = 'Personligt Meddelande Flood Kontroll';
+		$this->settings_pm_min_time = 'Minimum tid mellan meddelanden.';
+		$this->settings_polls = 'Röstningar';
+		$this->settings_polls_no = 'Användare kan inte delta i röstning efter att ha kollat dess resultat';
+		$this->settings_polls_yes = 'Användare kan delta i röstning efter att ha kollat dess resultat';
+		$this->settings_post_flood = 'Inläggs Flood Kontroll';
+		$this->settings_post_min_time = 'Minimum tid mellan inlägg.';
+		$this->settings_posts_topic = 'Inlägg per sida i ett ämne';
+		$this->settings_search_flood = 'Sökning Flood Kontroll';
+		$this->settings_search_min_time = 'Minimum tid mellan sökningar.';
+		$this->settings_server = 'Server Inställningar';
+		$this->settings_server_gzip = 'GZIP KOmprimering';
+		$this->settings_server_gzip_msg = 'Förbättrar farten. Avaktivera om forumet blir konstigt eller tomt.';
+		$this->settings_server_maxload = 'Maximum Server belastning';
+		$this->settings_server_maxload_msg = 'Avaktivera forumet vid extrem server belastning. Skriv 0 för att aktivera.';
+		$this->settings_server_timezone = 'Server Tids Zon';
+		$this->settings_show_avatars = 'Visa Visningsbilder';
+		$this->settings_show_email = 'Visa E-postadress';
+		$this->settings_show_emotes = 'Visa Emoticons';
+		$this->settings_show_notice = 'Visas när forumet är avaktiverat';
+		$this->settings_show_pm = 'Acceptera Personliga Meddelanden';
+		$this->settings_show_sigs = 'Visa Signaturer';
+		$this->settings_spider_agent = 'Spindel Användar Agent';
+		$this->settings_spider_agent_msg = 'Skriv hela aller en del av spindelns unika HTTP USER AGENT.';
+		$this->settings_spider_enable = 'Aktivera Spindel Visning';
+		$this->settings_spider_enable_msg = 'Aktivera namnen på sökmotor spindlar på Listan över Aktiva.';
+		$this->settings_spider_name = 'Spindel Namn';
+		$this->settings_spider_name_msg = 'Skriv in namnet du vill ska visas för varje av de ovanstående spindlarna på Listan över Aktiva. Du måste placera spindelns namn på motsvarande rad som spindelns användar agent ovan. Till exempel, om du placerar \'googlebot\' på den tredje raden av användar agenter måste du placera \'Google\' på den tredje raden för Spindel Namn.';
+		$this->settings_timezone = 'Tids Zon';
+		$this->settings_topics_page = 'Ämnen Per Forumsida';
+		$this->settings_tos = 'Vilkor för Tjänsten';
+		$this->settings_updated = 'Inställningarna har uppdaterats.';
 	}
 
 	function stats()
 	{
-		$this->stats = 'Statistics Center'; //Translate
-		$this->stats_post_by_month = 'Posts by Month'; //Translate
-		$this->stats_reg_by_month = 'Registrations by Month'; //Translate
+		$this->stats = 'Statistik Avdelning';
+		$this->stats_post_by_month = 'Inlägg per Månad';
+		$this->stats_reg_by_month = 'Registreringar per Månad';
 	}
 
 	function templates()
 	{
-		$this->add = 'Add HTML Templates'; //Translate
-		$this->choose_set = 'Choose a template set'; //Translate
-		$this->choose_skin = 'Choose a skin'; //Translate
-		$this->create_new = 'Create a new skin named'; //Translate
-		$this->create_skin = 'Create Skin'; //Translate
-		$this->credit = 'Please do not remove our only credit!'; //Translate
-		$this->delete_template = 'Delete Template'; //Translate
-		$this->directory = 'Directory'; //Translate
-		$this->display_name = 'Display Name'; //Translate
-		$this->edit_skin = 'Edit Skin'; //Translate
-		$this->edit_templates = 'Edit Templates'; //Translate
-		$this->export_done = 'Skin exported to the main Quicksilver Forums directory.';
-		$this->export_select = 'Select a skin to export'; //Translate
-		$this->export_skin = 'Export Skin'; //Translate
-		$this->install_done = 'The skin has been installed successfully.'; //Translate
-		$this->install_exists1 = 'It appears that the skin'; //Translate
-		$this->install_exists2 = 'is already installed.'; //Translate
-		$this->install_overwrite = 'Overwrite'; //Translate
-		$this->install_skin = 'Install Skin'; //Translate
-		$this->menu_title = 'Select a template section to edit'; //Translate
-		$this->only_skin = 'There is only one skin installed. You may not delete this skin.'; //Translate
-		$this->select_skin = 'Select a Skin'; //Translate
-		$this->select_skin_edit = 'Select a skin to edit'; //Translate
-		$this->select_skin_edit_done = 'Skin successfully edited.'; //Translate
-		$this->select_template = 'Select Template'; //Translate
-		$this->skin_chmod = 'A new directory could not be created for the skin. Try to CHMOD the skins directory to 775.'; //Translate
-		$this->skin_created = 'Skin created.'; //Translate
-		$this->skin_deleted = 'Skin successfully deleted.'; //Translate
-		$this->skin_dir_name = 'You must enter a skin name and directory name.'; //Translate
-		$this->skin_dup = 'A skin with a duplicate directory name was found. The skin\'s directory was changed to'; //Translate
-		$this->skin_name = 'You must enter a skin name.'; //Translate
-		$this->skin_none = 'There are no skins available to install.'; //Translate
-		$this->skin_set = 'Skin Set'; //Translate
-		$this->skins_found = 'The following skins were found in the Quicksilver Forums directory';
-		$this->template_about = 'About Variables'; //Translate
-		$this->template_about2 = 'Variables are pieces of text that are replaced with dynamic data. Variables always begin with a dollar sign, and are sometimes enclosed in {braces}.'; //Translate
-		$this->template_add = 'Add'; //Translate
-		$this->template_added = 'Template added.'; //Translate
-		$this->template_clear = 'Clear'; //Translate
-		$this->template_confirm = 'You have made changes to the templates. Do you want to save your changes?'; //Translate
-		$this->template_description = 'Template Description'; //Translate
-		$this->template_html = 'Template HTML'; //Translate
-		$this->template_name = 'Template Name'; //Translate
-		$this->template_position = 'Template Position'; //Translate
-		$this->template_set = 'Template Set'; //Translate
-		$this->template_title = 'Template Title'; //Translate
-		$this->template_universal = 'Universal Variable'; //Translate
-		$this->template_universal2 = 'Some variables can be used in any template, while others can only be used in a single template. Properties of the object $this can be used anywhere.'; //Translate
-		$this->template_updated = 'Template updated.'; //Translate
-		$this->templates = 'Templates'; //Translate
-		$this->temps_active = 'Active Users Detail'; //Translate
-		$this->temps_admin = '<b>AdminCP Universal</b>'; //Translate
-		$this->temps_ban = 'AdminCP Bans'; //Translate
-		$this->temps_board_index = 'Board Index'; //Translate
-		$this->temps_censoring = 'AdminCP Word Censoring'; //Translate
-		$this->temps_cp = 'Member Control Panel'; //Translate
-		$this->temps_email = 'Email A Member'; //Translate
-		$this->temps_emot_control = 'AdminCP Emoticons'; //Translate
-		$this->temps_forum = 'Forums'; //Translate
-		$this->temps_forums = 'AdminCP Forums'; //Translate
-		$this->temps_groups = 'AdminCP Groups'; //Translate
-		$this->temps_help = 'Help'; //Translate
-		$this->temps_login = 'Logging In/Out'; //Translate
-		$this->temps_logs = 'AdminCP Moderator Logs'; //Translate
-		$this->temps_main = '<b>Board Universal</b>'; //Translate
-		$this->temps_mass_mail = 'AdminCP Mass Mail'; //Translate
-		$this->temps_member_control = 'AdminCP Member Control'; //Translate
-		$this->temps_members = 'Member List'; //Translate
-		$this->temps_mod = 'Moderator Controls'; //Translate
-		$this->temps_pm = 'Private Messenger'; //Translate
-		$this->temps_polls = 'Polls'; //Translate
-		$this->temps_post = 'Posting'; //Translate
-		$this->temps_printer = 'Printer-Friendly Topics'; //Translate
-		$this->temps_profile = 'Profile Viewing'; //Translate
-		$this->temps_recent = 'Recent Topics'; //Translate
-		$this->temps_register = 'Registration'; //Translate
-		$this->temps_search = 'Searching'; //Translate
-		$this->temps_settings = 'AdminCP Settings'; //Translate
-		$this->temps_templates = 'AdminCP Template Editor'; //Translate
-		$this->temps_titles = 'AdminCP Member Titles'; //Translate
-		$this->temps_topics = 'Topics'; //Translate
+		$this->add = 'Lägg till HTML Mallar';
+		$this->choose_set = 'Välje ett mallpaket';
+		$this->choose_skin = 'Välj ett skal';
+		$this->create_new = 'Skapa ett nytt skal med namnet';
+		$this->create_skin = 'Skapa Skal';
+		$this->credit = 'Var snäll och ta inte bort vårt enda erkännande!';
+		$this->delete_template = 'Ta bort Mall';
+		$this->directory = 'Mapp';
+		$this->display_name = 'Visnings Namn';
+		$this->edit_skin = 'Ändra Skal';
+		$this->edit_templates = 'Ändra Mallar';
+		$this->export_done = 'Skal exporterat till huvud mappen för Quicksilver Forumet.';
+		$this->export_select = 'Välj ett skal att exportera';
+		$this->export_skin = 'Exportera Skal';
+		$this->install_done = 'Installationen av skalet har lyckats.';
+		$this->install_exists1 = 'Det verkar som om skalet';
+		$this->install_exists2 = 'redan är installerat.';
+		$this->install_overwrite = 'Skriv Över';
+		$this->install_skin = 'Installera Skal';
+		$this->menu_title = 'Välj en mallavdelning att ändra';
+		$this->only_skin = 'Det finns bara ett skal installerat. Du får inte ta bort det här skalet.';
+		$this->select_skin = 'Välj ett skal';
+		$this->select_skin_edit = 'Välj ett skal att ändra';
+		$this->select_skin_edit_done = 'Ändringen av skalet lyckades.';
+		$this->select_template = 'Välj Mall';
+		$this->skin_chmod = 'En ny mapp kunde inte skapas för skalet. Försök att CHMOD mappen \"skins\" till 775.';
+		$this->skin_created = 'Skal Skapat.';
+		$this->skin_deleted = 'Borttagning av skalet lyckades.';
+		$this->skin_dir_name = 'Du måste ange ett namn och en mapp för skalet.';
+		$this->skin_dup = 'Ett skal med samma mapp namn hittades. Skalets mapp ändrades till';
+		$this->skin_name = 'Du måste ange namn för skalet.';
+		$this->skin_none = 'Det finns inga tillgängliga skal att installera.';
+		$this->skin_set = 'Skal Uppsättning';
+		$this->skins_found = 'Följande skal hittades i Quicksilver Forumets mapp';
+		$this->template_about = 'Om Variabler';
+		$this->template_about2 = 'Variabler är delar av text som ersätts med dynamisk data. Variabler börjar med ett dollartecken, och omsluts ibland av {parenteser}.';
+		$this->template_add = 'Lägg till';
+		$this->template_added = 'Mall tillagd.';
+		$this->template_clear = 'Töm';
+		$this->template_confirm = 'Du har gjort ändringar i mallarna. Vill du spara dina ändringar?';
+		$this->template_description = 'Mall Beskrivning';
+		$this->template_html = 'Mall HTML';
+		$this->template_name = 'Mall Namn';
+		$this->template_position = 'Mall Position';
+		$this->template_set = 'Mall Uppsättning';
+		$this->template_title = 'Mall Titel';
+		$this->template_universal = 'Universal Variabel';
+		$this->template_universal2 = 'Vissa variabler kan användas i valfri mall, medna andra bara i en mall. Egenskaper för objektet $this kan användas överallt.';
+		$this->template_updated = 'Mall uppdaterad.';
+		$this->templates = 'Mallar';
+		$this->temps_active = 'Aktiva Användare Detaljer';
+		$this->temps_admin = '<b>AdminCP Universal</b>';
+		$this->temps_ban = 'AdminCP Blockeringar';
+		$this->temps_board_index = 'Forum Index';
+		$this->temps_censoring = 'AdminCP Ord Censurering';
+		$this->temps_cp = 'Medlems Kontroll Panel';
+		$this->temps_email = 'E-posta en Medlem';
+		$this->temps_emot_control = 'AdminCP Emoticons';
+		$this->temps_forum = 'Forums';
+		$this->temps_forums = 'AdminCP Forums';
+		$this->temps_groups = 'AdminCP Grupper';
+		$this->temps_help = 'Hjälp';
+		$this->temps_login = 'Logga In/Ut';
+		$this->temps_logs = 'AdminCP Moderator Loggar';
+		$this->temps_main = '<b>Forum Universal</b>';
+		$this->temps_mass_mail = 'AdminCP Allmänt E-post';
+		$this->temps_member_control = 'AdminCP Medlems Kontroll';
+		$this->temps_members = 'Medlems Lista';
+		$this->temps_mod = 'Moderator Konmtroller';
+		$this->temps_pm = 'Personlig Meddelandecentral';
+		$this->temps_polls = 'Röstningar';
+		$this->temps_post = 'Skrivning';
+		$this->temps_printer = 'Skrivar-Vänliga Ämnen';
+		$this->temps_profile = 'Prifil Spaning';
+		$this->temps_recent = 'Nya Ämnen';
+		$this->temps_register = 'Registrering';
+		$this->temps_search = 'Sökning';
+		$this->temps_settings = 'AdminCP Inställningar';
+		$this->temps_templates = 'AdminCP Mall Editerare';
+		$this->temps_titles = 'AdminCP Medlems Titlar';
+		$this->temps_topics = 'Ämnen';
 	}
 
 	function timezones()
 	{
-		$this->gmt = '[GMT] Greenwich Mean Time'; //Translate
-		$this->gmt_nev1 = '[GMT-1:00] Azores, Cape Verde'; //Translate
-		$this->gmt_nev10 = '[GMT-10:00] Hawaii'; //Translate
-		$this->gmt_nev11 = '[GMT-11:00] Midway Island, Samoa'; //Translate
-		$this->gmt_nev12 = '[GMT-12:00] International Date Line West'; //Translate
-		$this->gmt_nev2 = '[GMT-2:00] Mid-Atlantic'; //Translate
-		$this->gmt_nev3 = '[GMT-3:00] Buenos Aires, Greenland'; //Translate
-		$this->gmt_nev35 = '[GMT-3:30] Newfoundland'; //Translate
-		$this->gmt_nev4 = '[GMT-4:00] Atlantic Time Canada'; //Translate
-		$this->gmt_nev5 = '[GMT-5:00] Eastern Time US & Canada'; //Translate
-		$this->gmt_nev6 = '[GMT-6:00] Central Time US & Canada'; //Translate
-		$this->gmt_nev7 = '[GMT-7:00] Mountain Time US & Canada'; //Translate
-		$this->gmt_nev8 = '[GMT-8:00] Pacific Time US & Canada'; //Translate
-		$this->gmt_nev9 = '[GMT-9:00] Alaska'; //Translate
-		$this->gmt_pos1 = '[GMT+1:00] Amsterdam, Berlin, Rome, Paris'; //Translate
-		$this->gmt_pos10 = '[GMT+10:00] Melbourne, Sydney, Guam'; //Translate
-		$this->gmt_pos11 = '[GMT+11:00] Magadan, New Caledonia'; //Translate
-		$this->gmt_pos12 = '[GMT+12:00] Auckland, Fiji'; //Translate
-		$this->gmt_pos2 = '[GMT+2:00] Athens, Cairo, Jerusalem'; //Translate
-		$this->gmt_pos3 = '[GMT+3:00] Baghdad, Moscow, Nairobi'; //Translate
-		$this->gmt_pos35 = '[GMT+3:30] Tehran'; //Translate
-		$this->gmt_pos4 = '[GMT+4:00] Abu Dhabi, Muscat, Tbilisi'; //Translate
-		$this->gmt_pos45 = '[GMT+4:30] Kabul'; //Translate
-		$this->gmt_pos5 = '[GMT+5:00] Islamabad, Karachi'; //Translate
-		$this->gmt_pos55 = '[GMT+5:30] Bombay, Calcutta, New Delhi'; //Translate
-		$this->gmt_pos6 = '[GMT+6:00] Almaty, Dhaka'; //Translate
-		$this->gmt_pos7 = '[GMT+7:00] Bangkok, Jakarta'; //Translate
-		$this->gmt_pos8 = '[GMT+8:00] Beijing, Hong Kong, Singapore'; //Translate
-		$this->gmt_pos9 = '[GMT+9:00] Tokyo, Seoul'; //Translate
-		$this->gmt_pos95 = '[GMT+9:30] Adelaide, Darwin'; //Translate
+		$this->gmt = '[GMT] Greenwich-tid: Dublin, Lissabon, London';
+		$this->gmt_nev1 = '[GMT-1:00] Azorerna, Kape Verd-öarna';
+		$this->gmt_nev10 = '[GMT-10:00] Hawaii';
+		$this->gmt_nev11 = '[GMT-11:00] Midway-öarna, Samoa';
+		$this->gmt_nev12 = '[GMT-12:00] Internationella Datumlinjen, Väst';
+		$this->gmt_nev2 = '[GMT-2:00] Mid-Atlantic';
+		$this->gmt_nev3 = '[GMT-3:00] Buenos Aires, Grönland';
+		$this->gmt_nev35 = '[GMT-3:30] Newfoundland';
+		$this->gmt_nev4 = '[GMT-4:00] Atlantic Time Kanada';
+		$this->gmt_nev5 = '[GMT-5:00] Eastern Time USA & Kanada';
+		$this->gmt_nev6 = '[GMT-6:00] Central Time USA & Kanada';
+		$this->gmt_nev7 = '[GMT-7:00] Mountain Time USA & Kanada';
+		$this->gmt_nev8 = '[GMT-8:00] Pacific Time USA & Kanada';
+		$this->gmt_nev9 = '[GMT-9:00] Alaska';
+		$this->gmt_pos1 = '[GMT+1:00] Amsterdam, Berlin, Rom, Stockholm, Paris';
+		$this->gmt_pos10 = '[GMT+10:00] Melbourne, Sydney, Guam';
+		$this->gmt_pos11 = '[GMT+11:00] Magadan, Nya Kaledonien';
+		$this->gmt_pos12 = '[GMT+12:00] Auckland, Fiji';
+		$this->gmt_pos2 = '[GMT+2:00] Aten, Kairo, Jerusalem';
+		$this->gmt_pos3 = '[GMT+3:00] Bagdad, Moskva, Nairobi';
+		$this->gmt_pos35 = '[GMT+3:30] Teheran';
+		$this->gmt_pos4 = '[GMT+4:00] Abu Dhabi, Muscat, Tbilisi';
+		$this->gmt_pos45 = '[GMT+4:30] Kabul';
+		$this->gmt_pos5 = '[GMT+5:00] Islamabad, Karachi';
+		$this->gmt_pos55 = '[GMT+5:30] Bombay, Calcutta, New Delhi';
+		$this->gmt_pos6 = '[GMT+6:00] Almaty, Dacca';
+		$this->gmt_pos7 = '[GMT+7:00] Bangkok, Djakarta';
+		$this->gmt_pos8 = '[GMT+8:00] Beijing, Hong Kong, Singapore';
+		$this->gmt_pos9 = '[GMT+9:00] Tokyo, Söul';
+		$this->gmt_pos95 = '[GMT+9:30] Adelaide, Darwin';
 	}
 
 	function titles()
 	{
-		$this->titles_add = 'Add Member Titles'; //Translate
-		$this->titles_added = 'Member Title added.'; //Translate
-		$this->titles_edit = 'Edit Member Titles'; //Translate
-		$this->titles_image = 'Image'; //Translate
-		$this->titles_minpost = 'Minimum Posts'; //Translate
-		$this->titles_title = 'Title'; //Translate
+		$this->titles_add = 'Lägg till Medlems Titlar';
+		$this->titles_added = 'Medlems titel Tillagd.';
+		$this->titles_edit = 'Ändra Medlems Titlar';
+		$this->titles_image = 'Bild';
+		$this->titles_minpost = 'Minimum Inlägg';
+		$this->titles_title = 'Titel';
 	}
 
 	function topic()
@@ -1307,8 +1307,8 @@ class sv
 		$this->topic_attached_downloads = 'nedladdningar';
 		$this->topic_attached_perm = 'Du har inte tillåtelse att ladda hem den här filen.';
 		$this->topic_attached_title = 'Bifogad Fil';
-		$this->topic_avatar = 'Avatar'; //Translate
-		$this->topic_bottom = 'Go to the bottom of the page'; //Translate
+		$this->topic_avatar = 'Visningsbild';
+		$this->topic_bottom = 'Gå till bottem på sidan';
 		$this->topic_create_poll = 'Skapa Ny Röstning';
 		$this->topic_create_topic = 'Skapa Nytt Ämne';
 		$this->topic_delete = 'Radera';
@@ -1319,12 +1319,12 @@ class sv
 		$this->topic_error = 'Fel';
 		$this->topic_group = 'Grupp';
 		$this->topic_guest = 'Gäst';
-		$this->topic_ip = 'IP'; //Translate
+		$this->topic_ip = 'IP';
 		$this->topic_joined = 'Gick Med';
 		$this->topic_level = 'Medelemsnivå';
 		$this->topic_links_aim = 'Skicka ett AIM meddelande till %s';
 		$this->topic_links_email = 'Skicka ett e-post till %s';
-		$this->topic_links_gtalk = 'Send a GTalk message to %s'; //Translate
+		$this->topic_links_gtalk = 'Skicka ett GTalk meddelande till %s';
 		$this->topic_links_icq = 'Skicka ett ICQ meddelande till %s';
 		$this->topic_links_msn = 'Visa %s\'s MSN profil';
 		$this->topic_links_pm = 'Skicka ett personligt meddelande till %s';
@@ -1336,8 +1336,8 @@ class sv
 		$this->topic_no_votes = 'Det finns inga röster i den här röstningen.';
 		$this->topic_not_found = 'Ämnet Kunde Inte Hittas';
 		$this->topic_not_found_message = 'Ämnet kunde inte hittas. Det kan ha blivit raderat, flyttat eller så har det aldrig funnits.';
-		$this->topic_offline = 'This member is currently offline'; //Translate
-		$this->topic_online = 'This member is currently online'; //Translate
+		$this->topic_offline = 'Den här medlemmen är inte inloggad just nu';
+		$this->topic_online = 'Den här medlemmen är inloggad just nu';
 		$this->topic_options = 'Ämnes Alternativ';
 		$this->topic_pages = 'Sidor';
 		$this->topic_perm_view = 'Du har inte tillåtelse att läsa ämnen.';
@@ -1367,21 +1367,21 @@ class sv
 
 	function universal()
 	{
-		$this->based_on = 'based on';
+		$this->based_on = 'baserad på';
 		$this->board_by = 'Av';
 		$this->charset = 'iso-8859-1';
-		$this->continue = 'Continue'; //Translate
-		$this->delete = 'Delete'; //Translate
-		$this->direction = 'ltr'; //Translate
-		$this->edit = 'Edit HTML Templates';
-		$this->no = 'No'; //Translate
-		$this->powered = 'Powered by'; //Translate
-		$this->seconds = 'Seconds'; //Translate
-		$this->sep_decimals = '.'; //Translate
-		$this->sep_thousands = ','; //Translate
+		$this->continue = 'Fortsätt';
+		$this->delete = 'Ta bort';
+		$this->direction = 'ltr';
+		$this->edit = 'Ändra HTML Mallar';
+		$this->no = 'Nej';
+		$this->powered = 'Drivs med';
+		$this->seconds = 'Sekunder';
+		$this->sep_decimals = ',';
+		$this->sep_thousands = ' ';
 		$this->submit = 'Skicka';
 		$this->today = 'Idag';
-		$this->yes = 'Yes'; //Translate
+		$this->yes = 'Ja';
 		$this->yesterday = 'Igår';
 	}
 }
