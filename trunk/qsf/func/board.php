@@ -228,7 +228,8 @@ class board extends qsfglobal
 
 		while ($m = $this->db->nqfetch($members))
 		{
-			$day = $this->mbdate('Y') - reset(explode('-', $m['user_birthday']));
+			$year = explode('-', $m['user_birthday']);
+			$day = $this->mbdate('Y') - $year[0];
 			$comma = ($i < $count) ? ', ' : null;
 			$return .= "<a href='$this->self?a=profile&amp;w={$m['user_id']}' class='small'>{$m['user_name']}</a> ($day)$comma";
 			$i++;
