@@ -993,122 +993,8 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
    <title>{\$title}</title>
    <meta http-equiv=\'Content-Type\' content=\'application/xhtml+xml; charset={\$admin->lang->charset}\' />
    <link rel=\'stylesheet\' type=\'text/css\' href=\'../skins/{\$admin->skin}/styles.css\' />
-
-<script type=\"text/javascript\">
-<!--
-function MM_displayStatusMsg(msgStr)
-{ //v3.0
-  status = msgStr; document.MM_returnValue = true;
-}
-
-function mmLoadMenus()
-{
-  if( window.mm_menu_0116010743_0 ) return;
-
-  window.mm_menu_0116010743_0 = new Menu(\"root\",169,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116010743_0.addMenuItem(\"{\$admin->lang->admin_create_forum}\",\"window.open(\'\$admin->self?a=forums&s=add\', \'_self\');\");
-  mm_menu_0116010743_0.addMenuItem(\"{\$admin->lang->admin_edit_forum}\",\"window.open(\'\$admin->self?a=forums&s=edit\', \'_self\');\");
-  mm_menu_0116010743_0.addMenuItem(\"{\$admin->lang->admin_delete_forum}\",\"window.open(\'\$admin->self?a=forums&s=delete\', \'_self\');\");
-  mm_menu_0116010743_0.addMenuItem(\"{\$admin->lang->admin_forum_order}\",\"window.open(\'\$admin->self?a=forums&s=order\', \'_self\');\");
-  mm_menu_0116010743_0.addMenuItem(\"{\$admin->lang->admin_recount_forums}\",\"window.open(\'\$admin->self?a=forums&s=count\', \'_self\');\");
-  mm_menu_0116010743_0.hideOnMouseOut=true;
-  mm_menu_0116010743_0.menuBorder=1;
-  mm_menu_0116010743_0.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116010743_0.menuBorderBgColor=\'#555555\';
-  mm_menu_0116010743_0.bgColor=\'#555555\';
-
-  window.mm_menu_0116011103_1 = new Menu(\"root\",145,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116011103_1.addMenuItem(\"{\$admin->lang->admin_install_emoticons}\",\"window.open(\'\$admin->self?a=emot_control&s=import\', \'_self\');\");
-  mm_menu_0116011103_1.addMenuItem(\"{\$admin->lang->admin_add_emoticons}\",\"window.open(\'\$admin->self?a=emot_control&s=add\', \'_self\');\");
-  mm_menu_0116011103_1.addMenuItem(\"{\$admin->lang->admin_edit_emoticons}\",\"window.open(\'\$admin->self?a=emot_control&s=edit\', \'_self\');\");
-  mm_menu_0116011103_1.hideOnMouseOut=true;
-  mm_menu_0116011103_1.menuBorder=1;
-  mm_menu_0116011103_1.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116011103_1.menuBorderBgColor=\'#555555\';
-  mm_menu_0116011103_1.bgColor=\'#555555\';
-
-  window.mm_menu_0116011227_2 = new Menu(\"root\",158,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116011227_2.addMenuItem(\"{\$admin->lang->admin_create_group}\",\"window.open(\'\$admin->self?a=groups&s=add\', \'_self\');\");
-  mm_menu_0116011227_2.addMenuItem(\"{\$admin->lang->admin_edit_group_name}\",\"window.open(\'\$admin->self?a=groups&s=edit\', \'_self\');\");
-  mm_menu_0116011227_2.addMenuItem(\"{\$admin->lang->admin_edit_group_perms}\",\"window.open(\'\$admin->self?a=perms\', \'_self\');\");
-  mm_menu_0116011227_2.addMenuItem(\"{\$admin->lang->admin_delete_group}\",\"window.open(\'\$admin->self?a=groups&s=delete\', \'_self\');\");
-  mm_menu_0116011227_2.hideOnMouseOut=true;
-  mm_menu_0116011227_2.menuBorder=1;
-  mm_menu_0116011227_2.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116011227_2.menuBorderBgColor=\'#555555\';
-  mm_menu_0116011227_2.bgColor=\'#555555\';
-
-  window.mm_menu_0116011500_3 = new Menu(\"root\",230,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_edit_member}\",\"window.open(\'\$admin->self?a=member_control&s=profile\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_delete_member}\",\"window.open(\'\$admin->self?a=member_control&s=delete\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_edit_member_perms}\",\"window.open(\'\$admin->self?a=member_control&s=perms\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_add_member_titles}\",\"window.open(\'\$admin->self?a=titles&s=add\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_edit_member_titles}\",\"window.open(\'\$admin->self?a=titles\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_ban_ips}\",\"window.open(\'\$admin->self?a=ban\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_mass_mail}\",\"window.open(\'\$admin->self?a=mass_mail\', \'_self\');\");
-  mm_menu_0116011500_3.addMenuItem(\"{\$admin->lang->admin_fix_stats}\",\"window.open(\'\$admin->self?a=membercount\', \'_self\');\");
-  mm_menu_0116011500_3.hideOnMouseOut=true;
-  mm_menu_0116011500_3.menuBorder=1;
-  mm_menu_0116011500_3.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116011500_3.menuBorderBgColor=\'#555555\';
-  mm_menu_0116011500_3.bgColor=\'#555555\';
-
-  window.mm_menu_0116011717_4 = new Menu(\"root\",145,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116011717_4.addMenuItem(\"{\$admin->lang->admin_db_backup}\",\"window.open(\'\$admin->self?a=backup&s=create\', \'_self\');\");
-  mm_menu_0116011717_4.addMenuItem(\"{\$admin->lang->admin_db_restore}\",\"window.open(\'\$admin->self?a=backup&s=restore\', \'_self\');\");
-  mm_menu_0116011717_4.addMenuItem(\"{\$admin->lang->admin_db_conn}\",\"window.open(\'\$admin->self?a=settings&s=db\', \'_self\');\");
-  mm_menu_0116011717_4.addMenuItem(\"{\$admin->lang->admin_db_optimize}\",\"window.open(\'\$admin->self?a=optimize\', \'_self\');\");
-  mm_menu_0116011717_4.addMenuItem(\"{\$admin->lang->admin_db_query}\",\"window.open(\'\$admin->self?a=query\', \'_self\');\");
-  mm_menu_0116011717_4.hideOnMouseOut=true;
-  mm_menu_0116011717_4.menuBorder=1;
-  mm_menu_0116011717_4.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116011717_4.menuBorderBgColor=\'#555555\';
-  mm_menu_0116011717_4.bgColor=\'#555555\';
- 
-  window.mm_menu_0116012035_5 = new Menu(\"root\",135,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_add_templates}\",\"window.open(\'\$admin->self?a=templates&s=add_html\', \'_self\');\");
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_edit_templates}\",\"window.open(\'\$admin->self?a=templates&s=html\', \'_self\');\");
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_delete_template}\",\"window.open(\'\$admin->self?a=templates&s=del_html\', \'_self\');\");
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_create_skin}\",\"window.open(\'\$admin->self?a=templates&s=skin\', \'_self\');\");
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_edit_skin}\",\"window.open(\'\$admin->self?a=templates&s=editskin\', \'_self\');\");
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_install_skin}\",\"window.open(\'\$admin->self?a=templates&s=load\', \'_self\');\");
-  mm_menu_0116012035_5.addMenuItem(\"{\$admin->lang->admin_export_skin}\",\"window.open(\'\$admin->self?a=templates&s=export\', \'_self\');\");
-  mm_menu_0116012035_5.hideOnMouseOut=true;
-  mm_menu_0116012035_5.menuBorder=1;
-  mm_menu_0116012035_5.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116012035_5.menuBorderBgColor=\'#555555\';
-  mm_menu_0116012035_5.bgColor=\'#555555\';
-
-  window.mm_menu_0116012236_6 = new Menu(\"root\",124,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116012236_6.addMenuItem(\"{\$admin->lang->admin_create_help}\",\"window.open(\'\$admin->self?a=help&s=new\', \'_self\');\");
-  mm_menu_0116012236_6.addMenuItem(\"{\$admin->lang->admin_edit_help}\",\"window.open(\'\$admin->self?a=help&s=edit\', \'_self\');\");
-  mm_menu_0116012236_6.addMenuItem(\"{\$admin->lang->admin_delete_help}\",\"window.open(\'\$admin->self?a=help&s=delete\', \'_self\');\");
-  mm_menu_0116012236_6.hideOnMouseOut=true;
-  mm_menu_0116012236_6.menuBorder=1;
-  mm_menu_0116012236_6.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116012236_6.menuBorderBgColor=\'#555555\';
-  mm_menu_0116012236_6.bgColor=\'#555555\';
-
-  window.mm_menu_0116012357_7 = new Menu(\"root\",137,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#000000\",\"#FFFFFF\",\"#CCCCCC\",\"#CC6600\",\"left\",\"middle\",3,0,1000,-5,7,true,true,true,0,true,true);
-  mm_menu_0116012357_7.addMenuItem(\"{\$admin->lang->admin_edit_settings}\",\"window.open(\'\$admin->self?a=settings&s=basic\', \'_self\');\");
-  mm_menu_0116012357_7.addMenuItem(\"{\$admin->lang->admin_censor}\",\"window.open(\'\$admin->self?a=censoring\', \'_self\');\");
-  mm_menu_0116012357_7.addMenuItem(\"{\$admin->lang->admin_phpinfo}\",\"window.open(\'\$admin->self?a=php_info\', \'_self\');\");
-  mm_menu_0116012357_7.addMenuItem(\"{\$admin->lang->admin_logs}\",\"window.open(\'\$admin->self?a=logs\', \'_self\');\");
-  mm_menu_0116012357_7.addMenuItem(\"{\$admin->lang->admin_stats}\",\"window.open(\'\$admin->self?a=stats\', \'_self\');\");
-  mm_menu_0116012357_7.hideOnMouseOut=true;
-  mm_menu_0116012357_7.menuBorder=1;
-  mm_menu_0116012357_7.menuLiteBgColor=\'#FFFFFF\';
-  mm_menu_0116012357_7.menuBorderBgColor=\'#555555\';
-  mm_menu_0116012357_7.bgColor=\'#555555\';
-
-  mm_menu_0116012357_7.writeMenus();
-} // mmLoadMenus()
-
-//-->
-</script>
-
-<script type=\'text/javascript\' src=\'hsmod_adminbar_menu.js\'></script>
-
+   <link rel=\'stylesheet\' type=\'text/css\' href=\'../skins/{\$admin->skin}/admincp_menu.css\' />
+   <script type=\"text/javascript\" src=\'../skins/{\$admin->skin}/admincp_menu.js\'></script>
   </head>
 
 <body>
@@ -1121,23 +1007,82 @@ function mmLoadMenus()
  </tr>
 {\$admin->etable}
 
-<script type=\'text/javascript\'>mmLoadMenus();</script>
-<div align=\'center\'>
-<table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'634\'>
-  <tr>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116010743_0,0,25,null,\'hsmod_adminbar_r1_c1\');\"><img name=\"hsmod_adminbar_r1_c1\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c1.png\" width=\"149\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116011103_1,0,25,null,\'hsmod_adminbar_r1_c2\');\"><img name=\"hsmod_adminbar_r1_c2\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c2.png\" width=\"80\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116011227_2,0,25,null,\'hsmod_adminbar_r1_c3\');\"><img name=\"hsmod_adminbar_r1_c3\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c3.png\" width=\"60\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116011500_3,0,25,null,\'hsmod_adminbar_r1_c4\');\"><img name=\"hsmod_adminbar_r1_c4\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c4.png\" width=\"74\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116011717_4,0,25,null,\'hsmod_adminbar_r1_c5\');\"><img name=\"hsmod_adminbar_r1_c5\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c5.png\" width=\"74\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116012035_5,0,25,null,\'hsmod_adminbar_r1_c6\');\"><img name=\"hsmod_adminbar_r1_c6\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c6.png\" width=\"50\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116012236_6,0,25,null,\'hsmod_adminbar_r1_c7\');\"><img name=\"hsmod_adminbar_r1_c7\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c7.png\" width=\"96\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseout=\"MM_startTimeout();\" onmouseover=\"MM_showMenu(window.mm_menu_0116012357_7,0,25,null,\'hsmod_adminbar_r1_c8\');\"><img name=\"hsmod_adminbar_r1_c8\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c8.png\" width=\"66\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><a href=\"#\" onmouseover=\"MM_displayStatusMsg(\'Modification created by Joel Theodore for HumanShit.Com\');return document.MM_returnValue\"><img name=\"hsmod_adminbar_r1_c9\" src=\"../skins/{\$admin->skin}/images/hsmod_adminbar_r1_c9.png\" width=\"21\" height=\"25\" border=\"0\" alt=\"\" /></a></td>
-   <td><img src=\'../skins/{\$admin->skin}/images/spacer.png\' width=\'1\' height=\'25\' alt=\'\' /></td>
-  </tr>
-</table>
-</div>
+<div class=\"hsmod\">
+<ul id=\"hsmod\">
+  <li class=\"wider\"><a href=\"#\">{\$admin->lang->admin_forums}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=forums&amp;s=add\'>{\$admin->lang->admin_create_forum}</a></li>
+      <li><a href=\'\$admin->self?a=forums&amp;s=edit\'>{\$admin->lang->admin_edit_forum}</a></li>
+      <li><a href=\'\$admin->self?a=forums&amp;s=delete\'>{\$admin->lang->admin_delete_forum}</a></li>
+      <li><a href=\'\$admin->self?a=forums&amp;s=order\'>{\$admin->lang->admin_forum_order}</a></li>
+      <li><a href=\'\$admin->self?a=forums&amp;s=count\'>{\$admin->lang->admin_recount_forums}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_emoticons}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=emot_control&amp;s=import\'>{\$admin->lang->admin_install_emoticons}</a></li>
+      <li><a href=\'\$admin->self?a=emot_control&amp;s=add\'>{\$admin->lang->admin_add_emoticons}</a></li>
+      <li><a href=\'\$admin->self?a=emot_control&amp;s=edit\'>{\$admin->lang->admin_edit_emoticons}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_groups}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=groups&amp;s=add\'>{\$admin->lang->admin_create_group}</a></li>
+      <li><a href=\'\$admin->self?a=groups&amp;s=edit\'>{\$admin->lang->admin_edit_group_name}</a></li>
+      <li><a href=\'\$admin->self?a=perms\'>{\$admin->lang->admin_edit_group_perms}</a></li>
+      <li><a href=\'\$admin->self?a=groups&amp;s=delete\'>{\$admin->lang->admin_delete_group}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_members}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=member_control&amp;s=profile\'>{\$admin->lang->admin_edit_member}</a></li>
+      <li><a href=\'\$admin->self?a=member_control&amp;s=delete\'>{\$admin->lang->admin_delete_member}</a></li>
+      <li><a href=\'\$admin->self?a=member_control&amp;s=perms\'>{\$admin->lang->admin_edit_member_perms}</a></li>
+      <li><a href=\'\$admin->self?a=titles&amp;s=add\'>{\$admin->lang->admin_add_member_titles}</a></li>
+      <li><a href=\'\$admin->self?a=titles\'>{\$admin->lang->admin_edit_member_titles}</a></li>
+      <li><a href=\'\$admin->self?a=ban\'>{\$admin->lang->admin_ban_ips}</a></li>
+      <li><a href=\'\$admin->self?a=mass_mail\'>{\$admin->lang->admin_mass_mail}</a></li>
+      <li><a href=\'\$admin->self?a=membercount\'>{\$admin->lang->admin_fix_stats}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_db}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=backup&amp;s=create\'>{\$admin->lang->admin_db_backup}</a></li>
+      <li><a href=\'\$admin->self?a=backup&amp;s=restore\'>{\$admin->lang->admin_db_restore}</a></li>
+      <li><a href=\'\$admin->self?a=settings&amp;s=db\'>{\$admin->lang->admin_db_conn}</a></li>
+      <li><a href=\'\$admin->self?a=optimize\'>{\$admin->lang->admin_db_optimize}</a></li>
+      <li><a href=\'\$admin->self?a=query\'>{\$admin->lang->admin_db_query}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_skins}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=templates&amp;s=add_html\'>{\$admin->lang->admin_add_templates}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=html\'>{\$admin->lang->admin_edit_templates}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=del_html\'>{\$admin->lang->admin_delete_template}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=skin\'>{\$admin->lang->admin_create_skin}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=editskin\'>{\$admin->lang->admin_edit_skin}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=load\'>{\$admin->lang->admin_install_skin}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=export\'>{\$admin->lang->admin_export_skin}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_help}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=help&amp;s=new\'>{\$admin->lang->admin_create_help}</a></li>
+      <li><a href=\'\$admin->self?a=help&amp;s=edit\'>{\$admin->lang->admin_edit_help}</a></li>
+      <li><a href=\'\$admin->self?a=help&amp;s=delete\'>{\$admin->lang->admin_delete_help}</a></li>
+    </ul>
+  </li>
+  <li><a href=\"#\">{\$admin->lang->admin_settings}</a>
+    <ul>
+      <li><a href=\'\$admin->self?a=settings&amp;s=basic\'>{\$admin->lang->admin_edit_settings}</a></li>
+      <li><a href=\'\$admin->self?a=censoring\'>{\$admin->lang->admin_censor}</a></li>
+      <li><a href=\'\$admin->self?a=php_info\'>{\$admin->lang->admin_phpinfo}</a></li>
+      <li><a href=\'\$admin->self?a=logs\'>{\$admin->lang->admin_logs}</a></li>
+      <li><a href=\'\$admin->self?a=stats\'>{\$admin->lang->admin_stats}</a></li>
+    </ul>
+  </li>
+</ul>
+</div><br style=\"clear: left;\" />
 
 {\$admin->table}
  <tr>
