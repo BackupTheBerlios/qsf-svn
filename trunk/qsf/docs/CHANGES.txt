@@ -50,3 +50,13 @@ New features and modifications for 1.1.5:
 * Private message preview
 * Show ToS for newly registering users
 * FAQ added - Jonathan West <jon@quicksilverforums.com>
+* Can selectively delete private messages
+* <MODLET> tag now available to templates to allow including code on any template
+* Guests and new registrations have their language detected from the browser
+* Suckerfish style menu used in admin CP
+* Full Dutch translation
+* improved speed in calculating dates 'today' and 'yesterday' - Matt
+* Registration prompts to agree to Terms of service
+* IP addresses stored as integer rather than varchar (save space)
+* debug link hidden from non-admins
+* FAQ added to documents

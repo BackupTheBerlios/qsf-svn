@@ -90,6 +90,7 @@ class en
 		$this->admin_forum_order = 'Change the forum ordering';
 		$this->admin_forums = 'Forums and Categories';
 		$this->admin_groups = 'Groups';
+		$this->admin_heading = 'Quicksilver Forums Admin Control Panel';
 		$this->admin_help = 'Help Articles';
 		$this->admin_install_emoticons = 'Install emoticons';
 		$this->admin_install_skin = 'Install a skin';

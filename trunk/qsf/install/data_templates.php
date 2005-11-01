@@ -928,13 +928,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
 
 <body>
 
-{\$admin->table}
- <tr>
-  <td align=\'center\'>
-   <img src=\'./images/adminlogo.png\' alt=\'{\$admin->name} Admin CP\' />
-  </td>
- </tr>
-{\$admin->etable}
+<h1>{\$admin->lang->admin_heading}</h1>
 
 <div class=\"hsmod\">
 <ul id=\"hsmod\">
