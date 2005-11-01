@@ -74,14 +74,7 @@ $this->sets['default_view_emots'] = 1;
 $this->sets['flood_time_pm'] = 30;
 $this->sets['flood_time_search'] = 10;
 
-while ($this->perms->get_group())
-{
-	$this->perms->set_xy('pm_noflood', false);
-	$this->perms->set_xy('search_noflood', false);
-	$this->perms->update();
-}
-
-$queries[] = "ALTER TABLE {$pre}pmsystem ADD pm_bcc text NOT NULL";
+$queries[] = "ALTER TABLE {$pre}pmsystem ADD pm_bcc text NOT NULL AFTER pm_from";
 $queries[] = "ALTER TABLE {$pre}users ADD user_lastsearch INT(10) UNSIGNED NOT NULL AFTER user_lastpost";
 $queries[] = "ALTER TABLE {$pre}users ADD user_lastpm INT(10) UNSIGNED NOT NULL AFTER user_lastpost";
 ?>
