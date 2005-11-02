@@ -66,4 +66,28 @@ input.freec   {display:block; float:left; margin:0px; margin-bottom:10px; paddin
 label.free    {display:block; float:left; width:100px; text-align:right; padding-right:20px}
 br.free       {clear:left}
 span.red      {color:red}
+/* Format the RSS Reader annoucements section to look like a normal menu field except with bullet points */
+.rssreader {
+	border:1px solid #999999;
+	padding:10px;
+	background-color:#f3f3f3;
+	margin:3px 0px 3px 0px
+}
+.rssreader .rsstitle {
+	border:1px solid #999999;
+	padding:3px 5px 0px 5px;
+	background-color:#f3f3f3;
+	font-size:12px;
+	font-weight:bold;
+	position:relative;
+	top:-15px;
+	white-space:nowrap;
+	border-bottom:0px;
+	display:inline;
+	height:18px;
+	margin-left: 0;
+}
+.rssreader li {
+	margin-left: 2em;
+}
 

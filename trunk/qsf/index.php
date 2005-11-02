@@ -32,6 +32,7 @@ require './global.php';
 require './lib/perms.php';
 require './lib/user.php';
 require './lib/modlet.php';
+require './lib/xmlparser.php';
 
 if (!$set['installed']) {
 	header('Location: ./install/index.php');

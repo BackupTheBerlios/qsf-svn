@@ -39,6 +39,7 @@ require '../lib/perms.php';
 require '../lib/user.php';
 require './admin.php';
 require '../lib/modlet.php';
+require '../lib/xmlparser.php';
 
 set_error_handler('error');
 

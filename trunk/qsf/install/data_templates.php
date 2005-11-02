@@ -910,6 +910,9 @@ $queries['ADMIN_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_s
       </div>
      </td>
     </tr>
+    <tr><td colspan=\'2\'>
+      <MODLET rssreader(http://quicksilverforums.com/qsfnews-rss.php)>
+    </td></tr>    
    </table>
   </td>
  </tr>
@@ -1162,6 +1165,15 @@ $queries['ADMIN_MOD_LOGS'] = "INSERT INTO {$pre}templates (template_skin, templa
  {\$out}
 {\$this->etable}
 ', 'View Moderator Logs', 'Format of the moderator log view', 0)";
+$queries['ADMIN_RSSREADER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_MAIN', '
+<ul class=\"rssreader\">{\$title}{\$rssItems}</ul>
+', 'Admin CP RSS reader', 'Edit the layout of the annoucements rss feed', 11)";
+$queries['ADMIN_RSSREADER_TITLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_TITLE', '
+<li class=\"rsstitle\"><a href=\"{\$item[\'link\']}\">{\$item[\'title\']}</a></li>
+', 'Admin CP RSS reader title', 'Edit the layout of the rss feed title', 12)";
+$queries['ADMIN_RSSREADER_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_ITEM', '
+<li><a href=\"{\$item[\'link\']}\" title=\"{\$item[\'description\']}\">{\$item[\'title\']}</a></li>
+', 'Admin CP RSS reader item', 'Edit the layout of a rss feed item', 13)";
 $queries['ADMIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_TABLE', '<table cellpadding=\'5\' cellspacing=\'0\' class=\'stand\'>', 'Admin Table Start', 'The beginning of the admin table', 8)";
 $queries['ADMIN_TITLE_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_FORM', '
 <form action=\'\$this->self?a=titles&amp;s=edit&amp;edit={\$this->get[\'edit\']}\' method=\'post\'>
@@ -3786,4 +3798,5 @@ $queries['TOPIC_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, t
 {\$this->lang->topic_posts}: {\$post[\'user_posts\']}<br />
 {\$this->lang->topic_joined}: {\$post[\'user_joined\']}<br /><br />
 ', 'Poster Information - Member', 'Edit the poster information in topics for members', 2)";
+
 ?>
