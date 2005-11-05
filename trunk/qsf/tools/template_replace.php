@@ -41,10 +41,10 @@ mysql_select_db($set['db_name']);
 $x = 0;
 $items = array();
 
-$query = mysql_query('SELECT * FROM mb_templates');
+$query = mysql_query('SELECT * FROM '.$set['prefix'].'templates');
 while ($temp = mysql_fetch_array($query))
 {
-	$q = mysql_query('UPDATE mb_templates SET template_html="' . addslashes(str_replace($search, $replace, $temp['template_html'])) . '"
+	$q = mysql_query('UPDATE '.$set['prefix'].'templates SET template_html="' . addslashes(str_replace($search, $replace, $temp['template_html'])) . '"
 	WHERE
 	    template_skin="' . $temp['template_skin'] . '" AND
 		template_set="' . $temp['template_set'] . '" AND
