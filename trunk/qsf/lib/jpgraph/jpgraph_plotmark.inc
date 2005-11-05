@@ -4,10 +4,9 @@
 // Description:	Class file. Handles plotmarks
 // Created: 	2003-03-21
 // Author:	Johan Persson (johanp@aditus.nu)
-// Ver:		$Id: jpgraph_plotmark.inc,v 1.1 2004/02/17 23:16:35 jason Exp $
+// Ver:		$Id: jpgraph_plotmark.inc 41 2005-06-06 10:46:10Z ljp $
 //
-// License:	This code is released under QPL 1.0 
-// Copyright (C) 2003 Johan Persson 
+// Copyright (c) Aditus Consulting. All rights reserved.
 //========================================================================
 
 
@@ -192,9 +191,9 @@ class PlotMark {
 	    $this->csimareas .= "<area shape=\"poly\" coords=\"$coords\" href=\"".$this->csimtarget."\"";
 	    if( !empty($this->csimalt) ) {										
 		$tmp=sprintf($this->csimalt,$this->yvalue,$this->xvalue);
-		$this->csimareas .= " alt=\"$tmp\" title=\"$tmp\"";
+		$this->csimareas .= " title=\"$tmp\"";
 	    }
-	    $this->csimareas .= ">\n";
+	    $this->csimareas .= " alt=\"$tmp\" />\n";
 	}
     }
     
@@ -205,9 +204,9 @@ class PlotMark {
 	    $this->csimareas .= "<area shape=\"circle\" coords=\"$x,$y,$r\" href=\"".$this->csimtarget."\"";
     	    if( !empty($this->csimalt) ) {										
 		$tmp=sprintf($this->csimalt,$this->yvalue,$this->xvalue);
-		$this->csimareas .= " alt=\"$tmp\" title=\"$tmp\"";
+		$this->csimareas .= " title=\"$tmp\"";
 	    }
-            $this->csimareas .= ">\n";        
+            $this->csimareas .= " alt=\"$tmp\" />\n";        
         }
     }
     	
@@ -346,9 +345,9 @@ class PlotMark {
 		    "href=\"".$this->csimtarget."\"";
 		if( !empty($this->csimalt) ) {
 		    $tmp=sprintf($this->csimalt,$this->yvalue,$this->xvalue);
-		    $this->csimareas .= " alt=\"$tmp\" title=\"$tmp\"";
+		    $this->csimareas .= " title=\"$tmp\"";
 		}
-		$this->csimareas .= ">\n";
+		$this->csimareas .= " alt=\"$tmp\" />\n";
 	    }
 	    
 	    // Stroke title
