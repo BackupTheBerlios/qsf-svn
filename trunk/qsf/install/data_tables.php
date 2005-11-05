@@ -237,7 +237,7 @@ $queries[] = "CREATE TABLE {$pre}users (
   user_email_show tinyint(1) unsigned NOT NULL default '0',
   user_email_form tinyint(1) unsigned NOT NULL default '1',
   user_birthday date NOT NULL default '0000-00-00',
-  user_timezone SMALLINT( 3 ) NOT NULL default '151',
+  user_timezone smallint(3) NOT NULL default '151',
   user_homepage varchar(255) NOT NULL default '',
   user_posts int(10) unsigned NOT NULL default '0',
   user_location varchar(100) NOT NULL default '',
@@ -860,5 +860,5 @@ $sets['optional_modules'] = array(
 $settings = addslashes(serialize($sets));
 $queries[] = "INSERT INTO {$pre}settings (settings_id, settings_data) VALUES (1, '{$settings}')";
 $queries[] = "INSERT INTO {$pre}skins (skin_name, skin_dir) VALUES ('Candy Corn', 'default')";
-$queries[] = "INSERT INTO {$pre}users (user_id, user_name, user_password, user_joined, user_level, user_title, user_group, user_skin, user_language, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_email_form, user_birthday, user_timezone, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_pm, user_active, user_yahoo, user_interests, user_signature, user_lastvisit, user_lastpost, user_view_avatars, user_view_signatures, user_view_emoticons, user_perms) VALUES (1, 'Guest', '', 0, 1, '', 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '360', '', 0, '', 0, '', '', 0, 1, '', '', '', 0, 0, 1, 1, 1, '')";
+$queries[] = "INSERT INTO {$pre}users (user_id, user_name, user_password, user_joined, user_level, user_title, user_group, user_skin, user_language, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_email_form, user_birthday, user_timezone, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_pm, user_active, user_yahoo, user_interests, user_signature, user_lastvisit, user_lastpost, user_view_avatars, user_view_signatures, user_view_emoticons, user_perms) VALUES (1, 'Guest', '', 0, 1, '', 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '151', '', 0, '', 0, '', '', 0, 1, '', '', '', 0, 0, 1, 1, 1, '')";
 ?>

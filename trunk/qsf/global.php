@@ -1434,7 +1434,7 @@ class qsfglobal
 	{
 		$out = null;
 
-		$query = $this->db->query("SELECT zone_id, zone_name FROM {$this->pre} timezones ORDER BY zone_name ASC");
+		$query = $this->db->query("SELECT zone_id, zone_name FROM {$this->pre}timezones ORDER BY zone_name ASC");
 
 		while($row = $this->db->nqfetch($query))
 		{

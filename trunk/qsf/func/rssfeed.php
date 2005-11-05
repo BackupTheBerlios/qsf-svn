@@ -72,7 +72,7 @@ class rssfeed extends recent
             $title = htmlspecialchars( $row['topic_title'] );
             $desc = substr( $row['post_text'], 0, 500 );
             $desc = htmlspecialchars( $desc );
-            $pubdate = $this->mbdate( DATE_ISO822, $row['post_time'] );
+            $pubdate = $this->mbdate( DATE_ISO822, $row['post_time'], false );
 
             $out .= "<item>
               <title>{$title} {$this->lang->rssfeed_posted_by} {$row['user_name']}</title>

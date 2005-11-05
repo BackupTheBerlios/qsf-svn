@@ -588,6 +588,4 @@ $queries[] = "UPDATE {$pre}users SET user_timezone=3 WHERE user_timezone=4.5";  
 
 // Adjust the table to it's final point
 $queries[] = "ALTER TABLE {$pre}users CHANGE user_timezone user_timezone SMALLINT(3) NOT NULL DEFAULT '151'";
-
-
 ?>

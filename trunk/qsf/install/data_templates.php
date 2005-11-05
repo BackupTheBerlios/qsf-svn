@@ -1008,7 +1008,9 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
     </ul>
   </li>
 </ul>
-</div><br style=\"clear: left;\" />
+</div>
+
+<br style=\"clear: left;\" />
 
 {\$admin->table}
  <tr>
