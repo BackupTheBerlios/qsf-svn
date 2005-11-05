@@ -79,7 +79,8 @@ class upgrade extends qsfglobal
 
 			$queries = array();
 			$pre = $this->sets['prefix'];
-			$template_list = false;
+			$full_template_list = false;
+			$template_list = array();
 
 			$this->sets['installed'] = 1;
 
@@ -103,16 +104,10 @@ class upgrade extends qsfglobal
 				// This gets really complicated so be careful
 				if (is_bool($need_templates)) {
 					if ($need_templates) {
-						$template_list = true;
+						$full_template_list = true;
 					}
 				} else {
-					if (is_bool($template_list)) {
-						if (!$template_list) {
-							$template_list = $need_templates;
-						}
-					} else {
-						$template_list = array_unique(array_merge($template_list, $need_templates));
-					}
+					$template_list = array_unique(array_merge($template_list, $need_templates));
 				}
 			}
 
@@ -139,14 +134,14 @@ class upgrade extends qsfglobal
 
 			execute_queries($queries, $this->db);
 
-			if ($need_templates) {
+			if ($full_template_list || $need_templates) {
 				$queries = array();
 				include './data_templates.php';
-
-				if (is_bool($need_templates)) {
+				
+				if ($full_template_list) {
 					$this->db->query("DELETE FROM {$pre}templates WHERE template_skin='default'");
 					execute_queries($queries, $this->db);
-				} else {
+				} else if ($need_templates) {
 					foreach ($queries as $template => $insert)
 					{
 						if (in_array($template, $need_templates)) {
