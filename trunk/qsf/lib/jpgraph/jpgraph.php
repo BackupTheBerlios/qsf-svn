@@ -5644,8 +5644,14 @@ class Image {
 	return imagesy($aImg);
     }
 
+    // Modified to check if function exist
+    // To allow for a cleaner error message
     function CreateFromString($aStr) {
-	return imagecreatefromstring($aStr);
+	if(function_exists("imagecreatefromstring")) {
+            return imagecreatefromstring($aStr);
+        }else{
+            die('<center><b>You need to install the correct GD libary before you can run the statistics center</b></center>');
+        }    
     }
 
     function SetCanvasH($aHdl) {
