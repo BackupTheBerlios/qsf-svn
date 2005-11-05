@@ -100,13 +100,22 @@ if (!isset($qsf->get['skin'])) {
 	$qsf->skin = $qsf->get['skin'];
 }
 
-// set timezone offset
-$qsf->tz_adjust = ($qsf->user['user_timezone'] - $qsf->sets['servertime']) * 3600;
-
 $qsf->perms = new permissions;
 $qsf->perms->db  = &$qsf->db;
 $qsf->perms->pre = &$qsf->pre;
 $qsf->perms->get_perms($qsf->user['user_group'], $qsf->user['user_id'], ($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
+
+/* set timezone offset */
+if ($qsf->user['zone_updated'] < $qsf->time)
+{
+	include('lib/tz_decode2.php');
+	$tz = new tz_decode2('timezone/'.$qsf->user['zone_name']);
+	$qsf->tz_adjust = $tz->magic();
+	$zoneupdate = $qsf->time + DAY_IN_SECONDS;
+	$qsf->db->query("UPDATE {$qsf->pre}timezones SET zone_offset={$qsf->tz_adjust}, zone_updated={$zoneupdate} WHERE zone_id={$qsf->user['zone_id']};");
+} else {
+	$qsf->tz_adjust = $qsf->user['zone_offset'];
+}
 
 $qsf->temps = $qsf->get_templates($qsf->get['a']);
 
@@ -183,8 +192,7 @@ if (isset($qsf->get['debug'])) {
 }
 
 if (!$qsf->nohtml) {
-	$servertime = date( 'D, M j Y', $qsf->time );
-	$servertime .= ' ' . $qsf->mbdate( DATE_TIME, $qsf->time );
+	$servertime = $qsf->mbdate( DATE_LONG, $qsf->time, false );
 	$quicksilverforums = $output . eval($qsf->template('MAIN_COPYRIGHT'));
 	echo eval($qsf->template('MAIN'));
 } else {

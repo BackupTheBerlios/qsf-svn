@@ -131,10 +131,11 @@ class new_install extends qsfglobal
 				htmlspecialchars(stripslashes($this->post['admin_name']))
 			);
 
-			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email) VALUES ('{$this->post['admin_name']}', '{$this->post['admin_pass']}', " . USER_ADMIN .  ", 'Administrator', 1, {$this->time}, '{$this->post['admin_email']}')");
+			$this->sets = $this->get_settings($this->sets);
+
+			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email, user_timezone) VALUES ('{$this->post['admin_name']}', '{$this->post['admin_pass']}', " . USER_ADMIN .  ", 'Administrator', 1, {$this->time}, '{$this->post['admin_email']}', {$this->sets['servertime']})");
 			$admin_uid = $this->db->insert_id();
 
-			$this->sets = $this->get_settings($this->sets);
 			$this->sets['last_member'] = $this->post['admin_name'];
 			$this->sets['last_member_id'] = $admin_uid;
 			$this->sets['admin_incoming'] = $this->post['admin_email'];

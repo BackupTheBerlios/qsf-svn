@@ -46,51 +46,50 @@ class user
 
 	/**
 	 * Check for a session or cookie for a logged in user and return it or return
-     * the guest user using USER_GUEST_UID
+	 * the guest user using USER_GUEST_UID
 	 *
 	 * @return user record set
 	 **/
-    function login()
+	function login()
 	{
-		if(isset($this->cookie[$this->sets['cookie_prefix'] . 'user']) && isset($this->cookie[$this->sets['cookie_prefix'] . 'pass'])){
+		if(isset($this->cookie[$this->sets['cookie_prefix'] . 'user']) && isset($this->cookie[$this->sets['cookie_prefix'] . 'pass'])) {
 			$cookie_user = intval($this->cookie[$this->sets['cookie_prefix'] . 'user']);
 			$cookie_pass = addslashes($this->cookie[$this->sets['cookie_prefix'] . 'pass']);
-			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon FROM {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id='{$cookie_user}' AND m.user_password='{$cookie_pass}' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level LIMIT 1");
+			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id='{$cookie_user}' AND m.user_password='{$cookie_pass}' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
 
-		}else if(isset($this->session['user']) && isset($this->session['pass'])){
+		}else if(isset($this->session['user']) && isset($this->session['pass'])) {
 			$session_user = intval($this->session['user']);
 			$session_pass = addslashes($this->session['pass']);
-			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon FROM {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id='{$session_user}' AND m.user_password='{$session_pass}' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level LIMIT 1");
+			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id='{$session_user}' AND m.user_password='{$session_pass}' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
 
-		}else{
-			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon FROM {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level LIMIT 1");
-            $user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);
+		}else {
+			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
+			$user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);
 		}
 
 		if (!isset($user['user_id'])) {
-			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon FROM {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level LIMIT 1");
+			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
 			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
 			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
-            $user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);
+			$user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);
 		}
-
 		return $user;
 	}
     
    	/**
 	 * Look at the information the browser has sent and try and find a language
 	 *
-     * @param $deflang Fallback language to use
+	 * @param $deflang Fallback language to use
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 * @since 1.1.5
 	 * @return character code for language to use
 	 **/
-    function get_browser_lang($deflang)
-    {
-        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && strlen($_SERVER['HTTP_ACCEPT_LANGUAGE']) >= 2) {
-            return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        }
-        return $deflang;
-    }
+	function get_browser_lang($deflang)
+	{
+		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && strlen($_SERVER['HTTP_ACCEPT_LANGUAGE']) >= 2) {
+			return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+		}
+		return $deflang;
+	}
 }
 ?>

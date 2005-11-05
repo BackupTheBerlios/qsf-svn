@@ -1086,11 +1086,12 @@ class qsfglobal
 	 *
 	 * @param mixed $format Date format using date() keywords. Either a date constant or a string.
 	 * @param int $time Timestamp. If left out, uses current time
+	 * @param bool $useToday true if dates should substitute date with 'today' or 'yesterday'
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.1
 	 * @return string Human-readable, formatted Unix timestamp
 	 **/
-	function mbdate($format, $time = 0)
+	function mbdate($format, $time = 0, $useToday = true)
 	{
 		if (!$time) {
 			$time = $this->time;
@@ -1132,24 +1133,25 @@ class qsfglobal
 				break;
 			}
 
-			if ($date_format) {
-				$daysplit = intval($time / DAY_IN_SECONDS) * DAY_IN_SECONDS;
-				$usertime = $this->time + $this->tz_adjust;
+			if (!$useToday) {
+				$date = gmdate($date_format, $time);
+			} else if ($date_format) {
+				$daysplit = intval($this->time / DAY_IN_SECONDS) * DAY_IN_SECONDS;
 
-				if (($this->time > $daysplit) && ($this->time < ($daysplit + DAY_IN_SECONDS))) {
+				if (($time > $daysplit) && ($time < ($daysplit + DAY_IN_SECONDS))) {
 					$date = $this->lang->today;
-				} elseif (($usertime > ($daysplit - DAY_IN_SECONDS)) && ($usertime < $daysplit)) {
+				} elseif (($time > ($daysplit - DAY_IN_SECONDS)) && ($time < $daysplit)) {
 					$date = $this->lang->yesterday;
 				} else {
-					$date = date($date_format, $time);
+					$date = gmdate($date_format, $time);
 				}
 			} else {
 				$date = '';
 			}
 
-			return $date . date($time_format, $time);
+			return $date . gmdate($time_format, $time);
 		} else {
-			return date($format, $time);
+			return gmdate($format, $time);
 		}
 	}
 
@@ -1432,43 +1434,11 @@ class qsfglobal
 	{
 		$out = null;
 
-		$zones = array(
-			'-12'   => $this->lang->gmt_nev12,
-			'-11'   => $this->lang->gmt_nev11,
-			'-10'   => $this->lang->gmt_nev10,
-			'-9'    => $this->lang->gmt_nev9,
-			'-8'    => $this->lang->gmt_nev8,
-			'-7'    => $this->lang->gmt_nev7,
-			'-6'    => $this->lang->gmt_nev6,
-			'-5'    => $this->lang->gmt_nev5,
-			'-4'    => $this->lang->gmt_nev4,
-			'-3.5'  => $this->lang->gmt_nev35,
-			'-3'    => $this->lang->gmt_nev3,
-			'-2'    => $this->lang->gmt_nev2,
-			'-1'    => $this->lang->gmt_nev1,
-			'0'     => $this->lang->gmt,
-			'1'     => $this->lang->gmt_pos1,
-			'2'     => $this->lang->gmt_pos2,
-			'3'     => $this->lang->gmt_pos3,
-			'3.5'   => $this->lang->gmt_pos35,
-			'4'     => $this->lang->gmt_pos4,
-			'4.5'   => $this->lang->gmt_pos45,
-			'5'     => $this->lang->gmt_pos5,
-			'5.5'   => $this->lang->gmt_pos55,
-			'6'     => $this->lang->gmt_pos6,
-			'7'     => $this->lang->gmt_pos7,
-			'8'     => $this->lang->gmt_pos8,
-			'9'     => $this->lang->gmt_pos9,
-			'9.5'   => $this->lang->gmt_pos95,
-			'10'    => $this->lang->gmt_pos10,
-			'11'    => $this->lang->gmt_pos11,
-			'12'    => $this->lang->gmt_pos12
-		);
+		$query = $this->db->query("SELECT zone_id, zone_name FROM {$this->pre} timezones ORDER BY zone_name ASC");
 
-		foreach ($zones as $offset => $zone_name)
+		while($row = $this->db->nqfetch($query))
 		{
-			$zone_name = $this->format($zone_name, FORMAT_HTMLCHARS);
-			$out .= "<option value='$offset'" . (($offset == $zone) ? ' selected=\'selected\'' : null) . ">$zone_name</option>\n";
+			$out .= '<option value='.$row['zone_id'].(($zone == $row['zone_id']) ? ' selected=\'selected\'' : null).'>'.$row['zone_name'].'</option>'."\n";
 		}
 
 		return $out;
