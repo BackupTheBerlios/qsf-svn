@@ -73,7 +73,7 @@ class upgrade extends qsfglobal
 					$sets_error = null;
 				}
 
-				include 'upgradefromdatabase.php';
+				include 'templates/upgradefromdatabase.php';
 				break;
 			}
 
