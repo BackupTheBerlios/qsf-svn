@@ -1136,14 +1136,14 @@ class qsfglobal
 			if (!$useToday) {
 				$date = gmdate($date_format, $time);
 			} else if ($date_format) {
-				$daysplit = intval($this->time / DAY_IN_SECONDS) * DAY_IN_SECONDS;
+				$date = gmdate($date_format, $time);
+				$today = gmdate($date_format, $this->time + $this->tz_adjust);
+				$yesterday = gmdate($date_format, ($this->time - DAY_IN_SECONDS) + $this->tz_adjust);
 
-				if (($time > $daysplit) && ($time < ($daysplit + DAY_IN_SECONDS))) {
+				if ($today == $date) {
 					$date = $this->lang->today;
-				} elseif (($time > ($daysplit - DAY_IN_SECONDS)) && ($time < $daysplit)) {
+				} elseif ($yesterday == $date) {
 					$date = $this->lang->yesterday;
-				} else {
-					$date = gmdate($date_format, $time);
 				}
 			} else {
 				$date = '';
