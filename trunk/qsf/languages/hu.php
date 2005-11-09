@@ -1257,40 +1257,6 @@ class hu
 		$this->temps_topics = 'Topics'; //Translate
 	}
 
-	function timezones()
-	{
-		$this->gmt = '[GMT] Greenwich Mean Time'; //Translate
-		$this->gmt_nev1 = '[GMT-1:00] Azores, Cape Verde'; //Translate
-		$this->gmt_nev10 = '[GMT-10:00] Hawaii'; //Translate
-		$this->gmt_nev11 = '[GMT-11:00] Midway Island, Samoa'; //Translate
-		$this->gmt_nev12 = '[GMT-12:00] International Date Line West'; //Translate
-		$this->gmt_nev2 = '[GMT-2:00] Mid-Atlantic'; //Translate
-		$this->gmt_nev3 = '[GMT-3:00] Buenos Aires, Greenland'; //Translate
-		$this->gmt_nev35 = '[GMT-3:30] Newfoundland'; //Translate
-		$this->gmt_nev4 = '[GMT-4:00] Atlantic Time Canada'; //Translate
-		$this->gmt_nev5 = '[GMT-5:00] Eastern Time US & Canada'; //Translate
-		$this->gmt_nev6 = '[GMT-6:00] Central Time US & Canada'; //Translate
-		$this->gmt_nev7 = '[GMT-7:00] Mountain Time US & Canada'; //Translate
-		$this->gmt_nev8 = '[GMT-8:00] Pacific Time US & Canada'; //Translate
-		$this->gmt_nev9 = '[GMT-9:00] Alaska'; //Translate
-		$this->gmt_pos1 = '[GMT+1:00] Amsterdam, Berlin, Rome, Paris'; //Translate
-		$this->gmt_pos10 = '[GMT+10:00] Melbourne, Sydney, Guam'; //Translate
-		$this->gmt_pos11 = '[GMT+11:00] Magadan, New Caledonia'; //Translate
-		$this->gmt_pos12 = '[GMT+12:00] Auckland, Fiji'; //Translate
-		$this->gmt_pos2 = '[GMT+2:00] Athens, Cairo, Jerusalem'; //Translate
-		$this->gmt_pos3 = '[GMT+3:00] Baghdad, Moscow, Nairobi'; //Translate
-		$this->gmt_pos35 = '[GMT+3:30] Tehran'; //Translate
-		$this->gmt_pos4 = '[GMT+4:00] Abu Dhabi, Muscat, Tbilisi'; //Translate
-		$this->gmt_pos45 = '[GMT+4:30] Kabul'; //Translate
-		$this->gmt_pos5 = '[GMT+5:00] Islamabad, Karachi'; //Translate
-		$this->gmt_pos55 = '[GMT+5:30] Bombay, Calcutta, New Delhi'; //Translate
-		$this->gmt_pos6 = '[GMT+6:00] Almaty, Dhaka'; //Translate
-		$this->gmt_pos7 = '[GMT+7:00] Bangkok, Jakarta'; //Translate
-		$this->gmt_pos8 = '[GMT+8:00] Beijing, Hong Kong, Singapore'; //Translate
-		$this->gmt_pos9 = '[GMT+9:00] Tokyo, Seoul'; //Translate
-		$this->gmt_pos95 = '[GMT+9:30] Adelaide, Darwin'; //Translate
-	}
-
 	function titles()
 	{
 		$this->titles_add = 'Add Member Titles'; //Translate
@@ -1367,6 +1333,7 @@ class hu
 
 	function universal()
 	{
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'based on';
 		$this->board_by = 'Feladó';
 		$this->charset = 'iso-8859-1';
@@ -1374,13 +1341,26 @@ class hu
 		$this->delete = 'Delete'; //Translate
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Edit HTML Templates';
+		$this->email = 'Email'; //Translate
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
+		$this->new_message = 'New Message'; //Translate
+		$this->new_poll = 'New Poll'; //Translate
+		$this->new_topic = 'New Topic'; //Translate
 		$this->no = 'No'; //Translate
 		$this->powered = 'Powered by'; //Translate
+		$this->private_message = 'PM'; //Translate
+		$this->quote = 'Quote'; //Translate
+		$this->reply = 'Reply'; //Translate
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
 		$this->submit = 'Mehet';
+		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Ma';
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = 'Yes'; //Translate
 		$this->yesterday = 'Tegnap';
 	}

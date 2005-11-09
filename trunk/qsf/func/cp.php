@@ -156,8 +156,6 @@ class cp extends qsfglobal
 			$user_pmCheck   = $this->user['user_pm'] ? ' checked=\'checked\'' : null;
 			$active_check   = $this->user['user_active'] ? ' checked=\'checked\'' : null;
 
-			$this->lang->timezones(); //For $this->select_timezones()
-
 			$time_list  = $this->select_timezones($this->user['user_timezone']);
 			$skin_list  = $this->select_skins($this->skin);
 			$lang_list  = $this->select_langs($this->user['user_language']);

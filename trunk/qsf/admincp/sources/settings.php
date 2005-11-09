@@ -48,8 +48,6 @@ class settings extends admin
 			$this->sets['closedtext'] = $this->format($this->sets['closedtext'], FORMAT_HTMLCHARS);
 			$this->sets['forum_name'] = $this->format($this->sets['forum_name'], FORMAT_HTMLCHARS);
 
-			$this->lang->timezones(); //For $this->select_timezones()
-
 			$group = $this->db->fetch("SELECT group_name FROM {$this->pre}groups WHERE group_id=" . USER_AWAIT);
 			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
 			$tos_text = stripslashes($tos['settings_tos']);

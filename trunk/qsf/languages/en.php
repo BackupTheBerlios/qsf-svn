@@ -1257,40 +1257,6 @@ class en
 		$this->temps_topics = 'Topics';
 	}
 
-	function timezones()
-	{
-		$this->gmt = '[GMT] Greenwich Mean Time';
-		$this->gmt_nev1 = '[GMT-1:00] Azores, Cape Verde';
-		$this->gmt_nev10 = '[GMT-10:00] Hawaii';
-		$this->gmt_nev11 = '[GMT-11:00] Midway Island, Samoa';
-		$this->gmt_nev12 = '[GMT-12:00] International Date Line West';
-		$this->gmt_nev2 = '[GMT-2:00] Mid-Atlantic';
-		$this->gmt_nev3 = '[GMT-3:00] Buenos Aires, Greenland';
-		$this->gmt_nev35 = '[GMT-3:30] Newfoundland';
-		$this->gmt_nev4 = '[GMT-4:00] Atlantic Time Canada';
-		$this->gmt_nev5 = '[GMT-5:00] Eastern Time US & Canada';
-		$this->gmt_nev6 = '[GMT-6:00] Central Time US & Canada';
-		$this->gmt_nev7 = '[GMT-7:00] Mountain Time US & Canada';
-		$this->gmt_nev8 = '[GMT-8:00] Pacific Time US & Canada';
-		$this->gmt_nev9 = '[GMT-9:00] Alaska';
-		$this->gmt_pos1 = '[GMT+1:00] Amsterdam, Berlin, Rome, Paris';
-		$this->gmt_pos10 = '[GMT+10:00] Melbourne, Sydney, Guam';
-		$this->gmt_pos11 = '[GMT+11:00] Magadan, New Caledonia';
-		$this->gmt_pos12 = '[GMT+12:00] Auckland, Fiji';
-		$this->gmt_pos2 = '[GMT+2:00] Athens, Cairo, Jerusalem';
-		$this->gmt_pos3 = '[GMT+3:00] Baghdad, Moscow, Nairobi';
-		$this->gmt_pos35 = '[GMT+3:30] Tehran';
-		$this->gmt_pos4 = '[GMT+4:00] Abu Dhabi, Muscat, Tbilisi';
-		$this->gmt_pos45 = '[GMT+4:30] Kabul';
-		$this->gmt_pos5 = '[GMT+5:00] Islamabad, Karachi';
-		$this->gmt_pos55 = '[GMT+5:30] Bombay, Calcutta, New Delhi';
-		$this->gmt_pos6 = '[GMT+6:00] Almaty, Dhaka';
-		$this->gmt_pos7 = '[GMT+7:00] Bangkok, Jakarta';
-		$this->gmt_pos8 = '[GMT+8:00] Beijing, Hong Kong, Singapore';
-		$this->gmt_pos9 = '[GMT+9:00] Tokyo, Seoul';
-		$this->gmt_pos95 = '[GMT+9:30] Adelaide, Darwin';
-	}
-
 	function titles()
 	{
 		$this->titles_add = 'Add Member Titles';
@@ -1367,6 +1333,7 @@ class en
 
 	function universal()
 	{
+		$this->aim = 'AIM';
 		$this->based_on = 'Based on';
 		$this->board_by = 'By';
 		$this->charset = 'iso-8859-1';
@@ -1374,13 +1341,26 @@ class en
 		$this->delete = 'Delete';
 		$this->direction = 'ltr';
 		$this->edit = 'Edit';
+		$this->email = 'Email';
+		$this->gtalk = 'GT';
+		$this->icq = 'ICQ';
+		$this->msn = 'MSN';
+		$this->new_message = 'New Message';
+		$this->new_poll = 'New Poll';
+		$this->new_topic = 'New Topic';
 		$this->no = 'No';
 		$this->powered = 'Powered by';
+		$this->private_message = 'PM';
+		$this->quote = 'Quote';
+		$this->reply = 'Reply';
 		$this->seconds = 'Seconds';
 		$this->sep_decimals = '.';
 		$this->sep_thousands = ',';
 		$this->submit = 'Submit';
+		$this->subscribe = 'Subscribe';
 		$this->today = 'Today';
+		$this->website = 'WWW';
+		$this->yahoo = 'Yahoo';
 		$this->yes = 'Yes';
 		$this->yesterday = 'Yesterday';
 	}

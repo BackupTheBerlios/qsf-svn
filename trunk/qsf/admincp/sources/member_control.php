@@ -179,7 +179,6 @@ class member_control extends admin
 					switch ($data[1])
 					{
 					case U_TZONE:
-						$this->lang->timezones(); //For $this->select_timezones()
 						$time_list  = $this->select_timezones($val);
 						$out .= "<select class='select' name='user_timezone'>" . $time_list . "</select>";
 						break;
