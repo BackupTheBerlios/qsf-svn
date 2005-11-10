@@ -162,6 +162,7 @@ class forum extends qsfglobal
 				}
 
 				if ($forum['forum_lastpost']) {
+					$forum['LastTimeTopic'] = $forum['LastTime']; // Store so skin can access
 					$forum['LastTime'] = $this->mbdate(DATE_LONG, $forum['LastTime']);
 
 					if ($forum['user_lastposterID']) {
@@ -273,6 +274,7 @@ class forum extends qsfglobal
 			if ($row['topic_modes'] & TOPIC_PINNED) {
 				$out .= eval($this->template('FORUM_TOPIC_PINNED'));
 			} else {
+				$row['icon'] = $row['topic_icon']; // Store so skin can still access
 				if ($row['topic_modes'] & TOPIC_POLL) {
 					$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" alt="' . $this->lang->forum_icon . '" />';
 				} else {

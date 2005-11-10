@@ -384,11 +384,15 @@ class topic extends qsfglobal
 			$user_created_post = ($this->user['user_id'] == $post['post_author']);
 			$options = null;
 
+			$can_edit = false; // Shortcut for skin
 			if ($this->perms->auth('post_edit', $topic['topic_forum']) || ($user_created_post && $this->perms->auth('post_edit_own', $topic['topic_forum']))) {
+				$can_edit = true;
 				$options .= '<a href="' . $this->self . '?a=mod&amp;s=edit_post&amp;p=' . $post['post_id'] . '&amp;min=' . $this->get['min'] . '"><img alt="' . $this->lang->topic_edit_post . '" src="./skins/' . $this->skin . '/images/edit.png" /></a>';
 			}
 
+			$can_delete = false; // Shortcut for skin
 			if ($this->perms->auth('post_delete', $topic['topic_forum']) || ($user_created_post && $this->perms->auth('post_delete_own', $topic['topic_forum']))) {
+				$can_delete = true;
 				$options .= ' <a href="' . $this->self . '?a=mod&amp;s=del_post&amp;p=' . $post['post_id'] . '"><img alt="' . $this->lang->topic_delete_post . '" src="./skins/' . $this->skin . '/images/delete.png" /></a>';
 			}
 

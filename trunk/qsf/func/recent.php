@@ -210,6 +210,7 @@ class recent extends qsfglobal
 			if ($row['topic_modes'] & TOPIC_PINNED) {
 				$out .= eval($this->template('RECENT_TOPIC_PINNED'));
 			} else {
+				$row['icon'] = $row['topic_icon']; // Store so skin can access
 				if ($row['topic_modes'] & TOPIC_POLL) {
 					$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" border="0" alt="' . $this->lang->recent_icon . '">';
 				} else {

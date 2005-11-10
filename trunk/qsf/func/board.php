@@ -147,10 +147,12 @@ class board extends qsfglobal
 
 					if ($forum['forum_lastpost']) {
 						if ($forum['LastTime'] > $this->user['user_lastvisit']) {
-    						$topic_new = "<a href='$this->self?s=mark&amp;f={$forum['forum_id']}'><img src='./skins/{$this->skin}/images/topic_new.png' alt='{$this->lang->board_topics_new}' title='{$this->lang->board_topics_new}' /></a>";
-    					} else {
-							$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->board_topics_old}' title='{$this->lang->board_topics_old}' />";
-    					}
+							$topic_new = "<a href='$this->self?s=mark&amp;f={$forum['forum_id']}'><img src='./skins/{$this->skin}/images/topic_new.png' alt='{$this->lang->board_topics_new}' title='{$this->lang->board_topics_new}' /></a>";
+						} else {
+								$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->board_topics_old}' title='{$this->lang->board_topics_old}' />";
+						}
+						
+						$forum['TopicLastTime'] = $forum['LastTime']; // store so skins can access
 
 						$forum['LastTime'] = $this->mbdate(DATE_LONG, $forum['LastTime']);
 

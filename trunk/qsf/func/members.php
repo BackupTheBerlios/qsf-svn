@@ -126,10 +126,12 @@ class members extends qsfglobal
 					$member['user_email'] = '';
 				}
 			} else {
+				$member['email'] = $member['user_email']; // Store so skin can access directly
 				$member['user_email'] = "<a href='mailto:{$member['user_email']}'><img src='./skins/$this->skin/images/email.png' alt=\"{$this->lang->members_email_member}\" /></a>";
 			}
 
 			if (!empty($member['user_homepage'])) {
+				$member['homepage'] = $member['user_homepage']; // Store so skin can access directly
 				$member['user_homepage'] = "<a href=\"{$member['user_homepage']}\" onclick=\"window.open(this.href,'{$this->sets['link_target']}');return false;\"><img src='./skins/$this->skin/images/www.png' alt=\"{$this->lang->members_vist_www}\" /></a>";
 			}
 
