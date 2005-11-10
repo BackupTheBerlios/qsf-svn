@@ -1646,7 +1646,8 @@ class qsfglobal
 			return UPLOAD_TOO_LARGE;
 		}
 
-		$ext = strtolower(end(explode('.', $file['name'])));
+		$temp = explode('.', $file['name']);
+		$ext = strtolower(end($temp));
 
 		if (!in_array($ext, $allowed_types)) {
 			return UPLOAD_NOT_ALLOWED;
@@ -1658,7 +1659,6 @@ class qsfglobal
 				return UPLOAD_SUCCESS;
 			}
 		}
-
 		return UPLOAD_FAILURE;
 	}
 
