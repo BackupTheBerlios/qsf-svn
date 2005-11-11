@@ -106,9 +106,9 @@ class pm extends qsfglobal
 
 				// aWest's PM Preview mod
 				if (strlen($pm['pm_message']) > 200) {
-					$preview = substr($pm['pm_message'], 0, 200) . "...";
+					$preview = htmlspecialchars(substr($pm['pm_message'], 0, 200) . "...");
 				} else {
-					$preview = $pm['pm_message'];
+					$preview = htmlspecialchars($pm['pm_message']);
 				}
 
 				$messages .= eval($this->template('PM_FOLDER_MESSAGE'));
