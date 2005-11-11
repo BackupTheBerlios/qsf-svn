@@ -2319,7 +2319,7 @@ $queries['PM_FOLDER_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, tem
   <tr>
     <td class=\'tablelight\' align=\'center\'><input type=\'checkbox\' name=\'delete[{\$pm[\'pm_id\']}]\' /></td>
     <td class=\'tablelight\' align=\'center\'><img src=\'./skins/\$this->skin/images/{\$pm[\'pm_read\']}open.png\' alt=\'{\$this->lang->pm_pm}\' /></td>
-    <td class=\'tablelight\'><a href=\'{\$this->self}?a=pm&amp;s=view&amp;m={\$pm[\'pm_id\']}\' title=\"{\$preview}\">{\$pm[\'pm_title\']}</a></td>
+    <td class=\'tablelight\'><a href=\'{\$this->self}?a=pm&amp;s=view&amp;m={\$pm[\'pm_id\']}\' title=\'{\$preview}\'>{\$pm[\'pm_title\']}</a></td>
     <td class=\'tablelight\'><a href=\'{\$this->self}?a=profile&amp;w={\$pm[\'pm_from\']}\'>{\$pm[\'user_name\']}</a></td>
     <td class=\'tablelight\'>{\$pm[\'pm_time\']}</td>
   </tr>
