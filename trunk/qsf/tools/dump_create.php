@@ -42,6 +42,7 @@ if ($_SERVER['QUERY_STRING'] == '') {
 $showcolumns = 'yes';
 
 $db     = $set['db_name'];
+$prefix = $set['prefix'];
 $crlf   = "\n";
 $asfile = 'sendit';
 $drop   = 1;
@@ -57,40 +58,41 @@ $num_tables = mysql_numrows($tables);
 
 // Structure
 $table_select1 = array(
-	'mb_active'        => 1,
-	'mb_attach'        => 1,
-	'mb_forums'        => 1,
-	'mb_groups'        => 1,
-	'mb_help'          => 1,
-	'mb_logs'          => 1,
-	'mb_membertitles'  => 1,
-	'mb_pmsystem'      => 1,
-	'mb_posts'         => 1,
-	'mb_replacements'  => 1,
-	'mb_settings'      => 1,
-	'mb_skins'         => 1,
-	'mb_subscriptions' => 1,
-	'mb_templates'     => 1,
-	'mb_topics'        => 1,
-	'mb_users'         => 1,
-	'mb_votes'         => 1
+	'{$prefix}active'        => 1,
+	'{$prefix}attach'        => 1,
+	'{$prefix}forums'        => 1,
+	'{$prefix}groups'        => 1,
+	'{$prefix}help'          => 1,
+	'{$prefix}logs'          => 1,
+	'{$prefix}membertitles'  => 1,
+	'{$prefix}pmsystem'      => 1,
+	'{$prefix}posts'         => 1,
+	'{$prefix}replacements'  => 1,
+	'{$prefix}settings'      => 1,
+	'{$prefix}skins'         => 1,
+	'{$prefix}subscriptions' => 1,
+	'{$prefix}templates'     => 1,
+	'{$prefix}timezones'     => 1,
+	'{$prefix}topics'        => 1,
+	'{$prefix}users'         => 1,
+	'{$prefix}votes'         => 1
 );
 
 // Data
 $table_select2 = array(
-	'mb_groups'       => 1,
-	'mb_help'         => 1,
-	'mb_membertitles' => 1,
-	'mb_replacements' => 1,
-	'mb_settings'     => 1,
-	'mb_skins'        => 1,
-	'mb_users'        => 1
+	'{$prefix}groups'       => 1,
+	'{$prefix}help'         => 1,
+	'{$prefix}membertitles' => 1,
+	'{$prefix}replacements' => 1,
+	'{$prefix}settings'     => 1,
+	'{$prefix}skins'        => 1,
+	'{$prefix}users'        => 1
 );
 
 $dump1  = makedump($table_select1, 'structure');
 $dump1 .= makedump($table_select2, 'dataonly');
 
-$dump2  = makedump(array('mb_templates' => 1), 'dataonly');
+$dump2  = makedump(array('{$prefix}templates' => 1), 'dataonly');
 
 define_mysql_version();
 
@@ -160,8 +162,8 @@ foreach ($templates as $template)
 	$out2 .= $template;
 }
 
-$out1 = preg_replace('/(TABLE|EXISTS|INTO) mb_/', '\\1 {$pre}', $out1);
-$out2 = preg_replace('/(TABLE|EXISTS|INTO) mb_/', '\\1 {$pre}', $out2);
+$out1 = preg_replace('/(TABLE|EXISTS|INTO) {$prefix}/', '\\1 {$pre}', $out1);
+$out2 = preg_replace('/(TABLE|EXISTS|INTO) {$prefix}/', '\\1 {$pre}', $out2);
 
 $out1 .= '?>';
 $out2 .= '?>';

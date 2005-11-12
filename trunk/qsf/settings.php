@@ -8,5 +8,5 @@ $set['db_socket'] = '';
 $set['db_user'] = '';
 $set['dbtype'] = 'mysql';
 $set['installed'] = '0';
-$set['prefix'] = 'mb_';
+$set['prefix'] = 'qsf_';
 ?>
