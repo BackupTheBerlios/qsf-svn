@@ -410,7 +410,12 @@ class qsfglobal
 
 		$height = $count * 15;
 
-		$return = "<div class='code'>";
+		$return = '';
+		if ($php) {
+			$return = '<div class="code phpcode">';
+		} else {
+			$return = '<div class="code">';
+		}
 		$return .= "<div class='codetitle'>$title:</div>";
 		/* $return .= "<div class='codelines'>$col1</div>"; */
 		$return .= "<pre style='height:{$height}px;' class='codedata'>$col2</pre></div>";
