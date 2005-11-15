@@ -179,7 +179,7 @@ class nl
 	function cp()
 	{
 		$this->cp_aim = 'AIM naam:';
-		$this->cp_already_member = 'Het opgegeven email adres bestaat al.';
+		$this->cp_already_member = 'Het opgegeven e-mail adres bestaat al.';
 		$this->cp_apr = 'April'; 
 		$this->cp_aug = 'Augustus';
 		$this->cp_avatar_current = 'Huidige avatar';
@@ -211,8 +211,8 @@ class nl
 		$this->cp_editing_avatar = 'Verander uw avatar';
 		$this->cp_editing_profile = 'Wijzigen van profiel';
 		$this->cp_email = 'E-mail:';
-		$this->cp_email_form = 'Anderen toestaan om emails naar jou te sturen.';
-		$this->cp_email_invaid = 'Het opgegeven emailadres is ongeldig.';
+		$this->cp_email_form = 'Anderen toestaan om e-mails naar jou te sturen.';
+		$this->cp_email_invaid = 'Het opgegeven e-mailadres is ongeldig.';
 		$this->cp_err_avatar = 'Er is een fout opgetreden tijdens het uploaden van uw avatar.';
 		$this->cp_err_updating = 'Er is een fout opgetreden tijdens het updaten van uw profiel.';
 		$this->cp_feb = 'Februari';
@@ -284,12 +284,12 @@ class nl
 	function email()
 	{
 		$this->email_blocked = 'Deze gebruiker wil geen e-mail ontvangen.';
-		$this->email_email = 'Email:';
-		$this->email_msgtext = 'Email uiterlijk:';
+		$this->email_email = 'E-mail:';
+		$this->email_msgtext = 'E-mail uiterlijk:';
 		$this->email_no_fields = 'Ga terug en controleer of alle velden ingevuld zijn.';
 		$this->email_no_member = 'Er is geen gebruiker gevonden met deze naam';
-		$this->email_no_perm = 'U heeft geen toestemming om emails te sturen via dit forum.';
-		$this->email_sent = 'U email is verstuurd.';
+		$this->email_no_perm = 'U heeft geen toestemming om e-mails te sturen via dit forum.';
+		$this->email_sent = 'U e-mail is verstuurd.';
 		$this->email_subject = 'Onderwerp:';
 		$this->email_to = 'Naar:';
 	}
@@ -346,7 +346,7 @@ class nl
 		$this->forum_sub_last_post = 'Laatste bericht';
 		$this->forum_sub_replies = 'Antwoorden';
 		$this->forum_sub_topics = 'Onderwerpen';
-		$this->forum_subscribe = 'Stuur mij een email als er berichten geplaatst zijn in dit onderwerp';
+		$this->forum_subscribe = 'Stuur mij een e-mail als er berichten geplaatst zijn in dit onderwerp';
 		$this->forum_topic = 'Onderwerp';
 		$this->forum_topics_new = 'Er zijn nieuwe berichten in dit forum.';
 		$this->forum_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
@@ -451,7 +451,7 @@ class nl
 		$this->login_pass_no_id = 'Er bestaat hier geen gebruiker met de door u opgegeven gebruikersnaam.';
 		$this->login_pass_request = 'Om het resetten van uw wachtwoord te voltooien, moet u op de link klikken in de naar u verzonden email.';
 		$this->login_pass_reset = 'Zet wachtwoord terug';
-		$this->login_pass_sent = 'Uw wachtwoord is gereset. Het nieuwe wachtwoord is verzonden naar het emailadres dat verbonden is aan uw gebruikersnaam.';
+		$this->login_pass_sent = 'Uw wachtwoord is gereset. Het nieuwe wachtwoord is verzonden naar het e-mailadres dat verbonden is aan uw gebruikersnaam.';
 		$this->login_sure = 'Bent u zeker dat u wilt uitloggen in \'%s\'?';
 		$this->login_user = 'Gebruikersnaam';
 	}
@@ -482,7 +482,7 @@ class nl
 	function main()
 	{
 		$this->main_activate = 'Uw account is nog niet geactiveerd.';
-		$this->main_activate_resend = 'Verstuur activatie email opnieuw';
+		$this->main_activate_resend = 'Verstuur activatie e-mail opnieuw';
 		$this->main_admincp = 'Beheerder instellingen';
 		$this->main_banned = 'U bent geblokkeerd op dit forum.';
 		$this->main_code = 'Code'; 
@@ -543,8 +543,8 @@ class nl
 		$this->mc_user_avatar_type = 'Type Avatar';
 		$this->mc_user_avatar_width = 'Breedte Avatar'; 
 		$this->mc_user_birthday = 'Verjaardag';
-		$this->mc_user_email = 'Email adres'; 
-		$this->mc_user_email_show = 'Email is zichtbaar voor andere gebruikers'; 
+		$this->mc_user_email = 'E-mail adres'; 
+		$this->mc_user_email_show = 'E-mail is zichtbaar voor andere gebruikers'; 
 		$this->mc_user_group = 'Groep'; 
 		$this->mc_user_gtalk = 'GTalk Account'; 
 		$this->mc_user_homepage = 'Homepage'; 
@@ -662,7 +662,7 @@ class nl
 		$this->perms_board_view_closed = 'Gebruik Quicksilver Forums wanneer het gesloten is.'; 
 		$this->perms_do_anything = 'Gebruik Quicksilver Forums'; 
 		$this->perms_edit_for = 'Pas toelatingen aan voor';
-		$this->perms_email_use = 'Verstuur emails naar andere gebruikers via het board'; 
+		$this->perms_email_use = 'Verstuur e-mails naar andere gebruikers via het board'; 
 		$this->perms_forum_view = 'Bekijk het forum'; 
 		$this->perms_is_admin = 'Verschaf toegang tot het administrators controlepaneel';
 		$this->perms_only_user = 'Gebruik alleen groepstoelatingen voor deze gebruiker';
@@ -986,7 +986,7 @@ class nl
 		$this->register_done = 'Je bent geregistreerd! Je kunt nu inloggen.';
 		$this->register_email = 'E-mail';
 		$this->register_email_invalid = 'Je hebt een ongeldig E-mail adres ingevoerd.';
-		$this->register_email_msg = 'Dit is een automatische email verzonden door Quicksilver Forums om hetvolgende'; 
+		$this->register_email_msg = 'Dit is een automatische e-mail verzonden door Quicksilver Forums om hetvolgende'; 
 		$this->register_email_msg2 = 'Voor u om u account te activeren met';
 		$this->register_email_msg3 = 'Klik op de volgende link, of kopieer hem naar een internetbrowser:'; 
 		$this->register_email_used = 'Het door jou ingegeven E-mail adres is al aan een andere gebruiker toegewezen.';
@@ -1095,7 +1095,7 @@ class nl
 		$this->settings_cookie_time = 'Time to Remain Logged In'; //Translate
 		$this->settings_db = 'Edit Connection Settings'; //Translate
 		$this->settings_db_host = 'Database Host'; //Translate
-		$this->settings_db_leave_blank = 'Leave blank for none.'; //Translate
+		$this->settings_db_leave_blank = 'Laat voor niemand blank.';
 		$this->settings_db_multiple = 'For installing multiple boards on one database.'; //Translate
 		$this->settings_db_name = 'Database Name'; //Translate
 		$this->settings_db_password = 'Database Password'; //Translate
@@ -1109,52 +1109,52 @@ class nl
 		$this->settings_default_yes = 'Default Yes'; //Translate
 		$this->settings_disabled = 'Disabled'; //Translate
 		$this->settings_disabled_notice = 'Disabled Notice'; //Translate
-		$this->settings_email = 'E-Mail Settings'; //Translate
+		$this->settings_email = 'E-mail Opties';
 		$this->settings_email_fake = 'For display only. Should not be a real e-mail address.'; //Translate
 		$this->settings_email_from = 'E-mail From Address'; //Translate
 		$this->settings_email_place1 = 'Place members in the'; //Translate
 		$this->settings_email_place2 = 'group until they verify their e-mail'; //Translate
-		$this->settings_email_place3 = 'Do not require e-mail activation'; //Translate
-		$this->settings_email_real = 'Should be a real e-mail address.'; //Translate
+		$this->settings_email_place3 = 'E-mail activatie is niet nodig.';
+		$this->settings_email_real = 'Zou een geldig e-mail adres moeten zijn.';
 		$this->settings_email_reply = 'E-mail Reply-To Address'; //Translate
 		$this->settings_email_smtp = 'SMTP Mail Server'; //Translate
 		$this->settings_email_valid = 'New Member E-mail Validation'; //Translate
 		$this->settings_enabled = 'Enabled'; //Translate
 		$this->settings_enabled_modules = 'Enabled Modules'; //Translate
 		$this->settings_foreign_link = 'Foreign Link Target'; //Translate
-		$this->settings_general = 'General Settings'; //Translate
+		$this->settings_general = 'General Opties';
 		$this->settings_group_after = 'Group After Registration'; //Translate
 		$this->settings_hot_topic = 'Posts for a Hot Topic'; //Translate
 		$this->settings_kilobytes = 'Kilobytes'; 
-		$this->settings_max_attach_size = 'Attachments - Maximum File Size'; //Translate
-		$this->settings_members = 'Member Settings'; //Translate
+		$this->settings_max_attach_size = 'Bijlage - maximale bestandsgrootte';
+		$this->settings_members = 'Ledenopties';
 		$this->settings_modname_only = 'Module name only. Do not include .php'; //Translate
 		$this->settings_no_allow = 'Sta niet toe';
-		$this->settings_nodata = 'No data was sent from POST'; //Translate
+		$this->settings_nodata = 'Er werd geen data verzonden van POST';
 		$this->settings_one_per = 'Een per lijn';
 		$this->settings_pixels = 'Pixels';
 		$this->settings_pm_flood = 'Personal Messenger Flood Control'; //Translate
-		$this->settings_pm_min_time = 'Minimum time between messages.'; //Translate
+		$this->settings_pm_min_time = 'Minimale tijd tussen het versturen van PB\'en.';
 		$this->settings_polls = 'Polls'; 
-		$this->settings_polls_no = 'Users cannot vote in a poll after viewing its results'; //Translate
-		$this->settings_polls_yes = 'Users can vote in a poll after viewing its results'; //Translate
+		$this->settings_polls_no = 'Gebruikers kunnen niet in een poll stemmen nadat ze de resultaten gezien hebben';
+		$this->settings_polls_yes = 'Gebruikers kunnen in een poll meestemmen na de resultaten gezien te hebben.';
 		$this->settings_post_flood = 'Post Flood Control'; //Translate
-		$this->settings_post_min_time = 'Minimum time between posts.'; //Translate
+		$this->settings_post_min_time = 'Minimale tijd tussen posten van berichten.';
 		$this->settings_posts_topic = 'Posts Per Topic Page'; //Translate
 		$this->settings_search_flood = 'Search Flood Control'; //Translate
-		$this->settings_search_min_time = 'Minimum time between searches.'; //Translate
-		$this->settings_server = 'Server Settings'; //Translate
+		$this->settings_search_min_time = 'Minimale tijd tussen het zoeken.';
+		$this->settings_server = 'Server Opties';
 		$this->settings_server_gzip = 'GZIP Compression'; //Translate
 		$this->settings_server_gzip_msg = 'Improves speed. Disable if the board appears jumbled or blank.'; //Translate
 		$this->settings_server_maxload = 'Maximum Server Load'; //Translate
 		$this->settings_server_maxload_msg = 'Disables board under excessive server strain. Enter 0 to disable.'; //Translate
-		$this->settings_server_timezone = 'Server Time Zone'; //Translate
-		$this->settings_show_avatars = 'Show Avatars'; //Translate
-		$this->settings_show_email = 'Show Email Address'; //Translate
-		$this->settings_show_emotes = 'Show Emoticons'; //Translate
+		$this->settings_server_timezone = 'Server Tijdszone'; 
+		$this->settings_show_avatars = 'Laat Avatars zien';
+		$this->settings_show_email = 'Laat E-mailadres zien';
+		$this->settings_show_emotes = 'Laat Emoticons zien';
 		$this->settings_show_notice = 'Shown when the board is disabled'; //Translate
-		$this->settings_show_pm = 'Accept Personal Messages'; //Translate
-		$this->settings_show_sigs = 'Show Signatures'; //Translate
+		$this->settings_show_pm = 'Aanvaard Privé Berichten';
+		$this->settings_show_sigs = 'Laat handtekeningen zien'; 
 		$this->settings_spider_agent = 'Spider User Agent'; //Translate
 		$this->settings_spider_agent_msg = 'Enter all or part of the spider\'s unique HTTP USER AGENT.'; //Translate
 		$this->settings_spider_enable = 'Enable Spider Display'; //Translate
@@ -1177,7 +1177,7 @@ class nl
 	function templates()
 	{
 		$this->add = 'Voeg HTML Templates toe';
-		$this->choose_set = 'Kies een template set'; //Translate
+		$this->choose_set = 'Kies een template set';
 		$this->choose_skin = 'Kies een skin';
 		$this->create_new = 'Maak een nieuwe skin aan, genaamd'; 
 		$this->create_skin = 'Maak een skin';
@@ -1232,7 +1232,7 @@ class nl
 		$this->temps_board_index = 'Board Index'; //Translate
 		$this->temps_censoring = 'AdminCP Word Censoring'; //Translate
 		$this->temps_cp = 'Gebruikers controlepaneel'; 
-		$this->temps_email = 'Verzend een email naar een gebruiker';
+		$this->temps_email = 'Verzend een e-mail naar een gebruiker';
 		$this->temps_emot_control = 'AdminCP Emoticons'; //Translate
 		$this->temps_forum = 'Forums'; 
 		$this->temps_forums = 'AdminCP Forums'; //Translate
@@ -1291,7 +1291,7 @@ class nl
 		$this->topic_joined = 'Lid sinds';
 		$this->topic_level = 'Gebruikers afdeling';
 		$this->topic_links_aim = 'Stuur een AIM bericht naar %s';
-		$this->topic_links_email = 'Stuur een E-mail naar %s';
+		$this->topic_links_email = 'Stuur een e-mail naar %s';
 		$this->topic_links_gtalk = 'Stuur een GTalk bericht naar %s';
 		$this->topic_links_icq = 'Stuur een ICQ bericht naar %s';
 		$this->topic_links_msn = 'Bekijk %s\'s MSN profiel';
@@ -1335,35 +1335,35 @@ class nl
 
 	function universal()
 	{
-		$this->aim = 'AIM'; //Translate
-		$this->based_on = 'based on';
+		$this->aim = 'AIM';
+		$this->based_on = 'Gebaseerd op';
 		$this->board_by = 'Door';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Verder gaan'; 
 		$this->delete = 'Verwijderen';
 		$this->direction = 'ltr';
 		$this->edit = 'Edit HTML Templates';
-		$this->email = 'Email'; //Translate
-		$this->gtalk = 'GT'; //Translate
-		$this->icq = 'ICQ'; //Translate
-		$this->msn = 'MSN'; //Translate
-		$this->new_message = 'New Message'; //Translate
-		$this->new_poll = 'New Poll'; //Translate
-		$this->new_topic = 'New Topic'; //Translate
+		$this->email = 'E-mail'; 
+		$this->gtalk = 'GT'; 
+		$this->icq = 'ICQ'; 
+		$this->msn = 'MSN'; 
+		$this->new_message = 'Nieuw Bericht'; 
+		$this->new_poll = 'Nieuwe Poll'; 
+		$this->new_topic = 'Nieuw Onderwerp';
 		$this->no = 'Nee'; 
 		$this->powered = 'Powered by';
-		$this->private_message = 'PM'; //Translate
-		$this->quote = 'Quote'; //Translate
-		$this->reply = 'Reply'; //Translate
+		$this->private_message = 'PB'; 
+		$this->quote = 'Quote'; 
+		$this->reply = 'Antwoord'; 
 		$this->seconds = 'Seconden'; 
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
 		$this->submit = 'Verzend';
-		$this->subscribe = 'Subscribe'; //Translate
+		$this->subscribe = 'Subscribe';
 		$this->today = 'Vandaag';
-		$this->website = 'WWW'; //Translate
-		$this->yahoo = 'Yahoo'; //Translate
-		$this->yes = 'Ja'; //Translate
+		$this->website = 'WWW'; 
+		$this->yahoo = 'Yahoo'; 
+		$this->yes = 'Ja'; 
 		$this->yesterday = 'Gisteren';
 	}
 }
