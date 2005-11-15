@@ -92,7 +92,7 @@ $table_select2 = array(
 $dump1  = makedump($table_select1, 'structure');
 $dump1 .= makedump($table_select2, 'dataonly');
 
-$dump2  = makedump(array('{$prefix}templates' => 1), 'dataonly');
+$dump2  = makedump(array("{$prefix}templates" => 1), 'dataonly');
 
 define_mysql_version();
 
@@ -159,11 +159,11 @@ sort($templates);
 
 foreach ($templates as $template)
 {
-	$out2 .= $template;
+	$out2 .= str_replace(array('\r\n', '\n'), array("\n", "\n"), $template);
 }
 
 $out1 = preg_replace('/(TABLE|EXISTS|INTO) {$prefix}/', '\\1 {$pre}', $out1);
-$out2 = preg_replace('/(TABLE|EXISTS|INTO) {$prefix}/', '\\1 {$pre}', $out2);
+$out2 = preg_replace("/INTO $prefix/", 'INTO {$pre}', $out2);
 
 $out1 .= '?>';
 $out2 .= '?>';

@@ -687,7 +687,7 @@ $queries['ADMIN_EMOTICON_EDIT'] = "INSERT INTO {$pre}templates (template_skin, t
 {\$this->etable}
 </form>
 ', 'Edit Emoticons', 'Edit the existing emoticons', 0)";
-$queries['ADMIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_ETABLE', '</table>', 'Admin Table End', 'The end of all admin tables', 9)";
+$queries['ADMIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_ETABLE', '</table></div>', 'Admin Table End', 'The end of all admin tables', 9)";
 $queries['ADMIN_FORUM_ADD'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_ADD', '
 <form action=\'\$this->self?a=forums&amp;s=add\' method=\'post\'>
 {\$this->table}
@@ -929,7 +929,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
    <script type=\"text/javascript\" src=\'../skins/{\$admin->skin}/admincp_menu.js\'></script>
   </head>
 
-<body>
+<body id=\"admincp\">
 
 <h1>{\$admin->lang->admin_heading}</h1>
 
@@ -1167,16 +1167,16 @@ $queries['ADMIN_MOD_LOGS'] = "INSERT INTO {$pre}templates (template_skin, templa
  {\$out}
 {\$this->etable}
 ', 'View Moderator Logs', 'Format of the moderator log view', 0)";
+$queries['ADMIN_RSSREADER_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_ITEM', '
+<li><a href=\"{\$item[\'link\']}\" title=\"{\$item[\'description\']}\">{\$item[\'title\']}</a></li>
+', 'Admin CP RSS reader item', 'Edit the layout of a rss feed item', 13)";
 $queries['ADMIN_RSSREADER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_MAIN', '
 <ul class=\"rssreader\">{\$title}{\$rssItems}</ul>
 ', 'Admin CP RSS reader', 'Edit the layout of the annoucements rss feed', 11)";
 $queries['ADMIN_RSSREADER_TITLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_TITLE', '
 <li class=\"rsstitle\"><a href=\"{\$item[\'link\']}\">{\$item[\'title\']}</a></li>
 ', 'Admin CP RSS reader title', 'Edit the layout of the rss feed title', 12)";
-$queries['ADMIN_RSSREADER_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_ITEM', '
-<li><a href=\"{\$item[\'link\']}\" title=\"{\$item[\'description\']}\">{\$item[\'title\']}</a></li>
-', 'Admin CP RSS reader item', 'Edit the layout of a rss feed item', 13)";
-$queries['ADMIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_TABLE', '<table cellpadding=\'5\' cellspacing=\'0\' class=\'stand\'>', 'Admin Table Start', 'The beginning of the admin table', 8)";
+$queries['ADMIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_TABLE', '<div class=\"stand\"><table class=\"stand\" cellpadding=\'5\' cellspacing=\'0\'>', 'Admin Table Start', 'The beginning of the admin table', 8)";
 $queries['ADMIN_TITLE_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_FORM', '
 <form action=\'\$this->self?a=titles&amp;s=edit&amp;edit={\$this->get[\'edit\']}\' method=\'post\'>
 {\$this->table}
@@ -1198,7 +1198,13 @@ $queries['ADMIN_TITLE_FORM'] = "INSERT INTO {$pre}templates (template_skin, temp
 ', 'Member Titles', 'Form for editing and deleting member titles', 0)";
 $queries['BOARD_CATEGORY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY', '
   <tr>
-    <td colspan=\'5\' class=\'subheader\'><div style=\'float:left;\'><a href=\'{\$this->self}?c={\$forum[\'forum_id\']}\' class=\'header\'>{\$forum[\'forum_name\']}</a></div><div style=\'text-align:right;\'><a href=\'#bottom\'><img src=\'./skins/{\$this->skin}/images/arrowdown.png\' alt=\'{\$this->lang->board_bottom_page}\' title=\'{\$this->lang->board_bottom_page}\' /></a><a href=\'#top\'><img src=\'./skins/{\$this->skin}/images/arrowup.png\' alt=\'{\$this->lang->board_top_page}\' title=\'{\$this->lang->board_top_page}\' /></a></div></td>
+    <td colspan=\'5\' class=\'subheader\'>
+      <div style=\'float:left;\'><a href=\'{\$this->self}?c={\$forum[\'forum_id\']}\' class=\'header\'>{\$forum[\'forum_name\']}</a></div>
+      <div style=\'text-align:right;\'>
+        <a href=\'#bottom\'><img src=\'./skins/{\$this->skin}/images/icons/arrow_down.png\' alt=\'{\$this->lang->board_bottom_page}\' title=\'{\$this->lang->board_bottom_page}\' /></a>
+        <a href=\'#top\'><img src=\'./skins/{\$this->skin}/images/icons/arrow_up.png\' alt=\'{\$this->lang->board_top_page}\' title=\'{\$this->lang->board_top_page}\' /></a>
+      </div>
+    </td>
   </tr>
 ', 'Board Category', 'Format the look of the categories on the index page of your forum.', 2)";
 $queries['BOARD_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_FORUM', '
@@ -1210,7 +1216,10 @@ $queries['BOARD_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_
   </tr>
   ', 'Board Forum Entry', 'Format the look of a \"forum\" entry on the index page or subcategory pages.', 1)";
 $queries['BOARD_LAST_POST_BOX'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_LAST_POST_BOX', '
-{\$topic_new} <a href=\'{\$this->self}?a=topic&amp;t={\$forum[\'LastTopicID\']}\' class=\'small\' title=\'\$full_title\'>{\$forum[\'user_lastpost\']}</a><br />
+<IF (\$this->user[\'user_lastvisit\'] < \$forum[\'TopicLastTime\'])>
+  <img src=\'./skins/{\$this->skin}/images/icons/topic_unread.png\' alt=\'{\$this->lang->board_topics_new}\' title=\'{\$this->lang->board_topics_new}\' />
+</IF>
+<a href=\'{\$this->self}?a=topic&amp;t={\$forum[\'LastTopicID\']}\' class=\'small\' title=\'\$full_title\'>{\$forum[\'user_lastpost\']}</a><br />
 {\$this->lang->board_by} {\$forum[\'user_lastposter\']}<br />
 {\$forum[\'LastTime\']}
 ', 'Last Post Box', 'Change the look of the last poster box on the forums.', 3)";
@@ -1229,8 +1238,8 @@ $queries['BOARD_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 
 {\$this->table}
   <tr>
-    <td class=\'header\'>
-      <a href=\'{\$this->self}?a=active\' class=\'header\'>{\$this->lang->board_active_users}</a>
+    <td class=\"header\">
+      <a href=\'{\$this->self}?a=active\' class=\"activeusers\">{\$this->lang->board_active_users}</a>
     </td>
   </tr>
   <tr>
@@ -1247,7 +1256,7 @@ $queries['BOARD_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->table}
   <tr>
     <td class=\'header\'>
-      {\$this->lang->board_stats}
+      <span class=\"statistics\">{\$this->lang->board_stats}</span>
     </td>
   </tr>
   <tr>
@@ -1700,6 +1709,53 @@ $queries['FORUM_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 
 {\$Forum_TopicList}
 ', 'Forum View', 'Change the appearance of the forums\' topic lists', 0)";
+$queries['FORUM_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_NO_TOPICS', '
+      <tr>
+        <td colspan=\'7\' align=\'center\' class=\'tablelight\' style=\'padding:30px\'>{\$this->lang->forum_no_topics}</td>
+      </tr>
+', 'Error Display', 'Format the look of an error on the forum view.', 5)";
+$queries['FORUM_SUBFORUM_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_SUBFORUM_MAIN', '
+{\$this->table}
+  <tr>
+    <td class=\'header\' style=\'width:55%\'>{\$this->lang->forum_sub}</td>
+    <td class=\'header\' style=\'width:10%; text-align:center\'>{\$this->lang->forum_sub_topics}</td>
+    <td class=\'header\' style=\'width:10%; text-align:center\'>{\$this->lang->forum_sub_replies}</td>
+    <td class=\'header\' style=\'width:25%\'>{\$this->lang->forum_sub_last_post}</td>
+  </tr>
+{\$SubForums}
+  <tr>
+   <td class=\'footer\' colspan=\'4\'>&nbsp;</td>
+  </tr>
+{\$this->etable}
+', 'Forum-view Subforums', 'Change the look of Subforums under the forum-view.', 3)";
+$queries['FORUM_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPIC', '
+  <tr>
+    <td class=\"topicicons\">
+        <div class=\"<IF (\$state == \'locked\' && \$this->user[\'user_lastvisit\'] < \$row[\'edited\'])>new</IF>{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
+        &nbsp;
+        </div>
+    </td>
+    <td class=\'tablelight\' style=\'text-align:center\'>
+      <IF \$row[\'icon\']>
+        <img src=\"./skins/{\$this->skin}/mbicons/{\$row[\'icon\']}\" alt=\"{\$this->lang->forum_icon}\" />
+      </IF>
+    </td>
+    <td class=\'tablelight\'><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}\'>{\$row[\'topic_title\']}</a> {\$Pages}{\$row[\'topic_description\']}</td>
+    <td class=\'tabledark\' style=\'text-align:center\'>{\$row[\'topic_starter\']}</td>
+    <td class=\'tablelight\' style=\'text-align:center\'>{\$row[\'topic_replies\']}</td>
+    <td class=\'tablelight\' style=\'text-align:center\'>{\$row[\'topic_views\']}</td>
+    <td class=\'tabledark\'>
+      <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\'>
+        <tr>
+          <td><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}{\$jump}\'>
+            <img src=\'./skins/{\$this->skin}/images/icons/goto_last_post.png\' title=\'{\$this->lang->forum_jump}\' alt=\'{\$this->lang->forum_jump}\' /></a> &nbsp;
+          </td>
+          <td>{\$this->lang->forum_by} \$last_poster<br />{\$row[\'topic_edited\']}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+', 'Forum Topics', 'Format the default look of a given forum topic.', 1)";
 $queries['FORUM_TOPICS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPICS_MAIN', '
 <script type=\'text/javascript\'>
 <!--
@@ -1716,12 +1772,10 @@ function get_forum(select)
 
 {\$this->table}
   <tr>
-    <td>{\$this->lang->forum_pages}:
-      {\$pagelinks}
-    </td>
-    <td style=\'text-align:right\'>
-      <a href=\'{\$this->self}?a=post&amp;s=topic&amp;f={\$f}\'><img src=\'./skins/{\$this->skin}/images/newtopic.png\' title=\'{\$this->lang->forum_new_topic}\' alt=\'{\$this->lang->forum_new_topic}\' /></a>
-      <a href=\'{\$this->self}?a=post&amp;s=poll&amp;f={\$f}\'><img src=\'./skins/{\$this->skin}/images/newpoll.png\' title=\'{\$this->lang->forum_new_poll}\' alt=\'{\$this->lang->forum_new_poll}\' /></a>
+    <td>
+      <div class=\"bigbutton\"><a class=\"poll\" href=\'{\$this->self}?a=post&amp;s=poll&amp;f={\$f}\' title=\"{\$this->lang->forum_new_poll}\">{\$this->lang->new_poll}</a></div>
+      <div class=\"bigbutton\"><a class=\"topic\" href=\'{\$this->self}?a=post&amp;s=topic&amp;f={\$f}\' title=\"{\$this->lang->forum_new_topic}\">{\$this->lang->new_topic}</a></div>
+      {\$this->lang->forum_pages}: {\$pagelinks}
     </td>
   </tr>
 {\$this->etable}
@@ -1744,16 +1798,15 @@ function get_forum(select)
 
 {\$this->table}
   <tr>
-    <td>{\$this->lang->forum_pages}:
-      {\$pagelinks}<br /><br />
+    <td>
+      <div class=\"bigbutton\"><a class=\"subscribe\" href=\'{\$this->self}?a=cp&amp;s=addsub&amp;type=forum&amp;item={\$f}\' title=\"{\$this->lang->forum_subscribe}\">{\$this->lang->subscribe}</a></div>
+      <div class=\"bigbutton\"><a class=\"poll\" href=\'{\$this->self}?a=post&amp;s=poll&amp;f={\$f}\' title=\"{\$this->lang->forum_new_poll}\">{\$this->lang->new_poll}</a></div>
+      <div class=\"bigbutton\"><a class=\"topic\" href=\'{\$this->self}?a=post&amp;s=topic&amp;f={\$f}\' title=\"{\$this->lang->forum_new_topic}\">{\$this->lang->new_topic}</a></div>
+
+      {\$this->lang->forum_pages}: {\$pagelinks}<br /><br />
       <select class=\'select\' onchange=\'javascript:get_forum(this)\'>
         {\$forumjump}
       </select>
-    </td>
-    <td align=\'right\'>
-      <a href=\'{\$this->self}?a=post&amp;s=topic&amp;f={\$f}\'><img src=\'./skins/{\$this->skin}/images/newtopic.png\' title=\'{\$this->lang->forum_new_topic}\' alt=\'{\$this->lang->forum_new_topic}\' /></a>
-      <a href=\'{\$this->self}?a=post&amp;s=poll&amp;f={\$f}\'><img src=\'./skins/{\$this->skin}/images/newpoll.png\' title=\'{\$this->lang->forum_new_poll}\' alt=\'{\$this->lang->forum_new_poll}\' /></a>
-      <a href=\'{\$this->self}?a=cp&amp;s=addsub&amp;type=forum&amp;item={\$f}\'><img src=\'./skins/{\$this->skin}/images/subscribe.png\' title=\'{\$this->lang->forum_subscribe}\' alt=\'{\$this->lang->forum_subscribe}\' /></a>
     </td>
   </tr>
 {\$this->etable}
@@ -1762,67 +1815,36 @@ function get_forum(select)
 <tr><td align=\'center\'>
 <table border=\'0\' cellpadding=\'5\' cellspacing=\'0\' style=\'border-collapse:collapse\'>
   <tr>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/newopen.png\' title=\'{\$this->lang->forum_new}\' alt=\'{\$this->lang->forum_new}\' /><br />{\$this->lang->forum_new}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/newhot.png\' title=\'{\$this->lang->forum_new} {\$this->lang->forum_hot}\' alt=\'{\$this->lang->forum_new} {\$this->lang->forum_hot}\' /><br />{\$this->lang->forum_new} {\$this->lang->forum_hot}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/pinned.png\' title=\'{\$this->lang->forum_pinned}\' alt=\'{\$this->lang->forum_pinned}\' /><br />{\$this->lang->forum_pinned}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/moved.png\' title=\'{\$this->lang->forum_moved}\' alt=\'{\$this->lang->forum_moved}\' /><br />{\$this->lang->forum_moved}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_unread.png\' title=\'{\$this->lang->forum_new}\' alt=\'{\$this->lang->forum_new}\' /><br />{\$this->lang->forum_new}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_hot_unread.png\' title=\'{\$this->lang->forum_new} {\$this->lang->forum_hot}\' alt=\'{\$this->lang->forum_new} {\$this->lang->forum_hot}\' /><br />{\$this->lang->forum_new} {\$this->lang->forum_hot}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/pin.png\' title=\'{\$this->lang->forum_pinned}\' alt=\'{\$this->lang->forum_pinned}\' /><br />{\$this->lang->forum_pinned}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_moved.png\' title=\'{\$this->lang->forum_moved}\' alt=\'{\$this->lang->forum_moved}\' /><br />{\$this->lang->forum_moved}</td>
   </tr>
   <tr>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/open.png\' title=\'{\$this->lang->forum_topic}\' alt=\'{\$this->lang->forum_topic}\' /><br />{\$this->lang->forum_not} {\$this->lang->forum_new}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/hot.png\' title=\'{\$this->lang->forum_hot}\' alt=\'{\$this->lang->forum_hot}\' /><br />{\$this->lang->forum_hot}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/poll.png\' title=\'{\$this->lang->forum_poll}\' alt=\'{\$this->lang->forum_poll}\' /><br />{\$this->lang->forum_poll}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/locked.png\' title=\'{\$this->lang->forum_locked}\' alt=\'{\$this->lang->forum_locked}\' /><br />{\$this->lang->forum_locked}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic.png\' title=\'{\$this->lang->forum_topic}\' alt=\'{\$this->lang->forum_topic}\' /><br />{\$this->lang->forum_not} {\$this->lang->forum_new}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_hot.png\' title=\'{\$this->lang->forum_hot}\' alt=\'{\$this->lang->forum_hot}\' /><br />{\$this->lang->forum_hot}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/poll.png\' title=\'{\$this->lang->forum_poll}\' alt=\'{\$this->lang->forum_poll}\' /><br />{\$this->lang->forum_poll}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_locked.png\' title=\'{\$this->lang->forum_locked}\' alt=\'{\$this->lang->forum_locked}\' /><br />{\$this->lang->forum_locked}</td>
   </tr>
   <tr>
-    <td class=\'tabledark\' colspan=\'4\' align=\'center\'><img src=\'skins/{\$this->skin}/images/dot.png\' title=\'{\$this->lang->forum_dot}\' alt=\'{\$this->lang->forum_dot}\' /> {\$this->lang->forum_dot_detail}</td>
+    <td class=\'tabledark\' colspan=\'4\' align=\'center\'><img src=\'skins/{\$this->skin}/images/icons/topic_posted_to.png\' title=\'{\$this->lang->forum_dot}\' alt=\'{\$this->lang->forum_dot}\' /> {\$this->lang->forum_dot_detail}</td>
   </tr>
 </table>
 </td></tr>
 </table>
 ', 'Forum Topics List', 'The display of topic listings in a forum', 6)";
-$queries['FORUM_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_NO_TOPICS', '
-      <tr>
-        <td colspan=\'7\' align=\'center\' class=\'tablelight\' style=\'padding:30px\'>{\$this->lang->forum_no_topics}</td>
-      </tr>
-', 'Error Display', 'Format the look of an error on the forum view.', 5)";
-$queries['FORUM_SUBFORUM_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_SUBFORUM_MAIN', '
-{\$this->table}
-  <tr>
-    <td class=\'header\' style=\'width:55%\'>{\$this->lang->forum_sub}</td>
-    <td class=\'header\' style=\'width:10%; text-align:center\'>{\$this->lang->forum_sub_topics}</td>
-    <td class=\'header\' style=\'width:10%; text-align:center\'>{\$this->lang->forum_sub_replies}</td>
-    <td class=\'header\' style=\'width:25%\'>{\$this->lang->forum_sub_last_post}</td>
-  </tr>
-{\$SubForums}
-  <tr>
-   <td class=\'footer\' colspan=\'4\'>&nbsp;</td>
-  </tr>
-{\$this->etable}
-', 'Forum-view Subforums', 'Change the look of Subforums under the forum-view.', 3)";
-$queries['FORUM_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPIC', '
-  <tr>
-    <td class=\'tablelight\' style=\'text-align:center\'><img src=\'./skins/{\$this->skin}/images/{\$state}.png\' title=\'{\$this->lang->forum_topic}\' alt=\'{\$this->lang->forum_topic}\' /></td>
-    <td class=\'tablelight\' style=\'text-align:center\'>{\$row[\'topic_icon\']}</td>
-    <td class=\'tablelight\'><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}\'>{\$row[\'topic_title\']}</a> {\$Pages}{\$row[\'topic_description\']}</td>
-    <td class=\'tabledark\' style=\'text-align:center\'>{\$row[\'topic_starter\']}</td>
-    <td class=\'tablelight\' style=\'text-align:center\'>{\$row[\'topic_replies\']}</td>
-    <td class=\'tablelight\' style=\'text-align:center\'>{\$row[\'topic_views\']}</td>
-    <td class=\'tabledark\'>
-      <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\'>
-        <tr>
-          <td><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}{\$jump}\'>
-            <img src=\'./skins/{\$this->skin}/images/arrow.png\' title=\'{\$this->lang->forum_jump}\' alt=\'{\$this->lang->forum_jump}\' /></a> &nbsp;
-          </td>
-          <td>{\$this->lang->forum_by} \$last_poster<br />{\$row[\'topic_edited\']}</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-', 'Forum Topics', 'Format the default look of a given forum topic.', 1)";
 $queries['FORUM_TOPIC_PINNED'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPIC_PINNED', '
   <tr>
-    <td class=\'tablelight\' style=\'text-align:center\'><img src=\'./skins/{\$this->skin}/images/{\$state}.png\' title=\'{\$this->lang->forum_topic}\' alt=\'{\$this->lang->forum_topic}\' /></td>
-    <td class=\'tablelight\' style=\'text-align:center\'><img src=\'./skins/{\$this->skin}/images/pinned.png\' title=\'{\$this->lang->forum_pinned_topic}\' alt=\'{\$this->lang->forum_pinned_topic}\' /></td>
+    <td class=\"topicicons\">
+        <div class=\"<IF (\$state == \'locked\' && \$this->user[\'user_lastvisit\'] < \$row[\'edited\'])>new</IF>{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
+        <div class=\"pinned\">&nbsp;</div>
+        </div>
+    </td>
+    <td class=\'tablelight\' style=\'text-align:center\'>
+      <IF \$row[\'topic_icon\']>
+        <img src=\"./skins/{\$this->skin}/mbicons/{\$row[\'topic_icon\']}\" alt=\"{\$this->lang->forum_icon}\" />
+      </IF>
+    </td>
     <td class=\'tablelight\'><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}\'><b>{\$row[\'topic_title\']}</b></a> {\$Pages}{\$row[\'topic_description\']}</td>
     <td class=\'tabledark\' style=\'text-align:center\'>{\$row[\'topic_starter\']}</td>
     <td class=\'tablelight\' style=\'text-align:center\'>{\$row[\'topic_replies\']}</td>
@@ -1831,7 +1853,7 @@ $queries['FORUM_TOPIC_PINNED'] = "INSERT INTO {$pre}templates (template_skin, te
       <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\'>
         <tr>
           <td><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}{\$jump}\'>
-            <img src=\'./skins/{\$this->skin}/images/arrow.png\' title=\'{\$this->lang->forum_jump}\' alt=\'{\$this->lang->forum_jump}\' /></a> &nbsp;
+            <img src=\'./skins/{\$this->skin}/images/icons/goto_last_post.png\' title=\'{\$this->lang->forum_jump}\' alt=\'{\$this->lang->forum_jump}\' /></a> &nbsp;
           </td>
           <td>{\$this->lang->forum_by} \$last_poster<br />{\$row[\'topic_edited\']}</td>
         </tr>
@@ -1926,16 +1948,16 @@ $queries['LOGIN_PASS'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->etable}
 </form>
 ', 'Reset Password', 'The forgotten password form', 1)";
-$queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN', '
-<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
+$queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
 <html xmlns=\'http://www.w3.org/1999/xhtml\' xml:lang=\'{\$qsf->user[\'user_language\']}\' dir=\'{\$qsf->lang->direction}\'>
 <head>
 <meta http-equiv=\'Content-Type\' content=\'application/xhtml+xml; charset={\$qsf->lang->charset}\' />
 
 <title>{\$title}</title>
-<link rel=\'stylesheet\' type=\'text/css\' href=\'./skins/{\$qsf->skin}/styles.css\' />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/styles.css\" media=\"screen\" />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/print.css\" media=\"print\" />
 <IF \$qsf->sets[\'rss_feed_title\'] != null>
-<link rel=\'alternate\' title=\'{\$qsf->sets[\'rss_feed_title\']}\' href=\'{\$qsf->sets[\'loc_of_board\']}{$this->mainfile}?a=rssfeed\' type=\'application/rss+xml\' />
+<link rel=\'alternate\' title=\'{\$qsf->sets[\'rss_feed_title\']}\' href=\'{\$qsf->sets[\'loc_of_board\']}index.php?a=rssfeed\' type=\'application/rss+xml\' />
 </IF>
 
 <!--[if lt IE 7]>
@@ -1945,16 +1967,24 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 </head>
 <body>
 
-<div style=\'text-align:center\'>
+<div class=\"round-top\"><div>&nbsp;</div></div>
+<div class=\"container\">
   <a id=\'top\'></a>
-  <img src=\'./skins/{\$qsf->skin}/images/logo.png\' alt=\'{\$qsf->name}\' /><br /><br />
-</div>
+	
+  <div class=\"header\">
+    <h1><img src=\"./skins/{\$qsf->skin}/images/quicksilver_logo.png\" alt=\"{\$qsf->name}\" height=\"138\" width=\"419\" /></h1>
+  </div>
 
 {\$userheader}
 
 {\$reminder}
 
 {\$quicksilverforums}
+
+<a id=\'bottom\'></a>
+</div>
+<div class=\"round-bottom\"><div>&nbsp;</div></div>
+
 
 <p class=\'adminstat\'>
   {\$servertime}<br />
@@ -1966,68 +1996,60 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 </IF>
 </p>
 
-{\$qsf->table}
- <tr>
-  <td align=\'center\'>
+
+<div class=\"validchecks\">
    <a href=\"http://validator.w3.org/check?uri=referer\" onclick=\"window.open(this.href,\'_blank\');return false;\">
     <img style=\'width:88px;height:31px\' src=\'./skins/{\$qsf->skin}/images/valid-xhtml11.png\' alt=\'Valid XHTML 1.1!\' title=\'Valid XHTML 1.1!\' />
    </a>
    <a href=\"http://jigsaw.w3.org/css-validator/check/referer\" onclick=\"window.open(this.href,\'_blank\');return false;\">
     <img style=\'width:88px;height:31px\' src=\'./skins/{\$qsf->skin}/images/valid-css.png\' alt=\'Valid CSS!\' title=\'Valid CSS!\' />
-   </a>
-  </td>
- </tr>
-{\$qsf->etable}
-
+</div>
 </body>
 </html>
 ', 'Universal Template', 'Change the header and footer that will appear on every page', 0)";
-$queries['MAIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_COPYRIGHT', '
-<p class=\'copyright\'>
+$queries['MAIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_COPYRIGHT', '<p class=\'copyright\'>
 {\$qsf->lang->powered} <a href=\'http://www.quicksilverforums.com\' class=\'small\'><b>{\$qsf->name}</b></a> [{\$qsf->version}] &copy; 2005 The {\$qsf->name} Development Team<br />
 {\$qsf->lang->based_on} <a href=\'http://www.mercuryboard.com\' class=\'small\'><b>MercuryBoard</b></a> &copy; 2001-2005 The Mercury Development Team
-</p>
+</p>', 'Copyright', 'Format the look of the copyright on the board.<br><br><b>Warning: Modification to anything other than the style of this copyright will result in a violation of your terms of service</b>', 6)";
+$queries['MAIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_ETABLE', '</table></div>', 'Table End', 'Edit the end of all html that uses \$this->etable', 5)";
+$queries['MAIN_HEADER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_GUEST', '<ul class=\"nav\">
+  <li><a href=\"{\$qsf->self}?a=members\">{\$qsf->lang->main_members}</a></li>
+  <li><a href=\"{\$qsf->self}?a=search{\$searchlink}\">{\$qsf->lang->main_search}</a></li>
+  <li><a href=\"{\$qsf->self}?a=help\">{\$qsf->lang->main_help}</a></li>
+</ul>
 
-<p><a id=\'bottom\'></a></p>
-', 'Copyright', 'Format the look of the copyright on the board.<br><br><b>Warning: Modification to anything other than the style of this copyright will result in a violation of your terms of service</b>', 6)";
-$queries['MAIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_ETABLE', '</table>', 'Table End', 'Edit the end of all html that uses \$this->etable', 5)";
-$queries['MAIN_HEADER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_GUEST', '
 {\$qsf->table}
   <tr>
     <td style=\'width:30%; white-space:nowrap\'>
-      {\$qsf->lang->main_welcome_guest} ( <a href=\'{\$qsf->self}?a=login&amp;s=on\'>{\$qsf->lang->main_login}</a> | <a href=\'{\$qsf->self}?a=register\'>{\$qsf->lang->main_register}</a> )
+      {\$qsf->lang->main_welcome_guest}
+      <span class=\"useroptions\">
+      ( <a href=\'{\$qsf->self}?a=login&amp;s=on\'>{\$qsf->lang->main_login}</a> | <a href=\'{\$qsf->self}?a=register\'>{\$qsf->lang->main_register}</a> )
+      </span>
     </td>
     <td>{\$qsf->tree}</td>
   </tr>
 {\$qsf->etable}
 
-{\$qsf->table}
-  <tr>
-    <td class=\'nav\' style=\'cursor:pointer; width:33%; text-align:center\' onclick=\"javascript:self.location.href=\'{\$qsf->self}?a=members\'\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=members\' class=\'nav\'>{\$qsf->lang->main_members}</a></td>
-    <td class=\'nav\' style=\'cursor:pointer; width:33%; text-align:center\' onclick=\"javascript:self.location.href=\'{\$qsf->self}?a=search{\$searchlink}\'\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=search{\$searchlink}\' class=\'nav\'>{\$qsf->lang->main_search}</a></td>
-    <td class=\'nav\' style=\'cursor:pointer; width:33%; text-align:center\' onclick=\"javascript:self.location.href=\'{\$qsf->self}?a=help\'\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=help\' class=\'nav\'>{\$qsf->lang->main_help}</a></td>
-  </tr>
-{\$qsf->etable}
 
 <p></p>
 ', 'Welcome Message - Not logged in', 'Edit the menu bar for unregistered and logged out users', 3)";
-$queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_MEMBER', '
-{\$qsf->table}
-  <tr>
-    <td style=\'width:30%; white-space:nowrap\'>
-      {\$qsf->lang->main_welcome} <a href=\'{\$qsf->self}?a=profile&amp;w={\$qsf->user[\'user_id\']}\'><b>{\$qsf->user[\'user_name\']}</b></a>! ( <a href=\'{\$qsf->self}?a=recent\' title=\'{\$qsf->lang->main_recent1}\'>{\$qsf->lang->main_recent}</a> | <a href=\'{\$qsf->self}?s=mark\' title=\'{\$qsf->lang->main_mark1}\'>{\$qsf->lang->main_mark}</a> | <a href=\'{\$qsf->self}?a=login&amp;s=off\'>{\$qsf->lang->main_logout}</a><IF \$qsf->perms->auth(\'is_admin\')> | <a href=\'./admincp/index.php\'>{\$qsf->lang->main_admincp}</a></IF> )
-    </td>
-    <td>{\$qsf->tree}</td>
-  </tr>
-{\$qsf->etable}
+$queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_MEMBER', '<ul class=\"nav\">
+  <li><a href=\"{\$qsf->self}?a=members\">{\$qsf->lang->main_members}</a></li>
+  <li><a href=\"{\$qsf->self}?a=search{\$searchlink}\">{\$qsf->lang->main_search}</a></li>
+  <li><a href=\"{\$qsf->self}?a=help\">{\$qsf->lang->main_help}</a></li>
+  <li><a href=\"{\$qsf->self}?a=cp\">{\$qsf->lang->main_cp}</a></li>
+  <li><a href=\"{\$qsf->self}?a=pm\" class=\"<MODLET messagelink(class)>\">{\$qsf->lang->main_messenger}<MODLET messagelink(text)></a></li>
+</ul>
 
 {\$qsf->table}
   <tr>
-    <td class=\'nav\' style=\'cursor:pointer; width:20%; text-align:center\' onclick=\"window.open(\'{\$qsf->self}?a=members\',\'_self\');return false;\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=members\' class=\'nav\'>{\$qsf->lang->main_members}</a></td>
-    <td class=\'nav\' style=\'cursor:pointer; width:20%; text-align:center\' onclick=\"window.open(\'{\$qsf->self}?a=search{\$searchlink}\',\'_self\');return false;\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=search{\$searchlink}\' class=\'nav\'>{\$qsf->lang->main_search}</a></td>
-    <td class=\'nav\' style=\'cursor:pointer; width:20%; text-align:center\' onclick=\"window.open(\'{\$qsf->self}?a=help\',\'_self\');return false;\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=help\' class=\'nav\'>{\$qsf->lang->main_help}</a></td>
-    <td class=\'nav\' style=\'cursor:pointer; width:20%; text-align:center\' onclick=\"window.open(\'{\$qsf->self}?a=cp\',\'_self\');return false;\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=cp\' class=\'nav\'>{\$qsf->lang->main_cp}</a></td>
-    <td class=\'nav\' style=\'cursor:pointer; width:20%; text-align:center\' onclick=\"window.open(\'{\$qsf->self}?a=pm\',\'_self\');return false;\" onmouseover=\"this.className=\'navover\';\" onmouseout=\"this.className=\'nav\';\"><a href=\'{\$qsf->self}?a=pm\' class=\'<MODLET messagelink(class)>\'>{\$qsf->lang->main_messenger}<MODLET messagelink(text)></a></td>
+    <td style=\'width:30%; white-space:nowrap\'>
+      {\$qsf->lang->main_welcome} <a href=\'{\$qsf->self}?a=profile&amp;w={\$qsf->user[\'user_id\']}\'><b>{\$qsf->user[\'user_name\']}</b></a>!
+      <span class=\"useroptions\">
+      ( <a href=\'{\$qsf->self}?a=recent\' title=\'{\$qsf->lang->main_recent1}\'>{\$qsf->lang->main_recent}</a> | <a href=\'{\$qsf->self}?s=mark\' title=\'{\$qsf->lang->main_mark1}\'>{\$qsf->lang->main_mark}</a> | <a href=\'{\$qsf->self}?a=login&amp;s=off\'>{\$qsf->lang->main_logout}</a><IF \$qsf->perms->auth(\'is_admin\')> | <a href=\'./admincp/index.php\'>{\$qsf->lang->main_admincp}</a></IF> )
+      </span>
+    </td>
+    <td>{\$qsf->tree}</td>
   </tr>
 {\$qsf->etable}
 
@@ -2047,8 +2069,11 @@ $queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template
 </td></tr>
 </table>
 ', 'Generic Message', 'Edit the html that displays generic messages throughout the board', 1)";
-$queries['MAIN_REMINDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', '<br /><center><b><font color=\'#FF0000\'>{\$qsf->lang->main_reminder}</font><br />{\$reminder_text}</b></center><br /><br />', 'Reminder', 'Used for important reminders for certain users, such as explaining to members awaiting activation how to enable their accounts.', 7)";
-$queries['MAIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_TABLE', '<table cellpadding=\'5\' cellspacing=\'0\' class=\'stand\'>', 'Table Start', 'Edit the beginning of all html that uses \$this->table', 4)";
+$queries['MAIN_REMINDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', '
+<p class=\"reminder\">
+  {\$qsf->lang->main_reminder}
+</p>', 'Reminder', 'Used for important reminders for certain users, such as explaining to members awaiting activation how to enable their accounts.', 7)";
+$queries['MAIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_TABLE', '<div class=\"stand\"><table class=\"stand\" cellpadding=\'5\' cellspacing=\'0\'>', 'Table Start', 'Edit the beginning of all html that uses \$this->table', 4)";
 $queries['MEMBERS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MAIN', '
 {\$this->table}
   <tr>
@@ -2111,13 +2136,28 @@ $queries['MEMBERS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
 $queries['MEMBERS_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MEMBER', '
   <tr>
     <td class=\'{\$class}\' align=\'center\'><a href=\'{\$this->self}?a=profile&amp;w={\$member[\'user_id\']}\'>{\$member[\'user_name\']}</a></td>
-    <td class=\'{\$class}\' align=\'center\'>{\$member[\'user_email\']}</td>
-    <td class=\'{\$class}\' align=\'center\'>{\$member[\'user_pm\']}</td>
+    <td class=\'{\$class}\' align=\'center\'>
+      <IF \$member[\'user_email_show\']>
+        <div class=\"button\"><a class=\"email\" href=\"mailto:{\$member[\'email\']}\" title=\"{\$this->lang->members_email_member}\">{\$this->lang->email}</a></div>
+      </IF>
+      <IF (!\$member[\'user_email_show\'] && \$member[\'user_email_form\'])>
+        <div class=\"button\"><a class=\"email\" href=\"{\$this->self}?a=email&amp;to={\$member[\'user_id\']}\" title=\"{\$this->lang->members_email_member}\">{\$this->lang->email}</a></div>
+      </IF>
+    </td>
+    <td class=\'{\$class}\' align=\'center\'>
+      <IF (\$member[\'user_pm\'] != null)>
+        <div class=\"button\"><a class=\"messenger\" href=\"{\$this->self}?a=pm&amp;s=send&amp;to={\$member[\'user_id\']}\" title=\"{\$this->lang->members_send_pm}\">{\$this->lang->private_message}</a></div>
+      </IF>
+    </td>
     <td class=\'{\$class}\' align=\'center\'>{\$member[\'user_posts\']}</td>
     <td class=\'{\$class}\' align=\'center\'>{\$member[\'user_joined\']}</td>
     <td class=\'{\$class}\' align=\'center\'>{\$member[\'user_title\']}</td>
     <td class=\'{\$class}\' align=\'center\'>{\$member[\'group_name\']}</td>
-    <td class=\'{\$class}\' align=\'center\'>{\$member[\'user_homepage\']}</td>
+    <td class=\'{\$class}\' align=\'center\'>
+      <IF \$member[\'user_homepage\']>
+        <div class=\"button\"><a class=\"home\" href=\"{\$member[\'homepage\']}\" rel=\"nofollow\" title=\"{\$this->lang->members_vist_www}\">{\$this->lang->website}</a></div>
+      </IF>
+    </td>
   </tr>
 ', 'Memberlist Entry', 'Format the look of a memberlist entry.', 1)";
 $queries['MOD_EDIT_GLOBAL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_GLOBAL', '
@@ -2277,8 +2317,8 @@ function get_folder(select)
 {\$this->table}
   <tr>
     <td align=\'right\'>
-      <a href=\'{\$this->self}?a=pm&amp;s=send\'><img src=\'./skins/{\$this->skin}/images/new_message.png\' title=\'{\$this->lang->pm_sendamsg}\' alt=\'{\$this->lang->pm_sendamsg}\' /></a>
-      <a href=\'{\$this->self}?a=pm&amp;s=clear&amp;f={\$this->get[\'f\']}\'><img src=\'./skins/{\$this->skin}/images/delete_message.png\' title=\'{\$this->lang->pm_delallmsg}\' alt=\'{\$this->lang->pm_delallmsg}\' /></a>
+      <div class=\"bigbutton\"><a class=\"delete\" href=\'{\$this->self}?a=pm&amp;s=clear&amp;f={\$this->get[\'f\']}\' title=\"{\$this->lang->pm_delallmsg}\">{\$this->lang->delete}</a></div>
+      <div class=\"bigbutton\"><a class=\"messenger\" href=\'{\$this->self}?a=pm&amp;s=send\' title=\"{\$this->lang->pm_sendamsg}\">{\$this->lang->new_message}</a></div>
     </td>
   </tr>
 {\$this->etable}
@@ -2310,7 +2350,7 @@ function get_folder(select)
       </select>
     </td>
     <td align=\'right\'>
-      <a href=\'{\$this->self}?a=pm&amp;s=send\'><img src=\'./skins/{\$this->skin}/images/new_message.png\' title=\'{\$this->lang->pm_sendamsg}\' alt=\'{\$this->lang->pm_sendamsg}\' /></a>
+      <div class=\"bigbutton\"><a class=\"messenger\" href=\'{\$this->self}?a=pm&amp;s=send\' title=\"{\$this->lang->pm_sendamsg}\">{\$this->lang->new_message}</a></div>
     </td>
   </tr>
 {\$this->etable}
@@ -2318,8 +2358,14 @@ function get_folder(select)
 $queries['PM_FOLDER_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER_MESSAGE', '
   <tr>
     <td class=\'tablelight\' align=\'center\'><input type=\'checkbox\' name=\'delete[{\$pm[\'pm_id\']}]\' /></td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/\$this->skin/images/{\$pm[\'pm_read\']}open.png\' alt=\'{\$this->lang->pm_pm}\' /></td>
-    <td class=\'tablelight\'><a href=\'{\$this->self}?a=pm&amp;s=view&amp;m={\$pm[\'pm_id\']}\' title=\'{\$preview}\'>{\$pm[\'pm_title\']}</a></td>
+    <td class=\'tablelight\' align=\'center\'>
+      <IF (\$pm[\'pm_read\'] == \'new\')>
+        <img src=\'./skins/\$this->skin/images/icons/new_message.png\' alt=\'{\$this->lang->pm_pm}\' />
+      <ELSE>
+        <img src=\'./skins/\$this->skin/images/icons/messenger.png\' alt=\'{\$this->lang->pm_pm}\' />
+      </IF>
+    </td>
+    <td class=\'tablelight\'><a href=\'{\$this->self}?a=pm&amp;s=view&amp;m={\$pm[\'pm_id\']}\' title=\"{\$preview}\">{\$pm[\'pm_title\']}</a></td>
     <td class=\'tablelight\'><a href=\'{\$this->self}?a=profile&amp;w={\$pm[\'pm_from\']}\'>{\$pm[\'user_name\']}</a></td>
     <td class=\'tablelight\'>{\$pm[\'pm_time\']}</td>
   </tr>
@@ -2374,9 +2420,9 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
 {\$this->table}
   <tr>
     <td align=\'right\'>
-      <a href=\'{\$this->self}?a=pm&amp;s=send&amp;re={\$pm[\'pm_id\']}\'><img src=\'./skins/{\$this->skin}/images/message_reply.png\' title=\'{\$this->lang->pm_reply}\' alt=\'{\$this->lang->pm_reply}\' /></a>
-      <a href=\'{\$this->self}?a=pm&amp;s=send\'><img src=\'./skins/{\$this->skin}/images/new_message.png\' title=\'{\$this->lang->pm_sendamsg}\' alt=\'{\$this->lang->pm_sendamsg}\' /></a>
-      <a href=\'{\$this->self}?a=pm&amp;s=delete&amp;m={\$pm[\'pm_id\']}\'><img src=\'./skins/{\$this->skin}/images/delete_message.png\' title=\'{\$this->lang->pm_delete}\' alt=\'{\$this->lang->pm_delete}\' /></a>
+      <div class=\"bigbutton\"><a class=\"delete\" href=\'{\$this->self}?a=pm&amp;s=delete&amp;m={\$pm[\'pm_id\']}\' title=\"{\$this->lang->pm_delete}\">{\$this->lang->delete}</a></div>
+      <div class=\"bigbutton\"><a class=\"messenger\" href=\'{\$this->self}?a=pm&amp;s=send\' title=\"{\$this->lang->pm_sendamsg}\">{\$this->lang->new_message}</a></div>
+      <div class=\"bigbutton\"><a class=\"reply\" href=\'{\$this->self}?a=pm&amp;s=send&amp;re={\$pm[\'pm_id\']}\' title=\"{\$this->lang->pm_reply}\">{\$this->lang->reply}</a></div>
     </td>
   </tr>
 {\$this->etable}
@@ -2387,35 +2433,26 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
   </tr>
 <tr>
   <td class=\'tablelight\'>
-    <table border=\'0\' width=\'100%\' cellpadding=\'4\' cellspacing=\'0\'>
-      <tr>
-        <td style=\'width:20%\' rowspan=\'3\' valign=\'top\'>
-          <IF \$online><img src=\'./skins/{\$this->skin}/images/online.png\' alt=\'{\$this->lang->pm_online}\' title=\'{\$this->lang->pm_online}\' /></IF>
-          <IF !\$online><img src=\'./skins/{\$this->skin}/images/offline.png\' alt=\'{\$this->lang->pm_offline}\' title=\'{\$this->lang->pm_offline}\' /></IF>
+    <table style=\"width:100%\"><tr><td class=\"posterinfo\" rowspan=\"2\">
+
+          <IF \$online><img src=\'./skins/{\$this->skin}/images/icons/user_online.png\' alt=\'{\$this->lang->pm_online}\' title=\'{\$this->lang->pm_online}\' height=\"16\" width=\"16\" />
+          <ELSE><img src=\'./skins/{\$this->skin}/images/icons/user_offline.png\' alt=\'{\$this->lang->pm_offline}\' title=\'{\$this->lang->pm_offline}\' height=\"16\" width=\"16\" /></IF>
           <b><a href=\'{\$this->self}?a=profile&amp;w={\$pm[\'pm_from\']}\'>{\$pm[\'user_name\']}</a><br />
-          {\$pm[\'user_title\']}</b><br /><br />
-          {\$pm[\'user_avatar\']}
+          {\$pm[\'user_title\']}</b><br />
+          <span class=\"userimages\"><br />
+          {\$pm[\'user_avatar\']}</span>
           {\$this->lang->pm_group}: {\$pm[\'group_name\']}<br />
           {\$this->lang->pm_posts}: {\$pm[\'user_posts\']}<br />
           {\$this->lang->pm_joined}: {\$pm[\'user_joined\']}<br /><br />
-        </td>
-      </tr>
-      <tr>
-        <td class=\'post\' valign=\'top\'><IF \$recipients>{\$this->lang->pm_recipients}: {\$recipients}<hr /></IF>{\$pm[\'pm_message\']}</td>
-      </tr>
-      <tr>
-        <td valign=\'bottom\'>
-          <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-            <tr>
-              <td class=\'signature\'>{\$pm[\'user_signature\']}<hr /></td>
-            </tr>
-            <tr>
-              <td>{\$this->lang->pm_sendon} {\$pm[\'pm_time\']}</td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
+    </td>
+    <td class=\"post\">
+        <IF \$recipients>{\$this->lang->pm_recipients}: {\$recipients}<hr /></IF>{\$pm[\'pm_message\']}
+
+    </td></tr>
+    <tr><td class=\"postbottom\">
+         <div class=\'signature\'>{\$pm[\'user_signature\']}</div><hr style=\"clear:both;\" />
+          <div style=\"float:right\">{\$this->lang->pm_sendon} {\$pm[\'pm_time\']}</div>
+    </td></tr></table>
   </td>
 </tr>
 <tr>
@@ -2426,9 +2463,9 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
 {\$this->table}
   <tr>
     <td align=\'right\'>
-      <a href=\'{\$this->self}?a=pm&amp;s=send&amp;re={\$pm[\'pm_id\']}\'><img src=\'./skins/{\$this->skin}/images/message_reply.png\' title=\'{\$this->lang->pm_reply}\' alt=\'{\$this->lang->pm_reply}\' /></a>
-      <a href=\'{\$this->self}?a=pm&amp;s=send\'><img src=\'./skins/{\$this->skin}/images/new_message.png\' title=\'{\$this->lang->pm_sendamsg}\' alt=\'{\$this->lang->pm_sendamsg}\' /></a>
-      <a href=\'{\$this->self}?a=pm&amp;s=delete&amp;m={\$pm[\'pm_id\']}\'><img src=\'./skins/{\$this->skin}/images/delete_message.png\' title=\'{\$this->lang->pm_delete}\' alt=\'{\$this->lang->pm_delete}\' /></a>
+      <div class=\"bigbutton\"><a class=\"delete\" href=\'{\$this->self}?a=pm&amp;s=delete&amp;m={\$pm[\'pm_id\']}\' title=\"{\$this->lang->pm_delete}\">{\$this->lang->delete}</a></div>
+      <div class=\"bigbutton\"><a class=\"messenger\" href=\'{\$this->self}?a=pm&amp;s=send\' title=\"{\$this->lang->pm_sendamsg}\">{\$this->lang->new_message}</a></div>
+      <div class=\"bigbutton\"><a class=\"reply\" href=\'{\$this->self}?a=pm&amp;s=send&amp;re={\$pm[\'pm_id\']}\' title=\"{\$this->lang->pm_reply}\">{\$this->lang->reply}</a></div>
     </td>
   </tr>
 {\$this->etable}
@@ -2502,7 +2539,7 @@ $queries['POST_BOX_PLAIN'] = "INSERT INTO {$pre}templates (template_skin, templa
       <tr><td>
       {\$this->table}
         <tr>
-          <td colspan=\'{\$this->sets[\'clickable_per_row\']}\' class=\'tabledark\' align=\'center\' style=\'white-space:nowrap\'>
+          <td colspan=\'{\$this->sets[\'clickable_per_row\']}\' class=\'tabledark\' style=\'white-space:nowrap\'>
             <b>{\$this->lang->post_smiles}</b>
           </td>
         </tr>
@@ -2650,7 +2687,7 @@ $queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, templat
       <tr><td>
       {\$this->table}
         <tr>
-          <td colspan=\'{\$this->sets[\'clickable_per_row\']}\' class=\'tabledark\' align=\'center\' style=\'white-space:nowrap\'>
+          <td colspan=\'{\$this->sets[\'clickable_per_row\']}\' class=\'tabledark\' style=\'white-space:nowrap\'>
             <b>{\$this->lang->post_smiles}</b>
           </td>
         </tr>
@@ -3032,22 +3069,16 @@ $queries['POST_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template
   <td class=\'tablelight\'>
     <table border=\'0\' width=\'100%\' cellpadding=\'4\' cellspacing=\'0\'>
       <tr>
-        <td style=\'width:20%\' rowspan=\'3\' valign=\'top\'>
+        <td class=\"posterinfo\" rowspan=\'2\'>
           {\$Poster_Info}
          </td>
-      </tr>
-      <tr>
-        <td class=\'post\' valign=\'top\'>
+        <td class=\'post\'>
           {\$preview_text}
         </td>
       </tr>
       <tr>
-        <td valign=\'bottom\'>
-          <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-            <tr>
-              <td class=\'signature\'>{\$signature}</td>
-            </tr>
-          </table>
+        <td valign=\'postbottom\'>
+          <div class=\'signature\'>{\$signature}</div>
         </td>
       </tr>
     </table>
@@ -3103,25 +3134,12 @@ $queries['POST_REVIEW_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, tem
   <td class=\'tablelight\'>
     <table border=\'0\' width=\'100%\' cellpadding=\'3\' cellspacing=\'0\'>
       <tr>
-        <td style=\'width:20%\' rowspan=\'3\' valign=\'top\'>
+        <td class=\"posterinfo\">
           <b>{\$last[\'user_name\']}</b>
         </td>
-      </tr>
-      <tr>
-        <td class=\'post\' style=\'width:80%\' valign=\'top\'>
-          {\$last[\'post_text\']}
-        </td>
-      </tr>
-      <tr>
-        <td valign=\'bottom\'>
-          <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-            <tr>
-              <td><hr /></td>
-            </tr>
-            <tr>
-              <td>{\$this->lang->post_posted} {\$last[\'post_time\']}</td>
-            </tr>
-          </table>
+        <td class=\'post\'>
+        {\$last[\'post_text\']}
+        <div style=\"float:right\">{\$this->lang->post_posted} {\$last[\'post_time\']}</div>
         </td>
       </tr>
     </table>
@@ -3224,7 +3242,7 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
 {\$this->table}
   <tr>
     <td colspan=\'2\' class=\'header\'>{\$this->lang->profile_view_profile}: 
-	<IF \$online><img src=\'./skins/{\$this->skin}/images/online.png\' alt=\'{\$this->lang->profile_online}\' title=\'{\$this->lang->profile_online}\' /></IF><IF !\$online><img src=\'./skins/{\$this->skin}/images/offline.png\' alt=\'{\$this->lang->profile_offline}\' title=\'{\$this->lang->profile_offline}\' /></IF> {\$profile[\'user_name\']}
+	<IF \$online><img src=\'./skins/{\$this->skin}/images/icons/user_online.png\' alt=\'{\$this->lang->profile_online}\' title=\'{\$this->lang->profile_online}\' /><ELSE><img src=\'./skins/{\$this->skin}/images/icons/user_offline.png\' alt=\'{\$this->lang->profile_offline}\' title=\'{\$this->lang->profile_offline}\' /></IF> {\$profile[\'user_name\']}
 	</td>
   </tr>
   <tr>
@@ -3260,7 +3278,7 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
         </tr>
         <tr>
           <td><b>{\$this->lang->profile_pm}</b></td>
-          <td>{\$profile[\'user_pm\']}</td>
+          <td><IF (\$profile[\'user_pm\'] != null)><div class=\"button\"><a class=\"messenger\" href=\'{\$this->self}?a=pm&amp;s=send&amp;to={\$profile[\'user_id\']}\'>{\$this->lang->private_message}</a></div></IF></td>
         </tr>
       </table>
     </td>
@@ -3401,19 +3419,19 @@ function get_forum(select)
 <tr><td align=\'center\'>
 <table border=\'0\' cellpadding=\'5\' cellspacing=\'0\' style=\'border-collapse:collapse\'>
   <tr>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/newopen.png\' title=\'{\$this->lang->recent_new}\' alt=\'{\$this->lang->recent_new}\' /><br />{\$this->lang->recent_new}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/newhot.png\' title=\'{\$this->lang->recent_new} {\$this->lang->recent_hot}\' alt=\'{\$this->lang->recent_new} {\$this->lang->recent_hot}\' /><br />{\$this->lang->recent_new} {\$this->lang->recent_hot}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/pinned.png\' title=\'{\$this->lang->recent_pinned}\' alt=\'{\$this->lang->recent_pinned}\' /><br />{\$this->lang->recent_pinned}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/moved.png\' title=\'{\$this->lang->recent_moved}\' alt=\'{\$this->lang->recent_moved}\' /><br />{\$this->lang->recent_moved}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_unread.png\' title=\'{\$this->lang->recent_new}\' alt=\'{\$this->lang->recent_new}\' /><br />{\$this->lang->recent_new}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_hot_unread.png\' title=\'{\$this->lang->recent_new} {\$this->lang->recent_hot}\' alt=\'{\$this->lang->recent_new} {\$this->lang->recent_hot}\' /><br />{\$this->lang->recent_new} {\$this->lang->recent_hot}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/pin.png\' title=\'{\$this->lang->recent_pinned}\' alt=\'{\$this->lang->recent_pinned}\' /><br />{\$this->lang->recent_pinned}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_moved.png\' title=\'{\$this->lang->recent_moved}\' alt=\'{\$this->lang->recent_moved}\' /><br />{\$this->lang->recent_moved}</td>
   </tr>
   <tr>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/open.png\' title=\'{\$this->lang->recent_topic}\' alt=\'{\$this->lang->recent_topic}\' /><br />{\$this->lang->recent_not} {\$this->lang->recent_new}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/hot.png\' title=\'{\$this->lang->recent_hot}\' alt=\'{\$this->lang->recent_hot}\' /><br />{\$this->lang->recent_hot}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/poll.png\' title=\'{\$this->lang->recent_poll}\' alt=\'{\$this->lang->recent_poll}\' /><br />{\$this->lang->recent_poll}</td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/locked.png\' title=\'{\$this->lang->recent_locked}\' alt=\'{\$this->lang->recent_locked}\' /><br />{\$this->lang->recent_locked}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic.png\' title=\'{\$this->lang->recent_topic}\' alt=\'{\$this->lang->recent_topic}\' /><br />{\$this->lang->recent_not} {\$this->lang->recent_new}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_hot.png\' title=\'{\$this->lang->recent_hot}\' alt=\'{\$this->lang->recent_hot}\' /><br />{\$this->lang->recent_hot}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/poll.png\' title=\'{\$this->lang->recent_poll}\' alt=\'{\$this->lang->recent_poll}\' /><br />{\$this->lang->recent_poll}</td>
+    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_locked.png\' title=\'{\$this->lang->recent_locked}\' alt=\'{\$this->lang->recent_locked}\' /><br />{\$this->lang->recent_locked}</td>
   </tr>
   <tr>
-    <td class=\'tabledark\' colspan=\'4\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/dot.png\' title=\'{\$this->lang->recent_dot}\' alt=\'{\$this->lang->recent_dot}\' /> {\$this->lang->recent_dot_detail}</td>
+    <td class=\'tabledark\' colspan=\'4\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/icons/topic_posted_to.png\' title=\'{\$this->lang->recent_dot}\' alt=\'{\$this->lang->recent_dot}\' /> {\$this->lang->recent_dot_detail}</td>
   </tr>
 </table>
 </td></tr>
@@ -3426,8 +3444,16 @@ $queries['RECENT_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, temp
 ', 'Error Display', 'Format the look of an error on the recent topics view.', 3)";
 $queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_TOPIC', '
   <tr>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/{\$state}.png\' title=\'{\$this->lang->recent_topic}\' alt=\'{\$this->lang->recent_topic}\' /></td>
-    <td class=\'tablelight\' align=\'center\'>{\$row[\'topic_icon\']}</td>
+    <td class=\"topicicons\">
+        <div class=\"<IF (\$state == \'locked\' && \$this->user[\'user_lastvisit\'] < \$row[\'edited\'])>new</IF>{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
+        &nbsp;
+        </div>
+    </td>
+    <td class=\'tablelight\' style=\'text-align:center\'>
+      <IF \$row[\'icon\']>
+        <img src=\"./skins/{\$this->skin}/mbicons/{\$row[\'icon\']}\" alt=\"{\$this->lang->recent_icon}\" />
+      </IF>
+    </td>
     <td class=\'tablelight\'><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}\' class=\'medium\'>{\$row[\'topic_title\']}</a> {\$Pages}{\$row[\'topic_description\']}</td>
     <td class=\'tabledark\' align=\'center\'>{\$row[\'topic_starter\']}</td>
     <td class=\'tablelight\' align=\'center\'>{\$row[\'topic_replies\']}</td>
@@ -3438,7 +3464,7 @@ $queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template
           <td>
             {\$row[\'topic_edited\']}<br />
             <a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}{\$jump}\'>
-            <img src=\'./skins/{\$this->skin}/images/arrow.png\' title=\'{\$this->lang->recent_jump}\' alt=\'{\$this->lang->recent_jump}\' /></a>
+            <img src=\'./skins/{\$this->skin}/images/icons/goto_last_post.png\' title=\'{\$this->lang->recent_jump}\' alt=\'{\$this->lang->recent_jump}\' /></a>
             {\$this->lang->recent_by}: \$last_poster
           </td>
         </tr>
@@ -3448,8 +3474,16 @@ $queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template
 ', 'Recent Topics', 'Format the default look of a given forum topic.', 1)";
 $queries['RECENT_TOPIC_PINNED'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_TOPIC_PINNED', '
   <tr>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/{\$state}.png\' title=\'{\$this->lang->recent_topic}\' alt=\'{\$this->lang->recent_topic}\' /></td>
-    <td class=\'tablelight\' align=\'center\'><img src=\'./skins/{\$this->skin}/images/pinned.png\' title=\'{\$this->lang->recent_pinned_topic}\' alt=\'{\$this->lang->recent_pinned_topic}\' /></td>
+    <td class=\"topicicons\">
+        <div class=\"<IF (\$state == \'locked\' && \$this->user[\'user_lastvisit\'] < \$row[\'edited\'])>new</IF>{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
+        <div class=\"pinned\">&nbsp;</div>
+        </div>
+    </td>
+    <td class=\'tablelight\' style=\'text-align:center\'>
+      <IF \$row[\'topic_icon\']>
+        <img src=\"./skins/{\$this->skin}/mbicons/{\$row[\'topic_icon\']}\" alt=\"{\$this->lang->recent_icon}\" />
+      </IF>
+    </td>
     <td class=\'tablelight\'><a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}\' class=\'medium\'><b>{\$row[\'topic_title\']}</b></a> {\$Pages}{\$row[\'topic_description\']}</td>
     <td class=\'tabledark\' align=\'center\'>{\$row[\'topic_starter\']}</td>
     <td class=\'tablelight\' align=\'center\'>{\$row[\'topic_replies\']}</td>
@@ -3460,7 +3494,7 @@ $queries['RECENT_TOPIC_PINNED'] = "INSERT INTO {$pre}templates (template_skin, t
           <td>
             {\$row[\'topic_edited\']}<br />
             <a href=\'{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}{\$jump}\'>
-            <img src=\'./skins/{\$this->skin}/images/arrow.png\' title=\'{\$this->lang->recent_jump}\' alt=\'{\$this->lang->recent_jump}\' /></a>
+            <img src=\'./skins/{\$this->skin}/images/icons/goto_last_post.png\' title=\'{\$this->lang->recent_jump}\' alt=\'{\$this->lang->recent_jump}\' /></a>
             {\$this->lang->recent_by}: \$last_poster
           </td>
         </tr>
@@ -3701,13 +3735,15 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 
 {\$this->table}
   <tr>
-    <td>{\$this->lang->topic_pages}:
-      {\$pagelinks}
-    </td>
-    <td align=\'right\'>
-      {\$replylink}
-      <a href=\'{\$this->self}?a=post&amp;s=topic&amp;f={\$topic[\'topic_forum\']}\'><img src=\'./skins/{\$this->skin}/images/newtopic.png\' alt=\'{\$this->lang->topic_create_topic}\' /></a>
-      <a href=\'{\$this->self}?a=post&amp;s=poll&amp;f={\$topic[\'topic_forum\']}\'><img src=\'./skins/{\$this->skin}/images/newpoll.png\' alt=\'{\$this->lang->topic_create_poll}\' /></a>
+    <td>
+      <div class=\"bigbutton\"><a class=\"poll\" href=\"{\$this->self}?a=post&amp;s=poll&amp;f={\$topic[\'topic_forum\']}\" title=\"{\$this->lang->topic_create_poll}\">{\$this->lang->new_poll}</a></div>
+      <div class=\"bigbutton\"><a class=\"topic\" href=\"{\$this->self}?a=post&amp;s=topic&amp;f={\$topic[\'topic_forum\']}\" title=\"{\$this->lang->topic_create_topic}\">{\$this->lang->new_topic}</a></div>
+      <IF (\$topic[\'topic_modes\'] & TOPIC_LOCKED)>
+        <div class=\"greybutton\"><span class=\"locked\">{\$this->lang->topic_locked}</span></div>
+      <ELSE>
+        <div class=\"bigbutton\"><a class=\"topicreply\" href=\"{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}\" title=\"{\$this->lang->topic_reply}\">{\$this->lang->reply}</a></div>
+      </IF>
+      {\$this->lang->topic_pages}: {\$pagelinks}
     </td>
   </tr>
 {\$this->etable}
@@ -3732,15 +3768,17 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 
 {\$this->table}
   <tr>
-    <td>{\$this->lang->topic_pages}:
-      {\$pagelinks}
-    </td>
-    <td align=\'right\'>
-      {\$replylink}
-      <a href=\'{\$this->self}?a=post&amp;s=topic&amp;f={\$topic[\'topic_forum\']}\'><img src=\'./skins/{\$this->skin}/images/newtopic.png\' alt=\'{\$this->lang->topic_create_topic}\' /></a>
-      <a href=\'{\$this->self}?a=post&amp;s=poll&amp;f={\$topic[\'topic_forum\']}\'><img src=\'./skins/{\$this->skin}/images/newpoll.png\' alt=\'{\$this->lang->topic_create_poll}\' /></a>
-      <a href=\'{\$this->self}?a=cp&amp;s=addsub&amp;type=topic&amp;item={\$this->get[\'t\']}\'><img src=\'./skins/{\$this->skin}/images/subscribe.png\' alt=\'{\$this->lang->topic_subscribe}\' /></a>
-      <a href=\'{\$this->self}?a=printer&amp;t={\$this->get[\'t\']}\'><img src=\'./skins/{\$this->skin}/images/printable.png\' alt=\'{\$this->lang->topic_print}\' /></a>
+    <td>
+      <div class=\"bigbutton\"><a class=\"subscribe\" href=\"{\$this->self}?a=cp&amp;s=addsub&amp;type=topic&amp;item={\$this->get[\'t\']}\" title=\"{\$this->lang->topic_subscribe}\">{\$this->lang->subscribe}</a></div>
+      <div class=\"bigbutton\"><a class=\"poll\" href=\"{\$this->self}?a=post&amp;s=poll&amp;f={\$topic[\'topic_forum\']}\" title=\"{\$this->lang->topic_create_poll}\">{\$this->lang->new_poll}</a></div>
+      <div class=\"bigbutton\"><a class=\"topic\" href=\"{\$this->self}?a=post&amp;s=topic&amp;f={\$topic[\'topic_forum\']}\" title=\"{\$this->lang->topic_create_topic}\">{\$this->lang->new_topic}</a></div>
+      <IF (\$topic[\'topic_modes\'] & TOPIC_LOCKED)>
+        <div class=\"greybutton\"><span class=\"locked\">{\$this->lang->topic_locked}</span></div>
+      <ELSE>
+        <div class=\"bigbutton\"><a class=\"topicreply\" href=\"{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}\" title=\"{\$this->lang->topic_reply}\">{\$this->lang->reply}</a></div>
+      </IF>
+
+      {\$this->lang->topic_pages}:{\$pagelinks}
     </td>
   </tr>
 {\$this->etable}
@@ -3749,56 +3787,81 @@ $queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_s
 <tr>
   <td class=\'{\$class}\'>
     <a id=\'p{\$i}\'></a>
-    <table border=\'0\' width=\'100%\' cellpadding=\'4\' cellspacing=\'0\'>
-      <tr>
-        <td style=\'width:20%\' rowspan=\'3\' valign=\'top\'>
+    <table style=\"width:100%\"><tr><td class=\"posterinfo\" rowspan=\"3\">
           {\$split}
           {\$Poster_Info}
           {\$post[\'post_ip\']}
-        </td>
-      </tr>
-      <tr>
-        <td class=\'post\' valign=\'top\'>
-          <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-            <tr>
-              <td>{\$Poster_Icons}</td>
-              <td align=\'right\'><a href=\'{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}&amp;f={\$topic[\'topic_forum\']}&amp;qu={\$post[\'post_id\']}\'><img src=\'./skins/{\$this->skin}/images/quote.png\' alt=\'{\$this->lang->topic_quote}\' /></a> {\$options} <a href=\'#bottom\'><img src=\'./skins/{\$this->skin}/images/arrowdown.png\' alt=\'{\$this->lang->topic_bottom}\' title=\'{\$this->lang->topic_bottom}\' /></a><a href=\'#top\'><img src=\'./skins/{\$this->skin}/images/arrowup.png\' alt=\'{\$this->lang->topic_top}\' title=\'{\$this->lang->topic_top}\' /></a></td>
-            </tr>
-          </table>
-          <hr />
+    </td>
+    <td class=\"posttop\">
+                <IF \$icons[\'user_email\'][\'link\']>
+                  <div class=\"button\"><a class=\"email\" href=\"{\$icons[\'user_email\'][\'link\']}\" title=\"{\$icons[\'user_email\'][\'alt\']}\">{\$this->lang->email}</a></div>
+                </IF>
+                <IF \$post[\'user_homepage\']>
+                  <div class=\"button\"><a class=\"home\" href=\"{\$icons[\'user_homepage\'][\'link\']}\" title=\"{\$icons[\'user_homepage\'][\'alt\']}\">{\$this->lang->website}</a></div>
+                </IF>
+                <IF \$post[\'user_icq\']>
+                  <div class=\"button\"><a class=\"icq\" href=\"{\$icons[\'user_icq\'][\'link\']}\" title=\"{\$icons[\'user_icq\'][\'alt\']}\">{\$this->lang->icq}</a></div>
+                </IF>
+                <IF \$post[\'user_aim\']>
+                  <div class=\"button\"><a class=\"aim\" href=\"{\$icons[\'user_aim\'][\'link\']}\" title=\"{\$icons[\'user_aim\'][\'alt\']}\">{\$this->lang->aim}</a></div>
+                </IF>
+                <IF \$post[\'user_yahoo\']>
+                  <div class=\"button\"><a class=\"yahoo\" href=\"{\$icons[\'user_yahoo\'][\'link\']}\" title=\"{\$icons[\'user_yahoo\'][\'alt\']}\">{\$this->lang->yahoo}</a></div>
+                </IF>
+                <IF \$post[\'user_msn\']>
+                  <div class=\"button\"><a class=\"msn\" href=\"{\$icons[\'user_msn\'][\'link\']}\" title=\"{\$icons[\'user_msn\'][\'alt\']}\">{\$this->lang->msn}</a></div>
+                </IF>
+                <IF \$post[\'user_gtalk\']>
+                  <div class=\"button\"><a class=\"gtalk\" href=\"{\$icons[\'user_gtalk\'][\'link\']}\" title=\"{\$icons[\'user_gtalk\'][\'alt\']}\">{\$this->lang->gtalk}</a></div>
+                </IF>
+                <IF \$post[\'user_pm\']>
+                  <div class=\"button\"><a class=\"messenger\" href=\"{\$icons[\'user_pm\'][\'link\']}\" title=\"{\$icons[\'user_pm\'][\'alt\']}\">{\$this->lang->private_message}</a></div>
+                </IF>
+
+               <div style=\"float:right\">
+                 <a href=\'#bottom\'><img src=\'./skins/{\$this->skin}/images/icons/arrow_down.png\' alt=\'{\$this->lang->topic_bottom}\' title=\'{\$this->lang->topic_bottom}\' /></a>
+                 <a href=\'#top\'><img src=\'./skins/{\$this->skin}/images/icons/arrow_up.png\' alt=\'{\$this->lang->topic_top}\' title=\'{\$this->lang->topic_top}\' /></a>
+                </div>
+                <IF \$can_delete>
+                  <div class=\"button butright\"><a class=\"delete\" href=\'{\$this->self}?a=mod&amp;s=del_post&amp;p={\$post[\'post_id\']}\' title=\"{\$this->lang->topic_delete_post}\">{\$this->lang->delete}</a></div>
+                </IF>
+                <IF \$can_edit>
+                  <div class=\"button butright\"><a class=\"edit\" href=\'{\$this->self}?a=mod&amp;s=edit_post&amp;p={\$post[\'post_id\']}\' title=\"{\$this->lang->topic_edit_post}\">{\$this->lang->edit}</a></div>
+                </IF>
+                <div class=\"button butright\"><a class=\"quotepost\" href=\'{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}&amp;f={\$topic[\'topic_forum\']}&amp;qu={\$post[\'post_id\']}\' title=\"{\$this->lang->topic_quote}\">{\$this->lang->quote}</a></div>
+
+       </td></tr>
+       <tr><td class=\"post\">
+
+          <hr/>
           {\$post[\'post_text\']}
-        </td>
-      </tr>
-      <tr>
-        <td valign=\'bottom\'>
-          <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-            <tr>
-              <td colspan=\'2\'><span class=\'signature\'>{\$post[\'user_signature\']}</span><hr /></td>
-            </tr>
-            <tr>
-              <td>{\$post[\'post_icon\']}{\$this->lang->topic_posted} {\$post[\'post_time\']}</td>
-              <td align=\'right\'>{\$edited}</td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
+
+          <div style=\"float:right\">{\$edited}</div>
+       </td></tr>
+       <tr><td class=\"postbottom\">
+          <div class=\'signature\'>{\$post[\'user_signature\']}</div><hr style=\"clear:both;\" />
+          <div style=\"float:right\">{\$this->lang->topic_posted} {\$post[\'post_time\']}</div>
+          {\$post[\'post_icon\']}
+        </td></tr></table>
   </td>
 </tr>
 ', 'Posts', 'Format the look of a post within a given topic.', 1)";
 $queries['TOPIC_POSTER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POSTER_GUEST', '<b>{\$this->lang->topic_guest}<br />{\$this->lang->topic_unreg}</b><br /><br />', 'Poster Information - Guest', 'Edit the poster information in topics for unregistered members', 3)";
 $queries['TOPIC_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POSTER_MEMBER', '
-<IF \$online><img src=\'./skins/{\$this->skin}/images/online.png\' alt=\'{\$this->lang->topic_online}\' title=\'{\$this->lang->topic_online}\' /></IF>
-<IF !\$online><img src=\'./skins/{\$this->skin}/images/offline.png\' alt=\'{\$this->lang->topic_offline}\' title=\'{\$this->lang->topic_offline}\' /></IF>
+<IF \$online>
+  <img src=\'./skins/{\$this->skin}/images/icons/user_online.png\' alt=\'{\$this->lang->topic_online}\' title=\'{\$this->lang->topic_online}\' />
+<ELSE>
+  <img src=\'./skins/{\$this->skin}/images/icons/user_offline.png\' alt=\'{\$this->lang->topic_offline}\' title=\'{\$this->lang->topic_offline}\' />
+</IF>
 <b><a href=\'{\$this->self}?a=profile&amp;w={\$post[\'user_id\']}\'>{\$post[\'user_name\']}</a><br />
-{\$post[\'user_title\']}</b><br /><br />
+{\$post[\'user_title\']}</b><br />
+<span class=\"userimages\"><br />
 {\$post[\'user_avatar\']}
 
 <img src=\'./skins/{\$this->skin}/images/{\$post[\'membertitle_icon\']}\' alt=\'{\$this->lang->topic_level}\' /><br /><br />
-
+</span>
 {\$this->lang->topic_group}: {\$post[\'group_name\']}<br />
 {\$this->lang->topic_posts}: {\$post[\'user_posts\']}<br />
 {\$this->lang->topic_joined}: {\$post[\'user_joined\']}<br /><br />
 ', 'Poster Information - Member', 'Edit the poster information in topics for members', 2)";
-
 ?>

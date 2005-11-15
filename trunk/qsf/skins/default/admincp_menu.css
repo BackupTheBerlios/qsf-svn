@@ -4,6 +4,7 @@ div.hsmod {
 	margin-left:2.5%;
 	margin-right:2.5%;
 	font-size: 0.9em;
+	text-align: left;
 }
 
 #hsmod, #hsmod ul { /* all lists */

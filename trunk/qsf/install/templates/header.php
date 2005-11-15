@@ -39,8 +39,8 @@
 	<td colspan='2' style='padding:0px'>
 		<table width='100%' cellpadding='0' cellspacing='0' border='0'>
 			<tr>
-				<td style='margin:0px; background-image:url(../skins/default/images/mbbg.png); padding-left:10px;'><img src='../skins/default/images/mb.png' alt='<?php echo $qsf->name; ?>' /></td>
-				<td class='main' align='right' style='background-image:url(../skins/default/images/mbbg.png); padding-right:10px'><?php echo $qsf->version; ?></td>
+				<td style='margin:0px; background-color:#5CA0E6; padding-left:10px;'><h1><?php echo $qsf->name; ?> Installer</h1></td>
+				<td class='main' align='right' style='background-color:#5CA0E6;  padding-right:10px'><?php echo $qsf->version; ?></td>
 			</tr>
 		</table>
 	</td>
