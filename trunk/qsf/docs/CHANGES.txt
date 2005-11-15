@@ -55,8 +55,15 @@ New features and modifications for 1.1.5:
 * Guests and new registrations have their language detected from the browser
 * Suckerfish style menu used in admin CP
 * Full Dutch translation
+* Full Swedish translation
 * improved speed in calculating dates 'today' and 'yesterday' - Matt
 * Registration prompts to agree to Terms of service
 * IP addresses stored as integer rather than varchar (save space)
 * debug link hidden from non-admins
 * FAQ added to documents
+* Automatic detection of guest language 
+* Rss reader in Admin CP to alert of new releases or other important annoucements
+* Full timezone handling including daylight savings
+* New skin by http://www.misterpink.com.au/
+* Skin icons by http://www.famfamfam.com/
+
