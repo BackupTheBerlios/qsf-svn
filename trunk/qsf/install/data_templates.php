@@ -1998,11 +1998,12 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 
 
 <div class=\"validchecks\">
-   <a href=\"http://validator.w3.org/check?uri=referer\" onclick=\"window.open(this.href,\'_blank\');return false;\">
+  <a href=\"http://validator.w3.org/check?uri=referer\" onclick=\"window.open(this.href,\'_blank\');return false;\">
     <img style=\'width:88px;height:31px\' src=\'./skins/{\$qsf->skin}/images/valid-xhtml11.png\' alt=\'Valid XHTML 1.1!\' title=\'Valid XHTML 1.1!\' />
-   </a>
-   <a href=\"http://jigsaw.w3.org/css-validator/check/referer\" onclick=\"window.open(this.href,\'_blank\');return false;\">
+  </a>
+  <a href=\"http://jigsaw.w3.org/css-validator/check/referer\" onclick=\"window.open(this.href,\'_blank\');return false;\">
     <img style=\'width:88px;height:31px\' src=\'./skins/{\$qsf->skin}/images/valid-css.png\' alt=\'Valid CSS!\' title=\'Valid CSS!\' />
+  </a>
 </div>
 </body>
 </html>
