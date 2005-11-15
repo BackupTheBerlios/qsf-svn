@@ -59,7 +59,7 @@ class zip
 
 		while (($file = readdir($dp)) !== false)
 		{
-			if (($file == '.') || ($file == '..') || ($file == 'CVS')) {
+			if (($file == '.') || ($file == '..') || ($file == 'CVS') || ($file{0} == '.')) {
 				continue;
 			}
 
@@ -71,7 +71,11 @@ class zip
 				$this->spider($real_path, $zip_path);
 			} else {
 				$fp = fopen($real_path, 'r');
-				$this->add_file(fread($fp, filesize($real_path)), $zip_path);
+				if (0 == ($tmp = filesize($real_path))) {
+					$this->add_file('', $zip_path);
+				} else {
+					$this->add_file(fread($fp, $tmp), $zip_path);
+				}
 				fclose($fp);
 			}
 		}
