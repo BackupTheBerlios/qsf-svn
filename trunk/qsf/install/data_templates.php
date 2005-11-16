@@ -2156,7 +2156,7 @@ $queries['MEMBERS_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, templa
     <td class=\'{\$class}\' align=\'center\'>{\$member[\'group_name\']}</td>
     <td class=\'{\$class}\' align=\'center\'>
       <IF \$member[\'user_homepage\']>
-        <div class=\"button\"><a class=\"home\" href=\"{\$member[\'homepage\']}\" rel=\"nofollow\" title=\"{\$this->lang->members_vist_www}\">{\$this->lang->website}</a></div>
+        <div class=\"button\"><a class=\"home\" href=\"{\$member[\'homepage\']}\" title=\"{\$this->lang->members_vist_www}\">{\$this->lang->website}</a></div>
       </IF>
     </td>
   </tr>
