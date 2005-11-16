@@ -1340,8 +1340,8 @@ class sv
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Fortsätt';
 		$this->delete = 'Ta bort';
-		$this->direction = 'ltr'; //Translate
-		$this->edit = 'Ändra HTML Mallar';
+		$this->direction = 'ltr';
+		$this->edit = 'Ändra';
 		$this->email = 'E-post';
 		$this->gtalk = 'GT';
 		$this->icq = 'ICQ';

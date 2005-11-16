@@ -1340,7 +1340,7 @@ class he
 		$this->continue = 'Continue'; //Translate
 		$this->delete = 'Delete'; //Translate
 		$this->direction = 'rtl';
-		$this->edit = 'Edit HTML Templates';
+		$this->edit = 'Edit'; //Translate
 		$this->email = 'Email'; //Translate
 		$this->gtalk = 'GT'; //Translate
 		$this->icq = 'ICQ'; //Translate

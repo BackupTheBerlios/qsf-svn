@@ -1342,7 +1342,7 @@ class nl
 		$this->continue = 'Verder gaan'; 
 		$this->delete = 'Verwijderen';
 		$this->direction = 'ltr';
-		$this->edit = 'Edit HTML Templates';
+		$this->edit = 'Edit'; // Translate
 		$this->email = 'E-mail'; 
 		$this->gtalk = 'GT'; 
 		$this->icq = 'ICQ'; 
