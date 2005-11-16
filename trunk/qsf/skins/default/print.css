@@ -143,6 +143,9 @@ div.container {
 	text-align: left;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", Arial, sans-serif;
 	font-size: 0.7em;
+	/* Forcing background white in opera */
+	background: white;
+	color: black;
 }
 
 /* Hack to force font size on IE */
