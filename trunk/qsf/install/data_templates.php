@@ -2451,8 +2451,8 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
 
     </td></tr>
     <tr><td class=\"postbottom\">
-         <div class=\'signature\'>{\$pm[\'user_signature\']}</div><hr style=\"clear:both;\" />
-          <div style=\"float:right\">{\$this->lang->pm_sendon} {\$pm[\'pm_time\']}</div>
+         <div class=\'signature\'>{\$pm[\'user_signature\']}</div><hr />
+          <div>{\$this->lang->pm_sendon} {\$pm[\'pm_time\']}</div>
     </td></tr></table>
   </td>
 </tr>
@@ -3837,12 +3837,11 @@ $queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_s
           <hr/>
           {\$post[\'post_text\']}
 
-          <div style=\"float:right\">{\$edited}</div>
        </td></tr>
        <tr><td class=\"postbottom\">
-          <div class=\'signature\'>{\$post[\'user_signature\']}</div><hr style=\"clear:both;\" />
-          <div style=\"float:right\">{\$this->lang->topic_posted} {\$post[\'post_time\']}</div>
-          {\$post[\'post_icon\']}
+          <div class=\'signature\'>{\$post[\'user_signature\']}</div><hr />
+          <div style=\"float:right\">{\$edited}</div>
+          <div>{\$post[\'post_icon\']} {\$this->lang->topic_posted} {\$post[\'post_time\']}</div>
         </td></tr></table>
   </td>
 </tr>

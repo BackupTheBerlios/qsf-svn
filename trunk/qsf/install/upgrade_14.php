@@ -170,6 +170,7 @@ $queries[] = "CREATE TABLE {$pre}timezones (
   KEY name (zone_name)
 ) TYPE=MyISAM AUTO_INCREMENT=384";
 
+$queries[] = "UPDATE {$pre}users SET user_skin='default' WHERE user_group=".USER_ADMIN);
 $queries[] = "INSERT INTO {$pre}timezones VALUES (1, 'Europe/Andorra', 0, 0)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (2, 'Asia/Dubai', 0, 0)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (3, 'Asia/Kabul', 0, 0)";
