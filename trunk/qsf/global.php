@@ -269,23 +269,51 @@ class qsfglobal
 		$in = strtr($in, $strtr);
 
 		if (($options & FORMAT_MBCODE) && $brackets) {
+			$old_in = $in; // backup text in case quote tags fail
+			
+			$search = array();
+			$replace = array();
+			
+			$search[] = '~\[quote=(.+?)]~i';
+			$search[] = '~\[quote]~i';
+
+			$replace[] = '<div class="quotewrap"><table class="quotebox" border="0" cellpadding="3" cellspacing="0"><tr><td><b>\\1 ' . $this->lang->main_said . ':</b></td></tr><tr><td class="quote">';
+			$replace[] = '<div class="quotewrap"><table class="quotebox" border="0" cellpadding="3" cellspacing="0"><tr><td><b>' . $this->lang->main_quote . ':</b></td></tr><tr><td class="quote">';
+
+			$startCount = preg_match_all($search[0], $in, $matches);
+			$startCount += preg_match_all($search[1], $in, $matches);
+			$in = preg_replace($search, $replace, $in);
+
+			$search = '~\[/quote]~i';
+			$replace = '</td></tr></table></div>';
+
+			// Count matches first
+			$endCount = preg_match_all($search, $in, $matches);
+			$in = preg_replace($search, $replace, $in);
+			
+			// Match failed. Ignore quote tags!
+			if ($startCount != $endCount) {
+				$in = $old_in;
+			}
+
+
 			$search = array(
 				'~\[(/)?([bi])]~i',
 				'~\[u]~i',
 				'~\[s]~i',
 				'~\[/[us]]~i',
-				'~\[url](h t t p|h t t p s|f t p) : / /(.+?)\[/url]~ise',
-				'~\[url=(h t t p|h t t p s|f t p) : / /(.+?)](.+?)\[/url]~ise',
 				'~\[email]([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)?\[/email]~i',
 				'~\[email=([^<]+?)](.*?)\[/email]~i',
 				'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
 				'~\[(right|center)](.*?)\[/\1]~is',
+				'~\[color=([a-zA-Z]+?)](.*?)\[/color]~is',
+				'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
+				'~\[size=([0-9]+?)](.*?)\[/size]~is',
 				'~\[code](.*?)\[/code]~ise',
 				'~\[php](.*?)\[/php]~ise',
 				'~\[php=([0-9]+?)](.*?)\[/php]~ise',
-				'~\[color=([a-zA-Z]+?)](.*?)\[/color]~is',
-				'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
-				'~\[size=([0-9]+?)](.*?)\[/size]~is'
+				'~\[url](h t t p|h t t p s|f t p) : / /(.+?)\[/url]~ise',
+				'~\[url=(h t t p|h t t p s|f t p) : / /(.+?)](.+?)\[/url]~ise'
 			);
 
 			$replace = array(
@@ -293,31 +321,22 @@ class qsfglobal
 				'<span style=\'text-decoration:underline\'>',
 				'<span style=\'text-decoration:line-through\'>',
 				'</span>',
-				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'</a>\'',
-				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\\3</a>\'',
 				'<a href="mailto:\\1">\\1</a>',
 				'<a href="mailto:\\1">\\2</a>',
 				'\'<img src="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" alt="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" />\'',
 				'<div align="\\1">\\2</div>',
+				'<span style=\'color:\\1\'>\\2</span>',
+				'<span style=\'font-family:\\1\'>\\2</span>',
+				'<span style=\'font-size:\\1ex\'>\\2</span>',
 				'$this->format_code(\'\\1\', 0)',
 				'$this->format_code(\'\\1\', 1)',
 				'$this->format_code(\'\\2\', 1, \'\\1\')',
-				'<span style=\'color:\\1\'>\\2</span>',
-				'<span style=\'font-family:\\1\'>\\2</span>',
-				'<span style=\'font-size:\\1ex\'>\\2</span>'
+				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'</a>\'',
+				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\\3</a>\''
 			);
 
-			if ((substr_count($in, '[quote]') + substr_count($in, '[quote=')) == substr_count($in, '[/quote]')) {
-				$search[] = '~\[quote=(.+?)]~i';
-				$search[] = '~\[quote]~i';
-				$search[] = '~\[/quote]~i';
-
-				$replace[] = '<table class="quotebox" border="0" cellpadding="3" cellspacing="0"><tr><td><b>\\1 ' . $this->lang->main_said . ':</b></td></tr><tr><td class="quote">';
-				$replace[] = '<table class="quotebox" border="0" cellpadding="3" cellspacing="0"><tr><td><b>' . $this->lang->main_quote . ':</b></td></tr><tr><td class="quote">';
-				$replace[] = '</td></tr></table>';
-			}
-
 			$in = preg_replace($search, $replace, $in);
+
 			$in = str_replace(array('  ', "\t", '&amp;#'), array('&nbsp; ', '&nbsp; &nbsp; ', '&#'), $in);
 		}
 
@@ -351,19 +370,13 @@ class qsfglobal
 	{
 		$input = base64_decode($input);
 
-		if (substr($input, 0, 1) != "\r") {
-			$input = "\r\n" . $input;
-		}
-
-		if (substr($input, -1) != "\n") {
-			$input .= "\r\n";
-		}
-
+		$input = trim($input);
+		
 		if ($php) {
 			$title = 'PHP';
 
-			if (strpos($input, '<' . '?') === false) {
-				$input  = '<' . "?php $input ?" . '>';
+			if (strpos($input, '<?') === false) {
+				$input  = '<?php ' . $input . '?>';
 				$tagged = true;
 			}
 
@@ -375,6 +388,11 @@ class qsfglobal
 			$input = ob_get_contents();
 
 			ob_end_clean();
+			// Replace php4 font tags with span tags
+			$input = preg_replace('/<font color="#([0-9A-F]+)">/', '<span style="color: #$1">', $input);
+			$input = preg_replace('/<\/font>/', '</span>', $input);
+			// Trim pointless space
+			$input = preg_replace('/^<code><span style="color: #000000">\s(.+)\s<\/span>\s<\/code>$/', '<span style="color: #000000">$1</span>', $input);
 		} else {
 			$input = htmlspecialchars(str_replace(array('\'', '\"'), array('&#039;', '"'), $input));
 
@@ -390,25 +408,19 @@ class qsfglobal
 		} else {
 			$lines = explode("\n", $input);
 		}
-		$count = count($lines) - 1;
-
-		if (isset($tagged)) {
-			$lines[1] =  $lines[0] . $lines[1];
-		}
-
-		$lines[$count - 1] = $lines[$count - 1] . $lines[$count];
+		$count = count($lines);
 
 		$col1 = '';
 		$col2 = '';
 
-		for ($i = 1; $i < $count; $i++)
+		for ($i = 0; $i < $count; $i++)
 		{
 			$col1 .= $start . "\n";
 			$col2 .= $lines[$i];
 			$start++;
 		}
 
-		$height = $count * 15;
+		$height = ($count * 14.2) + 4; // Magic numbers. Just seem to work
 
 		$return = '';
 		if ($php) {
@@ -422,6 +434,7 @@ class qsfglobal
 
 		return $return;
 	}
+	
 
 	/**
 	 * Finds all subforums of $parent in $array
