@@ -411,9 +411,9 @@ else if( $_GET['action'] == 'members' )
 
       // The default SMF groups: You're either an admin or you're not.
       if( $row['ID_GROUP'] == '1' )
-         $row['ID_GROUP'] = '1';
+         $row['ID_GROUP'] = 'USER_ADMIN';
       else
-         $row['ID_GROUP'] = '2';
+         $row['ID_GROUP'] = 'USER_MEMBER';
 
       $sql2 = "SELECT * FROM {$oldboard->pre}banned WHERE ban_type = 'user_ban' AND ID_MEMBER = '{$row['ID_MEMBER']}'";
       $result2 = $oldboard->db->query($sql2);

@@ -410,9 +410,9 @@ else if( $_GET['action'] == 'members' )
 
          // The default phpBB2 groups: You're either an admin or you're not.
          if( $row['user_level'] == '1' )
-            $row['user_level'] = '1';
+            $row['user_level'] = 'USER_ADMIN';
          else
-            $row['user_level'] = '2';
+            $row['user_level'] = 'USER_MEMBER';
 
          $sql2 = "SELECT * FROM {$oldboard->pre}banlist WHERE ban_userid = '{$row['user_id']}'";
          $result2 = $oldboard->db->query($sql2);

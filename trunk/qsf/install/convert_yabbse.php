@@ -413,9 +413,9 @@ else if( $_GET['action'] == 'members' )
 
       // The default YaBB SE groups: You're either an admin or you're not.
       if( $row['memberGroup'] == "Administrator" )
-         $row['memberGroup'] = '1';
+         $row['memberGroup'] = 'USER_ADMIN';
       else
-         $row['memberGroup'] = '2';
+         $row['memberGroup'] = 'USER_MEMBER';
 
       $sql2 = "SELECT * FROM {$oldboard->pre}banned WHERE type = 'username' AND value = '{$row['memberName']}'";
       $result2 = $oldboard->db->query($sql2);

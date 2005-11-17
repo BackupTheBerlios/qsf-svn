@@ -461,15 +461,15 @@ else if( $_GET['action'] == 'members' )
           * Additional groups will not be converted. Members in these groups will become standard members.
           */
          if( $row['mgroup'] == '1' )
-            $row['mgroup'] = '5';
+            $row['mgroup'] = 'USER_AWAIT';
          else if( $row['mgroup'] == '2' )
-            $row['mgroup'] = '3';
+            $row['mgroup'] = 'USER_GUEST';
          else if( $row['mgroup'] == '3' )
-            $row['mgroup'] = '2';
+            $row['mgroup'] = 'USER_MEMBER';
          else if( $row['mgroup'] == '4' )
-            $row['mgroup'] = '1';
+            $row['mgroup'] = 'USER_ADMIN';
          else
-            $row['mgroup'] = '2';
+            $row['mgroup'] = 'USER_MEMBER';
 
          $pos = strpos( $row['avatar'], '://' );
          if( $pos == '4' )
