@@ -29,6 +29,9 @@ class tz_decode2
     var $tz_data;
     var $header = array();
     var $body = array();
+    var $gmt_offset=0;
+    var $next_update;
+    var $abba;
 
     /**
      * Constructor, given a file to open
@@ -38,18 +41,20 @@ class tz_decode2
     function tz_decode2($file)
     {
         $this->tz_file = $file;
+	/* some safe default */
+	$this->next_update=time() + (DAY_IN_SECONDS * 30);
         $this->tz_fhwnd = 0;
     }
 
     /**
-     * 
+     * The magic function that does _almost_ everything.
      * 
      **/
-    function magic()
+    function magic2()
     {
         if (!$this->open()) die("Count not open file: {$this->tz_file}\n");
         $this->exec();
-        return $this->get_gmt_offset();
+	$this->load_current_offsets();
     }
 
     /**
@@ -58,11 +63,20 @@ class tz_decode2
      **/
     function open()
     {
-        if (!file_exists($this->tz_file)) return false;
+        if (!file_exists($this->tz_file))
+	{
+		if (!file_exists('../'.$this->tz_file))
+		{
+			return false;
+		} else {
+			/* FIXME */
+			$this->tz_data = file_get_contents('../'.$this->tz_file);
+		}
+	} else {
+		/* FIXME */
+		$this->tz_data = file_get_contents($this->tz_file);
+	}
 
-        /* FIXME */
-        $this->tz_data = file_get_contents($this->tz_file);
-        
         return (!$this->tz_data) ? false : true;
     }
     
@@ -122,9 +136,18 @@ class tz_decode2
         {
             $this->body['ttinfo'][] = unpack('Ngmtoff/Cisdst/Cabbrind', $this->fread(6)) ;
         }
+
+	/* read in abbreiveiations(sp?) replace the nul char with a space */
+	$this->body['names'] = NULL;
+	for ($ix=0; $ix<$this->header['charcnt']; $ix++)
+	{
+		$tmp = $this->fread(1);
+		if (ord($tmp) === 0) $tmp=' ';
+		$this->body['names'] = $this->body['names'].$tmp;
+	}
     }
 
-    function get_gmt_offset()
+    function load_current_offsets()
     {
         /* quick sanity check */
         if (isset($this->body['unix_time']))
@@ -138,13 +161,23 @@ class tz_decode2
                 if ($this->body['unix_time'][$ix] > $time) break;
             }
 
-            /* use our rule and return the gmt offset (in seconds) of the rule */
-            return ($this->body['ttinfo'][$this->body['unix_time_rule_index'][($ix-1)]]['gmtoff']);
+            /* use our rule and set the gmt offset (in seconds) of the rule and the next time the data should be updated */
+	    $this->gmt_offset = ($this->body['ttinfo'][$this->body['unix_time_rule_index'][($ix-1)]]['gmtoff']);
+	    if (isset($this->body['unix_time'][$ix]))
+	    {
+	    	$this->next_update = $this->body['unix_time'][$ix];
+	    }
+
+	    $len = strlen($this->body['names']);
+
+	    /* find the correct place in the abba string */
+	    for($iy = $this->body['ttinfo'][$this->body['unix_time_rule_index'][($ix-1)]]['abbrind']; $iy < $len; $iy++)
+	    {
+	    	if (' ' == $this->body['names']{$iy}) break;
+	    	$this->abba = $this->abba.$this->body['names']{$iy};
+	    }
 
         }
-
-        /* return the gmt offset - no time no offset ?? */
-        return 0;
     }
 }
 ?>

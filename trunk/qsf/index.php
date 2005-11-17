@@ -110,9 +110,9 @@ if ($qsf->user['zone_updated'] < $qsf->time)
 {
 	include('lib/tz_decode2.php');
 	$tz = new tz_decode2('timezone/'.$qsf->user['zone_name']);
-	$qsf->tz_adjust = $tz->magic();
-	$zoneupdate = $qsf->time + DAY_IN_SECONDS;
-	$qsf->db->query("UPDATE {$qsf->pre}timezones SET zone_offset={$qsf->tz_adjust}, zone_updated={$zoneupdate} WHERE zone_id={$qsf->user['zone_id']};");
+	$tz->magic2();
+	if (strlen($tz->abba)<1) $tz->abba='N/A';
+	$qsf->db->query("UPDATE {$qsf->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$qsf->user['zone_id']};");
 } else {
 	$qsf->tz_adjust = $qsf->user['zone_offset'];
 }

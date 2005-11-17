@@ -1452,11 +1452,26 @@ class qsfglobal
 	{
 		$out = null;
 
-		$query = $this->db->query("SELECT zone_id, zone_name FROM {$this->pre}timezones ORDER BY zone_name ASC");
+		$query = $this->db->query("SELECT zone_id, zone_name, zone_offset, zone_updated, zone_abbrev FROM {$this->pre}timezones ORDER BY zone_name ASC");
+		
 
 		while($row = $this->db->nqfetch($query))
 		{
-			$out .= '<option value='.$row['zone_id'].(($zone == $row['zone_id']) ? ' selected=\'selected\'' : null).'>'.$row['zone_name'].'</option>'."\n";
+			if ($row['zone_updated'] < $this->time)
+			{
+				include_once('lib/tz_decode2.php');
+				$tz = new tz_decode2('timezone/'.$row['zone_name']);
+				$tz->magic2();
+				if (strlen($tz->abba)<1) $tz->abba='N/A';
+				$this->db->query("UPDATE {$this->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$row['zone_id']};");
+				$row['zone_abbrev'] = $tz->abba;
+				$row['zone_offset'] = $tz->gmt_offset;
+			}
+			
+			$padding = str_repeat('&nbsp;', 30 - strlen($row['zone_name']));
+				
+			$out .= '<option style=\'font-family: "Courier New", Courier, serif;\' value='.$row['zone_id'].(($zone == $row['zone_id']) ? ' selected=\'selected\'' : null).'>' . 
+				$row['zone_name'] . $padding  .' ' . $row['zone_abbrev'].' (GMT'.(($row['zone_offset'] >= 0) ? '+' : '').($row['zone_offset']/3600).') </option>'."\n";
 		}
 
 		return $out;
