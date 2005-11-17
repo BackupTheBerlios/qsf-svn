@@ -29,6 +29,12 @@
  required to upgrade. After upgrading, you may need to use some of the board
  maintenance features in the admin control panel.
 
+ Please note on upgrading the upgrade script will set the skin to default
+ (previously known as Candy Corn) for all administrators. This is so you can
+ still login and access Admin CP. Many templates have been added so any
+ skins for Mercuryboard 1.1.4 or older will need significant changes.
+ See http://quicksilverforums.com for more information
+
 === Requirements ===
  Quicksilver Forums works with PHP 4.2 or higher. PHP 5 is also supported.
  MySQL 3.22 or higher is required. Quicksilver Forums works on any operating

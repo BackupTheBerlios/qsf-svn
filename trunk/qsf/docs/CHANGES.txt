@@ -66,4 +66,10 @@ New features and modifications for 1.1.5:
 * Full timezone handling including daylight savings
 * New skin by http://www.misterpink.com.au/
 * Skin icons by http://www.famfamfam.com/
+* Fixes to handling of [patch] [code] and [php] tags
+* Fixed error where permissions were defaulting to full
+* Fixed error where you could not export a skin that included zero byte files
+* Sets skin to 'default' for administrators up upgrading
+
+
 
