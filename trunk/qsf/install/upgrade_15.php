@@ -25,8 +25,8 @@ if (!defined('INSTALLER')) {
 }
 
 $need_templates = array(
-    			    // Changed templates
-                            // New templates
+	'SEARCH_RESULTS_MEMBER_INFO' // Changed templates
+	                             // New templates
 );
 
 ?>
