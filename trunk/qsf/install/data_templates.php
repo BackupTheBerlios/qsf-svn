@@ -3794,7 +3794,7 @@ $queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_s
           {\$post[\'post_ip\']}
     </td>
     <td class=\"posttop\">
-                <IF \$icons[\'user_email\'][\'link\']>
+                <IF isset(\$icons[\'user_email\']) && \$icons[\'user_email\'][\'link\']>
                   <div class=\"button\"><a class=\"email\" href=\"{\$icons[\'user_email\'][\'link\']}\" title=\"{\$icons[\'user_email\'][\'alt\']}\">{\$this->lang->email}</a></div>
                 </IF>
                 <IF \$post[\'user_homepage\']>
