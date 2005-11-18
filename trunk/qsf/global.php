@@ -29,7 +29,7 @@
 class qsfglobal
 {
 	var $name    = 'Quicksilver Forums'; // The name of the software @var string
-	var $version = 'v1.1.5';          // Quicksilver Forums' version @var string
+	var $version = 'v1.2';            // Quicksilver Forums' version @var string
 	var $server  = array();           // Alias for $_SERVER @var array
 	var $get     = array();           // Alias for $_GET @var array
 	var $post    = array();           // Alias for $_POST @var array
