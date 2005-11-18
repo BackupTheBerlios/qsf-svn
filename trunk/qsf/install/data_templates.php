@@ -3686,8 +3686,8 @@ $queries['SEARCH_RESULTS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, t
 {\$this->etable}
 ', 'Results Page', 'This is the main format for the results view', 1)";
 $queries['SEARCH_RESULTS_MEMBER_INFO'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_MEMBER_INFO', '
-<IF \$online><img src=\'./skins/{\$this->skin}/images/online.png\' alt=\'{\$this->lang->search_online}\' title=\'{\$this->lang->search_online}\' /></IF>
-<IF !\$online><img src=\'./skins/{\$this->skin}/images/offline.png\' alt=\'{\$this->lang->search_offline}\' title=\'{\$this->lang->search_offline}\' /></IF>
+<IF \$online><img src=\'./skins/{\$this->skin}/images/icons/user_online.png\' alt=\'{\$this->lang->search_online}\' title=\'{\$this->lang->search_online}\' /></IF>
+<ELSE><img src=\'./skins/{\$this->skin}/images/icons/user_offline.png\' alt=\'{\$this->lang->search_offline}\' title=\'{\$this->lang->search_offline}\' /></IF>
 <b><a href=\'{\$this->self}?a=profile&amp;w={\$match[\'post_author\']}\'>{\$match[\'user_name\']}</a><br />
 {\$match[\'user_title\']}</b><br /><br />
 {\$match[\'user_avatar\']}
