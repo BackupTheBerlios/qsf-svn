@@ -79,7 +79,7 @@ class active extends qsfglobal
 		SELECT
 		  a.*, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
 		FROM
-		  {$this->pre}active a, {$this->pre}groups g, {$this->pre}users u
+		  ({$this->pre}active a, {$this->pre}groups g, {$this->pre}users u)
 		LEFT JOIN {$this->pre}forums f ON f.forum_id=a.active_item
 		LEFT JOIN {$this->pre}topics t ON t.topic_id=a.active_item
 		LEFT JOIN {$this->pre}users u2 ON u2.user_id=a.active_item

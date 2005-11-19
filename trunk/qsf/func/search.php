@@ -237,13 +237,13 @@ class search extends qsfglobal
 			f.forum_name, f.forum_id,
 			a.active_time
 		FROM
-			{$this->pre}posts p,
+			({$this->pre}posts p,
 			{$this->pre}topics t,
 			{$this->pre}forums f,
 			{$this->pre}users m,
 			{$this->pre}users m2,
 			{$this->pre}membertitles mt,
-			{$this->pre}groups g
+			{$this->pre}groups g)
 		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
 		WHERE ";
 

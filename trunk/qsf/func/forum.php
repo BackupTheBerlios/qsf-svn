@@ -201,8 +201,8 @@ class forum extends qsfglobal
 		    s.user_name AS topic_starter_name,
 			m.user_name AS topic_last_poster_name
 		FROM
-		    {$this->pre}topics t,
-		    {$this->pre}users s
+		    ({$this->pre}topics t,
+		    {$this->pre}users s)
 		LEFT JOIN {$this->pre}posts p ON (t.topic_id = p.post_topic AND p.post_author = {$this->user['user_id']})
 		LEFT JOIN {$this->pre}users m ON m.user_id = t.topic_last_poster
 		WHERE

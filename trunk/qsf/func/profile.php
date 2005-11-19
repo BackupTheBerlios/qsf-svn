@@ -47,7 +47,7 @@ class profile extends qsfglobal
 		  g.group_name,
 		  a.active_time
 		FROM
-		  {$this->pre}users m, {$this->pre}groups g
+		  ({$this->pre}users m, {$this->pre}groups g)
 		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
 		WHERE m.user_id=$user AND g.group_id=m.user_group");
 

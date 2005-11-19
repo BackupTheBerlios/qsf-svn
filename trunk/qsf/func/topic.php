@@ -191,7 +191,7 @@ class topic extends qsfglobal
 		  g.group_name,
 		  a.active_time
 		FROM
-		  {$this->pre}posts p, {$this->pre}users m, {$this->pre}groups g
+		  ({$this->pre}posts p, {$this->pre}users m, {$this->pre}groups g)
 		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
 		LEFT JOIN {$this->pre}membertitles t ON t.membertitle_id=m.user_level
 		WHERE

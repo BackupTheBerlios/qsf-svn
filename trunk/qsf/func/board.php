@@ -311,7 +311,7 @@ class board extends qsfglobal
 		SELECT
 		  a.*, u.user_name, u.user_active, g.group_format
 		FROM
-		  {$this->pre}active a, {$this->pre}groups g, {$this->pre}users u
+		  ({$this->pre}active a, {$this->pre}groups g, {$this->pre}users u)
 		WHERE
 		  a.active_id = u.user_id AND
 		  u.user_group = g.group_id

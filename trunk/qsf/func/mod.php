@@ -644,8 +644,8 @@ class mod extends qsfglobal
 		SELECT
 		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id
 		FROM
-		  {$this->pre}topics t,
-		  {$this->pre}posts p
+		  ({$this->pre}topics t,
+		  {$this->pre}posts p)
 		LEFT JOIN {$this->pre}attach a ON p.post_id=a.attach_post
 		WHERE
 		  t.topic_id=$t AND
@@ -688,8 +688,8 @@ class mod extends qsfglobal
 		SELECT
 		  t.topic_forum, t.topic_id, a.attach_file, p.post_author
 		FROM
-		  {$this->pre}topics t,
-		  {$this->pre}posts p
+		  ({$this->pre}topics t,
+		  {$this->pre}posts p)
 		LEFT JOIN {$this->pre}attach a ON p.post_id=a.attach_post
 		WHERE
 		  p.post_id=$p AND

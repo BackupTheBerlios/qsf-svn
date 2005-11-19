@@ -135,9 +135,9 @@ class recent extends qsfglobal
 		    s.user_name AS topic_starter_name,
 			m.user_name AS topic_last_poster_name
 		FROM
-		    {$this->pre}topics t,
+		    ({$this->pre}topics t,
 		    {$this->pre}users m,
-		    {$this->pre}users s
+		    {$this->pre}users s)
 		LEFT JOIN {$this->pre}posts p ON (t.topic_id = p.post_topic AND p.post_author = {$this->user['user_id']})
 		WHERE
 		    t.topic_forum IN $forums_str AND
