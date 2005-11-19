@@ -6,7 +6,7 @@
     <table border='0' cellpadding='4' cellspacing='0'>
     <tr>
         <td><input type='radio' name='from' value='15' id='upgrade15' checked='checked' /></td>
-        <td><label for='upgrade15'>Quicksilver Forums v1.1.4</label></td>
+        <td><label for='upgrade15'>Quicksilver Forums v1.1.5</label></td>
     </tr>
     <tr>
         <td><input type='radio' name='from' value='14' id='upgrade14' checked='checked' /></td>
