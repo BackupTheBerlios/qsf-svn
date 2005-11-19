@@ -162,7 +162,7 @@ class forum extends qsfglobal
 				}
 
 				if ($forum['forum_lastpost']) {
-					$forum['LastTimeTopic'] = $forum['LastTime']; // Store so skin can access
+					$forum['TopicLastTime'] = $forum['LastTime']; // Store so skin can access
 					$forum['LastTime'] = $this->mbdate(DATE_LONG, $forum['LastTime']);
 
 					if ($forum['user_lastposterID']) {
