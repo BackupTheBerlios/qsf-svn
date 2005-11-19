@@ -24,19 +24,12 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to upgrade.');
 }
 
+$query = $db->query("DELETE FROM {$pre}active;");
 $query = $db->query("SELECT post_id as id, INET_ATON( post_ip ) as newip FROM {$pre}posts");
 
 while($upg14_data = $db->nqfetch($query))
 {
 	$sql = "UPDATE {$pre}posts SET post_ip='" . $upg14_data['newip'] . "' WHERE post_id='" . $upg14_data['id'] . "'";
-	$db->query($sql);
-}
-
-$query = $db->query("SELECT active_id as id, INET_ATON( active_ip ) as newip FROM {$pre}active");
-
-while($upg14_data = $db->nqfetch($query))
-{
-	$sql = "UPDATE {$pre}active SET active_ip='" . $upg14_data['newip'] . "' WHERE active_id='" . $upg14_data['id'] . "'";
 	$db->query($sql);
 }
 
