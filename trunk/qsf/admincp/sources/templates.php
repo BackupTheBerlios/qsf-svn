@@ -86,6 +86,11 @@ class templates extends admin
 
 		switch($this->get['s'])
 		{
+		case 'upgradeskin':
+			$this->tree($this->lang->upgrade_skin);
+			return $this->upgrade_skin($this->get['skin']);
+			break;
+
 		case 'add_html':
 		        $this->tree($this->lang->add);
 		        return $this->add_section($sections, $skins, $this->get['skin']);
@@ -136,6 +141,76 @@ class templates extends admin
 			return $this->template_list($sections, $skins, $this->get['skin']);
 		}
 	}
+
+	function upgrade_skin($skin)
+	{
+		if (!isset($this->post['skin'])) {
+			$skin_box = $this->select_skins($this->skin);
+
+			return $this->message($this->lang->select_skin, "
+			<form action='$this->self?a=templates&amp;s=upgradeskin' method='post'><div>
+				{$this->lang->upgrade_skin_detail}:<br /><br />
+				<select name='skin'>
+					{$skin_box}
+				</select>
+				<input type='submit' value='{$this->lang->upgrade_skin}' /></div>
+			</form>");
+		} else {
+			$skin = $this->post['skin'];
+			$didsomething = false;
+
+	                /* find missing templates and dump code from default */
+        	        $sql = "SELECT * FROM {$this->pre}templates WHERE template_skin = 'default'";
+                	$query = $this->db->query($sql);
+
+	                while ($row = $this->db->nqfetch($query))
+        	        {
+                	        $sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                        	$miss = $this->db->query($sql);
+
+	                        if ($this->db->num_rows($miss) < 1)
+        	                {
+                        	        $sql = "INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html,  template_displayname, template_description, template_position) VALUES
+						( '$skin', '" . addslashes($row['template_set']) ."', '".addslashes($row['template_name'])."', '".addslashes($row['template_html']) .
+						"', '".addslashes($row['template_displayname'])."', '".addslashes($row['template_description'])."', '".addslashes($row['template_position']). "')";
+	                                $this->db->query($sql);
+					$didsomething = true;
+        	                }
+                	}
+
+			if ($didsomething) {
+		                /* iterate over all our templates */
+		                $sql = "SELECT template_html, template_name FROM {$this->pre}templates WHERE template_skin = '$skin'";
+	        	        $query = $this->db->query($sql);
+
+		                while ($row = $this->db->nqfetch($query))
+        		        {
+                		        /* check for template redundancy */
+                        		$sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin = 'default' AND template_name = '{$row['template_name']}'";
+	                        	$redun = $this->db->query($sql);
+
+	                	        if ($this->db->num_rows($redun) > 0)
+        	                	{
+						$row['template_html'] = str_replace('{$messageclass}', '<MODLET messagelink(class)>', $row['template_html']);
+						$row['template_html'] = str_replace('{$MessageLink}', '<MODLET messagelink(text)>', $row['template_html']);
+                	        	        $row['template_html'] = str_replace('$mercury', '$qsf', $row['template_html']);
+                        	        	$row['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row['template_html']);
+	                                	$row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
+						$row['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row['template_html']);
+						$row['template_html'] = addslashes($row['template_html']);
+                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                        		        $this->db->query($sql);
+		                        }
+		                }
+			}
+
+	                if ($didsomething) {
+				return $this->message($this->lang->upgrade_skin, "{$skin} {$this->lang->upgrade_skin_upgraded}");
+			} else {
+				return $this->message($this->lang->upgrade_skin, "{$skin} {$this->lang->upgrade_skin_already}");
+			}
+		}
+        }
 
 	function install_skin()
 	{

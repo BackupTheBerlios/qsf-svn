@@ -102,6 +102,7 @@ class id
 		$this->admin_settings = 'Settings'; //Translate
 		$this->admin_skins = 'Skins'; //Translate
 		$this->admin_stats = 'Statistics center'; //Translate
+		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
 		$this->admin_your_board = 'Your Board'; //Translate
 	}
 
@@ -612,6 +613,7 @@ class id
 		$this->mod_label_options = 'Option';
 		$this->mod_label_post_delete = 'Hapus Posting';
 		$this->mod_label_post_edit = 'Edit Posting';
+		$this->mod_label_post_icon = 'Post Icon'; //Translate
 		$this->mod_label_title = 'Judul';
 		$this->mod_label_title_original = 'Original Title'; //Translate
 		$this->mod_label_title_split = 'Split Title'; //Translate
@@ -1255,6 +1257,10 @@ class id
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate
 		$this->temps_titles = 'AdminCP Member Titles'; //Translate
 		$this->temps_topics = 'Topics'; //Translate
+		$this->upgrade_skin = 'Upgrade Skin'; //Translate
+		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
+		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
+		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
 	}
 
 	function titles()
@@ -1340,7 +1346,7 @@ class id
 		$this->continue = 'Continue'; //Translate
 		$this->delete = 'Delete'; //Translate
 		$this->direction = 'ltr'; //Translate
-		$this->edit = 'Edit'; // Translate
+		$this->edit = 'Edit'; //Translate
 		$this->email = 'Email'; //Translate
 		$this->gtalk = 'GT'; //Translate
 		$this->icq = 'ICQ'; //Translate

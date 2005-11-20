@@ -102,6 +102,7 @@ class es
 		$this->admin_settings = 'Settings'; //Translate
 		$this->admin_skins = 'Skins'; //Translate
 		$this->admin_stats = 'Statistics center'; //Translate
+		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
 		$this->admin_your_board = 'Your Board'; //Translate
 	}
 
@@ -612,6 +613,7 @@ class es
 		$this->mod_label_options = 'Opciones';
 		$this->mod_label_post_delete = 'Borrar publicación';
 		$this->mod_label_post_edit = 'Editar publicación';
+		$this->mod_label_post_icon = 'Post Icon'; //Translate
 		$this->mod_label_title = 'Titulo';
 		$this->mod_label_title_original = 'Original Title'; //Translate
 		$this->mod_label_title_split = 'Split Title'; //Translate
@@ -1255,6 +1257,10 @@ class es
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate
 		$this->temps_titles = 'AdminCP Member Titles'; //Translate
 		$this->temps_topics = 'Topics'; //Translate
+		$this->upgrade_skin = 'Upgrade Skin'; //Translate
+		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
+		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
+		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
 	}
 
 	function titles()

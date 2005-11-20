@@ -890,6 +890,7 @@ $queries['ADMIN_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_s
        <a href=\'\$this->self?a=templates&amp;s=skin\'>{\$this->lang->admin_create_skin}</a><br />
        <a href=\'\$this->self?a=templates&amp;s=editskin\'>{\$this->lang->admin_edit_skin}</a><br />
        <a href=\'\$this->self?a=templates&amp;s=load\'>{\$this->lang->admin_install_skin}</a><br />
+       <a href=\'\$this->self?a=templates&amp;s=upgradeskin\'>{\$this->lang->admin_upgrade_skin}</a><br />
        <a href=\'\$this->self?a=templates&amp;s=export\'>{\$this->lang->admin_export_skin}</a><br />
       </div><br />
 
@@ -988,6 +989,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
       <li><a href=\'\$admin->self?a=templates&amp;s=skin\'>{\$admin->lang->admin_create_skin}</a></li>
       <li><a href=\'\$admin->self?a=templates&amp;s=editskin\'>{\$admin->lang->admin_edit_skin}</a></li>
       <li><a href=\'\$admin->self?a=templates&amp;s=load\'>{\$admin->lang->admin_install_skin}</a></li>
+      <li><a href=\'\$admin->self?a=templates&amp;s=upgradeskin\'>{\$admin->lang->admin_upgrade_skin}</a></li>
       <li><a href=\'\$admin->self?a=templates&amp;s=export\'>{\$admin->lang->admin_export_skin}</a></li>
     </ul>
   </li>

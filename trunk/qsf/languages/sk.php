@@ -34,18 +34,18 @@ class sk
 		$this->active_modules_active = 'Prezeranie aktívnych uívate¾ov';
 		$this->active_modules_board = 'Prezeranie indexu';
 		$this->active_modules_cp = 'Pouitie ovládacieho panela';
-		$this->active_modules_forum = 'Prezeranie fóra: %s'; 
+		$this->active_modules_forum = 'Prezeranie fóra: %s';
 		$this->active_modules_help = 'Pouívanie helpu';
 		$this->active_modules_login = 'Logging In/Out';
 		$this->active_modules_members = 'Prezeranie zoznamu èlenov';
 		$this->active_modules_mod = 'Moderovanie';
 		$this->active_modules_pm = 'Pouívanie odkazovaèa';
 		$this->active_modules_post = 'Prispievanie';
-		$this->active_modules_printer = 'Vytlaèenie témy: %s'; 
+		$this->active_modules_printer = 'Vytlaèenie témy: %s';
 		$this->active_modules_profile = 'Prezeranie profilu: %s';
 		$this->active_modules_recent = 'Prezeranie najnovších príspevkov';
 		$this->active_modules_search = 'Vyh¾adávanie';
-		$this->active_modules_topic = 'Prezeranie témy: %s'; 
+		$this->active_modules_topic = 'Prezeranie témy: %s';
 		$this->active_time = 'Èas';
 		$this->active_user = 'Uívate¾';
 		$this->active_users = 'Aktívni uívatelia';
@@ -56,8 +56,8 @@ class sk
 		$this->admin_add_emoticons = 'Prida smajlíky';
 		$this->admin_add_member_titles = 'Prida automatické tituly uívate¾ov';
 		$this->admin_add_templates = 'Prida HTML šablóny';
-		$this->admin_ban_ips = 'Zablokova IP adresu'; 
-		$this->admin_censor = 'Cenzúra slov'; 
+		$this->admin_ban_ips = 'Zablokova IP adresu';
+		$this->admin_censor = 'Cenzúra slov';
 		$this->admin_create_forum = 'Zaloi fórum';
 		$this->admin_create_group = 'Zaloi skupinu';
 		$this->admin_create_help = 'Zaloi èlánok helpu';
@@ -102,6 +102,7 @@ class sk
 		$this->admin_settings = 'Nastavenia';
 		$this->admin_skins = 'Skiny';
 		$this->admin_stats = 'Štatistické centrum';
+		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
 		$this->admin_your_board = 'Vaše fórum';
 	}
 
@@ -112,7 +113,7 @@ class sk
 		$this->backup_found = 'Nasledujúce zálohy boli nájdené v adresári Quicksilver Forums';
 		$this->backup_invalid = 'Táto záloha nie je pouite¾ná - neplatnı formát. Do databázi neboli zapísané iadne zmeny.';
 		$this->backup_none = 'V adresári Quicksilver Forums neboli nájdené iadne zálohy.';
-		$this->backup_restore = 'Obnovi zo zálohy'; 
+		$this->backup_restore = 'Obnovi zo zálohy';
 		$this->backup_restore_done = 'Databáza bola úspešne obnovená zo zálohy.';
 		$this->backup_warning = 'Upozornenie: tımto budú všetky existujúce dáta Quicksilver Fóra prepísané.';
 	}
@@ -126,7 +127,7 @@ class sk
 		$this->ban_member_explain1 = 'Ak chcete zablokova uívate¾ov, presuòte ich do skupiny';
 		$this->ban_member_explain2 = 'v nastaveniach uívate¾ov.';
 		$this->ban_members = 'Zablokova uívate¾ov';
-		$this->ban_nomembers = 'Momentálne nie sú blokovaní iadni uívatelia.'; 
+		$this->ban_nomembers = 'Momentálne nie sú blokovaní iadni uívatelia.';
 		$this->ban_one_per_line = 'Kadá adresa v samostatnom riadku.';
 		$this->ban_regex_allowed = 'Sú povolené regulárne vırazy. Môete poui znak * ako substitúciu jedného alebo viacerıch èísiel.';
 		$this->ban_settings = 'Nastavenia blokovaní';
@@ -176,15 +177,15 @@ class sk
 
 	function cp()
 	{
-		$this->cp_aim = 'AIM Screen Name';
+		$this->cp_aim = 'AIM Screen Name'; //Translate
 		$this->cp_already_member = 'Emailová adresa, ktorú ste zadali u bola pridelená inému èlenovi.';
 		$this->cp_apr = 'Apríl';
-		$this->cp_aug = 'August'; 
+		$this->cp_aug = 'August'; //Translate
 		$this->cp_avatar_current = 'Váš súèasnı avatar';
 		$this->cp_avatar_error = 'Chyba avatara';
 		$this->cp_avatar_must_select = 'Musíte si vybra avatara.';
 		$this->cp_avatar_none = 'Nepoíva avatara.';
-		$this->cp_avatar_pixels = 'pixels'; 
+		$this->cp_avatar_pixels = 'pixels'; //Translate
 		$this->cp_avatar_select = 'Vyberte si avatara';
 		$this->cp_avatar_size_height = 'Váš avatar musí ma ve¾kos medzi 1 a';
 		$this->cp_avatar_size_width = 'Šírka Vašeho avatara musí by medzi 1 a';
@@ -205,10 +206,10 @@ class sk
 		$this->cp_current_time = 'Teraz je %s.';
 		$this->cp_custom_title = 'Zmeni titul èlena';
 		$this->cp_custom_title2 = 'Toto privilégium je rezervované pre administrátora fóra';
-		$this->cp_dec = 'December'; 
+		$this->cp_dec = 'December'; //Translate
 		$this->cp_editing_avatar = 'Zmena avatara';
 		$this->cp_editing_profile = 'Zmena profilu';
-		$this->cp_email = 'Email'; 
+		$this->cp_email = 'Email'; //Translate
 		$this->cp_email_form = 'Dovolíte ostatnım, aby Vás kontaktovali cez email?';
 		$this->cp_email_invaid = 'Email, ktorı ste zadali vyzerá by neplatnı.';
 		$this->cp_err_avatar = 'Chyba pri aktualizácii avatara.';
@@ -216,7 +217,7 @@ class sk
 		$this->cp_feb = 'Február';
 		$this->cp_file_type = 'Avatar, ktorého ste zadali je neplatnı. Uistite sa, èi má URL správny formát a èi je dotyènı súbor typu gif, jpg alebo png.';
 		$this->cp_format = 'Vaše meno sa bude zobrazova ako';
-		$this->cp_gtalk = 'GTalk konto'; 
+		$this->cp_gtalk = 'GTalk konto';
 		$this->cp_header = 'Ovládací panel uívate¾a';
 		$this->cp_height = 'Vıška';
 		$this->cp_icq = 'ICQ èíslo';
@@ -235,13 +236,13 @@ class sk
 		$this->cp_login_first = 'Pre prístup k Vašemu ovládaciemu panelu sa musíte nalogova.';
 		$this->cp_mar = 'Marec';
 		$this->cp_may = 'Máj';
-		$this->cp_msn = 'MSN Identity';
+		$this->cp_msn = 'MSN Identity'; //Translate
 		$this->cp_must_orig = 'Vaše meno sa musí zhodova s originálom. Môete zmeni iba ve¾kos a medzery.';
 		$this->cp_new_notmatch = 'Nové heslá, ktoré ste zadali, sa nezhodujú.';
 		$this->cp_new_pass = 'Nové heslo';
 		$this->cp_no_flash = 'Avatari typu ShockWaveFlash tu nie sú povolené.';
 		$this->cp_not_exist = 'Dátum, ktorı ste zadali (%s), neexistuje!';
-		$this->cp_nov = 'November'; 
+		$this->cp_nov = 'November'; //Translate
 		$this->cp_oct = 'Octóber';
 		$this->cp_old_notmatch = 'Pôvodné heslo, ktoré ste zadali sa nezhoduje s heslom v databáze.';
 		$this->cp_old_pass = 'Pôvodné heslo';
@@ -249,8 +250,8 @@ class sk
 		$this->cp_preferences = 'Zmena nastavení';
 		$this->cp_privacy = 'Monosti ochrany súkromia';
 		$this->cp_repeat_pass = 'Ešte raz nové heslo';
-		$this->cp_sept = 'September';
-		$this->cp_show_active = 'Ukazova Vašu èinnos poèas pouívania fóra?'; 
+		$this->cp_sept = 'September'; //Translate
+		$this->cp_show_active = 'Ukazova Vašu èinnos poèas pouívania fóra?';
 		$this->cp_show_email = 'Zobrazova v profile aj email?';
 		$this->cp_signature = 'Podpis';
 		$this->cp_size_max = 'Prevtelenie, ktoré ste zadali, je prive¾ké. Maximálna ve¾kos je povolená %s na %s pixlov.';
@@ -260,7 +261,7 @@ class sk
 		$this->cp_sub_expire = 'Dátum vypršania platnosti';
 		$this->cp_sub_name = 'Názov objednávky';
 		$this->cp_sub_no_params = 'Neboli zadané iadne parametre.';
-		$this->cp_sub_success = 'Teraz Vám budú emailom zasielané nové príspevky, zdroj: %s.'; 
+		$this->cp_sub_success = 'Teraz Vám budú emailom zasielané nové príspevky, zdroj: %s.';
 		$this->cp_sub_type = 'Typ objednávky';
 		$this->cp_sub_updated = 'Oznaèené objednávky boli vymazané.';
 		$this->cp_topic_option = 'Monosti témy';
@@ -274,22 +275,22 @@ class sk
 		$this->cp_view_signature = 'Zobrazi podpisy?';
 		$this->cp_welcome = 'Buïte vítanı v uívate¾skom ovládacom paneli. Odtia¾to mono nastavova Vaše konto. Vyberte si z nasledujúcich moností.';
 		$this->cp_width = 'Šírka';
-		$this->cp_www = 'Homepage'; 
-		$this->cp_yahoo = 'Yahoo Identity'; 
+		$this->cp_www = 'Homepage'; //Translate
+		$this->cp_yahoo = 'Yahoo Identity'; //Translate
 		$this->cp_zone = 'Èasová zóna';
 	}
 
 	function email()
 	{
 		$this->email_blocked = 'Tento èlen neprijíma email z tohoto formulára.';
-		$this->email_email = 'Email'; 
+		$this->email_email = 'Email'; //Translate
 		$this->email_msgtext = 'Obsah emailu:';
 		$this->email_no_fields = 'Vráte sa o overte, èi sú všetky polia vyplnené.';
 		$this->email_no_member = 'iaden èlen s takımto menom sa nenašiel.';
 		$this->email_no_perm = 'Nemáte povolenie posiela emaily z tohoto fóra.';
 		$this->email_sent = 'Váš email bol odoslanı.';
 		$this->email_subject = 'Predmet:';
-		$this->email_to = 'Komu:'; 
+		$this->email_to = 'Komu:';
 	}
 
 	function emot_control()
@@ -297,14 +298,14 @@ class sk
 		$this->emote = 'Smajlíky';
 		$this->emote_add = 'Prida smajlíky';
 		$this->emote_added = 'Smajlíky boli pridané.';
-		$this->emote_clickable = 'Kliknute¾né'; 
+		$this->emote_clickable = 'Kliknute¾né';
 		$this->emote_edit = 'Editova smajlíky';
 		$this->emote_image = 'Obrázok';
 		$this->emote_install = 'Inštalova smajlíky';
 		$this->emote_install_done = 'Smajlíky boli úspešne znovu nainštalované.';
 		$this->emote_install_warning = 'Tımto budú zmazané všetky existujúce nastavenia smajlíkov a uploadované smajlíky budú naimportované z vybraného skinu do databázy.';
 		$this->emote_no_text = 'Nebol zadanı iadny text ku smajlíku.';
-		$this->emote_text = 'Text'; 
+		$this->emote_text = 'Text'; //Translate
 	}
 
 	function forum()
@@ -369,7 +370,7 @@ class sk
 		$this->forum_is_subcat = 'Toto fórum je iba podkategóriou.';
 		$this->forum_name = 'Názov';
 		$this->forum_no_orphans = 'Nesmiete osirie fórum tım, e mu zmaete hierarchického rodièa.';
-		$this->forum_none = 'Nie sú k dispozícii iadne	manipulovate¾né fóra.'; 
+		$this->forum_none = 'Nie sú k dispozícii iadne	manipulovate¾né fóra.';
 		$this->forum_ordered = 'Poradie Fór bolo zaktualizované';
 		$this->forum_ordering = 'Zmeni Poradie Fór';
 		$this->forum_parent = 'Tımto spôsobom nemôete zmeni hierarchického rodièa fóra.';
@@ -394,11 +395,11 @@ class sk
 		$this->groups_edited = 'Skupina bola Zeditovaná.';
 		$this->groups_formatting = 'Zobrazi Formátovanie';
 		$this->groups_i_confirm = 'Potvrdzujem, e naozaj zmaza túto skupinu uívate¾ov.';
-		$this->groups_name = 'Názov'; 
+		$this->groups_name = 'Názov';
 		$this->groups_no_action = 'Neboli vykonané iadne zmeny.';
 		$this->groups_no_delete = 'Neexistuje zmazate¾ná
 	skupina uívate¾ov.<br />Základné skupiny sú potrebné pre chod Quicksilver Fóra a preto nesmú by zmazané.';
-		$this->groups_no_group = 'Nebola zadaná iadna skupina.'; 
+		$this->groups_no_group = 'Nebola zadaná iadna skupina.';
 		$this->groups_no_name = 'Nebol zadanı názov skupiny.';
 		$this->groups_only_custom = 'Poznámka: Môete maza iba skupiny uívae¾ov mimo základnıch skupín. Základné skupiny sú potrebne pre chod Quicksilver Fóra.';
 		$this->groups_the = 'Skupina';
@@ -412,7 +413,7 @@ class sk
 	{
 		$this->help_add = 'Prida Help Èlánok';
 		$this->help_article = 'Nastavenia Help Èlánku';
-		$this->help_available_files = 'Help';
+		$this->help_available_files = 'Help'; //Translate
 		$this->help_confirm = 'Naozaj chcete zmaza';
 		$this->help_content = 'Obsah Èlánku';
 		$this->help_delete = 'Zmaza Help Èlánok';
@@ -426,7 +427,7 @@ class sk
 		$this->help_not_exist = 'Tento help èlánok neexistuje.';
 		$this->help_select = 'Prosím, vyberte help èlánok, ktorı chcete editova';
 		$this->help_select_delete = 'Prosím, vyberte help èlánok, ktorı chcete zmaza';
-		$this->help_title = 'Názov'; 
+		$this->help_title = 'Názov';
 	}
 
 	function home()
@@ -457,12 +458,12 @@ class sk
 
 	function logs()
 	{
-		$this->logs_action = 'Akcia'; 
+		$this->logs_action = 'Akcia';
 		$this->logs_deleted_post = 'Zmazanı príspevok';
 		$this->logs_deleted_topic = 'Zmazaná téma';
 		$this->logs_edited_post = 'Zeditovanı príspevok';
 		$this->logs_edited_topic = 'Zeditovaná téma';
-		$this->logs_id = 'IDs';
+		$this->logs_id = 'IDs'; //Translate
 		$this->logs_locked_topic = 'Zamknutá téma';
 		$this->logs_moved_from = 'z fóra';
 		$this->logs_moved_to = 'do fóra';
@@ -487,7 +488,7 @@ class sk
 		$this->main_code = 'zdrojovı kód';
 		$this->main_cp = 'ovládací panel';
 		$this->main_full = 'Detaily';
-		$this->main_help = 'help';
+		$this->main_help = 'help'; //Translate
 		$this->main_load = 'záa';
 		$this->main_login = 'prihlásenie';
 		$this->main_logout = 'odhlásenie';
@@ -501,7 +502,7 @@ class sk
 		$this->main_prev = 'predošlé';
 		$this->main_queries = 'DB dotazov';
 		$this->main_quote = 'Citácia';
-		$this->main_recent = 'najnovšie príspevky'; 
+		$this->main_recent = 'najnovšie príspevky';
 		$this->main_recent1 = 'Zobrazi najnovšie príspevky od poslednej návštevy';
 		$this->main_register = 'registrácia';
 		$this->main_reminder = 'HoSiPa';
@@ -514,7 +515,7 @@ class sk
 
 	function mass_mail()
 	{
-		$this->mail = 'Hromadnı Mail'; 
+		$this->mail = 'Hromadnı Mail';
 		$this->mail_announce = 'Oznam Od';
 		$this->mail_groups = 'Cie¾ová Skupina';
 		$this->mail_members = 'uívatelia.';
@@ -536,8 +537,8 @@ class sk
 		$this->mc_found = 'Boli nájdení nasledujúci uívatelia. Prosím, vyberte jedného.';
 		$this->mc_guest_needed = 'Konto guest je potrebné pre chod Quicksilver Fóra.';
 		$this->mc_not_found = 'Neboli nájdení iadni uívatelia';
-		$this->mc_user_aim = 'AIM Name';
-		$this->mc_user_avatar = 'Avatar';
+		$this->mc_user_aim = 'AIM Name'; //Translate
+		$this->mc_user_avatar = 'Avatar'; //Translate
 		$this->mc_user_avatar_height = 'Vıška Avatara';
 		$this->mc_user_avatar_type = 'Typ Avatara';
 		$this->mc_user_avatar_width = 'Šírka Avatara';
@@ -546,29 +547,29 @@ class sk
 		$this->mc_user_email_show = 'Email je prístupnı verejnosti';
 		$this->mc_user_group = 'Skupina';
 		$this->mc_user_gtalk = 'GTalk konto';
-		$this->mc_user_homepage = 'Homepage';
-		$this->mc_user_icq = 'ICQ Number'; 
-		$this->mc_user_id = 'ID uívate¾a'; 
-		$this->mc_user_interests = 'Záujmy'; 
-		$this->mc_user_joined = 'registrácia'; 
+		$this->mc_user_homepage = 'Homepage'; //Translate
+		$this->mc_user_icq = 'ICQ Number'; //Translate
+		$this->mc_user_id = 'ID uívate¾a';
+		$this->mc_user_interests = 'Záujmy';
+		$this->mc_user_joined = 'registrácia';
 		$this->mc_user_language = 'Jazyk';
 		$this->mc_user_lastpost = 'Poslednı príspevok';
 		$this->mc_user_lastvisit = 'Posledná návšteva';
-		$this->mc_user_level = 'Level';
+		$this->mc_user_level = 'Level'; //Translate
 		$this->mc_user_location = 'Sídlo';
-		$this->mc_user_msn = 'MSN Identity';
+		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Meno';
-		$this->mc_user_pm = 'Prijíma osobné odkazy (PM)'; 
+		$this->mc_user_pm = 'Prijíma osobné odkazy (PM)';
 		$this->mc_user_posts = 'Príspevky';
 		$this->mc_user_signature = 'Podpis';
-		$this->mc_user_skin = 'Skin'; 
+		$this->mc_user_skin = 'Skin'; //Translate
 		$this->mc_user_timezone = 'Èasové Pásmo';
 		$this->mc_user_title = 'Titul uívate¾a';
 		$this->mc_user_title_custom = 'Poui vlastnı titul uívate¾a';
 		$this->mc_user_view_avatars = 'Zobrazi avatarov';
 		$this->mc_user_view_emoticons = 'Zobrazi smajlíky';
 		$this->mc_user_view_signatures = 'Zobrazi podpis';
-		$this->mc_user_yahoo = 'Yahoo Identity'; 
+		$this->mc_user_yahoo = 'Yahoo Identity'; //Translate
 	}
 
 	function membercount()
@@ -600,11 +601,11 @@ class sk
 		$this->mod_confirm_topic_delete = 'Urèite chcete zmaza túto tému?';
 		$this->mod_error_first_post = 'Nemôete zmaza prvı príspevok pod témou.';
 		$this->mod_error_move_category = 'Nemôete presunú tému do kategórie.';
-		$this->mod_error_move_create = 'Nemôete presúva témy do zadaného fóra.'; 
+		$this->mod_error_move_create = 'Nemôete presúva témy do zadaného fóra.';
 		$this->mod_error_move_forum = 'Nemôete presunú tému do fóra. ktoré neexistuje.';
 		$this->mod_error_move_global = 'Nemôete presúva globálnu tému. Zmeòte nastavenia témy, ne ju presuniete.';
 		$this->mod_error_move_same = 'Nemôete presunú tému do fóra, v ktorom sa momentálne nachádza.';
-		$this->mod_label_controls = 'Ovládanie pre moderátorov'; 
+		$this->mod_label_controls = 'Ovládanie pre moderátorov';
 		$this->mod_label_description = 'Popis';
 		$this->mod_label_emoticon = 'Konvertova textové smajlíky na obrázky?';
 		$this->mod_label_global = 'Globálna téma';
@@ -613,6 +614,7 @@ class sk
 		$this->mod_label_options = 'Monosti';
 		$this->mod_label_post_delete = 'Zmaza príspevok';
 		$this->mod_label_post_edit = 'Editova príspevok';
+		$this->mod_label_post_icon = 'Post Icon'; //Translate
 		$this->mod_label_title = 'Nadpis';
 		$this->mod_label_title_original = 'Pôvodnı nadpis';
 		$this->mod_label_title_split = 'Rozdeli nadpis';
@@ -669,7 +671,7 @@ class sk
 		$this->perms_pm_noflood = 'Vyòa z kontroly zahltenosti osobného odkazovaèa';
 		$this->perms_poll_create = 'Zaklada hlasovania';
 		$this->perms_poll_vote = 'Hlasova';
-		$this->perms_post_attach = 'Pripája prílohy k príspevkom'; 
+		$this->perms_post_attach = 'Pripája prílohy k príspevkom';
 		$this->perms_post_attach_download = 'Sahova prílohy príspevkov';
 		$this->perms_post_create = 'Vytvára odpovede';
 		$this->perms_post_delete = 'Maza lubovo¾nı príspevok';
@@ -706,13 +708,13 @@ class sk
 
 	function php_info()
 	{
-		$this->php_error = 'Error';
+		$this->php_error = 'Error'; //Translate
 		$this->php_error_msg = 'phpinfo() sa nedá zavola. Pravdepodobne je táto funkcia zakázana.';
 	}
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar';
+		$this->pm_avatar = 'Avatar'; //Translate
 		$this->pm_cant_del = 'Nemáte povolenie zmaza tento odkaz.';
 		$this->pm_delallmsg = 'Zmaza všetky odkazy';
 		$this->pm_delete = 'Zmaza';
@@ -723,7 +725,7 @@ class sk
 	adresátom sa vyskytli problémy.<br /><br />Nasledujúci uívatelia neexistujú: %s<br /><br />Nasledujúci uívatelia neprijímajú odkazy: %s';
 		$this->pm_fields = 'Váš odkaz sa nedá posla. Uistite sa, e ster vyplnili všetky povinné polia.';
 		$this->pm_flood = 'Za poslednıch %s sekúnd ste poslali príspevok a momentálne nemôete posla další.<br /><br />Prosím, skúste to za nieko¾ko sekúnd znovu.';
-		$this->pm_folder_inbox = 'Prijaté'; 
+		$this->pm_folder_inbox = 'Prijaté';
 		$this->pm_folder_new = '%s nové';
 		$this->pm_folder_sentbox = 'Odoslané';
 		$this->pm_from = 'Odosielate¾:';
@@ -739,14 +741,14 @@ class sk
 		$this->pm_no_title = 'Chıba predmet';
 		$this->pm_nomsg = 'V tomto adresári nie sú iadne odkazy.';
 		$this->pm_noview = 'Nemáte povolenie prezera si tento odkaz.';
-		$this->pm_offline = 'Tento uívate¾ je momentálne offline'; 
-		$this->pm_online = 'Tento uívate¾ je momentálne online'; 
+		$this->pm_offline = 'Tento uívate¾ je momentálne offline';
+		$this->pm_online = 'Tento uívate¾ je momentálne online';
 		$this->pm_personal = 'Odkazovaè';
 		$this->pm_personal_msging = 'Posielanie odkazu';
 		$this->pm_pm = 'Odkaz';
 		$this->pm_posts = 'Príspevky';
 		$this->pm_preview = 'Náh¾ad';
-		$this->pm_recipients = 'Adresáti'; 
+		$this->pm_recipients = 'Adresáti';
 		$this->pm_reply = 'Odpoveda';
 		$this->pm_send = 'Posla';
 		$this->pm_sendamsg = 'Posla odkaz';
@@ -787,62 +789,62 @@ class sk
 		$this->post_last_five = 'Poslednıch pä príspevkov v opaènom poradí';
 		$this->post_length = 'Kontrola dåky';
 		$this->post_mbcode_address = 'Zadajte adresu';
-		$this->post_mbcode_arial = 'Arial';
-		$this->post_mbcode_blue = 'Blue';
-		$this->post_mbcode_bold = 'Bold';
-		$this->post_mbcode_bold1 = 'B';
+		$this->post_mbcode_arial = 'Arial'; //Translate
+		$this->post_mbcode_blue = 'Blue'; //Translate
+		$this->post_mbcode_bold = 'Bold'; //Translate
+		$this->post_mbcode_bold1 = 'B'; //Translate
 		$this->post_mbcode_chocolate = 'èokoláda';
-		$this->post_mbcode_code = 'zdrojovı kód'; 
+		$this->post_mbcode_code = 'zdrojovı kód';
 		$this->post_mbcode_color = 'Farba';
-		$this->post_mbcode_coral = 'Coral'; 
-		$this->post_mbcode_courier = 'Courier'; 
-		$this->post_mbcode_crimson = 'Karmínová'; 
+		$this->post_mbcode_coral = 'Coral'; //Translate
+		$this->post_mbcode_courier = 'Courier'; //Translate
+		$this->post_mbcode_crimson = 'Karmínová';
 		$this->post_mbcode_darkblue = 'Tmavomodrá';
 		$this->post_mbcode_darkred = 'Tmavoèervená';
 		$this->post_mbcode_deepink = 'Sıta ruová';
 		$this->post_mbcode_detail = 'Zadajte popis';
-		$this->post_mbcode_email = 'Email'; 
+		$this->post_mbcode_email = 'Email'; //Translate
 		$this->post_mbcode_firered = 'Tehlová èervená';
-		$this->post_mbcode_font = 'Font'; 
+		$this->post_mbcode_font = 'Font'; //Translate
 		$this->post_mbcode_green = 'Zelená';
 		$this->post_mbcode_huge = 'Obrovskı';
 		$this->post_mbcode_image = 'Obrázok';
-		$this->post_mbcode_image1 = 'IMG';
-		$this->post_mbcode_impact = 'Impact';
-		$this->post_mbcode_indigo = 'Indigo';
-		$this->post_mbcode_italic = 'Italic';
-		$this->post_mbcode_italic1 = 'I'; 
-		$this->post_mbcode_large = 'Ve¾kı'; 
+		$this->post_mbcode_image1 = 'IMG'; //Translate
+		$this->post_mbcode_impact = 'Impact'; //Translate
+		$this->post_mbcode_indigo = 'Indigo'; //Translate
+		$this->post_mbcode_italic = 'Italic'; //Translate
+		$this->post_mbcode_italic1 = 'I'; //Translate
+		$this->post_mbcode_large = 'Ve¾kı';
 		$this->post_mbcode_length = 'Váš príspevok má "+length+" znakov.';
 		$this->post_mbcode_limegreen = 'Limetová zelená';
 		$this->post_mbcode_medium = 'Strednı';
 		$this->post_mbcode_orange = 'Oranová';
 		$this->post_mbcode_orangered = 'Oranovoèervené';
-		$this->post_mbcode_php = 'PHP'; 
+		$this->post_mbcode_php = 'PHP'; //Translate
 		$this->post_mbcode_purple = 'Purpurová';
 		$this->post_mbcode_quote = 'Citova';
 		$this->post_mbcode_red = 'Èervená';
 		$this->post_mbcode_royalblue = 'Krá¾ovská modrá';
 		$this->post_mbcode_sandybrown = 'Pieskovo hnedá';
-		$this->post_mbcode_seagreen = 'Morská zelená'; 
+		$this->post_mbcode_seagreen = 'Morská zelená';
 		$this->post_mbcode_sienna = 'Èervenohnedá';
 		$this->post_mbcode_silver = 'Strieborná';
 		$this->post_mbcode_size = 'Ve¾kos';
 		$this->post_mbcode_skyblue = 'Nebeská modrá';
 		$this->post_mbcode_small = 'Malı';
 		$this->post_mbcode_strike = 'Preškrtnutı';
-		$this->post_mbcode_strike1 = 'S';
-		$this->post_mbcode_tahoma = 'Tahoma';
+		$this->post_mbcode_strike1 = 'S'; //Translate
+		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
 		$this->post_mbcode_teal = 'Modrozelená';
-		$this->post_mbcode_times = 'Times';
+		$this->post_mbcode_times = 'Times'; //Translate
 		$this->post_mbcode_tiny = 'Malinkı';
 		$this->post_mbcode_tomato = 'Paradajková';
 		$this->post_mbcode_underline = 'Podèiarknu';
-		$this->post_mbcode_underline1 = 'U';
-		$this->post_mbcode_url = 'URL'; 
-		$this->post_mbcode_verdana = 'Verdana'; 
+		$this->post_mbcode_underline1 = 'U'; //Translate
+		$this->post_mbcode_url = 'URL'; //Translate
+		$this->post_mbcode_verdana = 'Verdana'; //Translate
 		$this->post_mbcode_wood = 'Drevená';
-		$this->post_mbcode_yellow = 'ltá'; 
+		$this->post_mbcode_yellow = 'ltá';
 		$this->post_msg = 'Príspevok';
 		$this->post_must_msg = 'Musíte ešte napísa samotnı odkaz.';
 		$this->post_must_options = 'Musíte zada moné odpovede pre nové hlasovanie.';
@@ -854,14 +856,14 @@ class sk
 		$this->post_no_vote = 'Ak chcete hlasova, je vhodné zvoli si odpoveï.';
 		$this->post_option_emoticons = 'Konvertova textové smajlíky na obrázky?';
 		$this->post_option_global = 'Globalizova túto tému?';
-		$this->post_option_mbcode = 'Interpretova Mb-kód?'; 
+		$this->post_option_mbcode = 'Interpretova Mb-kód?';
 		$this->post_optional = 'nepovinné';
 		$this->post_options = 'Monosti';
 		$this->post_poll_options = 'Monosti hlasovania';
 		$this->post_poll_row = 'Jeden na riadok';
 		$this->post_posted = 'Zaslané: ';
 		$this->post_posting = 'Posiela sa';
-		$this->post_preview = 'Náh¾ad'; 
+		$this->post_preview = 'Náh¾ad';
 		$this->post_reply = 'Odpoveda';
 		$this->post_reply_topic = 'Odpoveda na tému';
 		$this->post_replying = 'Odpovedá sa na tému';
@@ -887,16 +889,16 @@ class sk
 
 	function profile()
 	{
-		$this->profile_aim_sn = 'AIM Name';
+		$this->profile_aim_sn = 'AIM Name'; //Translate
 		$this->profile_av_sign = 'Avatar a podpis';
-		$this->profile_avatar = 'Avatar';
+		$this->profile_avatar = 'Avatar'; //Translate
 		$this->profile_bday = 'Narodeniny';
 		$this->profile_contact = 'Kontakt';
 		$this->profile_email_address = 'Emailová adresa';
 		$this->profile_fav = 'Ob¾úbené fórum';
-		$this->profile_fav_forum = '%s (%d%% príspevkov tohoto uívate¾a)'; 
-		$this->profile_gtalk = 'GTalk konto'; 
-		$this->profile_icq_uin = 'ICQ Number';
+		$this->profile_fav_forum = '%s (%d%% príspevkov tohoto uívate¾a)';
+		$this->profile_gtalk = 'GTalk konto';
+		$this->profile_icq_uin = 'ICQ Number'; //Translate
 		$this->profile_info = 'Informácie';
 		$this->profile_interest = 'Zá¾uby';
 		$this->profile_joined = 'Registrácia';
@@ -905,7 +907,7 @@ class sk
 		$this->profile_location = 'Sídlo';
 		$this->profile_member = 'Skupina èlenov';
 		$this->profile_member_title = 'Titul èlena';
-		$this->profile_msn = 'MSN Identity';
+		$this->profile_msn = 'MSN Identity'; //Translate
 		$this->profile_must_user = 'Ak si chcete prezrie profil, musíte špecifikova uivate¾a.';
 		$this->profile_no_member = 'S takımto ID nemáme iadneho uívate¾a. Mono bolo toto konto zrušené.';
 		$this->profile_none = '[ prázdne ]';
@@ -913,15 +915,15 @@ class sk
 		$this->profile_offline = 'Tento uívate¾ je momentálne offline';
 		$this->profile_online = 'Tento uívate¾ je momentálne online';
 		$this->profile_pm = 'Odkazy';
-		$this->profile_postcount = '%s celkovo, %s denne'; 
+		$this->profile_postcount = '%s celkovo, %s denne';
 		$this->profile_posts = 'Príspevky';
 		$this->profile_private = '[ Zatajená ]';
 		$this->profile_profile = 'Profil';
 		$this->profile_signature = 'Podpis';
 		$this->profile_unkown = '[ Neznámo ]';
 		$this->profile_view_profile = 'Prezeranie profilu';
-		$this->profile_www = 'Homepage'; 
-		$this->profile_yahoo = 'Yahoo Identity'; 
+		$this->profile_www = 'Homepage'; //Translate
+		$this->profile_yahoo = 'Yahoo Identity'; //Translate
 	}
 
 	function query()
@@ -991,7 +993,7 @@ class sk
 		$this->register_email_msg3 = 'Prosím, kliknite na nasledujúci link alebo ho skopírujte do Vašeho web browsera:';
 		$this->register_email_used = 'Zadaná emailová adresa u bola pridelená inému èlenovi.';
 		$this->register_fields = 'Neboli vyplnené všetky polia.';
-		$this->register_image = 'Prosím napíšte text, ktorı je na obrázku.'; 
+		$this->register_image = 'Prosím napíšte text, ktorı je na obrázku.';
 		$this->register_image_invalid = 'Kvôli obmedzeniu automatizovaného registrovania musíte opísa text, ktorı vidíte na obrázku.';
 		$this->register_must_activate = 'Boli ste zaregistrovanı. Na adresu %s bol zaslanı email s informáciami oo aktivácii Vašeho konta. Vaše konto bude obmedzené, pokia¾ si ho neaktivujete.';
 		$this->register_name_invalid = 'Zadané meno je pridlhé.';
@@ -1008,26 +1010,26 @@ class sk
 
 	function rssfeed()
 	{
-		$this->rssfeed_posted_by = 'Autor:'; 
+		$this->rssfeed_posted_by = 'Autor:';
 	}
 
 	function search()
 	{
 		$this->search_advanced = 'Ïalšie monosti';
-		$this->search_avatar = 'Avatar'; 
+		$this->search_avatar = 'Avatar'; //Translate
 		$this->search_basic = 'Základné vyh¾adávanie';
 		$this->search_characters = 'znakov z príspevku';
 		$this->search_day = 'deò';
 		$this->search_days = 'dni';
 		$this->search_exact_name = 'presnı názov';
-		$this->search_flood = 'V priebehu poslednıch %s sekúnd ste pouili vyh¾adávanie a momentálne nemôete vyh¾adáva znovu.<br /><br />Prosím, skúste to o nieko¾ko sekúnd.'; 
+		$this->search_flood = 'V priebehu poslednıch %s sekúnd ste pouili vyh¾adávanie a momentálne nemôete vyh¾adáva znovu.<br /><br />Prosím, skúste to o nieko¾ko sekúnd.';
 		$this->search_for = 'H¾ada';
 		$this->search_forum = 'Fórum';
 		$this->search_group = 'Skupina';
 		$this->search_guest = 'Hos';
 		$this->search_in = 'H¾ada v';
 		$this->search_in_posts = 'H¾ada iba v príspevkoch';
-		$this->search_ip = 'IP'; 
+		$this->search_ip = 'IP'; //Translate
 		$this->search_joined = 'Registrácia';
 		$this->search_level = 'Úroveò uívate¾a';
 		$this->search_match = 'H¾adanie (presná zhoda)';
@@ -1038,9 +1040,9 @@ class sk
 		$this->search_newer = 'novších';
 		$this->search_no_results = 'Vaše h¾adanie dopadlo bezvısledne.';
 		$this->search_no_words = 'Ak chcete vyh¾adáva, musíte zada nejaké slová.<br /><br />Kadé slovo musí ma viac ako 3 znaky vrátane písmen, èísiel, apostrofov a podtrítok.';
-		$this->search_offline = 'Tento uívate¾ je momentálne offline'; 
+		$this->search_offline = 'Tento uívate¾ je momentálne offline';
 		$this->search_older = 'starších';
-		$this->search_online = 'tento uívate¾ je momentálne online.'; 
+		$this->search_online = 'tento uívate¾ je momentálne online.';
 		$this->search_only_display = 'Zobrazi len prvıch';
 		$this->search_partial_name = 'èiastoènı názov name';
 		$this->search_post_icon = 'Ikona príspevku';
@@ -1076,7 +1078,7 @@ class sk
 		$this->settings_avatar = 'Nastavenia Avatara';
 		$this->settings_avatar_flash = 'Flash Avatari';
 		$this->settings_avatar_max_height = 'Maximálna vıška Avatara';
-		$this->settings_avatar_max_width = 'Maximálna šírka Avatara'; 
+		$this->settings_avatar_max_width = 'Maximálna šírka Avatara';
 		$this->settings_avatar_upload = 'Uploadovaní Avatari - maximálna ve¾kost súboru';
 		$this->settings_basic = 'Editova nastavenia fór';
 		$this->settings_blank = 'Pre nové okno pouite <i>_blank</i>.';
@@ -1095,7 +1097,7 @@ class sk
 		$this->settings_cookie_time = 'Doba platnosti prihlásenia';
 		$this->settings_db = 'Editova nastavenia pripojenia';
 		$this->settings_db_host = 'Databázovı server (Host)';
-		$this->settings_db_leave_blank = 'Nechajte prázdne v prípade absencie.'; 
+		$this->settings_db_leave_blank = 'Nechajte prázdne v prípade absencie.';
 		$this->settings_db_multiple = 'Pre inštaláciu viacerıch fór do jednej databázy.';
 		$this->settings_db_name = 'Názov Databázy';
 		$this->settings_db_password = 'Heslo do Databázy';
@@ -1114,7 +1116,7 @@ class sk
 		$this->settings_email_from = 'E-mail odosielate¾a';
 		$this->settings_email_place1 = 'Umiestni uívate¾ov do';
 		$this->settings_email_place2 = 'skupiny, dokia¾ neoveria platnos svojej emailovej adresy';
-		$this->settings_email_place3 = 'Nevyadova aktiváciu emailom'; 
+		$this->settings_email_place3 = 'Nevyadova aktiváciu emailom';
 		$this->settings_email_real = 'Toto by nemala by skutoèná e-mailová adresa.';
 		$this->settings_email_reply = 'E-mail pre odpoveï (odosielate¾)';
 		$this->settings_email_smtp = 'SMTP Poštovı Server';
@@ -1123,9 +1125,9 @@ class sk
 		$this->settings_enabled_modules = 'Povolené Moduly';
 		$this->settings_foreign_link = 'Link, nasmerovanı na cudzí server';
 		$this->settings_general = 'Obecné Nastavenia';
-		$this->settings_group_after = 'Skupina po zaregistrovaní'; 
+		$this->settings_group_after = 'Skupina po zaregistrovaní';
 		$this->settings_hot_topic = 'Príspevky na horúcu tému';
-		$this->settings_kilobytes = 'Kilobajtov'; 
+		$this->settings_kilobytes = 'Kilobajtov';
 		$this->settings_max_attach_size = 'Príloha - maximálna ve¾kos súboru';
 		$this->settings_members = 'Nastavenia uívate¾ov';
 		$this->settings_modname_only = 'Iba názvy Modulov. Bez prípony .php';
@@ -1150,7 +1152,7 @@ class sk
 		$this->settings_server_maxload_msg = 'Zneprístupni fórum pri mimoriadnom zaaení servera. Zadajte 0 pre vypnutie tejto vlastnosti.';
 		$this->settings_server_timezone = 'Èasové Pásmo Servera';
 		$this->settings_show_avatars = 'Zobrazova Avatarov';
-		$this->settings_show_email = 'Zobrazova Emailové Adresy'; 
+		$this->settings_show_email = 'Zobrazova Emailové Adresy';
 		$this->settings_show_emotes = 'Zobrazova smajlíky';
 		$this->settings_show_notice = 'Zobrazova fórum, ak je zneprístupnené';
 		$this->settings_show_pm = 'Prijíma osobné odkazy';
@@ -1179,11 +1181,11 @@ class sk
 		$this->add = 'Prida HTML Šablóny';
 		$this->choose_set = 'Zvoli sadu šablón';
 		$this->choose_skin = 'Zvo¾i skin';
-		$this->create_new = 'Zaloi novı skin s názvom'; 
+		$this->create_new = 'Zaloi novı skin s názvom';
 		$this->create_skin = 'Zaloi Skin';
 		$this->credit = 'Prosím, neodstraòujte náš jedinı kredit!';
 		$this->delete_template = 'Zmaza Šablónu';
-		$this->directory = 'Adresár'; 
+		$this->directory = 'Adresár';
 		$this->display_name = 'Zobrazi názov';
 		$this->edit_skin = 'Editova Skin';
 		$this->edit_templates = 'Editova Šablónu';
@@ -1192,21 +1194,21 @@ class sk
 		$this->export_skin = 'Exportova Skin';
 		$this->install_done = 'Skin bol úspešne nainštalovanı.';
 		$this->install_exists1 = 'Tento skin je pravdepodobne';
-		$this->install_exists2 = 'u je nainštalovanı.'; 
+		$this->install_exists2 = 'u je nainštalovanı.';
 		$this->install_overwrite = 'Prepísa';
 		$this->install_skin = 'Nainštalova Skin';
 		$this->menu_title = 'Zvo¾te sekciu šablóny, ktorú chcete editova';
 		$this->only_skin = 'Momentálne je nainštalovanı iba jeden skin. Tento skin nesmiete zmaza.';
 		$this->select_skin = 'Zvo¾te Skin';
 		$this->select_skin_edit = 'Zvo¾te skin, ktorı chcete editova';
-		$this->select_skin_edit_done = 'Skin bol úspešne zeditovanı.'; 
+		$this->select_skin_edit_done = 'Skin bol úspešne zeditovanı.';
 		$this->select_template = 'Zvo¾te šablónu';
-		$this->skin_chmod = 'NOvı adresár pre skin sa nepodarilo vytvori. Skúste príkaz CHMOD adresár skinu 775.'; 
+		$this->skin_chmod = 'NOvı adresár pre skin sa nepodarilo vytvori. Skúste príkaz CHMOD adresár skinu 775.';
 		$this->skin_created = 'Skin bol vytvorenı.';
 		$this->skin_deleted = 'Skin bo úspešne zmazanı.';
 		$this->skin_dir_name = 'Musíet zada názov skinu a adresára.';
 		$this->skin_dup = 'Skin s rovnakım názvom adresára u existuje. Názov adresára skinu bol zmenenı na';
-		$this->skin_name = 'Musíte zada názov skinu.'; 
+		$this->skin_name = 'Musíte zada názov skinu.';
 		$this->skin_none = 'Neexistujú iadne nainštalovate¾né skiny.';
 		$this->skin_set = 'Sada Skinov';
 		$this->skins_found = 'Nasledujúce skiny sa nachádzajú v adresári Quicksilver Fóra';
@@ -1214,10 +1216,10 @@ class sk
 		$this->template_about2 = 'Premenné sú èasti textu, ktoré sú nahrádzané dynamickımi datami. Premené sa vdy zaèínajú znakom dolár a niekedy sú obhranièené {zátvorkami}.';
 		$this->template_add = 'Prida';
 		$this->template_added = 'Šablóna bola pridaná.';
-		$this->template_clear = 'Vyèisti'; 
+		$this->template_clear = 'Vyèisti';
 		$this->template_confirm = 'Šablóny boli modifikované. Chcete tieto zmeny zapísa?';
-		$this->template_description = 'Popis Šablóny'; 
-		$this->template_html = 'HTML Šablóna'; 
+		$this->template_description = 'Popis Šablóny';
+		$this->template_html = 'HTML Šablóna';
 		$this->template_name = 'Názov Šablóny';
 		$this->template_position = 'Pozícia Šablóny';
 		$this->template_set = 'Sada Šablón';
@@ -1225,10 +1227,10 @@ class sk
 		$this->template_universal = 'Univerzálna Premenná';
 		$this->template_universal2 = 'Niektoré premenné môu by pouité v lubovo¾nej šablone, zatia¾ èo ostatné sú platné len v jednej šablóne. Vlastnosti objektu $this môu by pouite všade.';
 		$this->template_updated = 'Šablona bola zaktualizovaná.';
-		$this->templates = 'Šablony'; 
-		$this->temps_active = 'Detaily aktívneho uívate¾a'; 
+		$this->templates = 'Šablony';
+		$this->temps_active = 'Detaily aktívneho uívate¾a';
 		$this->temps_admin = '<b>AdminCP Universal</b>'; //Translate
-		$this->temps_ban = 'AdminCP Blokovania'; 
+		$this->temps_ban = 'AdminCP Blokovania';
 		$this->temps_board_index = 'Index Fór';
 		$this->temps_censoring = 'AdminCP Cenzúra Slov';
 		$this->temps_cp = 'Ovládací panel uívate¾a';
@@ -1237,7 +1239,7 @@ class sk
 		$this->temps_forum = 'Fóra';
 		$this->temps_forums = 'AdminCP Fóra';
 		$this->temps_groups = 'AdminCP Skupiny';
-		$this->temps_help = 'Help';
+		$this->temps_help = 'Help'; //Translate
 		$this->temps_login = 'Prihlasovanie a Odhlasovanie';
 		$this->temps_logs = 'AdminCP Moderator Logs'; //Translate
 		$this->temps_main = '<b>Board Universal</b>'; //Translate
@@ -1250,21 +1252,25 @@ class sk
 		$this->temps_post = 'Posielanie príspevkov';
 		$this->temps_printer = 'Rozvrhnutie t#$,1m#(B per tlaè';
 		$this->temps_profile = 'Zobrazenie Profilu';
-		$this->temps_recent = 'Najnovšie témy'; 
+		$this->temps_recent = 'Najnovšie témy';
 		$this->temps_register = 'Registrácia';
 		$this->temps_search = 'Vyh¾adávanie';
 		$this->temps_settings = 'AdminCP Nastavenia';
 		$this->temps_templates = 'AdminCP Editor Šablón';
 		$this->temps_titles = 'AdminCP Tituly Uívate¾ov';
 		$this->temps_topics = 'Témy';
+		$this->upgrade_skin = 'Upgrade Skin'; //Translate
+		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
+		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
+		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
 	}
 
 	function titles()
 	{
 		$this->titles_add = 'Prida Titul Uívate¾ov';
 		$this->titles_added = 'Titul Uívate¾ov bol pridanı.';
-		$this->titles_edit = 'Editova Tituly Uívate¾ov'; //Translate
-		$this->titles_image = 'Obrázok'; 
+		$this->titles_edit = 'Editova Tituly Uívate¾ov';
+		$this->titles_image = 'Obrázok';
 		$this->titles_minpost = 'Minimálny príspevok';
 		$this->titles_title = 'Nadpis';
 	}
@@ -1272,10 +1278,10 @@ class sk
 	function topic()
 	{
 		$this->topic_attached = 'Priloenı súbor:';
-		$this->topic_attached_downloads = 'downloads';
+		$this->topic_attached_downloads = 'downloads'; //Translate
 		$this->topic_attached_perm = 'Nemáte povolenie na download tohoto súboru.';
 		$this->topic_attached_title = 'Nadpis priloeného súboru';
-		$this->topic_avatar = 'Avatar'; 
+		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Na spodok stránky';
 		$this->topic_create_poll = 'Zaloi nové hlasovanie';
 		$this->topic_create_topic = 'Zaloi novú tému';
@@ -1287,7 +1293,7 @@ class sk
 		$this->topic_error = 'Chyba';
 		$this->topic_group = 'Skupina';
 		$this->topic_guest = 'Návštevník (Guest)';
-		$this->topic_ip = 'IP'; 
+		$this->topic_ip = 'IP'; //Translate
 		$this->topic_joined = 'Registrácia';
 		$this->topic_level = 'Èlenskı level';
 		$this->topic_links_aim = 'Zasla AIM správu uívate¾ovi %s';
@@ -1317,9 +1323,9 @@ class sk
 		$this->topic_quote = 'Odpoveda s citáciou z tohoto príspevku';
 		$this->topic_reply = 'Odpoveda na tému';
 		$this->topic_split = 'Rozdeli';
-		$this->topic_split_finish = 'Dokonèi všetky rozdelenia'; 
+		$this->topic_split_finish = 'Dokonèi všetky rozdelenia';
 		$this->topic_split_keep = 'Nepresúva tento príspevok';
-		$this->topic_split_move = 'Presunú tento príspevok'; 
+		$this->topic_split_move = 'Presunú tento príspevok';
 		$this->topic_subscribe = 'Zasielanie emailu s odpoveïami na túto tému';
 		$this->topic_top = 'Skok na zaèiatok stránky';
 		$this->topic_unlock = 'Odomknú';
@@ -1335,36 +1341,36 @@ class sk
 
 	function universal()
 	{
-		$this->aim = 'AIM'; 
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'based on';
 		$this->board_by = 'Autor:';
 		$this->charset = 'windows-1250';
-		$this->continue = 'Pokraèova'; 
+		$this->continue = 'Pokraèova';
 		$this->delete = 'Zmaza';
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Editova HTML Šablóny';
-		$this->email = 'Email';
-		$this->gtalk = 'GT'; 
-		$this->icq = 'ICQ';
-		$this->msn = 'MSN';
+		$this->email = 'Email'; //Translate
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
 		$this->new_message = 'Nová správa';
-		$this->new_poll = 'Nové hlasovanie'; 
+		$this->new_poll = 'Nové hlasovanie';
 		$this->new_topic = 'Nová téma';
 		$this->no = 'Nie';
 		$this->powered = 'Powered by'; //Translate
 		$this->private_message = 'PM'; //Translate
-		$this->quote = 'Citova'; 
+		$this->quote = 'Citova';
 		$this->reply = 'Odpoveda';
 		$this->seconds = 'sec';
-		$this->sep_decimals = '.'; 
-		$this->sep_thousands = ','; 
+		$this->sep_decimals = '.'; //Translate
+		$this->sep_thousands = ','; //Translate
 		$this->submit = 'OK';
 		$this->subscribe = 'Objedna';
 		$this->today = 'Dnes';
-		$this->website = 'WWW';
-		$this->yahoo = 'Yahoo'; 
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = 'Áno';
-		$this->yesterday = 'vèera'; 
+		$this->yesterday = 'vèera';
 	}
 }
 ?>
