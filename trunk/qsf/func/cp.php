@@ -280,9 +280,14 @@ class cp extends qsfglobal
 			$this->post['user_gtalk']     = $this->format($this->post['user_gtalk'], FORMAT_HTMLCHARS);
 			if ($this->perms->auth('is_admin')) {
 				$query = $this->db->query("SELECT membertitle_title FROM {$this->pre}membertitles");
-				$usertitle = $this->format($this->post['user_title'], FORMAT_HTMLCHARS);
+				if (!isset($this->post['user_title']) || $this->post['user_title'] == '' ) {
+					$usertitle = '';
+					$custom_title = 0;
+				} else {
+					$usertitle = $this->format($this->post['user_title'], FORMAT_HTMLCHARS);
+					$custom_title = 1;
+				}
 
-				$custom_title = 1;
 				while ($u = $this->db->nqfetch($query))
 				{
 					$utitle = $u['membertitle_title'];
@@ -294,7 +299,7 @@ class cp extends qsfglobal
 				}
 			} else {
 				$usertitle = $this->user['user_title'];
-				$custom_title = 0;
+				$custom_title = $this->user['user_title_custom'];
 			}
 			$this->post['user_icq']       = intval($this->post['user_icq']);
 
