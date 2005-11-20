@@ -164,7 +164,7 @@ $queries[] = "CREATE TABLE {$pre}timezones (
   KEY name (zone_name)
 ) TYPE=MyISAM AUTO_INCREMENT=384";
 
-$queries[] = "UPDATE {$pre}users SET user_skin='default' WHERE user_group='USER_ADMIN'";
+$queries[] = "UPDATE {$pre}users SET user_skin='default' WHERE user_group='1'";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (1, 'Europe/Andorra', 'CET', 3600, 1143334800)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (2, 'Asia/Dubai', 'GST', 14400, 1134774053)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (3, 'Asia/Kabul', 'AFT', 16200, 1134774053)";
