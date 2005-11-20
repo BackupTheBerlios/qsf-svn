@@ -519,9 +519,9 @@ class nl
 		$this->mail_announce = 'Aankondiging van';
 		$this->mail_groups = 'Ontvangende groepen';
 		$this->mail_members = 'Gebruikers.'; 
-		$this->mail_message = 'Bericht'; 
-		$this->mail_select_all = 'Selecteer iedereen'; 
-		$this->mail_send = 'Verstuur het bericht'; /
+		$this->mail_message = 'Bericht';
+		$this->mail_select_all = 'Selecteer iedereen';
+		$this->mail_send = 'Verstuur het bericht';
 		$this->mail_sent = 'U bericht is verstuurt naar'; 
 	}
 
