@@ -2176,7 +2176,7 @@ $queries['MOD_EDIT_POST'] = "INSERT INTO {$pre}templates (template_skin, templat
     <td colspan=\'2\' class=\'header\'>{\$this->lang->mod_label_post_edit}</td>
   </tr>
   <tr>
-    <td class=\'tablelight\' valign=\'top\'><b>Post Icon</b></td>
+    <td class=\'tablelight\' valign=\'top\'><b>{\$this->lang->mod_label_post_icon}</b></td>
     <td class=\'tablelight\'>
       <table border=\'0\' cellpadding=\'0\' cellspacing=\'5\'>
         <tr>
