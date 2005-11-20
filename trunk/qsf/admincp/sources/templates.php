@@ -157,6 +157,7 @@ class templates extends admin
 			</form>");
 		} else {
 			$skin = $this->post['skin'];
+			$temps = '';
 			$didsomething = false;
 
 	                /* find missing templates and dump code from default */
@@ -175,6 +176,7 @@ class templates extends admin
 						"', '".addslashes($row['template_displayname'])."', '".addslashes($row['template_description'])."', '".addslashes($row['template_position']). "')";
 	                                $this->db->query($sql);
 					$didsomething = true;
+					$temps .= $row['template_name'] . "<br />";
         	                }
                 	}
 
@@ -205,7 +207,8 @@ class templates extends admin
 			}
 
 	                if ($didsomething) {
-				return $this->message($this->lang->upgrade_skin, "{$skin} {$this->lang->upgrade_skin_upgraded}");
+				$message = $skin . " " . $this->lang->upgrade_skin_upgraded . "<br /><br />{$this->lang->upgraded_templates}:<br /><br />" . $temps;
+				return $this->message($this->lang->upgrade_skin, $message);
 			} else {
 				return $this->message($this->lang->upgrade_skin, "{$skin} {$this->lang->upgrade_skin_already}");
 			}

@@ -1262,6 +1262,7 @@ class ru
 		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
 		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
 		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
+		$this->upgraded_templates = 'The following templates were added'; //Translate
 	}
 
 	function titles()

@@ -1261,6 +1261,7 @@ class en
 		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.';
 		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade';
 		$this->upgrade_skin_upgraded = 'skin has been upgraded.';
+		$this->upgraded_templates = 'The following templates were added';
 	}
 
 	function titles()
