@@ -63,11 +63,14 @@ define('TOPIC_DELETED', 64);
 
 /* Users */
 define('USER_GUEST_UID', 1);
-define('USER_GUEST', 3);
+
+/* User Groups */
 define('USER_ADMIN', 1);
 define('USER_MEMBER', 2);
+define('USER_GUEST', 3);
 define('USER_BANNED', 4);
 define('USER_AWAIT', 5);
+define('USER_MODS', 6);
 
 /* Types for validation */
 define('TYPE_BOOLEAN', 1); // Variable should be 1 or 0 and will be changed to true or false
@@ -83,4 +86,5 @@ define('TYPE_EMAIL', 10); // Check if string is a valid email
 
 /* General purpose */
 define('DAY_IN_SECONDS', 86400);
+define('SECONDS_IN_HOUR', 3600);
 ?>
