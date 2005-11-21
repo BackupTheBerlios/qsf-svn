@@ -703,7 +703,7 @@ else if( $_GET['action'] == 'posts' )
          }
       }
       $ip = get_ip( $row['poster_ip'] );
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['post_id']}, {$row['topic_id']}, '{$row['poster_id']}', {$row['enable_smilies']}, {$row['enable_bbcode']}, '{$message}', {$row['post_time']}, '', INET_ATON('$ip'), '', 0 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['post_id']}, {$row['topic_id']}, '{$row['poster_id']}', {$row['enable_smilies']}, {$row['enable_bbcode']}, '{$message}', {$row['post_time']}, '', INET_ATON('{$ip}'), '', 0 )" );
       $i++;
    }
    if( $i == $all )

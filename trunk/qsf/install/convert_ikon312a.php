@@ -878,7 +878,7 @@ else if( $_GET['action'] == 'posts' )
       /* Try and clean up some of the junk in Ikonboard posts. MySQL isn't happy about some of it. */
       $row['POST'] = strip_ikon_tags( $row['POST'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['POST_ID']}, {$row['TOPIC_ID']}, '{$row['AUTHOR']}', {$row['ENABLE_EMO']}, 1, '{$row['POST']}', {$row['POST_DATE']}, '', INET_ATON('$row['IP_ADDR']'), '', 0 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['POST_ID']}, {$row['TOPIC_ID']}, '{$row['AUTHOR']}', {$row['ENABLE_EMO']}, 1, '{$row['POST']}', {$row['POST_DATE']}, '', INET_ATON('{$row['IP_ADDR']}'), '', 0 )" );
       $i++;
    }
    if( $i == $all )

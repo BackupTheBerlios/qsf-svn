@@ -721,7 +721,7 @@ else if( $_GET['action'] == 'posts' )
 
       $row['body'] = strip_smf_tags( $row['body'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['ID_MSG']}, {$row['ID_TOPIC']}, '{$row['ID_MEMBER']}', '{$row['smiliesEnabled']}', 1, '{$row['body']}', {$row['posterTime']}, '', INET_ATON('$row['posterIP']'), '', '{$row['modifiedTime']}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['ID_MSG']}, {$row['ID_TOPIC']}, '{$row['ID_MEMBER']}', '{$row['smiliesEnabled']}', 1, '{$row['body']}', {$row['posterTime']}, '', INET_ATON('{$row['posterIP']}'), '', '{$row['modifiedTime']}' )" );
       $i++;
    }
    if( $i == $all )
