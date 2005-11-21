@@ -457,15 +457,15 @@ else if( $_GET['action'] == 'members' )
        * Additional groups will not be converted. Members in these groups will become standard members.
        */
       if( $row['MEMBER_GROUP'] == '1' )
-         $row['MEMBER_GROUP'] = 'USER_AWAIT';
+         $row['MEMBER_GROUP'] = '5';
       else if( $row['MEMBER_GROUP'] == '2' )
-         $row['MEMBER_GROUP'] = 'USER_GUEST';
+         $row['MEMBER_GROUP'] = '3';
       else if( $row['MEMBER_GROUP'] == '3' )
-         $row['MEMBER_GROUP'] = 'USER_MEMBER';
+         $row['MEMBER_GROUP'] = '2';
       else if( $row['MEMBER_GROUP'] == '4' )
-         $row['MEMBER_GROUP'] = 'USER_ADMIN';
+         $row['MEMBER_GROUP'] = '1';
       else
-         $row['MEMBER_GROUP'] = 'USER_MEMBER';
+         $row['MEMBER_GROUP'] = '2';
 
       $level = $row['MEMBER_LEVEL'] + 1;
       if( $level < '1' )
