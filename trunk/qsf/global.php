@@ -1003,9 +1003,17 @@ class qsfglobal
 		}
 		if (!isset($this->modlets[$modlet])) {
 			if ($getAdmin) {
-				require_once('../modlets/' . $modlet . '.php');
+				if (!is_readable('../modlets/' . $modlet . '.php')) {
+					return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' does not exist -->';
+				} else {
+					require_once('../modlets/' . $modlet . '.php');
+				}
 			} else {
-				require_once('./modlets/' . $modlet . '.php');
+				if (!is_readable('./modlets/' . $modlet . '.php')) {
+					return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' does not exist -->';
+				} else {
+					require_once('./modlets/' . $modlet . '.php');
+				}
 			}
 			$this->modlets[$modlet] =& new $modlet($this);
 			if ($this->validate($modlet, TYPE_OBJECT, 'modlet')) {
