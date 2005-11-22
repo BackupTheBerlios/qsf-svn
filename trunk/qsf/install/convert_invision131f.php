@@ -500,6 +500,7 @@ else if( $_GET['action'] == 'members' )
 
          $row['name'] = addslashes( $row['name'] );
          $row['email'] = addslashes( $row['email'] );
+
          $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '{$bday}', '151', '{$row['website']}', '{$row['posts']}', '{$row['location']}', '{$row['icq_number']}', '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
@@ -544,8 +545,11 @@ else if( $_GET['action'] == 'pmessages' )
                $bcc = $row['recipient_id'];
                $row['recipient_id'] = $row['member_id'];
             }
+
             if( $row['title'] == '' )
                $row['title'] = "No Title";
+            $row['title'] = addslashes( $row['title'] );
+
             $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['msg_id']}, {$row['recipient_id']}, {$row['from_id']}, '{$bcc}', '{$row['title']}', {$row['msg_date']}, '{$row['message']}', {$row['read_state']}, {$folder} )" );
          }
       }
