@@ -145,6 +145,10 @@ function strip_invision_tags( $text )
    $text = preg_replace( "#<font(.+?)>#", "", $text );
    $text = str_replace ( "</font>", "", $text );
 
+   // Span tags at this point are also not desired.
+   $text = preg_replace( "#<span(.+?)>#", "", $text );
+   $text = str_replace ( "</span>", "", $text );
+
    // Reconfigure code tags.
    $text = preg_replace( "#<!--c1-->(.+?)<!--ec1--><br>#", '[code]', $text );
    $text = preg_replace( "#<!--c1-->(.+?)<!--ec1-->#", '[code]', $text );
@@ -427,7 +431,7 @@ else if( $_GET['action'] == 'confirminvisiondrop' )
 else if( $_GET['action'] == 'members' )
 {
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '0.0', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $i = '0';
@@ -439,8 +443,7 @@ else if( $_GET['action'] == 'members' )
          ;
       else
       {
-         if( $row['id'] == '1' )
-            $row['id'] = '2';
+         $row['id']++;
 
          if( $row['hide_email'] == '' || $row['hide_email'] == '1' )
             $showmail = '0';
@@ -468,6 +471,8 @@ else if( $_GET['action'] == 'members' )
             $row['mgroup'] = '2';
          else if( $row['mgroup'] == '4' )
             $row['mgroup'] = '1';
+         else if( $row['mgroup'] == '5' )
+            $row['mgroup'] = '4';
          else
             $row['mgroup'] = '2';
 
@@ -491,7 +496,7 @@ else if( $_GET['action'] == 'members' )
          else
             $bday = "0000-00-00";
 
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '{$bday}', '{$row['time_offset']}', '{$row['website']}', '{$row['posts']}', '{$row['location']}', '{$row['icq_number']}', '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '{$bday}', '151', '{$row['website']}', '{$row['posts']}', '{$row['location']}', '{$row['icq_number']}', '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
    }
@@ -516,10 +521,8 @@ else if( $_GET['action'] == 'pmessages' )
          // Empty and N/A recipient IDs are no good!
          if( $row['recipient_id'] != '' && $row['recipient_id'] != 'N/A' )
          {
-            if( $row['recipient_id'] == '1' )
-               $row['recipient_id'] = '2';
-            if( $row['from_id'] == '1' )
-               $row['from_id'] = '2';
+            $row['recipient_id']++;
+            $row['from_id']++;
 
             $row['title'] = strip_invision_tags( $row['title'] );
             $row['message'] = strip_invision_tags( $row['message'] );
@@ -590,16 +593,15 @@ else if( $_GET['action'] == 'forum' )
 
    $sql = "SELECT * FROM {$oldboard->pre}categories";
    $result = $oldboard->db->query($sql);
-   $i = '-1';
-   $fid = '0';
+   $i = '0';
+   $fid = '1';
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['start_perms'] == '-1' && $row['reply_perms'] == '-1' && $row['read_perms'] == '-1' )
-         $subcat = '1';
-      else
-         $subcat = '0';
-      $forum_table[] = array( 'new_id' => $fid++, 'cat' => $row['id'], 'parent' => -2, 'name' => $row['name'], 'position' => $row['position'], 'description' => $row['description'], 'topics' => 0, 'replies' => 0, 'lastpost' => 0, 'old_id' => 0, 'old_subcat' => $subcat );
-      $i++;
+      if( $row['name'] != '-' )
+      {
+         $forum_table[] = array( 'new_id' => $fid++, 'cat' => $row['id'], 'parent' => -2, 'name' => $row['name'], 'position' => $row['position'], 'description' => $row['description'], 'topics' => 0, 'replies' => 0, 'lastpost' => 0, 'old_id' => $row['id'], 'old_subcat' => 0 );
+         $i++;
+      }
    }
 
    $oldset['cats'] = '1';
@@ -613,7 +615,7 @@ else if( $_GET['action'] == 'forum' )
    {
       if( $row['last_post'] == '' )
          $row['last_post'] = '0';
-      if( $row['start_perms'] == '-1' && $row['reply_perms'] == '-1' && $row['read_perms'] == '-1' )
+      if( $row['sub_can_post'] == '0' )
          $subcat = '1';
       else
          $subcat = '0';
@@ -638,24 +640,30 @@ else if( $_GET['action'] == 'forum' )
       if( $parent == '-2' )
          $parent = '0';
       else if( $parent == '-1' )
-         $parent = $cat;
+      {
+         for( $y = 0; $y < sizeof( $forum_table ); $y++ )
+         {
+            if( $forum_table[$y]['old_id'] == $cat && $forum_table[$y]['parent'] == '-2' )
+            {
+               $parent = $forum_table[$y]['new_id'];
+               break;
+            }
+         }
+      }
       else
       {
          for( $y = 0; $y < sizeof( $forum_table ); $y++ )
          {
-            if( $forum_table[$y]['old_id'] == $parent )
+            if( $forum_table[$y]['old_id'] == $parent && $forum_table[$y]['parent'] == '-1' )
             {
-               $parent = $y;
+               $parent = $forum_table[$y]['new_id'];
                break;
             }
          }
       }
 
-      if( $name != '-' )
-      {
-         $qsf->db->query( "INSERT INTO {$qsf->pre}forums VALUES( '', {$parent}, '', '{$name}', {$position}, '{$description}', '{$topics}', '{$replies}', '{$last_post}', '{$subcat}' )" );
-         $i++;
-      }
+      $qsf->db->query( "INSERT INTO {$qsf->pre}forums VALUES( '', {$parent}, '', '{$name}', {$position}, '{$description}', '{$topics}', '{$replies}', '{$last_post}', '{$subcat}' )" );
+      $i++;
    }
 
    $oldset['forums'] = '1';
@@ -668,10 +676,8 @@ else if( $_GET['action'] == 'forum' )
    $i = '0';
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['starter_id'] == '1' )
-         $row['starter_id'] = '2';
-      if( $row['last_poster_id'] == '1' )
-         $row['last_poster_id'] = '2';
+      $row['starter_id']++;
+      $row['last_poster_id']++;
 
       $topic_modes = '0';
       if( $row['state'] == 'closed' )
@@ -687,7 +693,7 @@ else if( $_GET['action'] == 'forum' )
       $fid = '0';
       for( $x = 0; $x < sizeof( $forum_table ); $x++ )
       {
-         if( $row['forum_id'] == $forum_table[$x]['old_id'] )
+         if( $row['forum_id'] == $forum_table[$x]['old_id'] && $forum_table[$x]['parent'] > '-2' )
          {
             $fid = $forum_table[$x]['new_id'];
             break;
@@ -707,14 +713,7 @@ else if( $_GET['action'] == 'forum' )
    $frows = 0;
    while( $row = $qsf->db->nqfetch($result) )
    {
-      if( $row['member_id'] == '1' )
-      {
-         $row['member_id'] = '2';
-      }
-      if( $row['member_id'] == '0' )
-      {
-         $row['member_id'] = '1';
-      }
+      $row['member_id']++;
 
       $fid = '0';
       for( $x = 0; $x < sizeof( $forum_table ); $x++ )
@@ -735,14 +734,8 @@ else if( $_GET['action'] == 'forum' )
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['member_id'] == '1' )
-      {
-         $row['member_id'] = '2';
-      }
-      if( $row['member_id'] == '0' )
-      {
-         $row['member_id'] = '1';
-      }
+      $row['member_id']++;
+
       $lineid = $row['trid'] + $frows;
       $expire = time() + 2592000;
       $qsf->db->query( "INSERT INTO {$qsf->pre}subscriptions VALUES( {$lineid}, {$row['member_id']}, 'topic', {$row['topic_id']}, {$expire} )" );
@@ -763,8 +756,7 @@ else if( $_GET['action'] == 'forum' )
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['member_id'] == '1' )
-         $row['member_id'] = '2';
+      $row['member_id']++;
       $qsf->db->query( "INSERT INTO {$qsf->pre}votes VALUES( {$row['member_id']}, {$row['tid']}, '' )" );
    }
 
@@ -797,8 +789,7 @@ else if( $_GET['action'] == 'posts' )
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['author_id'] == '1' )
-         $row['author_id'] = '2';
+      $row['author_id']++;
 
       /* Try and clean up some of the junk in Invisionboard posts. MySQL isn't happy about some of it. */
       $row['post'] = strip_invision_tags( $row['post'] );

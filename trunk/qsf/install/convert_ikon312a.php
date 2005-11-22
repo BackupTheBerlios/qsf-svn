@@ -145,6 +145,10 @@ function strip_ikon_tags( $text )
    $text = preg_replace( "#<font(.+?)>#", "", $text );
    $text = str_replace ( "</font>", "", $text );
 
+   // Span tags at this point are also not desired.
+   $text = preg_replace( "#<span(.+?)>#", "", $text );
+   $text = str_replace ( "</span>", "", $text );
+
    // Reconfigure code tags.
    $text = preg_replace( "#<!--c1-->(.+?)<!--ec1--><br>#", '[code]', $text );
    $text = preg_replace( "#<!--c1-->(.+?)<!--ec1-->#", '[code]', $text );
@@ -418,7 +422,7 @@ else if( $_GET['action'] == 'members' )
    $MID = $all + 1;
 
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '0.0', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}member_profiles";
@@ -486,7 +490,7 @@ else if( $_GET['action'] == 'members' )
          $height = '0';
          $type = "none";
       }
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, '{$level}', '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['MEMBER_EMAIL']}', $showmail, '', '0000-00-00', '{$row['TIME_ADJUST']}', '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', '{$row['ICQNUMBER']}', '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, '{$level}', '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['MEMBER_EMAIL']}', $showmail, '', '0000-00-00', '151', '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', '{$row['ICQNUMBER']}', '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 

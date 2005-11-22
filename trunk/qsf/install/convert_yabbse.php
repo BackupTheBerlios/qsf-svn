@@ -138,7 +138,7 @@ function strip_yabbse_tags( $text )
 
    // Convert email tags....
    $text = preg_replace( '/\[email\](.+?)\[\/email\]/si', '[email]\\1[/email]', $text );
-   $text = preg_replace( '/\[email=(.+?)\](.*?)\[\/email\]/si', '[email]\\1[/email]', $text );
+   $text = preg_replace( '/\[email=(.+?)\](.*?)\[\/email\]/si', '[email=\\1]\\2[/email]', $text );
 
    // Convert URL tags....
    $text = preg_replace( '/\[ftp=(.*?)\](.*?)\[\/ftp\]/si', '[url=\\1]\\2[/url]', $text );
@@ -390,14 +390,14 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '0.0', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}members";
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $row['ID_MEMBER'] += 1;
+      $row['ID_MEMBER']++;
 
       if( $row['hideEmail'] == '' || $row['hideEmail'] == '0' )
          $showmail = '1';
@@ -450,7 +450,7 @@ else if( $_GET['action'] == 'members' )
       else if( $row['lngfile'] == "dutch.lng" )
          $lang = "nl";
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['ID_MEMBER']}, '{$row['memberName']}', '{$row['passwd']}', {$row['dateRegistered']}, '1', '{$row['usertitle']}', 0, '{$row['memberGroup']}', 'default', '{$lang}', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['emailAddress']}', $showmail, '', '{$row['birthdate']}', '{$row['timeOffset']}', '{$row['websiteUrl']}', {$row['posts']}, '{$row['location']}', '{$row['ICQ']}', '{$row['MSN']}', '{$row['AIM']}', '', 1, 1, '{$row['YIM']}', '', '{$row['signature']}', {$row['lastLogin']}, 0, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['ID_MEMBER']}, '{$row['memberName']}', '{$row['passwd']}', {$row['dateRegistered']}, '1', '{$row['usertitle']}', 0, '{$row['memberGroup']}', 'default', '{$lang}', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['emailAddress']}', $showmail, '', '{$row['birthdate']}', '151', '{$row['websiteUrl']}', {$row['posts']}, '{$row['location']}', '{$row['ICQ']}', '{$row['MSN']}', '{$row['AIM']}', '', 1, 1, '{$row['YIM']}', '', '{$row['signature']}', {$row['lastLogin']}, 0, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 
@@ -469,8 +469,8 @@ else if( $_GET['action'] == 'pmessages' )
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $row['ID_MEMBER_FROM'] += 1;
-      $row['ID_MEMBER_TO'] += 1;
+      $row['ID_MEMBER_FROM']++;
+      $row['ID_MEMBER_TO']++;
 
       if( $row['subject'] == '' )
          $row['subject'] = "No Title";
@@ -567,12 +567,12 @@ else if( $_GET['action'] == 'topics' )
       if( $row['ID_MEMBER_STARTED'] < '1' )
          $row['ID_MEMBER_STARTED'] = 1;
       else
-         $row['ID_MEMBER_STARTED'] += 1;
+         $row['ID_MEMBER_STARTED']++;
 
       if( $row['ID_MEMBER_UPDATED'] < '1' )
          $row['ID_MEMBER_UPDATED'] = 1;
       else
-         $row['ID_MEMBER_UPDATED'] += 1;
+         $row['ID_MEMBER_UPDATED']++;
 
       $topic_modes = '0';
       if( $row['locked'] == '1' )
@@ -746,7 +746,7 @@ else if( $_GET['action'] == 'posts' )
       if( $row['ID_MEMBER'] < '1' )
          $row['ID_MEMBER'] = '1';
       else
-         $row['ID_MEMBER'] += 1;
+         $row['ID_MEMBER']++;
 
       $row['body'] = strip_yabbse_tags( $row['body'] );
 

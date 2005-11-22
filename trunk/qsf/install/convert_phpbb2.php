@@ -130,7 +130,7 @@ function strip_phpbb2_tags( $text )
     * phpBB2 does not have an email tag option in their post menu, but it supports manually entering them.
     */
    $text = preg_replace( '/\[email\](.+?)\[\/email\]/si', '[email]\\1[/email]', $text );
-   $text = preg_replace( '/\[email=(.+?)\](.*?)\[\/email\]/si', '[email]\\1[/email]', $text );
+   $text = preg_replace( '/\[email=(.+?)\](.*?)\[\/email\]/si', '[email=\\1]\\2[/email]', $text );
 
    // Convert URL tags....
    $text = preg_replace( '/\[url=(.*?)\](.*?)\[\/url\]/si', '[url]\\1[/url]', $text );
@@ -151,6 +151,7 @@ function strip_phpbb2_tags( $text )
    $text = preg_replace( '/\[size=12:(.*?)\](.*?)\[\/size:(.*?)\]/si', '\\2', $text );
    $text = preg_replace( '/\[size=18:(.*?)\](.*?)\[\/size:(.*?)\]/si', '[size=5]\\2[/size]', $text );
    $text = preg_replace( '/\[size=24:(.*?)\](.*?)\[\/size:(.*?)\]/si', '[size=7]\\2[/size]', $text );
+   $text = preg_replace( '/\[size=(.+?):(.*?)\](.*?)\[\/size:(.*?)\]/si', '\\3', $text );
 
    // Fix the text formatting tags....
    $text = preg_replace( '/\[s\](.*?)\[\/s\]/si', '[s]\\2[/s]', $text ); // <- Not actually supported
@@ -381,7 +382,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '0.0', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}users";
@@ -436,7 +437,7 @@ else if( $_GET['action'] == 'members' )
             $height = '0';
             $type = "none";
          }
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, '1', '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['user_email']}', $showmail, '', '0000-00-00', '{$row['user_timezone']}', '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', '{$row['user_icq']}', '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, '1', '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['user_email']}', $showmail, '', '0000-00-00', '151', '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', '{$row['user_icq']}', '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
    }
