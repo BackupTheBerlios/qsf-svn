@@ -533,6 +533,8 @@ class sv
 		$this->mc_deleted = 'Medlem Borttagen.';
 		$this->mc_edit = 'Ändra Medlem';
 		$this->mc_edited = 'Medlem Uppdaterad';
+		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
+		$this->mc_err_updating = 'Error Updating Profile'; //Translate
 		$this->mc_find = 'Hitta medlemmar vars namn innehåller';
 		$this->mc_found = 'Följande medlemmar hittades. Var snäll och välj en.';
 		$this->mc_guest_needed = 'Gästkontot behövs för att Quicksilver Forumet ska fungera.';

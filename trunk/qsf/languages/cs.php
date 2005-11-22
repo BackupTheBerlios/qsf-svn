@@ -532,6 +532,8 @@ class cs
 		$this->mc_deleted = 'Member Deleted.'; //Translate
 		$this->mc_edit = 'Edit Member'; //Translate
 		$this->mc_edited = 'Member Updated'; //Translate
+		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
+		$this->mc_err_updating = 'Error Updating Profile'; //Translate
 		$this->mc_find = 'Find members with names containing'; //Translate
 		$this->mc_found = 'The following members were found. Please select one.'; //Translate
 		$this->mc_guest_needed = 'The guest account is necessary for Quicksilver Forums to function.'; //Translate

@@ -533,6 +533,8 @@ class sk
 		$this->mc_deleted = 'Užívate¾ Zmazaný.';
 		$this->mc_edit = 'Editova Užívate¾a';
 		$this->mc_edited = 'Užívate¾ bol Zaktualizovaný';
+		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
+		$this->mc_err_updating = 'Error Updating Profile'; //Translate
 		$this->mc_find = 'Nájs užívate¾ov, ktorých meno obsahuje';
 		$this->mc_found = 'Boli nájdení nasledujúci užívatelia. Prosím, vyberte jedného.';
 		$this->mc_guest_needed = 'Konto guest je potrebné pre chod Quicksilver Fóra.';

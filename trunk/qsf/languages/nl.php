@@ -534,6 +534,8 @@ class nl
 		$this->mc_deleted = 'Gebruiker is verwijderd.';
 		$this->mc_edit = 'Pas gebruiker aan';
 		$this->mc_edited = 'Gebruiker geupdatet';
+		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
+		$this->mc_err_updating = 'Error Updating Profile'; //Translate
 		$this->mc_find = 'Zoek gebruikers waarin hetvolgende voorkomt:';
 		$this->mc_found = 'De volgende gebruikers werden gevonden. Selecteer er een van.';
 		$this->mc_guest_needed = 'Het gastenaccount is noodzakelijk voor Quicksilver Forums om te kunnen functioneren.';

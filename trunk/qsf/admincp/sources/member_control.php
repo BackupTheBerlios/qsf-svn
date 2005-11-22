@@ -244,6 +244,11 @@ class member_control extends admin
 						$val = $this->format(stripslashes($val), FORMAT_HTMLCHARS);
 					}
 
+					if ($var == 'user_email') {
+						if (!$this->is_valid_email_address(stripslashes($val))) {
+							return $this->message($this->lang->mc_err_updating, $this->lang->mc_email_invaid);
+						}
+					}
 					$data .= "$var='$val', ";
 				}
 
