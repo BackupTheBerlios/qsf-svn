@@ -374,6 +374,7 @@ else if( $_GET['action'] == 'confirminvisiondrop' )
 {
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}admin_logs" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}admin_sessions" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}attachments" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}badwords" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}cache_store" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}calendar_events" );
@@ -401,6 +402,7 @@ else if( $_GET['action'] == 'confirminvisiondrop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}polls" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}posts" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}reg_antispam" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}rules" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}search_results" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}sessions" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}skin_templates" );
@@ -496,6 +498,7 @@ else if( $_GET['action'] == 'members' )
          else
             $bday = "0000-00-00";
 
+         $row['email'] = addslashes( $row['email'] );
          $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '{$bday}', '151', '{$row['website']}', '{$row['posts']}', '{$row['location']}', '{$row['icq_number']}', '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
