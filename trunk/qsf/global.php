@@ -332,7 +332,7 @@ class qsfglobal
 				'$this->format_code(\'\\1\', 1)',
 				'$this->format_code(\'\\2\', 1, \'\\1\')',
 				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'</a>\'',
-				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\\3</a>\''
+				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . stripslashes(\'\\3\') . \'</a>\''
 			);
 
 			$in = preg_replace($search, $replace, $in);
@@ -420,7 +420,7 @@ class qsfglobal
 			$start++;
 		}
 
-		$height = ($count * 14.2) + 4; // Magic numbers. Just seem to work
+		$height = ($count * 14) + 14;
 
 		$return = '';
 		if ($php) {
