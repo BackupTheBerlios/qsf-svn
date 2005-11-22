@@ -73,14 +73,39 @@ class convert extends qsfglobal
 		require './convert_db.php';
 		switch($step) {
 		default:
+			$url = preg_replace('/install\/?$/i', '', $this->server_url() . dirname($_SERVER['PHP_SELF']));
+
+			echo "<form action='{$this->self}?mode=convert&amp;step=2' method='post'>
+				<table border='0' cellpadding='4' cellspacing='0'>\n";
+			include 'templates/convertfromforum.php';
 			include 'templates/convertfromdatabase.php';
+			include 'templates/converttodatabase.php';
+			include 'templates/convertboardsettings.php';
+			echo "<tr>
+                         <td class='subheader' colspan='2' align='center'><input type='submit' value='Continue' /></td>
+                         </tr>
+                         </table>
+                         </form>";
 			break;
 
 		case 2:
-			$this->db = new database($this->post['old_db_host'], $this->post['old_db_user'], $this->post['old_db_pass'], $this->post['old_db_name'], $this->post['old_db_port'], $this->post['old_db_socket']);
+			$oldboard = new qsfglobal;
+			$oldboard->db = new database($this->post['old_db_host'], $this->post['old_db_user'], $this->post['old_db_pass'], $this->post['old_db_name'], $this->post['old_db_port'], $this->post['old_db_socket']);
+
+			if (!$oldboard->db->connection) {
+				echo "Couldn't connect to your old database using the specified information.";
+				break;
+			}
+
+			$this->db = new database($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
 
 			if (!$this->db->connection) {
-				echo "Couldn't connect to your old database using the specified information.";
+				echo "Couldn't connect to your new database using the specified information.";
+				break;
+			}
+
+			if (!isset($this->post['old_forum']) || $this->post['old_forum'] == '' ) {
+				echo "You have not selected a forum to convert from. Please go back and correct this error.";
 				break;
 			}
 
@@ -96,22 +121,6 @@ class convert extends qsfglobal
 
 			if (!$this->write_olddb_sets($oldset)) {
 				echo 'The old database connection was ok, but convert_db.php in the install directory could not be updated.<br /><br />CHMOD convert_db.php to 666. Then press the back button and try again.';
-				break;
-			}
-
-			echo "The operations were successful.<br /><br />
-			<a href='$this->self?mode=convert&amp;step=3'>Continue to step 3</a>";
-			break;
-
-		case 3:
-			include 'templates/converttodatabase.php';
-			break;
-
-		case 4:
-			$this->db = new database($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
-
-			if (!$this->db->connection) {
-				echo "Couldn't connect to a database using the specified information.";
 				break;
 			}
 
@@ -132,17 +141,17 @@ class convert extends qsfglobal
 			$this->sets['installed'] = 1;
 
 			if (!$this->write_db_sets('../settings.php')) {
-				echo 'The database connection was ok, but settings.php could not be updated.<br /><br />CHMOD settings.php to 666.';
+				echo 'The new database connection was ok, but settings.php could not be updated.<br /><br />CHMOD settings.php to 666.';
 				break;
 			}
 
 			if (!is_readable('./data_tables.php')) {
-				echo 'Database connected, settings written, but no data could be loaded from data_tables.php';
+				echo 'New database connected, settings written, but no data could be loaded from data_tables.php';
 				break;
 			}
 
 			if (!is_readable('./data_templates.php')) {
-				echo 'Database connected, settings written, but no templates could be loaded from data_templates.php';
+				echo 'New database connected, settings written, but no templates could be loaded from data_templates.php';
 				break;
 			}
 
@@ -155,19 +164,7 @@ class convert extends qsfglobal
 
 			execute_queries($queries, $this->db);
 
-			echo "The operations were successful.<br /><br />
-			<a href='$this->self?mode=convert&amp;step=5'>Continue to step 5</a>";
-			break;
-
-		case 5:
-			$url = preg_replace('/install\/?$/i', '', $this->server_url() . dirname($_SERVER['PHP_SELF']));
-
-			include 'templates/convertboardsettings.php';
-			break;
-
-		case 6:
 			$this->pre  = $this->sets['prefix'];
-			$this->db   = new database($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name'], $this->sets['db_port'], $this->sets['db_socket']);
 
 			$this->sets = $this->get_settings($this->sets);
 			$this->sets['loc_of_board'] = stripslashes($this->post['board_url']);
@@ -175,16 +172,7 @@ class convert extends qsfglobal
 
 			$this->write_sets();
 
-			echo "The operations were successful.<br /><br />
-			<a href='$this->self?mode=convert&amp;step=7'>Continue to step 7</a>";
-			break;
-
-		case 7:
-			include 'templates/convertfromforum.php';
-			break;
-
-		case 8:
-			echo "<meta http-equiv='Refresh' content='0;URL={$_POST['board_name']}'>";
+			echo "<meta http-equiv='Refresh' content='0;URL={$this->post['old_forum']}'>";
 			break;
 		}
 	}

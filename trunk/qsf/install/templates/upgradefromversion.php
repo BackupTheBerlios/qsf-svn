@@ -5,11 +5,17 @@
     <input type='hidden' name='step' value='2' />
     <table border='0' cellpadding='4' cellspacing='0'>
     <tr>
+        <td class='subheader' colspan='2'>Quicksilver Forums</td>
+    </tr>
+    <tr>
         <td><input type='radio' name='from' value='15' id='upgrade15' checked='checked' /></td>
         <td><label for='upgrade15'>Quicksilver Forums v1.1.5</label></td>
     </tr>
     <tr>
-        <td><input type='radio' name='from' value='14' id='upgrade14' checked='checked' /></td>
+        <td class='subheader' colspan='2'>MercuryBoard</td>
+    </tr>
+    <tr>
+        <td><input type='radio' name='from' value='14' id='upgrade14' /></td>
         <td><label for='upgrade14'>MercuryBoard v1.1.4</label></td>
     </tr>
     <tr>

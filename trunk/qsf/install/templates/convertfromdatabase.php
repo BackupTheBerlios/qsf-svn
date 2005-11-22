@@ -1,6 +1,6 @@
-    What MySQL database are you converting from?<br /><br />
-    <form action='<?php echo $this->self; ?>?mode=convert&amp;step=2' method='post'>
-    <table border='0' cellpadding='4' cellspacing='0'>
+    <tr>
+        <td colspan='2' class='subheader'>Old Board Database Information</td>
+    </tr>
     <tr>
         <td><b>Host Server</b></td>
         <td><input class='input' type='text' name='old_db_host' value='<?php echo $oldset['old_db_host']; ?>' /></td>
@@ -33,8 +33,3 @@
         <td><b>Number of posts to convert at a time</b></td>
         <td><input class='input' type='text' name='post_inc' value='<?php echo $oldset['post_inc']; ?>' /></td>
     </tr>
-    <tr>
-        <td colspan='2' align='center'><br /><input type='submit' value='Continue' /></td>
-    </tr>
-    </table>
-    </form>

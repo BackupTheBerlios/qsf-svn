@@ -134,22 +134,55 @@ class upgrade extends qsfglobal
 
 			execute_queries($queries, $this->db);
 
-			if ($full_template_list || $need_templates) {
-				$queries = array();
-				include './data_templates.php';
-				
-				if ($full_template_list) {
-					$this->db->query("DELETE FROM {$pre}templates WHERE template_skin='default'");
-					execute_queries($queries, $this->db);
-				} else if ($need_templates) {
-					foreach ($queries as $template => $insert)
-					{
-						if (in_array($template, $need_templates)) {
-							$this->db->query("DELETE FROM {$pre}templates WHERE template_name='$template' AND template_skin='default'");
-							$this->db->query($insert);
-						}
+			$queries = array();
+			include './data_templates.php';
+			$skinsupdated = "<span class='tiny'>The following templates were upgraded:<br /><br />";
+			$didsomething = false;
+			$sql = "SELECT * FROM {$this->pre}skins";
+			$query = $this->db->query($sql);
+
+			while ($row = $this->db->nqfetch($query))
+			{
+				$skin = $row['skin_dir'];
+
+				/* Insert all of the new templates into the existing skins */
+		                foreach ($queries as $template => $insert)
+				{
+					/* This query needed to be fudged up to work right */
+					$insert = str_replace( "'default'", "'{$skin}'", $insert );
+       	        		        $sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin='{$skin}' AND template_name='{$template}'";
+                        		$miss = $this->db->query($sql);
+
+                        		if ($this->db->num_rows($miss) < 1)
+        		                {
+						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
+	                                	$this->db->query($insert);
+						$didsomething = true;
+        	                	} else if ($row['skin_name'] == 'Candy Corn') {
+						$insert = str_replace( "INSERT INTO", "REPLACE INTO", $insert );
+						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
+	                                	$this->db->query($insert);
+						$didsomething = true;
 					}
 				}
+
+		                /* Iterate over all our templates. This is excessive, but only needs to be done once anyway. */
+		                $sql = "SELECT template_html, template_name FROM {$this->pre}templates WHERE template_skin='{$skin}'";
+		                $query = $this->db->query($sql);
+
+		                while ($row2 = $this->db->nqfetch($query))
+        		        {
+					$row2['template_html'] = str_replace('{$messageclass}', '<MODLET messagelink(class)>', $row2['template_html']);
+					$row2['template_html'] = str_replace('{$MessageLink}', '<MODLET messagelink(text)>', $row2['template_html']);
+					$row2['template_html'] = str_replace('$mercury', '$qsf', $row2['template_html']);
+					$row2['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row2['template_html']);
+					$row2['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row2['template_html']);
+					$row2['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row2['template_html']);
+					$row2['template_html'] = str_replace('$this->lang->pm_inbox', '$foldername', $row2['template_html']);
+					$row2['template_html'] = addslashes($row2['template_html']);
+					$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin='{$skin}' AND template_name='{$row2['template_name']}'";
+					$this->db->query($sql);
+		                }
 			}
 
 			$this->write_sets();
@@ -158,7 +191,11 @@ class upgrade extends qsfglobal
 			$this->updateForumTrees();
 			$this->RecountForums();
 
-			echo 'Upgrade successful.<br />';
+			$message ='';
+			if ($didsomething) {
+				$message = $skinsupdated . "</span>";
+			}
+			echo $message . "<br />Upgrade successful.<br />";
 			echo "<a href='../index.php'>To the board</a>";
 			break;
 		}

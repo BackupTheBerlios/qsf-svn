@@ -31,7 +31,18 @@ class new_install extends qsfglobal
 	{
 		switch($step) {
 		default:
+			$url = preg_replace('/install\/?$/i', '', $this->server_url() . dirname($_SERVER['PHP_SELF']));
+
+			echo "<form action='{$this->self}?mode=new_install&amp;step=2' method='post'>
+                              <table border='0' cellpadding='4' cellspacing='0'>\n";
 			include 'templates/newdatabase.php';
+			include 'templates/newboardsettings.php';
+			include 'templates/newadmin.php';
+			echo "<tr>
+                         <td class='subheader' colspan='2' align='center'><input type='submit' value='Continue' /></td>
+                         </tr>
+                         </table>
+                         </form>";
 			break;
 
 		case 2:
@@ -41,6 +52,7 @@ class new_install extends qsfglobal
 				echo "Couldn't connect to a database using the specified information.";
 				break;
 			}
+			$this->db = $db;
 
 			$this->sets['db_host']   = $this->post['db_host'];
 			$this->sets['db_user']   = $this->post['db_user'];
@@ -65,59 +77,32 @@ class new_install extends qsfglobal
 				break;
 			}
 
+			if ((trim($this->post['admin_name']) == '')
+			|| (trim($this->post['admin_pass']) == '')
+			|| (trim($this->post['admin_email']) == '')) {
+				echo 'You have not specified an admistrator account. Please go back and correct this error.';
+				break;
+			}
+
+			if ($this->post['admin_pass'] != $this->post['admin_pass2']) {
+				echo 'Your administrator passwords do not match. Please go back and correct this error.';
+				break;
+			}
+
 			$queries = array();
 			$pre = $this->sets['prefix'];
+			$this->pre = $this->sets['prefix'];
 
 			include './data_tables.php';
 			include './data_templates.php';
 
 			execute_queries($queries, $db);
 
-			echo "The operations were successful.<br /><br />
-			<a href='$this->self?mode=new_install&amp;step=3'>Continue to step 3</a>";
-			break;
-
-		case 3:
-			$url = preg_replace('/install\/?$/i', '', $this->server_url() . dirname($_SERVER['PHP_SELF']));
-
-			include 'templates/newboardsettings.php';
-			break;
-
-		case 4:
-			$this->pre  = $this->sets['prefix'];
-			$this->db   = new database($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name'], $this->sets['db_port'], $this->sets['db_socket']);
-
 			$this->sets = $this->get_settings($this->sets);
 			$this->sets['loc_of_board'] = stripslashes($this->post['board_url']);
 			$this->sets['forum_name'] = stripslashes($this->post['board_name']);
 
-			$this->write_sets();
-
-			echo "The operations were successful.<br /><br />
-			<a href='$this->self?mode=new_install&amp;step=5'>Continue to step 5</a>";
-			break;
-
-		case 5:
-			include 'templates/newadmin.php';
-			break;
-
-		case 6:
-			if ((trim($this->post['admin_name']) == '')
-			|| (trim($this->post['admin_pass']) == '')
-			|| (trim($this->post['admin_email']) == '')) {
-				echo 'Go back and check to see that you filled in all required information.';
-				break;
-			}
-
-			if ($this->post['admin_pass'] != $this->post['admin_pass2']) {
-				echo 'Your passwords do not match. Please go back and correct this error.';
-				break;
-			}
-
 			$this->post['admin_pass'] = md5($this->post['admin_pass']);
-
-			$this->pre  = $this->sets['prefix'];
-			$this->db   = new database($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name'], $this->sets['db_port'], $this->sets['db_socket']);
 
 			if (!get_magic_quotes_gpc()) {
 				$this->set_magic_quotes_gpc($this->get);
@@ -130,8 +115,6 @@ class new_install extends qsfglobal
 				array('&#', '&#39;'),
 				htmlspecialchars(stripslashes($this->post['admin_name']))
 			);
-
-			$this->sets = $this->get_settings($this->sets);
 
 			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email, user_timezone) VALUES ('{$this->post['admin_name']}', '{$this->post['admin_pass']}', " . USER_ADMIN .  ", 'Administrator', 1, {$this->time}, '{$this->post['admin_email']}', {$this->sets['servertime']})");
 			$admin_uid = $this->db->insert_id();
@@ -149,9 +132,10 @@ class new_install extends qsfglobal
 			setcookie($this->sets['cookie_prefix'] . 'user', $admin_uid, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
 			setcookie($this->sets['cookie_prefix'] . 'pass', $this->post['admin_pass'], $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
 
-			echo "An administrator account was registered.<br />
+			echo "Congratulations! Your board has been installed.<br />
+			An administrator account was registered.<br />
 			REMEMBER TO DELETE THE INSTALL DIRECTORY!<br /><br />
-			<a href='../index.php'>To the board</a>";
+			<a href='../index.php'>Go to your board.</a>";
 			break;
 		}
 	}

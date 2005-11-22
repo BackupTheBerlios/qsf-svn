@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td><input id='upgrade' type='radio' name='mode' value='upgrade' /></td>
-        <td><label for='upgrade'>Upgrade from a previous MercuryBoard version</label></td>
+        <td><label for='upgrade'>Upgrade from a previous version</label></td>
     </tr>
     <tr>
         <td><input id='convert' type='radio' name='mode' value='convert' /></td>
