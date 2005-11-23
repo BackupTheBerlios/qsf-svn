@@ -163,8 +163,6 @@ class nl
 		$this->board_stats_string = '%s gebruikers hebben zich geregistreerd. Ons nieuwste lid is, %s.<br />Er zijn %s Onderwerpen en %s antwoorden in een totaal van %s berichten.';
 		$this->board_top_page = 'Ga naar bovenaan de pagina';
 		$this->board_topics = 'Onderwerpen';
-		$this->board_topics_new = 'Er zijn nieuwe berichten in dit forum.';
-		$this->board_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
 		$this->board_users = 'Gebruikers';
 		$this->board_write_topics = 'Je mag nieuwe onderwerpen plaatsen in dit forum.';
 	}
@@ -349,8 +347,6 @@ class nl
 		$this->forum_sub_topics = 'Onderwerpen';
 		$this->forum_subscribe = 'Stuur mij een e-mail als er berichten geplaatst zijn in dit onderwerp';
 		$this->forum_topic = 'Onderwerp';
-		$this->forum_topics_new = 'Er zijn nieuwe berichten in dit forum.';
-		$this->forum_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
 		$this->forum_views = 'Bekeken';
 		$this->forum_write_topics = 'U kan onderwerpen aanmaken in dit forum.';
 	}
@@ -510,6 +506,8 @@ class nl
 		$this->main_reminder_closed = 'Het forum is gesloten en alleen te zien door beheerders.';
 		$this->main_said = 'Schreef';
 		$this->main_search = 'Zoeken';
+		$this->main_topics_new = 'Er zijn nieuwe berichten in dit forum.';
+		$this->main_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
 		$this->main_welcome = 'Welkom';
 		$this->main_welcome_guest = 'Welkom gast!';
 	}
@@ -975,8 +973,6 @@ class nl
 		$this->recent_sub_topics = 'Onderwerpen';
 		$this->recent_subscribe = 'Stuur een e-mail als er berichten geplaatst zijn in dit onderwerp';
 		$this->recent_topic = 'Onderwerp';
-		$this->recent_topics_new = 'Er zijn nieuwe berichten in dit forum.';
-		$this->recent_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
 		$this->recent_views = 'Bekeken';
 		$this->recent_write_topics = 'Je kan onderwerpen aanmaken in dit forum.';
 	}

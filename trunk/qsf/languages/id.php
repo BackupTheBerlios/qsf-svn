@@ -161,8 +161,6 @@ class id
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Topik';
-		$this->board_topics_new = 'Tidak ada posting-posting baru di forum ini.';
-		$this->board_topics_old = 'Tidak ada posting baru di forum ini.';
 		$this->board_users = 'user';
 		$this->board_write_topics = 'Anda dapat melihat dan membuat topik di forum ini.';
 	}
@@ -347,8 +345,6 @@ class id
 		$this->forum_sub_topics = 'Topik';
 		$this->forum_subscribe = 'Kirimkan E-mail ke saya ketika topik ini dibalas';
 		$this->forum_topic = 'Topik';
-		$this->forum_topics_new = 'Ada posting baru di forum ini.';
-		$this->forum_topics_old = 'Tidak ada posting baru di forum ini.';
 		$this->forum_views = 'Dilihat';
 		$this->forum_write_topics = 'Anda dapat membuat topik di forum ini.';
 	}
@@ -508,6 +504,8 @@ class id
 		$this->main_reminder_closed = 'Forum ditutup hanya admin saja yang diperbolehkan.';
 		$this->main_said = 'berkata';
 		$this->main_search = 'Cari';
+		$this->main_topics_new = 'Tidak ada posting-posting baru di forum ini.';
+		$this->main_topics_old = 'Tidak ada posting baru di forum ini.';
 		$this->main_welcome = 'Selamat datang';
 		$this->main_welcome_guest = 'Selamat datang!';
 	}
@@ -973,8 +971,6 @@ class id
 		$this->recent_sub_topics = 'Topik';
 		$this->recent_subscribe = 'Kirimkan E-mail ke saya ketika topik ini dibalas';
 		$this->recent_topic = 'Topik';
-		$this->recent_topics_new = 'Ada posting baru di forum ini.';
-		$this->recent_topics_old = 'Tidak ada posting baru di forum ini.';
 		$this->recent_views = 'Dilihat';
 		$this->recent_write_topics = 'Anda dapat membuat topik di forum ini.';
 	}

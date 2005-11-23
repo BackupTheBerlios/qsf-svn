@@ -161,8 +161,6 @@ class zh
 		$this->board_stats_string = '��ǰ����%sλע���û��� ��ӭ���ǵ��»�Ա��%s��<br /> ��ǰ����%s�������%s��ظ�������%s�����ӡ�';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = '����';
-		$this->board_topics_new = '����̳�������ӡ�';
-		$this->board_topics_old = '����̳û�������ӡ�';
 		$this->board_users = 'λ�û�����';
 		$this->board_write_topics = '����̳����Բ鿴���������⡣';
 	}
@@ -347,8 +345,6 @@ class zh
 		$this->forum_sub_topics = '����';
 		$this->forum_subscribe = '����̳�������ʼ����ҵ�Email�';
 		$this->forum_topic = '����';
-		$this->forum_topics_new = '����̳������';
-		$this->forum_topics_old = '����̳û������';
 		$this->forum_views = '���';
 		$this->forum_write_topics = '������ڸ���̳�������⡣';
 	}
@@ -508,6 +504,8 @@ class zh
 		$this->main_reminder_closed = '��̳�Ѿ��رգ�ֻ�й���Ա���ܽ��롣';
 		$this->main_said = '˵';
 		$this->main_search = '��̳����';
+		$this->main_topics_new = '����̳�������ӡ�';
+		$this->main_topics_old = '����̳û�������ӡ�';
 		$this->main_welcome = '��ӭ';
 		$this->main_welcome_guest = '��ӭ';
 	}
@@ -973,8 +971,6 @@ class zh
 		$this->recent_sub_topics = '����';
 		$this->recent_subscribe = '����̳�������ʼ����ҵ�Email�';
 		$this->recent_topic = '����';
-		$this->recent_topics_new = '����̳������';
-		$this->recent_topics_old = '����̳û������';
 		$this->recent_views = '���';
 		$this->recent_write_topics = '������ڸ���̳�������⡣';
 	}

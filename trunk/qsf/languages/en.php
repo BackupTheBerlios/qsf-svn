@@ -161,8 +161,6 @@ class en
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.';
 		$this->board_top_page = 'Go to the top of the page';
 		$this->board_topics = 'Topics';
-		$this->board_topics_new = 'There are new posts in this forum.';
-		$this->board_topics_old = 'There are no new posts in this forum.';
 		$this->board_users = 'users';
 		$this->board_write_topics = 'You can view and create topics in this forum.';
 	}
@@ -347,8 +345,6 @@ class en
 		$this->forum_sub_topics = 'Topics';
 		$this->forum_subscribe = 'E-mail me when posts are made in this forum';
 		$this->forum_topic = 'Topic';
-		$this->forum_topics_new = 'There are new posts in this forum.';
-		$this->forum_topics_old = 'There are no new posts in this forum.';
 		$this->forum_views = 'Views';
 		$this->forum_write_topics = 'You can create topics in this forum.';
 	}
@@ -508,6 +504,8 @@ class en
 		$this->main_reminder_closed = 'The board is closed and only viewable to admins.';
 		$this->main_said = 'said';
 		$this->main_search = 'search';
+		$this->main_topics_new = 'There are new posts in this forum.';
+		$this->main_topics_old = 'There are no new posts in this forum.';
 		$this->main_welcome = 'Welcome';
 		$this->main_welcome_guest = 'Welcome!';
 	}
@@ -973,8 +971,6 @@ class en
 		$this->recent_sub_topics = 'Topics';
 		$this->recent_subscribe = 'E-mail me when posts are made in this forum';
 		$this->recent_topic = 'Topic';
-		$this->recent_topics_new = 'There are new posts in this forum.';
-		$this->recent_topics_old = 'There are no new posts in this forum.';
 		$this->recent_views = 'Views';
 		$this->recent_write_topics = 'You can create topics in this forum.';
 	}

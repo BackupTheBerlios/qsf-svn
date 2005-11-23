@@ -25,7 +25,8 @@ if (!defined('INSTALLER')) {
 }
 
 $need_templates = array(
-	'SEARCH_RESULTS_MEMBER_INFO' // Changed templates
+	'SEARCH_RESULTS_MEMBER_INFO',
+	'BOARD_LAST_POST_BOX' // Changed templates
 	                             // New templates
 );
 

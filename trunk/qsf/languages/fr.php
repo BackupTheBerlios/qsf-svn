@@ -161,8 +161,6 @@ class fr
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Sujets';
-		$this->board_topics_new = 'Il y a des nouveaux messages dans ce forum.';
-		$this->board_topics_old = 'Il n\'y a pas de nouveaux messages dans ce forum.';
 		$this->board_users = 'utilisateurs';
 		$this->board_write_topics = 'Vous pouvez créer un fil de discussions dans ce forum.';
 	}
@@ -347,8 +345,6 @@ class fr
 		$this->forum_sub_topics = 'Sujets';
 		$this->forum_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->forum_topic = 'Sujet';
-		$this->forum_topics_new = 'Il y a de nouveaux messages dans ce forum. ';
-		$this->forum_topics_old = 'Il n\'y a pas de nouveaux messages dans ce forum. ';
 		$this->forum_views = 'Affichages';
 		$this->forum_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}
@@ -508,6 +504,8 @@ class fr
 		$this->main_reminder_closed = 'Les forums sont fermés et consultables uniquement par les administrateurs.';
 		$this->main_said = 'a dit';
 		$this->main_search = 'Rechercher';
+		$this->main_topics_new = 'Il y a des nouveaux messages dans ce forum.';
+		$this->main_topics_old = 'Il n\'y a pas de nouveaux messages dans ce forum.';
 		$this->main_welcome = 'Bienvenue';
 		$this->main_welcome_guest = 'Bienvenue invité !';
 	}
@@ -973,8 +971,6 @@ class fr
 		$this->recent_sub_topics = 'Sujets';
 		$this->recent_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->recent_topic = 'Sujet';
-		$this->recent_topics_new = 'Il y a de nouveaux messages dans ce forum. ';
-		$this->recent_topics_old = 'Il n\'y a pas de nouveaux messages dans ce forum. ';
 		$this->recent_views = 'Affichages';
 		$this->recent_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}

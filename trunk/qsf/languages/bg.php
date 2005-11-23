@@ -161,8 +161,6 @@ class bg
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Теми';
-		$this->board_topics_new = 'Няма нови теми в този форум.';
-		$this->board_topics_old = 'Няма нови мнения.';
 		$this->board_users = 'Потребители';
 		$this->board_write_topics = 'Можете да четете и да пускате мнения в този форум.';
 	}
@@ -347,8 +345,6 @@ class bg
 		$this->forum_sub_topics = 'Теми';
 		$this->forum_subscribe = 'Уведоми ме, когато някой напише ново мнение';
 		$this->forum_topic = 'Тема';
-		$this->forum_topics_new = 'Има нови мнения.';
-		$this->forum_topics_old = 'Няма нови мнения.';
 		$this->forum_views = 'Прегледа';
 		$this->forum_write_topics = 'Можете да пускате нова тема.';
 	}
@@ -508,6 +504,8 @@ class bg
 		$this->main_reminder_closed = 'Форумът е затворен.';
 		$this->main_said = 'каза';
 		$this->main_search = 'Търсене';
+		$this->main_topics_new = 'Има нови мнения.';
+		$this->main_topics_old = 'Няма нови мнения.';
 		$this->main_welcome = 'Добре дошъл';
 		$this->main_welcome_guest = 'Добре дошъл!';
 	}
@@ -973,8 +971,6 @@ class bg
 		$this->recent_sub_topics = 'Теми';
 		$this->recent_subscribe = 'Уведоми ме, когато някой напише ново мнение';
 		$this->recent_topic = 'Тема';
-		$this->recent_topics_new = 'Има нови мнения.';
-		$this->recent_topics_old = 'Няма нови мнения.';
 		$this->recent_views = 'Прегледа';
 		$this->recent_write_topics = 'Можете да пускате нова тема.';
 	}

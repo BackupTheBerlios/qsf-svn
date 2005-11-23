@@ -161,8 +161,6 @@ class he
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'נושאים';
-		$this->board_topics_new = 'יש הודועת חדשות בפורום הזה.';
-		$this->board_topics_old = 'אין הודועת חדשות בפורום הזה.';
 		$this->board_users = 'משתמשים';
 		$this->board_write_topics = 'הינך יכול לראות ולכתוב בפורום הזה.';
 	}
@@ -347,8 +345,6 @@ class he
 		$this->forum_sub_topics = 'נושאים';
 		$this->forum_subscribe = 'E-mail me when posts are made in this forum'; //Translate
 		$this->forum_topic = 'נושא';
-		$this->forum_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->forum_topics_old = 'There are no new posts in this forum.'; //Translate
 		$this->forum_views = 'צפיות';
 		$this->forum_write_topics = 'You can create topics in this forum.'; //Translate
 	}
@@ -508,6 +504,8 @@ class he
 		$this->main_reminder_closed = 'The board is closed and only viewable to admins.'; //Translate
 		$this->main_said = 'said'; //Translate
 		$this->main_search = 'חיפוש';
+		$this->main_topics_new = 'יש הודועת חדשות בפורום הזה.';
+		$this->main_topics_old = 'אין הודועת חדשות בפורום הזה.';
 		$this->main_welcome = 'ברוך הבא';
 		$this->main_welcome_guest = 'ברוך הבא!';
 	}
@@ -973,8 +971,6 @@ class he
 		$this->recent_sub_topics = 'נושאים';
 		$this->recent_subscribe = 'E-mail me when posts are made in this forum'; //Translate
 		$this->recent_topic = 'נושא';
-		$this->recent_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->recent_topics_old = 'There are no new posts in this forum.'; //Translate
 		$this->recent_views = 'צפיות';
 		$this->recent_write_topics = 'You can create topics in this forum.'; //Translate
 	}

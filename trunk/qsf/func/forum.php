@@ -139,9 +139,9 @@ class forum extends qsfglobal
 				}
 
 				if ($forum['LastTime'] > $this->user['user_lastvisit']) {
-					$topic_new = "<a href='$this->self?s=mark&amp;f={$forum['forum_id']}'><img src='./skins/{$this->skin}/images/topic_new.png' alt='{$this->lang->forum_topics_new}' title='{$this->lang->forum_topics_new}' /></a>";
+					$topic_new = "<a href='$this->self?s=mark&amp;f={$forum['forum_id']}'><img src='./skins/{$this->skin}/images/topic_new.png' alt='{$this->lang->main_topics_new}' title='{$this->lang->main_topics_new}' /></a>";
 				} else {
-					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->forum_topics_old}' title='{$this->lang->forum_topics_old}' />";
+					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 				}
 
 				if ($this->perms->auth('topic_view', $forum['forum_id'])) {
@@ -176,7 +176,7 @@ class forum extends qsfglobal
 
 					$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 				} else {
-					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->forum_topics_old}' title='{$this->lang->forum_topics_old}' />";
+					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 
 					$user_lastpostBox = $this->lang->forum_nopost;
 				}

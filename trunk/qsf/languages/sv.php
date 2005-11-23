@@ -162,8 +162,6 @@ class sv
 		$this->board_stats_string = 'Hittills har %s personer registrerat sig. Våran nyaste medlem är: %s.<br /> Det finns %s ämnen och %s svar vilket totalt är %s inlägg.';
 		$this->board_top_page = 'Gå till toppen av sidan';
 		$this->board_topics = 'Ämnen';
-		$this->board_topics_new = 'Det finns nya inlägg i detta forum.';
-		$this->board_topics_old = 'Det finns inga nya inlägg i detta forum.';
 		$this->board_users = 'användare';
 		$this->board_write_topics = 'Du kan läsa och skapa ämnen i detta forum.';
 	}
@@ -348,8 +346,6 @@ class sv
 		$this->forum_sub_topics = 'Ämnen';
 		$this->forum_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->forum_topic = 'Ämne';
-		$this->forum_topics_new = 'Det finns nya inlägg i detta forum.';
-		$this->forum_topics_old = 'Det finns inga nya inlägg i detta forum.';
 		$this->forum_views = 'Visningar';
 		$this->forum_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}
@@ -509,6 +505,8 @@ class sv
 		$this->main_reminder_closed = 'Forumet är stängt! det kan endast ses av administratörer.';
 		$this->main_said = 'sade';
 		$this->main_search = 'sök';
+		$this->main_topics_new = 'Det finns nya inlägg i detta forum.';
+		$this->main_topics_old = 'Det finns inga nya inlägg i detta forum.';
 		$this->main_welcome = 'Välkommen';
 		$this->main_welcome_guest = 'Välkommen!';
 	}
@@ -974,8 +972,6 @@ class sv
 		$this->recent_sub_topics = 'Ämnen';
 		$this->recent_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->recent_topic = 'Ämne';
-		$this->recent_topics_new = 'Det finns nya inlägg i detta forum.';
-		$this->recent_topics_old = 'Det finns inga nya inlägg i detta forum.';
 		$this->recent_views = 'Visningar';
 		$this->recent_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}

@@ -161,8 +161,6 @@ class it
 		$this->board_stats_string = '%s utenti si sono registrati. Diamo il benvenuto al nostro più recente iscritto: %s.<br /> Ci sono %s discussioni e %s risposte, per un totale di %s messaggi.';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Discussioni';
-		$this->board_topics_new = 'Ci sono nuovi messaggi in questo forum.';
-		$this->board_topics_old = 'Non ci sono nuovi messaggi in questo forum.';
 		$this->board_users = 'utenti';
 		$this->board_write_topics = 'Puoi leggere ed inviare nuovi messaggi.';
 	}
@@ -347,8 +345,6 @@ class it
 		$this->forum_sub_topics = 'Argomenti';
 		$this->forum_subscribe = 'Mandami una e-mail quando qualcuno apre una nuova discussione';
 		$this->forum_topic = 'Discussioni';
-		$this->forum_topics_new = 'Ci sono nuovi messaggi in questo forum.';
-		$this->forum_topics_old = 'Non ci sono nuovi messaggi in questo forum.';
 		$this->forum_views = 'Visite';
 		$this->forum_write_topics = 'Puoi aprire nuove discussioni in questo forum.';
 	}
@@ -508,6 +504,8 @@ class it
 		$this->main_reminder_closed = 'La bacheca è chiusa e visibile solo agli amministratori.';
 		$this->main_said = 'ha scritto';
 		$this->main_search = 'cerca';
+		$this->main_topics_new = 'Ci sono nuovi messaggi in questo forum.';
+		$this->main_topics_old = 'Non ci sono nuovi messaggi in questo forum.';
 		$this->main_welcome = 'Benvenuto';
 		$this->main_welcome_guest = 'Benvenuto!';
 	}
@@ -973,8 +971,6 @@ class it
 		$this->recent_sub_topics = 'Argomenti';
 		$this->recent_subscribe = 'Mandami una e-mail quando qualcuno apre una nuova discussione';
 		$this->recent_topic = 'Discussioni';
-		$this->recent_topics_new = 'Ci sono nuovi messaggi in questo forum.';
-		$this->recent_topics_old = 'Non ci sono nuovi messaggi in questo forum.';
 		$this->recent_views = 'Visite';
 		$this->recent_write_topics = 'Puoi aprire nuove discussioni in questo forum.';
 	}

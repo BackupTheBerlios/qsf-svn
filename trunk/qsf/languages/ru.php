@@ -162,8 +162,6 @@ class ru
 		$this->board_stats_string = '%s пользователей зарегистрировано. Приветствуем нового пользователя, %s.<br />Всего %s тем и %s ответов в %s сообщениях.';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Тем';
-		$this->board_topics_new = 'В форуме есть новые сообщения.';
-		$this->board_topics_old = 'В форуме нет новых сообщений.';
 		$this->board_users = 'пользователь(-ей)';
 		$this->board_write_topics = 'Ты можешь читать и создавать темы в этом форуме.';
 	}
@@ -348,8 +346,6 @@ class ru
 		$this->forum_sub_topics = 'Тем';
 		$this->forum_subscribe = 'Уведомить по e-mail об ответах в этом форуме';
 		$this->forum_topic = 'Тема';
-		$this->forum_topics_new = 'Есть новые сообщения в этом форуме.';
-		$this->forum_topics_old = 'Нет новых сообщений в этом форуме.';
 		$this->forum_views = 'Просмотров';
 		$this->forum_write_topics = 'Ты можешь создавать темы в этом форуме.';
 	}
@@ -509,6 +505,8 @@ class ru
 		$this->main_reminder_closed = 'Форумы закрыты и доступны только администраторам.';
 		$this->main_said = 'сказал';
 		$this->main_search = 'поиск';
+		$this->main_topics_new = 'В форуме есть новые сообщения.';
+		$this->main_topics_old = 'В форуме нет новых сообщений.';
 		$this->main_welcome = 'Добро пожаловать';
 		$this->main_welcome_guest = 'Добро пожаловать!';
 	}
@@ -974,8 +972,6 @@ class ru
 		$this->recent_sub_topics = 'Тем';
 		$this->recent_subscribe = 'Уведомить по e-mail об ответах в этом форуме';
 		$this->recent_topic = 'Тема';
-		$this->recent_topics_new = 'Есть новые сообщения в этом форуме.';
-		$this->recent_topics_old = 'Нет новых сообщений в этом форуме.';
 		$this->recent_views = 'Просмотров';
 		$this->recent_write_topics = 'Ты можешь создавать темы в этом форуме.';
 	}

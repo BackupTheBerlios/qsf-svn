@@ -161,8 +161,6 @@ class cs
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Témat';
-		$this->board_topics_new = 'Ve fóru je novı pøíspìvek.';
-		$this->board_topics_old = 'Ve fóru nejsou ádné nové pøíspìvky.';
 		$this->board_users = 'Celkem uivatelù on-line:';
 		$this->board_write_topics = 'Mùete prohlíet a vytváøet témata v tomto fóru.';
 	}
@@ -347,8 +345,6 @@ class cs
 		$this->forum_sub_topics = 'Témat';
 		$this->forum_subscribe = 'Informovat mnì e-mailem o novıch pøíspìvcích';
 		$this->forum_topic = 'Téma';
-		$this->forum_topics_new = 'Ve fóru jsou nové pøíspìvky.';
-		$this->forum_topics_old = 'Ve fóru nejsou ádné nové pøíspìvky.';
 		$this->forum_views = 'Schlédnuto';
 		$this->forum_write_topics = 'V tomto fóru mùete vytváøet témata.';
 	}
@@ -508,6 +504,8 @@ class cs
 		$this->main_reminder_closed = 'Fórum je nyní uzavøeno, pøístupné jen administrátorùm.';
 		$this->main_said = 'øekl(a)';
 		$this->main_search = 'hledat';
+		$this->main_topics_new = 'Ve fóru je novı pøíspìvek.';
+		$this->main_topics_old = 'Ve fóru nejsou ádné nové pøíspìvky.';
 		$this->main_welcome = 'Vítejte';
 		$this->main_welcome_guest = 'Vítejte!!';
 	}
@@ -973,8 +971,6 @@ class cs
 		$this->recent_sub_topics = 'Témat';
 		$this->recent_subscribe = 'Informovat mnì e-mailem o novıch pøíspìvcích';
 		$this->recent_topic = 'Téma';
-		$this->recent_topics_new = 'Ve fóru jsou nové pøíspìvky.';
-		$this->recent_topics_old = 'Ve fóru nejsou ádné nové pøíspìvky.';
 		$this->recent_views = 'Schlédnuto';
 		$this->recent_write_topics = 'V tomto fóru mùete vytváøet témata.';
 	}

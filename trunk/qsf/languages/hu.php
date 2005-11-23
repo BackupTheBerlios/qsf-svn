@@ -161,8 +161,6 @@ class hu
 		$this->board_stats_string = '%s regisztrált tag. Üdvözöljük legújabb tagunkat, %s -t.<br /> Összesen %s téma és %s válasz a(z) %s beírásra.';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Témák';
-		$this->board_topics_new = 'Nincs új téma ebben a fórumban.';
-		$this->board_topics_old = 'Nincs új beírás ebben a fórumban.';
 		$this->board_users = 'tag';
 		$this->board_write_topics = 'Jogod van témát nyitni ebben a fórumban.';
 	}
@@ -347,8 +345,6 @@ class hu
 		$this->forum_sub_topics = 'Témák';
 		$this->forum_subscribe = 'E-mail küldése új bejegyzéskor';
 		$this->forum_topic = 'Téma';
-		$this->forum_topics_new = 'Új bejegyzések a fórumban.';
-		$this->forum_topics_old = 'Nincs új bejegyzés a fórumban.';
 		$this->forum_views = 'Megjelenítések';
 		$this->forum_write_topics = 'Nyithatsz témákat ebben a fórumban.';
 	}
@@ -508,6 +504,8 @@ class hu
 		$this->main_reminder_closed = 'Az oldal zárva vanr és csak a karbantartók láthatják.';
 		$this->main_said = 'mondta';
 		$this->main_search = 'keresés';
+		$this->main_topics_new = 'Nincs új téma ebben a fórumban.';
+		$this->main_topics_old = 'Nincs új beírás ebben a fórumban.';
 		$this->main_welcome = 'Üdvözölünk';
 		$this->main_welcome_guest = 'Üdvözölünk!';
 	}
@@ -973,8 +971,6 @@ class hu
 		$this->recent_sub_topics = 'Témák';
 		$this->recent_subscribe = 'E-mail küldése új bejegyzéskor';
 		$this->recent_topic = 'Téma';
-		$this->recent_topics_new = 'Új bejegyzések a fórumban.';
-		$this->recent_topics_old = 'Nincs új bejegyzés a fórumban.';
 		$this->recent_views = 'Megjelenítések';
 		$this->recent_write_topics = 'Nyithatsz témákat ebben a fórumban.';
 	}

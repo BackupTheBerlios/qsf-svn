@@ -161,8 +161,6 @@ class no
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Emner';
-		$this->board_topics_new = 'Det finnes nye innlegg i dette forumet.';
-		$this->board_topics_old = 'Det finnes ingen nye innlegg i dette forumet.';
 		$this->board_users = 'brukere';
 		$this->board_write_topics = 'Du kan lese og opprette emner i dette forumet.';
 	}
@@ -347,8 +345,6 @@ class no
 		$this->forum_sub_topics = 'Emner';
 		$this->forum_subscribe = 'Motta e-post når det kommer nye innlegg i dette forum.';
 		$this->forum_topic = 'Emne';
-		$this->forum_topics_new = 'Det finnes nye innlegg i dette forumet.';
-		$this->forum_topics_old = 'Det finnes ingen nye innlegg i dette forumet.';
 		$this->forum_views = 'Visninger';
 		$this->forum_write_topics = 'Du kan lage nye emner i dette forumet.';
 	}
@@ -508,6 +504,8 @@ class no
 		$this->main_reminder_closed = 'dette forumet er stengt og kan bare leses av administratoren.';
 		$this->main_said = 'sa';
 		$this->main_search = 'søk';
+		$this->main_topics_new = 'Det finnes nye innlegg i dette forumet.';
+		$this->main_topics_old = 'Det finnes ingen nye innlegg i dette forumet.';
 		$this->main_welcome = 'Velkommen';
 		$this->main_welcome_guest = 'Velkommen!';
 	}
@@ -973,8 +971,6 @@ class no
 		$this->recent_sub_topics = 'Emner';
 		$this->recent_subscribe = 'Motta e-post når det kommer nye innlegg i dette forum.';
 		$this->recent_topic = 'Emne';
-		$this->recent_topics_new = 'Det finnes nye innlegg i dette forumet.';
-		$this->recent_topics_old = 'Det finnes ingen nye innlegg i dette forumet.';
 		$this->recent_views = 'Visninger';
 		$this->recent_write_topics = 'Du kan lage nye emner i dette forumet.';
 	}

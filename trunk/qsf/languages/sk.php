@@ -161,8 +161,6 @@ class sk
 		$this->board_stats_string = 'Registrovanıch uívate¾ov: %s. Privítajte našeho najnovšieho èlena, je to %s.<br />Vo fóre sa celkovo nachádza %s tém, %s odpovedí a %s príspevkov.';
 		$this->board_top_page = 'Na vrch stránky';
 		$this->board_topics = 'Témy';
-		$this->board_topics_new = 'V tomto fóre sú nejaké nové príspevky';
-		$this->board_topics_old = 'V tomto fóre nie sú iadne nové príspevky';
 		$this->board_users = 'uívatelia';
 		$this->board_write_topics = 'V tomto fóre máte právo prezera témy a vytvárat nové .';
 	}
@@ -347,8 +345,6 @@ class sk
 		$this->forum_sub_topics = 'Témy';
 		$this->forum_subscribe = 'Posla emailom nové príspevky v tomto fóre';
 		$this->forum_topic = 'Téma';
-		$this->forum_topics_new = 'V tomto fóre sú nejaké nové príspevky.';
-		$this->forum_topics_old = 'V tomto fóre nie sú iadne nové príspevky';
 		$this->forum_views = 'Videné';
 		$this->forum_write_topics = 'V tomto fóre máte povolenie zaklada témy.';
 	}
@@ -509,6 +505,8 @@ class sk
 		$this->main_reminder_closed = 'Fórum je uzavreté a prístupné len pre adminov.';
 		$this->main_said = 'poviedali';
 		$this->main_search = 'h¾adanie';
+		$this->main_topics_new = 'V tomto fóre sú nejaké nové príspevky';
+		$this->main_topics_old = 'V tomto fóre nie sú iadne nové príspevky';
 		$this->main_welcome = 'Vitajte';
 		$this->main_welcome_guest = 'Vitajte!';
 	}
@@ -975,8 +973,6 @@ class sk
 		$this->recent_sub_topics = 'Témy';
 		$this->recent_subscribe = 'Posla emailom nové príspevky v tomto fóre';
 		$this->recent_topic = 'Téma';
-		$this->recent_topics_new = 'V tomto fóre sú nejaké nové príspevky.';
-		$this->recent_topics_old = 'V tomto fóre nie sú iadne nové príspevky';
 		$this->recent_views = 'Videné';
 		$this->recent_write_topics = 'V tomto fóre máte povolenie zaklada témy.';
 	}

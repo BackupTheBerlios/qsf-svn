@@ -161,8 +161,6 @@ class fi
 		$this->board_stats_string = 'Meillä on %s rekisteröitynyttä käyttäjää. Uusin käyttäjämme on %s, tervetuloa!<br />Täällä on yhteensä %s keskustelua ja niihin %s vastausta, yhteensä siis %s viestiä.';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Keskustelut';
-		$this->board_topics_new = 'Tässä huoneessa ei ole vielä keskustelua.';
-		$this->board_topics_old = 'Tässä huoneessa ei ole uusia viestejä.';
 		$this->board_users = 'käyttäjää';
 		$this->board_write_topics = 'Voit lukea ja luoda keskusteluja tässä huoneessa.';
 	}
@@ -347,8 +345,6 @@ class fi
 		$this->forum_sub_topics = 'Keskustelua';
 		$this->forum_subscribe = 'Lähetä sähköpostia kun tähän huoneeseen kirjoitetaan viestejä';
 		$this->forum_topic = 'Keskustelu';
-		$this->forum_topics_new = 'Tässä huoneessa on uusia viestejä.';
-		$this->forum_topics_old = 'Tässä huoneessa ei ole uusia viestejä.';
 		$this->forum_views = 'Näytetty';
 		$this->forum_write_topics = 'Voit aloittaa keskustelun tässä huoneessa.';
 	}
@@ -508,6 +504,8 @@ class fi
 		$this->main_reminder_closed = 'Keskustelualue on suljettu ja siten vain ylläpitäjien nähtävissä.';
 		$this->main_said = 'sanoi';
 		$this->main_search = 'hae';
+		$this->main_topics_new = 'Tässä huoneessa on uusia viestejä.';
+		$this->main_topics_old = 'Tässä huoneessa ei ole uusia viestejä.';
 		$this->main_welcome = 'Tervetuloa';
 		$this->main_welcome_guest = 'Tervetuloa!';
 	}
@@ -973,8 +971,6 @@ class fi
 		$this->recent_sub_topics = 'Keskustelua';
 		$this->recent_subscribe = 'Lähetä sähköpostia kun tähän huoneeseen kirjoitetaan viestejä';
 		$this->recent_topic = 'Keskustelu';
-		$this->recent_topics_new = 'Tässä huoneessa on uusia viestejä.';
-		$this->recent_topics_old = 'Tässä huoneessa ei ole uusia viestejä.';
 		$this->recent_views = 'Näytetty';
 		$this->recent_write_topics = 'Voit aloittaa keskustelun tässä huoneessa.';
 	}
