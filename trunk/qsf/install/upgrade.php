@@ -153,12 +153,19 @@ class upgrade extends qsfglobal
        	        		        $sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin='{$skin}' AND template_name='{$template}'";
                         		$miss = $this->db->query($sql);
 
-                        		if ($this->db->num_rows($miss) < 1)
-        		                {
+                        		if ($this->db->num_rows($miss) < 1) {
+					// non-default skin installed
 						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
 	                                	$this->db->query($insert);
 						$didsomething = true;
         	                	} else if ($row['skin_name'] == 'Candy Corn') {
+					// Default for 1.1.4 and below installed
+						$insert = str_replace( "INSERT INTO", "REPLACE INTO", $insert );
+						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
+	                                	$this->db->query($insert);
+						$didsomething = true;
+					} else if ($row['skin_name'] == 'QSF Comet') {
+					// Default for 1.1.5 and above installed
 						$insert = str_replace( "INSERT INTO", "REPLACE INTO", $insert );
 						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
 	                                	$this->db->query($insert);
