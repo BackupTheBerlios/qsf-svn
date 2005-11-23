@@ -168,7 +168,6 @@ function strip_phpbb2_tags( $text )
    $text = preg_replace( '/\[\/quote:(.*?)\]/si', '[/quote]', $text );
 
    // Now fix the generic junk that's left over....
-   $text = str_replace( "'", "\'", $text );
    $text = str_replace( "&nbsp;", " ", $text );
    $text = str_replace( "&gt;", ">", $text );
    $text = str_replace( "&lt;", "<", $text );
@@ -180,8 +179,8 @@ function strip_phpbb2_tags( $text )
    $text = str_replace( "&#36;", "$", $text );
    $text = str_replace( "&#036;", "$", $text );
    $text = str_replace( "&#37;", "\%", $text );
-   $text = str_replace( "&#39;", "\'", $text );
-   $text = str_replace( "&#039;", "\'", $text );
+   $text = str_replace( "&#39;", "'", $text );
+   $text = str_replace( "&#039;", "'", $text );
    $text = str_replace( "&#40;", "(", $text );
    $text = str_replace( "&#41;", ")", $text );
    $text = str_replace( "&#58;", ":", $text );
@@ -198,12 +197,8 @@ function strip_phpbb2_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   $text = str_replace( "\\n", "\\\\n", $text );
-   $text = str_replace( "\\r", "\\\\r", $text );
-   $text = str_replace( "\\t", "\\\\t", $text );
-   $text = str_replace( "\\e", "\\\\e", $text );
-   $text = str_replace( "\\0", "\\\\0", $text );
-
+   // And lastly, prep for database insertion.
+   $text = addslashes( $text );
    return $text;
 }
 
@@ -404,6 +399,8 @@ else if( $_GET['action'] == 'members' )
          if( $row['user_session_time'] == '' || $row['user_session_time'] == '0' )
             $row['user_session_time'] = $row['user_regdate'];
 
+         $row['username'] = strip_phpbb2_tags( $row['username'] );
+         $row['user_email'] = strip_phpbb2_tags( $row['user_email'] );
          $row['user_website'] = strip_phpbb2_tags( $row['user_website'] );
          $row['user_from'] = strip_phpbb2_tags( $row['user_from'] );
          $row['user_interests'] = strip_phpbb2_tags( $row['user_interests'] );

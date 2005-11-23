@@ -133,13 +133,13 @@ function strip_invision_tags( $text )
    $text = preg_replace( '/\[img=(.*?)\](.*?)\[\/img\]/si', '[img]\\1[/img]', $text );
 
    // Convert email tags....
-   $text = preg_replace( "#<a href=[\"']mailto:(.+?)['\"]>(.+?)</a>#", "\[email=\\1\]\\2\[/email\]", $text );
+   $text = preg_replace( "#<a href=[\"']mailto:(.+?)['\"]>(.+?)</a>#", "[email=\\1]\\2[/email]", $text );
 
    // Convert URLs....
-   $text = preg_replace( "#<a href=[\"'](.+?)['\"] target=[\"'](.+?)['\"]>(.+?)</a>#", "\[url=\\1\]\\3\[/url\]", $text );
+   $text = preg_replace( "#<a href=[\"'](.+?)['\"] target=[\"'](.+?)['\"]>(.+?)</a>#", "[url=\\1]\\3[/url]", $text );
 
    // Convert color tags....
-   $text = preg_replace( "#<span style=[\'']color:(.+?)[\'']>(.+?)</span>#", "\[color=\\1\]\\2\[/color\]", $text );
+   $text = preg_replace( "#<span style=[\'']color:(.+?)[\'']>(.+?)</span>#", "[color=\\1]\\2[/color]", $text );
 
    // Font tags are not desired, so they will be summarily parsed out....
    $text = preg_replace( "#<font(.+?)>#", "", $text );
@@ -166,10 +166,9 @@ function strip_invision_tags( $text )
    $text = preg_replace( "#<b>(.+?)</b>#is", "[b]\\1[/b]", $text );
    $text = preg_replace( "#<s>(.+?)</s>#is", "[s]\\1[/s]", $text );
    $text = preg_replace( "#<u>(.+?)</u>#is", "[u]\\1[/u]", $text );
-   $text = str_replace( "<br>", "\n\r", $text );
+   $text = str_replace( "<br>", "\n", $text );
 
    // Fix random junk in the post code....
-   $text = str_replace( "'", "\'", $text );
    $text = str_replace( "&nbsp;", " ", $text );
    $text = str_replace( "&gt;", ">", $text );
    $text = str_replace( "&lt;", "<", $text );
@@ -181,8 +180,8 @@ function strip_invision_tags( $text )
    $text = str_replace( "&#36;", "$", $text );
    $text = str_replace( "&#036;", "$", $text );
    $text = str_replace( "&#37;", "\%", $text );
-   $text = str_replace( "&#39;", "\'", $text );
-   $text = str_replace( "&#039;", "\'", $text );
+   $text = str_replace( "&#39;", "'", $text );
+   $text = str_replace( "&#039;", "'", $text );
    $text = str_replace( "&#40;", "(", $text );
    $text = str_replace( "&#41;", ")", $text );
    $text = str_replace( "&#58;", ":", $text );
@@ -199,12 +198,8 @@ function strip_invision_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   $text = str_replace( "\\n", "\\\\n", $text );
-   $text = str_replace( "\\r", "\\\\r", $text );
-   $text = str_replace( "\\t", "\\\\t", $text );
-   $text = str_replace( "\\e", "\\\\e", $text );
-   $text = str_replace( "\\0", "\\\\0", $text );
-
+   // And lastly, prep for database insertion.
+   $text = addslashes( $text );
    return $text;
 }
 
@@ -452,6 +447,8 @@ else if( $_GET['action'] == 'members' )
          else
             $showmail = '1';
 
+         $row['name'] = strip_invision_tags( $row['name'] );
+         $row['email'] = strip_invision_tags( $row['email'] );
          $row['website'] = strip_invision_tags( $row['website'] );
          $row['location'] = strip_invision_tags( $row['location'] );
          $row['interests'] = strip_invision_tags( $row['interests'] );
@@ -498,9 +495,6 @@ else if( $_GET['action'] == 'members' )
          else
             $bday = "0000-00-00";
 
-         $row['name'] = addslashes( $row['name'] );
-         $row['email'] = addslashes( $row['email'] );
-
          $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '{$bday}', '151', '{$row['website']}', '{$row['posts']}', '{$row['location']}', '{$row['icq_number']}', '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
@@ -520,7 +514,6 @@ else if( $_GET['action'] == 'pmessages' )
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      // Quicksilver Forums does not have a sent box(yet), so don't bother converting those.
       if( $row['vid'] == "in" || $row['vid'] == "sent" )
       {
          // Empty and N/A recipient IDs are no good!
@@ -543,18 +536,16 @@ else if( $_GET['action'] == 'pmessages' )
             if( $folder == '1' )
             {
                $bcc = $row['recipient_id'];
-               $row['recipient_id'] = $row['member_id'];
+               $row['recipient_id'] = $row['from_id'];
             }
 
             if( $row['title'] == '' )
                $row['title'] = "No Title";
-            $row['title'] = addslashes( $row['title'] );
 
             $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['msg_id']}, {$row['recipient_id']}, {$row['from_id']}, '{$bcc}', '{$row['title']}', {$row['msg_date']}, '{$row['message']}', {$row['read_state']}, {$folder} )" );
          }
       }
    }
-
    $oldset['pms'] = '1';
    $oldset['pm_count'] = $i;
    write_olddb_sets( $oldset );

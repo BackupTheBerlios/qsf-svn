@@ -133,13 +133,13 @@ function strip_ikon_tags( $text )
    $text = preg_replace( '/\[img=(.*?)\](.*?)\[\/img\]/si', '[img]\\1[/img]', $text );
 
    // Convert email tags....
-   $text = preg_replace( "#<a href=[\"']mailto:(.+?)['\"]>(.+?)</a>#", "\[email=\\1\]\\2\[/email\]", $text );
+   $text = preg_replace( "#<a href=[\"']mailto:(.+?)['\"]>(.+?)</a>#", "[email=\\1]\\2[/email]", $text );
 
    // Convert URLs....
-   $text = preg_replace( "#<a href=[\"'](.+?)['\"] target=[\"'](.+?)['\"]>(.+?)</a>#", "\[url=\\1\]\\3\[/url\]", $text );
+   $text = preg_replace( "#<a href=[\"'](.+?)['\"] target=[\"'](.+?)['\"]>(.+?)</a>#", "[url=\\1]\\3[/url]", $text );
 
    // Convert color tags....
-   $text = preg_replace( "#<span style=[\"']color:(.+?)[\"']>(.+?)</span>#", "\[color=\\1\]\\2\[/color\]", $text );
+   $text = preg_replace( "#<span style=[\"']color:(.+?)[\"']>(.+?)</span>#", "[color=\\1]\\2[/color]", $text );
 
    // Font tags are not desired, so they will be summarily parsed out....
    $text = preg_replace( "#<font(.+?)>#", "", $text );
@@ -169,7 +169,6 @@ function strip_ikon_tags( $text )
    $text = str_replace( "<br>", "\n\r", $text );
 
    // Fix random junk in the post code....
-   $text = str_replace( "'", "\'", $text );
    $text = str_replace( "&nbsp;", " ", $text );
    $text = str_replace( "&gt;", ">", $text );
    $text = str_replace( "&lt;", "<", $text );
@@ -181,8 +180,8 @@ function strip_ikon_tags( $text )
    $text = str_replace( "&#36;", "$", $text );
    $text = str_replace( "&#036;", "$", $text );
    $text = str_replace( "&#37;", "\%", $text );
-   $text = str_replace( "&#39;", "\'", $text );
-   $text = str_replace( "&#039;", "\'", $text );
+   $text = str_replace( "&#39;", "'", $text );
+   $text = str_replace( "&#039;", "'", $text );
    $text = str_replace( "&#40;", "(", $text );
    $text = str_replace( "&#41;", ")", $text );
    $text = str_replace( "&#58;", ":", $text );
@@ -199,12 +198,8 @@ function strip_ikon_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   $text = str_replace( "\\n", "\\\\n", $text );
-   $text = str_replace( "\\r", "\\\\r", $text );
-   $text = str_replace( "\\t", "\\\\t", $text );
-   $text = str_replace( "\\e", "\\\\e", $text );
-   $text = str_replace( "\\0", "\\\\0", $text );
-
+   // And lastly, prep for database insertion.
+   $text = addslashes( $text );
    return $text;
 }
 
@@ -435,6 +430,13 @@ else if( $_GET['action'] == 'members' )
       if( $row['MEMBER_ID'] == '1' )
          $row['MEMBER_ID'] = '2';
 
+      $row['MEMBER_NAME'] = strip_ikon_tags( $row['MEMBER_NAME'] );
+      $row['MEMBER_EMAIL'] = strip_ikon_tags( $row['MEMBER_EMAIL'] );
+      $row['WEBSITE'] = strip_ikon_tags( $row['WEBSITE'] );
+      $row['LOCATION'] = strip_ikon_tags( $row['LOCATION'] );
+      $row['INTERESTS'] = strip_ikon_tags( $row['INTERESTS'] );
+      $row['SIGNATURE'] = strip_ikon_tags( $row['SIGNATURE'] );
+
       $pos = strpos( $row['MEMBER_ID'], '-' );
       if( $pos != false )
       {
@@ -451,11 +453,6 @@ else if( $_GET['action'] == 'members' )
          $row['LAST_LOG_IN'] = $row['MEMBER_JOINED'];
       if( $row['LAST_ACTIVITY'] == '' )
          $row['LAST_ACTIVITY'] = $row['MEMBER_JOINED'];
-
-      $row['WEBSITE'] = strip_ikon_tags( $row['WEBSITE'] );
-      $row['LOCATION'] = strip_ikon_tags( $row['LOCATION'] );
-      $row['INTERESTS'] = strip_ikon_tags( $row['INTERESTS'] );
-      $row['SIGNATURE'] = strip_ikon_tags( $row['SIGNATURE'] );
 
       /* The default Ikonboard groups they claim you can never alter.
        * Additional groups will not be converted. Members in these groups will become standard members.

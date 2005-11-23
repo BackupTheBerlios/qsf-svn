@@ -153,7 +153,7 @@ function strip_smf_tags( $text )
    $text = preg_replace( '/\[size=-(.*?)\](.*?)\[\/size\]/si', '\\2', $text );
 
    // Fix the text formatting tags....
-   $text = str_replace( '<br />', "\n\r", $text );
+   $text = str_replace( '<br />', "\n", $text );
 
    // Reconfigure code tags....
    $text = str_replace( '[pre]', '[code]', $text );
@@ -162,7 +162,6 @@ function strip_smf_tags( $text )
    $text = str_replace( '[/tt]', '[/code]', $text );
 
    // Now fix the generic junk that's left over....
-   $text = str_replace( "'", "\'", $text );
    $text = str_replace( "&nbsp;", " ", $text );
    $text = str_replace( "&gt;", ">", $text );
    $text = str_replace( "&lt;", "<", $text );
@@ -174,8 +173,8 @@ function strip_smf_tags( $text )
    $text = str_replace( "&#36;", "$", $text );
    $text = str_replace( "&#036;", "$", $text );
    $text = str_replace( "&#37;", "\%", $text );
-   $text = str_replace( "&#39;", "\'", $text );
-   $text = str_replace( "&#039;", "\'", $text );
+   $text = str_replace( "&#39;", "'", $text );
+   $text = str_replace( "&#039;", "'", $text );
    $text = str_replace( "&#40;", "(", $text );
    $text = str_replace( "&#41;", ")", $text );
    $text = str_replace( "&#58;", ":", $text );
@@ -192,12 +191,8 @@ function strip_smf_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   $text = str_replace( "\\n", "\\\\n", $text );
-   $text = str_replace( "\\r", "\\\\r", $text );
-   $text = str_replace( "\\t", "\\\\t", $text );
-   $text = str_replace( "\\e", "\\\\e", $text );
-   $text = str_replace( "\\0", "\\\\0", $text );
-
+   // And lastly, prep for database insertion.
+   $text = addslashes( $text );
    return $text;
 }
 
@@ -405,6 +400,8 @@ else if( $_GET['action'] == 'members' )
       if( $row['lastLogin'] == '' || $row['lastLogin'] == '0' )
          $row['lastLogin'] = $row['dateRegistered'];
 
+      $row['memberName'] = strip_smf_tags( $row['memberName'] );
+      $row['emailAddress'] = strip_smf_tags( $row['emailAddress'] );
       $row['websiteUrl'] = strip_smf_tags( $row['websiteUrl'] );
       $row['location'] = strip_smf_tags( $row['location'] );
       $row['signature'] = strip_smf_tags( $row['signature'] );
