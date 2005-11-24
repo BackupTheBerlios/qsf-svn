@@ -1161,10 +1161,10 @@ $queries['ADMIN_MOD_LOGS'] = "INSERT INTO {$pre}templates (template_skin, templa
   <td class=\'header\' colspan=\'4\'>{\$this->lang->logs_view}</td>
  </tr>
  <tr>
-  <td align=\'center\' class=\'subheader\'>{\$this->lang->logs_time}</td>
-  <td align=\'center\' class=\'subheader\'>{\$this->lang->logs_user}</td>
-  <td align=\'center\' class=\'subheader\'>{\$this->lang->logs_action}</td>
-  <td align=\'center\' class=\'subheader\'>{\$this->lang->logs_id}</td>
+  <td align=\'center\' class=\'subheader\' style=\'width:25%\'>{\$this->lang->logs_time}</td>
+  <td align=\'center\' class=\'subheader\' style=\'width:25%\'>{\$this->lang->logs_user}</td>
+  <td align=\'center\' class=\'subheader\' style=\'width:25%\'>{\$this->lang->logs_action}</td>
+  <td align=\'center\' class=\'subheader\' style=\'width:25%\'>{\$this->lang->logs_id}</td>
  </tr>
  {\$out}
 {\$this->etable}
