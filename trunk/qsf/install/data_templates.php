@@ -2074,7 +2074,7 @@ $queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template
 ', 'Generic Message', 'Edit the html that displays generic messages throughout the board', 1)";
 $queries['MAIN_REMINDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', '
 <p class=\"reminder\">
-  {\$qsf->lang->main_reminder}
+  {\$qsf->lang->main_reminder}<br />{\$reminder_text}
 </p>', 'Reminder', 'Used for important reminders for certain users, such as explaining to members awaiting activation how to enable their accounts.', 7)";
 $queries['MAIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_TABLE', '<div class=\"stand\"><table class=\"stand\" cellpadding=\'5\' cellspacing=\'0\'>', 'Table Start', 'Edit the beginning of all html that uses \$this->table', 4)";
 $queries['MEMBERS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MAIN', '
