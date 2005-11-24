@@ -45,6 +45,7 @@ class backup extends admin
 		'skins' => '*',
 		'subscriptions' => '*',
 		'templates' => '*',
+		'timezones' => '*',
 		'topics' => '*',
 		'users' => '*',
 		'votes' => '*'
