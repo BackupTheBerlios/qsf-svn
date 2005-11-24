@@ -85,7 +85,7 @@ class help extends admin
 					while ($file = $this->db->nqfetch($query))
 					{
 						$title = $this->format($file['help_title'], FORMAT_HTMLCHARS);
-						$ret .= "<a href='$this->self?$link&amp;id=" . $file['help_id'] . "' class='nav'>{$title}</a><br />";
+						$ret .= "<a href='$this->self?$link&amp;id=" . $file['help_id'] . "'>{$title}</a><br />";
 					}
 
 					return $this->message($this->lang->help_edit, "{$this->lang->help_select}:<br /><br />$ret");
@@ -137,7 +137,7 @@ class help extends admin
 					} else {
 						while ($file = $this->db->nqfetch($query))
 						{
-							$ret .= "<a href='$this->self?$link&amp;id=" . $file['help_id'] . "' class='nav'>{$file['help_title']}</a><br />";
+							$ret .= "<a href='$this->self?$link&amp;id=" . $file['help_id'] . "'>{$file['help_title']}</a><br />";
 						}
 
 						return $this->message($this->lang->help_delete, "{$this->lang->help_select_delete}:<br /><br />$ret");
@@ -162,3 +162,4 @@ class help extends admin
 		}
 	}
 }
+?>
