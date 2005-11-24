@@ -51,6 +51,7 @@ class optimize extends admin
 			$this->pre . 'skins',
 			$this->pre . 'subscriptions',
 			$this->pre . 'templates',
+			$this->pre . 'timezones',
 			$this->pre . 'topics',
 			$this->pre . 'users',
 			$this->pre . 'votes'
