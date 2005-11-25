@@ -1477,9 +1477,9 @@ class qsfglobal
 			}
 			
 			$padding = str_repeat('&nbsp;', 30 - strlen($row['zone_name']));
-				
-			$out .= '<option style=\'font-family: "Courier New", Courier, serif;\' value='.$row['zone_id'].(($zone == $row['zone_id']) ? ' selected=\'selected\'' : null).'>' . 
-				$row['zone_name'] . $padding  .' ' . $row['zone_abbrev'].' (GMT'.(($row['zone_offset'] >= 0) ? '+' : '').($row['zone_offset']/3600).') </option>'."\n";
+
+			$out .= '<option style="font-family:\'Courier New\', Courier, serif;" value="' . $row['zone_id'] . (($zone == $row['zone_id']) ? ' selected="selected"' : null) . '">' . 
+				$row['zone_name'] . $padding  . ' ' . $row['zone_abbrev']. ' (GMT'.(($row['zone_offset'] >= 0) ? '+' : '') . ($row['zone_offset']/3600). ')</option>'."\n";
 		}
 
 		return $out;
