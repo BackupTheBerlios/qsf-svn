@@ -33,46 +33,46 @@ class modlet
      **/
     var $qsf;
     
-	/**
-	 * Constructor.
+    /**
+     * Constructor.
      *
      * Set any variables specific to your
      * class in the constructor
-	 *
-	 * @param object reference to running module
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.1.5
-	 **/
+     *
+     * @param object reference to running module
+     * @author Geoffrey Dunn <geoff@warmage.com>
+     * @since 1.1.5
+     **/
     function modlet(&$forumobject)
     {
         $this->qsf =& $forumobject;
     }
 
-	/**
-	 * Initialiser
+    /**
+     * Initialiser
      *
      * This is where you can safely
      * set variable inherited from a parent
      * or run methods that might be changed in a child
      * or look at other templates
-	 *
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.1.5
-	 **/
+     *
+     * @author Geoffrey Dunn <geoff@warmage.com>
+     * @since 1.1.5
+     **/
     function init()
     {
     }
 
-	/**
-	 * Main interface
+    /**
+     * Main interface
      *
      * This is what's run to generate output for the page
-	 *
-	 * @param string optional string that is passed from the template
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.1.5
+     *
+     * @param string optional string that is passed from the template
+     * @author Geoffrey Dunn <geoff@warmage.com>
+     * @since 1.1.5
      * @return string HTML to appear within the template
-	 **/
+     **/
     function run($param)
     {
     }

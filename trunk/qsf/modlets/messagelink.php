@@ -33,14 +33,14 @@ class messagelink extends modlet
      **/
     var $newMessagesCount = false;
 
-	/**
-	 * Display a link to the message with a count of messages
+    /**
+     * Display a link to the message with a count of messages
      *
-	 * @param string Do we need to display the classname or the text
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.1.5
+     * @param string Do we need to display the classname or the text
+     * @author Geoffrey Dunn <geoff@warmage.com>
+     * @since 1.1.5
      * @return string HTML with hyperlink to pm system
-	 **/
+     **/
     function run($param)
     {
         $text = '';
