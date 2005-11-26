@@ -342,6 +342,14 @@ class topic extends qsfglobal
 				$Poster_Info = eval($this->template('TOPIC_POSTER_MEMBER'));
 
 			} else {
+				$post['user_email_form'] = null;
+				$post['user_homepage'] = null;
+				$post['user_icq'] = null;
+				$post['user_aim'] = null;
+				$post['user_yahoo'] = null;
+				$post['user_msn'] = null;
+				$post['user_gtalk'] = null;
+				$post['user_pm'] = null;
 				$Poster_Info = eval($this->template('TOPIC_POSTER_GUEST'));
 				$post['user_signature'] = null;
 			}
