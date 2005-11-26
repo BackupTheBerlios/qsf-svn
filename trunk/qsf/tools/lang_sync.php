@@ -199,7 +199,7 @@ class ' . $lang_name . '
 		$out[$lang_name] .= "\n	}\n";
 	}
 
-	$out[$lang_name] = rtrim($out[$lang_name]) . "\n}\n?>";
+	$out[$lang_name] = rtrim($out[$lang_name]) . "\n}\n?>\n";
 }
 
 foreach ($out as $filename => $contents)
