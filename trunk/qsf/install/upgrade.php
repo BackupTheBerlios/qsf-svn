@@ -136,40 +136,55 @@ class upgrade extends qsfglobal
 
 			$queries = array();
 			include './data_templates.php';
-			$skinsupdated = "<span class='tiny'>The following templates were upgraded:<br /><br />";
+			$skinsupdated = "The following templates were upgraded:<br /><br /><span class='tiny'>";
 			$didsomething = false;
 			$sql = "SELECT * FROM {$this->pre}skins";
-			$query = $this->db->query($sql);
+			$result = $this->db->query($sql);
 
-			while ($row = $this->db->nqfetch($query))
+			while ($row = $this->db->nqfetch($result))
 			{
 				$skin = $row['skin_dir'];
 
-				/* Insert all of the new templates into the existing skins */
-		                foreach ($queries as $template => $insert)
-				{
-					/* This query needed to be fudged up to work right */
-					$insert = str_replace( "'default'", "'{$skin}'", $insert );
-       	        		        $sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin='{$skin}' AND template_name='{$template}'";
-                        		$miss = $this->db->query($sql);
+				// QSF or MB default skin in default location
+				if (($row['skin_name'] == 'QSF Comet' || $row['skin_name'] == 'Candy Corn') && $skin == 'default') {
+					if ($full_template_list || $need_templates) {
+						if ($full_template_list) {
+							$this->db->query("DELETE FROM {$pre}templates WHERE template_skin='default'");
+							execute_queries($queries, $this->db);
+							$skinsupdated .= $row['skin_name'] . ": Full Template Replacement<br />";
+							$didsomething = true;
+						} else if ($template_list) {
+							foreach ($queries as $template => $insert)
+							{
+								if (in_array($template, $template_list)) {
+									$sql = "DELETE FROM {$pre}templates WHERE template_name='$template' AND template_skin='default'";
+									$miss = $this->db->query($sql);
+									$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
+									$this->db->query($insert);
+									$didsomething = true;
+								}
+							}
+						}
+					}
+					if ($row['skin_name'] == 'Candy Corn') {
+						$sql = 'UPDATE ' . $pre . 'skins SET skin_name="QSF Comet" WHERE skin_dir="' . $skin . '"';
+						$this->db->query($sql);
+					}
+				}
+				// Other skins
+				else {
+			                foreach ($queries as $template => $insert)
+					{
+						/* This query needed to be fudged up to work right */
+						$insert = str_replace( "'default'", "'{$skin}'", $insert );
+       	        			        $sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin='{$skin}' AND template_name='{$template}'";
+                        			$miss = $this->db->query($sql);
 
-                        		if ($this->db->num_rows($miss) < 1) {
-					// non-default skin installed
-						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
-	                                	$this->db->query($insert);
-						$didsomething = true;
-        	                	} else if ($row['skin_name'] == 'Candy Corn') {
-					// Default for 1.1.4 and below installed
-						$insert = str_replace( "INSERT INTO", "REPLACE INTO", $insert );
-						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
-	                                	$this->db->query($insert);
-						$didsomething = true;
-					} else if ($row['skin_name'] == 'QSF Comet') {
-					// Default for 1.1.5 and above installed
-						$insert = str_replace( "INSERT INTO", "REPLACE INTO", $insert );
-						$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
-	                                	$this->db->query($insert);
-						$didsomething = true;
+	                        		if ($this->db->num_rows($miss) < 1) {
+							$skinsupdated .= $row['skin_name'] . ": Added: " . $template ."<br />";
+	                	                	$this->db->query($insert);
+							$didsomething = true;
+						}
 					}
 				}
 
