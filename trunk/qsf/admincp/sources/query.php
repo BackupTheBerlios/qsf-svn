@@ -95,3 +95,4 @@ class query extends admin
 		}
 	}
 }
+?>

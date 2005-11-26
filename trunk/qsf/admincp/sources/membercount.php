@@ -54,3 +54,4 @@ class membercount extends admin
 		return $this->message($this->lang->mcount, $this->lang->mcount_updated);
 	}
 }
+?>
