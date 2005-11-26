@@ -165,8 +165,8 @@ foreach ($templates as $template)
 $out1 = preg_replace('/(TABLE|EXISTS|INTO) {$prefix}/', '\\1 {$pre}', $out1);
 $out2 = preg_replace("/INTO $prefix/", 'INTO {$pre}', $out2);
 
-$out1 .= '?>';
-$out2 .= '?>';
+$out1 .= '?>\n';
+$out2 .= '?>\n';
 
 if ($action == 'tables') {
 	$fp = fopen($sql1, 'w');
