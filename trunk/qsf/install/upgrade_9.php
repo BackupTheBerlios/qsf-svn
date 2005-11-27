@@ -57,5 +57,5 @@ $this->sets['register_image'] = 0;
 $settings = addslashes(serialize($this->sets));
 $queries[] = "INSERT INTO {$pre}settings (settings_id, settings_data) VALUES (1, '{$settings}')";
 
-$queries[] = "ALTER TABLE {$pre}users ADD user_active tinyint(1) unsigned NOT NULL default '1'";
+$queries[] = "ALTER TABLE {$pre}users ADD user_active tinyint(1) unsigned NOT NULL AFTER user_pm DEFAULT '1'";
 ?>
