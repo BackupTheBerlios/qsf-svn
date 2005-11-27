@@ -154,6 +154,10 @@ function strip_ikon_tags( $text )
    $text = preg_replace( "#<!--c1-->(.+?)<!--ec1-->#", '[code]', $text );
    $text = preg_replace( "#<!--c2-->(.+?)<!--ec2-->#", '[/code]', $text );
 
+   // Reconfigure SQL tags
+   $text = preg_replace( "#<!--sql-->(.+?)<!--sql1-->#", '[code]', $text );
+   $text = preg_replace( "#<!--sql2-->(.+?)<!--sql3-->#", '[/code]', $text );
+
    // Strip flash movies and let people know about it.
    $text = preg_replace( "'<!--Flash[^>]*?>.*?<!--End Flash-->'si", "Flash image stripped during conversion.", $text );
 
@@ -161,12 +165,17 @@ function strip_ikon_tags( $text )
    $text = preg_replace( "#<!--QuoteBegin-(.+?)<!--QuoteEBegin-->#", "[quote]", $text );
    $text = preg_replace( "#<!--QuoteEnd-->(.+?)<!--QuoteEEnd-->#", "[/quote]", $text );
 
+   // At a loss as to what this was for....
+   $text = preg_replace( "#<!--me(.+?)<!--e-me--><br>#, "", $text );
+
    // Fix the text formatting tags....
    $text = preg_replace( "#<i>(.+?)</i>#is", "[i]\\1[/i]", $text );
    $text = preg_replace( "#<b>(.+?)</b>#is", "[b]\\1[/b]", $text );
    $text = preg_replace( "#<s>(.+?)</s>#is", "[s]\\1[/s]", $text );
    $text = preg_replace( "#<u>(.+?)</u>#is", "[u]\\1[/u]", $text );
    $text = str_replace( "<br>", "\n\r", $text );
+   $text = str_replace( "<center>", "", $text );
+   $text = str_replace( "</center>", "", $text );
 
    // Fix random junk in the post code....
    $text = str_replace( "&nbsp;", " ", $text );

@@ -154,6 +154,10 @@ function strip_invision_tags( $text )
    $text = preg_replace( "#<!--c1-->(.+?)<!--ec1-->#", '[code]', $text );
    $text = preg_replace( "#<!--c2-->(.+?)<!--ec2-->#", '[/code]', $text );
 
+   // Reconfigure SQL tags
+   $text = preg_replace( "#<!--sql-->(.+?)<!--sql1-->#", '[code]', $text );
+   $text = preg_replace( "#<!--sql2-->(.+?)<!--sql3-->#", '[/code]', $text );
+
    // Strip flash movies and let people know about it.
    $text = preg_replace( "'<!--Flash[^>]*?>.*?<!--End Flash-->'si", "Flash image stripped during conversion.", $text );
 
