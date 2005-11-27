@@ -165,16 +165,18 @@ foreach ($templates as $template)
 $out1 = preg_replace('/(TABLE|EXISTS|INTO) {$prefix}/', '\\1 {$pre}', $out1);
 $out2 = preg_replace("/INTO $prefix/", 'INTO {$pre}', $out2);
 
-$out1 .= '?>\n';
-$out2 .= '?>\n';
+$out1 .= '?>';
+$out2 .= '?>';
 
 if ($action == 'tables') {
 	$fp = fopen($sql1, 'w');
 	fwrite($fp, $out1);
+	fwrite($fp, "\n");
 	fclose($fp);
 } else {
 	$fp = fopen($sql2, 'w');
 	fwrite($fp, $out2);
+	fwrite($fp, "\n");
 	fclose($fp);
 }
 

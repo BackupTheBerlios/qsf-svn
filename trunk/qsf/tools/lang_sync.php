@@ -199,7 +199,7 @@ class ' . $lang_name . '
 		$out[$lang_name] .= "\n	}\n";
 	}
 
-	$out[$lang_name] = rtrim($out[$lang_name]) . "\n}\n?>\n";
+	$out[$lang_name] = rtrim($out[$lang_name]) . "\n}\n?>";
 }
 
 foreach ($out as $filename => $contents)
@@ -229,6 +229,7 @@ foreach ($out as $filename => $contents)
 
     $fp = fopen('../languages/' . $filename . '.php', 'w');
     fwrite($fp, $contents);
+    fwrite($fp, "\n");
     fclose($fp);
 }
 
