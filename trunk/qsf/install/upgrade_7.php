@@ -31,5 +31,5 @@ ADD subscription_id int(12) unsigned NOT NULL auto_increment,
 ADD PRIMARY KEY (subscription_id)";
 
 $queries[] = "ALTER TABLE {$pre}users
-ADD user_email_form tinyint(1) unsigned NOT NULL default '1'";
+ADD user_email_form tinyint(1) unsigned NOT NULL AFTER user_email_show DEFAULT '1'";
 ?>
