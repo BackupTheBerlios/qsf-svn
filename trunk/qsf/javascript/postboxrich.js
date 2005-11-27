@@ -1,3 +1,5 @@
+/* Used by the POST_BOX_RICH template */
+
 function to_textarea()
 {
    document.forms['mbpost'].post.value = document.all['box'].innerHTML;

@@ -1,3 +1,5 @@
+/* Avatar selection controls for choosing an avatar in the UserCP */
+
 function enable(what)
 {
   if(what == 'local'){

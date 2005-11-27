@@ -1,3 +1,5 @@
+/* Used by POST_BOX_RICH template */
+
 color = '000000';
 gray = 'cccccc';
 while(1)

@@ -1,3 +1,5 @@
+/* Smilie insertion and mbcode functions for posting */
+
 function getLength(){
   var length = form["post"].value.length;
   alert("{$this->lang->post_mbcode_length}");

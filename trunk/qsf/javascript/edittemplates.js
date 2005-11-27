@@ -1,3 +1,5 @@
+/* Supposed to alert when leaving the template editor window if changes have been made */
+
 changed = false;
 
 function savechanges()

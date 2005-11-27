@@ -1,3 +1,5 @@
+/* The forumjump selector switch from the forum views */
+
 function get_forum(select)
 {
   if(select.value.substring(0, 1) == '.'){

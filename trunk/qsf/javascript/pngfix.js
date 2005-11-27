@@ -1,4 +1,6 @@
-function correctPNG() // correctly handle PNG transparency in Win IE 5.5 or higher. 
+/* Corrects transparent PNG files in IE-Win 5.5+ */
+
+function correctPNG()
 { 
    for( var i = 0; i < document.images.length; i++ )
    {

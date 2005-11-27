@@ -1,3 +1,5 @@
+/* Suckerfish menu script to keep IE in line */
+
 sfHover = function() {
 	var sfEls = document.getElementById("hsmod").getElementsByTagName("LI");
 	for (var i=0; i<sfEls.length; i++) {
@@ -10,4 +12,3 @@ sfHover = function() {
 	}
 }
 if (window.attachEvent) window.attachEvent("onload", sfHover);
-
