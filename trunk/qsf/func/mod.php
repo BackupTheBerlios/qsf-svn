@@ -162,7 +162,7 @@ class mod extends qsfglobal
 
 			$this->log_action('topic_move', $this->get['t'], $topic['topic_forum'], $this->post['newforum']);
 
-			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_topic_move, $this->lang->continue, "$this->self?a=topic&amp;t={$newtopic}", "$this->self?a=topic&t={$newtopic}");
+			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_topic_move, $this->lang->continue, "{$this->self}?a=topic&amp;t={$newtopic}", "$this->self?a=topic&t={$newtopic}");
 		}
 	}
 
@@ -250,7 +250,7 @@ class mod extends qsfglobal
 				$jump = '#p' . $prev['prev_posts'];
 			}
 
-			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_post_edit, $this->lang->continue, "$this->self?a=topic&amp;t={$data['post_topic']}$jump", "$this->self?a=topic&t={$data['post_topic']}$jump");
+			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_post_edit, $this->lang->continue, "{$this->self}?a=topic&amp;t={$data['post_topic']}$jump", "$this->self?a=topic&t={$data['post_topic']}$jump");
 		}
 	}
 
@@ -315,7 +315,7 @@ class mod extends qsfglobal
 
 			$this->log_action('topic_edit', $this->get['t']);
 
-			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_topic_edit, $this->lang->continue, "$this->self?a=topic&amp;t={$this->get['t']}", "$this->self?a=topic&t={$this->get['t']}");
+			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_topic_edit, $this->lang->continue, "{$this->self}?a=topic&amp;t={$this->get['t']}", "$this->self?a=topic&t={$this->get['t']}");
 		}
 	}
 
@@ -499,7 +499,7 @@ class mod extends qsfglobal
 
 		$this->log_action('post_delete', $this->get['p']);
 
-		return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_post_delete, $this->lang->continue, "$this->self?a=topic&amp;t={$post['topic_id']}$jump", "$this->self?a=topic&t={$post['topic_id']}$jump");
+		return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_post_delete, $this->lang->continue, "{$this->self}?a=topic&amp;t={$post['topic_id']}$jump", "$this->self?a=topic&t={$post['topic_id']}$jump");
 	}
 
 	/**
@@ -543,7 +543,7 @@ class mod extends qsfglobal
 		$this->update_last_post($topic['topic_forum']);
 		$this->log_action('topic_delete', $this->get['t']);
 
-		return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_topic_delete, $this->lang->continue, "$this->self?a=forum&amp;f={$topic['topic_forum']}", "$this->self?a=forum&f={$topic['topic_forum']}");
+		return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_topic_delete, $this->lang->continue, "{$this->self}?a=forum&amp;f={$topic['topic_forum']}", "$this->self?a=forum&f={$topic['topic_forum']}");
 	}
 
 	/**

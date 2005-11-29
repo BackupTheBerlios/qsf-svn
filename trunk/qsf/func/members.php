@@ -138,7 +138,7 @@ class members extends qsfglobal
 			if (!$member['user_pm']) {
 				$member['user_pm'] = null;
 			} else {
-				$member['user_pm'] = "<a href='$this->self?a=pm&amp;s=send&amp;to={$member['user_id']}'><img src='./skins/$this->skin/images/pm.png' alt=\"{$this->lang->members_send_pm}\" /></a>";
+				$member['user_pm'] = "<a href=\"{$this->self}?a=pm&amp;s=send&amp;to={$member['user_id']}\"><img src=\"./skins/$this->skin/images/pm.png\" alt=\"{$this->lang->members_send_pm}\" /></a>";
 			}
 
 			$Members .= eval($this->template('MEMBERS_MEMBER'));

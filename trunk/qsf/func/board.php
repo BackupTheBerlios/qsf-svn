@@ -85,7 +85,7 @@ class board extends qsfglobal
 		$active    = $this->doActive();
 
 		$this->lang->board_stats_string = sprintf($this->lang->board_stats_string,
-		    $stats['MEMBERS'], "<a href='$this->self?a=profile&amp;w={$stats['LASTMEMBERID']}'>{$stats['LASTMEMBER']}</a>",
+		    $stats['MEMBERS'], "<a href=\"{$this->self}?a=profile&amp;w={$stats['LASTMEMBERID']}\">{$stats['LASTMEMBER']}</a>",
 		    $stats['TOPICS'], $stats['REPLIES'], $stats['POSTS']);
 
 		$this->lang->board_most_online = sprintf($this->lang->board_most_online, $stats['MOSTONLINE'], $stats['MOSTONLINETIME']);
@@ -130,7 +130,7 @@ class board extends qsfglobal
 
 					if ($this->perms->auth('topic_view', $forum['forum_id'])) {
 						if ($this->perms->auth('topic_create', $forum['forum_id'])) {
-							$topic_perms = "<a href='$this->self?a=post&amp;s=topic&amp;f={$forum['forum_id']}'><img src='./skins/{$this->skin}/images/topic_write.png' alt='{$this->lang->board_write_topics}' title='{$this->lang->board_write_topics}' /></a>";
+							$topic_perms = "<a href=\"{$this->self}?a=post&amp;s=topic&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_write.png\" alt=\"{$this->lang->board_write_topics}\" title=\"{$this->lang->board_write_topics}\" /></a>";
 						} else {
 							$topic_perms = "<img src='./skins/{$this->skin}/images/topic_read.png' alt='{$this->lang->board_can_topics}' title='{$this->lang->board_can_topics}' />";
 						}
@@ -147,7 +147,7 @@ class board extends qsfglobal
 
 					if ($forum['forum_lastpost']) {
 						if ($forum['LastTime'] > $this->user['user_lastvisit']) {
-							$topic_new = "<a href='$this->self?s=mark&amp;f={$forum['forum_id']}'><img src='./skins/{$this->skin}/images/topic_new.png' alt='{$this->lang->main_topics_new}' title='{$this->lang->main_topics_new}' /></a>";
+							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
 						} else {
 								$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 						}
@@ -157,7 +157,7 @@ class board extends qsfglobal
 						$forum['LastTime'] = $this->mbdate(DATE_LONG, $forum['LastTime']);
 
 						if ($forum['user_lastposterID'] != USER_GUEST_UID) {
-							$forum['user_lastposter'] = "<a href='$this->self?a=profile&amp;w={$forum['user_lastposterID']}' class='small'>{$forum['user_lastposter']}</a>";
+							$forum['user_lastposter'] = "<a href=\"{$this->self}?a=profile&amp;w={$forum['user_lastposterID']}\" class=\"small\">{$forum['user_lastposter']}</a>";
 						}
 
 						$full_title = $forum['user_lastpost'];
@@ -233,7 +233,7 @@ class board extends qsfglobal
 			$year = explode('-', $m['user_birthday']);
 			$day = $this->mbdate('Y') - $year[0];
 			$comma = ($i < $count) ? ', ' : null;
-			$return .= "<a href='$this->self?a=profile&amp;w={$m['user_id']}' class='small'>{$m['user_name']}</a> ($day)$comma";
+			$return .= "<a href=\"{$this->self}?a=profile&amp;w={$m['user_id']}\" class=\"small\">{$m['user_name']}</a> ($day)$comma";
 			$i++;
 		}
 		return $return;
@@ -328,7 +328,7 @@ class board extends qsfglobal
 				$OnTotal++;
 				if ($user['active_id'] != USER_GUEST_UID) {
                     			if (!isset($allusers[$user['active_id']])) {
-			                        $allusers[$user['active_id']] = "<a href='$this->self?a=profile&amp;w={$user['active_id']}' class='small' title=\"" . (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  "{$user['active_user_agent']}\">" . sprintf($user['group_format'], $user['user_name']) . '</a>';
+			                        $allusers[$user['active_id']] = "<a href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\" class=\"small\" title=\"" . (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  "{$user['active_user_agent']}\">" . sprintf($user['group_format'], $user['user_name']) . '</a>';
 			                        $OnMembers++;
 					} else {
 			                        $OnTotal--;

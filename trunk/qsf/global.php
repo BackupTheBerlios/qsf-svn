@@ -754,16 +754,16 @@ class qsfglobal
 			$startlink = '&lt;&lt;';
 			$previouslink = $this->lang->main_prev;
 		} else {
-			$startlink = "<a class='pagelinks' href='$this->self?$link&amp;min=0&amp;num=$num'>&lt;&lt;</a>";
+			$startlink = "<a href=\"{$this->self}?$link&amp;min=0&amp;num=$num\" class=\"pagelinks\">&lt;&lt;</a>";
 			$prev = $min - $num;
-			$previouslink = "<a class='pagelinks' href='$this->self?$link&amp;min=$prev&amp;num=$num'>{$this->lang->main_prev}</a> ";
+			$previouslink = "<a href=\"{$this->self}?$link&amp;min=$prev&amp;num=$num\" class=\"pagelinks\">{$this->lang->main_prev}</a> ";
 		}
 
 		// check for next/end
 		if (($min + $num) < $rows) {
 			$next = $min + $num;
-  			$nextlink = "<a class='pagelinks' href='$this->self?$link&amp;min=$next&amp;num=$num'>{$this->lang->main_next}</a>";
-  			$endlink = "<a class='pagelinks' href='$this->self?$link&amp;min=$end&amp;num=$num'>&gt;&gt;</a>";
+  			$nextlink = "<a href=\"{$this->self}?$link&amp;min=$next&amp;num=$num\" class=\"pagelinks\">{$this->lang->main_next}</a>";
+  			$endlink = "<a href=\"{$this->self}?$link&amp;min=$end&amp;num=$num\" class=\"pagelinks\">&gt;&gt;</a>";
 		} else {
   			$nextlink = $this->lang->main_next;
   			$endlink = '&gt;&gt;';
@@ -806,7 +806,7 @@ class qsfglobal
 		for ($i = $b; $i < $current; $i++)
 		{
 			$where = $num * $i;
-			$string .= ", <a class='bodylinktype' href='$this->self?$link&amp;min=$where&amp;num=$num'>" . ($i + 1) . '</a>';
+			$string .= ", <a href=\"{$this->self}?$link&amp;min=$where&amp;num=$num\" class=\"bodylinktype\">" . ($i + 1) . '</a>';
 		}
 
 		// add in page
@@ -816,7 +816,7 @@ class qsfglobal
 		for ($i = $current + 1; $i <= $e; $i++)
 		{
 			$where = $num * $i;
-			$string .= ", <a class='bodylinktype' href='$this->self?$link&amp;min=$where&amp;num=$num'>" . ($i + 1) . '</a>';
+			$string .= ", <a href=\"{$this->self}?$link&amp;min=$where&amp;num=$num\" class=\"bodylinktype\">" . ($i + 1) . '</a>';
 		}
 
 		// get rid of preliminary comma. (optimized by jason: mark uses preg_replace() like candy)
@@ -860,7 +860,7 @@ class qsfglobal
 		{
 			$minpag = $i * $n;
 			$page   = $i + 1;
-			$pagelinks .= "<a href='$this->self?$link&amp;min=$minpag&amp;num=$n' class='pages'>$page</a>{$sep}";
+			$pagelinks .= "<a href=\"{$this->self}?$link&amp;min=$minpag&amp;num=$n\" class=\"pages\">$page</a>{$sep}";
 		}
 
 		if (substr($pagelinks, -(strlen($sep))) == $sep) {
@@ -869,7 +869,7 @@ class qsfglobal
 
 		if ($pages > 3) {
 			$ellipsis = ($pages == 4) ? '' : '..';
-			$pagelinks .= "$sep<a href='$this->self?$link&amp;min=$max_page&amp;num=$n' class='pages'>{$ellipsis}{$pages}</a>";
+			$pagelinks .= "$sep<a href=\"{$this->self}?$link&amp;min=$max_page&amp;num=$n\" class=\"pages\">{$ellipsis}{$pages}</a>";
 		}
 
 		$pagelinks = "( $pagelinks )";
