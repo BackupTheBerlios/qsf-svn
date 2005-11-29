@@ -449,7 +449,10 @@ else if( $_GET['action'] == 'pmessages' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}pmsystem" );
-   $sql = "SELECT * FROM {$oldboard->pre}privmsgs";
+   $sql = "SELECT p.*, t.privmsgs_text_id, t.privmsgs_text
+      FROM {$oldboard->pre}privmsgs
+      LEFT JOIN {$oldboard->pre}privmsgs_text ON t.privmsgs_text_id = p.privmsgs_id;
+
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -485,18 +488,8 @@ else if( $_GET['action'] == 'pmessages' )
             $row['privmsgs_from_userid'] = '1';
 
          $row['privmsgs_subject'] = strip_phpbb2_tags( $row['privmsgs_subject'] );
-         $sql2 = "SELECT * FROM {$oldboard->pre}privmsgs_text WHERE privmsgs_text_id = '{$row['privmsgs_id']}'";
-         $result2 = $oldboard->db->query($sql2);
-         while( $row2 = $oldboard->db->nqfetch($result2) )
-         {
-            if( $row2['privmsgs_text'] == '' )
-               ;
-            else
-            {
-               $message = strip_phpbb2_tags( $row2['privmsgs_text'] );
-               break;
-            }
-         }
+         $message = strip_phpbb2_tags( $row['privmsgs_text'] );
+
          $i++;
 
          $bcc = '';
@@ -672,7 +665,11 @@ else if( $_GET['action'] == 'posts' )
 
    $num = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}posts" );
    $all = $oldboard->db->num_rows( $num );
-   $sql = "SELECT * FROM {$oldboard->pre}posts LIMIT {$start}, {$oldset['post_inc']}";
+   $sql = "SELECT p.*, t.post_id, t.post_text
+      FROM {$oldboard->pre}posts
+      LEFT JOIN {$oldboard->pre}posts_text t ON t.post_id = p.post_id
+      LIMIT {$start}, {$oldset['post_inc']}"
+
    $newstart = $start + $oldset['post_inc'];
 
    $result= $oldboard->db->query($sql);
@@ -688,18 +685,8 @@ else if( $_GET['action'] == 'posts' )
          $row['poster_id'] = '1';
       }
 
-      $sql2 = "SELECT * FROM {$oldboard->pre}posts_text WHERE post_id = {$row['post_id']}";
-      $result2 = $oldboard->db->query($sql2);
-      while( $row2 = $oldboard->db->nqfetch($result2) )
-      {
-         if( $row2['post_text'] == '' )
-            ;
-         else
-         {
-            $message = strip_phpbb2_tags( $row2['post_text'] );
-            break;
-         }
-      }
+      $message = strip_phpbb2_tags( $row['post_text'] );
+
       $ip = get_ip( $row['poster_ip'] );
       $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['post_id']}, {$row['topic_id']}, '{$row['poster_id']}', {$row['enable_smilies']}, {$row['enable_bbcode']}, '{$message}', {$row['post_time']}, '', INET_ATON('{$ip}'), '', 0 )" );
       $i++;
@@ -720,5 +707,4 @@ else if( $_GET['action'] == 'posts' )
       echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
    }
 }
-
 ?>
