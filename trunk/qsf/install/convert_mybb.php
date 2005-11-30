@@ -516,6 +516,7 @@ else if( $_GET['action'] == 'mtitles' )
 
 else if( $_GET['action'] == 'forums' )
 {
+   $qsf->db->query( "TRUNCATE {$qsf->pre}forums" );
    $sql = "SELECT * FROM {$oldboard->pre}forums";
    $result = $oldboard->db->query($sql);
    $i = '0';

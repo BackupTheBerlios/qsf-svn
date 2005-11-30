@@ -273,19 +273,18 @@ class forum extends qsfglobal
 			$row['topic_views']  = number_format($row['topic_views'], 0, null, $this->lang->sep_thousands);
 
 			if ($row['topic_modes'] & TOPIC_PINNED) {
-				$out .= eval($this->template('FORUM_TOPIC_PINNED'));
-			} else {
-				$row['icon'] = $row['topic_icon']; // Store so skin can still access
-				if ($row['topic_modes'] & TOPIC_POLL) {
-					$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" alt="' . $this->lang->forum_icon . '" />';
-				} else {
-					if ($row['topic_icon']) {
-						$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/mbicons/' . $row['topic_icon'] . '" alt="' . $this->lang->forum_icon . '" />';
-					}
-				}
-
-				$out .= eval($this->template('FORUM_TOPIC'));
+				$row['topic_title'] = "<b>" . $row['topic_title'] . "</b>";
 			}
+			$row['icon'] = $row['topic_icon']; // Store so skin can still access
+			if ($row['topic_modes'] & TOPIC_POLL) {
+				$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" alt="' . $this->lang->forum_icon . '" />';
+			} else {
+				if ($row['topic_icon']) {
+					$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/mbicons/' . $row['topic_icon'] . '" alt="' . $this->lang->forum_icon . '" />';
+				}
+			}
+
+			$out .= eval($this->template('FORUM_TOPIC'));
 		}
 
 		return $out;

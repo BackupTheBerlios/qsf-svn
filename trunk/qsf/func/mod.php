@@ -216,6 +216,8 @@ class mod extends qsfglobal
 			$quote     = $this->format($data['post_text'], FORMAT_HTMLCHARS);
 			$msg_icons = $this->get_icons(($data['post_icon'] == '') ? -1 : $data['post_icon']);
 			$clickable = $this->make_clickable($this->sets['clickable_per_row']);
+			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
+			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
 			$post_box  = eval($this->template($this->post_box()));
 
 			return eval($this->template('MOD_EDIT_POST'));

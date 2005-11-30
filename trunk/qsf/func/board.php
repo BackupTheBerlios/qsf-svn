@@ -149,7 +149,7 @@ class board extends qsfglobal
 						if ($forum['LastTime'] > $this->user['user_lastvisit']) {
 							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
 						} else {
-								$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
+							$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 						}
 						
 						$forum['TopicLastTime'] = $forum['LastTime']; // store so skins can access
@@ -233,7 +233,7 @@ class board extends qsfglobal
 			$year = explode('-', $m['user_birthday']);
 			$day = $this->mbdate('Y') - $year[0];
 			$comma = ($i < $count) ? ', ' : null;
-			$return .= "<a href=\"{$this->self}?a=profile&amp;w={$m['user_id']}\" class=\"small\">{$m['user_name']}</a> ($day)$comma";
+			$return .= "<a href=\"$this->self?a=profile&amp;w={$m['user_id']}\" class=\"bdaylink\">{$m['user_name']}</a> ($day)$comma";
 			$i++;
 		}
 		return $return;
@@ -328,7 +328,7 @@ class board extends qsfglobal
 				$OnTotal++;
 				if ($user['active_id'] != USER_GUEST_UID) {
                     			if (!isset($allusers[$user['active_id']])) {
-			                        $allusers[$user['active_id']] = "<a href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\" class=\"small\" title=\"" . (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  "{$user['active_user_agent']}\">" . sprintf($user['group_format'], $user['user_name']) . '</a>';
+			                        $allusers[$user['active_id']] = "<a href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\" class=\"activeuser\" title=\"" . (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  "{$user['active_user_agent']}\">" . sprintf($user['group_format'], $user['user_name']) . '</a>';
 			                        $OnMembers++;
 					} else {
 			                        $OnTotal--;
