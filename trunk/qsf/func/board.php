@@ -328,7 +328,8 @@ class board extends qsfglobal
 				$OnTotal++;
 				if ($user['active_id'] != USER_GUEST_UID) {
                     			if (!isset($allusers[$user['active_id']])) {
-			                        $allusers[$user['active_id']] = "<a href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\" class=\"activeuser\" title=\"" . (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  "{$user['active_user_agent']}\">" . sprintf($user['group_format'], $user['user_name']) . '</a>';
+			                        $allusers[$user['active_id']] = "<a href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\" class=\"activeuser\" title=\"" .
+							(!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  htmlspecialchars($user['active_user_agent']) . '">' . sprintf($user['group_format'], $user['user_name']) . '</a>';
 			                        $OnMembers++;
 					} else {
 			                        $OnTotal--;
