@@ -459,7 +459,6 @@ else if( $_GET['action'] == 'pmessages' )
          $row['uid']++;
          $row['toid']++;
          $row['fromid']++;
-            $row['privmsgs_to_userid'] = '1';
 
          $row['subject'] = strip_mybb_tags( $row['subject'] );
          $row['message'] = strip_mybb_tags( $row['message'] );
