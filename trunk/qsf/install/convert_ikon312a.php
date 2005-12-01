@@ -166,7 +166,7 @@ function strip_ikon_tags( $text )
    $text = preg_replace( "#<!--QuoteEnd-->(.+?)<!--QuoteEEnd-->#", "[/quote]", $text );
 
    // At a loss as to what this was for....
-   $text = preg_replace( "#<!--me(.+?)<!--e-me--><br>#, "", $text );
+   $text = preg_replace( "#<!--me(.+?)<!--e-me--><br>#", "", $text );
 
    // Fix the text formatting tags....
    $text = preg_replace( "#<i>(.+?)</i>#is", "[i]\\1[/i]", $text );
@@ -794,9 +794,22 @@ else if( $_GET['action'] == 'polls' )
    $sql = "SELECT * FROM {$oldboard->pre}forum_polls";
    $result = $oldboard->db->query($sql);
    $i = '0';
+
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $qsf->db->query( "UPDATE {$qsf->pre}topics SET topic_poll_options = '{$row['POLL_ANSWERS']}' WHERE topic_id = '{$row['POLL_ID']}'" );
+      // Split into options and votes
+      preg_match_all( '/-->(.+?)~=~(\d+)\|/', $row['POLL_ANSWERS'], $matches, PREG_SET_ORDER );
+
+      $pollanswers = '';
+      $voting_data = array();
+
+      foreach ($matches as $match) {
+         // Set as option => votes
+         $pollanswers .= $match[1] . "\n";
+         $voting_data[$match[1]] = $match[2];
+      }
+
+      $qsf->db->query( "UPDATE {$qsf->pre}topics SET topic_poll_options = '{$pollanswers}' WHERE topic_id = '{$row['POLL_ID']}'" );
       $i++;
    }
 
