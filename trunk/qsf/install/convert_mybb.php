@@ -260,7 +260,16 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       echo "</tr>\n";
    }
 
-   // Polls go here - MyBB poll data is going to take more time to work out
+   if( $prof == '1' && $topics == '1' )
+   {
+      echo "<tr>\n";
+      echo "<td class='tablelight'>&nbsp;</td>\n";
+      if( $polls == '1' )
+         echo "<td class='tablelight' align='left'>".$poll_count." polls converted.</td>\n";
+      else
+         echo "<td class='tablelight'>&nbsp;</td>\n";
+      echo "</tr>\n";
+   }
 
    if( $prof == '1' && $topics == '1' )
    {
@@ -589,45 +598,27 @@ else if( $_GET['action'] == 'topics' )
    $oldset['topics'] = '1';
    $oldset['topic_count'] = $i;
    write_olddb_sets( $oldset );
-   echo "<meta http-equiv='Refresh' content='0;URL=convert_mybb.php'>";
-}
-
-else if( $_GET['action'] == 'polls' )
-{
-   $sql = "SELECT * FROM {$oldboard->pre}vote_results";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
-   while( $row = $oldboard->db->nqfetch($result) )
-   {
-      $resulttable[] = array( 'id' >= $row['vote_id'], 'option_id' => $row['vote_option_id'], 'option_text' => $row['vote_option_text'], 'option_result' => $row['vote_result'] );
-   }
-
-   $sql = "SELECT * FROM {$oldboard->pre}vote_vote_desc";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
-   while( $row = $oldboard->db->nqfetch($result) )
-   {
-      $pdesctable[] = array( 'id' >= $row['topic_id'], 'text' => $row['vote_text'] );
-   }
-
-   $qsf->db->query( "UPDATE {$qsf->pre}topics SET topic_poll_options = '{$row['POLL_ANSWERS']}' WHERE topic_id = '{$row['POLL_ID']}'" );
-   $i++;
 
    $qsf->db->query( "TRUNCATE {$qsf->pre}votes" );
-   $sql = "SELECT * FROM {$oldboard->pre}forum_poll_voters";
-   $result = $oldboard->db->query($sql);
+   $sql = "SELECT p.*, v.pid, v.uid, v.voteoption
+      FROM {$oldboard->pre}polls p
+      LEFT JOIN {$oldboard->pre}pollvotes v ON v.pid = p.pid";
 
+   $result = $oldboard->db->query($sql);
+   $i = '0';
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['MEMBER_ID'] == '1' )
-      {
-         $row['MEMBER_ID'] = '2';
-      }
-      if( $row['MEMBER_ID'] == '0' )
-      {
-         $row['MEMBER_ID'] = '1';
-      }
-      $qsf->db->query( "INSERT INTO {$qsf->pre}votes VALUES( {$row['MEMBER_ID']}, {$row['POLL_ID']}, '' )" );
+      $pollanswers = "";
+      $polloptions = explode( "||~|~||", $row['options'] );
+
+      foreach( $polloptions as $options => $option )
+         $pollanswers .= $option . "\n";
+      $qsf->db->query( "UPDATE {$qsf->pre}topics SET topic_poll_options = '{$pollanswers}' WHERE topic_id = '{$row['tid']}'" );
+
+      $user = $row['uid'] + 1;
+      $vote = $row['voteoption'] - 1;
+      $qsf->db->query( "INSERT INTO {$qsf->pre}votes VALUES( {$user}, {$row['tid']}, {$vote} )" );
+      $i++;
    }
 
    $oldset['polls'] = '1';
