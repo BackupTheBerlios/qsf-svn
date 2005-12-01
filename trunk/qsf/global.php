@@ -91,9 +91,9 @@ class qsfglobal
 		// Do all magic quote stuff here
 		if (!get_magic_quotes_gpc()) {
 			$this->agent = addslashes($this->agent);
-			$qsf->set_magic_quotes_gpc($qsf->get);
-			$qsf->set_magic_quotes_gpc($qsf->post);
-			$qsf->set_magic_quotes_gpc($qsf->cookie);
+			$this->set_magic_quotes_gpc($qsf->get);
+			$this->set_magic_quotes_gpc($qsf->post);
+			$this->set_magic_quotes_gpc($qsf->cookie);
 		}
 	}
 
