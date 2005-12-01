@@ -78,7 +78,7 @@ class qsfglobal
 		$this->time    = time();
 		$this->query   = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : null;
 		$this->ip      = addslashes($_SERVER['REMOTE_ADDR']);
-		$this->agent   = isset($_SERVER['HTTP_USER_AGENT']) ? addslashes($_SERVER['HTTP_USER_AGENT']) : null;
+		$this->agent   = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
 		$this->self    = $_SERVER['PHP_SELF'];
 		$this->server  = $_SERVER;
 		$this->get     = $_GET;
@@ -87,6 +87,14 @@ class qsfglobal
 		$this->files   = $_FILES;
 		$this->session = &$_SESSION;
 		$this->query   = htmlspecialchars($this->query);
+
+		// Do all magic quote stuff here
+		if (!get_magic_quotes_gpc()) {
+			$this->agent = addslashes($this->agent);
+			$qsf->set_magic_quotes_gpc($qsf->get);
+			$qsf->set_magic_quotes_gpc($qsf->post);
+			$qsf->set_magic_quotes_gpc($qsf->cookie);
+		}
 	}
 
 	/**

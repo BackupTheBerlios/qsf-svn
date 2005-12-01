@@ -72,12 +72,6 @@ require './func/' . $module . '.php';
 $qsf = new $module;
 $qsf->pre = $set['prefix'];
 
-if (!get_magic_quotes_gpc()) {
-	$qsf->set_magic_quotes_gpc($qsf->get);
-	$qsf->set_magic_quotes_gpc($qsf->post);
-	$qsf->set_magic_quotes_gpc($qsf->cookie);
-}
-
 $qsf->db = $db; 
 $qsf->get['a'] = $module;
 $qsf->sets     = $set;
