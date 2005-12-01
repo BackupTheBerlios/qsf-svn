@@ -36,78 +36,67 @@ class logs extends admin
 		$out = null;
 		while ($log = $this->db->nqfetch($data))
 		{
-			$out .= "
-			<tr>
-				<td class='" . $this->iterate() . "'>" . $this->mbdate(DATE_LONG, $log['log_time']) . "</td>
-				<td class='" . $this->lastValue() . "'>{$log['user_name']}</td>";
+			$class = $this->iterate();
+			$date = $this->mbdate(DATE_LONG, $log['log_time']);
+			$user = $log['user_name'];
+			$action = '';
+			$id = '';
 
 			switch ($log['log_action'])
 			{
 			case 'post_delete':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_deleted_post}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_post} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_deleted_post;
+				$id = $this->lang->logs_post . " #" . $log['log_data1'];
 				break;
 
 			case 'post_edit':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_edited_post}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_post} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_edited_post;
+				$id = $this->lang->logs_post . " #" . $log['log_data1'];
 				break;
 
 			case 'topic_lock':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_locked_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_topic} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_locked_topic;
+				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
 				break;
 
 			case 'topic_unlock':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_unlocked_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_topic} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_unlocked_topic;
+				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
 				break;
 
 			case 'topic_move':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_moved_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_moved_topic_num}{$log['log_data1']} {$this->lang->logs_moved_from} #{$log['log_data2']} {$this->lang->logs_moved_to} #{$log['log_data3']}</td>";
+				$action = $this->lang->logs_moved_topic;
+				$id = $this->lang->logs_moved_topic_num . $log['log_data1'] . " " . $this->lang->logs_moved_from . " #" . $log['log_data2'] . " " . $this->lang->logs_moved_to . " #" . $log['log_data3'];
 				break;
 
 			case 'topic_edit':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_edited_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_topic} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_edited_topic;
+				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
 				break;
 
 			case 'topic_pin':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_pinned_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_topic} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_pinned_topic;
+				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
 				break;
 
 			case 'topic_unpin':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_unpinned_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_topic} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_unpinned_topic;
+				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
 				break;
 
 			case 'topic_delete':
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_deleted_topic}</td>
-				<td class='" . $this->lastValue() . "'>{$this->lang->logs_topic} #{$log['log_data1']}</td>";
+				$action = $this->lang->logs_deleted_topic;
+				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
 				break;
 
 			default:
-				$out .= "
-				<td class='" . $this->lastValue() . "'>{$log['log_action']}</td>
-				<td class='" . $this->lastValue() . "'>{$log['log_data1']}</td>";
+				$action = $log['log_action'];
+				$id = $log['log_data1'];
 			}
 
-			$out .= "
-			</tr>";
+			$out .= eval($this->template('ADMIN_MOD_LOGS_ENTRY'));
 		}
 		return eval($this->template('ADMIN_MOD_LOGS'));
 	}
 }
 ?>
-

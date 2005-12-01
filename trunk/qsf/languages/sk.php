@@ -505,8 +505,8 @@ class sk
 		$this->main_reminder_closed = 'Fórum je uzavreté a prístupné len pre adminov.';
 		$this->main_said = 'poviedali';
 		$this->main_search = 'h¾adanie';
-		$this->main_topics_new = 'V tomto fóre sú nejaké nové príspevky';
-		$this->main_topics_old = 'V tomto fóre nie sú žiadne nové príspevky';
+		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
+		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
 		$this->main_welcome = 'Vitajte';
 		$this->main_welcome_guest = 'Vitajte!';
 	}
@@ -936,6 +936,7 @@ class sk
 
 	function recent()
 	{
+		$this->recent_active = 'Active topics since last visit'; //Translate
 		$this->recent_by = 'Napísal';
 		$this->recent_can_post = 'V tomto fóre môžete odpoveda.';
 		$this->recent_can_topics = 'V tomto fóre si môžete prezera témy.';
@@ -1002,7 +1003,9 @@ class sk
 		$this->register_passwd = 'Heslo';
 		$this->register_reg = 'Registrácia';
 		$this->register_reging = 'Prebieha registrácia';
+		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'Súhlasím s vyššie formulovanými podmienkami';
+		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
 		$this->register_tos_read = 'Prosím, preèítajte si nasledujúce podmienky poskytovania služieb';
 	}
 
@@ -1177,8 +1180,12 @@ class sk
 	function templates()
 	{
 		$this->add = 'Prida HTML Šablóny';
+		$this->add_in = 'Add template to:'; //Translate
+		$this->all_fields_required = 'All fields are required to add a template'; //Translate
 		$this->choose_set = 'Zvoli sadu šablón';
 		$this->choose_skin = 'Zvo¾i skin';
+		$this->confirm1 = 'You are about to delete the'; //Translate
+		$this->confirm2 = 'template from'; //Translate
 		$this->create_new = 'Založi nový skin s názvom';
 		$this->create_skin = 'Založi Skin';
 		$this->credit = 'Prosím, neodstraòujte náš jediný kredit!';
@@ -1197,6 +1204,7 @@ class sk
 		$this->install_skin = 'Nainštalova Skin';
 		$this->menu_title = 'Zvo¾te sekciu šablóny, ktorú chcete editova';
 		$this->only_skin = 'Momentálne je nainštalovaný iba jeden skin. Tento skin nesmiete zmaza.';
+		$this->or_new = 'Or create new template set named:'; //Translate
 		$this->select_skin = 'Zvo¾te Skin';
 		$this->select_skin_edit = 'Zvo¾te skin, ktorý chcete editova';
 		$this->select_skin_edit_done = 'Skin bol úspešne zeditovaný.';

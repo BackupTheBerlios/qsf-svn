@@ -17,10 +17,10 @@ td.header     {
 	border:1px solid #555555; 
 	font-weight:bold; 
 }
-a.header       {color:#000000; text-decoration:none;}
+a.header       {color:black; text-decoration:none;}
 
-td.subheader      {color:#000000; font-weight:bold; border:1px solid #555555;}
-a.subheader       {color:#000000; font-weight:bold; text-decoration:none}
+td.subheader      {color:black; font-weight:bold; border:1px solid #555555;}
+a.subheader       {color:black; font-weight:bold; text-decoration:none}
 a.subheader:hover {text-decoration:underline}
 
 
@@ -60,9 +60,9 @@ div.code      {
 div.phpcode {
 	background-image: url(./images/icons/php.png);
 }
-div.codetitle {font-size: 1.1em; color:#000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-bottom:2px;}
-.codelines    {width: 1em; color:#333333; border:1px #555555 solid; border-right:0; font-family:Courier New, Courier, serif; text-align:right; float:left; padding:3px;}
-pre.codedata  {width: 61em; color:#333333; border:1px #555555 solid; font-family:Courier New, Courier, monospace; text-align:left; overflow:auto; padding:3px;}
+div.codetitle {font-size: 1.1em; color:black; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-bottom:2px;}
+.codelines    {width: 1em; color:#333333; border:1px #555555 solid; border-right:0; font-family:"Courier New", Courier, serif; text-align:right; float:left; padding:3px;}
+pre.codedata  {width: 61em; color:#333333; border:1px #555555 solid; font-family:"Courier New", Courier, monospace; text-align:left; overflow:auto; padding:3px;}
 
 /* Other styling */
 
@@ -76,18 +76,18 @@ img           {border:0px;}
 .tablelight   {border:1px solid #555555; }
 .tabledark    {border:1px solid #555555; }
 
-a.small       {color:#000000; }
+a.small       {color:black;}
 
-a             {color:#000000;}
-a.postlink    {color:#000000;}
+a             {color:black;}
+a.postlink    {color:black;}
 
 
 .copyright { margin-bottom: 0; text-align: center; }
 
 
 .pages        {font-size: 0.9em; color:#333333;}
-.mbcSelect    {font-size: 0.9em; color:#000000;}
-.mbcButton    {font-size: 0.9em; color:#000000; border:1px #555555 solid;}
+.mbcSelect    {font-size: 0.9em; color:black;}
+.mbcButton    {font-size: 0.9em; color:black; border:1px #555555 solid;}
 .stats        {font-weight:bold;}
 .adminstat    {text-align:center; font-size: 0.7em;}
 td textarea   {width:100%} /* help give larger text areas */
@@ -208,6 +208,3 @@ ul.nav, td.footer, .adminstat, .useroptions, .validchecks, .posttop, .button, .b
 }
 td.subheader div img { display: none; }
 td.posterinfo span.userimages { display: none; }
-
-
-

@@ -234,7 +234,7 @@ class topic extends qsfglobal
 			}
 
 			if (isset($this->get['hl'])) {
-				$post['post_text'] = str_replace($this->get['hl'], "<span style='color:#ff0000; font-weight:bold'>{$this->get['hl']}</span>", $post['post_text']);
+				$post['post_text'] = str_replace($this->get['hl'], "<span style='color:#FF0000; font-weight:bold'>{$this->get['hl']}</span>", $post['post_text']);
 			}
 
 			$Poster_Icons = null;
@@ -334,7 +334,7 @@ class topic extends qsfglobal
 				}
 
 				if ($post['user_signature'] && $this->user['user_view_signatures']) {
-					$post['user_signature'] = '.........................<br /><span class=\'sig\'>' . $this->format($post['user_signature'], FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS) . '</span>';
+					$post['user_signature'] = '.........................<br />' . $this->format($post['user_signature'], FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS);
 				} else {
 					$post['user_signature'] = null;
 				}
@@ -506,7 +506,7 @@ class topic extends qsfglobal
 					continue;
 				}
 
-				$option    = $this->format($option);
+				$option    = $this->format($option, FORMAT_MBCODE | FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_EMOTICONS);
 				$pollopts .= eval($this->template('POLL_OPTION'));
 			}
 

@@ -505,8 +505,8 @@ class sv
 		$this->main_reminder_closed = 'Forumet är stängt! det kan endast ses av administratörer.';
 		$this->main_said = 'sade';
 		$this->main_search = 'sök';
-		$this->main_topics_new = 'Det finns nya inlägg i detta forum.';
-		$this->main_topics_old = 'Det finns inga nya inlägg i detta forum.';
+		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
+		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
 		$this->main_welcome = 'Välkommen';
 		$this->main_welcome_guest = 'Välkommen!';
 	}
@@ -935,6 +935,7 @@ class sv
 
 	function recent()
 	{
+		$this->recent_active = 'Active topics since last visit'; //Translate
 		$this->recent_by = 'Av';
 		$this->recent_can_post = 'Du kan svara i detta forum.';
 		$this->recent_can_topics = 'Du kan läsa ämnen i detta forum.';
@@ -1001,7 +1002,9 @@ class sv
 		$this->register_passwd = 'Lösenord';
 		$this->register_reg = 'Registrera';
 		$this->register_reging = 'Registrerar';
+		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'Jag godkänner ovanstående vilkor';
+		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
 		$this->register_tos_read = 'Var snäll och läs följande vilkor för tjänsten';
 	}
 
@@ -1176,8 +1179,12 @@ class sv
 	function templates()
 	{
 		$this->add = 'Lägg till HTML Mallar';
+		$this->add_in = 'Add template to:'; //Translate
+		$this->all_fields_required = 'All fields are required to add a template'; //Translate
 		$this->choose_set = 'Välje ett mallpaket';
 		$this->choose_skin = 'Välj ett skal';
+		$this->confirm1 = 'You are about to delete the'; //Translate
+		$this->confirm2 = 'template from'; //Translate
 		$this->create_new = 'Skapa ett nytt skal med namnet';
 		$this->create_skin = 'Skapa Skal';
 		$this->credit = 'Var snäll och ta inte bort vårt enda erkännande!';
@@ -1196,6 +1203,7 @@ class sv
 		$this->install_skin = 'Installera Skal';
 		$this->menu_title = 'Välj ett mallpaket att ändra';
 		$this->only_skin = 'Det finns bara ett skal installerat. Du får inte ta bort det här skalet.';
+		$this->or_new = 'Or create new template set named:'; //Translate
 		$this->select_skin = 'Välj ett skal';
 		$this->select_skin_edit = 'Välj ett skal att ändra';
 		$this->select_skin_edit_done = 'Ändringen av skalet lyckades.';

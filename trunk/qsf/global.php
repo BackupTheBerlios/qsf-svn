@@ -436,9 +436,9 @@ class qsfglobal
 		} else {
 			$return = '<div class="code">';
 		}
-		$return .= "<div class='codetitle'>$title:</div>";
-		/* $return .= "<div class='codelines'>$col1</div>"; */
-		$return .= "<pre style='height:{$height}px;' class='codedata'>$col2</pre></div>";
+		$return .= '<div class="codetitle">' . $title . ':</div>';
+		/* $return .= '<div class="codelines">$col1</div>'; */
+		$return .= '<pre style="height:' . $height . 'px;" class="codedata">' . $col2 . '</pre></div>';
 
 		return $return;
 	}
@@ -1204,7 +1204,7 @@ class qsfglobal
 	function message($title, $message, $link_text = null, $link = null, $redirect = null)
 	{
 		if ($link_text) {
-			$message .= "<br /><br /><a href='$link' class='nav'>$link_text</a>";
+			$message .= '<br /><br /><a href="' . $link . '">' . $link_text . '</a>';
 		}
 
 		if ($redirect) {
@@ -1469,7 +1469,6 @@ class qsfglobal
 		$out = null;
 
 		$query = $this->db->query("SELECT zone_id, zone_name, zone_offset, zone_updated, zone_abbrev FROM {$this->pre}timezones ORDER BY zone_name ASC");
-
 		while($row = $this->db->nqfetch($query))
 		{
 			if ($row['zone_updated'] < $this->time)

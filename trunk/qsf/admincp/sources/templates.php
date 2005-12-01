@@ -235,7 +235,7 @@ class templates extends admin
 			<form action='$this->self?a=templates&amp;s=load' method='post'><div>
 				{$this->lang->skins_found}:<br /><br />
 				<select name='install'>
-					$skin_box
+					{$skin_box}
 				</select>
 				<input type='submit' name='submit' value='{$this->lang->install_skin}' /></div>
 			</form>");
@@ -296,7 +296,7 @@ class templates extends admin
 			{$this->lang->export_select}:<br /><br />
 			<form action='$this->self?a=templates&amp;s=export' method='post'><div>
 				<select name='skin'>
-					$skin_box
+					{$skin_box}
 				</select>
 				<input type='submit' value='{$this->lang->export_skin}' /></div>
 			</form>");
@@ -341,7 +341,7 @@ class templates extends admin
 			<form action='$this->self?a=templates&amp;s=editskin' method='post'><div>
 				{$this->lang->select_skin_edit}:<br /><br />
 				<select name='skin'>
-					$skin_box
+					{$skin_box}
 				</select>
 				<input type='submit' value='{$this->lang->edit_skin}' /></div>
 			</form>");
@@ -425,14 +425,14 @@ class templates extends admin
 		$skin_box = $this->select_skins($template);
 
 		$out = "";
+		$action = 'delete';
 		$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM {$this->pre}templates WHERE template_skin='$template'");
 		while ($data = $this->db->nqfetch($query))
 		{
 			if (!isset($sections[$data['temp_set']])) {
 				$sections[$data['temp_set']] = $data['temp_set'];
 			}
-
-			$out .= "\n<li><a href='$this->self?a=templates&amp;s=delete&amp;section={$data['temp_set']}&amp;skin=$template'>{$sections[$data['temp_set']]}</a></li>";
+			$out .= eval($this->template('ADMIN_TEMPLATE_ENTRY'));
 		}
 		return eval($this->template('ADMIN_LIST_TEMPLATES_DELETE'));
 	}
@@ -442,14 +442,14 @@ class templates extends admin
 		$skin_box = $this->select_skins($template);
 
 		$out = "";
+		$action = 'edit';
 		$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM {$this->pre}templates WHERE template_skin='$template'");
 		while ($data = $this->db->nqfetch($query))
 		{
 			if (!isset($sections[$data['temp_set']])) {
 				$sections[$data['temp_set']] = $data['temp_set'];
 			}
-
-			$out .= "\n<li><a href='$this->self?a=templates&amp;s=edit&amp;section={$data['temp_set']}&amp;skin=$template'>{$sections[$data['temp_set']]}</a></li>";
+			$out .= eval($this->template('ADMIN_TEMPLATE_ENTRY'));
 		}
 		return eval($this->template('ADMIN_LIST_TEMPLATES'));
 	}
@@ -472,10 +472,15 @@ class templates extends admin
         	} else {
 		        $template = $this->post['template'];
 		        $template_set = !empty($this->post['ntemplate_set']) ? $this->post['ntemplate_set'] : $this->post['template_set'];
+
 		        $name = $this->post['name'];
 		        $html = $this->post['html'];
 		        $title = $this->post['title'];
 		        $desc = $this->post['desc'];
+
+			if (empty($name) || empty($html) || empty($title) || empty($desc) || empty($this->post['pos'])) {
+				return $this->message($this->lang->add, $this->lang->all_fields_required);
+			}
 		        $pos = is_numeric($this->post['pos']) ? $this->post['pos'] : 1;
 
 		        $this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('$template', '$template_set', '$name', '$html', '$title', '$desc', $pos)");
@@ -501,7 +506,7 @@ class templates extends admin
 				<div>
 				{$this->lang->select_template}:<br /><br />
 				<select name='template'>
-					$out
+					{$out}
 				</select>
 				<input type='submit' name='submit' value='{$this->lang->delete_template}' />
 				</div></form>");
@@ -509,30 +514,21 @@ class templates extends admin
 			$this->iterator_init('tablelight', 'tabledark');
 
 			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html FROM {$this->pre}templates WHERE template_skin='$template' AND template_name='{$this->post['template']}'");
+			$class = $this->iterate();
+			$name = $this->post['template'];
+			$section = $this->get['section'];
+			$skin = $this->get['skin'];
 
-			$out = "<form action='$this->self?a=templates&amp;s=delete&amp;i=confirm&amp;section={$this->get['section']}&amp;skin={$this->get['skin']}' method='post'>{$this->table}
-				<tr>
-					<td align='center' class='" . $this->iterate() . "'>You are about to delete the <span class='red'>{$this->post['template']}</span> template from the <span class='red'>{$template}</span> skin.</td>
-				</tr>";
-
+			$list = '';
 			while ($data = $this->db->nqfetch($query))
 			{
 				$template_name = $data['template_name'];
-				$out .= "<tr>
-					<td class='" . $this->iterate() . "'>
-						<span style='font-weight:bold; font-size:14px'>{$data['template_displayname']}</span><br /><br />
-						{$data['template_name']}<br /><br />
-						{$data['template_description']}<br /><br />
-						<textarea style='background-color:#FFFFFF; font-family: courier new, courier, monospaced, serif; font-size:12px; width:100%' rows='18' wrap='off'>{$data['template_html']}</textarea>
-					</td>
-				</tr>";
+				$class = $this->iterate();
+				$data['template_html'] = $this->format($data['template_html'], FORMAT_HTMLCHARS);
+				$list .= eval($this->template('ADMIN_TEMPLATE_DELETE_CONTENTS'));
 			}
-			$out .= "<tr>
-				<td align='center' class='" . $this->iterate() . "'>
-				<input type='submit' name='submit' value='{$this->lang->delete_template}' />
-				<input type='hidden' name='submitTemp' value='{$template_name}' />
-				</td>
-				</tr>{$this->etable}</form>";
+			$class = $this->iterate();
+			$out = eval($this->template('ADMIN_DELETE_TEMPLATE'));
 			return $this->message($this->lang->delete_template,$out);
 		} else {
 			$this->db->query("DELETE FROM {$this->pre}templates WHERE template_skin='{$this->get['skin']}' AND template_name='{$this->post['submitTemp']}'");
@@ -562,16 +558,8 @@ class templates extends admin
 
 				$data['template_html'] = $this->format($data['template_html'], FORMAT_HTMLCHARS);
 
-				$out .= "
-				<tr>
-					<td class='" . $this->iterate() . "'>
-						<span style='font-weight:bold; font-size:14px'>{$data['template_displayname']}</span><br /><br />
-						{$data['template_name']}
-						<input type='submit' name='submitTemps' value='{$this->lang->edit_templates}' style='float:right' /><br />
-						{$data['template_description']}<br /><br />
-						<textarea onchange=\"this.style.backgroundColor='#FFFFEE'; changed=true\" name='code[{$data['template_name']}]' style='background-color:#FFFFFF; font-family: courier new, courier, monospaced, serif; font-size:12px; width:100%' rows='18' cols='80' wrap='off'>{$data['template_html']}</textarea>
-					</td>
-				</tr>";
+				$class = $this->iterate();
+				$out .= eval($this->template('ADMIN_EDIT_TEMPLATE_ENTRY'));
 			}
 			return eval($this->template('ADMIN_EDIT_TEMPLATE'));
 		} else {
@@ -609,7 +597,7 @@ class templates extends admin
 			<form action='$this->self?a=templates&amp;s=skin' method='post'><div>
 				{$this->lang->create_new} <input type='text' name='new_name' size='24' maxlength='32' class='input' /> {$this->lang->based_on}
 				<select name='new_based'>
-					$skin_box
+					{$skin_box}
 				</select><br /><br />
 				<input type='submit' name='submit' value='{$this->lang->create_skin}' /></div>
 			</form>");

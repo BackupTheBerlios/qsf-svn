@@ -934,6 +934,7 @@ class en
 
 	function recent()
 	{
+		$this->recent_active = 'Active topics since last visit';
 		$this->recent_by = 'By';
 		$this->recent_can_post = 'You can reply in this forum.';
 		$this->recent_can_topics = 'You can view topics in this forum.';
@@ -1000,7 +1001,9 @@ class en
 		$this->register_passwd = 'Password';
 		$this->register_reg = 'Register';
 		$this->register_reging = 'Registering';
+		$this->register_tos = 'Terms of Service';
 		$this->register_tos_i_agree = 'I agree to the above terms';
+		$this->register_tos_not_agree = 'You did not agree to the terms.';
 		$this->register_tos_read = 'Please read the following terms of service';
 	}
 
@@ -1175,8 +1178,12 @@ class en
 	function templates()
 	{
 		$this->add = 'Add HTML Templates';
+		$this->add_in = 'Add template to:';
+		$this->all_fields_required = 'All fields are required to add a template';
 		$this->choose_set = 'Choose a template set';
 		$this->choose_skin = 'Choose a skin';
+		$this->confirm1 = 'You are about to delete the';
+		$this->confirm2 = 'template from';
 		$this->create_new = 'Create a new skin named';
 		$this->create_skin = 'Create Skin';
 		$this->credit = 'Please do not remove our only credit!';
@@ -1195,6 +1202,7 @@ class en
 		$this->install_skin = 'Install Skin';
 		$this->menu_title = 'Select a template section to edit';
 		$this->only_skin = 'There is only one skin installed. You may not delete this skin.';
+		$this->or_new = 'Or create new template set named:';
 		$this->select_skin = 'Select a Skin';
 		$this->select_skin_edit = 'Select a skin to edit';
 		$this->select_skin_edit_done = 'Skin successfully edited.';

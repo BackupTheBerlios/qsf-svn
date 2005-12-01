@@ -44,7 +44,7 @@ class admin extends qsfglobal
 	function message($title, $message, $link_text = null, $link = null, $redirect = null)
 	{
 		if ($link_text) {
-			$message .= "<br /><br /><a href='$link' class='nav'>$link_text</a>";
+			$message .= "<br /><br /><a href='$link'>$link_text</a>";
 		}
 
 		if ($redirect) {
@@ -191,7 +191,7 @@ class admin extends qsfglobal
 			$return = null;
 			foreach ($arr as $val) {
 				$return .= '<ul>' . "
-				<li><a href='{$link}{$val['forum_id']}' class='nav'>{$val['forum_name']}</a></li>" .
+				<li><a href='{$link}{$val['forum_id']}'>{$val['forum_name']}</a></li>" .
 				$this->Text($array, $link, $val['forum_id']) . '</ul>';
 			}
 			return $return;

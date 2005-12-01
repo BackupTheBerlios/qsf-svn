@@ -504,8 +504,8 @@ class hu
 		$this->main_reminder_closed = 'Az oldal zárva vanr és csak a karbantartók láthatják.';
 		$this->main_said = 'mondta';
 		$this->main_search = 'keresés';
-		$this->main_topics_new = 'Nincs új téma ebben a fórumban.';
-		$this->main_topics_old = 'Nincs új beírás ebben a fórumban.';
+		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
+		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
 		$this->main_welcome = 'Üdvözölünk';
 		$this->main_welcome_guest = 'Üdvözölünk!';
 	}
@@ -934,6 +934,7 @@ class hu
 
 	function recent()
 	{
+		$this->recent_active = 'Active topics since last visit'; //Translate
 		$this->recent_by = 'Feladó';
 		$this->recent_can_post = 'Válaszolhatsz ebben a fórumban.';
 		$this->recent_can_topics = 'Megtekintheted a témákat ebben a fórumban.';
@@ -1000,7 +1001,9 @@ class hu
 		$this->register_passwd = 'Jelszó';
 		$this->register_reg = 'Regisztrálás';
 		$this->register_reging = 'Regisztráció';
+		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
+		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
 		$this->register_tos_read = 'Please read the following terms of service'; //Translate
 	}
 
@@ -1175,8 +1178,12 @@ class hu
 	function templates()
 	{
 		$this->add = 'Add HTML Templates'; //Translate
+		$this->add_in = 'Add template to:'; //Translate
+		$this->all_fields_required = 'All fields are required to add a template'; //Translate
 		$this->choose_set = 'Choose a template set'; //Translate
 		$this->choose_skin = 'Choose a skin'; //Translate
+		$this->confirm1 = 'You are about to delete the'; //Translate
+		$this->confirm2 = 'template from'; //Translate
 		$this->create_new = 'Create a new skin named'; //Translate
 		$this->create_skin = 'Create Skin'; //Translate
 		$this->credit = 'Please do not remove our only credit!'; //Translate
@@ -1195,6 +1202,7 @@ class hu
 		$this->install_skin = 'Install Skin'; //Translate
 		$this->menu_title = 'Select a template section to edit'; //Translate
 		$this->only_skin = 'There is only one skin installed. You may not delete this skin.'; //Translate
+		$this->or_new = 'Or create new template set named:'; //Translate
 		$this->select_skin = 'Select a Skin'; //Translate
 		$this->select_skin_edit = 'Select a skin to edit'; //Translate
 		$this->select_skin_edit_done = 'Skin successfully edited.'; //Translate

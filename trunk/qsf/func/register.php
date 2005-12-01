@@ -91,7 +91,7 @@ class register extends qsfglobal
 			}
 
 			if (!isset($this->post['terms'])) {
-				return $this->message("Terms of Service", "You did not agree to the terms.");
+				return $this->message($this->lang->register_tos, $this->lang->register_tos_not_agree);
 			}
 
 			if ($this->sets['register_image']) {

@@ -44,7 +44,7 @@ class recent extends qsfglobal
 		$n   = isset($this->get['n']) ? intval($this->get['n']) : $this->sets['topics_per_page'];
 		$min = isset($this->get['min']) ? intval($this->get['min']) : 0;
 
-		$this->set_title("Active topics since last visit");
+		$this->set_title($this->lang->recent_active);
         
 		$forums_str = $this->createForumPermissionsString();
 
@@ -157,7 +157,7 @@ class recent extends qsfglobal
 			$Pages = $this->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'], ', ', 0, $this->sets['posts_per_page']);
 
 			if (!empty($row['topic_description'])) {
-				$row['topic_description'] = '<br>&raquo; ' . $this->format($row['topic_description'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
+				$row['topic_description'] = '<br />&raquo; ' . $this->format($row['topic_description'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 			}
 
 			if ($row['topic_last_poster'] != USER_GUEST_UID) {
@@ -209,19 +209,18 @@ class recent extends qsfglobal
 			$row['topic_views']  = number_format($row['topic_views'], 0, null, $this->lang->sep_thousands);
 
 			if ($row['topic_modes'] & TOPIC_PINNED) {
-				$out .= eval($this->template('RECENT_TOPIC_PINNED'));
-			} else {
-				$row['icon'] = $row['topic_icon']; // Store so skin can access
-				if ($row['topic_modes'] & TOPIC_POLL) {
-					$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" border="0" alt="' . $this->lang->recent_icon . '">';
-				} else {
-					if ($row['topic_icon']) {
-						$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/mbicons/' . $row['topic_icon'] . '" border=0 alt="' . $this->lang->recent_icon . '">';
-					}
-				}
-
-				$out .= eval($this->template('RECENT_TOPIC'));
+				$row['topic_title'] = "<b>" . $row['topic_title'] . "</b>";
 			}
+			$row['icon'] = $row['topic_icon']; // Store so skin can access
+			if ($row['topic_modes'] & TOPIC_POLL) {
+				$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" alt="' . $this->lang->recent_icon . '" />';
+			} else {
+				if ($row['topic_icon']) {
+					$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/mbicons/' . $row['topic_icon'] . '" alt="' . $this->lang->recent_icon . '" />';
+				}
+			}
+
+			$out .= eval($this->template('RECENT_TOPIC'));
 		}
 
 		return $out;

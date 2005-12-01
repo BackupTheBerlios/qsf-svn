@@ -251,7 +251,7 @@ class post extends qsfglobal
 					$file = $this->format($file, FORMAT_HTMLCHARS);
 
 					$attached .= "<option value='$md5'>$file</option>\n";
-					$attached_data .= "<input type='hidden' name='attached_data[$md5]' value='$file'>\n";
+					$attached_data .= "<input type='hidden' name='attached_data[$md5]' value='$file' />\n";
 				}
 			}
 
@@ -320,7 +320,7 @@ class post extends qsfglobal
 					}
 
 					if ($this->user['user_signature'] && $this->user['user_view_signatures']) {
-						$signature = '.........................<br /><span class=\'sig\'>' . $this->format($this->user['user_signature'], FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS) . '</span>';
+						$signature = '.........................<br />' . $this->format($this->user['user_signature'], FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS);
 					} else {
 						$signature = null;
 					}
@@ -374,7 +374,8 @@ class post extends qsfglobal
 
 			$msg_icons = $this->get_icons($icon);
 			$clickable = $this->make_clickable($this->sets['clickable_per_row']);
-
+			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
+			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
 			if ($this->perms->auth('post_attach', $this->get['f'])) {
 				if ($attached) {
 					$remove_box = eval($this->template('POST_ATTACH_REMOVE'));

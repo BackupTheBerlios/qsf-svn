@@ -36,10 +36,12 @@ class member_control extends admin
 		if (!isset($this->get['id'])) {
 			if (!isset($this->post['membername'])) {
 				return $this->message($this->lang->mc, "
-				<form action='$this->self?a=member_control&amp;s={$this->get['s']}' method='post'><div>
+				<form action='{$this->self}?a=member_control&amp;s={$this->get['s']}' method='post'>
+				<div>
 					{$this->lang->mc_find}:<br /><br />
 					<input type='text' name='membername' size='30' class='input' />
-					<input type='submit' name='submit' value='{$this->lang->submit}' /></div>
+					<input type='submit' name='submit' value='{$this->lang->submit}' />
+				</div>
 				</form>");
 			} else {
 				$query = $this->db->query('SELECT user_id, user_name FROM ' . $this->pre . 'users WHERE user_name LIKE "%' . $this->post['membername'] . '%" LIMIT 250');
@@ -60,7 +62,7 @@ class member_control extends admin
 
 				while ($member = $this->db->nqfetch($query))
 				{
-					$ret .= "<a href='$this->self?$link&amp;id=" . $member['user_id'] . "' class='nav'>{$member['user_name']}</a><br />";
+					$ret .= "<a href='$this->self?$link&amp;id=" . $member['user_id'] . "'>{$member['user_name']}</a><br />";
 				}
 
 				return $this->message($this->lang->mc, "{$this->lang->mc_found}<br /><br />$ret");
@@ -111,6 +113,7 @@ class member_control extends admin
 			if (!isset($this->post['submit'])) {
 				$member = $this->db->fetch('SELECT * FROM ' . $this->pre . 'users WHERE user_id=' . $this->get['id'] . ' LIMIT 1');
 
+				$this->iterator_init('tablelight', 'tabledark');
 				$out = "";
 
 				define('U_IGNORE', 0);
@@ -174,37 +177,38 @@ class member_control extends admin
 						$val = null;
 					}
 
-					$out .= "<tr><td class='tablelight' align='right' style='width:30%'><b>{$cols[$var][0]}</b></td><td class='tabledark'>";
+					$line = "";
+					$class = $this->iterate();
 
 					switch ($data[1])
 					{
 					case U_TZONE:
 						$time_list  = $this->select_timezones($val);
-						$out .= "<select class='select' name='user_timezone'>" . $time_list . "</select>";
+						$line = '<select class="select" name="user_timezone">' . $time_list . '</select>';
 						break;
 
 					case U_IGNORE:
 						if (!isset($cols[$var][2])) {
-							$out .= $val;
+							$line = $val;
 						} else {
 							if ($val) {
-								$out .= $this->lang->yes;
+								$line = $this->lang->yes;
 							} else {
-								$out .= $this->lang->no;
+								$line = $this->lang->no;
 							}
 						}
 						break;
 
 					case U_TIME:
-						$out .= $val ? date('Y-m-d, H:i:s', $val) : '-';
+						$line = $val ? date('Y-m-d, H:i:s', $val) : '-';
 						break;
 
 					case U_DATE:
-						$out .= $val ? date('Y-m-d', $val) : '-';
+						$line = $val ? date('Y-m-d', $val) : '-';
 						break;
 
 					case U_BOOL:
-						$out .= "<select name='$var'><option value='1'" . ($val ? ' selected=\'selected\'' : '') . ">{$this->lang->yes}</option><option value='0'" . (!$val ? ' selected=\'selected\'' : '') . ">{$this->lang->no}</option></select>";
+						$line = '<select name="' . $var . '"><option value="1"' . ($val ? ' selected="selected"' : '') . '>' . $this->lang->yes .'</option><option value="0"' . (!$val ? ' selected="selected"' : '') . '>' . $this->lang->no . '</option></select>';
 						break;
 
 					case U_FLOAT:
@@ -212,22 +216,22 @@ class member_control extends admin
 
 					case U_TEXT:
 					case U_INT:
-						$out .= "<input class='input' type='text' name='$var' value='$val' size='50' maxlength='{$cols[$var][2]}' />";
+						$line = '<input class="input" type="text" name="'. $var . '" value="' . $val . '" size="50" maxlength="' . $cols[$var][2] . '" />';
 						break;
 
 					case U_BLOB:
-						$out .= "<textarea class='input' name='$var' rows='5' cols='49'>$val</textarea>";
+						$line = '<textarea class="input" name="' . $var . '" rows="5" cols="49">' . $val . '</textarea>';
 						break;
 
 					case U_CALLBACK:
-						$out .= $this->{$cols[$var][2]}($val);
+						$line = $this->{$cols[$var][2]}($val);
 						break;
 
 					default:
-						$out .= $val;
+						$line = $val;
 					}
 
-					$out .= "</td></tr>\n";
+					$out .= eval($this->template('ADMIN_MEMBER_EDIT'));
 				}
 
 				return eval($this->template('ADMIN_MEMBER_PROFILE'));

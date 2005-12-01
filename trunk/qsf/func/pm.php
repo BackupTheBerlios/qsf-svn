@@ -273,7 +273,7 @@ class pm extends qsfglobal
 		}
 
 		if ($pm['user_signature'] && $this->user['user_view_signatures']) {
-			$pm['user_signature'] = '.........................<br /><span class="sig">' . $this->format($pm['user_signature'], FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS) . '</span>';
+			$pm['user_signature'] = '.........................<br />' . $this->format($pm['user_signature'], FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS);
 		} else {
 			$pm['user_signature'] = null;
 		}

@@ -89,30 +89,14 @@ class emot_control extends admin
 			$query = $this->db->query("SELECT * FROM {$this->pre}replacements WHERE replacement_type='emoticon'");
 			while ($data = $this->db->nqfetch($query))
 			{
+				$class = $this->iterate();
 				if (!$this->get['edit'] || ($this->get['edit'] != $data['replacement_id'])) {
-					$out .= "
-					<tr>
-						<td style='width:35%' class='" . $this->iterate() . "'>{$data['replacement_search']}</td>
-						<td style='width:35%' class='" . $this->lastValue() . "'>{$data['replacement_replace']}</td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'><img src='../skins/{$this->skin}/emoticons/{$data['replacement_replace']}' alt='{$data['replacement_replace']}' /></td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'>" . ($data['replacement_clickable'] ? $this->lang->yes : $this->lang->no ) . "</td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><a href='$this->self?a=emot_control&amp;s=edit&amp;edit={$data['replacement_id']}' class='nav'>{$this->lang->edit}</a></td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><a href='$this->self?a=emot_control&amp;s=edit&amp;delete={$data['replacement_id']}' class='nav'>{$this->lang->delete}</a></td>
-					</tr>";
+					$clickable = ($data['replacement_clickable'] ? $this->lang->yes : $this->lang->no );
+					$out .= eval($this->template('ADMIN_EMOTICONS_ENTRY'));
 				} else {
-					$out .= "
-					<tr>
-						<td style='width:35%' class='" . $this->iterate() . "'><input name='new_search' value='{$data['replacement_search']}' class='input' /></td>
-						<td style='width:35%' class='" . $this->lastValue() . "'>
-							<select name='new_replace' onchange='document.emot_preview.src=\"../skins/{$this->skin}/emoticons/\"+this.options[selectedIndex].value'>
-							" . $this->list_emoticons($data['replacement_replace']) . "
-							</select>
-						</td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'><img name='emot_preview' src='../skins/{$this->skin}/emoticons/{$data['replacement_replace']}' /></td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'><input type='checkbox' name='new_click'" . ($data['replacement_clickable'] ? ' checked' : '') . " /></td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><input type='submit' name='submit' value='{$this->lang->edit}' /></td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><a href='$this->self?a=emot_control&amp;s=edit&amp;delete={$data['replacement_id']}'>{$this->lang->delete}</a></td>
-					</tr>";
+					$clickable = ($data['replacement_clickable'] ? " checked='checked'" : "" );
+					$replacement = $this->list_emoticons($data['replacement_replace']);
+					$out .= eval($this->template('ADMIN_EMOTICONS_ENTRY_MOD'));
 				}
 			}
 
@@ -176,7 +160,7 @@ class emot_control extends admin
 			}
 
 			$name = substr($emo, 0, -4);
-			$out .= "\n<option value='$emo'" . (($emo == $select) ? ' selected' : '') . ">$emo</option>";
+			$out .= "\n<option value='$emo'" . (($emo == $select) ? ' selected=\'selected\'' : '') . ">$emo</option>";
 		}
 
 		return $out;

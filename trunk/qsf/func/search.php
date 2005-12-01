@@ -411,7 +411,8 @@ class search extends qsfglobal
 					$match['post_text'] = $this->format($match['post_text'], $params);
 
 					if ($type != 'id') {
-						$match['post_text'] = preg_replace("/($match_finder)/i", "<span style='color:#ff0000; font-weight:bold'>\\0</span>", $match['post_text']);
+						// $match['post_text'] = preg_replace("/($match_finder)/i", "<span style='color:#FF0000; font-weight:bold'>\\0</span>", $match['post_text']);
+						$match['post_text'] = preg_replace("/($match_finder)/i", "\\0", $match['post_text']);
 					}
 
 					if (isset($match['score'])) {

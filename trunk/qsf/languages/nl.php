@@ -506,8 +506,8 @@ class nl
 		$this->main_reminder_closed = 'Het forum is gesloten en alleen te zien door beheerders.';
 		$this->main_said = 'Schreef';
 		$this->main_search = 'Zoeken';
-		$this->main_topics_new = 'Er zijn nieuwe berichten in dit forum.';
-		$this->main_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
+		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
+		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
 		$this->main_welcome = 'Welkom';
 		$this->main_welcome_guest = 'Welkom gast!';
 	}
@@ -936,6 +936,7 @@ class nl
 
 	function recent()
 	{
+		$this->recent_active = 'Active topics since last visit'; //Translate
 		$this->recent_by = 'Door';
 		$this->recent_can_post = 'Je kunt reageren op de berichten in dit forum.';
 		$this->recent_can_topics = 'Je kunt de onderwerpen in dit forum bekijken.';
@@ -1002,7 +1003,9 @@ class nl
 		$this->register_passwd = 'Wachtwoord';
 		$this->register_reg = 'Registreer';
 		$this->register_reging = 'Aan het registreren';
+		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'Ik stem toe met de voorwaarden';
+		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
 		$this->register_tos_read = 'Lees de voorwaarden';
 	}
 
@@ -1177,8 +1180,12 @@ class nl
 	function templates()
 	{
 		$this->add = 'Voeg HTML Templates toe';
+		$this->add_in = 'Add template to:'; //Translate
+		$this->all_fields_required = 'All fields are required to add a template'; //Translate
 		$this->choose_set = 'Kies een template set';
 		$this->choose_skin = 'Kies een skin';
+		$this->confirm1 = 'You are about to delete the'; //Translate
+		$this->confirm2 = 'template from'; //Translate
 		$this->create_new = 'Maak een nieuwe skin aan, genaamd';
 		$this->create_skin = 'Maak een skin';
 		$this->credit = 'Please do not remove our only credit!'; //Translate
@@ -1197,6 +1204,7 @@ class nl
 		$this->install_skin = 'Installeer Skin';
 		$this->menu_title = 'Selecteer een template section om aan te passen';
 		$this->only_skin = 'Er is slechts 1 skin geïnstalleerd. U mag deze skin niet verwijderen.';
+		$this->or_new = 'Or create new template set named:'; //Translate
 		$this->select_skin = 'Selecteer een Skin';
 		$this->select_skin_edit = 'Selecteer een skin om aan te passen';
 		$this->select_skin_edit_done = 'Skin succesvol aangepast.';

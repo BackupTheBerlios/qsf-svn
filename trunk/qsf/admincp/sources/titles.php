@@ -94,30 +94,14 @@ class titles extends admin
 			$query = $this->db->query("SELECT * FROM {$this->pre}membertitles");
 			while ($data = $this->db->nqfetch($query))
 			{
+				$class = $this->iterate();
+
 				if (!$this->get['edit'] || ($this->get['edit'] != $data['membertitle_id'])) {
-					$out .= "
-					<tr>
-						<td style='width:35%' class='" . $this->iterate() . "'>{$data['membertitle_title']}</td>
-						<td style='width:35%' class='" . $this->lastValue() . "'>{$data['membertitle_icon']}</td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'><img src='../skins/{$this->skin}/images/{$data['membertitle_icon']}' alt='{$data['membertitle_icon']}' /></td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'>{$data['membertitle_posts']}</td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><a href='$this->self?a=titles&amp;s=edit&amp;edit={$data['membertitle_id']}' class='nav'>{$this->lang->edit}</a></td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><a href='$this->self?a=titles&amp;s=edit&amp;delete={$data['membertitle_id']}' class='nav'>{$this->lang->delete}</a></td>
-					</tr>";
+					$out .= eval($this->template('ADMIN_TITLE_ENTRY'));
 				} else {
-					$out .= "
-					<tr>
-						<td style='width:35%' class='" . $this->iterate() . "'><input name='new_title' value='{$data['membertitle_title']}' size='30' class='input' /></td>
-						<td style='width:35%' class='" . $this->lastValue() . "'>
-							<select name='new_icon' onchange='document.title_preview.src=\"../skins/{$this->skin}/images/\"+this.options[selectedIndex].value'>
-							" . $this->list_title_images($data['membertitle_icon']) . "
-							</select>
-						</td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'><img name='title_preview' src='../skins/{$this->skin}/images/{$data['membertitle_icon']}' /></td>
-						<td align='center' style='width:5%' class='" . $this->lastValue() . "'><input name='new_posts' class='input' value='{$data['membertitle_posts']}' size='8' /></td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><input type='submit' name='submit' value='{$this->lang->edit}' /></td>
-						<td align='center' style='width:10%' class='" . $this->lastValue() . "'><a href='$this->self?a=titles&amp;s=edit&amp;delete={$data['membertitle_id']}'>{$this->lang->delete}</a></td>
-					</tr>";
+					$icon = $this->list_title_images($data['membertitle_icon']);
+
+					$out .= eval($this->template('ADMIN_TITLE_ENTRY_MOD'));
 				}
 			}
 
