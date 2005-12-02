@@ -3431,8 +3431,7 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->table}
  <tr>
   <td class=\"header\">
-   <div style=\"float:left;\">{\$title_html}{\$topic[\'topic_description\']}</div>
-   <div style=\"text-align:right;\">{\$this->tree}</div>
+   {\$title_html}{\$topic[\'topic_description\']}
   </td>
  </tr>
  {\$posts}
