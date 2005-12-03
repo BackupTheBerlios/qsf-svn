@@ -53,7 +53,7 @@ class recent extends qsfglobal
 			return $this->message($this->lang->recent_forum, $this->lang->recent_noexist);
 		}
         
-		$topicCount = $this->countTopucs($forums_str);
+		$topicCount = $this->countTopics($forums_str);
 
 		$pagelinks = $this->get_pages($topicCount, 'a=recent', $min, $n);
 
@@ -100,7 +100,7 @@ class recent extends qsfglobal
 	 * @since 1.1.5
 	 * @return int count of topics
 	 **/
-	function countTopucs($forums_str)
+	function countTopics($forums_str)
 	{
 		$query = $this->db->fetch("
 		
