@@ -313,7 +313,7 @@ class qsfglobal
 				'~\[email]([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)?\[/email]~i',
 				'~\[email=([^<]+?)](.*?)\[/email]~i',
 				'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
-				'~\[(right|center)](.*?)\[/\1]~is',
+				'~\[(left|right|center)](.*?)\[/\1]~is',
 				'~\[color=([a-zA-Z]+?)](.*?)\[/color]~is',
 				'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
 				'~\[size=([0-9]+?)](.*?)\[/size]~is',
