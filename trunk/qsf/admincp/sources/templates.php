@@ -613,7 +613,7 @@ class templates extends admin
 			}
 
 			if (!$this->dir_copy("../skins/{$this->post['new_based']}/", "../skins/$name/")) {
-				return $this->message($this->lang->create_skin, $this->lang->chmod);
+				return $this->message($this->lang->create_skin, $this->lang->skin_chmod);
 			}
 			$this->chmod("../skins/$name/",0775,true);
 
