@@ -285,15 +285,15 @@ class qsfglobal
 			$search[] = '~\[quote=(.+?)]~i';
 			$search[] = '~\[quote]~i';
 
-			$replace[] = '<div class="quotewrap"><table class="quotebox" border="0" cellpadding="3" cellspacing="0"><tr><td><b>\\1 ' . $this->lang->main_said . ':</b></td></tr><tr><td class="quote">';
-			$replace[] = '<div class="quotewrap"><table class="quotebox" border="0" cellpadding="3" cellspacing="0"><tr><td><b>' . $this->lang->main_quote . ':</b></td></tr><tr><td class="quote">';
+			$replace[] = '<div class="quotebox"><b>\\1 ' . $this->lang->main_said . ':</b><div class="quote">';
+			$replace[] = '<div class="quotebox"><b>' . $this->lang->main_quote . ':</b><div class="quote">';
 
 			$startCount = preg_match_all($search[0], $in, $matches);
 			$startCount += preg_match_all($search[1], $in, $matches);
 			$in = preg_replace($search, $replace, $in);
 
 			$search = '~\[/quote]~i';
-			$replace = '</td></tr></table></div>';
+			$replace = '</div></div>';
 
 			// Count matches first
 			$endCount = preg_match_all($search, $in, $matches);

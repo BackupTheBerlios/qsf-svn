@@ -130,9 +130,9 @@ td.posterinfo {
 div.signature {font-size:0.9em; color:#333333;}
 
 /* Quote formatting */
-table.quotebox {
-	width:95%;
-	padding-left: 20px;
+div.quotebox      {
+	padding-left:20px;
+	margin-top:5px;
 	background-repeat: no-repeat;
 	background-position: top left;
 	background-image: url(./images/icons/quoted.png);
