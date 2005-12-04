@@ -1386,6 +1386,7 @@ function setHeight(obj)
 function noavatar()
 {
   image = document.images[\'current_avatar\'];
+  image.onerror = \"\";
   image.src = \'./skins/{\$this->skin}/images/noavatar.png\';
   image.height = 64;
   image.width = 64;
@@ -1872,29 +1873,25 @@ function get_forum(select)
  </tr>
 {\$this->etable}
 
-<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">
- <tr>
-  <td align=\"center\">
-   <table border=\"0\" cellpadding=\"5\" cellspacing=\"0\" style=\"border-collapse:collapse\">
+<div class=\"iconslegend\">
+   <table border=\"0\" cellpadding=\"5\" cellspacing=\"0\">
     <tr>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_unread.png\" title=\"{\$this->lang->forum_new}\" alt=\"{\$this->lang->forum_new}\" /><br />{\$this->lang->forum_new}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot_unread.png\" title=\"{\$this->lang->forum_new} {\$this->lang->forum_hot}\" alt=\"{\$this->lang->forum_new} {\$this->lang->forum_hot}\" /><br />{\$this->lang->forum_new} {\$this->lang->forum_hot}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/pin.png\" title=\"{\$this->lang->forum_pinned}\" alt=\"{\$this->lang->forum_pinned}\" /><br />{\$this->lang->forum_pinned}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_moved.png\" title=\"{\$this->lang->forum_moved}\" alt=\"{\$this->lang->forum_moved}\" /><br />{\$this->lang->forum_moved}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_unread.png\" title=\"{\$this->lang->forum_new}\" alt=\"{\$this->lang->forum_new}\" /><br />{\$this->lang->forum_new}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot_unread.png\" title=\"{\$this->lang->forum_new} {\$this->lang->forum_hot}\" alt=\"{\$this->lang->forum_new} {\$this->lang->forum_hot}\" /><br />{\$this->lang->forum_new} {\$this->lang->forum_hot}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/pin.png\" title=\"{\$this->lang->forum_pinned}\" alt=\"{\$this->lang->forum_pinned}\" /><br />{\$this->lang->forum_pinned}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_moved.png\" title=\"{\$this->lang->forum_moved}\" alt=\"{\$this->lang->forum_moved}\" /><br />{\$this->lang->forum_moved}</td>
     </tr>
     <tr>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic.png\" title=\"{\$this->lang->forum_topic}\" alt=\"{\$this->lang->forum_topic}\" /><br />{\$this->lang->forum_not} {\$this->lang->forum_new}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot.png\" title=\"{\$this->lang->forum_hot}\" alt=\"{\$this->lang->forum_hot}\" /><br />{\$this->lang->forum_hot}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/poll.png\" title=\"{\$this->lang->forum_poll}\" alt=\"{\$this->lang->forum_poll}\" /><br />{\$this->lang->forum_poll}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_locked.png\" title=\"{\$this->lang->forum_locked}\" alt=\"{\$this->lang->forum_locked}\" /><br />{\$this->lang->forum_locked}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic.png\" title=\"{\$this->lang->forum_topic}\" alt=\"{\$this->lang->forum_topic}\" /><br />{\$this->lang->forum_not} {\$this->lang->forum_new}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot.png\" title=\"{\$this->lang->forum_hot}\" alt=\"{\$this->lang->forum_hot}\" /><br />{\$this->lang->forum_hot}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/poll.png\" title=\"{\$this->lang->forum_poll}\" alt=\"{\$this->lang->forum_poll}\" /><br />{\$this->lang->forum_poll}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_locked.png\" title=\"{\$this->lang->forum_locked}\" alt=\"{\$this->lang->forum_locked}\" /><br />{\$this->lang->forum_locked}</td>
     </tr>
     <tr>
-     <td class=\"tabledark\" style=\"text-align:center\" colspan=\"4\"><img src=\"./skins/{\$this->skin}/images/icons/topic_posted_to.png\" title=\"{\$this->lang->forum_dot}\" alt=\"{\$this->lang->forum_dot}\" /> {\$this->lang->forum_dot_detail}</td>
+     <td class=\"tabledark\" colspan=\"4\"><img src=\"./skins/{\$this->skin}/images/icons/topic_posted_to.png\" title=\"{\$this->lang->forum_dot}\" alt=\"{\$this->lang->forum_dot}\" /> {\$this->lang->forum_dot_detail}</td>
     </tr>
    </table>
-  </td>
- </tr>
-</table>', 'Forum Topics List', 'The display of topic listings in a forum', 6)";
+</div>', 'Forum Topics List', 'The display of topic listings in a forum', 6)";
 $queries['HELP_DESCRIPTIVE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_DESCRIPTIVE_ENTRY', '<div class=\"header\">
  <a id=\"h{\$ar[\'help_id\']}\"><b>{\$ar[\'help_title\']}</b></a>
 </div>
@@ -3137,29 +3134,25 @@ function get_forum(select)
  </tr>
 {\$this->etable}<br />
 
-<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">
- <tr>
-  <td align=\"center\">
-   <table border=\"0\" cellpadding=\"5\" cellspacing=\"0\" style=\"border-collapse:collapse\">
+<div class=\"iconslegend\">
+   <table border=\"0\" cellpadding=\"5\" cellspacing=\"0\">
     <tr>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_unread.png\" title=\"{\$this->lang->recent_new}\" alt=\"{\$this->lang->recent_new}\" /><br />{\$this->lang->recent_new}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot_unread.png\" title=\"{\$this->lang->recent_new} {\$this->lang->recent_hot}\" alt=\"{\$this->lang->recent_new} {\$this->lang->recent_hot}\" /><br />{\$this->lang->recent_new} {\$this->lang->recent_hot}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/pin.png\" title=\"{\$this->lang->recent_pinned}\" alt=\"{\$this->lang->recent_pinned}\" /><br />{\$this->lang->recent_pinned}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_moved.png\" title=\"{\$this->lang->recent_moved}\" alt=\"{\$this->lang->recent_moved}\" /><br />{\$this->lang->recent_moved}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_unread.png\" title=\"{\$this->lang->recent_new}\" alt=\"{\$this->lang->recent_new}\" /><br />{\$this->lang->recent_new}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot_unread.png\" title=\"{\$this->lang->recent_new} {\$this->lang->recent_hot}\" alt=\"{\$this->lang->recent_new} {\$this->lang->recent_hot}\" /><br />{\$this->lang->recent_new} {\$this->lang->recent_hot}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/pin.png\" title=\"{\$this->lang->recent_pinned}\" alt=\"{\$this->lang->recent_pinned}\" /><br />{\$this->lang->recent_pinned}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_moved.png\" title=\"{\$this->lang->recent_moved}\" alt=\"{\$this->lang->recent_moved}\" /><br />{\$this->lang->recent_moved}</td>
     </tr>
     <tr>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic.png\" title=\"{\$this->lang->recent_topic}\" alt=\"{\$this->lang->recent_topic}\" /><br />{\$this->lang->recent_not} {\$this->lang->recent_new}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot.png\" title=\"{\$this->lang->recent_hot}\" alt=\"{\$this->lang->recent_hot}\" /><br />{\$this->lang->recent_hot}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/poll.png\" title=\"{\$this->lang->recent_poll}\" alt=\"{\$this->lang->recent_poll}\" /><br />{\$this->lang->recent_poll}</td>
-     <td class=\"tablelight\" style=\"text-align:center\"><img src=\"./skins/{\$this->skin}/images/icons/topic_locked.png\" title=\"{\$this->lang->recent_locked}\" alt=\"{\$this->lang->recent_locked}\" /><br />{\$this->lang->recent_locked}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic.png\" title=\"{\$this->lang->recent_topic}\" alt=\"{\$this->lang->recent_topic}\" /><br />{\$this->lang->recent_not} {\$this->lang->recent_new}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_hot.png\" title=\"{\$this->lang->recent_hot}\" alt=\"{\$this->lang->recent_hot}\" /><br />{\$this->lang->recent_hot}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/poll.png\" title=\"{\$this->lang->recent_poll}\" alt=\"{\$this->lang->recent_poll}\" /><br />{\$this->lang->recent_poll}</td>
+     <td class=\"tablelight\"><img src=\"./skins/{\$this->skin}/images/icons/topic_locked.png\" title=\"{\$this->lang->recent_locked}\" alt=\"{\$this->lang->recent_locked}\" /><br />{\$this->lang->recent_locked}</td>
     </tr>
     <tr>
      <td class=\"tabledark\" style=\"text-align:center\" colspan=\"4\"><img src=\"./skins/{\$this->skin}/images/icons/topic_posted_to.png\" title=\"{\$this->lang->recent_dot}\" alt=\"{\$this->lang->recent_dot}\" /> {\$this->lang->recent_dot_detail}</td>
     </tr>
    </table>
-  </td>
- </tr>
-</table>', 'Recent View', 'Change the appearance of the recent topics lists', 0)";
+</div>', 'Recent View', 'Change the appearance of the recent topics lists', 0)";
 $queries['RECENT_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_NO_TOPICS', ' <tr>
   <td class=\"tablelight\" style=\"text-align:center; padding:30px;\" colspan=\"7\">{\$this->lang->recent_no_topics}</td>
  </tr>', 'Error Display', 'Format the look of an error on the recent topics view.', 3)";

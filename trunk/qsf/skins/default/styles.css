@@ -181,6 +181,9 @@ a.postlink    {color:black;}
 a.pages:hover {color:#cc0000;}
 a.pagelinks:hover{color:#cc0000;}
 
+.iconslegend  {text-align: center;}
+.iconslegend table {border-collapse: collapse;}
+
 .copyright { margin-bottom: 0; text-align: center; }
 
 .pages        {font-size: 0.9em; color:#333333;}
