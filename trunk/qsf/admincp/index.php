@@ -85,12 +85,6 @@ require './sources/' . $module . '.php';
 
 $admin = new $module;
 
-if (!get_magic_quotes_gpc()) {
-	$admin->set_magic_quotes_gpc($admin->get);
-	$admin->set_magic_quotes_gpc($admin->post);
-	$admin->set_magic_quotes_gpc($admin->cookie);
-}
-
 $database = new database($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
 
 if (!$database->connection) {

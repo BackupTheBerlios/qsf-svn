@@ -89,8 +89,8 @@ class qsfglobal
 		$this->query   = htmlspecialchars($this->query);
 
 		// Do all magic quote stuff here
+		$this->agent = addslashes($this->agent);
 		if (!get_magic_quotes_gpc()) {
-			$this->agent = addslashes($this->agent);
 			$this->set_magic_quotes_gpc($this->get);
 			$this->set_magic_quotes_gpc($this->post);
 			$this->set_magic_quotes_gpc($this->cookie);
