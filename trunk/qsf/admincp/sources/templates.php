@@ -199,7 +199,7 @@ class templates extends admin
                         	        	$row['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row['template_html']);
 	                                	$row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
 						$row['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row['template_html']);
-						$row['template_html'] = addslashes($row['template_html']);
+						// $row['template_html'] = addslashes($row['template_html']);
                 		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                         		        $this->db->query($sql);
 		                        }
@@ -559,7 +559,7 @@ class templates extends admin
 				$data['template_html'] = $this->format($data['template_html'], FORMAT_HTMLCHARS);
 
 				$class = $this->iterate();
-				$out .= eval($this->template('ADMIN_EDIT_TEMPLATE_ENTRY'));
+				$out .= stripslashes( eval($this->template('ADMIN_EDIT_TEMPLATE_ENTRY')) );
 			}
 			return eval($this->template('ADMIN_EDIT_TEMPLATE'));
 		} else {
