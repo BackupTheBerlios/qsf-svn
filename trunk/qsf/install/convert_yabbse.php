@@ -126,9 +126,6 @@ function strip_yabbse_tags( $text )
    $text = preg_replace( '/\[shadow=(.*?)\](.*?)\[\/shadow\]/si', '\\2', $text );
    $text = preg_replace( '/\[flash=(.*?)\](.*?)\[\/flash\]/si', '\\2', $text );
    $text = preg_replace( '/\[move\](.*?)\[\/move\]/si', '\\1', $text );
-   $text = preg_replace( '/\[left\](.*?)\[\/left\]/si', '\\1', $text );
-   $text = preg_replace( '/\[center\](.*?)\[\/center\]/si', '\\1', $text );
-   $text = preg_replace( '/\[right\](.*?)\[\/right\]/si', '\\1', $text );
    $text = preg_replace( '/\[table\](.*?)\[\/table\]/si', '\\1', $text );
    $text = preg_replace( '/\[tr\](.*?)\[\/tr\]/si', '\\1', $text );
    $text = preg_replace( '/\[td\](.*?)\[\/td\]/si', '\\1', $text );

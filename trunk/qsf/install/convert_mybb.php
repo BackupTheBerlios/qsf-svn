@@ -125,8 +125,9 @@ function strip_mybb_tags( $text )
    $text = preg_replace( '/\[size=2\](.*?)\[\/size\]/si', '[size=3]\\1[/size]', $text );
    $text = preg_replace( '/\[size=1\](.*?)\[\/size\]/si', '[size=2]\\1[/size]', $text );
 
-   // Text alignment tags are not supported in QSF.
-   $text = preg_replace( '/\[align=(.*?)\](.*?)\[\/align\]/si', '\\2', $text );
+   // Text alignment tags....
+   $text = preg_replace( '/\[align=(.*?)\](.*?)\[\/align\]/si', '[\\1]\\2[/\\1]', $text );
+   $text = preg_replace( '/\[justify\](.*?)\[\/justify\]/si', '\\1', $text );
 
    // List tags are not supported in QSF.
    $text = preg_replace( '/\[list=(.*?)\](.*?)\[\/list\]/si', '\\2', $text );
