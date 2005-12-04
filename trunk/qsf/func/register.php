@@ -185,35 +185,16 @@ class register extends qsfglobal
 
 	function create_image()
 	{
-		include './lib/jpgraph/jpgraph.php';
-		include './lib/jpgraph/jpgraph_polar.php';
-
-		$graph = new PolarGraph(250, 250);
-		$graph->SetScale('lin');
-		$graph->SetMargin(0, 1, 0, 1);
-		$graph->axis->ShowAngleLabel(false);
-		$graph->axis->HideTicks();
-		$graph->axis->HideLabels();
-		$graph->axis->HideLine();
-
-		$fonts  = array(FF_ARIAL, FF_VERDANA, FF_TREBUCHE, FF_GEORGIA, FF_COMIC, FF_COURIER, FF_TIMES);
-		$styles = array(FS_NORMAL, FS_BOLD, FS_ITALIC);
-
-		$text  = $this->generate_pass(6);
-		$font  = $fonts[rand(0, count($fonts) - 1)];
-		$style = $styles[rand(0, count($styles) - 1)];
-
-		if (($font == FF_COMIC) && ($style == FS_ITALIC)) {
-			$style = FS_NORMAL;
+		require './lib/jpgraph/jpgraph.php';
+		require './lib/jpgraph/jpgraph_antispam.php';
+		
+		if (!function_exists('imagejpeg')) {
+			JpGraphError::Raise("This PHP installation is not configured with JPEG support. Please recompile PHP with GD and JPEG support to run JpGraph. (Function imagejpeg() does not exist)");
 		}
 
-		$txt = new Text($text);
-		$txt->Pos(rand(10, 140), rand(10, 140));
-		$txt->SetFont($font, $style, rand(20, 26));
-		$txt->SetColor('black');
-		$txt->SetAngle(rand(-45, 45));
-
-		$graph->AddText($txt);
+		$graph = new AntiSpam();
+		
+		$text  = $graph->Rand(6);
 		$graph->Stroke('./register.png');
 
 		return array(md5("{$this->sets['db_pass']}{$this->sets['mostonlinetime']}$text"), './register.png');
