@@ -207,7 +207,18 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    $post_count = $oldset['post_count'];
 
    include 'templates/convert_header.php';
-   include 'templates/convert_vb351_memberprofiles.php';
+
+   echo "<tr>
+     <td class='subheader' align='center' style='border-right:0;'>Conversion Step</td>
+     <td class='subheader' align='center' style='border-left:0; border-right:0;'>Results</td>
+     </tr>
+     <tr>
+     <td class='tablelight'>&nbsp;</td>
+     <td class='tablelight'>&nbsp;</td>
+     </tr>
+     <tr>
+     <td class='tablelight' align='left'><a href='convert_vb351.php?action=members'>Convert Member Profiles</a>
+     </td>";
 
    if( $prof_count > '0' )
       echo "<td class='tablelight' align='left'>".$prof_count." member profiles converted.</td>\n";
@@ -301,19 +312,19 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $qsf->updateForumTrees();
       $qsf->RecountForums();
 
-      include 'templates/convert_mybb_finished.php';
+      include 'templates/convert_vb351_finished.php';
    }
    include 'templates/convert_footer.php';
 }
 
-else if( $_GET['action'] == 'dropmybb' )
+else if( $_GET['action'] == 'dropvb' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_mybb_destroydata.php';
+    include 'templates/convert_vb351_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
-else if( $_GET['action'] == 'confirmmybbdrop' )
+else if( $_GET['action'] == 'confirmvbdrop' )
 {
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}adminlog" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}adminoptions" );
