@@ -1151,23 +1151,19 @@ $queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, 
  </tr>
 {\$this->etable}
 </form>', 'Admin Member Control', 'Form for editing member profiles', 0)";
-$queries['ADMIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_MESSAGE', '<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"60%\" style=\"margin-left:20%; margin-right:20%;\">
- <tr>
-  <td>
+$queries['ADMIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_MESSAGE', '<div class=\"mainmessage\">
    {\$this->table}
     <tr>
-     <td class=\"header\" style=\"text-align:center;\">{\$title}</td>
+     <td class=\"header\">{\$title}</td>
     </tr>
     <tr>
-     <td class=\"tablelight\" style=\"text-align:center; padding:20px;\">{\$message}</td>
+     <td class=\"tablelight\" style=\"padding:20px;\">{\$message}</td>
     </tr>
     <tr>
      <td class=\"footer\">&nbsp;</td>
     </tr>
    {\$this->etable}
-  </td>
- </tr>
-</table>', 'AdminCP Generic Message', 'The generic messages that appear throughout the AdminCP', 2)";
+</div>', 'AdminCP Generic Message', 'The generic messages that appear throughout the AdminCP', 2)";
 $queries['ADMIN_MOD_LOGS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'logs', 'ADMIN_MOD_LOGS', '{\$this->table}
  <tr>
   <td class=\"header\" colspan=\"4\">{\$this->lang->logs_view}</td>
