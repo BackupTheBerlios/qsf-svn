@@ -74,7 +74,7 @@ class forum extends qsfglobal
 		 * Check if the forum exists. We also cause an error if
 		 * $exists['forum_parent'] is 0 because categories can't be viewed as forums.
 		 */
-		$exists = $this->db->fetch("SELECT forum_parent, forum_name FROM {$this->pre}forums WHERE forum_id=$f");
+		$exists = $this->db->fetch("SELECT forum_parent, forum_name, forum_subcat FROM {$this->pre}forums WHERE forum_id=$f");
 		if (!isset($exists['forum_parent']) || !$exists['forum_parent']) {
 			return $this->message($this->lang->forum_forum, $this->lang->forum_noexist);
 		}
@@ -87,9 +87,7 @@ class forum extends qsfglobal
 		$SubForums = $this->getSubs($f);
 		$forumjump = $this->select_forums($this->forum_grab(), $f, 0, null, true);
 
-		$subcat    = $this->db->fetch("SELECT forum_subcat FROM {$this->pre}forums WHERE forum_id=$f");
-
-		if($subcat['forum_subcat'] == '0') {
+		if($exists['forum_subcat'] == '0') {
 			$topics = $this->getTopics($f, $min, $n, $order);
 
 			if (!$topics) {
