@@ -314,7 +314,7 @@ class qsfglobal
 				'~\[email=([^<]+?)](.*?)\[/email]~i',
 				'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
 				'~\[(left|right|center)](.*?)\[/\1]~is',
-				'~\[color=([a-zA-Z]+?)](.*?)\[/color]~is',
+				'~\[color=(#?[a-zA-Z0-9]+?)](.*?)\[/color]~is',
 				'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
 				'~\[size=([0-9]+?)](.*?)\[/size]~is',
 				'~\[spoiler](.*?)\[/spoiler]~i',
