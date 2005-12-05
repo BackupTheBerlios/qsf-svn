@@ -506,8 +506,8 @@ class nl
 		$this->main_reminder_closed = 'Het forum is gesloten en alleen te zien door beheerders.';
 		$this->main_said = 'Schreef';
 		$this->main_search = 'Zoeken';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Er zijn nieuwe berichten in dit forum.';
+		$this->main_topics_old = 'Er zijn geen nieuwe berichten in dit forum.';
 		$this->main_welcome = 'Welkom';
 		$this->main_welcome_guest = 'Welkom gast!';
 	}
@@ -832,6 +832,7 @@ class nl
 		$this->post_mbcode_size = 'Grootte';
 		$this->post_mbcode_skyblue = 'Lucht Blauw';
 		$this->post_mbcode_small = 'Klein';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Doorstrepen';
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1371,6 +1372,7 @@ class nl
 		$this->seconds = 'Seconden';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Verzend';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Vandaag';

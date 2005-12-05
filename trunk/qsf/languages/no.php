@@ -504,8 +504,8 @@ class no
 		$this->main_reminder_closed = 'dette forumet er stengt og kan bare leses av administratoren.';
 		$this->main_said = 'sa';
 		$this->main_search = 'søk';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Det finnes nye innlegg i dette forumet.';
+		$this->main_topics_old = 'Det finnes ingen nye innlegg i dette forumet.';
 		$this->main_welcome = 'Velkommen';
 		$this->main_welcome_guest = 'Velkommen!';
 	}
@@ -830,6 +830,7 @@ class no
 		$this->post_mbcode_size = 'Størrelse';
 		$this->post_mbcode_skyblue = 'Himmelblå';
 		$this->post_mbcode_small = 'Liten';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Gjennomstreking';
 		$this->post_mbcode_strike1 = 'g';
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class no
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = ' ';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Send';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Today'; //Translate

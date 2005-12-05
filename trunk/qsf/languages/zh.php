@@ -504,8 +504,8 @@ class zh
 		$this->main_reminder_closed = '��̳�Ѿ��رգ�ֻ�й���Ա���ܽ��롣';
 		$this->main_said = '˵';
 		$this->main_search = '��̳����';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = '����̳�������ӡ�';
+		$this->main_topics_old = '����̳û�������ӡ�';
 		$this->main_welcome = '��ӭ';
 		$this->main_welcome_guest = '��ӭ';
 	}
@@ -830,6 +830,7 @@ class zh
 		$this->post_mbcode_size = '��С';
 		$this->post_mbcode_skyblue = '��6';
 		$this->post_mbcode_small = 'С';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'ɾ����';
 		$this->post_mbcode_strike1 = 'ɾ';
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class zh
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = '.'; //Translate
 		$this->sep_thousands = '';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = '�ύ';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Today'; //Translate

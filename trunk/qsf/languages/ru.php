@@ -505,8 +505,8 @@ class ru
 		$this->main_reminder_closed = 'Форумы закрыты и доступны только администраторам.';
 		$this->main_said = 'сказал';
 		$this->main_search = 'поиск';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'В форуме есть новые сообщения.';
+		$this->main_topics_old = 'В форуме нет новых сообщений.';
 		$this->main_welcome = 'Добро пожаловать';
 		$this->main_welcome_guest = 'Добро пожаловать!';
 	}
@@ -831,6 +831,7 @@ class ru
 		$this->post_mbcode_size = 'Размер';
 		$this->post_mbcode_skyblue = 'Голубой';
 		$this->post_mbcode_small = 'Маленький';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Перечеркнутый';
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1370,6 +1371,7 @@ class ru
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Отправить';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Сегодня';

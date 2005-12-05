@@ -2625,6 +2625,7 @@ var form = document.forms[\"mbpost\"];
      <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"php\" title=\"{\$this->lang->post_mbcode_php}\" accesskey=\"p\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_php}\" style=\"width:40px\" /></td>
      <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"code\" title=\"{\$this->lang->post_mbcode_code}\" accesskey=\"c\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_code}\" style=\"width:40px\" /></td>
      <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"quote\" title=\"{\$this->lang->post_mbcode_quote}\" accesskey=\"q\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_quote}\" style=\"width:50px\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"spoiler\" title=\"{\$this->lang->post_mbcode_spoiler}\" accesskey=\"r\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_spoiler}\" style=\"width:50px\" /></td>
      <td>&nbsp;</td>
      <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"url\" title=\"{\$this->lang->post_mbcode_url}\" accesskey=\"h\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_url}\" style=\"width:40px\" /></td>
      <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"email\" title=\"{\$this->lang->post_mbcode_email}\" accesskey=\"e\" class=\"mbcButton\" value=\"@\" style=\"width:30px\" /></td>

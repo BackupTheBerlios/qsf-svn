@@ -830,6 +830,7 @@ class en
 		$this->post_mbcode_size = 'Size';
 		$this->post_mbcode_skyblue = 'Sky Blue';
 		$this->post_mbcode_small = 'Small';
+		$this->post_mbcode_spoiler = 'Spoiler';
 		$this->post_mbcode_strike = 'Strikethrough';
 		$this->post_mbcode_strike1 = 'S';
 		$this->post_mbcode_tahoma = 'Tahoma';
@@ -1369,6 +1370,7 @@ class en
 		$this->seconds = 'Seconds';
 		$this->sep_decimals = '.';
 		$this->sep_thousands = ',';
+		$this->spoiler = 'Spoiler';
 		$this->submit = 'Submit';
 		$this->subscribe = 'Subscribe';
 		$this->today = 'Today';

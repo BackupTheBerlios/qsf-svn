@@ -504,8 +504,8 @@ class hu
 		$this->main_reminder_closed = 'Az oldal zárva vanr és csak a karbantartók láthatják.';
 		$this->main_said = 'mondta';
 		$this->main_search = 'keresés';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Nincs új téma ebben a fórumban.';
+		$this->main_topics_old = 'Nincs új beírás ebben a fórumban.';
 		$this->main_welcome = 'Üdvözölünk';
 		$this->main_welcome_guest = 'Üdvözölünk!';
 	}
@@ -830,6 +830,7 @@ class hu
 		$this->post_mbcode_size = 'Méret';
 		$this->post_mbcode_skyblue = 'Égszínkék';
 		$this->post_mbcode_small = 'Kicsi';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Áthúzás';
 		$this->post_mbcode_strike1 = 'Á';
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class hu
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Mehet';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Ma';

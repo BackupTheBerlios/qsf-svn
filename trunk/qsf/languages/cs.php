@@ -504,8 +504,8 @@ class cs
 		$this->main_reminder_closed = 'Fórum je nyní uzavøeno, pøístupné jen administrátorùm.';
 		$this->main_said = 'øekl(a)';
 		$this->main_search = 'hledat';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Ve fóru je novı pøíspìvek.';
+		$this->main_topics_old = 'Ve fóru nejsou ádné nové pøíspìvky.';
 		$this->main_welcome = 'Vítejte';
 		$this->main_welcome_guest = 'Vítejte!!';
 	}
@@ -830,6 +830,7 @@ class cs
 		$this->post_mbcode_size = 'Velikost';
 		$this->post_mbcode_skyblue = 'Nebeská modrá';
 		$this->post_mbcode_small = 'Malı';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Oznaèenı text bude pøeškrtnutı';
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class cs
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Odeslat';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'dnes';

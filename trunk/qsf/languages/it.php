@@ -504,8 +504,8 @@ class it
 		$this->main_reminder_closed = 'La bacheca è chiusa e visibile solo agli amministratori.';
 		$this->main_said = 'ha scritto';
 		$this->main_search = 'cerca';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Ci sono nuovi messaggi in questo forum.';
+		$this->main_topics_old = 'Non ci sono nuovi messaggi in questo forum.';
 		$this->main_welcome = 'Benvenuto';
 		$this->main_welcome_guest = 'Benvenuto!';
 	}
@@ -830,6 +830,7 @@ class it
 		$this->post_mbcode_size = 'Size'; //Translate
 		$this->post_mbcode_skyblue = 'Sky Blue'; //Translate
 		$this->post_mbcode_small = 'Small'; //Translate
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Strikethrough'; //Translate
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class it
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Invia';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Oggi';

@@ -504,8 +504,8 @@ class bg
 		$this->main_reminder_closed = 'Форумът е затворен.';
 		$this->main_said = 'каза';
 		$this->main_search = 'Търсене';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Има нови мнения.';
+		$this->main_topics_old = 'Няма нови мнения.';
 		$this->main_welcome = 'Добре дошъл';
 		$this->main_welcome_guest = 'Добре дошъл!';
 	}
@@ -830,6 +830,7 @@ class bg
 		$this->post_mbcode_size = 'Размер';
 		$this->post_mbcode_skyblue = 'Небесно син';
 		$this->post_mbcode_small = 'малък';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Strikethrough'; //Translate
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class bg
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = '.'; //Translate
 		$this->sep_thousands = ','; //Translate
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Изпрати';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Today'; //Translate

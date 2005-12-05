@@ -504,8 +504,8 @@ class fi
 		$this->main_reminder_closed = 'Keskustelualue on suljettu ja siten vain yll‰pit‰jien n‰ht‰viss‰.';
 		$this->main_said = 'sanoi';
 		$this->main_search = 'hae';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'T‰ss‰ huoneessa on uusia viestej‰.';
+		$this->main_topics_old = 'T‰ss‰ huoneessa ei ole uusia viestej‰.';
 		$this->main_welcome = 'Tervetuloa';
 		$this->main_welcome_guest = 'Tervetuloa!';
 	}
@@ -830,6 +830,7 @@ class fi
 		$this->post_mbcode_size = 'Koko';
 		$this->post_mbcode_skyblue = 'Taivaansininen';
 		$this->post_mbcode_small = 'Pieni';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Yliviivattu';
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class fi
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = '.'; //Translate
 		$this->sep_thousands = ','; //Translate
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'L‰het‰';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 't‰n‰‰n';

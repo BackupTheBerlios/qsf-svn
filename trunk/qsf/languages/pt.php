@@ -504,8 +504,8 @@ class pt
 		$this->main_reminder_closed = 'Forum fechado. Visível somente para administrador.';
 		$this->main_said = 'disse';
 		$this->main_search = 'Procura';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'Existem novos tópicos neste forum.';
+		$this->main_topics_old = 'Nenhuma postagem neste forum.';
 		$this->main_welcome = 'Olá';
 		$this->main_welcome_guest = 'Olá convidado!';
 	}
@@ -830,6 +830,7 @@ class pt
 		$this->post_mbcode_size = 'largura';
 		$this->post_mbcode_skyblue = 'Azul céu';
 		$this->post_mbcode_small = 'Pequeno';
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Strikethrough'; //Translate
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class pt
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = '.'; //Translate
 		$this->sep_thousands = ','; //Translate
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Enviar';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Hoje';

@@ -504,8 +504,8 @@ class he
 		$this->main_reminder_closed = 'The board is closed and only viewable to admins.'; //Translate
 		$this->main_said = 'said'; //Translate
 		$this->main_search = 'חיפוש';
-		$this->main_topics_new = 'There are new posts in this forum.'; //Translate
-		$this->main_topics_old = 'There are no new posts in this forum.'; //Translate
+		$this->main_topics_new = 'יש הודועת חדשות בפורום הזה.';
+		$this->main_topics_old = 'אין הודועת חדשות בפורום הזה.';
 		$this->main_welcome = 'ברוך הבא';
 		$this->main_welcome_guest = 'ברוך הבא!';
 	}
@@ -830,6 +830,7 @@ class he
 		$this->post_mbcode_size = 'Size'; //Translate
 		$this->post_mbcode_skyblue = 'Sky Blue'; //Translate
 		$this->post_mbcode_small = 'Small'; //Translate
+		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
 		$this->post_mbcode_strike = 'Strikethrough'; //Translate
 		$this->post_mbcode_strike1 = 'S'; //Translate
 		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
@@ -1369,6 +1370,7 @@ class he
 		$this->seconds = 'Seconds'; //Translate
 		$this->sep_decimals = '.'; //Translate
 		$this->sep_thousands = ','; //Translate
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'אישור';
 		$this->subscribe = 'Subscribe'; //Translate
 		$this->today = 'Today'; //Translate
