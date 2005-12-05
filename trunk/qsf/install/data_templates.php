@@ -2063,23 +2063,19 @@ $queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, te
  {\$qsf->etable}
 
  <p></p>', 'Welcome Message - Logged In', 'Edit the menu bar for logged in members', 2)";
-$queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MESSAGE', '<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"60%\" style=\"margin-left:20%; margin-right:20%;\">
- <tr>
-  <td>
+$queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MESSAGE', '<div class=\"mainmessage\">
    {\$this->table}
     <tr>
-     <td class=\"header\" style=\"text-align:center;\">{\$title}</td>
+     <td class=\"header\">{\$title}</td>
     </tr>
     <tr>
-     <td class=\"tablelight\" style=\"text-align:center; padding:20px;\">{\$message}</td>
+     <td class=\"tablelight\" style=\"padding:20px;\">{\$message}</td>
     </tr>
     <tr>
      <td class=\"footer\">&nbsp;</td>
     </tr>
    {\$this->etable}
-  </td>
- </tr>
-</table>', 'Generic Message', 'Edit the html that displays generic messages throughout the board', 1)";
+</div>', 'Generic Message', 'Edit the html that displays generic messages throughout the board', 1)";
 $queries['MAIN_REMINDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', ' <p class=\"reminder\">
   {\$qsf->lang->main_reminder}<br /><br />{\$reminder_text}
  </p>', 'Reminder', 'Used for important reminders for certain users, such as explaining to members awaiting activation how to enable their accounts.', 7)";
