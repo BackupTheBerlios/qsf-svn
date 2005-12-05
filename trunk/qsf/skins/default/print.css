@@ -82,10 +82,11 @@ a             {color:black;}
 a.postlink    {color:black;}
 
 .iconslegend  {text-align: center;}
-.iconslegend table {border-collapse: collapse;}
+.iconslegend table {border-collapse: collapse; margin-left: auto; margin-right: auto;}
 
 .copyright { margin-bottom: 0; text-align: center; }
 
+.spoiler      {border:1px #555555 solid; color: gray;}
 
 .pages        {font-size: 0.9em; color:#333333;}
 .mbcSelect    {font-size: 0.9em; color:black;}

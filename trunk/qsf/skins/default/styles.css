@@ -182,7 +182,7 @@ a.pages:hover {color:#cc0000;}
 a.pagelinks:hover{color:#cc0000;}
 
 .iconslegend  {text-align: center;}
-.iconslegend table {border-collapse: collapse;}
+.iconslegend table {border-collapse: collapse; margin-left: auto; margin-right: auto;}
 
 .copyright { margin-bottom: 0; text-align: center; }
 
