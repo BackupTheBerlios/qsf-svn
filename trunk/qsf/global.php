@@ -1900,6 +1900,14 @@ class qsfglobal
 	 **/
 	function RecountForums()
 	{
+		// Recount all topics and posts - NiteShdw
+		$q = $this->db->query("SELECT topic_id, COUNT(post_id) AS replies FROM {$this->pre}topics, {$this->pre}posts WHERE post_topic=topic_id GROUP BY topic_id");
+		
+		while ($f = $this->db->nqfetch($q))
+		{
+			$q2 = $this->db->query("UPDATE {$this->pre}topics SET topic_replies='{$f['replies']}' WHERE topic_id='{$f['topic_id']}' LIMIT 1");
+		}
+
 		$q = $this->db->query("SELECT forum_id FROM {$this->pre}forums WHERE forum_parent = 0");
 		$this->sets['posts'] = 0;
 		$this->sets['topics'] = 0;
