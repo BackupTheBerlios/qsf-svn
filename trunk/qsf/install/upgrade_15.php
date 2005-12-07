@@ -24,6 +24,8 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to upgrade.');
 }
 
+// Upgrade from 1.1.5 to 1.1.6
+
 $need_templates = array(
 	'MAIN',				// Changed templates
 	'SEARCH_RESULTS_MEMBER_INFO',
