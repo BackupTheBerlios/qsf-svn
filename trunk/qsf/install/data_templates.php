@@ -2258,25 +2258,25 @@ $queries['MOD_SPLIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templ
   </td>
  </tr>
  <tr style=\"{\$display[1]}\">
-  <td class=\"tablelight\' style=\"width:30%\">{\$this->lang->mod_label_title_split} 1</td>
+  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 1</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[1]\" size=\"60\" maxlength=\"75\" />
   </td>
  </tr>
  <tr style=\"{\$display[2]}\">
-  <td class=\"tablelight\' style=\"width:30%\">{\$this->lang->mod_label_title_split} 2</td>
+  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 2</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[2]\" size=\"60\" maxlength=\"75\" />
   </td>
  </tr>
  <tr style=\"{\$display[3]}\">
-  <td class=\"tablelight\' style=\"width:30%\">{\$this->lang->mod_label_title_split} 3</td>
+  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 3</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[3]\" size=\"60\" maxlength=\"75\" />
   </td>
  </tr>
  <tr style=\"{\$display[4]}\">
-  <td class=\"tablelight\' style=\"width:30%\">{\$this->lang->mod_label_title_split} 4</td>
+  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 4</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[4]\" size=\"60\" maxlength=\"75\" />
   </td>
