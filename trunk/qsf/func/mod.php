@@ -581,7 +581,7 @@ class mod extends qsfglobal
 		}
 
 		if (!isset($this->post['submitsplit'])) {
-			$posttarget = serialize($this->post['posttarget']);
+			$posttarget = htmlspecialchars(serialize($this->post['posttarget']));
 
 			$display[1] = in_array('1', $this->post['posttarget']) ? '' : 'display:none';
 			$display[2] = in_array('2', $this->post['posttarget']) ? '' : 'display:none';
