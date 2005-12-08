@@ -309,7 +309,9 @@ class board extends qsfglobal
 
 		$query = $this->db->query("
 		SELECT
-		  a.*, u.user_name, u.user_active, g.group_format
+		  a.active_id, INET_NTOA(a.active_ip) AS active_ip, a.active_user_agent, a.active_action,
+		  a.active_item, a.active_time, a.active_session,
+		  u.user_name, u.user_active, g.group_format
 		FROM
 		  ({$this->pre}active a, {$this->pre}groups g, {$this->pre}users u)
 		WHERE
