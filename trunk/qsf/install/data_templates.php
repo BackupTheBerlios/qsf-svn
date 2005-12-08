@@ -1243,7 +1243,7 @@ $queries['ADMIN_TITLE_FORM'] = "INSERT INTO {$pre}templates (template_skin, temp
 {\$this->etable}
 </form>', 'Member Titles', 'Form for editing and deleting member titles', 0)";
 $queries['BOARD_CATEGORY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY', ' <tr>
-  <td class=\"subheader\" colspan=\"5\">
+  <td class=\"subheader\" colspan=\"4\">
    <div style=\"float:left;\"><a href=\"{\$this->self}?c={\$forum[\'forum_id\']}\" class=\"header\">{\$forum[\'forum_name\']}</a></div>
    <div style=\"text-align:right;\">
     <a href=\"#bottom\"><img src=\"./skins/{\$this->skin}/images/icons/arrow_down.png\" alt=\"{\$this->lang->board_bottom_page}\" title=\"{\$this->lang->board_bottom_page}\" /></a>
@@ -2409,7 +2409,7 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
 
 {\$this->table}
  <tr>
-  <td class=\"header\" colspan=\"2\">{\$pm[\'pm_title\']}</td>
+  <td class=\"header\">{\$pm[\'pm_title\']}</td>
  </tr>
  <tr>
   <td class=\"tablelight\">
