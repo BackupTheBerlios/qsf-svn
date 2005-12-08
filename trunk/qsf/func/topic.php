@@ -198,6 +198,7 @@ class topic extends qsfglobal
 		  p.post_topic = {$this->get['t']} AND
 		  p.post_author = m.user_id AND
 		  m.user_group = g.group_id
+		GROUP BY p.post_id
 		ORDER BY
 		  p.post_time
 		LIMIT {$this->get['min']}, {$this->get['num']}");
