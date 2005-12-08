@@ -1905,7 +1905,7 @@ class qsfglobal
 		
 		while ($f = $this->db->nqfetch($q))
 		{
-			$q2 = $this->db->query("UPDATE {$this->pre}topics SET topic_replies='{$f['replies']}' WHERE topic_id='{$f['topic_id']}' LIMIT 1");
+			$this->db->query("UPDATE {$this->pre}topics SET topic_replies='" . $f['replies'] - 1 . "' WHERE topic_id='{$f['topic_id']}'");
 		}
 
 		$q = $this->db->query("SELECT forum_id FROM {$this->pre}forums WHERE forum_parent = 0");
