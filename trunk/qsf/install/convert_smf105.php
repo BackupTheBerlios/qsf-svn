@@ -193,7 +193,7 @@ function strip_smf_tags( $text )
    return $text;
 }
 
-if( $_GET['action'] == '' )
+if( !isset($_GET['action']) || $_GET['action'] == '' )
 {
    if( $oldset['converted'] == '0' )
    {
