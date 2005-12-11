@@ -71,6 +71,8 @@ function write_olddb_sets( $oldset )
       'old_dbtype'    => $oldset['old_dbtype'],
       'old_prefix'    => $oldset['old_prefix'],
       'converted'     => $oldset['converted'],
+      'censor'        => $oldset['censor'],
+      'censor_count'  => $oldset['censor_count'],
       'profiles'      => $oldset['profiles'],
       'prof_count'    => $oldset['prof_count'],
       'pms'           => $oldset['pms'],
@@ -85,6 +87,8 @@ function write_olddb_sets( $oldset )
       'topic_count'   => $oldset['topic_count'],
       'polls'         => $oldset['polls'],
       'poll_count'    => $oldset['poll_count'],
+      'attach'        => $oldset['attach'],
+      'attach_count'  => $oldset['attach_count'],
       'posts'         => $oldset['posts'],
       'post_count'    => $oldset['post_count'],
       'post_inc'      => $oldset['post_inc']
@@ -239,6 +243,8 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    if( $oldset['converted'] == '0' )
    {
       $oldset['converted'] = '1';
+      $oldset['censor'] = '0';
+      $oldset['censor_count'] = '0';
       $oldset['profiles'] = '0';
       $oldset['prof_count'] = '0';
       $oldset['pms'] = '0';
@@ -253,12 +259,16 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $oldset['topic_count'] = '0';
       $oldset['polls'] = '0';
       $oldset['poll_count'] = '0';
+      $oldset['attach'] = '0';
+      $oldset['attach_count'] = '0';
       $oldset['posts'] = '0';
       $oldset['post_count'] = '0';
 
       write_olddb_sets( $oldset );
    }
 
+   $censor = $oldset['censor'];
+   $censor_count = $oldset['censor_count'];
    $prof = $oldset['profiles'];
    $prof_count = $oldset['prof_count'];
    $pms = $oldset['pms'];
@@ -273,6 +283,8 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    $topic_count = $oldset['topic_count'];
    $polls = $oldset['polls'];
    $poll_count = $oldset['poll_count'];
+   $attach = $oldset['attach'];
+   $attach_count = $oldset['attach_count'];
    $posts = $oldset['posts'];
    $post_count = $oldset['post_count'];
 
@@ -287,6 +299,16 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight'>&nbsp;</td>
      </tr>
      <tr>
+     <td class='tablelight' align='left'><a href='convert_ipb21.php?action=censor'>Convert Censored Words</a>
+     </td>";
+
+   if( $censor_count > '0' )
+      echo "<td class='tablelight' align='left'>".$censor_count." censored words converted.</td>\n";
+   else
+      echo "<td class='tablelight'>&nbsp;</td>\n";
+   echo "</tr>\n";
+
+   echo "<tr>
      <td class='tablelight' align='left'><a href='convert_ipb21.php?action=members'>Convert Member Profiles</a>
      </td>";
 
@@ -346,6 +368,17 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       echo "<td class='tablelight'>&nbsp;</td>\n";
       if( $polls == '1' )
          echo "<td class='tablelight' align='left'>".$poll_count." polls converted.</td>\n";
+      else
+         echo "<td class='tablelight'>&nbsp;</td>\n";
+      echo "</tr>\n";
+   }
+
+   if( $prof == '1' && $topics == '1' )
+   {
+      echo "<tr>\n";
+      echo "<td class='tablelight' align='left'><a href='convert_ipb21.php?action=attach'>Convert Attachments</a></td>\n";
+      if( $attach == '1' )
+         echo "<td class='tablelight' align='left'>".$attach_count." attachments converted. Attached files must be copied manually.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
@@ -479,6 +512,23 @@ else if( $_GET['action'] == 'confirmipb21drop' )
    include 'templates/convert_header.php';
    include 'templates/convert_ipb21_datadestroyed.php';
    include 'templates/convert_footer.php';
+}
+
+else if( $_GET['action'] == 'censor' )
+{
+   $result = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}badwords" );
+   $i = '0';
+
+   while( $row = $oldboard->db->nqfetch($result) )
+   {
+      $qsf->db->query( "INSERT INTO {$qsf->pre}replacements (replacement_search, replacement_type) VALUES( '{$row['type']}', 'censor' )" );
+      $i++;
+   }
+
+   $oldset['censor'] = '1';
+   $oldset['censor_count'] = $i;
+   write_olddb_sets( $oldset );
+   echo "<meta http-equiv='Refresh' content='0;URL=convert_ipb21.php'>";
 }
 
 else if( $_GET['action'] == 'members' )
@@ -748,6 +798,24 @@ else if( $_GET['action'] == 'topics' )
 
    $oldset['polls'] = '1';
    $oldset['poll_count'] = $i;
+   write_olddb_sets( $oldset );
+   echo "<meta http-equiv='Refresh' content='0;URL=convert_ipb21.php'>";
+}
+
+else if( $_GET['action'] == 'attach' )
+{
+   $qsf->db->query( "TRUNCATE {$qsf->pre}attach" );
+   $result = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}attachments" );
+   $i = '0';
+
+   while( $row = $oldboard->db->nqfetch($result) )
+   {
+      $qsf->db->query( "INSERT INTO {$qsf->pre}attach VALUES( {$row['attach_id']}, '{$row['attach_location']}', '{$row['attach_file']}', {$row['attach_pid']}, {$row['attach_hits']}, {$row['attach_filesize']} )" );
+      $i++;
+   }
+
+   $oldset['attach'] = '1';
+   $oldset['attach_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ipb21.php'>";
 }

@@ -71,6 +71,8 @@ function write_olddb_sets( $oldset )
       'old_dbtype'    => $oldset['old_dbtype'],
       'old_prefix'    => $oldset['old_prefix'],
       'converted'     => $oldset['converted'],
+      'censor'        => $oldset['censor'],
+      'censor_count'  => $oldset['censor_count'],
       'profiles'      => $oldset['profiles'],
       'prof_count'    => $oldset['prof_count'],
       'pms'           => $oldset['pms'],
@@ -212,6 +214,8 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    if( $oldset['converted'] == '0' )
    {
       $oldset['converted'] = '1';
+      $oldset['censor'] = '0';
+      $oldset['censor_count'] = '0';
       $oldset['profiles'] = '0';
       $oldset['prof_count'] = '0';
       $oldset['pms'] = '0';
@@ -232,6 +236,8 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       write_olddb_sets( $oldset );
    }
 
+   $censor = $oldset['censor'];
+   $censor_count = $oldset['censor_count'];
    $prof = $oldset['profiles'];
    $prof_count = $oldset['prof_count'];
    $pms = $oldset['pms'];
@@ -260,6 +266,16 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight'>&nbsp;</td>
      </tr>
      <tr>
+     <td class='tablelight' align='left'><a href='convert_invision131f.php?action=censor'>Convert Censored Words</a>
+     </td>";
+
+   if( $censor_count > '0' )
+      echo "<td class='tablelight' align='left'>".$censor_count." censored words converted.</td>\n";
+   else
+      echo "<td class='tablelight'>&nbsp;</td>\n";
+   echo "</tr>\n";
+
+   echo "<tr>
      <td class='tablelight' align='left'><a href='convert_invision131f.php?action=members'>Convert Member Profiles</a>
      </td>";
 
@@ -438,6 +454,23 @@ else if( $_GET['action'] == 'confirminvisiondrop' )
    include 'templates/convert_header.php';
    include 'templates/convert_invision_datadestroyed.php';
    include 'templates/convert_footer.php';
+}
+
+else if( $_GET['action'] == 'censor' )
+{
+   $result = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}badwords" );
+   $i = '0';
+
+   while( $row = $oldboard->db->nqfetch($result) )
+   {
+      $qsf->db->query( "INSERT INTO {$qsf->pre}replacements (replacement_search, replacement_type) VALUES( '{$row['type']}', 'censor' )" );
+      $i++;
+   }
+
+   $oldset['censor'] = '1';
+   $oldset['censor_count'] = $i;
+   write_olddb_sets( $oldset );
+   echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
 }
 
 else if( $_GET['action'] == 'members' )
