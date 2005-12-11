@@ -860,17 +860,18 @@ else if( $_GET['action'] == 'polls' )
 
 else if( $_GET['action'] == 'posts' )
 {
-   $start = $_GET['start'];
-   $i = $_GET['i'];
-
-   if( $i == '' )
-      $i = '0';
-
-   if( $start == '' )
+   if( !isset($_GET['start']) || $_GET['start'] == '' )
    {
       $qsf->db->query( "TRUNCATE {$qsf->pre}posts" );
       $start = '0';
    }
+   else
+      $start = $_GET['start'];
+
+   if( !isset($_GET['i']) || $_GET['i'] == '' )
+      $i = '0';
+   else
+      $i = $_GET['i'];
 
    $sql = "SELECT * FROM {$qsf->pre}ikon_ids";
    $result = $qsf->db->query($sql);
