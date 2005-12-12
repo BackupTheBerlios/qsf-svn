@@ -495,7 +495,7 @@ else if( $_GET['action'] == 'pmessages' )
    $qsf->db->query( "TRUNCATE {$qsf->pre}pmsystem" );
    $sql = "SELECT p.*, t.privmsgs_text_id, t.privmsgs_text
       FROM {$oldboard->pre}privmsgs
-      LEFT JOIN {$oldboard->pre}privmsgs_text ON t.privmsgs_text_id = p.privmsgs_id;
+      LEFT JOIN {$oldboard->pre}privmsgs_text ON t.privmsgs_text_id = p.privmsgs_id";
 
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
