@@ -98,6 +98,7 @@ class en
 		$this->admin_mass_mail = 'Send an email to your members';
 		$this->admin_members = 'Members';
 		$this->admin_phpinfo = 'View PHP information';
+		$this->admin_prune = 'Prune old topics';
 		$this->admin_recount_forums = 'Recount topics and replies';
 		$this->admin_settings = 'Settings';
 		$this->admin_skins = 'Skins';
@@ -923,6 +924,32 @@ class en
 		$this->profile_view_profile = 'Viewing Profile';
 		$this->profile_www = 'Homepage';
 		$this->profile_yahoo = 'Yahoo Identity';
+	}
+
+	function prune()
+	{
+		$this->prune_action = 'Prune action to take';
+		$this->prune_age_day = '1 Day';
+		$this->prune_age_eighthours = '8 Hours';
+		$this->prune_age_hour = '1 Hour';
+		$this->prune_age_month = '1 Month';
+		$this->prune_age_threemonths = '3 Months';
+		$this->prune_age_week = '1 Week';
+		$this->prune_age_year = '1 Year';
+		$this->prune_forums = 'Select forums to prune';
+		$this->prune_invalidage = 'Invalid age specified for pruning';
+		$this->prune_move = 'Move';
+		$this->prune_moveto_forum = 'Forum to move to';
+		$this->prune_nodest = 'No valid destination selected';
+		$this->prune_notopics = 'No topics selected for pruning';
+		$this->prune_notopics_old = 'No topics are old enough for pruning';
+		$this->prune_novalidforum = 'No valid forums specified to prune';
+		$this->prune_select_age = 'Select age of topics to limit pruning to';
+		$this->prune_select_all = 'Select All';
+		$this->prune_select_topics = 'Select topics to prune or use Select All';
+		$this->prune_success = 'Topics have been pruned';
+		$this->prune_title = 'Topic Pruner';
+		$this->prune_topics_older_than = 'Prune topics older than';
 	}
 
 	function query()

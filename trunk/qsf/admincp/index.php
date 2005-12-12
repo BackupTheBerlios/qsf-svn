@@ -68,6 +68,7 @@ $modules = array(
 	'optimize',
 	'perms',
 	'php_info',
+	'prune',
 	'query',
 	'settings',
 	'stats',

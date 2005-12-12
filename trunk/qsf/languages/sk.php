@@ -98,6 +98,7 @@ class sk
 		$this->admin_mass_mail = 'Zasla email Vašim užívate¾om';
 		$this->admin_members = 'Užívatelia';
 		$this->admin_phpinfo = 'Prezera informácie o PHP';
+		$this->admin_prune = 'Prune old topics'; //Translate
 		$this->admin_recount_forums = 'Prepoèíta témy a reakcie';
 		$this->admin_settings = 'Nastavenia';
 		$this->admin_skins = 'Skiny';
@@ -925,6 +926,32 @@ class sk
 		$this->profile_view_profile = 'Prezeranie profilu';
 		$this->profile_www = 'Homepage'; //Translate
 		$this->profile_yahoo = 'Yahoo Identity'; //Translate
+	}
+
+	function prune()
+	{
+		$this->prune_action = 'Prune action to take'; //Translate
+		$this->prune_age_day = '1 Day'; //Translate
+		$this->prune_age_eighthours = '8 Hours'; //Translate
+		$this->prune_age_hour = '1 Hour'; //Translate
+		$this->prune_age_month = '1 Month'; //Translate
+		$this->prune_age_threemonths = '3 Months'; //Translate
+		$this->prune_age_week = '1 Week'; //Translate
+		$this->prune_age_year = '1 Year'; //Translate
+		$this->prune_forums = 'Select forums to prune'; //Translate
+		$this->prune_invalidage = 'Invalid age specified for pruning'; //Translate
+		$this->prune_move = 'Move'; //Translate
+		$this->prune_moveto_forum = 'Forum to move to'; //Translate
+		$this->prune_nodest = 'No valid destination selected'; //Translate
+		$this->prune_notopics = 'No topics selected for pruning'; //Translate
+		$this->prune_notopics_old = 'No topics are old enough for pruning'; //Translate
+		$this->prune_novalidforum = 'No valid forums specified to prune'; //Translate
+		$this->prune_select_age = 'Select age of topics to limit pruning to'; //Translate
+		$this->prune_select_all = 'Select All'; //Translate
+		$this->prune_select_topics = 'Select topics to prune or use Select All'; //Translate
+		$this->prune_success = 'Topics have been pruned'; //Translate
+		$this->prune_title = 'Topic Pruner'; //Translate
+		$this->prune_topics_older_than = 'Prune topics older than'; //Translate
 	}
 
 	function query()

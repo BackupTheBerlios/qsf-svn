@@ -863,7 +863,8 @@ $queries['ADMIN_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_s
        <a href=\"{\$this->self}?a=forums&amp;s=edit\">{\$this->lang->admin_edit_forum}</a><br />
        <a href=\"{\$this->self}?a=forums&amp;s=delete\">{\$this->lang->admin_delete_forum}</a><br />
        <a href=\"{\$this->self}?a=forums&amp;s=order\">{\$this->lang->admin_forum_order}</a><br />
-       <a href=\"{\$this->self}?a=forums&amp;s=count\">{\$this->lang->admin_recount_forums}</a>
+       <a href=\"{\$this->self}?a=forums&amp;s=count\">{\$this->lang->admin_recount_forums}</a><br />
+       <a href=\"{\$this->self}?a=prune\">{\$this->lang->admin_prune}</a>
       </div><br />
 
       <div class=\"fieldset\">
@@ -965,6 +966,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
    <li><a href=\"{\$admin->self}?a=forums&amp;s=delete\">{\$admin->lang->admin_delete_forum}</a></li>
    <li><a href=\"{\$admin->self}?a=forums&amp;s=order\">{\$admin->lang->admin_forum_order}</a></li>
    <li><a href=\"{\$admin->self}?a=forums&amp;s=count\">{\$admin->lang->admin_recount_forums}</a></li>
+   <li><a href=\"{\$admin->self}?a=prune\">{\$admin->lang->admin_prune}</a></li>
   </ul>
  </li>
  <li><a href=\"#\">{\$admin->lang->admin_emoticons}</a>
@@ -1182,6 +1184,93 @@ $queries['ADMIN_MOD_LOGS_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, 
  <td class=\"{\$class}\">{\$action}</td>
  <td class=\"{\$class}\">{\$id}</td>
 </tr>', 'Moderator Log Entry', 'The format for one log entry', 1)";
+$queries['ADMIN_PRUNE_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_FORM', '<form action=\"{\$this->self}?a=prune\" method=\"post\">
+{\$this->table}
+ <tr>
+  <td class=\"header\" colspan=\"2\">{\$this->lang->prune_select_age}</td>
+ </tr>
+ <tr>
+  <td class=\"labellight\"><b>{\$this->lang->prune_topics_older_than}</b></td>
+  <td class=\"tablelight\">
+    <select id=\"age\" name=\"age\">
+      <option value=\"1\">{\$this->lang->prune_age_hour}</option>
+      <option value=\"8\">{\$this->lang->prune_age_eighthours}</option>
+      <option value=\"24\">{\$this->lang->prune_age_day}</option>
+      <option value=\"168\">{\$this->lang->prune_age_week}</option>
+      <option value=\"720\">{\$this->lang->prune_age_month}</option>
+      <option value=\"2160\">{\$this->lang->prune_age_threemonths}</option>
+      <option value=\"8760\">{\$this->lang->prune_age_year}</option>
+    </select>
+  </td>
+ </tr>
+ <tr>
+  <td class=\"labeldark\"><b>{\$this->lang->prune_forums}</b></td>
+  <td class=\"tabledark\">
+    <select id=\"forums\" name=\"forums[]\" multiple=\"multiple\">
+      {\$forum_options}
+    </select>
+  </td>
+ </tr>
+ <tr>
+  <td class=\"footer\" style=\"text-align:center\" colspan=\"2\">
+   <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->submit}\" />
+  </td>
+ </tr>
+{\$this->etable}
+</form>', 'Admin CP Pruning topic age form', 'The form used to select what forums and topic age you want to see for pruning', 1)";
+$queries['ADMIN_PRUNE_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPIC', ' <tr>
+  <td class=\"<IF \$topicCount % 2>tabledark<ELSE>tablelight</IF>\" colspan=\"2\">
+    <input type=\"checkbox\" name=\"topics[]\" value=\"{\$topic[\'topic_id\']}\" />
+<a href=\"../{\$this->mainfile}?a=topic&amp;t={\$topic[\'topic_id\']}\">{\$topic[\'topic_title\']}</a>{\$topic[\'topic_description\']}
+  </td>
+ </tr>', 'Admin CP Prune Topic Display', 'Edit the display of a single topic when pruning', 3)";
+$queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPICLIST', '<script type=\"text/javascript\">
+<!--
+function select_all_topics()
+{
+  formElements = document.getElementsByTagName(\'input\');
+  for(i=0; i<formElements.length; i++)
+  {
+    if (formElements[i].type == \'checkbox\') {
+      formElements[i].checked = true;
+    }
+  }
+}
+//-->
+</script>
+
+<form action=\"{\$this->self}?a=prune\" method=\"post\" name=\"prune\">
+<input type=\"hidden\" name=\"forums\" value=\"{\$forums}\" />
+{\$this->table}
+ <tr>
+  <td class=\"header\" colspan=\"2\">{\$this->lang->prune_select_topics}</td>
+ </tr>
+ {\$topics}
+ <tr>
+   <td class=\"tabledark\" colspan=\"2\"><input type=\"button\" value=\"{\$this->lang->prune_select_all}\" onclick=\"return select_all_topics();\" />
+ </tr>
+ <tr>
+  <td class=\"tablelight\"><b>{\$this->lang->prune_action}</b></td>
+  <td class=\"tablelight\">
+    <input type=\"radio\" name=\"prune_action\" value=\"move\" id=\"move\" checked=\"checked\" /> <label for=\"move\">{\$this->lang->prune_move}</label>
+    <input type=\"radio\" name=\"prune_action\" value=\"delete\" id=\"delete\" /> <label for=\"delete\">{\$this->lang->delete}</label>
+  </td>
+ </tr>
+ <tr>
+  <td class=\"tabledark\"><b>{\$this->lang->prune_moveto_forum}</b></td>
+  <td class=\"tabledark\">
+    <select id=\"forums\" name=\"dest\">
+      {\$movetoForum}
+    </select>
+  </td>
+ </tr>
+ <tr>
+  <td class=\"footer\" style=\"text-align:center\" colspan=\"2\">
+   <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->submit}\" />
+  </td>
+ </tr>
+{\$this->etable}
+</form>', 'Admin CP Pruning topic list display', 'Edit the display of the list of topics to prune', 2)";
 $queries['ADMIN_RSSREADER_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_ITEM', '<li><a href=\"{\$item[\'link\']}\" title=\"{\$item[\'description\']}\">{\$item[\'title\']}</a></li>', 'Admin CP RSS reader item', 'Edit the layout of a rss feed item', 13)";
 $queries['ADMIN_RSSREADER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_MAIN', '<ul class=\"rssreader\">{\$title}{\$rssItems}</ul>', 'Admin CP RSS reader', 'Edit the layout of the annoucements rss feed', 11)";
 $queries['ADMIN_RSSREADER_TITLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_TITLE', '<li class=\"rsstitle\"><a href=\"{\$item[\'link\']}\">{\$item[\'title\']}</a></li>', 'Admin CP RSS reader title', 'Edit the layout of the rss feed title', 12)";
