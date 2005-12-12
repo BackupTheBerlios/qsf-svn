@@ -3429,8 +3429,6 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->etable}
 </form>
 
-<MODLET quickreply()>
-
 {\$this->table}
  <tr>
   <td>
