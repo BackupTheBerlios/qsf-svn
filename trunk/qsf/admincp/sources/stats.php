@@ -32,6 +32,10 @@ class stats extends admin
 		include '../lib/jpgraph/jpgraph.php';
 		include '../lib/jpgraph/jpgraph_bar.php';
 
+		if (!defined('IMG_PNG')) {
+			JpGraphError::Raise("This PHP installation is not configured with PNG support. Please recompile PHP with GD and JPEG support to run JpGraph. (Constant IMG_PNG does not exist)");
+		}
+
 		/**
 		 * Posts
 		 */
