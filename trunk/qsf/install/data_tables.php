@@ -35,7 +35,7 @@ $queries[] = "CREATE TABLE {$pre}active (
   active_session varchar(32) NOT NULL default '',
   UNIQUE KEY active_session (active_session),
   UNIQUE KEY active_ip (active_ip)
-) TYPE=MyISAM";
+) TYPE=MyISAM ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}attach";
 $queries[] = "CREATE TABLE {$pre}attach (
@@ -47,7 +47,7 @@ $queries[] = "CREATE TABLE {$pre}attach (
   attach_size int(8) unsigned NOT NULL default '0',
   PRIMARY KEY  (attach_id),
   KEY attach_post (attach_post)
-) TYPE=MyISAM";
+) TYPE=MyISAM ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}forums";
 $queries[] = "CREATE TABLE {$pre}forums (
@@ -103,7 +103,7 @@ $queries[] = "CREATE TABLE {$pre}membertitles (
   membertitle_icon varchar(25) NOT NULL default '',
   PRIMARY KEY  (membertitle_id),
   KEY Posts (membertitle_posts)
-) TYPE=MyISAM";
+) TYPE=MyISAM ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}pmsystem";
 $queries[] = "CREATE TABLE {$pre}pmsystem (
@@ -162,7 +162,7 @@ $queries[] = "CREATE TABLE {$pre}skins (
   skin_name varchar(32) NOT NULL default '',
   skin_dir varchar(32) NOT NULL default '',
   PRIMARY KEY  (skin_dir)
-) TYPE=MyISAM";
+) TYPE=MyISAM ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}subscriptions";
 $queries[] = "CREATE TABLE {$pre}subscriptions (
@@ -197,7 +197,7 @@ $queries[] = "CREATE TABLE {$pre}timezones (
   zone_updated int(15) unsigned NOT NULL default '0',
   PRIMARY KEY  (zone_id),
   KEY name (zone_name)
-) TYPE=MyISAM AUTO_INCREMENT=384";
+) TYPE=MyISAM AUTO_INCREMENT=384 ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}topics";
 $queries[] = "CREATE TABLE {$pre}topics (
