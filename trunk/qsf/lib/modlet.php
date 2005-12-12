@@ -49,21 +49,6 @@ class modlet
     }
 
     /**
-     * Initialiser
-     *
-     * This is where you can safely
-     * set variable inherited from a parent
-     * or run methods that might be changed in a child
-     * or look at other templates
-     *
-     * @author Geoffrey Dunn <geoff@warmage.com>
-     * @since 1.1.5
-     **/
-    function init()
-    {
-    }
-
-    /**
      * Main interface
      *
      * This is what's run to generate output for the page

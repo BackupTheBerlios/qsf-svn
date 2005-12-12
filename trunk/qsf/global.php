@@ -1035,18 +1035,6 @@ class qsfglobal
 		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
 	}
     
-   	/**
-	 * Run any extra initialisation on modlets. This lets them do stuff AFTER all templates are loaded
-	 *
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 **/
-	function init_modlets()
-	{
-        	foreach ($this->modlets as $modlet) {
-            		$modlet->init();
-        	}
-	}
-    
 	/**
 	 * Determines if a user has been banned
 	 *

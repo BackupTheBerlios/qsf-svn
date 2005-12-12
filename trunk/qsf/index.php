@@ -113,8 +113,6 @@ if ($qsf->user['zone_updated'] < $qsf->time)
 
 $qsf->temps = $qsf->get_templates($qsf->get['a']);
 
-$qsf->init_modlets();
-
 $qsf->table  = eval($qsf->template('MAIN_TABLE'));
 $qsf->etable = eval($qsf->template('MAIN_ETABLE'));
 
