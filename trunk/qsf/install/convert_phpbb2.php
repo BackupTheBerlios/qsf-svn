@@ -713,7 +713,7 @@ else if( $_GET['action'] == 'posts' )
    $sql = "SELECT p.*, t.post_id, t.post_text
       FROM {$oldboard->pre}posts
       LEFT JOIN {$oldboard->pre}posts_text t ON t.post_id = p.post_id
-      LIMIT {$start}, {$oldset['post_inc']}"
+      LIMIT {$start}, {$oldset['post_inc']}";
 
    $newstart = $start + $oldset['post_inc'];
 
