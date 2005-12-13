@@ -87,11 +87,15 @@ class member_control extends admin
 				return $this->message($this->lang->mc_delete, "{$this->lang->mc_confirm} <b>{$member['user_name']}</b>?<br /><br /><a href='$this->self?a=member_control&amp;s=delete&amp;id={$this->get['id']}&amp;confirm=1'>{$this->lang->continue}</a>");
 			} else {
 				$this->db->query("UPDATE {$this->pre}posts SET post_author=" . USER_GUEST_UID . " WHERE post_author={$this->get['id']}");
+				$this->db->query("UPDATE {$this->pre}posts SET post_edited_by=" . USER_GUEST_UID . " WHERE post_edited_by={$this->get['id']}");
 				$this->db->query("UPDATE {$this->pre}topics SET topic_starter=" . USER_GUEST_UID . " WHERE topic_starter={$this->get['id']}");
 				$this->db->query("UPDATE {$this->pre}topics SET topic_last_poster=" . USER_GUEST_UID . " WHERE topic_last_poster={$this->get['id']}");
+				$this->db->query("UPDATE {$this->pre}logs SET log_user=" . USER_GUEST_UID . " WHERE log_user={$this->get['id']}");
+				$this->db->query("DELETE FROM {$this->pre}active WHERE active_id={$this->get['id']}");
 				$this->db->query("DELETE FROM {$this->pre}subscriptions WHERE subscription_user={$this->get['id']}");
 				$this->db->query("DELETE FROM {$this->pre}votes WHERE vote_user={$this->get['id']}");
 				$this->db->query("DELETE FROM {$this->pre}users WHERE user_id={$this->get['id']}");
+				$this->db->query("DELETE FROM {$this->pre}pmsystem WHERE pm_to={$this->get['id']}");
 
 				$member = $this->db->fetch("SELECT user_id, user_name FROM {$this->pre}users ORDER BY user_id DESC LIMIT 1");
 				$counts = $this->db->fetch("SELECT COUNT(user_id) AS count FROM {$this->pre}users");
