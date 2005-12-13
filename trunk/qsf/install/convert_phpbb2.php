@@ -494,8 +494,8 @@ else if( $_GET['action'] == 'pmessages' )
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}pmsystem" );
    $sql = "SELECT p.*, t.privmsgs_text_id, t.privmsgs_text
-      FROM {$oldboard->pre}privmsgs
-      LEFT JOIN {$oldboard->pre}privmsgs_text ON t.privmsgs_text_id = p.privmsgs_id";
+      FROM {$oldboard->pre}privmsgs p
+      LEFT JOIN {$oldboard->pre}privmsgs_text t ON t.privmsgs_text_id = p.privmsgs_id";
 
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
@@ -711,7 +711,7 @@ else if( $_GET['action'] == 'posts' )
    $num = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}posts" );
    $all = $oldboard->db->num_rows( $num );
    $sql = "SELECT p.*, t.post_id, t.post_text
-      FROM {$oldboard->pre}posts
+      FROM {$oldboard->pre}posts p
       LEFT JOIN {$oldboard->pre}posts_text t ON t.post_id = p.post_id
       LIMIT {$start}, {$oldset['post_inc']}";
 
