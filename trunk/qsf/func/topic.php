@@ -482,7 +482,7 @@ class topic extends qsfglobal
 					$results[$i] = 0;
 				}
 
-				$option = $this->format($option);
+				$option    = $this->format($option, FORMAT_MBCODE | FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_EMOTICONS);
 
 				$percent = round($results[$i] / $total_votes * 100, 2);
 				$width   = round($results[$i] / $total_votes * 100) * 2;
