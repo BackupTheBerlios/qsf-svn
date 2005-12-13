@@ -4,10 +4,11 @@ Changes for 1.1.6:
 * Fixes to templates to improve IE rendering
 * Fixes to images not rendering transparency in IE
 * Many additional templates for Admin CP display
+* Improved forum install/conversion/upgrade system
+* Added Moderators core group
 * Changes to queries for MySQL 5.0.12 support
 * Fixed bug where non-admins could not have a custom title
 * Fixed error in Dutch language file
-* Fixes to Invisionboard converter
 * Tweaked handling of code tags to avoid making the last line invisible when code is very wide
 * Fixed handling of img tags inside url tags
 * Fixed bug where reminder message was not displaying
@@ -15,18 +16,22 @@ Changes for 1.1.6:
 * Added left (align) BB code tag
 * Fixed javascript for setting Avatar creating an endless loop if noavatar.png did not exist
 * Added vBulletin 3.5.1 convertor
+* Added MyBB converter
+* Added Invision Power Board 2.1.x convertor
+* General improvements and bugfixes to all forum convertors
 * Added spoiler BB code tag
-* Merged to queries in forum display
+* Merged two queries in forum display
 * Fixed color tag to allow use of RGB as a color
-* Fixed geust posts displaying as duplicates when 2 or more guests logged in
+* Fixed guest posts displaying as duplicates when 2 or more guests logged in
 * Improved topic counting now recounts topic replies too - NiteShdw
 * Hack to stop rssfeed marking topics as read
-* Added MyBB converter
 * Removed modlet:init()
 * Fixed RSS reader so it checks for templates correctly
 * Made statistics center more check for png support
 * Added row_format=fixed to speed up some tables
 * Added display of Forum name in Recent posts
+* robots.txt file to keep spiders from accessing things they don't need to
+* Plugged an XSS injection point
 
 Bugfixes for 1.1.4:
 
@@ -101,6 +106,3 @@ New features and modifications for 1.1.5:
 * Fixed error where you could not export a skin that included zero byte files
 * Sets skin to 'default' for administrators up upgrading
 * Full Slovak translation
-
-
-
