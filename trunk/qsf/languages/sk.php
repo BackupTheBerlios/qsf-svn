@@ -98,12 +98,12 @@ class sk
 		$this->admin_mass_mail = 'Zasla email Vašim uívate¾om';
 		$this->admin_members = 'Uívatelia';
 		$this->admin_phpinfo = 'Prezera informácie o PHP';
-		$this->admin_prune = 'Prune old topics'; //Translate
+		$this->admin_prune = 'Preriedi staré témy';
 		$this->admin_recount_forums = 'Prepoèíta témy a reakcie';
 		$this->admin_settings = 'Nastavenia';
 		$this->admin_skins = 'Skiny';
 		$this->admin_stats = 'Štatistické centrum';
-		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
+		$this->admin_upgrade_skin = 'Upgradova Skin';
 		$this->admin_your_board = 'Vaše fórum';
 	}
 
@@ -532,7 +532,7 @@ class sk
 		$this->mc_deleted = 'Uívate¾ Zmazanı.';
 		$this->mc_edit = 'Editova Uívate¾a';
 		$this->mc_edited = 'Uívate¾ bol Zaktualizovanı';
-		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
+		$this->mc_email_invaid = 'Email, ktorı ste zadali, je neplatnı.';
 		$this->mc_err_updating = 'Error Updating Profile'; //Translate
 		$this->mc_find = 'Nájs uívate¾ov, ktorıch meno obsahuje';
 		$this->mc_found = 'Boli nájdení nasledujúci uívatelia. Prosím, vyberte jedného.';
@@ -615,7 +615,7 @@ class sk
 		$this->mod_label_options = 'Monosti';
 		$this->mod_label_post_delete = 'Zmaza príspevok';
 		$this->mod_label_post_edit = 'Editova príspevok';
-		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_post_icon = 'Ikona Príspevku';
 		$this->mod_label_title = 'Nadpis';
 		$this->mod_label_title_original = 'Pôvodnı nadpis';
 		$this->mod_label_title_split = 'Rozdeli nadpis';
@@ -930,28 +930,28 @@ class sk
 
 	function prune()
 	{
-		$this->prune_action = 'Prune action to take'; //Translate
-		$this->prune_age_day = '1 Day'; //Translate
-		$this->prune_age_eighthours = '8 Hours'; //Translate
-		$this->prune_age_hour = '1 Hour'; //Translate
-		$this->prune_age_month = '1 Month'; //Translate
-		$this->prune_age_threemonths = '3 Months'; //Translate
-		$this->prune_age_week = '1 Week'; //Translate
-		$this->prune_age_year = '1 Year'; //Translate
-		$this->prune_forums = 'Select forums to prune'; //Translate
-		$this->prune_invalidage = 'Invalid age specified for pruning'; //Translate
-		$this->prune_move = 'Move'; //Translate
-		$this->prune_moveto_forum = 'Forum to move to'; //Translate
-		$this->prune_nodest = 'No valid destination selected'; //Translate
-		$this->prune_notopics = 'No topics selected for pruning'; //Translate
-		$this->prune_notopics_old = 'No topics are old enough for pruning'; //Translate
-		$this->prune_novalidforum = 'No valid forums specified to prune'; //Translate
-		$this->prune_select_age = 'Select age of topics to limit pruning to'; //Translate
-		$this->prune_select_all = 'Select All'; //Translate
-		$this->prune_select_topics = 'Select topics to prune or use Select All'; //Translate
-		$this->prune_success = 'Topics have been pruned'; //Translate
-		$this->prune_title = 'Topic Pruner'; //Translate
-		$this->prune_topics_older_than = 'Prune topics older than'; //Translate
+ 		$this->prune_action = 'Spôsob prerieïovania';
+		$this->prune_age_day = '1 Deò';
+		$this->prune_age_eighthours = '8 Hodín';
+		$this->prune_age_hour = '1 Hodína';
+		$this->prune_age_month = '1 Mesiac';
+		$this->prune_age_threemonths = '3 Mesiace';
+		$this->prune_age_week = '1 Tıdeò';
+		$this->prune_age_year = '1 Rok';
+		$this->prune_forums = 'Vyberte fórum na preriedenie';
+		$this->prune_invalidage = 'Bol zvolenı neplatnı vek na preriedenie';
+		$this->prune_move = 'Presunú';
+		$this->prune_moveto_forum = 'Cie¾ové fórum presunu';
+		$this->prune_nodest = 'Nebol vybranı platnı cie¾';
+		$this->prune_notopics = 'Neboli vybrané iadne témy na preriedenie';
+		$this->prune_notopics_old = 'iadna téme nie je dostatoène stará na preriedenie';
+		$this->prune_novalidforum = 'Nebolo vybrané platné fórum na preriedenie';
+		$this->prune_select_age = 'Vyberte vek tém, ktorı bude limitova preriedenie';
+		$this->prune_select_all = 'Vybra Všetko';
+		$this->prune_select_topics = 'Vyberte témy na preriedenie alebo pouite Vybra Všetko';
+		$this->prune_success = 'Témy boli preriedené';
+		$this->prune_title = 'Prerieïovaè tém';
+		$this->prune_topics_older_than = 'Preriedi témy staršie ako';
 	}
 
 	function query()
@@ -964,7 +964,7 @@ class sk
 
 	function recent()
 	{
-		$this->recent_active = 'Active topics since last visit'; //Translate
+		$this->recent_active = 'Aktívne témy od poslednej návštevy';
 		$this->recent_by = 'Napísal';
 		$this->recent_can_post = 'V tomto fóre môete odpoveda.';
 		$this->recent_can_topics = 'V tomto fóre si môete prezera témy.';
@@ -1031,9 +1031,9 @@ class sk
 		$this->register_passwd = 'Heslo';
 		$this->register_reg = 'Registrácia';
 		$this->register_reging = 'Prebieha registrácia';
-		$this->register_tos = 'Terms of Service'; //Translate
+		$this->register_tos = 'Podmienky pouívania';
 		$this->register_tos_i_agree = 'Súhlasím s vyššie formulovanımi podmienkami';
-		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
+		$this->register_tos_not_agree = 'Nesúhlasili ste s podmienkami.';
 		$this->register_tos_read = 'Prosím, preèítajte si nasledujúce podmienky poskytovania sluieb';
 	}
 
@@ -1208,12 +1208,12 @@ class sk
 	function templates()
 	{
 		$this->add = 'Prida HTML Šablóny';
-		$this->add_in = 'Add template to:'; //Translate
-		$this->all_fields_required = 'All fields are required to add a template'; //Translate
+		$this->add_in = 'Prida šablónu na:';
+		$this->all_fields_required = 'Musíte vyplni všetky polia, aby bola pridané šablóna';
 		$this->choose_set = 'Zvoli sadu šablón';
 		$this->choose_skin = 'Zvo¾i skin';
-		$this->confirm1 = 'You are about to delete the'; //Translate
-		$this->confirm2 = 'template from'; //Translate
+		$this->confirm1 = 'Chystáte sa zmaza';
+		$this->confirm2 = 'Šablóna od';
 		$this->create_new = 'Zaloi novı skin s názvom';
 		$this->create_skin = 'Zaloi Skin';
 		$this->credit = 'Prosím, neodstraòujte náš jedinı kredit!';
@@ -1232,7 +1232,7 @@ class sk
 		$this->install_skin = 'Nainštalova Skin';
 		$this->menu_title = 'Zvo¾te sekciu šablóny, ktorú chcete editova';
 		$this->only_skin = 'Momentálne je nainštalovanı iba jeden skin. Tento skin nesmiete zmaza.';
-		$this->or_new = 'Or create new template set named:'; //Translate
+		$this->or_new = 'Alebo vytvori novú skupinu šablôn s názvom:';
 		$this->select_skin = 'Zvo¾te Skin';
 		$this->select_skin_edit = 'Zvo¾te skin, ktorı chcete editova';
 		$this->select_skin_edit_done = 'Skin bol úspešne zeditovanı.';
@@ -1293,11 +1293,11 @@ class sk
 		$this->temps_templates = 'AdminCP Editor Šablón';
 		$this->temps_titles = 'AdminCP Tituly Uívate¾ov';
 		$this->temps_topics = 'Témy';
-		$this->upgrade_skin = 'Upgrade Skin'; //Translate
-		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
-		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
-		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
-		$this->upgraded_templates = 'The following templates were added'; //Translate
+		$this->upgrade_skin = 'Upgradova Skin';
+		$this->upgrade_skin_already = 'u bol zupgradovanı. Neprebehla iadna akcia.';
+		$this->upgrade_skin_detail = 'Skiny zupgradované pomocou tejto metódy budú naïalej vyadova následné editovanie šablôn.<br />Vyberte skin na upgradovanie';
+		$this->upgrade_skin_upgraded = 'skin bol zupgradovanı.';
+		$this->upgraded_templates = 'Boli pridané nasledujúce šablóny boli';
 	}
 
 	function titles()
