@@ -132,16 +132,19 @@ class recent extends qsfglobal
 		    DISTINCT(t.topic_id), p.post_author as dot,
 		    t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
 		    t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
+		    f.forum_id, f.forum_name,
 		    s.user_name AS topic_starter_name,
 			m.user_name AS topic_last_poster_name
 		FROM
 		    ({$this->pre}topics t,
+		    {$this->pre}forums f,
 		    {$this->pre}users m,
 		    {$this->pre}users s)
 		LEFT JOIN {$this->pre}posts p ON (t.topic_id = p.post_topic AND p.post_author = {$this->user['user_id']})
 		WHERE
 		    t.topic_forum IN $forums_str AND
 		    t.topic_edited >= {$this->user['user_lastvisit']} AND
+		    t.topic_forum = f.forum_id AND
 		    m.user_id = t.topic_last_poster AND
 		    s.user_id = t.topic_starter
 		ORDER BY

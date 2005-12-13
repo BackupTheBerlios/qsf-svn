@@ -38,6 +38,7 @@ $need_templates = array(
 	'PM_FOLDER',
 	'PM_VIEW',
 	'RECENT_MAIN',
+	'RECENT_NO_TOPICS',
 	'RECENT_TOPIC',
 	'ADMIN_INDEX',
 	'ADMIN_HOME',

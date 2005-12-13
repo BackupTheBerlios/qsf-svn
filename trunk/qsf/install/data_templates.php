@@ -3195,13 +3195,12 @@ function get_forum(select)
   <td class=\"header\" style=\"width:5%\">&nbsp;</td>
   <td class=\"header\" style=\"width:40%\">{\$this->lang->recent_topic}</td>
   <td class=\"header\" style=\"width:15%; text-align:center\">{\$this->lang->recent_starter}</td>
-  <td class=\"header\" style=\"width:8%; text-align:center\">{\$this->lang->recent_replies}</td>
-  <td class=\"header\" style=\"width:8%; text-align:center\">{\$this->lang->recent_views}</td>
-  <td class=\"header\" style=\"width:19%\">{\$this->lang->recent_last}</td>
+  <td class=\"header\" style=\"width:15%\">{\$this->lang->recent_forum}</td>
+  <td class=\"header\" style=\"width:20%\">{\$this->lang->recent_last}</td>
  </tr>
  {\$topics}
  <tr>
-  <td class=\"footer\" colspan=\"7\">&nbsp;</td>
+  <td class=\"footer\" colspan=\"6\">&nbsp;</td>
  </tr>
 {\$this->etable}
 
@@ -3236,7 +3235,7 @@ function get_forum(select)
    </table>
 </div>', 'Recent View', 'Change the appearance of the recent topics lists', 0)";
 $queries['RECENT_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_NO_TOPICS', ' <tr>
-  <td class=\"tablelight\" style=\"text-align:center; padding:30px;\" colspan=\"7\">{\$this->lang->recent_no_topics}</td>
+  <td class=\"tablelight\" style=\"text-align:center; padding:30px;\" colspan=\"6\">{\$this->lang->recent_no_topics}</td>
  </tr>', 'Error Display', 'Format the look of an error on the recent topics view.', 3)";
 $queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_TOPIC', ' <tr>
   <td class=\"topicicons\">
@@ -3255,8 +3254,7 @@ $queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template
   </td>
   <td class=\"tablelight\"><a href=\"{\$this->self}?a=topic&amp;t={\$row[\'topic_id\']}\" class=\"medium\">{\$row[\'topic_title\']}</a> {\$Pages}{\$row[\'topic_description\']}</td>
   <td class=\"tabledark\" style=\"text-align:center\">{\$row[\'topic_starter\']}</td>
-  <td class=\"tablelight\" style=\"text-align:center\">{\$row[\'topic_replies\']}</td>
-  <td class=\"tablelight\" style=\"text-align:center\">{\$row[\'topic_views\']}</td>
+  <td class=\"tablelight\" style=\"text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$row[\'forum_id\']}\">{\$row[\'forum_name\']}</a></td>
   <td class=\"tabledark\">
    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
     <tr>

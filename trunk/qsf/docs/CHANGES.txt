@@ -1,3 +1,33 @@
+Changes for 1.1.6:
+
+* Lots of cleanups to templates
+* Fixes to templates to improve IE rendering
+* Fixes to images not rendering transparency in IE
+* Many additional templates for Admin CP display
+* Changes to queries for MySQL 5.0.12 support
+* Fixed bug where non-admins could not have a custom title
+* Fixed error in Dutch language file
+* Fixes to Invisionboard converter
+* Tweaked handling of code tags to avoid making the last line invisible when code is very wide
+* Fixed handling of img tags inside url tags
+* Fixed bug where reminder message was not displaying
+* Changed quotes to use div tags instead of complex table
+* Added left (align) BB code tag
+* Fixed javascript for setting Avatar creating an endless loop if noavatar.png did not exist
+* Added vBulletin 3.5.1 convertor
+* Added spoiler BB code tag
+* Merged to queries in forum display
+* Fixed color tag to allow use of RGB as a color
+* Fixed geust posts displaying as duplicates when 2 or more guests logged in
+* Improved topic counting now recounts topic replies too - NiteShdw
+* Hack to stop rssfeed marking topics as read
+* Added MyBB converter
+* Removed modlet:init()
+* Fixed RSS reader so it checks for templates correctly
+* Made statistics center more check for png support
+* Added row_format=fixed to speed up some tables
+* Added display of Forum name in Recent posts
+
 Bugfixes for 1.1.4:
 
 * [font] and [color] code is not being sanitized properly.
