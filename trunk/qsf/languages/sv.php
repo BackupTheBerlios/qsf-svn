@@ -99,12 +99,12 @@ class sv
 		$this->admin_mass_mail = 'Skicka e-post till dina medlemmar';
 		$this->admin_members = 'Medlemmar';
 		$this->admin_phpinfo = 'Visa PHP information';
-		$this->admin_prune = 'Prune old topics'; //Translate
+		$this->admin_prune = 'beskär gamla ämnen';
 		$this->admin_recount_forums = 'Räkna om ämnen och svar';
 		$this->admin_settings = 'Inställningar';
 		$this->admin_skins = 'Skal';
 		$this->admin_stats = 'Statistik';
-		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
+		$this->admin_upgrade_skin = 'Uppgradera ett skal';
 		$this->admin_your_board = 'Ditt Forum';
 	}
 
@@ -596,8 +596,8 @@ class sv
 		$this->mc_deleted = 'Medlem Borttagen.';
 		$this->mc_edit = 'Ändra Medlem';
 		$this->mc_edited = 'Medlem Uppdaterad';
-		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
-		$this->mc_err_updating = 'Error Updating Profile'; //Translate
+		$this->mc_email_invaid = 'E-postadressen du anget är inte giltig.';
+		$this->mc_err_updating = 'Ett fel uppstod vid uppdatering av profil';
 		$this->mc_find = 'Hitta medlemmar vars namn innehåller';
 		$this->mc_found = 'Följande medlemmar hittades. Var snäll och välj en.';
 		$this->mc_guest_needed = 'Gästkontot behövs för att Quicksilver Forumet ska fungera.';
@@ -679,7 +679,7 @@ class sv
 		$this->mod_label_options = 'Alternativ';
 		$this->mod_label_post_delete = 'Radera Inlägg';
 		$this->mod_label_post_edit = 'Redigera Inlägg';
-		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_post_icon = 'Inläggsikon';
 		$this->mod_label_title = 'Titel';
 		$this->mod_label_title_original = 'Original Titel';
 		$this->mod_label_title_split = 'Dela Upp Titel';
@@ -935,28 +935,28 @@ class sv
 
 	function prune()
 	{
-		$this->prune_action = 'Prune action to take'; //Translate
-		$this->prune_age_day = '1 Day'; //Translate
-		$this->prune_age_eighthours = '8 Hours'; //Translate
-		$this->prune_age_hour = '1 Hour'; //Translate
-		$this->prune_age_month = '1 Month'; //Translate
-		$this->prune_age_threemonths = '3 Months'; //Translate
-		$this->prune_age_week = '1 Week'; //Translate
-		$this->prune_age_year = '1 Year'; //Translate
-		$this->prune_forums = 'Select forums to prune'; //Translate
-		$this->prune_invalidage = 'Invalid age specified for pruning'; //Translate
-		$this->prune_move = 'Move'; //Translate
-		$this->prune_moveto_forum = 'Forum to move to'; //Translate
-		$this->prune_nodest = 'No valid destination selected'; //Translate
-		$this->prune_notopics = 'No topics selected for pruning'; //Translate
-		$this->prune_notopics_old = 'No topics are old enough for pruning'; //Translate
-		$this->prune_novalidforum = 'No valid forums specified to prune'; //Translate
-		$this->prune_select_age = 'Select age of topics to limit pruning to'; //Translate
-		$this->prune_select_all = 'Select All'; //Translate
-		$this->prune_select_topics = 'Select topics to prune or use Select All'; //Translate
-		$this->prune_success = 'Topics have been pruned'; //Translate
-		$this->prune_title = 'Topic Pruner'; //Translate
-		$this->prune_topics_older_than = 'Prune topics older than'; //Translate
+		$this->prune_action = 'Beskärning som ska gÿras';
+		$this->prune_age_day = '1 Dag';
+		$this->prune_age_eighthours = '8 Timmar';
+		$this->prune_age_hour = '1 Timme';
+		$this->prune_age_month = '1 Mûnad';
+		$this->prune_age_threemonths = '3 Mûnader';
+		$this->prune_age_week = '1 Vecka';
+		$this->prune_age_year = '1 ÿr';
+		$this->prune_forums = 'Välj forum att beskära';
+		$this->prune_invalidage = 'Ogiltig ûlder specifierad fÿr beskärning';
+		$this->prune_move = 'Flytta';
+		$this->prune_moveto_forum = 'Forum att flytta till';
+		$this->prune_nodest = 'Ingen giltig destination vald';
+		$this->prune_notopics = 'Inga ämnen valda fÿr beskärning';
+		$this->prune_notopics_old = 'Inga ämnen är gamla nog fÿr att beskäras';
+		$this->prune_novalidforum = 'Inga giltiga forum valda fÿr beskärning';
+		$this->prune_select_age = 'Välj ûlder pû ämnen fÿr begränsad beskärning';
+		$this->prune_select_all = 'Välj Alla';
+		$this->prune_select_topics = 'Välj ämnen att beskära eller använd Välj Alla';
+		$this->prune_success = 'ÿmnen har beskurits';
+		$this->prune_title = 'ÿmnes Beskärare';
+		$this->prune_topics_older_than = 'Beskär ämnen äldre än';		
 	}
 
 	function query()
@@ -969,7 +969,7 @@ class sv
 
 	function recent()
 	{
-		$this->recent_active = 'Active topics since last visit'; //Translate
+		$this->recent_active = 'Aktiva ämnen sen senaste besök';
 		$this->recent_by = 'Av';
 		$this->recent_can_post = 'Du kan svara i detta forum.';
 		$this->recent_can_topics = 'Du kan läsa ämnen i detta forum.';
@@ -1036,9 +1036,9 @@ class sv
 		$this->register_passwd = 'Lösenord';
 		$this->register_reg = 'Registrera';
 		$this->register_reging = 'Registrerar';
-		$this->register_tos = 'Terms of Service'; //Translate
+		$this->register_tos = 'Vilkor för användande';
 		$this->register_tos_i_agree = 'Jag godkänner ovanstående vilkor';
-		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
+		$this->register_tos_not_agree = 'Du godkände inte villkoren.';
 		$this->register_tos_read = 'Var snäll och läs följande vilkor för tjänsten';
 	}
 
@@ -1213,12 +1213,12 @@ class sv
 	function templates()
 	{
 		$this->add = 'Lägg till HTML Mallar';
-		$this->add_in = 'Add template to:'; //Translate
-		$this->all_fields_required = 'All fields are required to add a template'; //Translate
+		$this->add_in = 'Lägg till mall till:';
+		$this->all_fields_required = 'Alla fält krävs för att lägga till en mall';
 		$this->choose_set = 'Välje ett mallpaket';
 		$this->choose_skin = 'Välj ett skal';
-		$this->confirm1 = 'You are about to delete the'; //Translate
-		$this->confirm2 = 'template from'; //Translate
+		$this->confirm1 = 'Du är på väg att ta bort';
+		$this->confirm2 = 'mallen från';
 		$this->create_new = 'Skapa ett nytt skal med namnet';
 		$this->create_skin = 'Skapa Skal';
 		$this->credit = 'Var snäll och ta inte bort vårt enda erkännande!';
@@ -1237,7 +1237,7 @@ class sv
 		$this->install_skin = 'Installera Skal';
 		$this->menu_title = 'Välj ett mallpaket att ändra';
 		$this->only_skin = 'Det finns bara ett skal installerat. Du får inte ta bort det här skalet.';
-		$this->or_new = 'Or create new template set named:'; //Translate
+		$this->or_new = 'Eller skapa en ny mall kallad:';
 		$this->select_skin = 'Välj ett skal';
 		$this->select_skin_edit = 'Välj ett skal att ändra';
 		$this->select_skin_edit_done = 'Ändringen av skalet lyckades.';
@@ -1298,12 +1298,12 @@ class sv
 		$this->temps_templates = 'AdminKP Mallediterare';
 		$this->temps_titles = 'AdminKP Medlemstitlar';
 		$this->temps_topics = 'Ämnen';
-                $this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
-		$this->upgrade_skin = 'Upgrade Skin'; //Translate
-		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
-		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
-		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
-		$this->upgraded_templates = 'The following templates were added'; //Translate
+		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
+		$this->upgrade_skin = 'Uppdatera Skal';
+		$this->upgrade_skin_already = 'var redan uppgraderat. Finns inget att göra.';
+		$this->upgrade_skin_detail = 'Skal uppgraderade med denna metod behöver ändå justeras efteråt.<br />Välj ett skal att uppdatera';
+		$this->upgrade_skin_upgraded = 'Skalet har uppdaterats.';
+		$this->upgraded_templates = 'Följande mallar lades till';
 	}
 
 	function titles()
