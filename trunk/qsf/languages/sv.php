@@ -572,7 +572,7 @@ class sv
 		$this->mbcode_size = 'Storlek';
 		$this->mbcode_skyblue = 'Himmelsblû';
 		$this->mbcode_small = 'Liten';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
+		$this->mbcode_spoiler = 'Avslöjande';
 		$this->mbcode_strike = 'Genomstruken';
 		$this->mbcode_strike1 = 'S'; //Translate
 		$this->mbcode_tahoma = 'Tahoma'; //Translate
@@ -1405,7 +1405,7 @@ class sv
 		$this->seconds = 'Sekunder';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = ' ';
-		$this->spoiler = 'Spoiler'; //Translate
+		$this->spoiler = 'Avslöjande';
 		$this->submit = 'Skicka';
 		$this->subscribe = 'Prenumerera';
 		$this->today = 'Idag';
