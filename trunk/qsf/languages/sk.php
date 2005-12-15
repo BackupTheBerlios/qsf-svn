@@ -1293,6 +1293,7 @@ class sk
 		$this->temps_templates = 'AdminCP Editor Šablón';
 		$this->temps_titles = 'AdminCP Tituly Uívate¾ov';
 		$this->temps_topics = 'Témy';
+                $this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->upgrade_skin = 'Upgradova Skin';
 		$this->upgrade_skin_already = 'u bol zupgradovanı. Neprebehla iadna akcia.';
 		$this->upgrade_skin_detail = 'Skiny zupgradované pomocou tejto metódy budú naïalej vyadova následné editovanie šablôn.<br />Vyberte skin na upgradovanie';

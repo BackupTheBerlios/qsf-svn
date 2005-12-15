@@ -1291,6 +1291,7 @@ class no
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate
 		$this->temps_titles = 'AdminCP Member Titles'; //Translate
 		$this->temps_topics = 'Topics'; //Translate
+                $this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->upgrade_skin = 'Upgrade Skin'; //Translate
 		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
 		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
