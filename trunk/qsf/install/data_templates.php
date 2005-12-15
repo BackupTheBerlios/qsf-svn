@@ -1612,6 +1612,36 @@ function check(i)
 enable(\'\$init\');
 //-->
 </script>', 'Avatar Controls', 'The form that allows users to customize their avatar', 3)";
+$queries['CP_EDIT_SIG'] = "INSERT INTO qsf_templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_EDIT_SIG', '
+<form action=\"{\$this->self}?a=cp&amp;s=sig\" method=\"post\" id=\"mbpost\">
+<script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
+<script type=\"text/javascript\">
+<!--
+mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
+mbcodeInit(\"mbpost\", \"sig\");
+//-->
+</script>
+</script>
+{\$this->table}
+ <tr>
+   <td class=\"header\">{\$this->lang->cp_label_edit_sig}</td>
+ </tr>
+ <tr>
+   <td class=\"tabledark\"><b>{\$this->lang->cp_preview_sig}</b><br/>........................................<div class=\"signature\">{\$preview}</div></td>
+ </tr>
+ <tr>
+  <td class=\"tablelight\">
+    {\$mbcodeButtons}
+    <textarea class=\"input\" name=\"sig\" rows=\"8\" cols=\"39\" onclick=\"storeCaret(this)\" onkeyup=\"storeCaret(this)\" onfocus=\"storeCaret(this)\" onmouseout=\"storeCaret(this)\">{\$edit}</textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class=\"footer\" align=\"center\">
+    <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->submit}\" />
+    </td>
+  </tr>
+{\$this->etable}
+</form>', 'Edit Signature', 'Allows you to edit how signatures are handled', 8)";
 $queries['CP_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_HOME', '{\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->cp_header}</td>
@@ -1625,14 +1655,15 @@ $queries['CP_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_set,
 {\$this->etable}', 'Control Panel Home', 'The page shown when the control panel is opened', 1)";
 $queries['CP_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_MAIN', '{\$this->table}
  <tr>
-  <td class=\"header\" colspan=\"5\">{\$this->lang->cp_header}</td>
+  <td class=\"header\" colspan=\"6\">{\$this->lang->cp_header}</td>
  </tr>
  <tr>
-  <td class=\"{\$class[\'avatar\']}\" style=\"width:20%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=avatar\">{\$this->lang->cp_label_edit_avatar}</a></td>
-  <td class=\"{\$class[\'cpass\']}\" style=\"width:20%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=cpass\">{\$this->lang->cp_label_edit_pass}</a></td>
-  <td class=\"{\$class[\'prefs\']}\" style=\"width:20%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=prefs\">{\$this->lang->cp_label_edit_prefs}</a></td>
-  <td class=\"{\$class[\'profile\']}\" style=\"width:20%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=profile\">{\$this->lang->cp_label_edit_profile}</a></td>
-  <td class=\"{\$class[\'subs\']}\" style=\"width:20%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=subs\">{\$this->lang->cp_label_edit_subs}</a></td>
+  <td class=\"{\$class[\'avatar\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=avatar\">{\$this->lang->cp_label_edit_avatar}</a></td>
+  <td class=\"{\$class[\'cpass\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=cpass\">{\$this->lang->cp_label_edit_pass}</a></td>
+  <td class=\"{\$class[\'prefs\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=prefs\">{\$this->lang->cp_label_edit_prefs}</a></td>
+  <td class=\"{\$class[\'profile\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=profile\">{\$this->lang->cp_label_edit_profile}</a></td>
+  <td class=\"{\$class[\'subs\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=subs\">{\$this->lang->cp_label_edit_subs}</a></td>
+  <td class=\"{\$class[\'sig\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=sig\">{\$this->lang->cp_label_edit_sig}</a></td>
  </tr>
 {\$this->etable}
 
@@ -1768,38 +1799,32 @@ $queries['CP_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, template_s
   </td>
  </tr>
  <tr>
-  <td class=\"tabledark\">{\$this->lang->cp_signature}</td>
+  <td class=\"tabledark\">{\$this->lang->cp_icq}</td>
   <td class=\"tabledark\">
-   <textarea class=\"input\" name=\"user_signature\" cols=\"39\" rows=\"8\">{\$this->user[\'user_signature\']}</textarea>
-  </td>
- </tr>
- <tr>
-  <td class=\"tablelight\">{\$this->lang->cp_icq}</td>
-  <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"user_icq\" value=\"{\$this->user[\'user_icq\']}\" size=\"40\" />
   </td>
  </tr>
  <tr>
-  <td class=\"tabledark\">{\$this->lang->cp_aim}</td>
-  <td class=\"tabledark\">
+  <td class=\"tablelight\">{\$this->lang->cp_aim}</td>
+  <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"user_aim\" value=\"{\$this->user[\'user_aim\']}\" size=\"40\" />
   </td>
  </tr>
  <tr>
-  <td class=\"tablelight\">{\$this->lang->cp_msn}</td>
-  <td class=\"tablelight\">
+  <td class=\"tabledark\">{\$this->lang->cp_msn}</td>
+  <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"user_msn\" value=\"{\$this->user[\'user_msn\']}\" size=\"40\" />
   </td>
  </tr>
  <tr>
-  <td class=\"tabledark\">{\$this->lang->cp_yahoo}</td>
-  <td class=\"tabledark\">
+  <td class=\"tablelight\">{\$this->lang->cp_yahoo}</td>
+  <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"user_yahoo\" value=\"{\$this->user[\'user_yahoo\']}\" size=\"40\" />
   </td>
  </tr>
  <tr>
-  <td class=\"tablelight\">{\$this->lang->cp_gtalk}</td>
-  <td class=\"tablelight\">
+  <td class=\"tabledark\">{\$this->lang->cp_gtalk}</td>
+  <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"user_gtalk\" value=\"{\$this->user[\'user_gtalk\']}\" size=\"40\" />
   </td>
  </tr>
@@ -2161,6 +2186,33 @@ $queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template
     </tr>
    {\$this->etable}
 </div>', 'Generic Message', 'Edit the html that displays generic messages throughout the board', 1)";
+$queries['MAIN_MBCODE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MBCODE', '
+  <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\">
+    <tr>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"b\" title=\"{\$this->lang->mbcode_bold}\" accesskey=\"b\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_bold1}\" style=\"width:20px;font-weight:bold\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"i\" title=\"{\$this->lang->mbcode_italic}\" accesskey=\"i\" class=\"mbcButton\" value=\" {\$this->lang->mbcode_italic1}\" style=\"width:20px;font-style:italic\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"u\" title=\"{\$this->lang->mbcode_underline}\" accesskey=\"u\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_underline1}\" style=\"width:20px;text-decoration:underline\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"s\" title=\"{\$this->lang->mbcode_strike}\" accesskey=\"s\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_strike1}\" style=\"width:20px;text-decoration:line-through\" /></td>
+     <td>&nbsp;</td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"php\" title=\"{\$this->lang->mbcode_php}\" accesskey=\"p\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_php}\" style=\"width:40px\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"code\" title=\"{\$this->lang->mbcode_code}\" accesskey=\"c\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_code}\" style=\"width:40px\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"quote\" title=\"{\$this->lang->mbcode_quote}\" accesskey=\"q\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_quote}\" style=\"width:50px\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"spoiler\" title=\"{\$this->lang->mbcode_spoiler}\" accesskey=\"r\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_spoiler}\" style=\"width:50px\" /></td>
+     <td>&nbsp;</td>
+     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"url\" title=\"{\$this->lang->mbcode_url}\" accesskey=\"h\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_url}\" style=\"width:40px\" /></td>
+     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"email\" title=\"{\$this->lang->mbcode_email}\" accesskey=\"e\" class=\"mbcButton\" value=\"@\" style=\"width:30px\" /></td>
+     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"img\" title=\"{\$this->lang->mbcode_image}\" accesskey=\"k\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_image1}\" style=\"width:40px\" /></td>
+    </tr>
+    <tr>
+     <td colspan=\"12\">
+      <select name=\"fcolor\" class=\"mbcSelect\" onchange=\"mbcFont(this)\"><option value=\"\">{\$this->lang->mbcode_color}</option><option value=\"skyblue\" style=\"color:skyblue\">{\$this->lang->mbcode_skyblue}</option><option value=\"royalblue\" style=\"color:royalblue\">{\$this->lang->mbcode_royalblue}</option><option value=\"blue\" style=\"color:blue\">{\$this->lang->mbcode_blue}</option><option value=\"darkblue\" style=\"color:darkblue\">{\$this->lang->mbcode_darkblue}</option><option value=\"yellow\" style=\"color:yellow\">{\$this->lang->mbcode_yellow}</option><option value=\"orange\" style=\"color:orange\">{\$this->lang->mbcode_orange}</option><option value=\"orangered\" style=\"color:orangered\">{\$this->lang->mbcode_orangered}</option><option value=\"crimson\" style=\"color:crimson\">{\$this->lang->mbcode_crimson}</option><option value=\"red\" style=\"color:red\">{\$this->lang->mbcode_red}</option><option value=\"firebrick\" style=\"color:firebrick\">{\$this->lang->mbcode_firered}</option><option value=\"darkred\" style=\"color:darkred\">{\$this->lang->mbcode_darkred}</option><option value=\"green\" style=\"color:green\">{\$this->lang->mbcode_green}</option><option value=\"limegreen\" style=\"color:limegreen\">{\$this->lang->mbcode_limegreen}</option><option value=\"seagreen\" style=\"color:seagreen\">{\$this->lang->mbcode_seagreen}</option><option value=\"deeppink\" style=\"color:deeppink\">{\$this->lang->mbcode_deepink}</option><option value=\"tomato\" style=\"color:tomato\">{\$this->lang->mbcode_tomato}</option><option value=\"coral\" style=\"color:coral\">{\$this->lang->mbcode_coral}</option><option value=\"purple\" style=\"color:purple\">{\$this->lang->mbcode_purple}</option><option value=\"indigo\" style=\"color:indigo\">{\$this->lang->mbcode_indigo}</option><option value=\"burlywood\" style=\"color:burlywood\">{\$this->lang->mbcode_wood}</option><option value=\"sandybrown\" style=\"color:sandybrown\">{\$this->lang->mbcode_sandybrown}</option><option value=\"sienna\" style=\"color:sienna\">{\$this->lang->mbcode_sienna}</option><option value=\"chocolate\" style=\"color:chocolate\">{\$this->lang->mbcode_chocolate}</option><option value=\"teal\" style=\"color:teal\">{\$this->lang->mbcode_teal}</option><option value=\"silver\" style=\"color:silver\">{\$this->lang->mbcode_silver}</option></select>
+      <select name=\"fsize\" class=\"mbcSelect\" onchange=\"mbcFont(this)\"><option value=\"\">{\$this->lang->mbcode_size}</option><option value=\"1\">{\$this->lang->mbcode_tiny}</option><option value=\"2\">{\$this->lang->mbcode_small}</option><option value=\"3\">{\$this->lang->mbcode_medium}</option><option value=\"5\">{\$this->lang->mbcode_large}</option><option value=\"7\">{\$this->lang->mbcode_huge}</option></select>
+      <select name=\"ffont\" class=\"mbcSelect\" onchange=\"mbcFont(this)\"><option value=\"\">{\$this->lang->mbcode_font}</option><option value=\"arial\">{\$this->lang->mbcode_arial}</option><option value=\"courier\">{\$this->lang->mbcode_courier}</option><option value=\"impact\">{\$this->lang->mbcode_impact}</option><option value=\"tahoma\">{\$this->lang->mbcode_tahoma}</option><option value=\"times\">{\$this->lang->mbcode_times}</option><option value=\"verdana\">{\$this->lang->mbcode_verdana}</option></select>
+     </td>
+    </tr>
+   </table>
+   <br />
+', 'BB Code buttons', 'Edit the buttons used as bbcode tools when posting', 8)";
 $queries['MAIN_REMINDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', ' <p class=\"reminder\">
   {\$qsf->lang->main_reminder}<br /><br />{\$reminder_text}
  </p>', 'Reminder', 'Used for important reminders for certain users, such as explaining to members awaiting activation how to enable their accounts.', 7)";
@@ -2589,106 +2641,12 @@ $queries['POST_ATTACH_REMOVE'] = "INSERT INTO {$pre}templates (template_skin, te
     {\$attached}
    </select>
    <input type=\"submit\" name=\"detach\" value=\"{\$this->lang->post_attach_remove}\" />', 'Attachments', 'Displayed when there are attachments', 7)";
-$queries['POST_BOX_PLAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_PLAIN', '<script type=\"text/javascript\">
+$queries['POST_BOX_PLAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_PLAIN', '
+<script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
+<script type=\"text/javascript\">
 <!--
-function getLength(){
-  var length = form[\"post\"].value.length;
-  alert(\"{\$this->lang->post_mbcode_length}\");
-
-  return false;
-}
-
-function insertSmiley(smiley) {
-  insertCode(getText() + \' \' + smiley);
-  return false;
-}
-
-function insertCode(code) {
-  var el = form[\"post\"];
-  if (window.getSelection) {
-    if (el.selectionStart != el.selectionEnd) {
-      el.value = el.value.substring(0, el.selectionStart) + code
-              + el.value.substring(el.selectionEnd, el.value.length);
-      el.selectionStart = el.value.length;
-      el.selectionEnd = el.value.length;
-    } else {
-      el.value = el.value.substring(0, el.selectionStart) + code
-              + el.value.substring(el.selectionStart, el.value.length);
-    }
-  } else if (el.createTextRange && el.caretPos) {
-    el.caretPos.text = code;
-  } else {
-    el.value += code;
-  }
-  el.focus();
-}
-
-function storeCaret(el) {
-  if (el.createTextRange) {
-    el.caretPos = document.selection.createRange().duplicate();
-  }
-}
-
-function getText() {
-  if (document.all) {
-    if (form[\"post\"].createTextRange && form[\"post\"].caretPos) {
-      return form[\"post\"].caretPos.text;
-    } else {
-      return \"\";
-    }
-  } else if (window.getSelection) {
-    return form[\"post\"].value.substring(form[\"post\"].selectionStart, form[\"post\"].selectionEnd);
-  } else {
-    return \"\";
-  }
-}
-
-function mbCode(e) {
-  var tag = e.name;
-  var text = getText();
-
-  if (text) {
-    var code = \"[\" + tag + \"]\" + text + \"[/\" + tag + \"]\";
-  } else {
-    if (e.value.indexOf(\"*\") != -1) {
-      var code = \"[/\" + tag + \"]\";
-      e.value = e.value.substring(0,(e.value.length-1));
-    } else {
-      var code = \"[\" + tag + \"]\";
-      e.value += \"*\";
-    }
-  }
-
-  insertCode(code);
-}
-
-function mbcURL(e) {
-  var type = e.name;
-  var text = getText();
-  var isURL = (text.substring(0,7) == \"http://\");
-
-  if (type == \'img\') {
-    if (isURL) {
-      var code = \"[img]\" + text + \"[/img]\";
-    } else {
-      var code = text + \"[img]\" + prompt(\"{\$this->lang->post_mbcode_url}:\",\"\") + \"[/img]\";
-    }
-  } else {
-    var code = \"[\" + type + \"=\" + (isURL ? text : prompt(\"{\$this->lang->post_mbcode_address}:\",\"\")) + \"]\" + ((text && !isURL) ? text : prompt(\"{\$this->lang->post_mbcode_detail}:\",\"\")) + \"[/\" + type + \"]\";
-  }
-  insertCode(code);
-}
-
-function mbcFont(list) {
-  var attrib = list.name.substring(1,list.name.length);
-  var value = list.options[list.selectedIndex].value;
-  if (value && attrib) {
-    insertCode(\"[\" + attrib + \"=\" + value + \"]\" + getText() + \"[/\" + attrib + \"]\");
-  }
-  setTimeout(\"form[\'\"+list.name+\"\'].options[0].selected = true\",10);
-}
-
-var form = document.forms[\"mbpost\"];
+mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
+mbcodeInit(\"mbpost\", \"post\");
 //-->
 </script>
 
@@ -2696,31 +2654,7 @@ var form = document.forms[\"mbpost\"];
  <tr>
   {\$smilies}
   <td class=\"tablelight\">
-   <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\">
-    <tr>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"b\" title=\"{\$this->lang->post_mbcode_bold}\" accesskey=\"b\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_bold1}\" style=\"width:20px;font-weight:bold\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"i\" title=\"{\$this->lang->post_mbcode_italic}\" accesskey=\"i\" class=\"mbcButton\" value=\" {\$this->lang->post_mbcode_italic1}\" style=\"width:20px;font-style:italic\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"u\" title=\"{\$this->lang->post_mbcode_underline}\" accesskey=\"u\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_underline1}\" style=\"width:20px;text-decoration:underline\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"s\" title=\"{\$this->lang->post_mbcode_strike}\" accesskey=\"s\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_strike1}\" style=\"width:20px;text-decoration:line-through\" /></td>
-     <td>&nbsp;</td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"php\" title=\"{\$this->lang->post_mbcode_php}\" accesskey=\"p\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_php}\" style=\"width:40px\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"code\" title=\"{\$this->lang->post_mbcode_code}\" accesskey=\"c\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_code}\" style=\"width:40px\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"quote\" title=\"{\$this->lang->post_mbcode_quote}\" accesskey=\"q\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_quote}\" style=\"width:50px\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"spoiler\" title=\"{\$this->lang->post_mbcode_spoiler}\" accesskey=\"r\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_spoiler}\" style=\"width:50px\" /></td>
-     <td>&nbsp;</td>
-     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"url\" title=\"{\$this->lang->post_mbcode_url}\" accesskey=\"h\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_url}\" style=\"width:40px\" /></td>
-     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"email\" title=\"{\$this->lang->post_mbcode_email}\" accesskey=\"e\" class=\"mbcButton\" value=\"@\" style=\"width:30px\" /></td>
-     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"img\" title=\"{\$this->lang->post_mbcode_image}\" accesskey=\"k\" class=\"mbcButton\" value=\"{\$this->lang->post_mbcode_image1}\" style=\"width:40px\" /></td>
-    </tr>
-    <tr>
-     <td colspan=\"12\">
-      <select name=\"fcolor\" class=\"mbcSelect\" onchange=\"mbcFont(this)\"><option value=\"\">{\$this->lang->post_mbcode_color}</option><option value=\"skyblue\" style=\"color:skyblue\">{\$this->lang->post_mbcode_skyblue}</option><option value=\"royalblue\" style=\"color:royalblue\">{\$this->lang->post_mbcode_royalblue}</option><option value=\"blue\" style=\"color:blue\">{\$this->lang->post_mbcode_blue}</option><option value=\"darkblue\" style=\"color:darkblue\">{\$this->lang->post_mbcode_darkblue}</option><option value=\"yellow\" style=\"color:yellow\">{\$this->lang->post_mbcode_yellow}</option><option value=\"orange\" style=\"color:orange\">{\$this->lang->post_mbcode_orange}</option><option value=\"orangered\" style=\"color:orangered\">{\$this->lang->post_mbcode_orangered}</option><option value=\"crimson\" style=\"color:crimson\">{\$this->lang->post_mbcode_crimson}</option><option value=\"red\" style=\"color:red\">{\$this->lang->post_mbcode_red}</option><option value=\"firebrick\" style=\"color:firebrick\">{\$this->lang->post_mbcode_firered}</option><option value=\"darkred\" style=\"color:darkred\">{\$this->lang->post_mbcode_darkred}</option><option value=\"green\" style=\"color:green\">{\$this->lang->post_mbcode_green}</option><option value=\"limegreen\" style=\"color:limegreen\">{\$this->lang->post_mbcode_limegreen}</option><option value=\"seagreen\" style=\"color:seagreen\">{\$this->lang->post_mbcode_seagreen}</option><option value=\"deeppink\" style=\"color:deeppink\">{\$this->lang->post_mbcode_deepink}</option><option value=\"tomato\" style=\"color:tomato\">{\$this->lang->post_mbcode_tomato}</option><option value=\"coral\" style=\"color:coral\">{\$this->lang->post_mbcode_coral}</option><option value=\"purple\" style=\"color:purple\">{\$this->lang->post_mbcode_purple}</option><option value=\"indigo\" style=\"color:indigo\">{\$this->lang->post_mbcode_indigo}</option><option value=\"burlywood\" style=\"color:burlywood\">{\$this->lang->post_mbcode_wood}</option><option value=\"sandybrown\" style=\"color:sandybrown\">{\$this->lang->post_mbcode_sandybrown}</option><option value=\"sienna\" style=\"color:sienna\">{\$this->lang->post_mbcode_sienna}</option><option value=\"chocolate\" style=\"color:chocolate\">{\$this->lang->post_mbcode_chocolate}</option><option value=\"teal\" style=\"color:teal\">{\$this->lang->post_mbcode_teal}</option><option value=\"silver\" style=\"color:silver\">{\$this->lang->post_mbcode_silver}</option></select>
-      <select name=\"fsize\" class=\"mbcSelect\" onchange=\"mbcFont(this)\"><option value=\"\">{\$this->lang->post_mbcode_size}</option><option value=\"1\">{\$this->lang->post_mbcode_tiny}</option><option value=\"2\">{\$this->lang->post_mbcode_small}</option><option value=\"3\">{\$this->lang->post_mbcode_medium}</option><option value=\"5\">{\$this->lang->post_mbcode_large}</option><option value=\"7\">{\$this->lang->post_mbcode_huge}</option></select>
-      <select name=\"ffont\" class=\"mbcSelect\" onchange=\"mbcFont(this)\"><option value=\"\">{\$this->lang->post_mbcode_font}</option><option value=\"arial\">{\$this->lang->post_mbcode_arial}</option><option value=\"courier\">{\$this->lang->post_mbcode_courier}</option><option value=\"impact\">{\$this->lang->post_mbcode_impact}</option><option value=\"tahoma\">{\$this->lang->post_mbcode_tahoma}</option><option value=\"times\">{\$this->lang->post_mbcode_times}</option><option value=\"verdana\">{\$this->lang->post_mbcode_verdana}</option></select>
-     </td>
-    </tr>
-   </table>
-   <br />
+  {\$mbcodeButtons}
    <textarea class=\"input\" name=\"post\" rows=\"12\" cols=\"60\" onclick=\"storeCaret(this)\" onkeyup=\"storeCaret(this)\" onfocus=\"storeCaret(this)\" onmouseout=\"storeCaret(this)\">{\$quote}</textarea>
   </td>
  </tr>', 'Post Designer - Normal', 'The normal post creator interface', 1)";

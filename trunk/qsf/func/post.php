@@ -376,6 +376,10 @@ class post extends qsfglobal
 			$clickable = $this->make_clickable($this->sets['clickable_per_row']);
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
+
+			$this->lang->mbcode(); // Load the mbcode values
+			$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
+
 			if ($this->perms->auth('post_attach', $this->get['f'])) {
 				if ($attached) {
 					$remove_box = eval($this->template('POST_ATTACH_REMOVE'));

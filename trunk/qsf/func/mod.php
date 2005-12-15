@@ -218,6 +218,10 @@ class mod extends qsfglobal
 			$clickable = $this->make_clickable($this->sets['clickable_per_row']);
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
+
+			$this->lang->mbcode(); // Load the mbcode values
+			$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
+
 			$post_box  = eval($this->template($this->post_box()));
 
 			return eval($this->template('MOD_EDIT_POST'));

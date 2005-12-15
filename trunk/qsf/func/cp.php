@@ -43,6 +43,7 @@ class cp extends qsfglobal
 		$class['prefs']   = 'tablelight';
 		$class['profile'] = 'tablelight';
 		$class['subs']    = 'tablelight';
+		$class['sig']     = 'tablelight';
 
 		switch($this->get['s'])
 		{
@@ -69,6 +70,11 @@ class cp extends qsfglobal
 		case 'subs':
 			$class['subs'] = 'tabledark';
 			$control_page = $this->edit_subs();
+			break;
+
+		case 'sig':
+			$class['sig'] = 'tabledark';
+			$control_page = $this->edit_sig();
 			break;
 
 		case 'addsub':
@@ -502,6 +508,34 @@ class cp extends qsfglobal
 		return eval($this->template('CP_SUB_MAIN'));
 	}
 
+	/**
+	 * Allows better handling over signatures
+	 *
+	 * @author Jonathan West <jon@quicksilverforums.com>
+	 * @since v1.1.6
+	 **/
+	function edit_sig()
+	{
+		$this->lang->mbcode(); // Load the mbcode values
+		$this->set_title($this->lang->cp_label_edit_sig);
+		$this->tree($this->lang->cp_cp, $this->self . '?a=cp');
+		$this->tree($this->lang->cp_label_edit_sig);
+		$params = FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS;
+		
+		if (isset($this->post['submit'])) {
+			$this->db->query('UPDATE ' . $this->pre . 'users
+				SET user_signature="' . $this->post['sig'] . '"
+				WHERE user_id=' . $this->user['user_id']);
+		}
+		
+		$query = $this->db->query("SELECT user_signature FROM {$this->pre}users WHERE user_id={$this->user['user_id']}");
+		$pr = $this->db->nqfetch($query);
+		$preview = $this->format($pr['user_signature'], $params);
+		$edit = $pr['user_signature'];
+		$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
+		return eval($this->template('CP_EDIT_SIG'));
+	}
+	 
 	function add_sub()
 	{
 		$this->set_title($this->lang->cp_cp);

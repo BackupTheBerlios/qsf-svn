@@ -228,6 +228,7 @@ class sk
 		$this->cp_label_edit_pass = 'Zmena hesla';
 		$this->cp_label_edit_prefs = 'Zmena nastavení';
 		$this->cp_label_edit_profile = 'Zmena profilu';
+		$this->cp_label_edit_sig = 'Edit Signature'; //Translate
 		$this->cp_label_edit_subs = 'Editovanie objednávok';
 		$this->cp_language = 'Jazyk';
 		$this->cp_less_charac = 'Vaše meno musí by kratšie, ako 32 znakov.';
@@ -247,6 +248,7 @@ class sk
 		$this->cp_old_pass = 'Pôvodné heslo';
 		$this->cp_pass_notvaid = 'Vaše heslo je neplatné. Uistite sa, že obsahuje len platné znaky ako sú písmená, èísla, pomlèka, podtržítko alebo medzera.';
 		$this->cp_preferences = 'Zmena nastavení';
+		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Možnosti ochrany súkromia';
 		$this->cp_repeat_pass = 'Ešte raz nové heslo';
 		$this->cp_sept = 'September'; //Translate
@@ -524,6 +526,68 @@ class sk
 		$this->mail_sent = 'Vaša správa bola zaslaná na adresu';
 	}
 
+	function mbcode()
+	{
+		$this->mbcode_address = 'Zadajte adresu';
+		$this->mbcode_arial = 'Arial'; //Translate
+		$this->mbcode_blue = 'Blue'; //Translate
+		$this->mbcode_bold = 'Bold'; //Translate
+		$this->mbcode_bold1 = 'B'; //Translate
+		$this->mbcode_chocolate = 'èokoláda';
+		$this->mbcode_code = 'zdrojový kód';
+		$this->mbcode_color = 'Farba';
+		$this->mbcode_coral = 'Coral'; //Translate
+		$this->mbcode_courier = 'Courier'; //Translate
+		$this->mbcode_crimson = 'Karmínová';
+		$this->mbcode_darkblue = 'Tmavomodrá';
+		$this->mbcode_darkred = 'Tmavoèervená';
+		$this->mbcode_deepink = 'Sýta ružová';
+		$this->mbcode_detail = 'Zadajte popis';
+		$this->mbcode_email = 'Email'; //Translate
+		$this->mbcode_firered = 'Tehlová èervená';
+		$this->mbcode_font = 'Font'; //Translate
+		$this->mbcode_green = 'Zelená';
+		$this->mbcode_huge = 'Obrovský';
+		$this->mbcode_image = 'Obrázok';
+		$this->mbcode_image1 = 'IMG'; //Translate
+		$this->mbcode_impact = 'Impact'; //Translate
+		$this->mbcode_indigo = 'Indigo'; //Translate
+		$this->mbcode_italic = 'Italic'; //Translate
+		$this->mbcode_italic1 = 'I'; //Translate
+		$this->mbcode_large = 'Ve¾ký';
+		$this->mbcode_length = 'Váš príspevok má +length+ znakov.';
+		$this->mbcode_limegreen = 'Limetová zelená';
+		$this->mbcode_medium = 'Stredný';
+		$this->mbcode_orange = 'Oranžová';
+		$this->mbcode_orangered = 'Oranžovoèervené';
+		$this->mbcode_php = 'PHP'; //Translate
+		$this->mbcode_purple = 'Purpurová';
+		$this->mbcode_quote = 'Citova';
+		$this->mbcode_red = 'Èervená';
+		$this->mbcode_royalblue = 'Krá¾ovská modrá';
+		$this->mbcode_sandybrown = 'Pieskovo hnedá';
+		$this->mbcode_seagreen = 'Morská zelená';
+		$this->mbcode_sienna = 'Èervenohnedá';
+		$this->mbcode_silver = 'Strieborná';
+		$this->mbcode_size = 'Ve¾kos';
+		$this->mbcode_skyblue = 'Nebeská modrá';
+		$this->mbcode_small = 'Malý';
+		$this->mbcode_spoiler = 'Spoiler'; //Translate
+		$this->mbcode_strike = 'Preškrtnutý';
+		$this->mbcode_strike1 = 'S'; //Translate
+		$this->mbcode_tahoma = 'Tahoma'; //Translate
+		$this->mbcode_teal = 'Modrozelená';
+		$this->mbcode_times = 'Times'; //Translate
+		$this->mbcode_tiny = 'Malinký';
+		$this->mbcode_tomato = 'Paradajková';
+		$this->mbcode_underline = 'Podèiarknu';
+		$this->mbcode_underline1 = 'U'; //Translate
+		$this->mbcode_url = 'URL'; //Translate
+		$this->mbcode_verdana = 'Verdana'; //Translate
+		$this->mbcode_wood = 'Drevená';
+		$this->mbcode_yellow = 'Žltá';
+	}
+
 	function member_control()
 	{
 		$this->mc = 'Nastavenia Užívate¾ov';
@@ -789,64 +853,6 @@ class sk
 		$this->post_icon = 'Ikona príspevku';
 		$this->post_last_five = 'Posledných pä príspevkov v opaènom poradí';
 		$this->post_length = 'Kontrola dåžky';
-		$this->post_mbcode_address = 'Zadajte adresu';
-		$this->post_mbcode_arial = 'Arial'; //Translate
-		$this->post_mbcode_blue = 'Blue'; //Translate
-		$this->post_mbcode_bold = 'Bold'; //Translate
-		$this->post_mbcode_bold1 = 'B'; //Translate
-		$this->post_mbcode_chocolate = 'èokoláda';
-		$this->post_mbcode_code = 'zdrojový kód';
-		$this->post_mbcode_color = 'Farba';
-		$this->post_mbcode_coral = 'Coral'; //Translate
-		$this->post_mbcode_courier = 'Courier'; //Translate
-		$this->post_mbcode_crimson = 'Karmínová';
-		$this->post_mbcode_darkblue = 'Tmavomodrá';
-		$this->post_mbcode_darkred = 'Tmavoèervená';
-		$this->post_mbcode_deepink = 'Sýta ružová';
-		$this->post_mbcode_detail = 'Zadajte popis';
-		$this->post_mbcode_email = 'Email'; //Translate
-		$this->post_mbcode_firered = 'Tehlová èervená';
-		$this->post_mbcode_font = 'Font'; //Translate
-		$this->post_mbcode_green = 'Zelená';
-		$this->post_mbcode_huge = 'Obrovský';
-		$this->post_mbcode_image = 'Obrázok';
-		$this->post_mbcode_image1 = 'IMG'; //Translate
-		$this->post_mbcode_impact = 'Impact'; //Translate
-		$this->post_mbcode_indigo = 'Indigo'; //Translate
-		$this->post_mbcode_italic = 'Italic'; //Translate
-		$this->post_mbcode_italic1 = 'I'; //Translate
-		$this->post_mbcode_large = 'Ve¾ký';
-		$this->post_mbcode_length = 'Váš príspevok má "+length+" znakov.';
-		$this->post_mbcode_limegreen = 'Limetová zelená';
-		$this->post_mbcode_medium = 'Stredný';
-		$this->post_mbcode_orange = 'Oranžová';
-		$this->post_mbcode_orangered = 'Oranžovoèervené';
-		$this->post_mbcode_php = 'PHP'; //Translate
-		$this->post_mbcode_purple = 'Purpurová';
-		$this->post_mbcode_quote = 'Citova';
-		$this->post_mbcode_red = 'Èervená';
-		$this->post_mbcode_royalblue = 'Krá¾ovská modrá';
-		$this->post_mbcode_sandybrown = 'Pieskovo hnedá';
-		$this->post_mbcode_seagreen = 'Morská zelená';
-		$this->post_mbcode_sienna = 'Èervenohnedá';
-		$this->post_mbcode_silver = 'Strieborná';
-		$this->post_mbcode_size = 'Ve¾kos';
-		$this->post_mbcode_skyblue = 'Nebeská modrá';
-		$this->post_mbcode_small = 'Malý';
-		$this->post_mbcode_spoiler = 'Spoiler'; //Translate
-		$this->post_mbcode_strike = 'Preškrtnutý';
-		$this->post_mbcode_strike1 = 'S'; //Translate
-		$this->post_mbcode_tahoma = 'Tahoma'; //Translate
-		$this->post_mbcode_teal = 'Modrozelená';
-		$this->post_mbcode_times = 'Times'; //Translate
-		$this->post_mbcode_tiny = 'Malinký';
-		$this->post_mbcode_tomato = 'Paradajková';
-		$this->post_mbcode_underline = 'Podèiarknu';
-		$this->post_mbcode_underline1 = 'U'; //Translate
-		$this->post_mbcode_url = 'URL'; //Translate
-		$this->post_mbcode_verdana = 'Verdana'; //Translate
-		$this->post_mbcode_wood = 'Drevená';
-		$this->post_mbcode_yellow = 'Žltá';
 		$this->post_msg = 'Príspevok';
 		$this->post_must_msg = 'Musíte ešte napísa samotný odkaz.';
 		$this->post_must_options = 'Musíte zada možné odpovede pre nové hlasovanie.';
@@ -930,7 +936,7 @@ class sk
 
 	function prune()
 	{
- 		$this->prune_action = 'Spôsob prerieïovania';
+		$this->prune_action = 'Spôsob prerieïovania';
 		$this->prune_age_day = '1 Deò';
 		$this->prune_age_eighthours = '8 Hodín';
 		$this->prune_age_hour = '1 Hodína';
