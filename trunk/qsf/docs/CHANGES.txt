@@ -32,6 +32,9 @@ Changes for 1.1.6:
 * Added display of Forum name in Recent posts
 * robots.txt file to keep spiders from accessing things they don't need to
 * Plugged an XSS injection point
+* Poll options now use BB code
+* Added enhanced editor for user signatures - Jon
+* Pulled out BB code buttons into seperate template
 
 Bugfixes for 1.1.4:
 
