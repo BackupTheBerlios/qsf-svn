@@ -1,3 +1,7 @@
+Changes for 1.1.7:
+
+* Fixed upgrade bug where errors for connecting to database or saving settings.php was not showing
+
 Changes for 1.1.6:
 
 * Lots of cleanups to templates

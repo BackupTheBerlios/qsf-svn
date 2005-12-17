@@ -1,4 +1,4 @@
-        Upgrade what MySQL database?$sets_error<br /><br />
+        Upgrade what MySQL database?<?php echo $sets_error; ?><br /><br />
         <form action='<?php echo $this->self; ?>?mode=upgrade&amp;from=<?php echo $this->get['from']; ?>&amp;step=15' method='post'>
         <table border='0' cellpadding='4' cellspacing='0'>
         <tr>
