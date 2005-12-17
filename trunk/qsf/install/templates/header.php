@@ -55,8 +55,8 @@
          <b>PHP Version:</b> <?php echo PHP_VERSION; ?><hr />
          <b>Operating System:</b> <?php echo (defined('PHP_OS') ? PHP_OS : 'unknown'); ?><hr />
          <b>Safe mode:</b> <?php echo (get_cfg_var('safe_mode') ? 'on' : 'off'); ?><hr />
-         <b>Register globals:</b> <?php (get_cfg_var('register_globals') ? 'on' : 'off'); ?><hr />
-         <b>Magic Quotes:</b> gpc <?php (get_cfg_var('magic_quotes_gpc') ? 'on' : 'off') . ', runtime ' . (get_cfg_var('magic_quotes_runtime') ? 'on' : 'off'); ?><hr />
-         <b>Server Software:</b> <?php (isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 'unknown'); ?>
+         <b>Register globals:</b> <?php echo (get_cfg_var('register_globals') ? 'on' : 'off'); ?><hr />
+         <b>Magic Quotes:</b> gpc <?php echo (get_cfg_var('magic_quotes_gpc') ? 'on' : 'off') . ', runtime ' . (get_cfg_var('magic_quotes_runtime') ? 'on' : 'off'); ?><hr />
+         <b>Server Software:</b> <?php echo (isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 'unknown'); ?>
         </td>
         <td class='main'>

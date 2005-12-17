@@ -147,7 +147,7 @@ class upgrade extends qsfglobal
 
 				// QSF or MB default skin in default location
 				if (($row['skin_name'] == 'QSF Comet' || $row['skin_name'] == 'Candy Corn') && $skin == 'default') {
-					if ($full_template_list || $need_templates) {
+					if ($full_template_list || $template_list) {
 						if ($full_template_list) {
 							$this->db->query("DELETE FROM {$pre}templates WHERE template_skin='default'");
 							execute_queries($queries, $this->db);
