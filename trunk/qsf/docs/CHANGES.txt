@@ -1,6 +1,6 @@
 Changes for 1.1.7:
 
-* Fixed upgrade bug where errors for connecting to database or saving settings.php was not showing
+* Fixed various bugs in the upgrade process
 
 Changes for 1.1.6:
 
