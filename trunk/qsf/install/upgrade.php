@@ -204,6 +204,7 @@ class upgrade extends qsfglobal
 					$row2['template_html'] = str_replace('$this->lang->board->topics_new', '$this->lang->main_topics_new', $row2['template_html']);
 					$row2['template_html'] = str_replace('$this->lang->forum->topics_new', '$this->lang->main_topics_new', $row2['template_html']);
 					$row2['template_html'] = str_replace('$this->lang->recent->topics_new', '$this->lang->main_topics_new', $row2['template_html']);
+					$row2['template_html'] = str_replace('post_mbcode_', 'mbcode_', $row2['template_html']);
 					$row2['template_html'] = addslashes($row2['template_html']);
 					$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin='{$skin}' AND template_name='{$row2['template_name']}'";
 					$this->db->query($sql);

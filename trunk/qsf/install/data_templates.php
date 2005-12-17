@@ -1612,7 +1612,7 @@ function check(i)
 enable(\'\$init\');
 //-->
 </script>', 'Avatar Controls', 'The form that allows users to customize their avatar', 3)";
-$queries['CP_EDIT_SIG'] = "INSERT INTO qsf_templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_EDIT_SIG', '
+$queries['CP_EDIT_SIG'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_EDIT_SIG', '
 <form action=\"{\$this->self}?a=cp&amp;s=sig\" method=\"post\" id=\"mbpost\">
 <script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
 <script type=\"text/javascript\">
