@@ -363,11 +363,11 @@ class templates extends admin
 						return $this->message($this->lang->edit_skin, $this->lang->only_skin);
 					}
 
+					$this->remove_dir("../skins/{$this->post['skin']}");
+
 					$this->db->query("DELETE FROM {$this->pre}skins WHERE skin_dir='{$this->post['skin']}'");
 					$this->db->query("DELETE FROM {$this->pre}templates WHERE template_skin='{$this->post['skin']}'");
 					$this->db->query("UPDATE {$this->pre}users SET user_skin='{$existing['skin_dir']}' WHERE user_skin='{$this->post['skin']}'");
-
-					$this->remove_dir("../skins/{$this->post['skin']}");
 
 					return $this->message($this->lang->edit_skin, $this->lang->skin_deleted);
 				} else {
@@ -387,10 +387,10 @@ class templates extends admin
 							$this->post['skin_dir'] .= '1';
 						}
 
+						rename("../skins/{$this->post['skin']}", "../skins/{$this->post['skin_dir']}");
+
 						$this->db->query("UPDATE {$this->pre}templates SET template_skin='{$this->post['skin_dir']}' WHERE template_skin='{$this->post['skin']}'");
 						$this->db->query("UPDATE {$this->pre}users SET user_skin='{$this->post['skin_dir']}' WHERE user_skin='{$this->post['skin']}'");
-
-						rename("../skins/{$this->post['skin']}", "../skins/{$this->post['skin_dir']}");
 					}
 
 					$this->db->query("UPDATE {$this->pre}skins SET skin_name='{$this->post['skin_name']}', skin_dir='{$this->post['skin_dir']}' WHERE skin_dir='{$this->post['skin']}'");
