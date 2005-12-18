@@ -201,9 +201,9 @@ class templates extends admin
 	                                	$row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
 						$row['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row['template_html']);
 						$row['template_html'] = str_replace('$this->lang->pm_inbox', '$foldername', $row['template_html']);
-						$row['template_html'] = str_replace('$this->lang->board->topics_new', '$this->lang->main_topics_new', $row['template_html']);
-						$row['template_html'] = str_replace('$this->lang->forum->topics_new', '$this->lang->main_topics_new', $row['template_html']);
-						$row['template_html'] = str_replace('$this->lang->recent->topics_new', '$this->lang->main_topics_new', $row['template_html']);
+						$row['template_html'] = str_replace('$this->lang->board_topics_new', '$this->lang->main_topics_new', $row['template_html']);
+						$row['template_html'] = str_replace('$this->lang->forum_topics_new', '$this->lang->main_topics_new', $row['template_html']);
+						$row['template_html'] = str_replace('$this->lang->recent_topics_new', '$this->lang->main_topics_new', $row['template_html']);
 						$row['template_html'] = str_replace('post_mbcode_', 'mbcode_', $row['template_html']);
 						$row['template_html'] = addslashes($row['template_html']);
                 		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
