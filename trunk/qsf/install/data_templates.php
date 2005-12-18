@@ -1621,7 +1621,6 @@ mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address
 mbcodeInit(\"mbpost\", \"sig\");
 //-->
 </script>
-</script>
 {\$this->table}
  <tr>
    <td class=\"header\">{\$this->lang->cp_label_edit_sig}</td>
