@@ -1,3 +1,8 @@
+Changes for 1.1.8:
+
+* New BB code for superscript, subscript and indent
+* Fixed bug in upgrading with non-default skins
+
 Changes for 1.1.7:
 
 * Fixed various bugs in the upgrade process
