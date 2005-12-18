@@ -29,7 +29,7 @@
 class qsfglobal
 {
 	var $name    = 'Quicksilver Forums'; // The name of the software @var string
-	var $version = 'v1.1.7';            // Quicksilver Forums' version @var string
+	var $version = 'v1.1.8';            // Quicksilver Forums' version @var string
 	var $server  = array();           // Alias for $_SERVER @var array
 	var $get     = array();           // Alias for $_GET @var array
 	var $post    = array();           // Alias for $_POST @var array
@@ -310,10 +310,13 @@ class qsfglobal
 				'~\[u]~i',
 				'~\[s]~i',
 				'~\[/[us]]~i',
+				'~\[sup](.*?)\[/sup]~i',
+				'~\[sub](.*?)\[/sub]~i',
+				'~\[indent](.*?)\[/indent]~i',
 				'~\[email]([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)?\[/email]~i',
 				'~\[email=([^<]+?)](.*?)\[/email]~i',
 				'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
-				'~\[(left|right|center)](.*?)\[/\1]~is',
+				'~\[(left|right|center|justify)](.*?)\[/\1]~is',
 				'~\[color=(#?[a-zA-Z0-9]+?)](.*?)\[/color]~is',
 				'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
 				'~\[size=([0-9]+?)](.*?)\[/size]~is',
@@ -330,10 +333,13 @@ class qsfglobal
 				'<span style=\'text-decoration:underline\'>',
 				'<span style=\'text-decoration:line-through\'>',
 				'</span>',
+				'<sup>\\1</sup>',
+				'<sub>\\1</sub>',
+				'<p style=\'text-indent:2em\'>\\1</p>',
 				'<a href="mailto:\\1">\\1</a>',
 				'<a href="mailto:\\1">\\2</a>',
 				'\'<img src="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" alt="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" />\'',
-				'<div align="\\1">\\2</div>',
+				'<p style=\'text-align:\\1\'>\\2</p>',
 				'<span style=\'color:\\1\'>\\2</span>',
 				'<span style=\'font-family:\\1\'>\\2</span>',
 				'<span style=\'font-size:\\1ex\'>\\2</span>',
