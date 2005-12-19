@@ -73,7 +73,7 @@ class register extends qsfglobal
 			$pass2    = $this->post['passB'];
 
 			if ($this->sets['register_image']) {
-				$image = $this->post['imagetext'];
+				$image = strtoupper($this->post['imagetext']);
 			} else {
 				$image = '-';
 			}
@@ -194,7 +194,7 @@ class register extends qsfglobal
 
 		$graph = new AntiSpam();
 		
-		$text  = $graph->Rand(6);
+		$text  = strtoupper($graph->Rand(6));
 		$graph->Stroke('./register.png');
 
 		return array(md5("{$this->sets['db_pass']}{$this->sets['mostonlinetime']}$text"), './register.png');
