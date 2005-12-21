@@ -353,6 +353,7 @@ class topic extends qsfglobal
 				$post['user_pm'] = null;
 				$Poster_Info = eval($this->template('TOPIC_POSTER_GUEST'));
 				$post['user_signature'] = null;
+				$icons = array();
 			}
 
 			if ($post['post_icon']) {
