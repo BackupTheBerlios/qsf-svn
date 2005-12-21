@@ -2076,6 +2076,7 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 <title>{\$title}</title>
 <link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/styles.css\" media=\"screen\" />
 <link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/print.css\" media=\"print\" />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/handheld.css\" media=\"handheld\" />
 <IF \$qsf->sets[\'rss_feed_title\'] != null>
 <link rel=\"alternate\" title=\"{\$qsf->sets[\'rss_feed_title\']}\" href=\"{\$qsf->sets[\'loc_of_board\']}index.php?a=rssfeed\" type=\"application/rss+xml\" />
 </IF>

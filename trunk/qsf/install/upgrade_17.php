@@ -27,7 +27,8 @@ if (!defined('INSTALLER')) {
 // Upgrade from 1.1.7 to 1.1.8
 
 $need_templates = array(
-	'CP_EDIT_SIG'		// Changed Templates
+	'CP_EDIT_SIG',		// Changed Templates
+	'MAIN'
 	);
 
 
