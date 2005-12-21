@@ -25,6 +25,14 @@
  *
  * @author Stephane Revel <st_garp98@hotmail.com>
  * @since 1.0.0 Beta 4.0
+ * Edited by Adrien Kwok <gnutux@linux.ca>
+ * QSF 1.1.6+
+ **/
+/**
+ *
+ * Editor note by Adrien Kwok:
+ * The ones that I have added are based on Canadian French. Furthermore, this translation file is still incomplete.
+ *
  **/
 class fr
 {
@@ -32,8 +40,8 @@ class fr
 	{
 		$this->active_last_action = 'Dernière action';
 		$this->active_modules_active = 'Consulte les utilisateurs actifs';
-		$this->active_modules_board = 'Consulte l\'accueil';
-		$this->active_modules_cp = 'Consulte son panneau de contrôle';
+		$this->active_modules_board = 'L\'accueil';
+		$this->active_modules_cp = 'Panneau de controle';
 		$this->active_modules_forum = 'Consulte un forum: %s';
 		$this->active_modules_help = 'Utilise l\'aide';
 		$this->active_modules_login = 'Se connecte / déconnecte';
@@ -43,7 +51,7 @@ class fr
 		$this->active_modules_post = 'Poste un message';
 		$this->active_modules_printer = 'Imprime un sujet: %s';
 		$this->active_modules_profile = 'Consulte un profil: %s';
-		$this->active_modules_recent = 'Viewing recent posts'; //Translate
+		$this->active_modules_recent = 'Lire postes récentes';
 		$this->active_modules_search = 'Cherche';
 		$this->active_modules_topic = 'Consulte un sujet: %s';
 		$this->active_time = 'Date';
@@ -51,60 +59,60 @@ class fr
 		$this->active_users = 'Utilisateurs actifs';
 	}
 
-	function admin()
+	function admin() //Please check my translation errors / Vérifier mes erreurs de traduction, s'il vous plaît
 	{
-		$this->admin_add_emoticons = 'Add emoticons'; //Translate
-		$this->admin_add_member_titles = 'Add automatic member titles'; //Translate
-		$this->admin_add_templates = 'Add HTML templates'; //Translate
-		$this->admin_ban_ips = 'Ban IP addresses'; //Translate
-		$this->admin_censor = 'Censor words'; //Translate
-		$this->admin_create_forum = 'Create a forum'; //Translate
-		$this->admin_create_group = 'Create a group'; //Translate
-		$this->admin_create_help = 'Create a help article'; //Translate
-		$this->admin_create_skin = 'Create a skin'; //Translate
-		$this->admin_db = 'Database'; //Translate
-		$this->admin_db_backup = 'Backup the database'; //Translate
-		$this->admin_db_conn = 'Edit connection settings'; //Translate
-		$this->admin_db_optimize = 'Optimize the database'; //Translate
+		$this->admin_add_emoticons = 'Ajouter emoticons';
+		$this->admin_add_member_titles = 'Ajouter les titres automatiques de membre';
+		$this->admin_add_templates = 'Ajouter les gabarits de HTML';
+		$this->admin_ban_ips = 'Protocole d\'Internet d\'interdiction adresse';
+		$this->admin_censor = 'Censurer des mots';
+		$this->admin_create_forum = 'Créer un forum';
+		$this->admin_create_group = 'Créer un group';
+		$this->admin_create_help = 'Créer un article d\'aide';
+		$this->admin_create_skin = 'Créer une peau';
+		$this->admin_db = 'Base de données';
+		$this->admin_db_backup = 'Sauvegarder la base de données';
+		$this->admin_db_conn = 'Editer les cadres de connexion';
+		$this->admin_db_optimize = 'Optimiser la base de données';
 		$this->admin_db_query = 'Execute an SQL query'; //Translate
-		$this->admin_db_restore = 'Restore a backup'; //Translate
-		$this->admin_delete_forum = 'Delete a forum'; //Translate
-		$this->admin_delete_group = 'Delete a group'; //Translate
-		$this->admin_delete_help = 'Delete a help article'; //Translate
-		$this->admin_delete_member = 'Delete a member'; //Translate
-		$this->admin_delete_template = 'Delete HTML template'; //Translate
-		$this->admin_edit_emoticons = 'Edit or delete emoticons'; //Translate
-		$this->admin_edit_forum = 'Edit a forum'; //Translate
-		$this->admin_edit_group_name = 'Edit a group\'s name'; //Translate
-		$this->admin_edit_group_perms = 'Edit a group\'s permissions'; //Translate
-		$this->admin_edit_help = 'Edit a help article'; //Translate
-		$this->admin_edit_member = 'Edit a member'; //Translate
-		$this->admin_edit_member_perms = 'Edit a member\'s permissions'; //Translate
-		$this->admin_edit_member_titles = 'Edit or delete automatic member titles'; //Translate
-		$this->admin_edit_settings = 'Edit board settings'; //Translate
-		$this->admin_edit_skin = 'Edit or delete a skin'; //Translate
-		$this->admin_edit_templates = 'Edit HTML templates'; //Translate
-		$this->admin_emoticons = 'Emoticons'; //Translate
-		$this->admin_export_skin = 'Export a skin'; //Translate
-		$this->admin_fix_stats = 'Fix the member statistics'; //Translate
-		$this->admin_forum_order = 'Change the forum ordering'; //Translate
-		$this->admin_forums = 'Forums and Categories'; //Translate
-		$this->admin_groups = 'Groups'; //Translate
-		$this->admin_heading = 'Quicksilver Forums Admin Control Panel'; //Translate
-		$this->admin_help = 'Help Articles'; //Translate
-		$this->admin_install_emoticons = 'Install emoticons'; //Translate
-		$this->admin_install_skin = 'Install a skin'; //Translate
-		$this->admin_logs = 'View moderator actions'; //Translate
-		$this->admin_mass_mail = 'Send an email to your members'; //Translate
-		$this->admin_members = 'Members'; //Translate
-		$this->admin_phpinfo = 'View PHP information'; //Translate
-		$this->admin_prune = 'Prune old topics'; //Translate
-		$this->admin_recount_forums = 'Recount topics and replies'; //Translate
-		$this->admin_settings = 'Settings'; //Translate
-		$this->admin_skins = 'Skins'; //Translate
-		$this->admin_stats = 'Statistics center'; //Translate
-		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
-		$this->admin_your_board = 'Your Board'; //Translate
+		$this->admin_db_restore = 'Restaurer une sauvegarde';
+		$this->admin_delete_forum = 'Effacer un forum'; 
+		$this->admin_delete_group = 'Effacer un groupe';
+		$this->admin_delete_help = 'Effacer un article d\'aide'; 
+		$this->admin_delete_member = 'Effacer un membre';
+		$this->admin_delete_template = 'Effacer le gabarit de HTML';
+		$this->admin_edit_emoticons = 'Editer ou effacer emoticons';
+		$this->admin_edit_forum = 'Editer un forum';
+		$this->admin_edit_group_name = 'Editer un nom du groupe';
+		$this->admin_edit_group_perms = 'Editer une permissions du groupe';
+		$this->admin_edit_help = 'Editer un article d\'aide';
+		$this->admin_edit_member = 'Editer un membre';
+		$this->admin_edit_member_perms = 'Editer une permissions du membre';
+		$this->admin_edit_member_titles = 'Editer ou effacer les titres automatiques de membre';
+		$this->admin_edit_settings = 'Editer les cadres de conseil';
+		$this->admin_edit_skin = 'Editer ou effacer une peau';
+		$this->admin_edit_templates = 'Editer les gabarits de HTML';
+		$this->admin_emoticons = 'Emoticons';
+		$this->admin_export_skin = 'Exporter une peau';
+		$this->admin_fix_stats = 'Réparer la statistique de membre';
+		$this->admin_forum_order = 'Changer le forum commande';
+		$this->admin_forums = 'Forums et Catégories';
+		$this->admin_groups = 'Groupes';
+		$this->admin_heading = 'Panneau de controle administratif de Quicksilver Forums';
+		$this->admin_help = 'Aider des Articles';
+		$this->admin_install_emoticons = 'Installer emoticons';
+		$this->admin_install_skin = 'Installer une peau';
+		$this->admin_logs = 'Regarder les actions de modérateur';
+		$this->admin_mass_mail = 'Envoyer un e-mail à vos membres';
+		$this->admin_members = 'Membres';
+		$this->admin_phpinfo = 'Regarder l\'information de PHP';
+		$this->admin_prune = 'Elaguer de vieux sujets';
+		$this->admin_recount_forums = 'Les sujets de deuxième compte des suffrages et répond';
+		$this->admin_settings = 'Cadres';
+		$this->admin_skins = 'Peaux';
+		$this->admin_stats = 'Centre de statistique';
+		$this->admin_upgrade_skin = 'Améliorer une Peau';
+		$this->admin_your_board = 'Votre Forums';
 	}
 
 	function backup()
@@ -296,17 +304,17 @@ class fr
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons'; //Translate
-		$this->emote_add = 'Add Emoticons'; //Translate
-		$this->emote_added = 'Emoticon added.'; //Translate
-		$this->emote_clickable = 'Clickable'; //Translate
-		$this->emote_edit = 'Edit Emoticons'; //Translate
-		$this->emote_image = 'Image'; //Translate
-		$this->emote_install = 'Install Emoticons'; //Translate
-		$this->emote_install_done = 'Emoticons have been successfully reinstalled.'; //Translate
-		$this->emote_install_warning = 'This will erase all existing emoticon settings and import uploaded emoticons from your currently selected skin into the database.'; //Translate
-		$this->emote_no_text = 'No emoticon text was given.'; //Translate
-		$this->emote_text = 'Text'; //Translate
+		$this->emote = 'Emoticons';
+		$this->emote_add = 'Ajouter Emoticons';
+		$this->emote_added = 'Emoticon a ajouté. '; 
+		$this->emote_clickable = 'Cliquable';
+		$this->emote_edit = 'Editer Emoticons';
+		$this->emote_image = 'Image';
+		$this->emote_install = 'Installer Emoticons';
+		$this->emote_install_done = 'Emoticons a été réinstallé avec succès.';
+		$this->emote_install_warning = 'Ceci effacera tous cadres de emoticon existants et l\'importation a téléchargé emoticons de votre peau actuellement choisie dans la base de données. ';
+		$this->emote_no_text = 'Aucun texte de emoticon a été donné.';
+		$this->emote_text = 'Texte';
 	}
 
 	function forum()
@@ -490,8 +498,8 @@ class fr
 		$this->main_load = 'chargé';
 		$this->main_login = 'Connexion';
 		$this->main_logout = 'Déconnexion';
-		$this->main_mark = 'mark all'; //Translate
-		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_mark = 'marquer tout';
+		$this->main_mark1 = 'Marquer tous sujets comme a lu';
 		$this->main_max_load = 'Nous sommes désolés, mais %s est actuellement indisponible, à cause d\'un trop grand nombre d\'utilisateurs connectés.';
 		$this->main_members = 'Membres';
 		$this->main_messenger = 'Messages persos';
@@ -1382,7 +1390,7 @@ class fr
 	function universal()
 	{
 		$this->aim = 'AIM'; //Translate
-		$this->based_on = 'based on';
+		$this->based_on = 'basé sur';
 		$this->board_by = 'Par';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Continue'; //Translate
@@ -1397,7 +1405,7 @@ class fr
 		$this->new_poll = 'New Poll'; //Translate
 		$this->new_topic = 'New Topic'; //Translate
 		$this->no = 'No'; //Translate
-		$this->powered = 'Powered by'; //Translate
+		$this->powered = 'A alimenté par';
 		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Quote'; //Translate
 		$this->reply = 'Reply'; //Translate
