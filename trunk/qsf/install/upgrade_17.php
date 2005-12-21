@@ -28,7 +28,8 @@ if (!defined('INSTALLER')) {
 
 $need_templates = array(
 	'CP_EDIT_SIG',		// Changed Templates
-	'MAIN'
+	'MAIN',
+	'POST_BOX_PLAIN'
 	);
 
 

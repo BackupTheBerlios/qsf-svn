@@ -2642,18 +2642,17 @@ $queries['POST_ATTACH_REMOVE'] = "INSERT INTO {$pre}templates (template_skin, te
    </select>
    <input type=\"submit\" name=\"detach\" value=\"{\$this->lang->post_attach_remove}\" />', 'Attachments', 'Displayed when there are attachments', 7)";
 $queries['POST_BOX_PLAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_PLAIN', '
-<script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
-<script type=\"text/javascript\">
-<!--
-mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
-mbcodeInit(\"mbpost\", \"post\");
-//-->
-</script>
-
  {\$posticons}
  <tr>
   {\$smilies}
   <td class=\"tablelight\">
+  <script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
+  <script type=\"text/javascript\">
+  <!--
+    mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
+    mbcodeInit(\"mbpost\", \"post\");
+  //-->
+  </script>
   {\$mbcodeButtons}
    <textarea class=\"input\" name=\"post\" rows=\"12\" cols=\"60\" onclick=\"storeCaret(this)\" onkeyup=\"storeCaret(this)\" onfocus=\"storeCaret(this)\" onmouseout=\"storeCaret(this)\">{\$quote}</textarea>
   </td>
