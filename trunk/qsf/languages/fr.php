@@ -117,49 +117,49 @@ class fr
 
 	function backup()
 	{
-		$this->backup_create = 'Backup Database'; //Translate
-		$this->backup_done = 'The database has been backed up to the main Quicksilver Forums directory.';
-		$this->backup_found = 'The following backups were found in the Quicksilver Forums directory';
-		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.'; //Translate
-		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.'; //Translate
-		$this->backup_restore = 'Restore Backup'; //Translate
-		$this->backup_restore_done = 'The database has been restored successfully.'; //Translate
-		$this->backup_warning = 'Warning: This will overwrite all existing data used by Quicksilver Forums.'; //Translate
+		$this->backup_create = 'Sauvegarder la base de données'; 
+		$this->backup_done = 'La base de données a été reculé à l\'annuaire Quicksilver Forums principal. ';
+		$this->backup_found = 'Les sauvegardes suivantes ont été trouvées dans l\'annuaire de Quciksilver Forums';
+		$this->backup_invalid = 'La sauvegarde n\'a pas l\'air d\'être valide. Aucuns changements ont été faits à votre base de données.'; 
+		$this->backup_none = 'Aucunes sauvegardes ont été trouvées dans l\'annuaire de Quicksilver Forums.';
+		$this->backup_restore = 'Restaurer la sauvegarde';
+		$this->backup_restore_done = 'La base de données a été restaurée avec succès.';
+		$this->backup_warning = 'L\'avertissement : Ceci superposera toutes données existantes utilisées par les Quicksilver Forums.'; 
 	}
 
 	function ban()
 	{
-		$this->ban = 'Ban'; //Translate
-		$this->ban_banned_ips = 'Ban IP Addresses'; //Translate
-		$this->ban_banned_members = 'Banned Members'; //Translate
-		$this->ban_ip = 'Ban IP Addresses'; //Translate
-		$this->ban_member_explain1 = 'To ban users, change their user group to'; //Translate
-		$this->ban_member_explain2 = 'in the member controls.'; //Translate
-		$this->ban_members = 'Ban Members'; //Translate
-		$this->ban_nomembers = 'There are currently no banned members.'; //Translate
-		$this->ban_one_per_line = 'One address per line.'; //Translate
-		$this->ban_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more digits.'; //Translate
-		$this->ban_settings = 'Ban Settings'; //Translate
-		$this->ban_users_banned = 'Users banned.'; //Translate
+		$this->ban = 'interdiction';
+		$this->ban_banned_ips = 'IP d\'interdiction Adresse';
+		$this->ban_banned_members = 'Membres interdits';
+		$this->ban_ip = 'IP d\'interdiction Adresse'; 
+		$this->ban_member_explain1 = 'Pour interdire des utilisateurs, changer leur groupe d\'utilisateur à';
+		$this->ban_member_explain2 = 'Dans le membre contrôle.';
+		$this->ban_members = 'Interdire des membres';
+		$this->ban_nomembers = 'Il y a membres actuellement non des interdits. ';
+		$this->ban_one_per_line = 'Une adresse par la ligne.';
+		$this->ban_regex_allowed = 'Les expressions régulières sont permises. Vous pouvez utiliser un seul * comme un carte sauvage pour un ou plus de chiffres.';
+		$this->ban_settings = 'Interdire des cadres';
+		$this->ban_users_banned = 'Les utilisateurs ont interdit.';
 	}
 
 	function board()
 	{
 		$this->board_active_users = 'Utilisateurs actifs';
 		$this->board_birthdays = 'Anniversaires du jour :';
-		$this->board_bottom_page = 'Go to the bottom of the page'; //Translate
+		$this->board_bottom_page = 'Aller au fond de la page';
 		$this->board_can_post = 'Vous pouvez répondre dans ce forum.';
 		$this->board_can_topics = 'Vous pouvez voir les messages de ce forum.';
 		$this->board_cant_post = 'Vous ne pouvez pas répondre dans ce forum.';
 		$this->board_cant_topics = 'Vous ne pouvez pas voir les messages de ce forum.';
-		$this->board_forum = 'Forum'; //Translate
+		$this->board_forum = 'Forum';
 		$this->board_guests = 'invités';
 		$this->board_last_post = 'Dernier message';
 		$this->board_mark = 'Marquer tous les messages comme lus';
 		$this->board_mark1 = 'Tous les forums et messages ont été marqués comme lus.';
 		$this->board_members = 'membres';
 		$this->board_message = 'Message de %s';
-		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
+		$this->board_most_online = 'Les plupart des utilisateurs jamais étaient en ligne %d sur %s.';
 		$this->board_nobday = 'Aucun membre ne fête son anniversaire aujourd\'hui.';
 		$this->board_nobody = 'Actuellement aucun membre n\'est en ligne.';
 		$this->board_nopost = 'Aucun message.';
@@ -167,8 +167,8 @@ class fr
 		$this->board_regfirst = 'Vous n\'avez pas la permission de voir les forums. Si vous vous enregistrez, vous le pourrez.';
 		$this->board_replies = 'Réponses';
 		$this->board_stats = 'Statistiques';
-		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
-		$this->board_top_page = 'Go to the top of the page'; //Translate
+		$this->board_stats_string = '%s Les utilisateurs ont enregistré. Accueillir à notre plus nouveau membre, %s.<br />Il y a %s les sujets de s et %s les réponses de s pour un total de %s les postes. ';
+		$this->board_top_page = 'Aller au sommet de la page';
 		$this->board_topics = 'Sujets';
 		$this->board_users = 'utilisateurs';
 		$this->board_write_topics = 'Vous pouvez créer un fil de discussions dans ce forum.';
@@ -176,10 +176,10 @@ class fr
 
 	function censoring()
 	{
-		$this->censor = 'Censor Words'; //Translate
-		$this->censor_one_per_line = 'One per line.'; //Translate
-		$this->censor_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more characters.'; //Translate
-		$this->censor_updated = 'Word list updated.'; //Translate
+		$this->censor = 'Censurer des mots';
+		$this->censor_one_per_line = 'L\'un par la ligne.';
+		$this->censor_regex_allowed = 'Les expressions régulières sont permises. Vous pouvez utiliser un seul * comme un carte sauvage pour un ou plus de caractères.';
+		$this->censor_updated = 'La liste de mot a mis à jour.';
 	}
 
 	function cp()
@@ -514,7 +514,7 @@ class fr
 		$this->main_reminder = 'Rappel';
 		$this->main_reminder_closed = 'Les forums sont fermés et consultables uniquement par les administrateurs.';
 		$this->main_said = 'a dit';
-		$this->main_search = 'Rechercher';
+		$this->main_search = 'Trouve';
 		$this->main_topics_new = 'Il y a des nouveaux messages dans ce forum.';
 		$this->main_topics_old = 'Il n\'y a pas de nouveaux messages dans ce forum.';
 		$this->main_welcome = 'Bienvenue';
@@ -1058,22 +1058,22 @@ class fr
 	{
 		$this->search_advanced = 'Options avancées';
 		$this->search_avatar = 'Avatar'; //Translate
-		$this->search_basic = 'Recherche classique';
+		$this->search_basic = 'Trove classique';
 		$this->search_characters = 'caractères d\'un message';
 		$this->search_day = 'jour';
 		$this->search_days = 'jours';
 		$this->search_exact_name = 'nom exact';
 		$this->search_flood = 'You have searched in the past %s seconds, and you may not search right now.<br /><br />Please try again in a few seconds.'; //Translate
-		$this->search_for = 'Recherche les termes';
+		$this->search_for = 'Trouve les termes';
 		$this->search_forum = 'Forum'; //Translate
 		$this->search_group = 'Groupe';
 		$this->search_guest = 'Invité';
-		$this->search_in = 'Recherche dans';
+		$this->search_in = 'Trouve dans';
 		$this->search_in_posts = 'Chercher seulement dans les mesages';
 		$this->search_ip = 'IP'; //Translate
 		$this->search_joined = 'Rejoint';
 		$this->search_level = 'Niveau du membre';
-		$this->search_match = 'Recherche par correspondance';
+		$this->search_match = 'Trouve par correspondance';
 		$this->search_matches = 'Correspondances';
 		$this->search_month = 'mois';
 		$this->search_months = 'mois';
@@ -1090,12 +1090,12 @@ class fr
 		$this->search_posted_on = 'Posté le';
 		$this->search_posts = 'Messages';
 		$this->search_posts_by = 'Seulement dans les messages posté par';
-		$this->search_regex = 'Rechercher en utilisant des expressions régulières';
+		$this->search_regex = 'Trouve en utilisant des expressions régulières';
 		$this->search_regex_failed = 'Votre expression régulière a échouée. Merci de consulter la document de MySQL pour l\'aide sur les expressions régulières. ';
 		$this->search_relevance = 'Post Relevance: %d%%'; //Translate
 		$this->search_replies = 'Réponses';
 		$this->search_result = 'Résultats de la recherche';
-		$this->search_search = 'Recherche';
+		$this->search_search = 'Trouve';
 		$this->search_select_all = 'Tout sélectionnet';
 		$this->search_show_posts = 'Affichez les messages';
 		$this->search_sound = 'Mots qui ressemblent à';
