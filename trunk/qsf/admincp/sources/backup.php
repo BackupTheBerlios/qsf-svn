@@ -121,7 +121,7 @@ class backup extends admin
 				$ext = strtolower(substr($file, -4));
 
 				if ($ext == '.mbb') {
-					$box .= "<option value='../$file'>" . substr($file, 0, -4) . "</option>\n";
+					$box .= "<option value='../databases/$file'>" . substr($file, 0, -4) . "</option>\n";
 				}
 			}
 			closedir($dp);

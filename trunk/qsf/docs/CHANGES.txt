@@ -8,6 +8,7 @@ Changes for 1.1.8:
 * Fix to xhtml validation error on posting
 * Updated French Translation - xboxrulz (still incomplete)
 * Pulled out attachment code into separate module
+* Fixed bug in restoring backups
 
 Changes for 1.1.7:
 
