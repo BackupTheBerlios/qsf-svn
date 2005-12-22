@@ -44,7 +44,7 @@ require '../global.php';
 require '../lib/mysql.php';
 require '../lib/perms.php';
 
-define('LATEST', 16);   // ID of most recent upgrade script
+define('LATEST', 17);   // ID of most recent upgrade script
 define('INSTALLER', 1); // Used in query files
 
 $self   = isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : 'index.php';
