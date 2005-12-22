@@ -2,6 +2,8 @@ Changes for 1.1.8:
 
 * New BB code for superscript, subscript and indent
 * Fixed bug in upgrading with non-default skins
+* Fixed bug in renaming a skin without permission to rename folder
+* Fixed anti-robot registration to no longer be case sensitive
 * Added handheld css to improve readability for handheld devices
 * Fix to xhtml validation error on posting
 * Updated French Translation - xboxrulz (still incomplete)
