@@ -5,6 +5,7 @@ Changes for 1.1.8:
 * Added handheld css to improve readability for handheld devices
 * Fix to xhtml validation error on posting
 * Updated French Translation - xboxrulz (still incomplete)
+* Pulled out attachment code into separate module
 
 Changes for 1.1.7:
 

@@ -60,6 +60,7 @@ class qsfglobal
 	var $table;                       // Start to an HTML table @var string
 	var $etable;                      // End to an HTML table @var string
 	var $lang;                        // Loaded words @var object
+	var $attachmentutil;		  // Attachment handler @var object
 	var $query;                       // The query string @var string
 	var $tz_adjust;                   // Timezone offset in seconds
 
@@ -1670,39 +1671,6 @@ class qsfglobal
 		} else {
 			$this->tree($fname[$f], "$this->self?a=forum&amp;f={$fid[$f]}");
 		}
-	}
-
-	/**
-	 * Uploads a file
-	 *
-	 * @param array $file Post-uploaded file
-	 * @param string $destination Where to put the uploaded file
-	 * @param int $max_size Maximum file size to accept, in bytes
-	 * @param array $allowed_types File extensions to allow
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 3.0
-	 * @return int Result of the upload attempt
-	 **/
-	function upload($file, $destination, $max_size, $allowed_types)
-	{
-		if ($file['size'] > $max_size) {
-			return UPLOAD_TOO_LARGE;
-		}
-
-		$temp = explode('.', $file['name']);
-		$ext = strtolower(end($temp));
-
-		if (!in_array($ext, $allowed_types)) {
-			return UPLOAD_NOT_ALLOWED;
-		}
-
-		if (is_uploaded_file($file['tmp_name'])) {
-			$result = @copy($file['tmp_name'], str_replace('\\', '/', $destination));
-			if ($result) {
-				return UPLOAD_SUCCESS;
-			}
-		}
-		return UPLOAD_FAILURE;
 	}
 
 	/**

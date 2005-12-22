@@ -33,6 +33,7 @@ require './lib/perms.php';
 require './lib/user.php';
 require './lib/modlet.php';
 require './lib/xmlparser.php';
+require './lib/attachutil.php';
 
 if (!$set['installed']) {
 	header('Location: ./install/index.php');
@@ -115,6 +116,8 @@ $qsf->temps = $qsf->get_templates($qsf->get['a']);
 
 $qsf->table  = eval($qsf->template('MAIN_TABLE'));
 $qsf->etable = eval($qsf->template('MAIN_ETABLE'));
+
+$qsf->attachmentutil = new attachutil($qsf);
 
 $server_load = $qsf->get_load();
 

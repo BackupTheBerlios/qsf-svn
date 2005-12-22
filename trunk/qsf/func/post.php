@@ -214,45 +214,13 @@ class post extends qsfglobal
 			if ($this->perms->auth('post_attach', $this->get['f'])) {
 				// Attach
 				if (isset($this->post['attach'])) {
-					if (!isset($this->files['attach_upload'])) {
-						$upload_error = $this->lang->post_attach_failed;
-					} else {
-						$md5 = md5($this->files['attach_upload']['name'] . microtime());
-
-						$ret = $this->upload($this->files['attach_upload'], './attachments/' . $md5, $this->sets['attach_upload_size'], $this->sets['attach_types']);
-
-						switch($ret)
-						{
-						case UPLOAD_TOO_LARGE:
-							$upload_error = sprintf($this->lang->post_attach_too_large, round($this->sets['attach_upload_size'] / 1024, 1));
-							break;
-
-						case UPLOAD_NOT_ALLOWED:
-							$upload_error = $this->lang->post_attach_not_allowed;
-							break;
-
-						case UPLOAD_SUCCESS:
-							$this->post['attached_data'][$md5] = $this->files['attach_upload']['name'];
-							break;
-
-						default:
-							$upload_error = $this->lang->post_attach_failed;
-						}
-					}
-
+					$upload_error = $this->attachmentutil->attach($this->files['attach_upload'], $this->post['attached_data']);
 				// Detach
 				} elseif (isset($this->post['detach'])) {
-					unset($this->post['attached_data'][$this->post['attached']]);
-					@unlink('./attachments/' . $this->post['attached']);
+					$this->attachmentutil->delete($this->post['attached'], $this->post['attached_data']);
 				}
 
-				foreach ($this->post['attached_data'] as $md5 => $file)
-				{
-					$file = $this->format($file, FORMAT_HTMLCHARS);
-
-					$attached .= "<option value='$md5'>$file</option>\n";
-					$attached_data .= "<input type='hidden' name='attached_data[$md5]' value='$file' />\n";
-				}
+				$this->attachmentutil->getdata($attached, $attached_data, $this->post['attached_data']);
 			}
 
 			/**
@@ -500,14 +468,7 @@ class post extends qsfglobal
 			$this->db->query("UPDATE {$this->pre}forums SET {$field}={$field}+1, forum_lastpost=$post_id WHERE forum_parent > 0 AND forum_id IN ({$forums['forum_tree']}) OR forum_id={$this->get['f']}");
 			
 			if (isset($this->post['attached_data']) && $this->perms->auth('post_attach', $this->get['f'])) {
-				$attachments = null;
-
-				foreach ($this->post['attached_data'] as $md5 => $filename)
-				{
-					$attachments .= "('$md5', '$filename', $post_id, '" . filesize('./attachments/' . $md5) . '\'), ';
-				}
-
-				$this->db->query("INSERT INTO {$this->pre}attach (attach_file, attach_name, attach_post, attach_size) VALUES " . substr($attachments, 0, -2));
+				$this->attachmentutil->insert($post_id, $this->post['attached_data']);
 			}
 
 			$this->db->query("DELETE FROM {$this->pre}subscriptions WHERE subscription_expire < {$this->time}");

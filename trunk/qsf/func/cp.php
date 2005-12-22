@@ -408,7 +408,7 @@ class cp extends qsfglobal
 					return $this->message($this->lang->cp_avatar_error, $this->lang->cp_avatar_upload_failed);
 				}
 
-				$upload = $this->upload($this->files['avatar_upload'], './avatars/uploaded/' . $this->user['user_id'] . '.avtr', $this->sets['avatar_upload_size'], array('jpg', 'jpeg', 'gif', 'png'));
+				$upload = $this->attachmentutil->upload($this->files['avatar_upload'], './avatars/uploaded/' . $this->user['user_id'] . '.avtr', $this->sets['avatar_upload_size'], array('jpg', 'jpeg', 'gif', 'png'));
 
 				switch($upload)
 				{
