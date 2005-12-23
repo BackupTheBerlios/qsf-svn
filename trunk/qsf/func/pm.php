@@ -247,7 +247,7 @@ class pm extends qsfglobal
 		  m.user_name, m.user_signature, g.group_name, m.user_posts, m.user_joined, m.user_title, m.user_avatar, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height,
 		  a.active_time
 		FROM
-		  {$this->pre}pmsystem p, {$this->pre}users m, {$this->pre}groups g
+		  ({$this->pre}pmsystem p, {$this->pre}users m, {$this->pre}groups g)
 		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
 		WHERE
 		  p.pm_id = {$this->get['m']} AND
