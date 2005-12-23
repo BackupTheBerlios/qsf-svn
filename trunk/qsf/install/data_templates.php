@@ -914,7 +914,7 @@ $queries['ADMIN_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_s
        <a href=\"{\$this->self}?a=templates&amp;s=editskin\">{\$this->lang->admin_edit_skin}</a><br />
        <a href=\"{\$this->self}?a=templates&amp;s=load\">{\$this->lang->admin_install_skin}</a><br />
        <a href=\"{\$this->self}?a=templates&amp;s=upgradeskin\">{\$this->lang->admin_upgrade_skin}</a><br />
-       <a href=\"{\$this->self}?a=templates&amp;s=export\">{\$this->lang->admin_export_skin}</a><br />
+       <a href=\"{\$this->self}?a=templates&amp;s=export\">{\$this->lang->admin_export_skin}</a>
       </div><br />
 
       <div class=\"fieldset\">
