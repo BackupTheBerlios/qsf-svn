@@ -316,7 +316,6 @@ class cp extends qsfglobal
 			  user_homepage="' . $this->post['user_homepage'] . '",
 			  user_location ="' . $this->post['user_location'] . '",
 			  user_interests="' . $this->post['user_interests'] . '",
-			  user_signature="' . $this->post['user_signature'] . '",
 			  user_icq=' . intval($this->post['user_icq']) . ',
 			  user_msn="' . $this->post['user_msn'] . '",
 			  user_aim="' . $this->post['user_aim'] . '",
