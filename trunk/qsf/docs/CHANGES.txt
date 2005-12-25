@@ -1,3 +1,11 @@
+Changes for 1.1.9:
+
+* Separated out some more javascript files
+* Fixed bug in profile editing after signature editor was moved
+* Extra <br /> tag removed from AdminCP menu
+* Fixed a MySQL 5 JOIN query bug in private messenger
+* Validation error in RECENT_MAIN template
+
 Changes for 1.1.8:
 
 * New BB code for superscript, subscript and indent
