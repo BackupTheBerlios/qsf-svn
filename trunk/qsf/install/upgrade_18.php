@@ -29,6 +29,7 @@ $need_templates = array(
 	'PM_FOLDER',		// Changed Templates
 	'FORUM_TOPICS_MAIN',
 	'RECENT_MAIN',
+	'SEARCH_MAIN',
 	'ADMIN_HOME'
 	);
 ?>

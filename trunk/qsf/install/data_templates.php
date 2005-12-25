@@ -3214,19 +3214,7 @@ $queries['REGISTER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, templat
  </tr>
 {\$this->etable}
 </form>', 'Register View', 'Change the appearance of the register screen', 0)";
-$queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_MAIN', '<script type=\"text/javascript\">
-<!--
-function select_all_forums()
-{
-  opts = document.forms[\'search\'].elements[\'forums[]\'].options
-  for(i=0; i<opts.length; i++)
-  {
-    opts[i].selected = true;
-  }
-}
-//-->
-</script>
-
+$queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_MAIN', '<script type=\"text/javascript\" src=\"./javascript/selectallforums.js\"></script>
 <form action=\"{\$this->self}?a=search\" method=\"post\" id=\"search\">
 {\$this->table}
  <tr>
