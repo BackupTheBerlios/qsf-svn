@@ -1204,21 +1204,7 @@ $queries['ADMIN_PRUNE_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, tem
 <a href=\"../{\$this->mainfile}?a=topic&amp;t={\$topic[\'topic_id\']}\">{\$topic[\'topic_title\']}</a>{\$topic[\'topic_description\']}
   </td>
  </tr>', 'Admin CP Prune Topic Display', 'Edit the display of a single topic when pruning', 3)";
-$queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPICLIST', '<script type=\"text/javascript\">
-<!--
-function select_all_topics()
-{
-  formElements = document.getElementsByTagName(\'input\');
-  for(i=0; i<formElements.length; i++)
-  {
-    if (formElements[i].type == \'checkbox\') {
-      formElements[i].checked = true;
-    }
-  }
-}
-//-->
-</script>
-
+$queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPICLIST', '<script type=\"text/javascript\" src=\"../javascript/selectallboxes.js\"></script>
 <form action=\"{\$this->self}?a=prune\" method=\"post\" name=\"prune\">
 <input type=\"hidden\" name=\"forums\" value=\"{\$forums}\" />
 {\$this->table}
@@ -1227,21 +1213,21 @@ function select_all_topics()
  </tr>
  {\$topics}
  <tr>
-   <td class=\"tabledark\" colspan=\"2\"><input type=\"button\" value=\"{\$this->lang->prune_select_all}\" onclick=\"return select_all_topics();\" />
+  <td class=\"tabledark\" colspan=\"2\"><input type=\"button\" value=\"{\$this->lang->prune_select_all}\" onclick=\"return select_all_boxes();\" />
  </tr>
  <tr>
   <td class=\"tablelight\"><b>{\$this->lang->prune_action}</b></td>
   <td class=\"tablelight\">
-    <input type=\"radio\" name=\"prune_action\" value=\"move\" id=\"move\" checked=\"checked\" /> <label for=\"move\">{\$this->lang->prune_move}</label>
-    <input type=\"radio\" name=\"prune_action\" value=\"delete\" id=\"delete\" /> <label for=\"delete\">{\$this->lang->delete}</label>
+   <input type=\"radio\" name=\"prune_action\" value=\"move\" id=\"move\" checked=\"checked\" /> <label for=\"move\">{\$this->lang->prune_move}</label>
+   <input type=\"radio\" name=\"prune_action\" value=\"delete\" id=\"delete\" /> <label for=\"delete\">{\$this->lang->delete}</label>
   </td>
  </tr>
  <tr>
   <td class=\"tabledark\"><b>{\$this->lang->prune_moveto_forum}</b></td>
   <td class=\"tabledark\">
-    <select id=\"forums\" name=\"dest\">
-      {\$movetoForum}
-    </select>
+   <select id=\"forums\" name=\"dest\">
+    {\$movetoForum}
+   </select>
   </td>
  </tr>
  <tr>

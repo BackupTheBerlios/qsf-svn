@@ -31,6 +31,7 @@ $need_templates = array(
 	'RECENT_MAIN',
 	'SEARCH_MAIN',
 	'ADMIN_HOME',
-	'ADMIN_EDIT_TEMPLATE'
+	'ADMIN_EDIT_TEMPLATE',
+	'ADMIN_PRUNE_TOPICLIST'
 	);
 ?>
