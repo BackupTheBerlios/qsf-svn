@@ -26,6 +26,7 @@ if (!defined('INSTALLER')) {
 
 // Upgrade from 1.1.8 to 1.1.9
 $need_templates = array(
-	'PM_FOLDER'		// Changed Templates
+	'PM_FOLDER',		// Changed Templates
+	'ADMIN_HOME'
 	);
 ?>
