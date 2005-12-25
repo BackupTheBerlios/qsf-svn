@@ -2428,15 +2428,7 @@ $queries['MOD_SPLIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Topic Split Titles', 'Used to assign titles to split topics', 5)";
-$queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER', '<script type=\"text/javascript\">
-<!--
-function get_folder(select)
-{
-  self.location.href = \'{\$this->self}?a=pm&f=\' + select.value;
-}
-//-->
-</script>
-
+$queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER', '<script type=\"text/javascript\" src=\"./javascript/folderjump.js\"></script>
 {\$this->table}
  <tr>
   <td align=\"right\">
@@ -2470,7 +2462,7 @@ function get_folder(select)
 {\$this->table}
  <tr>
   <td>
-   <select class=\"select\" onchange=\"get_folder(this)\">
+   <select class=\"select\" onchange=\"get_folder(this,\'{\$this->self}\')\">
     {\$folderjump}
    </select>
   </td>
