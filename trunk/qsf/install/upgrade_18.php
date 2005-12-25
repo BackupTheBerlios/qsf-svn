@@ -30,6 +30,7 @@ $need_templates = array(
 	'FORUM_TOPICS_MAIN',
 	'RECENT_MAIN',
 	'SEARCH_MAIN',
-	'ADMIN_HOME'
+	'ADMIN_HOME',
+	'ADMIN_EDIT_TEMPLATE'
 	);
 ?>

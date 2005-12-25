@@ -622,27 +622,7 @@ $queries['ADMIN_EDIT_SKIN'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Edit Skin', 'Form for editing and deleting skins', 0)";
-$queries['ADMIN_EDIT_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE', '<script type=\"text/javascript\">
-<!--
-changed = false;
-
-function savechanges()
-{
-  if (changed)
-  {
-    var answer = confirm(\"{\$this->lang->template_confirm}\");
-    if (answer)
-    {
-      document.templates.submit();
-      return false;
-    }
-  }
-}
-//window.onunload = savechanges;
-//-->
-</script>
-
-<form action=\"{\$this->self}?a=templates&amp;s=edit&amp;section={\$this->get[\'section\']}&amp;skin={\$template}\" method=\"post\">
+$queries['ADMIN_EDIT_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE', '<form action=\"{\$this->self}?a=templates&amp;s=edit&amp;section={\$this->get[\'section\']}&amp;skin={\$template}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->edit_templates}</td>
