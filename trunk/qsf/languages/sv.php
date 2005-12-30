@@ -956,7 +956,7 @@ class sv
 		$this->prune_select_topics = 'Välj ämnen att beskära eller använd Välj Alla';
 		$this->prune_success = 'ÿmnen har beskurits';
 		$this->prune_title = 'ÿmnes Beskärare';
-		$this->prune_topics_older_than = 'Beskär ämnen äldre än';		
+		$this->prune_topics_older_than = 'Beskär ämnen äldre än';
 	}
 
 	function query()
@@ -1044,7 +1044,14 @@ class sv
 
 	function rssfeed()
 	{
+		$this->rssfeed_cannot_find_forum = 'The forum does not appear to exist'; //Translate
+		$this->rssfeed_cannot_find_topic = 'The topic does nto appear to exist'; //Translate
+		$this->rssfeed_cannot_read_forum = 'You do not have permission to read this forum'; //Translate
+		$this->rssfeed_cannot_read_topic = 'You do not have permission to read this topic'; //Translate
+		$this->rssfeed_error = 'Error'; //Translate
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Skrivet av';
+		$this->rssfeed_topic = 'Topic:'; //Translate
 	}
 
 	function search()
@@ -1297,8 +1304,8 @@ class sv
 		$this->temps_settings = 'AdminKP Inställningar';
 		$this->temps_templates = 'AdminKP Mallediterare';
 		$this->temps_titles = 'AdminKP Medlemstitlar';
-		$this->temps_topics = 'Ämnen';
 		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
+		$this->temps_topics = 'Ämnen';
 		$this->upgrade_skin = 'Uppdatera Skal';
 		$this->upgrade_skin_already = 'var redan uppgraderat. Finns inget att göra.';
 		$this->upgrade_skin_detail = 'Skal uppgraderade med denna metod behöver ändå justeras efteråt.<br />Välj ett skal att uppdatera';

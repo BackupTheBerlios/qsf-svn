@@ -1045,7 +1045,14 @@ class sk
 
 	function rssfeed()
 	{
+		$this->rssfeed_cannot_find_forum = 'The forum does not appear to exist'; //Translate
+		$this->rssfeed_cannot_find_topic = 'The topic does nto appear to exist'; //Translate
+		$this->rssfeed_cannot_read_forum = 'You do not have permission to read this forum'; //Translate
+		$this->rssfeed_cannot_read_topic = 'You do not have permission to read this topic'; //Translate
+		$this->rssfeed_error = 'Error'; //Translate
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Autor:';
+		$this->rssfeed_topic = 'Topic:'; //Translate
 	}
 
 	function search()
@@ -1298,8 +1305,8 @@ class sk
 		$this->temps_settings = 'AdminCP Nastavenia';
 		$this->temps_templates = 'AdminCP Editor Šablón';
 		$this->temps_titles = 'AdminCP Tituly Uívate¾ov';
+		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->temps_topics = 'Témy';
-                $this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->upgrade_skin = 'Upgradova Skin';
 		$this->upgrade_skin_already = 'u bol zupgradovanı. Neprebehla iadna akcia.';
 		$this->upgrade_skin_detail = 'Skiny zupgradované pomocou tejto metódy budú naïalej vyadova následné editovanie šablôn.<br />Vyberte skin na upgradovanie';

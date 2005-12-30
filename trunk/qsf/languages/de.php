@@ -1043,7 +1043,14 @@ class de
 
 	function rssfeed()
 	{
+		$this->rssfeed_cannot_find_forum = 'The forum does not appear to exist'; //Translate
+		$this->rssfeed_cannot_find_topic = 'The topic does nto appear to exist'; //Translate
+		$this->rssfeed_cannot_read_forum = 'You do not have permission to read this forum'; //Translate
+		$this->rssfeed_cannot_read_topic = 'You do not have permission to read this topic'; //Translate
+		$this->rssfeed_error = 'Error'; //Translate
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Posted by'; //Translate
+		$this->rssfeed_topic = 'Topic:'; //Translate
 	}
 
 	function search()
@@ -1296,8 +1303,8 @@ class de
 		$this->temps_settings = 'AdminCP Settings'; //Translate
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate
 		$this->temps_titles = 'AdminCP Member Titles'; //Translate
+		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->temps_topics = 'Topics'; //Translate
-                $this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->upgrade_skin = 'Upgrade Skin'; //Translate
 		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
 		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate

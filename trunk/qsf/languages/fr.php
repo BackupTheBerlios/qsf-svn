@@ -25,14 +25,6 @@
  *
  * @author Stephane Revel <st_garp98@hotmail.com>
  * @since 1.0.0 Beta 4.0
- * Edited by Adrien Kwok <gnutux@linux.ca>
- * QSF 1.1.6+
- **/
-/**
- *
- * Editor note by Adrien Kwok:
- * The ones that I have added are based on Canadian French. Furthermore, this translation file is still incomplete.
- *
  **/
 class fr
 {
@@ -59,7 +51,7 @@ class fr
 		$this->active_users = 'Utilisateurs actifs';
 	}
 
-	function admin() //Please check my translation errors / Vérifier mes erreurs de traduction, s'il vous plaît
+	function admin()
 	{
 		$this->admin_add_emoticons = 'Ajouter emoticons';
 		$this->admin_add_member_titles = 'Ajouter les titres automatiques de membre';
@@ -76,9 +68,9 @@ class fr
 		$this->admin_db_optimize = 'Optimiser la base de données';
 		$this->admin_db_query = 'Execute an SQL query'; //Translate
 		$this->admin_db_restore = 'Restaurer une sauvegarde';
-		$this->admin_delete_forum = 'Effacer un forum'; 
+		$this->admin_delete_forum = 'Effacer un forum';
 		$this->admin_delete_group = 'Effacer un groupe';
-		$this->admin_delete_help = 'Effacer un article d\'aide'; 
+		$this->admin_delete_help = 'Effacer un article d\'aide';
 		$this->admin_delete_member = 'Effacer un membre';
 		$this->admin_delete_template = 'Effacer le gabarit de HTML';
 		$this->admin_edit_emoticons = 'Editer ou effacer emoticons';
@@ -92,7 +84,7 @@ class fr
 		$this->admin_edit_settings = 'Editer les cadres de conseil';
 		$this->admin_edit_skin = 'Editer ou effacer une peau';
 		$this->admin_edit_templates = 'Editer les gabarits de HTML';
-		$this->admin_emoticons = 'Emoticons';
+		$this->admin_emoticons = 'Emoticons'; //Translate
 		$this->admin_export_skin = 'Exporter une peau';
 		$this->admin_fix_stats = 'Réparer la statistique de membre';
 		$this->admin_forum_order = 'Changer le forum commande';
@@ -117,14 +109,14 @@ class fr
 
 	function backup()
 	{
-		$this->backup_create = 'Sauvegarder la base de données'; 
+		$this->backup_create = 'Sauvegarder la base de données';
 		$this->backup_done = 'La base de données a été reculé à l\'annuaire Quicksilver Forums principal. ';
 		$this->backup_found = 'Les sauvegardes suivantes ont été trouvées dans l\'annuaire de Quciksilver Forums';
-		$this->backup_invalid = 'La sauvegarde n\'a pas l\'air d\'être valide. Aucuns changements ont été faits à votre base de données.'; 
+		$this->backup_invalid = 'La sauvegarde n\'a pas l\'air d\'être valide. Aucuns changements ont été faits à votre base de données.';
 		$this->backup_none = 'Aucunes sauvegardes ont été trouvées dans l\'annuaire de Quicksilver Forums.';
 		$this->backup_restore = 'Restaurer la sauvegarde';
 		$this->backup_restore_done = 'La base de données a été restaurée avec succès.';
-		$this->backup_warning = 'L\'avertissement : Ceci superposera toutes données existantes utilisées par les Quicksilver Forums.'; 
+		$this->backup_warning = 'L\'avertissement : Ceci superposera toutes données existantes utilisées par les Quicksilver Forums.';
 	}
 
 	function ban()
@@ -132,7 +124,7 @@ class fr
 		$this->ban = 'interdiction';
 		$this->ban_banned_ips = 'IP d\'interdiction Adresse';
 		$this->ban_banned_members = 'Membres interdits';
-		$this->ban_ip = 'IP d\'interdiction Adresse'; 
+		$this->ban_ip = 'IP d\'interdiction Adresse';
 		$this->ban_member_explain1 = 'Pour interdire des utilisateurs, changer leur groupe d\'utilisateur à';
 		$this->ban_member_explain2 = 'Dans le membre contrôle.';
 		$this->ban_members = 'Interdire des membres';
@@ -152,7 +144,7 @@ class fr
 		$this->board_can_topics = 'Vous pouvez voir les messages de ce forum.';
 		$this->board_cant_post = 'Vous ne pouvez pas répondre dans ce forum.';
 		$this->board_cant_topics = 'Vous ne pouvez pas voir les messages de ce forum.';
-		$this->board_forum = 'Forum';
+		$this->board_forum = 'Forum'; //Translate
 		$this->board_guests = 'invités';
 		$this->board_last_post = 'Dernier message';
 		$this->board_mark = 'Marquer tous les messages comme lus';
@@ -304,12 +296,12 @@ class fr
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons';
+		$this->emote = 'Emoticons'; //Translate
 		$this->emote_add = 'Ajouter Emoticons';
-		$this->emote_added = 'Emoticon a ajouté. '; 
+		$this->emote_added = 'Emoticon a ajouté. ';
 		$this->emote_clickable = 'Cliquable';
 		$this->emote_edit = 'Editer Emoticons';
-		$this->emote_image = 'Image';
+		$this->emote_image = 'Image'; //Translate
 		$this->emote_install = 'Installer Emoticons';
 		$this->emote_install_done = 'Emoticons a été réinstallé avec succès.';
 		$this->emote_install_warning = 'Ceci effacera tous cadres de emoticon existants et l\'importation a téléchargé emoticons de votre peau actuellement choisie dans la base de données. ';
@@ -1051,7 +1043,14 @@ class fr
 
 	function rssfeed()
 	{
+		$this->rssfeed_cannot_find_forum = 'The forum does not appear to exist'; //Translate
+		$this->rssfeed_cannot_find_topic = 'The topic does nto appear to exist'; //Translate
+		$this->rssfeed_cannot_read_forum = 'You do not have permission to read this forum'; //Translate
+		$this->rssfeed_cannot_read_topic = 'You do not have permission to read this topic'; //Translate
+		$this->rssfeed_error = 'Error'; //Translate
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Posted by'; //Translate
+		$this->rssfeed_topic = 'Topic:'; //Translate
 	}
 
 	function search()
@@ -1304,8 +1303,8 @@ class fr
 		$this->temps_settings = 'AdminCP Settings'; //Translate
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate
 		$this->temps_titles = 'AdminCP Member Titles'; //Translate
+		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->temps_topics = 'Topics'; //Translate
-                $this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
 		$this->upgrade_skin = 'Upgrade Skin'; //Translate
 		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
 		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
