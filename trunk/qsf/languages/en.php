@@ -951,7 +951,6 @@ class en
 		$this->prune_notopics_old = 'No topics are old enough for pruning';
 		$this->prune_novalidforum = 'No valid forums specified to prune';
 		$this->prune_select_age = 'Select age of topics to limit pruning to';
-		$this->prune_select_all = 'Select All';
 		$this->prune_select_topics = 'Select topics to prune or use Select All';
 		$this->prune_success = 'Topics have been pruned';
 		$this->prune_title = 'Topic Pruner';

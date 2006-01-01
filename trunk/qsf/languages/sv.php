@@ -952,7 +952,6 @@ class sv
 		$this->prune_notopics_old = 'Inga ämnen är gamla nog fÿr att beskäras';
 		$this->prune_novalidforum = 'Inga giltiga forum valda fÿr beskärning';
 		$this->prune_select_age = 'Välj ûlder pû ämnen fÿr begränsad beskärning';
-		$this->prune_select_all = 'Välj Alla';
 		$this->prune_select_topics = 'Välj ämnen att beskära eller använd Välj Alla';
 		$this->prune_success = 'ÿmnen har beskurits';
 		$this->prune_title = 'ÿmnes Beskärare';

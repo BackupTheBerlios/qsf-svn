@@ -953,7 +953,6 @@ class sk
 		$this->prune_notopics_old = 'Žiadna téme nie je dostatoène stará na preriedenie';
 		$this->prune_novalidforum = 'Nebolo vybrané platné fórum na preriedenie';
 		$this->prune_select_age = 'Vyberte vek tém, ktorý bude limitova preriedenie';
-		$this->prune_select_all = 'Vybra Všetko';
 		$this->prune_select_topics = 'Vyberte témy na preriedenie alebo použite Vybra Všetko';
 		$this->prune_success = 'Témy boli preriedené';
 		$this->prune_title = 'Prerieïovaè tém';
