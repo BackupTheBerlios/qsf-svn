@@ -1412,6 +1412,7 @@ class sv
 		$this->quote = 'Citera';
 		$this->reply = 'Svara';
 		$this->seconds = 'Sekunder';
+		$this->select_all = 'Select All'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = ' ';
 		$this->spoiler = 'Avslöjande';

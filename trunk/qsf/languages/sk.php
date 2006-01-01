@@ -1413,6 +1413,7 @@ class sk
 		$this->quote = 'Citova';
 		$this->reply = 'Odpoveda';
 		$this->seconds = 'sec';
+		$this->select_all = 'Select All'; //Translate
 		$this->sep_decimals = '.'; //Translate
 		$this->sep_thousands = ','; //Translate
 		$this->spoiler = 'Spoiler'; //Translate

@@ -1412,6 +1412,7 @@ class ru
 		$this->quote = 'Quote'; //Translate
 		$this->reply = 'Reply'; //Translate
 		$this->seconds = 'Seconds'; //Translate
+		$this->select_all = 'Select All'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
 		$this->spoiler = 'Spoiler'; //Translate

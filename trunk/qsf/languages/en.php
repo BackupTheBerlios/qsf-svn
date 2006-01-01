@@ -1411,6 +1411,7 @@ class en
 		$this->quote = 'Quote';
 		$this->reply = 'Reply';
 		$this->seconds = 'Seconds';
+		$this->select_all = 'Select All';
 		$this->sep_decimals = '.';
 		$this->sep_thousands = ',';
 		$this->spoiler = 'Spoiler';

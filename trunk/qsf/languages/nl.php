@@ -1413,6 +1413,7 @@ class nl
 		$this->quote = 'Quote'; //Translate
 		$this->reply = 'Antwoord';
 		$this->seconds = 'Seconden';
+		$this->select_all = 'Select All'; //Translate
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
 		$this->spoiler = 'Spoiler'; //Translate

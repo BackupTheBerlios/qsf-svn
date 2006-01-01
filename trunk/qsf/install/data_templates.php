@@ -1213,7 +1213,7 @@ $queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO {$pre}templates (template_skin,
  </tr>
  {\$topics}
  <tr>
-  <td class=\"tabledark\" colspan=\"2\"><input type=\"button\" value=\"{\$this->lang->prune_select_all}\" onclick=\"return select_all_boxes();\" />
+  <td class=\"tabledark\" colspan=\"2\"><input type=\"button\" value=\"{\$this->lang->select_all}\" onclick=\"return select_all_boxes();\" />
  </tr>
  <tr>
   <td class=\"tablelight\"><b>{\$this->lang->prune_action}</b></td>
@@ -2383,6 +2383,7 @@ $queries['MOD_SPLIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templ
 {\$this->etable}
 </form>', 'Topic Split Titles', 'Used to assign titles to split topics', 5)";
 $queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER', '<script type=\"text/javascript\" src=\"./javascript/folderjump.js\"></script>
+<script type=\"text/javascript\" src=\"./javascript/selectallboxes.js\"></script>
 {\$this->table}
  <tr>
   <td align=\"right\">
@@ -2407,6 +2408,7 @@ $queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_se
  {\$messages}
  <tr>
   <td class=\"footer\" style=\"text-align:center\" colspan=\"5\">
+   <input type=\"button\" value=\"{\$this->lang->select_all}" onclick=\"return select_all_boxes();\" />
    <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->pm_delete_selected}\" />
   </td>
  </tr>
