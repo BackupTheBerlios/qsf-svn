@@ -14,6 +14,7 @@
         <option value='convert_yabbse.php'>YaBB SE 1.5.5</option>
         <option value='convert_smf105.php'>Simple Machines Forum 1.05</option>
         <option value='convert_mybb.php'>MyBB 1.0</option>
+        <option value='convert_xmb.php'>XMB 1.9</option>
 
        </select><br /><br />
        </td>
