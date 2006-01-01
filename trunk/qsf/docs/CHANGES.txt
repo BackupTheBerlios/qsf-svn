@@ -5,6 +5,9 @@ Changes for 1.1.9:
 * Extra <br /> tag removed from AdminCP menu
 * Fixed a MySQL 5 JOIN query bug in private messenger
 * Validation error in RECENT_MAIN template
+* XMB Forum convertor script added.
+* RSS Feed can now generate feeds for individual forums and topics.
+* Removed the defunct javascript files from the default skin.
 
 Changes for 1.1.8:
 
