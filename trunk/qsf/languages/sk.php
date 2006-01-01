@@ -1318,7 +1318,9 @@ class sk
 	{
 		$this->titles_add = 'Prida Titul Užívate¾ov';
 		$this->titles_added = 'Titul Užívate¾ov bol pridaný.';
+		$this->titles_control = 'Member Title Control'; //Translate
 		$this->titles_edit = 'Editova Tituly Užívate¾ov';
+		$this->titles_error = 'No title text or minimum posts was given'; //Translate
 		$this->titles_image = 'Obrázok';
 		$this->titles_minpost = 'Minimálny príspevok';
 		$this->titles_title = 'Nadpis';

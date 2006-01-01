@@ -1317,7 +1317,9 @@ class sv
 	{
 		$this->titles_add = 'Lägg till Medlemstitlar';
 		$this->titles_added = 'Medlemstitel Tillagd.';
+		$this->titles_control = 'Member Title Control'; //Translate
 		$this->titles_edit = 'Ändra Medlemstitlar';
+		$this->titles_error = 'No title text or minimum posts was given'; //Translate
 		$this->titles_image = 'Bild';
 		$this->titles_minpost = 'Minimum Inlägg';
 		$this->titles_title = 'Titel';

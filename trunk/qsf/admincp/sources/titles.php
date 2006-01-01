@@ -56,7 +56,7 @@ class titles extends admin
 				</form>");
 			} else {
 				if ((trim($this->post['new_title']) == '') || (trim($this->post['new_posts']) == '')) {
-					return $this->message('Member Title Control', 'No title text or minimum posts was given');
+					return $this->message($this->lang->titles_control, $this->lang->titles_error);
 				}
 
 				$this->db->query("INSERT INTO {$this->pre}membertitles (membertitle_title, membertitle_icon, membertitle_posts) VALUES ('{$this->post['new_title']}', '{$this->post['new_icon']}', " . intval($this->post['new_posts']) . ')');

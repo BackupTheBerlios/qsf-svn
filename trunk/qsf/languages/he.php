@@ -1316,7 +1316,9 @@ class he
 	{
 		$this->titles_add = 'Add Member Titles'; //Translate
 		$this->titles_added = 'Member Title added.'; //Translate
+		$this->titles_control = 'Member Title Control'; //Translate
 		$this->titles_edit = 'Edit Member Titles'; //Translate
+		$this->titles_error = 'No title text or minimum posts was given'; //Translate
 		$this->titles_image = 'Image'; //Translate
 		$this->titles_minpost = 'Minimum Posts'; //Translate
 		$this->titles_title = 'Title'; //Translate

@@ -1318,7 +1318,9 @@ class nl
 	{
 		$this->titles_add = 'Voeg groepsnaam toe';
 		$this->titles_added = 'Groepsnaam toegevoegd.';
+		$this->titles_control = 'Member Title Control'; //Translate
 		$this->titles_edit = 'Pas groepsnamen aan';
+		$this->titles_error = 'No title text or minimum posts was given'; //Translate
 		$this->titles_image = 'Afbeelding';
 		$this->titles_minpost = 'Minimum Berichten';
 		$this->titles_title = 'Titel';
