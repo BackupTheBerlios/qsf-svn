@@ -2408,7 +2408,7 @@ $queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_se
  {\$messages}
  <tr>
   <td class=\"footer\" style=\"text-align:center\" colspan=\"5\">
-   <input type=\"button\" value=\"{\$this->lang->select_all}" onclick=\"return select_all_boxes();\" />
+   <input type=\"button\" value=\"{\$this->lang->select_all}\" onclick=\"return select_all_boxes();\" />
    <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->pm_delete_selected}\" />
   </td>
  </tr>

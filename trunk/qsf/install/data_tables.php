@@ -71,7 +71,7 @@ $queries[] = "CREATE TABLE {$pre}groups (
   group_name varchar(255) NOT NULL default '',
   group_type varchar(20) NOT NULL default '',
   group_format varchar(255) NOT NULL default '%s',
-  group_perms text NOT NULL,
+  group_perms text NOT NULL default '',
   PRIMARY KEY  (group_id)
 ) TYPE=MyISAM";
 
@@ -79,7 +79,7 @@ $queries[] = "DROP TABLE IF EXISTS {$pre}help";
 $queries[] = "CREATE TABLE {$pre}help (
   help_id smallint(3) NOT NULL auto_increment,
   help_title varchar(255) NOT NULL default '',
-  help_article text NOT NULL,
+  help_article text NOT NULL default '',
   PRIMARY KEY  (help_id)
 ) TYPE=MyISAM";
 
@@ -110,10 +110,10 @@ $queries[] = "CREATE TABLE {$pre}pmsystem (
   pm_id int(10) unsigned NOT NULL auto_increment,
   pm_to int(10) unsigned NOT NULL default '0',
   pm_from int(10) unsigned NOT NULL default '0',
-  pm_bcc text NOT NULL,
+  pm_bcc text NOT NULL default '',
   pm_title varchar(255) NOT NULL default '[No Title]',
   pm_time int(10) unsigned NOT NULL default '0',
-  pm_message text NOT NULL,
+  pm_message text NOT NULL default '',
   pm_read tinyint(1) unsigned NOT NULL default '0',
   pm_folder tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (pm_id),
@@ -127,7 +127,7 @@ $queries[] = "CREATE TABLE {$pre}posts (
   post_author int(10) unsigned NOT NULL default '0',
   post_emoticons tinyint(1) unsigned NOT NULL default '1',
   post_mbcode tinyint(1) unsigned NOT NULL default '1',
-  post_text text NOT NULL,
+  post_text text NOT NULL default '',
   post_time int(10) unsigned NOT NULL default '0',
   post_icon varchar(32) NOT NULL default '',
   post_ip INT UNSIGNED NOT NULL default '0',
@@ -152,8 +152,8 @@ $queries[] = "CREATE TABLE {$pre}replacements (
 $queries[] = "DROP TABLE IF EXISTS {$pre}settings";
 $queries[] = "CREATE TABLE {$pre}settings (
   settings_id tinyint(2) unsigned NOT NULL auto_increment,
-  settings_tos text,
-  settings_data text NOT NULL,
+  settings_tos text NOT NULL default '',
+  settings_data text NOT NULL default '',
   PRIMARY KEY  (settings_id)
 ) TYPE=MyISAM";
 
@@ -180,7 +180,7 @@ $queries[] = "CREATE TABLE {$pre}templates (
   template_skin varchar(32) NOT NULL default 'default',
   template_set varchar(20) NOT NULL default '',
   template_name varchar(36) NOT NULL default '',
-  template_html text NOT NULL,
+  template_html text NOT NULL default '',
   template_displayname varchar(255) NOT NULL default '',
   template_description varchar(255) NOT NULL default '',
   template_position tinyint(2) unsigned NOT NULL default '0',
@@ -213,7 +213,7 @@ $queries[] = "CREATE TABLE {$pre}topics (
   topic_views smallint(5) unsigned NOT NULL default '0',
   topic_modes int(10) unsigned NOT NULL default '0',
   topic_moved smallint(3) unsigned NOT NULL default '0',
-  topic_poll_options text NOT NULL,
+  topic_poll_options text NOT NULL default '',
   PRIMARY KEY  (topic_id),
   KEY Forum (topic_forum)
 ) TYPE=MyISAM";
@@ -250,7 +250,7 @@ $queries[] = "CREATE TABLE {$pre}users (
   user_active tinyint(1) unsigned NOT NULL default '1',
   user_yahoo varchar(100) NOT NULL default '',
   user_interests varchar(255) NOT NULL default '',
-  user_signature text NOT NULL,
+  user_signature text NOT NULL default '',
   user_lastvisit int(10) unsigned NOT NULL default '0',
   user_lastpost int(10) unsigned NOT NULL default '0',
   user_lastpm int(10) unsigned NOT NULL default '0',
@@ -258,7 +258,7 @@ $queries[] = "CREATE TABLE {$pre}users (
   user_view_avatars tinyint(1) unsigned NOT NULL default '1',
   user_view_signatures tinyint(1) unsigned NOT NULL default '1',
   user_view_emoticons tinyint(1) unsigned NOT NULL default '1',
-  user_perms text NOT NULL,
+  user_perms text NOT NULL default '',
   PRIMARY KEY  (user_id)
 ) TYPE=MyISAM";
 
