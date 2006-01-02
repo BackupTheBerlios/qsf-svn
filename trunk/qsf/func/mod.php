@@ -209,9 +209,33 @@ class mod extends qsfglobal
 		if (!isset($this->post['submit'])) {
 			$emot_check = $data['post_emoticons'] ? ' checked' : null;
 			$code_check = $data['post_mbcode'] ? ' checked' : null;
+			$attached = null;
+			$attached_data = null;
+			$upload_error = null;
 
 			$this->add_templates('post');
 			$this->lang->post();
+			
+			if (isset($this->post['post'])) {
+				$data['post_text'] = $this->post['post'];
+			}
+			
+			// Handle attachment stuff
+			if (!isset($this->post['attached_data'])) {
+				$this->post['attached_data'] = $this->attachmentutil->build_attached_data($this->get['p']);
+			}
+
+			if ($this->perms->auth('post_attach', $data['topic_forum'])) {
+				// Attach
+				if (isset($this->post['attach'])) {
+					$upload_error = $this->attachmentutil->attach_now($this->get['p'], $this->files['attach_upload'], $this->post['attached_data']);
+				// Detach
+				} elseif (isset($this->post['detach'])) {
+					$this->attachmentutil->delete_now($this->get['p'], $this->post['attached'], $this->post['attached_data']);
+				}
+
+				$this->attachmentutil->getdata($attached, $attached_data, $this->post['attached_data']);
+			}
 
 			$quote     = $this->format($data['post_text'], FORMAT_HTMLCHARS);
 			$msg_icons = $this->get_icons(($data['post_icon'] == '') ? -1 : $data['post_icon']);
@@ -221,6 +245,18 @@ class mod extends qsfglobal
 
 			$this->lang->mbcode(); // Load the mbcode values
 			$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
+
+			if ($this->perms->auth('post_attach', $data['topic_forum'])) {
+				if ($attached) {
+					$remove_box = eval($this->template('POST_ATTACH_REMOVE'));
+				} else {
+					$remove_box = '';
+				}
+
+				$attach_box = eval($this->template('POST_ATTACH'));
+			} else {
+				$attach_box = null;
+			}
 
 			$post_box  = eval($this->template($this->post_box()));
 

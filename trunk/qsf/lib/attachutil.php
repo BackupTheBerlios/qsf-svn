@@ -44,8 +44,6 @@ class attachutil
 	 * @param array $attached_data attachments to insert
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 * @since 1.1.8
-	 *
-	 * @todo Change the language strings from post_ to something more universal
 	 **/
 	function attach(&$file, &$attached_data)
 	{
@@ -91,6 +89,48 @@ class attachutil
 		unset($attached_data[$filename]);
 		@unlink('./attachments/' . $filename);
 	}
+	
+	/**
+	 * Processes an attachment upload and stores the record in the database
+	 *
+	 * @param int $post_id post to attach the file to
+	 * @param array $file file upload information
+	 * @param array $attached_data attachments to insert
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.1.9
+	 **/
+	function attach_now($post_id, &$file, &$attached_data)
+	{
+		$temp_attached_data = array();
+		$error = $this->attach($file, $temp_attached_data);
+		
+		if ($error == null) {
+			$md5 = key($temp_attached_data);
+			$filename = addslashes($temp_attached_data[$md5]);
+			$this->db->query("INSERT INTO {$this->pre}attach (attach_file, attach_name, attach_post, attach_size) VALUES 
+				('$md5', '$filename', $post_id, '" . filesize('./attachments/' . $md5) . '\')');
+			
+			$attached_data = array_merge($attached_data, $temp_attached_data);
+		}
+		return $error;
+	}
+
+	/**
+	 * Deletes a file off disk and removes it from the attachment data
+	 *
+	 * @param int $post_id post to attach the file to
+	 * @param string $filename md5 encoded filename
+	 * @param array $attached_data attachments to insert
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.1.9
+	 **/
+	function delete_now($post_id, $filename, &$attached_data)
+	{
+		$this->delete($filename, $attached_data);
+		$this->db->query("DELETE FROM {$this->pre}attach WHERE attach_post={$post_id} AND attach_file = '$filename'");
+	}
+	
+	
 	
 	/**
 	 * Processes attach data and builds form elements
@@ -163,6 +203,27 @@ class attachutil
 			}
 		}
 		return UPLOAD_FAILURE;
+	}
+	
+	/**
+	 * Fetch attachment data from database and return it as an array
+	 *
+	 * @param int $post_id Post to get attachments for
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.1.9
+	 * @return array $attached_data attachments to for post
+	 **/
+	function build_attached_data($post_id)
+	{
+		$attached_data = array();
+
+		$query = $this->db->query("SELECT attach_file, attach_name FROM {$this->pre}attach WHERE attach_post={$post_id}");
+		while ($row = $this->db->nqfetch($query))
+		{
+			$attached_data[$row['attach_file']] = $row['attach_name'];
+		}
+		
+		return $attached_data;
 	}
 }
 ?>

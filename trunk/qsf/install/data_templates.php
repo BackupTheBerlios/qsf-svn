@@ -2258,7 +2258,7 @@ $queries['MOD_EDIT_GLOBAL'] = "INSERT INTO {$pre}templates (template_skin, templ
   <td class=\"tablelight\">{\$this->lang->mod_label_global}</td>
   <td class=\"tablelight\"><input type=\"checkbox\" name=\"global_topic\"{\$checkGlob} /></td>
  </tr>', 'Edit Topic, Global', ' Displayed only to those able to make a topic global', 3)";
-$queries['MOD_EDIT_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_POST', '<form action=\"{\$this->self}?a=mod&amp;s=edit_post&amp;p={\$this->get[\'p\']}\" method=\"post\" name=\"mbpost\">
+$queries['MOD_EDIT_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_POST', '<form action=\"{\$this->self}?a=mod&amp;s=edit_post&amp;p={\$this->get[\'p\']}\" method=\"post\" name=\"mbpost\" enctype=\"multipart/form-data\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mod_label_post_edit}</td>
@@ -2271,6 +2271,7 @@ $queries['MOD_EDIT_POST'] = "INSERT INTO {$pre}templates (template_skin, templat
    <input type=\"checkbox\" name=\"code\" id=\"code\" value=\"1\"{\$code_check} /> <label for=\"code\">{\$this->lang->mod_label_mbcode}</label>
   </td>
  </tr>
+  {\$attach_box}
  <tr>
   <td class=\"footer\" style=\"text-align:center\" colspan=\"2\">
    <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->submit}\" />

@@ -28,6 +28,7 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	'PM_FOLDER',		// Changed Templates
 	'FORUM_TOPICS_MAIN',
+	'MOD_EDIT_POST',
 	'RECENT_MAIN',
 	'SEARCH_MAIN',
 	'ADMIN_HOME',
