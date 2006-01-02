@@ -387,7 +387,9 @@ class qsfglobal
 	{
 		$input = base64_decode($input);
 
-		$input = trim($input);
+		$input = rtrim($input);
+		// Trim any whitespace up until the newline (if any)
+		$input = preg_replace('/^\s*\n/m', "", $input);
 		
 		if ($php) {
 			$title = 'PHP';
@@ -417,7 +419,7 @@ class qsfglobal
 		}
 
 		if (isset($tagged)) {
-			$input = str_replace(array('&lt;?php', '?&gt;'), '', $input);
+			$input = str_replace(array('&lt;?php ', '?&gt;'), '', $input);
 		}
 
 		if ($title == 'PHP') {
