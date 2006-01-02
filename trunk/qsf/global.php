@@ -955,10 +955,10 @@ class qsfglobal
 
 		while ($template = $this->db->nqfetch($temp_query))
 		{
-			// Check for IF statements
-			$template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)(<ELSE>(.*?))?</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'], \'\\3\')', $template['template_html']);
 			// Check for MODLET with optional parameter
 			$template['template_html'] = preg_replace('/<MODLET\s+(.*?)\((.*?)\)\s*>/se', '$this->run_modlet(\'\\1\', \'\\2\', $template[\'template_name\'], $getAdmin)', $template['template_html']);
+			// Check for IF statements
+			$template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)(<ELSE>(.*?))?</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'], \'\\3\')', $template['template_html']);
 			$templates[$template['template_name']] = $template['template_html'];
 		}
 
