@@ -1306,6 +1306,7 @@ $queries['BOARD_CATEGORY'] = "INSERT INTO {$pre}templates (template_skin, templa
    </div>
   </td>
  </tr>', 'Board Category', 'Format the look of the categories on the index page of your forum.', 2)";
+$queries['BOARD_CATEGORY_END'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY_END', '', 'Board Category End', 'Format the look of the end of a category.', 4)";
 $queries['BOARD_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_FORUM', ' <tr>
   <td class=\"tablelight\" style=\"height:35px\"><a href=\"{\$this->self}?a=forum&amp;f={\$forum[\'forum_id\']}\">{\$forum[\'forum_name\']}</a>{\$forum[\'forum_description\']}</td>
   <td class=\"tabledark\" style=\"text-align:center;\">{\$forum[\'forum_topics\']}</td>

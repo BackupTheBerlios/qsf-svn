@@ -107,6 +107,8 @@ class board extends qsfglobal
 		if (!isset($forums[$c])) {
 			return false;
 		}
+		
+		$endCat = false;
 
 		$return = null;
 
@@ -115,7 +117,11 @@ class board extends qsfglobal
 			foreach ($category as $forum)
 			{
 				if ($forum['forum_parent'] == 0) {
+					if ($endCat) {
+						$return .= eval($this->template('BOARD_CATEGORY_END'));
+					}
 					$return .= eval($this->template('BOARD_CATEGORY'));
+					$endCat = true;
 
 					if (isset($forums[$forum['forum_id']])) {
 						$return .= $this->getForums($forums, $forum['forum_id']);
@@ -186,6 +192,11 @@ class board extends qsfglobal
 				}
 			}
 		}
+
+		if ($endCat) {
+			$return .= eval($this->template('BOARD_CATEGORY_END'));
+		}
+
 		return $return;
 	}
 
