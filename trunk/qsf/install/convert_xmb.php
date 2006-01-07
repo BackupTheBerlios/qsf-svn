@@ -115,6 +115,20 @@ function write_olddb_sets( $oldset )
    return true;
 }
 
+function process_poll($data, &$option, &$count, &$names)
+{
+    $split = explode('#|#', $data);
+    $total = count($split);
+    
+    for ($ix = 0; $ix < ($total - 1); $ix++)
+    {
+        $temp = explode('||~|~||', $split[$ix]);
+        $option[] = trim($temp[0]);
+        $count[] = trim($temp[1]);
+    }
+    $names = explode(' ', $split[$total]);
+}
+
 function strip_xmb_tags( $text )
 {
    // The [html] BBCode tag is not supported by XMB or Quicksilver Forums, so just strip those off and leave the contents.
@@ -609,13 +623,19 @@ else if( $_GET['action'] == 'topics' )
    $sql = "SELECT * FROM {$oldboard->pre}threads";
    $result = $oldboard->db->query($sql);
    $i = '0';
+   $j = '0';
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $author = $oldboard->db->fetch( "SELECT uid FROM {$oldboard->pre}members WHERE username='{$row['author']}'" );
       $uid = $author['uid'];
       $uid++;
 
+      $poll_options = '';
+      $names = array();
+      $count = array();
+      $option = array();
       $topic_modes = '0';
+
       if( $row['closed'] == 'yes' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
       if( $row['topped'] == '1' )
@@ -625,12 +645,23 @@ else if( $_GET['action'] == 'topics' )
 
       $row['subject'] = strip_xmb_tags( $row['subject'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', '0', {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '' )" );
+      if( $row['pollopts'] != '' )
+      {
+         process_poll( $row['pollopts'], $option, $count, $names );
+         foreach( $option as $options => $pollopt )
+            $poll_options .= $pollopt . "\n";
+         $j++;
+         $poll_options = addslashes( $poll_options );
+      }
+
+      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', '0', {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
       $i++;
    }
 
    $oldset['topics'] = '1';
    $oldset['topic_count'] = $i;
+   $oldset['polls'] = '1';
+   $oldset['poll_count'] = $j;
    write_olddb_sets( $oldset );
 
    $qsf->db->query( "TRUNCATE {$qsf->pre}subscriptions" );
@@ -667,8 +698,8 @@ else if( $_GET['action'] == 'topics' )
    }
 
    $oldset['polls'] = '1';
-   $oldset['poll_count'] = $i; */
-   write_olddb_sets( $oldset );
+   $oldset['poll_count'] = $i;
+   write_olddb_sets( $oldset ); */
    echo "<meta http-equiv='Refresh' content='0;URL=convert_xmb.php'>";
 }
 
