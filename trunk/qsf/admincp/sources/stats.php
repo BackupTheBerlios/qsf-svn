@@ -67,7 +67,8 @@ class stats extends admin
 		$graph->yaxis->scale->SetGrace(20);
 		$graph->title->Set($this->lang->stats_post_by_month);
 
-		$barplot = new BarPlot(array_values($data));
+		$temp = array_values($data);
+		$barplot = new BarPlot($temp);
 		$barplot->SetFillColor('darkorange');
 
 		$graph->add($barplot);
@@ -101,7 +102,8 @@ class stats extends admin
 		$graph->yaxis->scale->SetGrace(20);
 		$graph->title->Set($this->lang->stats_reg_by_month);
 
-		$barplot = new BarPlot(array_values($data));
+		$temp = array_values($data);
+		$barplot = new BarPlot($temp);
 		$barplot->SetFillColor('darkorange');
 
 		$graph->add($barplot);
