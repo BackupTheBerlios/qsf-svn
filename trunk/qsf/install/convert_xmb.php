@@ -372,34 +372,23 @@ else if( $_GET['action'] == 'dropxmb' )
 
 else if( $_GET['action'] == 'confirmxmbdrop' )
 {
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}auth_access" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}banlist" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}categories" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}config" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}confirm" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}disallow" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}forum_prune" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}attachments" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}banned" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}buddys" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}favorites" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}forums" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}groups" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}logs" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}members" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}posts" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}posts_text" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}privmsgs" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}privmsgs_text" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}ranks" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}search_results" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}search_wordlist" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}search_wordmatch" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}sessions" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}restricted" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}settings" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}smilies" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}templates" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}themes" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}themes_name" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}topics" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}topics_watch" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}user_group" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}users" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}vote_desc" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}vote_results" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}vote_voters" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}threads" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}u2u" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}whosonline" );
    $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}words" );
 
    include 'templates/convert_header.php';
