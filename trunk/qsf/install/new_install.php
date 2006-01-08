@@ -38,6 +38,7 @@ class new_install extends qsfglobal
 			include 'templates/newdatabase.php';
 			include 'templates/newboardsettings.php';
 			include 'templates/newadmin.php';
+			include 'templates/newseeddata.php';
 			echo "<tr>
                          <td class='subheader' colspan='2' align='center'><input type='submit' value='Continue' /></td>
                          </tr>
@@ -89,6 +90,11 @@ class new_install extends qsfglobal
 				break;
 			}
 
+			if ($this->post['seed_data'] && !is_readable('./seed_data.php')) {
+				echo 'Database connected, settings written, but no seed data could be loaded from file: seed_data.php';
+				break;
+			}
+
 			$queries = array();
 			$pre = $this->sets['prefix'];
 			$this->pre = $this->sets['prefix'];
@@ -126,6 +132,33 @@ class new_install extends qsfglobal
 			$this->sets['members']++;
 			$this->sets['installed'] = 1;
 
+			if ($this->post['seed_data']) {
+				include './seed_data.php';
+								
+				// Create Category
+				$categoryId = $this->create_forum($categoryName, $categoryDesc, 0);
+				
+				// Create Forum
+				$forumId = $this->create_forum($forumName, $forumDesc, $categoryId);
+				
+				// Create Topic
+				$this->db->query("INSERT INTO {$this->pre}topics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes) 
+					VALUES ('$topicName', $forumId, '$topicDesc', $admin_uid, '$topicIcon', $this->time, $admin_uid, 0)");
+				$topicId = $this->db->insert_id();
+				
+				// Create Post
+				$this->db->query("INSERT INTO {$this->pre}posts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon)
+					VALUES ($topicId, $admin_uid, '$topicPost', $this->time, 1, 1, INET_ATON('$this->ip'), '$topicIcon')");
+				$postId = $this->db->insert_id();
+					
+				$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='{$this->time}' WHERE user_id='$admin_uid'");
+
+				$this->db->query("UPDATE {$this->pre}forums SET forum_topics=forum_topics+1, forum_lastpost=$postId WHERE forum_id=$forumId");
+				
+				$this->sets['topics']++;
+				$this->sets['posts']++;
+			}
+
 			$this->write_db_sets('../settings.php');
 			$this->write_sets();
 
@@ -147,6 +180,40 @@ class new_install extends qsfglobal
 	   $server = isset($_SERVER['HTTP_HOST']) ?
 		   $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
 	   return $proto . $server;
+	}
+	
+	/**
+	 * Creates a category or forum
+	 *
+	 * @param string $name Name of the forum
+	 * @param string $desc Description of the forum
+	 * @param int $parent Parent id of the forum (0 if a category)
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.1.9
+	 * @return int id of the forum created
+	 **/
+	function create_forum($name, $desc, $parent)
+	{
+		$parent ? $tree = $parent : $tree = '';
+		
+		$this->db->query("INSERT INTO {$this->pre}forums
+			(forum_tree, forum_parent, forum_name, forum_description, forum_position, forum_subcat) VALUES
+			('$tree', '$parent', '$name', '$desc', '0', '0')");
+		
+		$forumId = $this->db->insert_id();
+		
+		$perms = new permissions;
+		$perms->db = &$this->db;
+		$perms->pre = &$this->pre;
+		
+		while ($perms->get_group())
+		{
+			// Default permissions
+			$perms->add_z($forumId);
+			$perms->update();
+		}
+		
+		return $forumId;
 	}
 }
 ?>
