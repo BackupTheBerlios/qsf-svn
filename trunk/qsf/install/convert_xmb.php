@@ -478,7 +478,11 @@ else if( $_GET['action'] == 'members' )
          case "Swedish": $lang = "sv"; break;
       }
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, '1', '', 0, '{$group}', 'default', '{$lang}', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '0000-00-00', '151', '{$row['site']}', {$row['postnum']}, '{$row['location']}', '{$row['icq']}', '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['sig']}', {$row['lastvisit']}, 0, 0, 0, 1, 1, 1, '' )" );
+      $icq = 0;
+      if( $row['icq'] )
+         $icq = intval( $row['icq'] );
+
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '', 0, {$group}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['site']}', {$row['postnum']}, '{$row['location']}', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['sig']}', {$row['lastvisit']}, 0, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 
@@ -557,14 +561,14 @@ else if( $_GET['action'] == 'mtitles' )
             $icon = $row['stars'];
             $icon .= '.png';
          }
-         $qsf->db->query( "INSERT INTO {$qsf->pre}membertitles (membertitle_title, membertitle_posts, membertitle_icon)VALUES( '{$row['title']}', '{$row['posts']}', '{$icon}' )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}membertitles (membertitle_title, membertitle_posts, membertitle_icon)VALUES( '{$row['title']}', {$row['posts']}, '{$icon}' )" );
          $i++;
       }
    }
 
    if( $titlecount == 0 ) // If the count comes out 0 for some reason, put one back.
    {
-      $qsf->db->query( "INSERT INTO {$qsf->pre}membertitles (membertitle_title, membertitle_posts, membertitle_icon)VALUES( 'Poster', '0', '1.png' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}membertitles (membertitle_title, membertitle_posts, membertitle_icon)VALUES( 'Poster', 0, '1.png' )" );
    }
 
    $oldset['titles'] = '1';
@@ -643,7 +647,7 @@ else if( $_GET['action'] == 'topics' )
          $poll_options = addslashes( $poll_options );
       }
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', '0', {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', 0, {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
       $i++;
    }
 
@@ -744,7 +748,11 @@ else if( $_GET['action'] == 'posts' )
       if( $row['smileyoff'] == 'yes' )
          $smilies = 0;
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['tid']}, '{$uid}', {$smilies}, 1, '{$row['message']}', {$row['dateline']}, '', INET_ATON('{$row['useip']}'), '', 0 )" );
+      $ip = "127.0.0.1";
+      if( $row['useip'] )
+         $ip = $row['useip'];
+      
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['tid']}, {$uid}, {$smilies}, 1, '{$row['message']}', {$row['dateline']}, '', INET_ATON( '{$ip}' ), '', 0 )" );
       $i++;
    }
    if( $i == $all )
