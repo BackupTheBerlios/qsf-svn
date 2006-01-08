@@ -427,9 +427,9 @@ else if( $_GET['action'] == 'members' )
       $row['uid']++;
 
       if( $row['showemail'] == '' || $row['showemail'] == 'no' )
-         $showmail = '0';
+         $showmail = 0;
       else
-         $showmail = '1';
+         $showmail = 1;
 
       if( $row['lastvisit'] == '' || $row['lastvisit'] == '0' )
          $row['lastvisit'] = $row['regdate'];
@@ -442,27 +442,27 @@ else if( $_GET['action'] == 'members' )
 
       // The default XMB groups.
       if( $row['status'] == 'Super Administrator' || $row['status'] == 'Administrator' )
-         $group = '1';
+         $group = 1;
       else if( $row['status'] == 'Super Moderator' )
-         $group = '6';
+         $group = 6;
       else if( $row['status'] == 'Banned' )
-         $group = '4';
+         $group = 4;
       else
-         $group = '2';
+         $group = 2;
 
       $pos = strpos( $row['avatar'], '://' );
       if( $pos == '4' )
       {
          $avatar = $row['avatar'];
-         $width = '64';
-         $height = '64';
+         $width = 64;
+         $height = 64;
          $type = "url";
       }
       else
       {
          $avatar = '';
-         $width = '0';
-         $height = '0';
+         $width = 0;
+         $height = 0;
          $type = "none";
       }
 

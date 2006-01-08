@@ -442,9 +442,9 @@ else if( $_GET['action'] == 'members' )
       $row['uid']++;
 
       if( $row['hideemail'] == '' || $row['hideemail'] == 'no' )
-         $showmail = '0';
+         $showmail = 0;
       else
-         $showmail = '1';
+         $showmail = 1;
 
       if( $row['lastvisit'] == '' || $row['lastvisit'] == '0' )
          $row['lastvisit'] = $row['regdate'];
@@ -455,12 +455,12 @@ else if( $_GET['action'] == 'members' )
       if( $row['usertitle'] != '' )
       {
          $usertitle = strip_mybb_tags( $row['usertitle'] );
-         $customtitle = '1';
+         $customtitle = 1;
       }
       else
       {
          $usertitle = '';
-         $customtitle = '0';
+         $customtitle = 0;
       }
       
       $row['email'] = strip_mybb_tags( $row['email'] );
@@ -468,35 +468,40 @@ else if( $_GET['action'] == 'members' )
       $row['signature'] = strip_mybb_tags( $row['signature'] );
 
       // The default MyBB groups
-      if( $row['usergroup'] == '2' ) // Member
-         $row['usergroup'] = '2';
-      else if( $row['usergroup'] == '3' ) // Super-Moderator
-         $row['usergroup'] = '6';
-      else if( $row['usergroup'] == '4' ) // Admin
-         $row['usergroup'] = '1';
-      else if( $row['usergroup'] == '5' ) // Awating Activation
-         $row['usergroup'] = '5';
-      else if( $row['usergroup'] == '7' ) // Banned
-         $row['usergroup'] = '4';
+      if( $row['usergroup'] == 2 ) // Member
+         $row['usergroup'] = 2;
+      else if( $row['usergroup'] == 3 ) // Super-Moderator
+         $row['usergroup'] = 6;
+      else if( $row['usergroup'] == 4 ) // Admin
+         $row['usergroup'] = 1;
+      else if( $row['usergroup'] == 5 ) // Awating Activation
+         $row['usergroup'] = 5;
+      else if( $row['usergroup'] == 7 ) // Banned
+         $row['usergroup'] = 4;
       else
-         $row['usergroup'] = '2'; // anything else becomes a member
+         $row['usergroup'] = 2; // anything else becomes a member
 
       $pos = strpos( $row['avatar'], '://' );
       if( $pos == '4' )
       {
          $avatar = $row['avatar'];
-         $width = '64';
-         $height = '64';
+         $width = 64;
+         $height = 64;
          $type = "url";
       }
       else
       {
          $avatar = '';
-         $width = '0';
-         $height = '0';
+         $width = 0;
+         $height = 0;
          $type = "none";
       }
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, '1', '{$usertitle}', {$customtitle}, {$row['usergroup']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['email']}', {$showmail}, '', '0000-00-00', '151', '{$row['website']}', {$row['postnum']}, '', '{$row['icq']}', '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, {$row['lastactive']}, 0, 0, 1, 1, 1, '' )" );
+
+      $icq = 0;
+      if( $row['icq'] )
+         $icq = intval( $row['icq'] );
+
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '{$usertitle}', {$customtitle}, {$row['usergroup']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['website']}', {$row['postnum']}, '', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, {$row['lastactive']}, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 

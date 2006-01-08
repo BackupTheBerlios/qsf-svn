@@ -447,8 +447,8 @@ else if( $_GET['action'] == 'members' )
       while( $row['MEMBER_ID'] >= $MID )
          $MID++;
 
-      if( $row['MEMBER_ID'] == '1' )
-         $row['MEMBER_ID'] = '2';
+      if( $row['MEMBER_ID'] == 1 )
+         $row['MEMBER_ID'] = 2;
 
       $row['MEMBER_NAME'] = strip_ikon_tags( $row['MEMBER_NAME'] );
       $row['MEMBER_EMAIL'] = strip_ikon_tags( $row['MEMBER_EMAIL'] );
@@ -465,9 +465,9 @@ else if( $_GET['action'] == 'members' )
          $MID++;
       }
       if( $row['HIDE_EMAIL'] == '' || $row['HIDE_EMAIL'] == '1' )
-         $showmail = '0';
+         $showmail = 0;
       else
-         $showmail = '1';
+         $showmail = 1;
 
       if( $row['LAST_LOG_IN'] == '' )
          $row['LAST_LOG_IN'] = $row['MEMBER_JOINED'];
@@ -477,37 +477,42 @@ else if( $_GET['action'] == 'members' )
       /* The default Ikonboard groups they claim you can never alter.
        * Additional groups will not be converted. Members in these groups will become standard members.
        */
-      if( $row['MEMBER_GROUP'] == '1' )
-         $row['MEMBER_GROUP'] = '5';
-      else if( $row['MEMBER_GROUP'] == '2' )
-         $row['MEMBER_GROUP'] = '3';
-      else if( $row['MEMBER_GROUP'] == '3' )
-         $row['MEMBER_GROUP'] = '2';
-      else if( $row['MEMBER_GROUP'] == '4' )
-         $row['MEMBER_GROUP'] = '1';
+      if( $row['MEMBER_GROUP'] == 1 )
+         $row['MEMBER_GROUP'] = 5;
+      else if( $row['MEMBER_GROUP'] == 2 )
+         $row['MEMBER_GROUP'] = 3;
+      else if( $row['MEMBER_GROUP'] == 3 )
+         $row['MEMBER_GROUP'] = 2;
+      else if( $row['MEMBER_GROUP'] == 4 )
+         $row['MEMBER_GROUP'] = 1;
       else
-         $row['MEMBER_GROUP'] = '2';
+         $row['MEMBER_GROUP'] = 2;
 
       $level = $row['MEMBER_LEVEL'] + 1;
       if( $level < '1' )
-         $level = '1';
+         $level = 1;
 
       $pos = strpos( $row['MEMBER_AVATAR'], '://' );
       if( $pos == '4' )
       {
          $avatar = $row['MEMBER_AVATAR'];
-         $width = '64';
-         $height = '64';
+         $width = 64;
+         $height = 64;
          $type = "url";
       }
       else
       {
          $avatar = '';
-         $width = '0';
-         $height = '0';
+         $width = 0;
+         $height = 0;
          $type = "none";
       }
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, '{$level}', '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['MEMBER_EMAIL']}', $showmail, '', '0000-00-00', '151', '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', '{$row['ICQNUMBER']}', '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
+
+      $icq = 0;
+      if( $row['ICQNUMBER'] )
+         $icq = intval( $row['ICQNUMBER'] );
+
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, {$level}, '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['MEMBER_EMAIL']}', {$showmail}, 1, '0000-00-00', 151, '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', {$icq}, '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 

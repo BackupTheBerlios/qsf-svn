@@ -392,7 +392,7 @@ else if( $_GET['action'] == 'members' )
    {
       $row['userid']++;
 
-      $showmail = '0'; // No discernable setting for this - erring on the side of caution
+      $showmail = 0; // No discernable setting for this - erring on the side of caution
 
       if( $row['lastvisit'] == '' || $row['lastvisit'] == '0' )
          $row['lastvisit'] = $row['joindate'];
@@ -407,21 +407,25 @@ else if( $_GET['action'] == 'members' )
 
       // The default vB groups
       if( $row['usergroupid'] == '1' ) // Guests
-         $row['usergroupid'] = '3';
+         $row['usergroupid'] = 3;
       if( $row['usergroupid'] == '2' ) // Member
-         $row['usergroupid'] = '2';
+         $row['usergroupid'] = 2;
       else if( $row['usergroupid'] == '3' || $row['usergroupid'] == '4') // Awating Activation
-         $row['usergroupid'] = '5';
+         $row['usergroupid'] = 5;
       else if( $row['usergroupid'] == '5' ) // Super Moderators
-         $row['usergroupid'] = '6';
+         $row['usergroupid'] = 6;
       else if( $row['usergroupid'] == '6' ) // Admins
-         $row['usergroupid'] = '1';
+         $row['usergroupid'] = 1;
       else if( $row['usergroupid'] == '8' ) // Banned
-         $row['usergroupid'] = '4';
+         $row['usergroupid'] = 4;
       else
-         $row['usergroupid'] = '2'; // anything else becomes a member
+         $row['usergroupid'] = 2; // anything else becomes a member
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['userid']}, '{$row['username']}', '{$row['password']}', {$row['joindate']}, '1', '{$row['usertitle']}', {$row['customtitle']}, {$row['usergroupid']}, 'default', 'en', '', 'none', '0', '0', '{$row['email']}', {$showmail}, '', '{$row['birthday']}', '151', '{$row['homepage']}', {$row['posts']}, '', '{$row['icq']}', '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, {$row['lastactivity']}, 0, 0, 1, 1, 1, '' )" );
+      $icq = 0;
+      if( $row['icq'] )
+         $icq = intval( $row['icq'] );
+
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['userid']}, '{$row['username']}', '{$row['password']}', {$row['joindate']}, 1, '{$row['usertitle']}', {$row['customtitle']}, {$row['usergroupid']}, 'default', 'en', '', 'none', 0, 0, '{$row['email']}', {$showmail}, 1, '{$row['birthday']}', 151, '{$row['homepage']}', {$row['posts']}, '', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, {$row['lastactivity']}, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 

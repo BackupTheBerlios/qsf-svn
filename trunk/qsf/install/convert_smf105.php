@@ -416,30 +416,30 @@ else if( $_GET['action'] == 'members' )
 
       // The default SMF groups: You're either an admin or you're not.
       if( $row['ID_GROUP'] == '1' )
-         $row['ID_GROUP'] = '1';
+         $row['ID_GROUP'] = 1;
       else
-         $row['ID_GROUP'] = '2';
+         $row['ID_GROUP'] = 2;
 
       $sql2 = "SELECT * FROM {$oldboard->pre}banned WHERE ban_type = 'user_ban' AND ID_MEMBER = '{$row['ID_MEMBER']}'";
       $result2 = $oldboard->db->query($sql2);
       while( $row2 = $oldboard->db->nqfetch($result2) )
       {
-         $row['memberGroup'] = '4';
+         $row['memberGroup'] = 4;
       }
 
       $pos = strpos( $row['avatar'], '://' );
       if( $pos == '4' )
       {
          $avatar = $row['avatar'];
-         $width = '64';
-         $height = '64';
+         $width = 64;
+         $height = 64;
          $type = "url";
       }
       else
       {
          $avatar = '';
-         $width = '0';
-         $height = '0';
+         $width = 0;
+         $height = 0;
          $type = "none";
       }
 
@@ -453,7 +453,11 @@ else if( $_GET['action'] == 'members' )
       else if( $row['lngfile'] == "dutch.lng" )
          $lang = "nl";
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['ID_MEMBER']}, '{$row['memberName']}', '{$row['passwd']}', {$row['dateRegistered']}, '1', '{$row['usertitle']}', 0, '{$row['ID_GROUP']}', 'default', '{$lang}', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['emailAddress']}', $showmail, '', '{$row['birthdate']}', '151', '{$row['websiteUrl']}', {$row['posts']}, '{$row['location']}', '{$row['ICQ']}', '{$row['MSN']}', '{$row['AIM']}', '', 1, 1, '{$row['YIM']}', '', '{$row['signature']}', {$row['lastLogin']}, 0, 0, 0, 1, 1, 1, '' )" );
+      $icq = 0;
+      if( $row['ICQ'] )
+         $icq = intval( $row['ICQ'] );
+
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['ID_MEMBER']}, '{$row['memberName']}', '{$row['passwd']}', {$row['dateRegistered']}, 1, '{$row['usertitle']}', 0, {$row['ID_GROUP']}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['emailAddress']}', {$showmail}, 1, '{$row['birthdate']}', 151, '{$row['websiteUrl']}', {$row['posts']}, '{$row['location']}', {$icq}, '{$row['MSN']}', '{$row['AIM']}', '', 1, 1, '{$row['YIM']}', '', '{$row['signature']}', {$row['lastLogin']}, 0, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 

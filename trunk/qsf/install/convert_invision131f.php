@@ -491,9 +491,9 @@ else if( $_GET['action'] == 'members' )
          $row['id']++;
 
          if( $row['hide_email'] == '' || $row['hide_email'] == '1' )
-            $showmail = '0';
+            $showmail = 0;
          else
-            $showmail = '1';
+            $showmail = 1;
 
          $row['name'] = strip_invision_tags( $row['name'] );
          $row['email'] = strip_invision_tags( $row['email'] );
@@ -510,32 +510,32 @@ else if( $_GET['action'] == 'members' )
          /* The default Invisionboard groups they claim you can never alter.
           * Additional groups will not be converted. Members in these groups will become standard members.
           */
-         if( $row['mgroup'] == '1' )
-            $row['mgroup'] = '5';
-         else if( $row['mgroup'] == '2' )
-            $row['mgroup'] = '3';
-         else if( $row['mgroup'] == '3' )
-            $row['mgroup'] = '2';
-         else if( $row['mgroup'] == '4' )
-            $row['mgroup'] = '1';
-         else if( $row['mgroup'] == '5' )
-            $row['mgroup'] = '4';
+         if( $row['mgroup'] == 1 )
+            $row['mgroup'] = 5;
+         else if( $row['mgroup'] == 2 )
+            $row['mgroup'] = 3;
+         else if( $row['mgroup'] == 3 )
+            $row['mgroup'] = 2;
+         else if( $row['mgroup'] == 4 )
+            $row['mgroup'] = 1;
+         else if( $row['mgroup'] == 5 )
+            $row['mgroup'] = 4;
          else
-            $row['mgroup'] = '2';
+            $row['mgroup'] = 2;
 
          $pos = strpos( $row['avatar'], '://' );
          if( $pos == '4' )
          {
             $avatar = $row['avatar'];
-            $width = '64';
-            $height = '64';
+            $width = 64;
+            $height = 64;
             $type = "url";
          }
          else
          {
             $avatar = '';
-            $width = '0';
-            $height = '0';
+            $width = 0;
+            $height = 0;
             $type = "none";
          }
          if( $row['bday_year'] != '' && $row['bday_month'] != '' && $row['bday_day'] != '' )
@@ -543,7 +543,11 @@ else if( $_GET['action'] == 'members' )
          else
             $bday = "0000-00-00";
 
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', '{$width}', '{$height}', '{$row['email']}', $showmail, '', '{$bday}', '151', '{$row['website']}', '{$row['posts']}', '{$row['location']}', '{$row['icq_number']}', '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
+         $icq = 0;
+         if( $row['icq_number'] )
+            $icq = intval( $row['icq_number'] );
+
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '{$bday}', 151, '{$row['website']}', {$row['posts']}, '{$row['location']}', {$icq}, '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
    }

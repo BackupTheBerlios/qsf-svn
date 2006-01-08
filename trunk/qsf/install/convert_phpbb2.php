@@ -431,12 +431,12 @@ else if( $_GET['action'] == 'members' )
       if( $row['username'] != "Anonymous" )
       {
          if( $row['user_id'] == '1' )
-            $row['user_id'] = '2';
+            $row['user_id'] = 2;
 
          if( $row['user_viewemail'] == '' || $row['user_viewemail'] == '1' )
-            $showmail = '1';
+            $showmail = 1;
          else
-            $showmail = '0';
+            $showmail = 0;
 
          if( $row['user_lastvisit'] == '' || $row['user_lastvisit'] == '0' )
             $row['user_lastvisit'] = $row['user_regdate'];
@@ -452,33 +452,38 @@ else if( $_GET['action'] == 'members' )
 
          // The default phpBB2 groups: You're either an admin or you're not.
          if( $row['user_level'] == '1' )
-            $row['user_level'] = '1';
+            $row['user_level'] = 1;
          else
-            $row['user_level'] = '2';
+            $row['user_level'] = 2;
 
          $sql2 = "SELECT * FROM {$oldboard->pre}banlist WHERE ban_userid = '{$row['user_id']}'";
          $result2 = $oldboard->db->query($sql2);
          while( $row2 = $oldboard->db->nqfetch($result2) )
          {
-            $row['user_level'] = '4';
+            $row['user_level'] = 4;
          }
 
          $pos = strpos( $row['user_avatar'], '://' );
          if( $pos == '4' )
          {
             $avatar = $row['user_avatar'];
-            $width = '64';
-            $height = '64';
+            $width = 64;
+            $height = 64;
             $type = "url";
          }
          else
          {
             $avatar = '';
-            $width = '0';
-            $height = '0';
+            $width = 0;
+            $height = 0;
             $type = "none";
          }
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, '1', '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', '{$width}', '{$height}', '{$row['user_email']}', $showmail, '', '0000-00-00', '151', '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', '{$row['user_icq']}', '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
+
+         $icq = 0;
+         if( $row['user_icq'] )
+            $icq = intval( $row['user_icq'] );
+
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, 1, '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['user_email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', {$icq}, '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
    }
@@ -505,31 +510,31 @@ else if( $_GET['action'] == 'pmessages' )
       {
          $folder = '0';
          if( $row['privmsgs_type'] == '5' )
-            $readstate = '0';
+            $readstate = 0;
          else
-            $readstate = '1';
+            $readstate = 1;
       }
       else if( $row['privmsgs_type'] == '1' || $row['privmsgs_type'] == '2' )
       {
-         $folder = '1';
+         $folder = 1;
          if( $row['privmsgs_type'] == '1' )
-            $readstate = '0';
+            $readstate = 0;
          else
-            $readstate = '1';
+            $readstate = 1;
       }
       else
-         $folder = '2';
+         $folder = 2;
 
       if( $folder == '0' || $folder == '1' )
       {
-         if( $row['privmsgs_to_userid'] == '1' )
-            $row['privmsgs_to_userid'] = '2';
-         if( $row['privmsgs_to_userid'] == '0' )
-            $row['privmsgs_to_userid'] = '1';
-         if( $row['privmsgs_from_userid'] == '1' )
-            $row['privmsgs_from_userid'] = '2';
-         if( $row['privmsgs_from_userid'] == '0' )
-            $row['privmsgs_from_userid'] = '1';
+         if( $row['privmsgs_to_userid'] == 1 )
+            $row['privmsgs_to_userid'] = 2;
+         if( $row['privmsgs_to_userid'] == 0 )
+            $row['privmsgs_to_userid'] = 1;
+         if( $row['privmsgs_from_userid'] == 1 )
+            $row['privmsgs_from_userid'] = 2;
+         if( $row['privmsgs_from_userid'] == 0 )
+            $row['privmsgs_from_userid'] = 1;
 
          $row['privmsgs_subject'] = strip_phpbb2_tags( $row['privmsgs_subject'] );
          $message = strip_phpbb2_tags( $row['privmsgs_text'] );
@@ -544,6 +549,7 @@ else if( $_GET['action'] == 'pmessages' )
          }
          if( $row['privmsgs_subject'] == '' )
             $row['privmsgs_subject'] = "No Title";
+
          $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['privmsgs_id']}, {$row['privmsgs_to_userid']}, {$row['privmsgs_from_userid']}, '{$bcc}', '{$row['privmsgs_subject']}', {$row['privmsgs_date']}, '{$message}', {$readstate}, {$folder} )" );
       }
    }
