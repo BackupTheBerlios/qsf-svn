@@ -8,6 +8,11 @@ Changes for 1.1.9:
 * XMB Forum convertor script added.
 * RSS Feed can now generate feeds for individual forums and topics.
 * Removed the defunct javascript files from the default skin.
+* PHP 5 variable reference error fixed in statistics center.
+* New forum installation seeds itself with a default category, forum, and topic.
+* Convertor updates for MySQL 5 support.
+* View next/prev topic links added.
+* BUG: Modlets could not be used inside <IF> tags.
 
 Changes for 1.1.8:
 
