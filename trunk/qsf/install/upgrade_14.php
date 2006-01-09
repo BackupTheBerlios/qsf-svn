@@ -25,13 +25,6 @@ if (!defined('INSTALLER')) {
 }
 
 $query = $db->query("DELETE FROM {$pre}active;");
-$query = $db->query("SELECT post_id as id, INET_ATON( post_ip ) as newip FROM {$pre}posts");
-
-while($upg14_data = $db->nqfetch($query))
-{
-	$sql = "UPDATE {$pre}posts SET post_ip='" . $upg14_data['newip'] . "' WHERE post_id='" . $upg14_data['id'] . "'";
-	$db->query($sql);
-}
 
 $need_templates = array(
     'MAIN',			// Changed templates
@@ -549,7 +542,10 @@ $queries[] = "INSERT INTO {$pre}timezones VALUES (381, 'Africa/Johannesburg', 'S
 $queries[] = "INSERT INTO {$pre}timezones VALUES (382, 'Africa/Lusaka', 'CAT', 7200, 1134774056)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (383, 'Africa/Harare', 'CAT', 7200, 1134774056)";
 
-$queries[] = "ALTER TABLE {$pre}posts CHANGE post_ip post_ip INT UNSIGNED NOT NULL DEFAULT '0'";
+$queries[] = "ALTER TABLE {$pre}posts ADD post_ip_new INT UNSIGNED NOT NULL DEFAULT '0'";
+$queries[] = "UPDATE {$pre}posts SET post_ip_new=INET_ATON(post_ip)";
+$queries[] = "ALTER TABLE {$pre}posts DROP post_ip";
+$queries[] = "ALTER TABLE {$pre}posts CHANGE post_ip_new post_ip INT UNSIGNED NOT NULL DEFAULT '0'";
 $queries[] = "ALTER TABLE {$pre}active CHANGE active_ip active_ip INT UNSIGNED NOT NULL DEFAULT '0'";
 $queries[] = "ALTER TABLE {$pre}settings ADD settings_tos text AFTER settings_id";
 $queries[] = "ALTER TABLE {$pre}users ADD user_title_custom TINYINT(1) UNSIGNED NOT NULL AFTER user_title";
