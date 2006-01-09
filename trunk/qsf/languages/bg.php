@@ -1355,10 +1355,14 @@ class bg
 		$this->topic_lock = 'Заключи';
 		$this->topic_locked = 'Темата е заключена';
 		$this->topic_move = 'Премести';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Няма гласове за тази анкета.';
 		$this->topic_not_found = 'Няма намерена тема';
 		$this->topic_not_found_message = 'Няма такава тема.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Опция на темата';
 		$this->topic_pages = 'страници';

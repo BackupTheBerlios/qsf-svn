@@ -1355,10 +1355,14 @@ class fr
 		$this->topic_lock = 'Verrouiller';
 		$this->topic_locked = 'Sujet verrouillé';
 		$this->topic_move = 'Déplacer';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Il n\'y a pas de vote pour ce sujet.';
 		$this->topic_not_found = 'Le sujet n\'a pas été trouvé.';
 		$this->topic_not_found_message = 'Le sujet n\'a pas été trouvé. Il peut avoir été supprimé, déplacé ou n\'avoir jamais existé.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Options';
 		$this->topic_pages = 'Pages'; //Translate

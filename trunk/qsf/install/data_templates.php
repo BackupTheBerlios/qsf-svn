@@ -3360,6 +3360,10 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->table}
  <tr>
   <td class=\"header\">
+   <div class=\"newerolder\">
+   <a href=\"{\$this->self}?a=topic&amp;t={\$this->get[\'t\']}&amp;view=newer\">&lt; {\$this->lang->topic_newer}</a>
+   :: <a href=\"{\$this->self}?a=topic&amp;t={\$this->get[\'t\']}&amp;view=older\">{\$this->lang->topic_older} &gt;</a>
+   </div>
    {\$title_html}{\$topic[\'topic_description\']}
   </td>
  </tr>

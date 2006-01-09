@@ -1355,10 +1355,14 @@ class fi
 		$this->topic_lock = 'Lukitse';
 		$this->topic_locked = 'Keskustelu lukittu';
 		$this->topic_move = 'Siirrä';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Tässä kyselyssä ei ole ääniä.';
 		$this->topic_not_found = 'Keskustelua ei löydy';
 		$this->topic_not_found_message = 'Keskustelua ei löydy. Se on saatettu poistaa, siirtää tai sitä ei ehkä koskaan ole ollutkaan.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Keskustelun asetukset';
 		$this->topic_pages = 'Sivut';

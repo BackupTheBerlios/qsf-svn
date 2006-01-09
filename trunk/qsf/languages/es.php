@@ -1355,10 +1355,14 @@ class es
 		$this->topic_lock = 'Bloquear';
 		$this->topic_locked = 'tópico bloqueado';
 		$this->topic_move = 'Mover';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'No existen votos para esta encuesta';
 		$this->topic_not_found = 'tópico No encontrado';
 		$this->topic_not_found_message = 'El tópico no fue encontrado, pudo haber sido borrado, movido o pudo nunca haber existido';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Opciones de tópico';
 		$this->topic_pages = 'Paginas';

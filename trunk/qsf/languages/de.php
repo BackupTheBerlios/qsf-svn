@@ -1355,10 +1355,14 @@ class de
 		$this->topic_lock = 'Sperren';
 		$this->topic_locked = 'Thema gesperrt';
 		$this->topic_move = 'Verschiebe';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Es gibt keine Abstimmungen für diese Umfrage.';
 		$this->topic_not_found = 'Thema nicht gefunden';
 		$this->topic_not_found_message = 'Das Thema konnte nicht gefunden werden. Es wurde vielleicht gelöscht, verschoben oder existierte nie.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'Dieser User ist grade online';
 		$this->topic_options = 'Thema Optionen';
 		$this->topic_pages = 'Seiten';

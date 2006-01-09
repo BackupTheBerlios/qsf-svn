@@ -1357,10 +1357,14 @@ class sk
 		$this->topic_lock = 'Zamknú';
 		$this->topic_locked = 'Téma je zamknutá';
 		$this->topic_move = 'Presunú';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Tu ešte nikto nehlasoval.';
 		$this->topic_not_found = 'Téma sa nenašla';
 		$this->topic_not_found_message = 'Téma sa nenašla. Možno bola zmazané, presunutá alebo nebola vôbec.';
 		$this->topic_offline = 'Tento užívate¾ je momentálne offline';
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'Tento užívate¾ je momentálne online';
 		$this->topic_options = 'Možnosti témy';
 		$this->topic_pages = 'Stránky';

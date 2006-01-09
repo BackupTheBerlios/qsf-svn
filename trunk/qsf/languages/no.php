@@ -1355,10 +1355,14 @@ class no
 		$this->topic_lock = 'Les';
 		$this->topic_locked = 'Emnet er låst';
 		$this->topic_move = 'Flytte';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Det finnes ingen stemmer i denne avstemmingen.';
 		$this->topic_not_found = 'Emnet finnes ikke';
 		$this->topic_not_found_message = 'Emnet finnes ikke. Det kan ha blitt slettet, flyttet eller så har det aldri eksistert.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Emne alternativ';
 		$this->topic_pages = 'Sider';

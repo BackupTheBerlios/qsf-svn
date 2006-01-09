@@ -1357,10 +1357,14 @@ class nl
 		$this->topic_lock = 'Sluiten';
 		$this->topic_locked = 'Onderwerp gesloten';
 		$this->topic_move = 'Verplaats';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Er zijn nog geen stemmen in deze stembus.';
 		$this->topic_not_found = 'Onderwerp niet gevonden';
 		$this->topic_not_found_message = 'Het onderwerp kan niet gevonden worden. Het is mogelijk verwijderd';
 		$this->topic_offline = 'Deze gebruiker is momenteel offline';
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'Deze gebruiker is momenteel online';
 		$this->topic_options = 'Onderwerp opties';
 		$this->topic_pages = 'Bladzijden';

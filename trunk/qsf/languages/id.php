@@ -1355,10 +1355,14 @@ class id
 		$this->topic_lock = 'Kunci';
 		$this->topic_locked = 'Topik dikunci';
 		$this->topic_move = 'Pindahkan';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Tidak ada voting untuk polling ini.';
 		$this->topic_not_found = 'Topik tidak ditemukan';
 		$this->topic_not_found_message = 'Topik tidak bisa ditemukan. Kemungkinan sudah dihapus, Dipindahkan, atau mungkin tidak ada.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Topik Option';
 		$this->topic_pages = 'Halaman';

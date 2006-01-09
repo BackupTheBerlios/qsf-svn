@@ -1356,10 +1356,14 @@ class ru
 		$this->topic_lock = 'Заблокировать';
 		$this->topic_locked = 'Тема заблокирована';
 		$this->topic_move = 'Переместить';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Никто не голосовал.';
 		$this->topic_not_found = 'Тема не найдена';
 		$this->topic_not_found_message = 'Тема не найдена. Её могли удалить или переместить. Возможно, она никогда и не существовала.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'Этот пользователь сейчас online';
 		$this->topic_options = 'Настройки темы';
 		$this->topic_pages = 'Страницы';

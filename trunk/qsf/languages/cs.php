@@ -1355,10 +1355,14 @@ class cs
 		$this->topic_lock = 'Zamknout';
 		$this->topic_locked = 'Téma zamèeno';
 		$this->topic_move = 'Pøesunout';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'V této anketì nejsou zaznamenány žádné hlasy.';
 		$this->topic_not_found = 'Téma nenalezeno';
 		$this->topic_not_found_message = 'Téma  nebylo nalezeno. Buï bylo smazáno, pøesunuto, nebo neexistuje.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Volby tématu';
 		$this->topic_pages = 'Pages'; //Translate

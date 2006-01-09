@@ -1355,10 +1355,14 @@ class it
 		$this->topic_lock = 'Blocca';
 		$this->topic_locked = 'Discussione Bloccata';
 		$this->topic_move = 'Sposta';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Non ci sono voti per questo sondaggio.';
 		$this->topic_not_found = 'Discussione Non Trovata';
 		$this->topic_not_found_message = 'La discussione non è stata trovata. Potrebbe essere stata spostata, cancellata o potrebbe non essere mai esistita.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'Questo utente è online';
 		$this->topic_options = 'Opzioni Discussione';
 		$this->topic_pages = 'Pagine';

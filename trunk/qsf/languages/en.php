@@ -1355,10 +1355,14 @@ class en
 		$this->topic_lock = 'Lock';
 		$this->topic_locked = 'Topic Locked';
 		$this->topic_move = 'Move';
+		$this->topic_newer = 'Newer Topic';
+		$this->topic_no_newer = 'There is no newer topic.';
+		$this->topic_no_older = 'There is no older topic.';
 		$this->topic_no_votes = 'There are no votes for this poll.';
 		$this->topic_not_found = 'Topic Not Found';
 		$this->topic_not_found_message = 'The topic could not be found. It may have been deleted, moved, perhaps never existed.';
 		$this->topic_offline = 'This member is currently offline';
+		$this->topic_older = 'Older Topic';
 		$this->topic_online = 'This member is currently online';
 		$this->topic_options = 'Topic Options';
 		$this->topic_pages = 'Pages';

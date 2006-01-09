@@ -188,6 +188,7 @@ a.pagelinks:hover{color:#cc0000;}
 
 .spoiler      {border:1px #555555 solid; background-color:#fefefe; color:#fefefe;}
 .pages        {font-size: 0.9em; color:#333333;}
+.newerolder   {float: right; font-size: 0.9em; color:#333333;}
 .mbcSelect    {font-size: 0.9em; background-color:#ececec; color:black;}
 .mbcButton    {font-size: 0.9em; background-color:#ececec; color:black; border:1px #555555 solid;}
 .stats        {font-weight:bold;}

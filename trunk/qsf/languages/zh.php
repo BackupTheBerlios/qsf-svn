@@ -1355,10 +1355,14 @@ class zh
 		$this->topic_lock = '�ر�';
 		$this->topic_locked = '�����ѹر�';
 		$this->topic_move = '�ƶ�';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'û����Ͷ��Ʊ��';
 		$this->topic_not_found = '����û���ҵ�';
 		$this->topic_not_found_message = '����û���ҵ�������ܱ�ɾ���ƶ����߸�û�з����';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = '����ѡ��';
 		$this->topic_pages = 'ҳ';

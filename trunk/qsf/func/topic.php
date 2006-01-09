@@ -49,10 +49,16 @@ class topic extends qsfglobal
 		$this->get['min'] = isset($this->get['min']) ? intval($this->get['min']) : 0;
 		$this->get['num'] = isset($this->get['num']) ? intval($this->get['num']) : $this->sets['posts_per_page'];
 		$this->get['t']   = isset($this->get['t'])   ? intval($this->get['t'])   : 0;
-
+		if (isset($this->get['view'])) {
+                        $this->validate($this->get['view'], TYPE_STRING, array('newer', 'older'), false);
+                } else {
+                        $this->get['view']  = false;
+                }
+		
 		$topic = $this->db->fetch('
 		SELECT
-		    t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum, t.topic_replies, t.topic_poll_options, f.forum_name
+		    t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum,
+		    t.topic_edited, t.topic_replies, t.topic_poll_options, f.forum_name
 		FROM
 		    ' . $this->pre . 'topics t, ' . $this->pre . 'forums f
 		WHERE
@@ -70,6 +76,48 @@ class topic extends qsfglobal
 				($this->perms->is_guest) ? sprintf($this->lang->topic_perm_view_guest, $this->self) : $this->lang->topic_perm_view
 			);
 		}
+
+		if ($this->get['view']) {
+                        if ($this->get['view'] == 'older') {
+                                $order = 'DESC';
+                                $where = "topic_edited < {$topic['topic_edited']}";
+				if ($topic['topic_modes'] & TOPIC_PINNED) {
+					$where .= ' OR ';
+				} else {
+					$where .= ' AND ';
+				}
+				$where .= "(topic_modes & " . TOPIC_PINNED . ") = 0";
+                        } else {
+                                $order = 'ASC';
+                                $where = "topic_edited > {$topic['topic_edited']}";
+				if (!($topic['topic_modes'] & TOPIC_PINNED)) {
+					$where .= ' OR ';
+				} else {
+					$where .= ' AND ';
+				}
+				$where .= "(topic_modes & " . TOPIC_PINNED . ") = " . TOPIC_PINNED;
+                        }
+ 
+                        $new_topic = $this->db->fetch("
+                                SELECT topic_id FROM {$this->pre}topics
+                                WHERE topic_forum={$topic['topic_forum']} AND
+                                    ($where)
+                                ORDER BY (topic_modes & " . TOPIC_PINNED . ") $order,
+                                    topic_edited $order
+                                LIMIT 1");
+ 
+                        if ($new_topic) {
+                                // Move to that topic
+				header('Location: ' . $this->self . '?a=topic&t=' . $new_topic['topic_id']);
+				return;
+                        } else {
+				if ($this->get['view'] == 'older') {
+					return $this->message($this->lang->topic_not_found, $this->lang->topic_no_older);
+				} else {
+					return $this->message($this->lang->topic_not_found, $this->lang->topic_no_newer);
+				}
+			}
+                }
 
 		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_views=topic_views+1 WHERE topic_id=' . $this->get['t']);
 

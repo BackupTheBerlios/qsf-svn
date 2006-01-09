@@ -1355,10 +1355,14 @@ class he
 		$this->topic_lock = 'נעל';
 		$this->topic_locked = 'נושא נעול';
 		$this->topic_move = 'העבר';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'There are no votes for this poll.'; //Translate
 		$this->topic_not_found = 'נוששא לא קיים';
 		$this->topic_not_found_message = 'The topic could not be found. It may have been deleted, moved, perhaps never existed.'; //Translate
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'אפשרויות נושא';
 		$this->topic_pages = 'עמודים';

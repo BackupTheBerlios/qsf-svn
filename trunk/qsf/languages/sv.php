@@ -1356,10 +1356,14 @@ class sv
 		$this->topic_lock = 'Lås';
 		$this->topic_locked = 'Ämnet Låst';
 		$this->topic_move = 'Flytta';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Det finns inga röster i den här omröstningen.';
 		$this->topic_not_found = 'Ämnet Kunde Inte Hittas';
 		$this->topic_not_found_message = 'Ämnet kunde inte hittas. Det kan ha blivit raderat, flyttat eller så har det aldrig funnits.';
 		$this->topic_offline = 'Den här medlemmen är utloggad just nu';
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'Den här medlemmen är inloggad just nu';
 		$this->topic_options = 'Ämnesalternativ';
 		$this->topic_pages = 'Sidor';

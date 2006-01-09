@@ -1355,10 +1355,14 @@ class pt
 		$this->topic_lock = 'Fechar';
 		$this->topic_locked = 'Tópico fechado';
 		$this->topic_move = 'Mover';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Sem votos na enquete.';
 		$this->topic_not_found = 'Tópico não encontrado';
 		$this->topic_not_found_message = 'Tópico não encontrado.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Opções de tópico';
 		$this->topic_pages = 'Páginas';

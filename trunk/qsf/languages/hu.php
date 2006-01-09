@@ -1355,10 +1355,14 @@ class hu
 		$this->topic_lock = 'Zárol';
 		$this->topic_locked = 'Téma lezárva';
 		$this->topic_move = 'Áthelyez';
+		$this->topic_newer = 'Newer Topic'; //Translate
+		$this->topic_no_newer = 'There is no newer topic.'; //Translate
+		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'Itt még nem szavazott senki.';
 		$this->topic_not_found = 'Téma nem található';
 		$this->topic_not_found_message = 'Nem találom a témát.';
 		$this->topic_offline = 'This member is currently offline'; //Translate
+		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
 		$this->topic_options = 'Téma beállításai';
 		$this->topic_pages = 'Oldal';
