@@ -136,6 +136,13 @@ class upgrade extends qsfglobal
 
 			$queries = array();
 			include './data_templates.php';
+			// Check the default skin still exists
+			$result = $this->db->fetch("SELECT * FROM {$this->pre}skins WHERE skin_dir='default'");
+			if (!$result) {
+				$this->db->query("INSERT INTO {$pre}skins (skin_name, skin_dir) VALUES ('QSF Comet', 'default')");
+				$full_template_list = true;
+			}
+			
 			$skinsupdated = "The following templates were upgraded:<br /><br /><span class='tiny'>";
 			$didsomething = false;
 			$sql = "SELECT * FROM {$this->pre}skins";
