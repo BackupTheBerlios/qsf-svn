@@ -55,21 +55,17 @@ li a.navbold, li a.navbold:visited {
 }
 
 /* Header and footers */
-td.header     {
+td.header, div.header {
 	border:1px solid #555555; 
 	color:black; 
 	font-weight:bold; 
 	background-image:url(./images/header_gradient.png);
+	background-repeat: repeat-x;
 	background-color:#5ca0e6; 
 }
 
 div.header     {
 	padding:5px;
-	border:1px solid #555555; 
-	color:black; 
-	font-weight:bold; 
-	background-image:url(./images/header_gradient.png);
-	background-color:#5ca0e6; 
 }
 
 a.header       {color:black;}
@@ -156,8 +152,8 @@ hr            {height:1px; border:0px; border-top:1px solid #666666;}
 form          {margin:0px;}
 img           {border:0px;}
 
-.input        {font-size:0.9em; background-color:white; color:black; font-family:Verdana, Arial, Helvetica, sans-serif; border:1px solid #555555; padding:1px;}
-.select       {font-size:0.9em; background-color:white; color:black; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.input        {font-size:1.2em; background-color:white; color:black; font-family:Verdana, Arial, Helvetica, sans-serif; border:1px solid #555555; padding:1px;}
+.select       {font-size:1.2em; background-color:white; color:black; font-family:Verdana, Arial, Helvetica, sans-serif;}
 
 .tablelight   {border:1px solid #555555; background-color:#eeeeee; color:black;}
 .tabledark    {border:1px solid #555555; background-color:#e0e0e0; color:black;}
@@ -192,11 +188,10 @@ a.pagelinks:hover{color:#cc0000;}
 .mbcSelect    {font-size: 0.9em; background-color:#ececec; color:black;}
 .mbcButton    {font-size: 0.9em; background-color:#ececec; color:black; border:1px #555555 solid;}
 .stats        {font-weight:bold;}
-.adminstat    {text-align:center; font-size: 0.7em;}
+.adminstat, .validchecks {text-align:center; font-size: 0.7em;}
 td textarea   {width:100%} /* help give larger text areas */
 
 p.reminder  {padding:2em; text-align:center; color:red;}
-.validchecks{text-align:center;}
 
 /* Topic state icons */
 td.topicicons {
@@ -245,6 +240,7 @@ div.pinned { background: url(./images/icons/pin_faded.png) }
 .button {
 	float: left;
 	border: 1px solid black;
+	background-color: #aaccff;
 	background-image: url(./images/small_blue_gradient.gif);
 	background-repeat: repeat-x;
 	padding: 0.3em;
@@ -276,6 +272,7 @@ div.button a {
 .bigbutton {
 	float: right;
 	border: 1px solid black;
+	background-color: #bbddff;
 	background-image: url(./images/large_blue_gradient.gif);
 	background-repeat: repeat-x;
 	padding: 0.2em;
