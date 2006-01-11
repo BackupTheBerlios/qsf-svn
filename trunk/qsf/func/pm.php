@@ -219,10 +219,10 @@ class pm extends qsfglobal
 
 				$ok_pm[] = $who['user_id'];
 
-				$this->db->query("INSERT INTO {$this->pre}pmsystem (pm_to, pm_from, pm_title, pm_time, pm_message, pm_folder) VALUES ({$who['user_id']}, {$this->user['user_id']}, '{$this->post['title']}', $this->time, '{$this->post['message']}', 0)");
+				$this->db->query("INSERT INTO {$this->pre}pmsystem (pm_to, pm_from, pm_ip, pm_title, pm_time, pm_message, pm_folder) VALUES ({$who['user_id']}, {$this->user['user_id']}, INET_ATON('$this->ip'), '{$this->post['title']}', $this->time, '{$this->post['message']}', 0)");
 			}
 
-			$this->db->query("INSERT INTO {$this->pre}pmsystem (pm_to, pm_from, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read) VALUES ({$this->user['user_id']}, {$this->user['user_id']}, '" . implode(';', $ok_pm) . "', '{$this->post['title']}', $this->time, '{$this->post['message']}', 1, 1)");
+			$this->db->query("INSERT INTO {$this->pre}pmsystem (pm_to, pm_from, pm_ip, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read) VALUES ({$this->user['user_id']}, {$this->user['user_id']}, INET_ATON('$this->ip'), '" . implode(';', $ok_pm) . "', '{$this->post['title']}', $this->time, '{$this->post['message']}', 1, 1)");
 			$this->db->query("UPDATE {$this->pre}users SET user_lastpm='$this->time' WHERE user_id='{$this->user['user_id']}'");
 
 			if ($bad_name || $bad_pm) {
