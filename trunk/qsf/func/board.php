@@ -349,9 +349,11 @@ class board extends qsfglobal
 					}
 				} else {
 					$spider_name = $this->spider_check($user['active_user_agent']);
-					if ($spider_name && !in_array(sprintf($botformat, $spider_name), $allusers))
+					if ($spider_name)
 					{
-						$allusers[] = sprintf($botformat, $spider_name);
+						if (!in_array(sprintf($botformat, $spider_name), $allusers)) {
+							$allusers[] = sprintf($botformat, $spider_name);
+						}
 						$OnTotal--;
 					}
 				}
