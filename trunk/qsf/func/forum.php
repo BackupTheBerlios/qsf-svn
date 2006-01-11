@@ -78,6 +78,10 @@ class forum extends qsfglobal
 		if (!isset($exists['forum_parent']) || !$exists['forum_parent']) {
 			return $this->message($this->lang->forum_forum, $this->lang->forum_noexist);
 		}
+		
+		// Add RSS feed link for forum
+		$this->add_feed($this->sets['loc_of_board'] . $this->mainfile . '?a=rssfeed&amp;f=' . $f,
+			"{$this->lang->forum_forum}: {$exists['forum_name']}");
 
 		$this->set_title($exists['forum_name']);
 

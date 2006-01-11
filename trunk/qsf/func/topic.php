@@ -124,6 +124,13 @@ class topic extends qsfglobal
 		$topic['topic_title'] = $this->format($topic['topic_title'], FORMAT_CENSOR);
 		$title_html = $this->format($topic['topic_title'], FORMAT_HTMLCHARS);
 
+		// Add RSS feed link for forum and topic
+		$this->lang->forum(); // needed for 'Forum' and 'Topic'
+		$this->add_feed($this->sets['loc_of_board'] . $this->mainfile . '?a=rssfeed&amp;f=' . $topic['topic_forum'],
+			"{$this->lang->forum_forum}: {$topic['forum_name']}");
+		$this->add_feed($this->sets['loc_of_board'] . $this->mainfile . '?a=rssfeed&amp;t=' . $this->get['t'],
+			"{$this->lang->forum_topic}: $title_html");
+
 		if (strlen($topic['topic_title']) > 30) {
 			$title_short = substr($topic['topic_title'], 0, 29) . '...';
 		} else {

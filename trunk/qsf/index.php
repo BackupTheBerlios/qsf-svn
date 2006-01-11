@@ -152,6 +152,8 @@ if ($qsf->sets['max_load'] && ($server_load > $qsf->sets['max_load'])) {
 	error(QUICKSILVER_NOTICE, sprintf($qsf->lang->main_max_load, $qsf->sets['forum_name']));
 }
 
+$qsf->add_feed($qsf->sets['loc_of_board'] . $qsf->mainfile . '?a=rssfeed');
+
 switch($qsf->get['a'])
 {
 case 'forum': $item = isset($qsf->get['f']) ? intval($qsf->get['f']) : 0; break;

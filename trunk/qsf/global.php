@@ -63,6 +63,7 @@ class qsfglobal
 	var $attachmentutil;		  // Attachment handler @var object
 	var $query;                       // The query string @var string
 	var $tz_adjust;                   // Timezone offset in seconds
+	var $feed_links = null;		  // HTML of RSS link tags
 
 	var $macro;                       // Array of code to execute for each template
 	var $modlets = array();           // Array of modlet objects for running in templates
@@ -1672,6 +1673,25 @@ class qsfglobal
 			$this->tree($fname[$f]);
 		} else {
 			$this->tree($fname[$f], "$this->self?a=forum&amp;f={$fid[$f]}");
+		}
+	}
+	
+	/**
+	 * Adds a link tag for an RSS feed available from the page
+	 * Will ignore the request if no feed title is set in settings
+	 *
+	 * @param string $url Url to access the feed
+	 * @param string $subtitle Title to indentify the feed as (optional)
+	 * @author Geoffrey Dunn <geoff@warmage.com
+	 * @since 1.1.9
+	 **/
+	function add_feed($url, $subtitle='')
+	{
+		if ($this->sets['rss_feed_title']) {
+			if ($subtitle) {
+				$subtitle = ' - ' . $subtitle;
+			}
+			$this->feed_links .= "<link rel=\"alternate\" title=\"{$this->sets['rss_feed_title']}$subtitle\" href=\"$url\" type=\"application/rss+xml\" />\n";
 		}
 	}
 

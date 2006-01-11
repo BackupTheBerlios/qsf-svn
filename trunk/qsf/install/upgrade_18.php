@@ -29,6 +29,7 @@ $need_templates = array(
 	'BOARD_CATEGORY_END',	// New Templates
 	'PM_FOLDER',		// Changed Templates
 	'FORUM_TOPICS_MAIN',
+	'MAIN',
 	'MOD_EDIT_POST',
 	'RECENT_MAIN',
 	'SEARCH_MAIN',
