@@ -42,6 +42,7 @@ $queries[] = "ALTER TABLE {$pre}groups CHANGE group_perms group_perms TEXT NOT N
 $queries[] = "ALTER TABLE {$pre}help CHANGE help_article help_article TEXT NOT NULL DEFAULT ''";
 $queries[] = "ALTER TABLE {$pre}pmsystem CHANGE pm_bcc pm_bcc TEXT NOT NULL DEFAULT ''";
 $queries[] = "ALTER TABLE {$pre}pmsystem CHANGE pm_message pm_message TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE {$pre}pmsystem ADD pm_ip INT UNSIGNED NOT NULL default '0' AFTER pm_from";
 $queries[] = "ALTER TABLE {$pre}posts CHANGE post_text post_text TEXT NOT NULL DEFAULT ''";
 $queries[] = "ALTER TABLE {$pre}settings CHANGE settings_data settings_data TEXT NOT NULL DEFAULT ''";
 $queries[] = "ALTER TABLE {$pre}settings CHANGE settings_tos settings_tos TEXT NOT NULL DEFAULT ''";

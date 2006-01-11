@@ -110,6 +110,7 @@ $queries[] = "CREATE TABLE {$pre}pmsystem (
   pm_id int(10) unsigned NOT NULL auto_increment,
   pm_to int(10) unsigned NOT NULL default '0',
   pm_from int(10) unsigned NOT NULL default '0',
+  pm_ip INT UNSIGNED NOT NULL default '0',
   pm_bcc text NOT NULL default '',
   pm_title varchar(255) NOT NULL default '[No Title]',
   pm_time int(10) unsigned NOT NULL default '0',
