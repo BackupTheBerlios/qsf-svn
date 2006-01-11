@@ -208,8 +208,20 @@ class new_install extends qsfglobal
 		
 		while ($perms->get_group())
 		{
-			// Default permissions
-			$perms->add_z($forumId);
+			if (!$parent) {
+				// Default permissions
+				$perms->add_z($forumId);
+			} else {
+				// Copy permissions
+				$perms->add_z($forumId, false);
+
+				foreach ($perms->standard as $perm => $false)
+				{
+					if (!isset($perms->globals[$perm])) {
+						$perms->set_xyz($perm, $forumId, $perms->auth($perm, $parent));
+					}
+				}
+			}
 			$perms->update();
 		}
 		
