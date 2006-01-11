@@ -2142,19 +2142,19 @@ $queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template
 $queries['MAIN_MBCODE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MBCODE', '
   <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\">
     <tr>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"b\" title=\"{\$this->lang->mbcode_bold}\" accesskey=\"b\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_bold1}\" style=\"width:20px;font-weight:bold\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"i\" title=\"{\$this->lang->mbcode_italic}\" accesskey=\"i\" class=\"mbcButton\" value=\" {\$this->lang->mbcode_italic1}\" style=\"width:20px;font-style:italic\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"u\" title=\"{\$this->lang->mbcode_underline}\" accesskey=\"u\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_underline1}\" style=\"width:20px;text-decoration:underline\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"s\" title=\"{\$this->lang->mbcode_strike}\" accesskey=\"s\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_strike1}\" style=\"width:20px;text-decoration:line-through\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"b\" title=\"{\$this->lang->mbcode_bold}\" accesskey=\"b\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_bold1}\" style=\"font-weight:bold\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"i\" title=\"{\$this->lang->mbcode_italic}\" accesskey=\"i\" class=\"mbcButton\" value=\" {\$this->lang->mbcode_italic1}\" style=\"font-style:italic\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"u\" title=\"{\$this->lang->mbcode_underline}\" accesskey=\"u\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_underline1}\" style=\"text-decoration:underline\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"s\" title=\"{\$this->lang->mbcode_strike}\" accesskey=\"s\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_strike1}\" style=\"text-decoration:line-through\" /></td>
      <td>&nbsp;</td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"php\" title=\"{\$this->lang->mbcode_php}\" accesskey=\"p\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_php}\" style=\"width:40px\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"code\" title=\"{\$this->lang->mbcode_code}\" accesskey=\"c\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_code}\" style=\"width:40px\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"quote\" title=\"{\$this->lang->mbcode_quote}\" accesskey=\"q\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_quote}\" style=\"width:50px\" /></td>
-     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"spoiler\" title=\"{\$this->lang->mbcode_spoiler}\" accesskey=\"r\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_spoiler}\" style=\"width:50px\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"php\" title=\"{\$this->lang->mbcode_php}\" accesskey=\"p\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_php}\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"code\" title=\"{\$this->lang->mbcode_code}\" accesskey=\"c\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_code}\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"quote\" title=\"{\$this->lang->mbcode_quote}\" accesskey=\"q\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_quote}\" /></td>
+     <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"spoiler\" title=\"{\$this->lang->mbcode_spoiler}\" accesskey=\"r\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_spoiler}\" /></td>
      <td>&nbsp;</td>
-     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"url\" title=\"{\$this->lang->mbcode_url}\" accesskey=\"h\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_url}\" style=\"width:40px\" /></td>
-     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"email\" title=\"{\$this->lang->mbcode_email}\" accesskey=\"e\" class=\"mbcButton\" value=\"@\" style=\"width:30px\" /></td>
-     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"img\" title=\"{\$this->lang->mbcode_image}\" accesskey=\"k\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_image1}\" style=\"width:40px\" /></td>
+     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"url\" title=\"{\$this->lang->mbcode_url}\" accesskey=\"h\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_url}\" /></td>
+     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"email\" title=\"{\$this->lang->mbcode_email}\" accesskey=\"e\" class=\"mbcButton\" value=\"@\" /></td>
+     <td><input type=\"button\" onclick=\"mbcURL(this)\" name=\"img\" title=\"{\$this->lang->mbcode_image}\" accesskey=\"k\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_image1}\" /></td>
     </tr>
     <tr>
      <td colspan=\"12\">

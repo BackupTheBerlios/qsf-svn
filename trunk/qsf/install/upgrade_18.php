@@ -30,6 +30,7 @@ $need_templates = array(
 	'PM_FOLDER',		// Changed Templates
 	'FORUM_TOPICS_MAIN',
 	'MAIN',
+	'MAIN_MBCODE',
 	'MOD_EDIT_POST',
 	'RECENT_MAIN',
 	'SEARCH_MAIN',
