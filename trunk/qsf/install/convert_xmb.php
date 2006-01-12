@@ -647,7 +647,7 @@ else if( $_GET['action'] == 'topics' )
          $poll_options = addslashes( $poll_options );
       }
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', 0, {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', {$row['dateline']}, {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
       $i++;
    }
 
