@@ -229,7 +229,7 @@ class sv
 		$this->cp_label_edit_pass = 'Ändra Lösenord';
 		$this->cp_label_edit_prefs = 'Ändra Inställningar';
 		$this->cp_label_edit_profile = 'Ändra Profil';
-		$this->cp_label_edit_sig = 'Edit Signature'; //Translate
+		$this->cp_label_edit_sig = 'Ändra Signatur';
 		$this->cp_label_edit_subs = 'Ändra Prenumerationer';
 		$this->cp_language = 'Språk';
 		$this->cp_less_charac = 'Ditt namn måste ha mindre än 32 bokstäver.';
@@ -249,7 +249,7 @@ class sv
 		$this->cp_old_pass = 'Gammalt Lösenord';
 		$this->cp_pass_notvaid = 'Ditt lösenord är ogiltigt. Endast bokstäver, nummer, streck, understreck och mellanslag är tillåtna.';
 		$this->cp_preferences = 'Ändrar Inställningar';
-		$this->cp_preview_sig = 'Signature Preview:'; //Translate
+		$this->cp_preview_sig = 'Förhandsgranska Signatur:';
 		$this->cp_privacy = 'Privata Inställningar';
 		$this->cp_repeat_pass = 'Repetera Nytt Lösenord';
 		$this->cp_sept = 'September'; //Translate
@@ -1043,14 +1043,14 @@ class sv
 
 	function rssfeed()
 	{
-		$this->rssfeed_cannot_find_forum = 'The forum does not appear to exist'; //Translate
-		$this->rssfeed_cannot_find_topic = 'The topic does nto appear to exist'; //Translate
-		$this->rssfeed_cannot_read_forum = 'You do not have permission to read this forum'; //Translate
-		$this->rssfeed_cannot_read_topic = 'You do not have permission to read this topic'; //Translate
-		$this->rssfeed_error = 'Error'; //Translate
-		$this->rssfeed_forum = 'Forum:'; //Translate
+		$this->rssfeed_cannot_find_forum = 'Forumet verkar inte finnas';
+		$this->rssfeed_cannot_find_topic = 'Ämnet verkar inte finnas';
+		$this->rssfeed_cannot_read_forum = 'Du har inte tillstånd att läsa detta forum';
+		$this->rssfeed_cannot_read_topic = 'Du har inte tillstånd att läsa detta ämne';
+		$this->rssfeed_error = 'Ett fel uppstod';
+		$this->rssfeed_forum = 'Forum:';
 		$this->rssfeed_posted_by = 'Skrivet av';
-		$this->rssfeed_topic = 'Topic:'; //Translate
+		$this->rssfeed_topic = 'Ämne:';
 	}
 
 	function search()
@@ -1303,7 +1303,7 @@ class sv
 		$this->temps_settings = 'AdminKP Inställningar';
 		$this->temps_templates = 'AdminKP Mallediterare';
 		$this->temps_titles = 'AdminKP Medlemstitlar';
-		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
+		$this->temps_topic_prune = 'AdminKP Ämnesbeskärning';
 		$this->temps_topics = 'Ämnen';
 		$this->upgrade_skin = 'Uppdatera Skal';
 		$this->upgrade_skin_already = 'var redan uppgraderat. Finns inget att göra.';
@@ -1316,9 +1316,9 @@ class sv
 	{
 		$this->titles_add = 'Lägg till Medlemstitlar';
 		$this->titles_added = 'Medlemstitel Tillagd.';
-		$this->titles_control = 'Member Title Control'; //Translate
+		$this->titles_control = 'Kontroll för medlemstitel';
 		$this->titles_edit = 'Ändra Medlemstitlar';
-		$this->titles_error = 'No title text or minimum posts was given'; //Translate
+		$this->titles_error = 'Ingen titeltext eller minimum inlägg angavs';
 		$this->titles_image = 'Bild';
 		$this->titles_minpost = 'Minimum Inlägg';
 		$this->titles_title = 'Titel';
@@ -1356,14 +1356,14 @@ class sv
 		$this->topic_lock = 'Lås';
 		$this->topic_locked = 'Ämnet Låst';
 		$this->topic_move = 'Flytta';
-		$this->topic_newer = 'Newer Topic'; //Translate
-		$this->topic_no_newer = 'There is no newer topic.'; //Translate
-		$this->topic_no_older = 'There is no older topic.'; //Translate
+		$this->topic_newer = 'Nyare ämnen';
+		$this->topic_no_newer = 'Det finns inga nyare ämnen.';
+		$this->topic_no_older = 'Det finns inga äldre ämnen.';
 		$this->topic_no_votes = 'Det finns inga röster i den här omröstningen.';
 		$this->topic_not_found = 'Ämnet Kunde Inte Hittas';
 		$this->topic_not_found_message = 'Ämnet kunde inte hittas. Det kan ha blivit raderat, flyttat eller så har det aldrig funnits.';
 		$this->topic_offline = 'Den här medlemmen är utloggad just nu';
-		$this->topic_older = 'Older Topic'; //Translate
+		$this->topic_older = 'Äldre Ämnen';
 		$this->topic_online = 'Den här medlemmen är inloggad just nu';
 		$this->topic_options = 'Ämnesalternativ';
 		$this->topic_pages = 'Sidor';
@@ -1415,7 +1415,7 @@ class sv
 		$this->quote = 'Citera';
 		$this->reply = 'Svara';
 		$this->seconds = 'Sekunder';
-		$this->select_all = 'Select All'; //Translate
+		$this->select_all = 'Välj alla';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = ' ';
 		$this->spoiler = 'Avslöjande';
