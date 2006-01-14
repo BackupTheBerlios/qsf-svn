@@ -58,6 +58,8 @@ class sk
 		$this->admin_add_templates = 'Prida HTML šablóny';
 		$this->admin_ban_ips = 'Zablokova IP adresu';
 		$this->admin_censor = 'Cenzúra slov';
+		$this->admin_cp_denied = 'Prístup Zamietnutı';
+		$this->admin_cp_warning = 'Administrátorská èas (CP) bude nedostupná, dokia¾ nebude vymazanı adresár <b>install</b>, pretoe predstavuje vánu bezpeènostnú dieru pre nainštalované fórum.';
 		$this->admin_create_forum = 'Zaloi fórum';
 		$this->admin_create_group = 'Zaloi skupinu';
 		$this->admin_create_help = 'Zaloi èlánok helpu';
@@ -431,8 +433,6 @@ class sk
 
 	function home()
 	{
-		$this->admin_cp_denied = 'Prístup Zamietnutı';
-		$this->admin_cp_warning = 'Administrátorská èas (CP) bude nedostupná, dokia¾ nebude vymazanı adresár <b>install</b>, pretoe predstavuje vánu bezpeènostnú dieru pre nainštalované fórum.';
 		$this->home_choose = 'Vyberte si.';
 		$this->home_menu_title = 'Administrátorské menu (CP)';
 	}

@@ -60,6 +60,8 @@ class nl
 		$this->admin_add_templates = 'HTML sjablonen toevoegen';
 		$this->admin_ban_ips = 'IP addressen bannen';
 		$this->admin_censor = 'Woorden censureren';
+		$this->admin_cp_denied = 'Toegang  geweigerd';
+		$this->admin_cp_warning = 'De Admin CP is uitgeschakeld totdat u uw <b>install</b> directory heeft verwijderd, daar het een groot veiligheidsrisico vertoont.';
 		$this->admin_create_forum = 'Opstarten van een forum';
 		$this->admin_create_group = 'Opstarten van een groep';
 		$this->admin_create_help = 'Opstarten van een hulp artikel';
@@ -432,8 +434,6 @@ class nl
 
 	function home()
 	{
-		$this->admin_cp_denied = 'Toegang  geweigerd';
-		$this->admin_cp_warning = 'De Admin CP is uitgeschakeld totdat u uw <b>install</b> directory heeft verwijderd, daar het een groot veiligheidsrisico vertoont.';
 		$this->home_choose = 'Selecteer een taak om te beginnen.';
 		$this->home_menu_title = 'Admin CP Menu'; //Translate
 	}

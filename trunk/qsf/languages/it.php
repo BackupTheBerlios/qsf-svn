@@ -58,6 +58,8 @@ class it
 		$this->admin_add_templates = 'Aggiungi template HTML';
 		$this->admin_ban_ips = 'Banna IP';
 		$this->admin_censor = 'Censura';
+		$this->admin_cp_denied = 'Accesso Negato';
+		$this->admin_cp_warning = 'Il Pannello d\'Amministrazione resterà disabilitato finchè la cartella <b>install</b> non verrà eliminata, in quanto serio problema di sicurezza.';
 		$this->admin_create_forum = 'Crea un forum';
 		$this->admin_create_group = 'Crea un gruppo';
 		$this->admin_create_help = 'Crea un articolo d\'aiuto';
@@ -430,8 +432,6 @@ class it
 
 	function home()
 	{
-		$this->admin_cp_denied = 'Accesso Negato';
-		$this->admin_cp_warning = 'Il Pannello d\'Amministrazione resterà disabilitato finchè la cartella <b>install</b> non verrà eliminata, in quanto serio problema di sicurezza.';
 		$this->home_choose = 'Scegli la prossima azione.';
 		$this->home_menu_title = 'Menu Pannello d\'Amministrazione';
 	}

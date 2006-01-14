@@ -59,6 +59,8 @@ class sv
 		$this->admin_add_templates = 'Lägg till HTML mallar';
 		$this->admin_ban_ips = 'Blockera IP adresser';
 		$this->admin_censor = 'Censurerade ord';
+		$this->admin_cp_denied = 'Tillång Nekad';
+		$this->admin_cp_warning = 'Admin KP är avstängd tills du har tagit bort <b>install</b> mapp, eftersom den utgör en säkerhets risk.';
 		$this->admin_create_forum = 'Skapa ett forum';
 		$this->admin_create_group = 'Skapa en grupp';
 		$this->admin_create_help = 'Skapa en hjälpartikel';
@@ -431,8 +433,6 @@ class sv
 
 	function home()
 	{
-		$this->admin_cp_denied = 'Tillång Nekad';
-		$this->admin_cp_warning = 'Admin KP är avstängd tills du har tagit bort <b>install</b> mapp, eftersom den utgör en säkerhets risk.';
 		$this->home_choose = 'Välj en uppgift för att börja.';
 		$this->home_menu_title = 'Admin KP Meny';
 	}

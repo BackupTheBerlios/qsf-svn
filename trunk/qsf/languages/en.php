@@ -58,6 +58,8 @@ class en
 		$this->admin_add_templates = 'Add HTML templates';
 		$this->admin_ban_ips = 'Ban IP addresses';
 		$this->admin_censor = 'Censor words';
+		$this->admin_cp_denied = 'Access Denied';
+		$this->admin_cp_warning = 'The Admin CP is disabled until you delete your <b>install</b> directory, as it poses a serious security risk.';
 		$this->admin_create_forum = 'Create a forum';
 		$this->admin_create_group = 'Create a group';
 		$this->admin_create_help = 'Create a help article';
@@ -430,8 +432,6 @@ class en
 
 	function home()
 	{
-		$this->admin_cp_denied = 'Access Denied';
-		$this->admin_cp_warning = 'The Admin CP is disabled until you delete your <b>install</b> directory, as it poses a serious security risk.';
 		$this->home_choose = 'Choose a task to begin.';
 		$this->home_menu_title = 'Admin CP Menu';
 	}
