@@ -10,10 +10,14 @@ Changes for 1.1.9:
 * New forum installation seeds itself with a default category, forum, and topic.
 * View next/prev topic links added.
 * IP address stored with PM.
+* Significant update to Italian translation
+* New template BOARD_CATEGORY_END
+* Ability to edit(add/delete) Attachments on posts
 * More PHP 5 and MySQL 5 bugfixes.
 * BUG: Modlets could not be used inside <IF> tags.
 * BUG: Search spiders were counting toward guest user total.
 * BUG: Code tags contained leadng spaces.
+* BUG: Error when editing profile
 
 Changes for 1.1.8:
 
