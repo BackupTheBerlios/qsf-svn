@@ -3,16 +3,17 @@ Changes for 1.1.9:
 * Separated out some more javascript files
 * Fixed bug in profile editing after signature editor was moved
 * Extra <br /> tag removed from AdminCP menu
-* Fixed a MySQL 5 JOIN query bug in private messenger
 * Validation error in RECENT_MAIN template
 * XMB Forum convertor script added.
 * RSS Feed can now generate feeds for individual forums and topics.
 * Removed the defunct javascript files from the default skin.
-* PHP 5 variable reference error fixed in statistics center.
 * New forum installation seeds itself with a default category, forum, and topic.
-* Convertor updates for MySQL 5 support.
 * View next/prev topic links added.
+* IP address stored with PM.
+* More PHP 5 and MySQL 5 bugfixes.
 * BUG: Modlets could not be used inside <IF> tags.
+* BUG: Search spiders were counting toward guest user total.
+* BUG: Code tags contained leadng spaces.
 
 Changes for 1.1.8:
 
