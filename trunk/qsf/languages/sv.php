@@ -99,7 +99,7 @@ class sv
 		$this->admin_mass_mail = 'Skicka e-post till dina medlemmar';
 		$this->admin_members = 'Medlemmar';
 		$this->admin_phpinfo = 'Visa PHP information';
-		$this->admin_prune = 'beskär gamla ämnen';
+		$this->admin_prune = 'rensa gamla ämnen';
 		$this->admin_recount_forums = 'Räkna om ämnen och svar';
 		$this->admin_settings = 'Inställningar';
 		$this->admin_skins = 'Skal';
@@ -343,7 +343,7 @@ class sv
 		$this->forum_regfirst = 'Du har inte tillåtelse att läsa forum utan att först registrera dig.';
 		$this->forum_replies = 'Svar';
 		$this->forum_starter = 'Skapare';
-		$this->forum_sub = 'Under-Forum';
+		$this->forum_sub = 'Underforum';
 		$this->forum_sub_last_post = 'Senaste Inlägg';
 		$this->forum_sub_replies = 'Svar';
 		$this->forum_sub_topics = 'Ämnen';
@@ -530,7 +530,7 @@ class sv
 	{
 		$this->mbcode_address = 'Skriv in en adress';
 		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Blû';
+		$this->mbcode_blue = 'Blå';
 		$this->mbcode_bold = 'Fet';
 		$this->mbcode_bold1 = 'F';
 		$this->mbcode_chocolate = 'Chokolad';
@@ -538,16 +538,16 @@ class sv
 		$this->mbcode_color = 'Färg';
 		$this->mbcode_coral = 'Korall';
 		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Blodrÿd';
-		$this->mbcode_darkblue = 'Mÿrkblû';
-		$this->mbcode_darkred = 'Mÿrkrÿd';
+		$this->mbcode_crimson = 'Blodröd';
+		$this->mbcode_darkblue = 'Mörkblå';
+		$this->mbcode_darkred = 'Mörkröd';
 		$this->mbcode_deepink = 'Rosa';
 		$this->mbcode_detail = 'Skriv en beskrivning';
 		$this->mbcode_email = 'E-post';
-		$this->mbcode_firered = 'Eldrÿd';
+		$this->mbcode_firered = 'Eldröd';
 		$this->mbcode_font = 'Teckensnitt';
-		$this->mbcode_green = 'Grÿn';
-		$this->mbcode_huge = 'Stÿrst';
+		$this->mbcode_green = 'Grön';
+		$this->mbcode_huge = 'Störst';
 		$this->mbcode_image = 'Bild';
 		$this->mbcode_image1 = 'Bild';
 		$this->mbcode_impact = 'Impact'; //Translate
@@ -556,21 +556,21 @@ class sv
 		$this->mbcode_italic1 = 'K';
 		$this->mbcode_large = 'Stor';
 		$this->mbcode_length = 'Ditt inlägg är +length+ tecken.';
-		$this->mbcode_limegreen = 'Lime Grÿn';
+		$this->mbcode_limegreen = 'Lime Grön';
 		$this->mbcode_medium = 'Medel';
 		$this->mbcode_orange = 'Orange'; //Translate
-		$this->mbcode_orangered = 'Orange Rÿd';
+		$this->mbcode_orangered = 'Orange Röd';
 		$this->mbcode_php = 'PHP'; //Translate
 		$this->mbcode_purple = 'Purpur';
 		$this->mbcode_quote = 'Citat';
-		$this->mbcode_red = 'Rÿd';
-		$this->mbcode_royalblue = 'Ljusblû';
+		$this->mbcode_red = 'Röd';
+		$this->mbcode_royalblue = 'Ljusblå';
 		$this->mbcode_sandybrown = 'Sand';
-		$this->mbcode_seagreen = 'Sjÿgrÿn';
+		$this->mbcode_seagreen = 'Sjögrön';
 		$this->mbcode_sienna = 'Brun';
 		$this->mbcode_silver = 'Silver'; //Translate
 		$this->mbcode_size = 'Storlek';
-		$this->mbcode_skyblue = 'Himmelsblû';
+		$this->mbcode_skyblue = 'Himmelsblå';
 		$this->mbcode_small = 'Liten';
 		$this->mbcode_spoiler = 'Avslöjande';
 		$this->mbcode_strike = 'Genomstruken';
@@ -935,27 +935,27 @@ class sv
 
 	function prune()
 	{
-		$this->prune_action = 'Beskärning som ska gÿras';
+		$this->prune_action = 'rensning som ska göras';
 		$this->prune_age_day = '1 Dag';
 		$this->prune_age_eighthours = '8 Timmar';
 		$this->prune_age_hour = '1 Timme';
-		$this->prune_age_month = '1 Mûnad';
-		$this->prune_age_threemonths = '3 Mûnader';
+		$this->prune_age_month = '1 Månad';
+		$this->prune_age_threemonths = '3 Månader';
 		$this->prune_age_week = '1 Vecka';
-		$this->prune_age_year = '1 ÿr';
-		$this->prune_forums = 'Välj forum att beskära';
-		$this->prune_invalidage = 'Ogiltig ûlder specifierad fÿr beskärning';
+		$this->prune_age_year = '1 år';
+		$this->prune_forums = 'Välj forum att rensa';
+		$this->prune_invalidage = 'Ogiltig ålder specifierad för rensning';
 		$this->prune_move = 'Flytta';
 		$this->prune_moveto_forum = 'Forum att flytta till';
 		$this->prune_nodest = 'Ingen giltig destination vald';
-		$this->prune_notopics = 'Inga ämnen valda fÿr beskärning';
-		$this->prune_notopics_old = 'Inga ämnen är gamla nog fÿr att beskäras';
-		$this->prune_novalidforum = 'Inga giltiga forum valda fÿr beskärning';
-		$this->prune_select_age = 'Välj ûlder pû ämnen fÿr begränsad beskärning';
-		$this->prune_select_topics = 'Välj ämnen att beskära eller använd Välj Alla';
-		$this->prune_success = 'ÿmnen har beskurits';
-		$this->prune_title = 'ÿmnes Beskärare';
-		$this->prune_topics_older_than = 'Beskär ämnen äldre än';
+		$this->prune_notopics = 'Inga ämnen valda för rensning';
+		$this->prune_notopics_old = 'Inga ämnen är gamla nog för att rensas';
+		$this->prune_novalidforum = 'Inga giltiga forum valda för rensning';
+		$this->prune_select_age = 'Välj ålder på ämnen för begränsad rensning';
+		$this->prune_select_topics = 'Välj ämnen att rensa eller använd Välj Alla';
+		$this->prune_success = 'ämnen har beskurits';
+		$this->prune_title = 'ämnes rensare';
+		$this->prune_topics_older_than = 'Rensa ämnen äldre än';
 	}
 
 	function query()
@@ -1303,7 +1303,7 @@ class sv
 		$this->temps_settings = 'AdminKP Inställningar';
 		$this->temps_templates = 'AdminKP Mallediterare';
 		$this->temps_titles = 'AdminKP Medlemstitlar';
-		$this->temps_topic_prune = 'AdminKP Ämnesbeskärning';
+		$this->temps_topic_prune = 'AdminKP Ämnesrensning';
 		$this->temps_topics = 'Ämnen';
 		$this->upgrade_skin = 'Uppdatera Skal';
 		$this->upgrade_skin_already = 'var redan uppgraderat. Finns inget att göra.';
