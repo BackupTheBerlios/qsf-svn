@@ -237,7 +237,8 @@ class mod extends qsfglobal
 				$this->attachmentutil->getdata($attached, $attached_data, $this->post['attached_data']);
 			}
 
-			$quote     = $this->format($data['post_text'], FORMAT_HTMLCHARS);
+			$edit_text = stripslashes($data['post_text']);
+			$quote     = $this->format($edit_text, FORMAT_HTMLCHARS);
 			$msg_icons = $this->get_icons(($data['post_icon'] == '') ? -1 : $data['post_icon']);
 			$clickable = $this->make_clickable($this->sets['clickable_per_row']);
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
