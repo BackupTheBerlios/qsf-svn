@@ -36,7 +36,7 @@
  See http://quicksilverforums.com for more information
 
 === Requirements ===
- Quicksilver Forums works with PHP 4.2 or higher. PHP 5 is also supported.
+ Quicksilver Forums works with PHP 4.3.0 or higher. PHP 5 is also supported.
  MySQL 3.22 or higher is required. Quicksilver Forums works on any operating
  system and web server combination.
 

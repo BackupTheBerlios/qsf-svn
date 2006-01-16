@@ -74,6 +74,9 @@ include 'templates/header.php';
 if (substr(PHP_VERSION, 0, 1) == '3') {
 	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP4 and PHP5 are supported.';
 	$failed = true;
+} else if (version_compare(PHP_VERSION, '4.3.0') == -1) {
+	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP 4.3.0 and higher are supported.';
+	$failed = true;
 }
 
 if (!extension_loaded('mysql')) {
@@ -83,19 +86,6 @@ if (!extension_loaded('mysql')) {
 
 	echo 'Your PHP installation does not support MySQL.<br />Currently only MySQL is supported.';
 	$failed = true;
-}
-
-if (isset($_SERVER['SERVER_SOFTWARE'])) {
-	if ((strstr(PHP_VERSION, '4.2.0')
-	|| strstr(PHP_VERSION, '4.2.1'))
-	&& stristr($_SERVER['SERVER_SOFTWARE'], 'Apache/2.0.')) {
-		if ($failed) {
-			echo '<br /><br />';
-		}
-
-		echo 'There is a serious cookie bug in PHP 4.2 running on Apache 2.0.<br />Because it is a bug in PHP itself, Quicksilver Forums can not solve the problem.';
-		$failed = true;
-	}
 }
 
 if ($failed) {
