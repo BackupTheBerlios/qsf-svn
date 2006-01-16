@@ -1,3 +1,7 @@
+Changes for 1.2.0:
+
+* Dropped any support for PHP versions older than 4.3.0
+
 Changes for 1.1.9:
 
 * Separated out some more javascript files
