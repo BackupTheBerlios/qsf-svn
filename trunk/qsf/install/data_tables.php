@@ -854,7 +854,6 @@ $sets['optional_modules'] = array(
 	'members',
 	'mod',
 	'pm',
-	'printer',
 	'profile',
 	'search',
 	'recent',
