@@ -908,7 +908,7 @@ class sv
 		$this->profile_icq_uin = 'ICQ Nummer';
 		$this->profile_info = 'Information'; //Translate
 		$this->profile_interest = 'Intressen';
-		$this->profile_joined = 'Sammanfogade';
+		$this->profile_joined = 'Registrerade sig';
 		$this->profile_last_post = 'Senaste Inlägg';
 		$this->profile_list = 'Medlemslista';
 		$this->profile_location = 'Hemort';
