@@ -287,8 +287,8 @@ class qsfglobal
 			$search[] = '~\[quote=(.+?)]~i';
 			$search[] = '~\[quote]~i';
 
-			$replace[] = '<div class="quotebox"><b>\\1 ' . $this->lang->main_said . ':</b><div class="quote">';
-			$replace[] = '<div class="quotebox"><b>' . $this->lang->main_quote . ':</b><div class="quote">';
+			$replace[] = '<div class="quotebox"><strong>\\1 ' . $this->lang->main_said . ':</strong><div class="quote">';
+			$replace[] = '<div class="quotebox"><strong>' . $this->lang->main_quote . ':</strong><div class="quote">';
 
 			$startCount = preg_match_all($search[0], $in, $matches);
 			$startCount += preg_match_all($search[1], $in, $matches);
@@ -308,10 +308,10 @@ class qsfglobal
 
 
 			$search = array(
-				'~\[(/)?([bi])]~i',
-				'~\[u]~i',
-				'~\[s]~i',
-				'~\[/[us]]~i',
+				'~\[b](.*?)\[/b]~i',
+				'~\[i](.*?)\[/i]~i',
+				'~\[u](.*?)\[/u]~i',
+				'~\[s](.*?)\[/s]~i',
 				'~\[sup](.*?)\[/sup]~i',
 				'~\[sub](.*?)\[/sub]~i',
 				'~\[indent](.*?)\[/indent]~i',
@@ -331,10 +331,10 @@ class qsfglobal
 			);
 
 			$replace = array(
-				'<\\1\\2>',
-				'<span style=\'text-decoration:underline\'>',
-				'<span style=\'text-decoration:line-through\'>',
-				'</span>',
+				'<strong>\\1</strong>',
+				'<em>\\1</em>',
+				'<u>\\1</u>',
+				'<strike>\\1</strike>',
 				'<sup>\\1</sup>',
 				'<sub>\\1</sub>',
 				'<p style=\'text-indent:2em\'>\\1</p>',
