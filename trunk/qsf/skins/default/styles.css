@@ -157,6 +157,7 @@ img           {border:0px;}
 
 .input        {font-size:1.2em; background-color:white; color:black; font-family:Verdana, Arial, Helvetica, sans-serif; border:1px solid #555555; padding:1px;}
 .select       {font-size:1.2em; background-color:white; color:black; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.timezone option { font-family:"Courier New", Courier, serif; }
 
 .tablelight   {border:1px solid #555555; background-color:#eeeeee; color:black;}
 .tabledark    {border:1px solid #555555; background-color:#e0e0e0; color:black;}

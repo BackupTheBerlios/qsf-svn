@@ -188,7 +188,7 @@ class member_control extends admin
 					{
 					case U_TZONE:
 						$time_list  = $this->select_timezones($val);
-						$line = '<select class="select" name="user_timezone">' . $time_list . '</select>';
+						$line = '<select class="select timezone" name="user_timezone">' . $time_list . '</select>';
 						break;
 
 					case U_IGNORE:

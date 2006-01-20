@@ -25,6 +25,9 @@ if (!defined('INSTALLER')) {
 }
 
 // Upgrade from 1.1.9 to 1.2.0
-$need_templates = array();
+$need_templates = array(
+	'CP_PREFS',		// Changed templates
+	'ADMIN_EDIT_BOARD_SETTINGS'
+	);
 
 ?>

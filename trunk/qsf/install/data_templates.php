@@ -306,7 +306,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
  </tr>
  <tr>
   <td class=\"labeldark\">{\$this->lang->settings_timezone}</td>
-  <td class=\"tabledark\"><select name=\"default_timezone\">{\$selectTimezones}</select></td>
+  <td class=\"tabledark\"><select class=\"timezone\" name=\"default_timezone\">{\$selectTimezones}</select></td>
  </tr>
  <tr>
   <td class=\"labellight\">{\$this->lang->settings_show_avatars}</td>
@@ -465,7 +465,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
  </tr>
  <tr>
   <td class=\"labeldark\">{\$this->lang->settings_server_timezone}</td>
-  <td class=\"tabledark\"><select name=\"servertime\">{\$severTimezones}</select></td>
+  <td class=\"tabledark\"><select class=\"timezone\" name=\"servertime\">{\$severTimezones}</select></td>
  </tr>
  <tr>
   <td class=\"labellight\">{\$this->lang->settings_server_maxload}<br /><span class=\"tiny\">{\$this->lang->settings_server_maxload_msg}</span></td>
@@ -1668,7 +1668,7 @@ $queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set
  <tr>
   <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->cp_zone}</td>
   <td class=\"tablelight\">
-   <select class=\"select\" name=\"user_timezone\">
+   <select class=\"select timezone\" name=\"user_timezone\">
     {\$time_list}
    </select><br />{\$current_time}
   </td>
