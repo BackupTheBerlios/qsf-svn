@@ -175,7 +175,7 @@ class member_control extends admin
 
 					$val = $member[$var];
 
-					if (($var == 'user_signature') || ($var == 'user_email')) {
+					if (($var == 'user_signature') || ($var == 'user_email') || ($var == 'user_title')) {
 						$val = $this->format($val, FORMAT_HTMLCHARS);
 					} elseif (($var == 'user_icq') && !$val) {
 						$val = null;
