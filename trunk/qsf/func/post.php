@@ -341,7 +341,7 @@ class post extends qsfglobal
 			$icon = isset($this->post['icon']) ? $this->post['icon'] : -1;
 
 			$msg_icons = $this->get_icons($icon);
-			$clickable = $this->make_clickable($this->sets['clickable_per_row']);
+			$clickable = $this->make_clickable();
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
 

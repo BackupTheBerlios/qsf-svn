@@ -2750,22 +2750,14 @@ $queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, templat
    </table>
   </td>
  </tr>', 'Post Designer - WYSIWYG', 'The visual post creator interface', 2)";
-$queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_CLICKABLE_SMILIES', '  <td class=\"tablelight\" style=\"width:30%;\" align=\"center\" valign=\"top\">
-   <div style=\"text-align:left\"><b>{\$this->lang->post_msg}</b><br />[<a href=\"#\" onclick=\"return getLength()\">{\$this->lang->post_length}</a>]<br /><br /><br /></div>
-   <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
-    <tr>
-     <td>
-      {\$this->table}
-       <tr>
-        <td class=\"tabledark\" style=\"text-align:center; white-space:nowrap\" colspan=\"{\$this->sets[\'clickable_per_row\']}\">
-         <b>{\$this->lang->post_smiles}</b>
-        </td>
-       </tr>
+$queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_CLICKABLE_SMILIES', '  <td class=\"tablelight\" style=\"width:30%;\" valign=\"top\">
+   <div><strong>{\$this->lang->post_msg}</strong><br />[<a href=\"#\" onclick=\"return getLength()\">{\$this->lang->post_length}</a>]<br /><br /><br /></div>
+   <div class=\"clickablesmilies\"><div>
+   <strong>{\$this->lang->post_smiles}</strong>
+   <ul>
        {\$clickable}
-      {\$this->etable}
-     </td>
-    </tr>
-   </table>
+   </ul>
+   </div></div>
   </td>', 'Clickable Smilies', 'Table cell for clickable smilies', 13)";
 $queries['POST_GLOBAL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_GLOBAL', '<br /><input type=\"checkbox\" name=\"global_topic\" value=\"1\" id=\"global_topic\"{\$checkGlob} /> <label for=\"global_topic\">{\$this->lang->post_option_global}</label><br />', 'Global Topic Checkbox', 'Displayed only to those able to make a topic global', 8)";
 $queries['POST_MESSAGE_ICONS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_MESSAGE_ICONS', ' <tr>

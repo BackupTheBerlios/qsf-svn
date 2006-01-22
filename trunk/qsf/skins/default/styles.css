@@ -181,6 +181,12 @@ a.pagelinks:hover{color:#cc0000;}
 .iconslegend  {text-align: center;}
 .iconslegend table {border-collapse: collapse; margin-left: auto; margin-right: auto;}
 
+.clickablesmilies { text-align: center; }
+.clickablesmilies div { width: 140px; margin-left: auto; margin-right: auto; }
+.clickablesmilies strong { display: block; border:1px #555555 solid; background-color:#e0e0e0; padding: 5px; }
+.clickablesmilies ul { padding-left: 0; margin-left: 0; padding-top: 0; margin-top: 10px;}
+.clickablesmilies ul li {display: inline; padding: 2px; }
+
 .mainmessage  {text-align: center;}
 .mainmessage .stand table.stand {text-align: center; width: 60%;}
 

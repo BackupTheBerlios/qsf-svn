@@ -27,6 +27,7 @@ if (!defined('INSTALLER')) {
 // Upgrade from 1.1.9 to 1.2.0
 $need_templates = array(
 	'CP_PREFS',		// Changed templates
+	'POST_CLICKABLE_SMILIES',
 	'ADMIN_EDIT_BOARD_SETTINGS'
 	);
 

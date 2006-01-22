@@ -1073,15 +1073,13 @@ class qsfglobal
 	/**
 	 * Generates clickable emoticon HTML
 	 *
-	 * @param int $per_row Smilies to show per row
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 3.0
 	 * @return string HTML
 	 **/
-	function make_clickable($per_row)
+	function make_clickable()
 	{
 		$return = null;
-		$x = 0;
 
 		if (!$this->replaces_loaded) {
 			$this->get_replaces();
@@ -1089,27 +1087,7 @@ class qsfglobal
 
 		foreach ($this->emotes['replacement_clickable'] as $search => $replace)
 		{
-			if (!$x) {
-				$return .= "\n<tr>";
-			}
-
-			$return .= "\n<td align='center' class='tablelight'><a href='#' onclick=\"return insertSmiley('{$search}')\">{$replace}</a></td>";
-
-			if ($x == $per_row - 1) {
-				$return .= "\n</tr>";
-				$x = 0;
-			} else {
-				$x++;
-			}
-		}
-
-		if ($x && ($x < $per_row)) {
-			while ($x < $per_row)
-			{
-				$return .= "\n<td class='tablelight'>&nbsp;</td>";
-				$x++;
-			}
-			$return .= "\n</tr>";
+			$return .= "\n<li><a href='#' onclick=\"return insertSmiley('{$search}')\">{$replace}</a></li>";
 		}
 
 		return $return;
