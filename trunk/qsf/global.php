@@ -333,8 +333,8 @@ class qsfglobal
 			$replace = array(
 				'<strong>\\1</strong>',
 				'<em>\\1</em>',
-				'<u>\\1</u>',
-				'<strike>\\1</strike>',
+				'<span style="text-decoration: underline;">\\1</span>',
+				'<span style="text-decoration: line-through;">\\1</span>',
 				'<sup>\\1</sup>',
 				'<sub>\\1</sub>',
 				'<p style=\'text-indent:2em\'>\\1</p>',
