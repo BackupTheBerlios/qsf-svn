@@ -217,7 +217,7 @@ class mod extends qsfglobal
 			$this->lang->post();
 			
 			if (isset($this->post['post'])) {
-				$data['post_text'] = $this->post['post'];
+				$data['post_text'] = stripslashes($this->post['post']);
 			}
 			
 			// Handle attachment stuff
