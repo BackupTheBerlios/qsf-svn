@@ -100,7 +100,7 @@ class backup extends admin
 		fwrite($fp, $data);
 		fclose($fp);
 
-		return $this->message($this->lang->backup_create, $this->lang->backup_done, $name, "../$name");
+		return $this->message($this->lang->backup_create, $this->lang->backup_done, $name, "../databases/$name");
 	}
 
 	/**
