@@ -693,7 +693,7 @@ class mod extends qsfglobal
 		  t.topic_id=$t AND
 		  t.topic_id=p.post_topic");
 
-		$deleted = 0;
+		$deleted = -1;
 
 		while ($post = $this->db->nqfetch($posts))
 		{
