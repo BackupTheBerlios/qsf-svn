@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * Active Users Viewer
  *

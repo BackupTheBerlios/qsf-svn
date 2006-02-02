@@ -37,6 +37,7 @@ class qsfglobal
 	var $files   = array();           // Alias for $_FILES @var array
 	var $user    = array();           // Information about the user @var array
 	var $sets    = array();           // Settings @var array
+	var $modules = array();           // Module Settings @var array
 	var $temps   = array();           // Loaded templates @var array
 	var $censor  = array();           // Curse words to filter @var array
 
@@ -1451,8 +1452,7 @@ class qsfglobal
 		{
 			if ($row['zone_updated'] < $this->time)
 			{
-				include_once('lib/tz_decode2.php');
-				$tz = new tz_decode2('timezone/'.$row['zone_name']);
+				$tz = new $this->modules['timezone']('timezone/'.$row['zone_name']);
 				$tz->magic2();
 				if (strlen($tz->abba)<1) $tz->abba='N/A';
 				$this->db->query("UPDATE {$this->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$row['zone_id']};");
@@ -1990,51 +1990,4 @@ class qsfglobal
 	}	
 }
 
-/**
- * Handles error messages
- *
- * @param int $type The error code
- * @param string $message A string describing the error
- * @param string $file The filename in which the error occurred
- * @param int $line The line number on which the error occurred
- * @author Jason Warner <jason@mercuryboard.com>
- * @since Beta 2.0
- * @return void
- **/
-function error($type, $message, $file = null, $line = 0)
-{
-	if (isset($_GET['debug']) || function_exists('error_fatal') || !(error_reporting() & $type)) {
-		return;
-	}
-
-	$include = './lib/error.php';
-	if (!file_exists($include)) {
-		$include = '.' . $include; // Admin Center errors
-	}
-
-	include $include;
-
-	switch($type)
-	{
-	// Triggered Quicksilver Forums errors
-	case QUICKSILVER_ERROR:
-		exit(error_warning($message, $file, $line));
-		break;
-
-	// Triggered Quicksilver Forums notices and alerts
-	case QUICKSILVER_NOTICE:
-		exit(error_notice($message));
-		break;
-
-	// Database errors
-	case QUICKSILVER_QUERY_ERROR:
-		exit(error_fatal($type, $message, $file, $line));
-		break;
-
-	// PHP errors
-	default:
-		exit(error_fatal($type, $message, $file, $line));
-		break;
-	}
-}
 ?>

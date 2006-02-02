@@ -21,6 +21,7 @@
  **/
 
 require './common.php';
+require_once $set['include_path'] . '/admincp/admin.php';
 
 /**
  * Forum Controls
@@ -201,7 +202,7 @@ class forums extends admin
 
 		$this->db->query("DELETE FROM {$this->pre}forums WHERE forum_id=$id");
 
-		$perms = new permissions;
+		$perms = new $this->modules['permissions'];
 		$perms->db = &$this->db;
 		$perms->pre = &$this->pre;
 
@@ -281,7 +282,7 @@ class forums extends admin
 
 		$id = $this->db->insert_id();
 
-		$perms = new permissions;
+		$perms = new $this->modules['permissions'];
 		$perms->db = &$this->db;
 		$perms->pre = &$this->pre;
 

@@ -21,6 +21,7 @@
  **/
 
 require './common.php';
+require_once $set['include_path'] . '/admincp/admin.php';
 
 class member_control extends admin
 {

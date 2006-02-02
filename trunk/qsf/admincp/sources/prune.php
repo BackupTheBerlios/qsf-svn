@@ -16,6 +16,9 @@
  *
  **/
 
+require './common.php';
+require_once $set['include_path'] . '/admincp/admin.php';
+
 class prune extends admin
 {
 	function execute()

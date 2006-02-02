@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * Viewing a user's profile
  *

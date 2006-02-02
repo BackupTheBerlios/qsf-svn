@@ -39,13 +39,15 @@ ob_start();
 error_reporting(E_ALL);
 
 require '../settings.php';
-require '../func/constants.php';
-require '../global.php';
-require '../lib/mysql.php';
-require '../lib/perms.php';
+$set['include_path'] = str_replace('/install/index.php', '', $_SERVER['SCRIPT_FILENAME']);
+require_once $set['include_path'] . '/defaultutils.php';
+require_once $set['include_path'] . '/global.php';
 
 define('LATEST', 19);   // ID of most recent upgrade script
 define('INSTALLER', 1); // Used in query files
+
+// Check for any addons available
+include_addons($set['include_path'] . '/addons/');
 
 $self   = isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : 'index.php';
 $failed = false;
@@ -63,7 +65,7 @@ if (!isset($_GET['step'])) {
 }
 
 if ($mode) {
-	require './' . $mode . '.php';
+	require $set['include_path'] . '/install/' . $mode . '.php';
 	$qsf = new $mode;
 } else {
 	$qsf = new qsfglobal;
@@ -92,6 +94,7 @@ if ($failed) {
 	echo "<br /><br /><b>To run Quicksilver Forums and other advanced PHP software, the above error(s) must be fixed by your web host.</b>";
 } else {
 	$qsf->sets = $set;
+	$qsf->modules = $modules;
 
 	switch($mode) {
 	case '':

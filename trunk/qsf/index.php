@@ -26,14 +26,8 @@ $time_start = $time_now[1] + $time_now[0];
 srand((double)microtime() * 1234567);
 
 require './settings.php';
-require './func/constants.php';
-require './lib/' . $set['dbtype'] . '.php';
-require './global.php';
-require './lib/perms.php';
-require './lib/user.php';
-require './lib/modlet.php';
-require './lib/xmlparser.php';
-require './lib/attachutil.php';
+$set['include_path'] = str_replace('/index.php', '', $_SERVER['SCRIPT_FILENAME']);
+require_once $set['include_path'] . '/defaultutils.php';
 
 if (!$set['installed']) {
 	header('Location: ./install/index.php');
@@ -44,26 +38,20 @@ set_error_handler('error');
 error_reporting(E_ALL);
 set_magic_quotes_runtime(0);
 
+// Check for any addons available
+include_addons($set['include_path'] . '/addons/');
+
 // Open connection to database
-$db = new database($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
+$db = new $modules['database']($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
 if (!$db->connection) {
     error(QUICKSILVER_ERROR, 'A connection to the database could not be established and/or the specified database could not be found.', __FILE__, __LINE__);
 }
 $settings = $db->fetch("SELECT settings_data FROM {$set['prefix']}settings LIMIT 1");
 $set = array_merge($set, unserialize($settings['settings_data']));
 
-$modules = array_merge($set['optional_modules'], array(
-	'help',
-	'mod',
-	'post',
-	'register',
-	'login',
-	'forum',
-	'topic'
-));
-	
-if (!isset($_GET['a']) || !in_array($_GET['a'], $modules)) {
-	$module = 'board';
+if (!isset($_GET['a']) || !in_array($_GET['a'], 
+		array_merge($set['optional_modules'], $modules['public_modules']))) {
+	$module = $modules['default_module'];
 } else {
 	$module = $_GET['a'];
 }
@@ -76,6 +64,7 @@ $qsf->pre = $set['prefix'];
 $qsf->db = $db; 
 $qsf->get['a'] = $module;
 $qsf->sets     = $set;
+$qsf->modules  = $modules;
 
 if ($qsf->sets['output_buffer'] && isset($qsf->server['HTTP_ACCEPT_ENCODING']) && stristr($qsf->server['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 	ob_start('ob_gzhandler');
@@ -84,7 +73,7 @@ if ($qsf->sets['output_buffer'] && isset($qsf->server['HTTP_ACCEPT_ENCODING']) &
 header( 'P3P: CP="CAO PSA OUR"' );
 session_start();
 
-$qsf->user_cl = new user($qsf);
+$qsf->user_cl = new $modules['user']($qsf);
 $qsf->user    = $qsf->user_cl->login();
 $qsf->lang    = $qsf->get_lang($qsf->user['user_language'], $qsf->get['a']);
 $qsf->session['id'] = session_id();
@@ -95,7 +84,7 @@ if (!isset($qsf->get['skin'])) {
 	$qsf->skin = $qsf->get['skin'];
 }
 
-$qsf->perms = new permissions;
+$qsf->perms = new $qsf->modules['permissions'];
 $qsf->perms->db  = &$qsf->db;
 $qsf->perms->pre = &$qsf->pre;
 $qsf->perms->get_perms($qsf->user['user_group'], $qsf->user['user_id'], ($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
@@ -103,8 +92,7 @@ $qsf->perms->get_perms($qsf->user['user_group'], $qsf->user['user_id'], ($qsf->u
 /* set timezone offset */
 if ($qsf->user['zone_updated'] < $qsf->time)
 {
-	include('lib/tz_decode2.php');
-	$tz = new tz_decode2('timezone/'.$qsf->user['zone_name']);
+	$tz = new $qsf->modules['timezone']('timezone/'.$qsf->user['zone_name']);
 	$tz->magic2();
 	if (strlen($tz->abba)<1) $tz->abba='N/A';
 	$qsf->db->query("UPDATE {$qsf->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$qsf->user['zone_id']};");
@@ -117,7 +105,7 @@ $qsf->temps = $qsf->get_templates($qsf->get['a']);
 $qsf->table  = eval($qsf->template('MAIN_TABLE'));
 $qsf->etable = eval($qsf->template('MAIN_ETABLE'));
 
-$qsf->attachmentutil = new attachutil($qsf);
+$qsf->attachmentutil = new $qsf->modules['attach']($qsf);
 
 $server_load = $qsf->get_load();
 

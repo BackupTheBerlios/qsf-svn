@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * Miscellaneous functions specific to the admin center
  *

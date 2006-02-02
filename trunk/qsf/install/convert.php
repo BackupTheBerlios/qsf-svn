@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * Convert From Another Board
  *
@@ -90,14 +92,14 @@ class convert extends qsfglobal
 
 		case 2:
 			$oldboard = new qsfglobal;
-			$oldboard->db = new database($this->post['old_db_host'], $this->post['old_db_user'], $this->post['old_db_pass'], $this->post['old_db_name'], $this->post['old_db_port'], $this->post['old_db_socket']);
+			$oldboard->db = new $this->modules['database']($this->post['old_db_host'], $this->post['old_db_user'], $this->post['old_db_pass'], $this->post['old_db_name'], $this->post['old_db_port'], $this->post['old_db_socket']);
 
 			if (!$oldboard->db->connection) {
 				echo "Couldn't connect to your old database using the specified information.";
 				break;
 			}
 
-			$this->db = new database($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
+			$this->db = new $this->modules['database']($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
 
 			if (!$this->db->connection) {
 				echo "Couldn't connect to your new database using the specified information.";

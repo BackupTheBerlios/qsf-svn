@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * Displays a list of registered members
  *

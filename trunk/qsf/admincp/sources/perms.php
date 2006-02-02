@@ -21,12 +21,13 @@
  **/
 
 require './common.php';
+require_once $set['include_path'] . '/admincp/admin.php';
 
 class perms extends admin
 {
 	function execute()
 	{
-		$perms_obj = new permissions;
+		$perms_obj = new $this->modules['permissions'];
 		$perms_obj->db  = &$this->db;
 		$perms_obj->pre = &$this->pre;
 

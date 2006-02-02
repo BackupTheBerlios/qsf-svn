@@ -31,14 +31,17 @@
 
 require_once './convert_db.php';
 require_once '../settings.php';
-require_once '../func/constants.php';
-require_once '../lib/' . $set['dbtype'] . '.php';
-require_once '../global.php';
+$set['include_path'] = str_replace('/install/convert_vb351.php', '', $_SERVER['SCRIPT_FILENAME']);
+require_once $set['include_path'] . '/defaultutils.php';
+require_once $set['include_path'] . '/global.php';
+
+// Check for any addons available
+include_addons($set['include_path'] . '/addons/');
 
 define('CONVERTER_NAME', 'vBulliten 3.5.1 Convertor');
 
 $qsf = new qsfglobal;
-$qsf->db = new database( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
+$qsf->db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
 
 if( !$qsf->db->connection )
 {
@@ -46,7 +49,7 @@ if( !$qsf->db->connection )
 }
 
 $oldboard = new qsfglobal; // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
-$oldboard->db = new database( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
+$oldboard->db = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
 
 if( !$oldboard->db->connection )
 {

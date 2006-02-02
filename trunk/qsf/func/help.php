@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 class help extends qsfglobal
 {
 	function execute()

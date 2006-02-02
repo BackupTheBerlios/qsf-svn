@@ -20,7 +20,7 @@
  *
  **/
 
-require_once('recent.php');
+require_once $set['include_path'] . '/func/recent.php';
  
 /**
  * RSS Feed Generator

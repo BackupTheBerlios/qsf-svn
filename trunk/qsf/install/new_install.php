@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * New Board Installation
  *
@@ -47,7 +49,7 @@ class new_install extends qsfglobal
 			break;
 
 		case 2:
-			$db = new database($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
+			$db = new $this->modules['database']($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
 
 			if (!$db->connection) {
 				echo "Couldn't connect to a database using the specified information.";
@@ -202,7 +204,7 @@ class new_install extends qsfglobal
 		
 		$forumId = $this->db->insert_id();
 		
-		$perms = new permissions;
+		$perms = new $this->modules['permissions'];
 		$perms->db = &$this->db;
 		$perms->pre = &$this->pre;
 		

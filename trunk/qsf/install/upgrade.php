@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * Board Upgrade
  *
@@ -64,7 +66,7 @@ class upgrade extends qsfglobal
 				$check++;
 			}
 
-			$db = new database($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name']);
+			$db = new $this->modules['database']($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name']);
 
 			if (!$db->connection) {
 				if ($this->get['step'] == 15) {
@@ -92,7 +94,7 @@ class upgrade extends qsfglobal
 				$this->sets = $this->get_settings($this->sets);
 			}
 
-			$this->perms = new permissions;
+			$this->perms = new $this->modules['permissions'];
 			$this->perms->db  = &$this->db;
 			$this->perms->pre = &$this->pre;
 

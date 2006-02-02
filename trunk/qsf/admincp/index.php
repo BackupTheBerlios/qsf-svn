@@ -24,6 +24,8 @@ $time_now   = explode(' ', microtime());
 $time_start = $time_now[1] + $time_now[0];
 
 require '../settings.php';
+$set['include_path'] = str_replace('/admincp/index.php', '', $_SERVER['SCRIPT_FILENAME']);
+require_once $set['include_path'] . '/defaultutils.php';
 
 if (!$set['installed']) {
 	header('Location: ../install/index.php');
@@ -32,14 +34,6 @@ if (!$set['installed']) {
 ob_start();
 session_start();
 
-require '../func/constants.php';
-require '../lib/' . $set['dbtype'] . '.php';
-require '../global.php';
-require '../lib/perms.php';
-require '../lib/user.php';
-require './admin.php';
-require '../lib/modlet.php';
-require '../lib/xmlparser.php';
 
 set_error_handler('error');
 
@@ -52,32 +46,11 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-$modules = array(
-	'backup',
-	'ban',
-	'censoring',
-	'emot_control',
-	'forums',
-	'groups',
-	'help',
-	'Admin',
-	'logs',
-	'mass_mail',
-	'membercount',
-	'member_control',
-	'optimize',
-	'perms',
-	'php_info',
-	'prune',
-	'query',
-	'settings',
-	'stats',
-	'templates',
-	'titles'
-);
+// Check for any addons available
+include_addons($set['include_path'] . '/addons/');
 
-if (!isset($_GET['a']) || !in_array($_GET['a'], $modules)) {
-	$module = 'home';
+if (!isset($_GET['a']) || !in_array($_GET['a'], $modules['admin_modules'])) {
+	$module = $modules['default_admin_module'];
 } else {
 	$module = $_GET['a'];
 }
@@ -86,7 +59,7 @@ require './sources/' . $module . '.php';
 
 $admin = new $module;
 
-$database = new database($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
+$database = new $modules['database']($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
 
 if (!$database->connection) {
 	exit('<center><font face="verdana" size="4" color="#000000"><b>A connection to the database could not be established and/or the specified database could not be found.</font></center>');
@@ -96,7 +69,8 @@ $admin->get['a'] = $module;
 $admin->db       = $database;
 $admin->pre      = $set['prefix'];
 $admin->sets     = $admin->get_settings($set);
-$admin->user_cl  = new user($admin);
+$admin->modules  = $modules;
+$admin->user_cl  = new $admin->modules['user']($admin);
 $admin->user     = $admin->user_cl->login();
 $admin->lang     = $admin->get_lang($admin->user['user_language'], $admin->get['a']);
 $server_load     = $admin->get_load();
@@ -107,7 +81,7 @@ if (!isset($admin->get['skin'])) {
 	$admin->skin = $admin->get['skin'];
 }
 
-$admin->perms = new permissions;
+$admin->perms = new $admin->modules['permissions'];
 $admin->perms->db  = &$admin->db;
 $admin->perms->pre = &$admin->pre;
 $admin->perms->get_perms($admin->user['user_group'], $admin->user['user_id'], $admin->user['group_perms']);
