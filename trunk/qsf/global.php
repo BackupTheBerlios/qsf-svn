@@ -390,8 +390,6 @@ class qsfglobal
 		$input = base64_decode($input);
 
 		$input = rtrim($input);
-		// Trim any whitespace up until the newline (if any)
-		$input = preg_replace('/^\s*\n/m', "", $input);
 		
 		if ($php) {
 			$title = 'PHP';
