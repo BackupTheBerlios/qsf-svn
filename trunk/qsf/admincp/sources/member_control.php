@@ -188,7 +188,7 @@ class member_control extends admin
 					switch ($data[1])
 					{
 					case U_TZONE:
-						$time_list  = $this->select_timezones($val);
+						$time_list  = $this->htmlwidgets->select_timezones($val);
 						$line = '<select class="select timezone" name="user_timezone">' . $time_list . '</select>';
 						break;
 

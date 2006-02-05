@@ -29,6 +29,8 @@ require_once $set['include_path'] . '/lib/attachutil.php';
 $modules['attach'] = 'attachutil';
 require_once $set['include_path'] . '/lib/tz_decode2.php';
 $modules['timezone'] = 'tz_decode2';
+require_once $set['include_path'] . '/lib/htmlwidgets.php';
+$modules['widgets'] = 'htmlwidgets';
 
 
 // Other variables that we can allow addons to change

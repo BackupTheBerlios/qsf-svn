@@ -147,7 +147,7 @@ class templates extends admin
 	function upgrade_skin($skin)
 	{
 		if (!isset($this->post['skin'])) {
-			$skin_box = $this->select_skins($this->skin);
+			$skin_box = $this->htmlwidgets->select_skins($this->skin);
 
 			return $this->message($this->lang->select_skin, "
 			<form action='$this->self?a=templates&amp;s=upgradeskin' method='post'><div>
@@ -297,7 +297,7 @@ class templates extends admin
 	function export_skin()
 	{
 		if (!isset($this->post['skin'])) {
-			$skin_box = $this->select_skins($this->skin);
+			$skin_box = $this->htmlwidgets->select_skins($this->skin);
 
 			return $this->message($this->lang->export_skin, "
 			{$this->lang->export_select}:<br /><br />
@@ -342,7 +342,7 @@ class templates extends admin
 	function edit_skin()
 	{
 		if (!isset($this->post['skin'])) {
-			$skin_box = $this->select_skins($this->skin);
+			$skin_box = $this->htmlwidgets->select_skins($this->skin);
 
 			return $this->message($this->lang->select_skin, "
 			<form action='$this->self?a=templates&amp;s=editskin' method='post'><div>
@@ -429,7 +429,7 @@ class templates extends admin
 
 	function delete_list($sections, $skins, $template)
 	{
-		$skin_box = $this->select_skins($template);
+		$skin_box = $this->htmlwidgets->select_skins($template);
 
 		$out = "";
 		$action = 'delete';
@@ -446,7 +446,7 @@ class templates extends admin
 
 	function template_list($sections, $skins, $template)
 	{
-		$skin_box = $this->select_skins($template);
+		$skin_box = $this->htmlwidgets->select_skins($template);
 
 		$out = "";
 		$action = 'edit';
@@ -464,7 +464,7 @@ class templates extends admin
 	function add_section($sections, $skins, $template)
 	{
 		if (!isset($this->post['form'])) {
-			$skin_box = $this->select_skins($template);
+			$skin_box = $this->htmlwidgets->select_skins($template);
 			$template_box = '';
 
 			$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM {$this->pre}templates WHERE template_skin='$template'");
@@ -610,7 +610,7 @@ class templates extends admin
 	function add_skin()
 	{
 		if (!isset($this->post['submit'])) {
-			$skin_box = $this->select_skins(0);
+			$skin_box = $this->htmlwidgets->select_skins(0);
 
 			return $this->message($this->lang->create_skin, "
 			<form action='$this->self?a=templates&amp;s=skin' method='post'><div>

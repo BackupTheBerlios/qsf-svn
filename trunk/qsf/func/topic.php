@@ -467,7 +467,7 @@ class topic extends qsfglobal
 			$i++;
 		}
 
-		$pagelinks = $this->get_pages($topic['topic_replies'] + 1, 'a=topic&amp;t=' . $this->get['t'], $this->get['min'], $this->get['num']);
+		$pagelinks = $this->htmlwidgets->get_pages($topic['topic_replies'] + 1, 'a=topic&amp;t=' . $this->get['t'], $this->get['min'], $this->get['num']);
 
 		return eval($this->template('TOPIC_MAIN'));
 	}

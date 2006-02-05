@@ -81,7 +81,7 @@ class members extends qsfglobal
 			$l = strtoupper(preg_replace('/[^A-Za-z]/', '', $this->get['l']));
 		}
 
-		$PageNums = $this->get_pages("
+		$PageNums = $this->htmlwidgets->get_pages("
 		SELECT
 			user_id
 		FROM

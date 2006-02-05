@@ -57,7 +57,7 @@ class recent extends qsfglobal
         
 		$topicCount = $this->countTopics($forums_str);
 
-		$pagelinks = $this->get_pages($topicCount, 'a=recent', $min, $n);
+		$pagelinks = $this->htmlwidgets->get_pages($topicCount, 'a=recent', $min, $n);
 
 		$forumjump = $this->select_forums($this->forum_grab(), 0, 0, null, true);
 
@@ -159,7 +159,7 @@ class recent extends qsfglobal
 		{
 			$row['topic_title'] = $this->format($row['topic_title'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 
-			$Pages = $this->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'], ', ', 0, $this->sets['posts_per_page']);
+			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'], ', ', 0, $this->sets['posts_per_page']);
 
 			if (!empty($row['topic_description'])) {
 				$row['topic_description'] = '<br />&raquo; ' . $this->format($row['topic_description'], FORMAT_CENSOR | FORMAT_HTMLCHARS);

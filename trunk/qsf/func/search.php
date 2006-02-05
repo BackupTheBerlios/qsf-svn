@@ -317,7 +317,7 @@ class search extends qsfglobal
 			(isset($this->post['limit_check']) ? 'limit_check=1' : '');
 		}
 
-		$pages = $this->get_pages($sql, "a=search&amp;$url", $this->get['min'], $this->get['num']);
+		$pages = $this->htmlwidgets->get_pages($sql, "a=search&amp;$url", $this->get['min'], $this->get['num']);
 
 		$sql .= " LIMIT {$this->get['min']}, {$this->get['num']}";
 

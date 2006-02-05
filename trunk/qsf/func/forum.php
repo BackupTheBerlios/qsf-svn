@@ -89,7 +89,7 @@ class forum extends qsfglobal
 
 		$topic = $this->db->fetch("SELECT COUNT(topic_id) AS count FROM {$this->pre}topics WHERE topic_forum=$f");
 
-		$pagelinks = $this->get_pages($topic['count'], "a=forum&amp;f=$f&amp;order={$this->get['order']}&amp;asc=$lasc", $min, $n);
+		$pagelinks = $this->htmlwidgets->get_pages($topic['count'], "a=forum&amp;f=$f&amp;order={$this->get['order']}&amp;asc=$lasc", $min, $n);
 		$SubForums = $this->getSubs($f);
 		$forumjump = $this->select_forums($this->forum_grab(), $f, 0, null, true);
 
@@ -222,7 +222,7 @@ class forum extends qsfglobal
 		{
 			$row['topic_title'] = $this->format($row['topic_title'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 
-			$Pages = $this->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'] . '&amp;f=' . $f, ', ', 0, $this->sets['posts_per_page']);
+			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'] . '&amp;f=' . $f, ', ', 0, $this->sets['posts_per_page']);
 
 			if (!empty($row['topic_description'])) {
 				$row['topic_description'] = '<br />&raquo; ' . $this->format($row['topic_description'], FORMAT_CENSOR | FORMAT_HTMLCHARS);

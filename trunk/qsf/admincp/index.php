@@ -99,6 +99,8 @@ if (@file_exists('../install/index.php') && !@file_exists('../tools')) {
 $admin->table  = eval($admin->template('ADMIN_TABLE'));
 $admin->etable = eval($admin->template('ADMIN_ETABLE'));
 
+$admin->htmlwidgets = new $admin->modules['widgets']($admin);
+
 $output = $admin->execute();
 
 $title = isset($qsf->title) ? $qsf->title : $admin->name .' Admin CP';

@@ -62,10 +62,10 @@ class settings extends admin
 			$optionalModules = implode("\r\n", $this->sets['optional_modules']);
 
 			// Set data for use in skin
-			$selectSkins = $this->select_skins($this->sets['default_skin']);
-			$selectGroups = $this->select_groups($this->sets['default_group']);
-			$selectTimezones = $this->select_timezones($this->sets['default_timezone']);
-			$severTimezones = $this->select_timezones($this->sets['servertime']);
+			$selectSkins = $this->htmlwidgets->select_skins($this->sets['default_skin']);
+			$selectGroups = $this->htmlwidgets->select_groups($this->sets['default_group']);
+			$selectTimezones = $this->htmlwidgets->select_timezones($this->sets['default_timezone']);
+			$severTimezones = $this->htmlwidgets->select_timezones($this->sets['servertime']);
 
 			return eval($this->template('ADMIN_EDIT_BOARD_SETTINGS'));
 			break;

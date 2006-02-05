@@ -106,6 +106,7 @@ $qsf->table  = eval($qsf->template('MAIN_TABLE'));
 $qsf->etable = eval($qsf->template('MAIN_ETABLE'));
 
 $qsf->attachmentutil = new $qsf->modules['attach']($qsf);
+$qsf->htmlwidgets = new $qsf->modules['widgets']($qsf);
 
 $server_load = $qsf->get_load();
 

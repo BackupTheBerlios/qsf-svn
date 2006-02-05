@@ -164,8 +164,8 @@ class cp extends qsfglobal
 			$user_pmCheck   = $this->user['user_pm'] ? ' checked=\'checked\'' : null;
 			$active_check   = $this->user['user_active'] ? ' checked=\'checked\'' : null;
 
-			$time_list  = $this->select_timezones($this->user['user_timezone']);
-			$skin_list  = $this->select_skins($this->skin);
+			$time_list  = $this->htmlwidgets->select_timezones($this->user['user_timezone']);
+			$skin_list  = $this->htmlwidgets->select_skins($this->skin);
 			$lang_list  = $this->select_langs($this->user['user_language']);
 
 			$current_time = sprintf($this->lang->cp_current_time, $this->mbdate(DATE_TIME));
@@ -229,9 +229,9 @@ class cp extends qsfglobal
 		if (!isset($this->post['submit'])) {
 			list($year, $mon, $day) = explode('-', $this->user['user_birthday']);
 
-			$day_list   = $this->select_days($day);
-			$month_list = $this->select_months($mon);
-			$year_list  = $this->select_years($year);
+			$day_list   = $this->htmlwidgets->select_days($day);
+			$month_list = $this->htmlwidgets->select_months($mon);
+			$year_list  = $this->htmlwidgets->select_years($year);
 
 			if (!$this->user['user_icq']) {
 				$this->user['user_icq'] = null;
@@ -343,7 +343,7 @@ class cp extends qsfglobal
 		$this->tree($this->lang->cp_editing_avatar);
 
 		if (!isset($this->post['submit'])) {
-			$avatar_list = $this->select_avatars($this->user['user_avatar']);
+			$avatar_list = $this->htmlwidgets->select_avatars($this->user['user_avatar']);
 
 			if (empty($this->user['user_avatar'])) {
 				$this->user['user_avatar']   = "./skins/{$this->skin}/images/noavatar.png";

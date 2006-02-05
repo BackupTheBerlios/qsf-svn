@@ -49,7 +49,7 @@ class perms extends admin
 				<form action='$this->self?a=perms' method='post'><div>
 					{$this->lang->perms_edit_for}
 					<select name='group'>
-					" . $this->select_groups(-1) . "
+					" . $this->htmlwidgets->select_groups(-1) . "
 					</select>
 					<input type='submit' value='{$this->lang->submit}' /></div>
 				</form>");
