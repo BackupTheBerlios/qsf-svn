@@ -127,9 +127,7 @@ class login extends qsfglobal
 				return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_no_id);
 			}
 
-			include './lib/mailer.php';
-
-			$mailer = new mailer($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
+			$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
 			$message  = "{$this->sets['forum_name']}\n\n";
 			$message .= "Someone has requested a password reset for your forum account, {$this->post['user']}.\n";
@@ -162,9 +160,7 @@ class login extends qsfglobal
 			return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_no_id);
 		}
 
-		include './lib/mailer.php';
-
-		$mailer = new mailer($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
+		$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
 		$newpass = $this->generate_pass(8);
 

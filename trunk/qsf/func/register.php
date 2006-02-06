@@ -153,9 +153,7 @@ class register extends qsfglobal
 
 	function send_activation_email($email, $username, $pass, $jointime)
 	{
-		include './lib/mailer.php';
-
-		$mailer = new mailer($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
+		$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
 		$message  = "{$this->lang->register_email_msg}\n";
 		$message .= "{$this->lang->register_email_msg2} {$this->sets['forum_name']}.\n\n";

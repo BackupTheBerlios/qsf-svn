@@ -25,6 +25,8 @@ require_once $set['include_path'] .  '/lib/perms.php';
 $modules['permissions'] = 'permissions';
 require_once $set['include_path'] .  '/lib/user.php';
 $modules['user'] = 'user';
+require_once $set['include_path'] .  '/lib/mailer.php';
+$modules['mailer'] = 'mailer';
 require_once $set['include_path'] . '/lib/attachutil.php';
 $modules['attach'] = 'attachutil';
 require_once $set['include_path'] . '/lib/tz_decode2.php';

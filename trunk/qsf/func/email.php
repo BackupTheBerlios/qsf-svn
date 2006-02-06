@@ -74,9 +74,7 @@ class email extends qsfglobal
 				return $this->message($this->lang->email_email, $this->lang->email_no_member);
 			}
 
-			include './lib/mailer.php';
-
-			$mailer = new mailer($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
+			$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
 			$mailer->setSubject("{$this->sets['forum_name']} - {$this->post['subject']}");
 			$mailer->setMessage("This mail has been sent by {$this->user['user_name']} via {$this->sets['forum_name']}\n\n" . stripslashes($this->post['message']));

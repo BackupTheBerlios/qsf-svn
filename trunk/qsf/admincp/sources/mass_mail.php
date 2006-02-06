@@ -76,9 +76,7 @@ class mass_mail extends admin
 			$this->post['groups'] = array();
 		}
 
-		include '../lib/mailer.php';
-
-		$mailer = new mailer($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
+		$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 		$mailer->setSubject($this->post['subject']);
 
 		$message  = stripslashes($this->post['message']) . "\n";
