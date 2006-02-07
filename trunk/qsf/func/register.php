@@ -109,7 +109,8 @@ class register extends qsfglobal
 				return $this->message($this->lang->register_reging, $this->lang->register_name_taken);
 			}
 
-			if (!$this->is_valid_email_address(stripslashes($email))) {
+			$temp_email = stripslashes($email);
+			if (!$this->validator->validate($temp_email, TYPE_EMAIL)) {
 				return $this->message($this->lang->register_reging, $this->lang->register_email_invalid);
 			}
 

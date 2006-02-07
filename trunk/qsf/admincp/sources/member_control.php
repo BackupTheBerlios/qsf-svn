@@ -255,7 +255,8 @@ class member_control extends admin
 
 					if ($var == 'user_email') {
 						$member = $this->db->fetch('SELECT user_name FROM ' . $this->pre . 'users WHERE user_id=' . $this->get['id'] . ' LIMIT 1');
-						if ($member['user_name'] != 'Guest' && !$this->is_valid_email_address(stripslashes($val))) {
+						$guest_email = stripslashes($val);
+						if ($member['user_name'] != 'Guest' && !$this->validator->validate($guest_email, TYPE_EMAIL)) {
 							return $this->message($this->lang->mc_err_updating, $this->lang->mc_email_invaid);
 						}
 					}

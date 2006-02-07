@@ -215,7 +215,7 @@ class mod extends qsfglobal
 			$attached_data = null;
 			$upload_error = null;
 
-			$this->add_templates('post');
+			$this->templater->add_templates('post');
 			$this->lang->post();
 			
 			if (isset($this->post['post'])) {

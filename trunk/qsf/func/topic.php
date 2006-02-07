@@ -52,7 +52,7 @@ class topic extends qsfglobal
 		$this->get['num'] = isset($this->get['num']) ? intval($this->get['num']) : $this->sets['posts_per_page'];
 		$this->get['t']   = isset($this->get['t'])   ? intval($this->get['t'])   : 0;
 		if (isset($this->get['view'])) {
-                        $this->validate($this->get['view'], TYPE_STRING, array('newer', 'older'), false);
+                        $this->validator->validate($this->get['view'], TYPE_STRING, array('newer', 'older'), false);
                 } else {
                         $this->get['view']  = false;
                 }
@@ -194,7 +194,7 @@ class topic extends qsfglobal
 
 		if ($this->perms->auth('topic_split', $topic['topic_forum']) || ($this->perms->auth('topic_split_own', $topic['topic_forum']) && $user_started_topic)) {
 			if ($this->get['s'] == 'split') {
-				$this->add_templates('mod');
+				$this->templater->add_templates('mod');
 				$splitmode = true;
 				$this->get['min'] = 0;
 				$this->get['num'] = $topic['topic_replies'] + 1;
@@ -210,7 +210,7 @@ class topic extends qsfglobal
 		}
 
 		if ($topic['topic_modes'] & TOPIC_POLL) {
-			$this->add_templates('poll');
+			$this->templater->add_templates('poll');
 			$PollDisplay = $this->get_poll($this->get['t'], $topic['topic_forum'], $title_html, $topic['topic_modes'], $topic['topic_poll_options']);
  		} else {
 			$PollDisplay = null;

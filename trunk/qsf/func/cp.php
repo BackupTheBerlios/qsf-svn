@@ -253,7 +253,8 @@ class cp extends qsfglobal
 				return $this->message($this->lang->cp_err_updating, $this->lang->cp_less_charac);
 			}
 
-			if (!$this->is_valid_email_address(stripslashes($this->post['user_email']))) {
+			$temp_email = stripslashes($this->post['user_email']);
+			if (!$this->validator->validate($temp_email, TYPE_EMAIL)) {
 				return $this->message($this->lang->cp_err_updating, $this->lang->cp_email_invaid);
 			}
 

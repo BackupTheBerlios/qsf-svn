@@ -447,7 +447,8 @@ class post extends qsfglobal
 			$this->sets['posts']++;
 			$this->write_sets();
 
-			/*
+			/* HTML formatting not implemented at this time
+			
 			if (isset($this->post['rich'])) {
 				$this->post['post'] = $this->format_html_mbcode($this->post['post']);
 			}

@@ -84,29 +84,7 @@ if (!isset($qsf->get['skin'])) {
 	$qsf->skin = $qsf->get['skin'];
 }
 
-$qsf->perms = new $qsf->modules['permissions'];
-$qsf->perms->db  = &$qsf->db;
-$qsf->perms->pre = &$qsf->pre;
-$qsf->perms->get_perms($qsf->user['user_group'], $qsf->user['user_id'], ($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
-
-/* set timezone offset */
-if ($qsf->user['zone_updated'] < $qsf->time)
-{
-	$tz = new $qsf->modules['timezone']('timezone/'.$qsf->user['zone_name']);
-	$tz->magic2();
-	if (strlen($tz->abba)<1) $tz->abba='N/A';
-	$qsf->db->query("UPDATE {$qsf->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$qsf->user['zone_id']};");
-} else {
-	$qsf->tz_adjust = $qsf->user['zone_offset'];
-}
-
-$qsf->temps = $qsf->get_templates($qsf->get['a']);
-
-$qsf->table  = eval($qsf->template('MAIN_TABLE'));
-$qsf->etable = eval($qsf->template('MAIN_ETABLE'));
-
-$qsf->attachmentutil = new $qsf->modules['attach']($qsf);
-$qsf->htmlwidgets = new $qsf->modules['widgets']($qsf);
+$qsf->init();
 
 $server_load = $qsf->get_load();
 

@@ -33,6 +33,12 @@ require_once $set['include_path'] . '/lib/tz_decode2.php';
 $modules['timezone'] = 'tz_decode2';
 require_once $set['include_path'] . '/lib/htmlwidgets.php';
 $modules['widgets'] = 'htmlwidgets';
+require_once $set['include_path'] . '/lib/templater.php';
+$modules['templater'] = 'templater';
+require_once $set['include_path'] . '/lib/bbcode.php';
+$modules['bbcode'] = 'bbcode';
+require_once $set['include_path'] . '/lib/tool.php';
+$modules['validator'] = 'tool';
 
 
 // Other variables that we can allow addons to change

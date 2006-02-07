@@ -35,6 +35,38 @@ class admin extends qsfglobal
 	var $iterator_last;             // Last selected value @var mixed @access protected
 
 	/**
+	 * Post constructor initaliser. Take care of admin specific stuff
+	 *
+	 * @param bool $admin Set to true if we need to setup admin templates
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2
+	 **/
+	function init($admin = true)
+	{
+		if (@file_exists('../install/index.php') && !@file_exists('../tools')) {
+			exit('<h1>' . $this->lang->admin_cp_warning . '</h1>');
+		}
+
+		parent::init($admin);
+		
+		if (!$this->perms->auth('is_admin') || $this->is_banned()) {
+			exit('<h1>' . $this->lang->admin_cp_denied . '</h1>');
+		}
+	}
+
+	/**
+	 * Set to admin tables
+	 *
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2
+	 **/
+	function set_table()
+	{
+		$this->table  = eval($this->template('ADMIN_TABLE'));
+		$this->etable = eval($this->template('ADMIN_ETABLE'));
+	}
+	
+	/**
 	 * Formats a message (admin cp version)
 	 *
 	 * @param string $title Title of the message

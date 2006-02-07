@@ -86,6 +86,20 @@ class permissions
 		'search_noflood' => true,
 		'topic_global' => true
 	);
+	
+	/**
+	 * Constructor; sets up variables
+	 *
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2
+	 **/
+	function permissions(&$qsf)
+	{
+		$this->db  = &$qsf->db;
+		$this->pre = &$qsf->pre;
+		$this->get_perms($qsf->user['user_group'], $qsf->user['user_id'],
+			($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
+	}
 
 	function get_perms($group, $user, $perms = false)
 	{

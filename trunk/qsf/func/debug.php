@@ -138,7 +138,7 @@ foreach ($this->db->querydebug as $debug) {
 }
 
 $this->db->querytime = round($this->db->querytime, 5);
-$tempcount = count($this->temps);
+$tempcount = count($this->templater->temps);
 $langcount = count(get_object_vars($this->lang));
 
 $out .= "
@@ -164,7 +164,7 @@ $out .= "
 
 $out .= "<b>$tempcount Loaded Templates (Skin: $this->skin)</b>:<br />";
 
-foreach ($this->temps as $key => $val)
+foreach ($this->templater->temps as $key => $val)
 {
 	$out .= "$key<br />";
 }

@@ -33,13 +33,13 @@ class prune extends admin
 		} else if (isset($this->post['age'])) {
 			// Stage 2
 			
-			if (!$this->validate($this->post['age'], TYPE_UINT)) {
+			if (!$this->validator->validate($this->post['age'], TYPE_UINT)) {
 				return $this->message($this->lang->prune_title, $this->lang->prune_invalidage);
 			}
 			$age = $this->post['age'];
 			$age = time() - ($age * 3600); // age is in hours
 			
-			if (!isset($this->post['forums']) || !$this->validate($this->post['forums'], TYPE_ARRAY) || count($this->post['forums']) == 0) {
+			if (!isset($this->post['forums']) || !$this->validator->validate($this->post['forums'], TYPE_ARRAY) || count($this->post['forums']) == 0) {
 				return $this->message($this->lang->prune_title, $this->lang->prune_novalidforum);
 			}
 			$forums = implode(', ', $this->post['forums']);
@@ -74,14 +74,14 @@ class prune extends admin
 				return $this->message($this->lang->prune_title, $this->lang->prune_novalidforum);
 			}
 
-			if (!isset($this->post['topics']) || !$this->validate($this->post['topics'], TYPE_ARRAY) || count($this->post['topics']) == 0) {
+			if (!isset($this->post['topics']) || !$this->validator->validate($this->post['topics'], TYPE_ARRAY) || count($this->post['topics']) == 0) {
 				return $this->message($this->lang->prune_title, $this->lang->prune_notopics);
 			}
 			
 			$actionIsMove = true; // default to non-destructive
 			if (isset($this->post['prune_action']) && $this->post['prune_action'] == 'delete') {
 				$actionIsMove = false;
-			} elseif (!isset($this->post['dest']) || !$this->validate($this->post['age'], TYPE_UINT)) {
+			} elseif (!isset($this->post['dest']) || !$this->validator->validate($this->post['age'], TYPE_UINT)) {
 				return $this->message($this->lang->prune_title, $this->lang->prune_nodest);
 			}
 			

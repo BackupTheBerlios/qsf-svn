@@ -211,15 +211,15 @@ class rssreader extends modlet
 	 **/
 	function load_templates()
 	{
-		if (isset($this->qsf->temps['MODLET_RSSREADER_TITLE']) && isset($this->qsf->temps['MODLET_RSSREADER_ITEM']) && isset($this->qsf->temps['MODLET_RSSREADER_MAIN'])) {
+		if ($this->qsf->templater->temp_set(array('MODLET_RSSREADER_TITLE', 'MODLET_RSSREADER_ITEM', 'MODLET_RSSREADER_MAIN'))) {
 			$this->titleTemplate = $this->qsf->template('MODLET_RSSREADER_TITLE');
 			$this->itemTemplate = $this->qsf->template('MODLET_RSSREADER_ITEM');
 			$this->rssreaderTemplate = $this->qsf->template('MODLET_RSSREADER_MAIN');
-		} else if (isset($this->qsf->temps['MAIN_RSSREADER_TITLE']) && isset($this->qsf->temps['MAIN_RSSREADER_ITEM']) && isset($this->qsf->temps['MAIN_RSSREADER_MAIN'])) {
+		} else if ($this->qsf->templater->temp_set(array('MAIN_RSSREADER_TITLE', 'MAIN_RSSREADER_ITEM', 'MAIN_RSSREADER_MAIN'))) {
 			$this->titleTemplate = $this->qsf->template('MAIN_RSSREADER_TITLE');
 			$this->itemTemplate = $this->qsf->template('MAIN_RSSREADER_ITEM');
 			$this->rssreaderTemplate = $this->qsf->template('MAIN_RSSREADER_MAIN');
-		} else if (isset($this->qsf->temps['ADMIN_RSSREADER_TITLE']) && isset($this->qsf->temps['ADMIN_RSSREADER_ITEM']) && isset($this->qsf->temps['ADMIN_RSSREADER_MAIN'])) {
+		} else if ($this->qsf->templater->temp_set(array('ADMIN_RSSREADER_TITLE', 'ADMIN_RSSREADER_ITEM', 'ADMIN_RSSREADER_MAIN'))) {
 			$this->titleTemplate = $this->qsf->template('ADMIN_RSSREADER_TITLE');
 			$this->itemTemplate = $this->qsf->template('ADMIN_RSSREADER_ITEM');
 			$this->rssreaderTemplate = $this->qsf->template('ADMIN_RSSREADER_MAIN');

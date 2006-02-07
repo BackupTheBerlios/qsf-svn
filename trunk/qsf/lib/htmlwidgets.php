@@ -15,15 +15,17 @@
  * GNU General Public License for more details.
  *
  **/
+ 
+require_once $set['include_path'] . '/lib/htmltools.php';
 
 /**
  * Contains all the functions for generating small pieces of
  * HTML that can not be easily done in a template
  *
  * @author Geoffrey Dunn <geoff@warmage.com>
- * @since 1.1.8
+ * @since 1.2
  **/
-class htmlwidgets
+class htmlwidgets extends htmltools
 {
 	/**
 	 * Constructor
@@ -32,12 +34,9 @@ class htmlwidgets
 	 **/
 	function htmlwidgets(&$qsf)
 	{
-		$this->db  = &$qsf->db;
-		$this->pre = &$qsf->pre;
-		$this->sets = &$qsf->sets;
-		$this->modules = &$qsf->modules;
-		$this->lang = &$qsf->lang;
-		$this->self = &$qsf->self;
+		parent::htmltools($qsf);
+
+		// Need the time for timezone stuff
 		$this->time = &$qsf->time;
 	}
 	

@@ -132,7 +132,7 @@ class forum extends qsfglobal
 		ORDER BY f.forum_parent, f.forum_position");
 
 		if ($forum = $this->db->nqfetch($query)) {
-			$this->add_templates('board');
+			$this->templater->add_templates('board');
 			do{
 				if (!$this->perms->auth('forum_view', $forum['forum_id'])) {
 					continue;

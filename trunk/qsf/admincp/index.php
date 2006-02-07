@@ -81,25 +81,7 @@ if (!isset($admin->get['skin'])) {
 	$admin->skin = $admin->get['skin'];
 }
 
-$admin->perms = new $admin->modules['permissions'];
-$admin->perms->db  = &$admin->db;
-$admin->perms->pre = &$admin->pre;
-$admin->perms->get_perms($admin->user['user_group'], $admin->user['user_id'], $admin->user['group_perms']);
-
-$admin->temps = $admin->get_templates($admin->get['a'], false, true);
-
-if (!$admin->perms->auth('is_admin') || $admin->is_banned()) {
-	exit('<center><font face="verdana" size="4" color="#000000"><b>' . $admin->lang->admin_cp_denied . '</b></font></center>');
-}
-
-if (@file_exists('../install/index.php') && !@file_exists('../tools')) {
-	exit('<center><font face="verdana" size="4" color="#000000">' . $admin->lang->admin_cp_warning . '</font></center>');
-}
-
-$admin->table  = eval($admin->template('ADMIN_TABLE'));
-$admin->etable = eval($admin->template('ADMIN_ETABLE'));
-
-$admin->htmlwidgets = new $admin->modules['widgets']($admin);
+$admin->init();
 
 $output = $admin->execute();
 

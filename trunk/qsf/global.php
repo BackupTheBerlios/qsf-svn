@@ -38,7 +38,6 @@ class qsfglobal
 	var $user    = array();           // Information about the user @var array
 	var $sets    = array();           // Settings @var array
 	var $modules = array();           // Module Settings @var array
-	var $temps   = array();           // Loaded templates @var array
 	var $censor  = array();           // Curse words to filter @var array
 
 	var $emotes  = array(            // Text strings to be replaced with images @var array
@@ -61,21 +60,20 @@ class qsfglobal
 	var $table;                       // Start to an HTML table @var string
 	var $etable;                      // End to an HTML table @var string
 	var $lang;                        // Loaded words @var object
-	var $attachmentutil;		  // Attachment handler @var object
-	var $htmlwidgets;		  // HTML widget handler @var object
 	var $query;                       // The query string @var string
 	var $tz_adjust;                   // Timezone offset in seconds
 	var $feed_links = null;		  // HTML of RSS link tags
 
-	var $macro;                       // Array of code to execute for each template
-	var $modlets = array();           // Array of modlet objects for running in templates
-    
+	var $attachmentutil;		  // Attachment handler @var object
+	var $htmlwidgets;		  // HTML widget handler @var object
+	var $templater;			  // Template handler @var object
+	var $validator;			  // Handler for checking usernames, passwords, etc
+
 	/**
 	 * Constructor; sets up variables
 	 *
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
-	 * @return void
 	 **/
 	function qsfglobal()
 	{
@@ -99,6 +97,62 @@ class qsfglobal
 			$this->set_magic_quotes_gpc($this->post);
 			$this->set_magic_quotes_gpc($this->cookie);
 		}
+	}
+	
+	/**
+	 * Post constructor initaliser. By this time we have a user and a database
+	 *
+	 * Note: This is never run for special tools such as installs or upgrades
+	 *
+	 * @param bool $admin Set to true if we need to setup admin templates
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2
+	 **/
+	function init($admin = false)
+	{
+		$this->perms = new $this->modules['permissions']($this);
+		
+		/* set timezone offset */
+		if ($this->user['zone_updated'] < $this->time)
+		{
+			$tz = new $this->modules['timezone']('timezone/'.$this->user['zone_name']);
+			$this->magic2();
+			if (strlen($this->abba)<1) $this->abba='N/A';
+			$this->db->query("UPDATE {$this->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$this->user['zone_id']};");
+		} else {
+			$this->tz_adjust = $this->user['zone_offset'];
+		}
+		
+		$this->attachmentutil = new $this->modules['attach']($this);
+		$this->htmlwidgets = new $this->modules['widgets']($this);
+		$this->templater = new $this->modules['templater']($this);
+		$this->validator = new $this->modules['validator']();
+
+		$this->templater->init_templates($this->get['a'], $admin);
+		
+		$this->set_table();
+	}
+	
+	/**
+	 * Set values for $this->table and $this->etable
+	 *
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2
+	 **/
+	function set_table()
+	{
+		$this->table  = eval($this->template('MAIN_TABLE'));
+		$this->etable = eval($this->template('MAIN_ETABLE'));
+	}
+	
+	/**
+	 * Templater interface just so don't have to change the calls
+	 *
+	 * @param string $piece Name of the template to return
+	 **/
+	function template($piece)
+	{
+		return $this->templater->template($piece);
 	}
 
 	/**
@@ -137,19 +191,6 @@ class qsfglobal
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * Extends the existing templates array - see get_templates()
-	 *
-	 * @param string $section Template group
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
-	 * @return void
-	 **/
-	function add_templates($section)
-	{
-		$this->temps = array_merge($this->temps, $this->get_templates($section, 0));
 	}
 
 	/**
@@ -364,19 +405,6 @@ class qsfglobal
 	}
 
 	/**
-	 * Makes IE-generated HTML safe
-	 *
-	 * @param string $in Input
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 4.0
-	 * @return string Corrected input
-	 **/
-	function format_html_mbcode($in)
-	{
-		// Remove JavaScript, etc
-	}
-
-	/**
 	 * Formats code with line numbers and optionally syntax highlighting
 	 *
 	 * @param string $input Code to be formatted
@@ -524,32 +552,6 @@ class qsfglobal
 		return substr($password, 0, $length);
 	}
 	
-	/**
-	 * Checks if an email address looks valid
-	 *
-	 * @param string $email Address to check
-	 * @return true if the email checks out
-	 * @author http://iamcal.com/publish/articles/php/parsing_email
-	 * @since 1.1.5
-	 */
-	function is_valid_email_address($email)
-	{
-		$qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
-		$dtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
-		$atom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c'.
-			'\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
-		$quoted_pair = '\\x5c\\x00-\\x7f';
-		$domain_literal = "\\x5b($dtext|$quoted_pair)*\\x5d";
-		$quoted_string = "\\x22($qtext|$quoted_pair)*\\x22";
-		$domain_ref = $atom;
-		$sub_domain = "($domain_ref|$domain_literal)";
-		$word = "($atom|$quoted_string)";
-		$domain = "$sub_domain(\\x2e$sub_domain)*";
-		$local_part = "$word(\\x2e$word)*";
-		$addr_spec = "$local_part\\x40$domain";
-		return preg_match("!^$addr_spec$!", $email) ? 1 : 0;
-	}
-
 	/**
 	 * Retrieves message icons and puts them into a table as radio buttons
 	 *
@@ -801,114 +803,6 @@ class qsfglobal
 		return array_merge($sets, unserialize($settings['settings_data']));
 	}
 
-	/**
-	 * Loads templates into an array, replacing {{var}} with $var
-	 *
-	 * @param string $a Template group
-	 * @param bool $getMain Load the standard set of templates
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
-	 * @return mixed Array of templates on success, error message on failure
-	 **/
-	function get_templates($a, $getMain = true, $getAdmin = false)
-	{
-		if ($getMain) {
-			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND (template_set='Main' OR template_set='$a')");
-		} elseif ($getAdmin) {
-			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND (template_set='Admin' OR template_set='$a')");
-		} else {
-			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND template_set='$a'");
-		}
-
-		while ($template = $this->db->nqfetch($temp_query))
-		{
-			// Check for MODLET with optional parameter
-			$template['template_html'] = preg_replace('/<MODLET\s+(.*?)\((.*?)\)\s*>/se', '$this->run_modlet(\'\\1\', \'\\2\', $template[\'template_name\'], $getAdmin)', $template['template_html']);
-			// Check for IF statements
-			$template['template_html'] = preg_replace('~<IF (.*?)(?<!\-)>(.*?)(<ELSE>(.*?))?</IF>~se', '$this->get_templates_callback(\'\\1\', \'\\2\', $template[\'template_name\'], \'\\3\')', $template['template_html']);
-			$templates[$template['template_name']] = $template['template_html'];
-		}
-
-		if ($getAdmin)
-			$dir = file_exists('../skins/' . $this->skin) && is_dir('../skins/' . $this->skin);
-		else
-			$dir = file_exists('./skins/' . $this->skin) && is_dir('./skins/' . $this->skin);
-
-		if (isset($templates) && $dir) {
-			$templates = str_replace(array('\\', '"', '\\$'), array('\\\\', '\\"', '\\\\$'), $templates);
-
-			return $templates;
-		} else {
-			if ($dir) {
-				error(QUICKSILVER_ERROR, "Template set not found in database: $a", __FILE__, __LINE__);
-			} else {
-				error(QUICKSILVER_ERROR, "Template set not found in database: $a<br />Skin not found in the skins directory: $this->skin", __FILE__, __LINE__);
-			}
-		}
-	}
-
-	/**
-	 * Stores if statements into an array (performance speed-up)
-	 *
-	 * @param string if statements
-	 * @param string string to use if condition is true
-	 * @param string template
-	 * @param string string to use if contition is false (optional)
-	 * @author Inverno
-	 * @return string replace if statements with a var
-	 **/
-	function get_templates_callback($condition, $code, $piece, $falseCode = '')
-	{
-		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
-		if ($falseCode) {
-			// Strip off the <ELSE>
-			$falseCode = substr($falseCode, 6);
-		}
-		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = ((' . $condition . ') ? "' . $code . '" : "' . $falseCode . '"); ';
-		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
-	}
-
-   	/**
-	 * Creates the modlet and stores modlet run statements into an array
-	 *
-	 * @param string modlet to run
-	 * @param string template
-	 * @param bool $getMain Are we loading admincp templates
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @return string replace modlet statements with a var
-	 **/
-	function run_modlet($modlet, $parameter, $piece, $getAdmin)
-	{
-		$macro_id = isset($this->macro[$piece]) ? count($this->macro[$piece]) : 0;
-        
-		// Check the modlet uses valid characters
-		if (preg_match('/[^a-zA-Z0-9_\-]/', $modlet)) {
-			return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a valid modlet name -->';
-		}
-		if (!isset($this->modlets[$modlet])) {
-			if ($getAdmin) {
-				if (!is_readable('../modlets/' . $modlet . '.php')) {
-					return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' does not exist -->';
-				} else {
-					require_once('../modlets/' . $modlet . '.php');
-				}
-			} else {
-				if (!is_readable('./modlets/' . $modlet . '.php')) {
-					return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' does not exist -->';
-				} else {
-					require_once('./modlets/' . $modlet . '.php');
-				}
-			}
-			$this->modlets[$modlet] =& new $modlet($this);
-			if ($this->validate($modlet, TYPE_OBJECT, 'modlet')) {
-				return '<!-- ERROR: Modlet ' . htmlspecialchars($modlet) . ' is not a type of modlet -->';
-			}
-		}
-        
-		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = (isset($this)) ? $this->modlets["'. $modlet . '"]->run("' . $parameter . '") : $qsf->modlets["'. $modlet . '"]->run("' . $parameter . '"); ';
-		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
-	}
-    
 	/**
 	 * Determines if a user has been banned
 	 *
@@ -1263,32 +1157,6 @@ class qsfglobal
 	}
 
 	/**
-	 * Returns a parsed template, for use in eval()
-	 *
-	 * @param string $piece Template name
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @author Inverno
-	 * @since Beta 1.0
-	 * @return string if statements to eval + Parsed HTML template
-	 **/
-	function template($piece)
-	{
-		if (!isset($this->temps[$piece])) {
-			error(E_USER_ERROR, "Template not found: $piece", __FILE__, __LINE__);
-		}
-
-		$macro_output = "\$macro_replace = array(); ";
-
-		if (isset($this->macro[$piece])) {
-			foreach ($this->macro[$piece] as $macro_id => $macro_code) {
-				$macro_output .= $macro_code;
-			}
-		}
-
-		return "$macro_output return \"<!-- START: $piece -->\r\n{$this->temps[$piece]}\r\n<!-- END: $piece -->\r\n\";";
-	}
-
-	/**
 	 * Adds an entry to the navigation tree
 	 *
 	 * @param string $label Label for the tree entry
@@ -1451,104 +1319,6 @@ class qsfglobal
 		$this->db->query("UPDATE {$this->pre}settings SET settings_data='$sets'");
 	}
 	
-	/**
-	 * Checks if parameter is valid according to the rules passed
-	 *
-	 * Typical uses are:
-	 * validate($this->get['f'], TYPE_UINT)
-	 * validate($this->get['order'], TYPE_STRING, array('title', 'starter', 'replies', 'views'), '')
-	 * validate($this->post['adminemail'], TYPE_EMAIL, null, 'root@localhost')
-	 *
-	 *
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.1.5
-	 * @param mixed $var Variable from the user, typically a get or post
-	 * @param int $type Type to check against. See TYPE defaults in constants.php
-	 * @param array $range optional A range of values of $type the variable must match
-	 * @param mixed $default optional A default value if the check fails
-	 * @return true if $var is valid and unchanged, false if a match failed
-	 */
-	function validate(&$var, $type, $range=null, $default=null)
-	{
-		$unchanged = true;
-		switch($type) {
-		case TYPE_BOOLEAN:
-			// $range and $default are unused
-			if (!is_bool($var)) {
-				$unchanged = false;
-			}
-			$var = (true && $var); // Convert to a proper boolean
-			break;
-		case TYPE_UINT:
-			$newvar = intval($var);
-			if ($newvar != $var || $newvar < 0 || ($range != null && !in_array($var, $range))) {
-				$unchanged = false;
-				if ($default != null) $newvar = $default;
-			}
-			$var = $newvar;
-			break;
-		case TYPE_INT:
-			$newvar = intval($var);
-			if ($newvar != $var || ($range != null && !in_array($var, $range))) {
-				$unchanged = false;
-				if ($default != null) $newvar = $default;
-			}
-			$var = $newvar;
-			break;
-		case TYPE_FLOAT:
-			if (!is_numeric($var) || ($range != null && !in_array($var, $range))) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		case TYPE_STRING:
-			if (!is_string($var) || ($range != null && !in_array($var, $range))) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		case TYPE_ARRAY:
-			// $range is unused
-			if (!is_array($var)) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		case TYPE_OBJECT:
-			// $range is seen as a class name
-			if (!is_object($var) || ($range != null && !is_subclass_of($var, $range))) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		case TYPE_USERNAME:
-			// $range is unused
-			if (strlen($username) > 20) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		case TYPE_PASSWORD:
-			// $range is unused
-			if (!preg_match("/^[a-z0-9_\- ]{5,}$/i", $pass)) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		case TYPE_EMAIL:
-			// $range is unused
-			if (!$this->is_valid_email_address($var)) {
-				$unchanged = false;
-				if ($default != null) $var = $default;
-			}
-			break;
-		default:
-			// Invalid type! Only developers should ever see this error
-			error(QUICKSILVER_ERROR, "Invalid type sent to validate()", __FILE__, __LINE__);
-		}
-		return $unchanged;
-	}
-
 	/* Forum utility functions */
 
 	/**
