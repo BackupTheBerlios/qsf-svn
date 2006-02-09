@@ -27,7 +27,13 @@ if (!defined('INSTALLER')) {
 // Upgrade from 1.1.9 to 1.2.0
 $need_templates = array(
 	'CP_PREFS',		// Changed templates
+	'MAIN_HEADER_GUEST',
+	'MAIN_HEADER_MEMBER',
 	'POST_CLICKABLE_SMILIES',
+	'SEARCH_MAIN',
+	'ADMIN_INDEX',
+	'ADMIN_FORUM_ORDER',
+	'ADMIN_MASS_MAIL',
 	'ADMIN_EDIT_BOARD_SETTINGS'
 	);
 

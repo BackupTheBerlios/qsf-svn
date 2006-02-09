@@ -27,9 +27,14 @@
  */
 
 error_reporting(E_ALL);
+require '../settings.php';
+$set['include_path'] = str_replace('/tools/lang_sync.php', '', $_SERVER['SCRIPT_FILENAME']);
+require_once $set['include_path'] . '/defaultutils.php';
 require '../global.php';
 
 $qsf = new qsfglobal;
+$qsf->htmlwidgets = new $qsf->modules['widgets']($qsf);
+
 
 /* Recursive ksort() */
 function ksort_rec(&$array)
@@ -157,7 +162,7 @@ foreach ($result as $lang_name => $lang_words)
  **/
 
 /**
- * ' . $qsf->get_lang_name($lang_name) . ' language module
+ * ' . $qsf->htmlwidgets->get_lang_name($lang_name) . ' language module
  *' . $authors_list . '
  * @since ' . trim($since) . '
  **/
@@ -225,7 +230,7 @@ foreach ($out as $filename => $contents)
 
 	$contents = preg_replace("/(\r\n|\r)/", "\n", $contents);
 
-    echo "<b>$filename - " . $qsf->get_lang_name($filename) . "$encoding</b><br />";
+    echo "<b>$filename - " . $qsf->htmlwidgets->get_lang_name($filename) . "$encoding</b><br />";
 
     $fp = fopen('../languages/' . $filename . '.php', 'w');
     fwrite($fp, $contents);

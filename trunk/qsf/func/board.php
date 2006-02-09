@@ -49,7 +49,7 @@ class board extends qsfglobal
 		if (!isset($this->get['c'])) {
 			$this->get['c'] = 0;
 		} else {
-			$this->tree_forums($this->get['c']);
+			$this->htmlwidgets->tree_forums($this->get['c']);
 		}
 
 		if (isset($this->get['s'])) {

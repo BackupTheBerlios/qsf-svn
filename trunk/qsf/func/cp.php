@@ -166,7 +166,7 @@ class cp extends qsfglobal
 
 			$time_list  = $this->htmlwidgets->select_timezones($this->user['user_timezone']);
 			$skin_list  = $this->htmlwidgets->select_skins($this->skin);
-			$lang_list  = $this->select_langs($this->user['user_language']);
+			$lang_list  = $this->htmlwidgets->select_langs($this->user['user_language']);
 
 			$current_time = sprintf($this->lang->cp_current_time, $this->mbdate(DATE_TIME));
 

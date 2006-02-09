@@ -28,7 +28,7 @@ class prune extends admin
 
 		if (!isset($this->post['submit'])) {
 			// Stage 1
-			$forum_options = $this->select_forums($this->forum_grab(), -1, 0);
+			$forum_options = $this->htmlwidgets->select_forums(-1, 0);
 			return eval($this->template('ADMIN_PRUNE_FORM'));
 		} else if (isset($this->post['age'])) {
 			// Stage 2
@@ -66,7 +66,7 @@ class prune extends admin
 				$topicCount++;
 			}
 			
-			$movetoForum = $this->select_forums($this->forum_grab(), 0, 0, null, false);
+			$movetoForum = $this->htmlwidgets->select_forums(0, 0, null, false);
 			return eval($this->template('ADMIN_PRUNE_TOPICLIST'));
 		} else {
 			// Stage 3

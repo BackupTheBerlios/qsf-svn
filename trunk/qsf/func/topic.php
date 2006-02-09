@@ -142,7 +142,7 @@ class topic extends qsfglobal
 
 		$this->set_title($this->lang->topic_viewing . ': ' . $title_html);
 
-		$this->tree_forums($topic['topic_forum'], true);
+		$this->htmlwidgets->tree_forums($topic['topic_forum'], true);
 		$this->tree($title_short);
 
 		if (trim($topic['topic_description']) != '') {

@@ -27,9 +27,7 @@ class perms extends admin
 {
 	function execute()
 	{
-		$perms_obj = new $this->modules['permissions'];
-		$perms_obj->db  = &$this->db;
-		$perms_obj->pre = &$this->pre;
+		$perms_obj = new $this->modules['permissions']($this);
 
 		if (isset($this->get['s']) && ($this->get['s'] == 'user')) {
 			if (!isset($this->get['id'])) {

@@ -204,9 +204,7 @@ class new_install extends qsfglobal
 		
 		$forumId = $this->db->insert_id();
 		
-		$perms = new $this->modules['permissions'];
-		$perms->db = &$this->db;
-		$perms->pre = &$this->pre;
+		$perms = new $this->modules['permissions']($this);
 		
 		while ($perms->get_group())
 		{

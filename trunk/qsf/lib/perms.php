@@ -97,8 +97,10 @@ class permissions
 	{
 		$this->db  = &$qsf->db;
 		$this->pre = &$qsf->pre;
-		$this->get_perms($qsf->user['user_group'], $qsf->user['user_id'],
-			($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
+		if (!empty($qsf->user)) {
+			$this->get_perms($qsf->user['user_group'], $qsf->user['user_id'],
+				($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
+		}
 	}
 
 	function get_perms($group, $user, $perms = false)

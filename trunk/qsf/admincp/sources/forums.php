@@ -64,12 +64,12 @@ class forums extends admin
 				if (isset($this->post['editforum'])) {
 					return $this->EditForum($this->get['id']);
 				} else {
-					$forum = $this->select_forums($this->forum_grab(), $f['forum_parent']);
+					$forum = $this->htmlwidgets->select_forums($f['forum_parent']);
 					return eval($this->template('ADMIN_FORUM_EDIT'));
 				}
 			} else {
 				$this->tree($this->lang->forum_edit);
-				return $this->message($this->lang->forum_edit, '<div style="text-align:left">' . $this->Text($this->forum_grab(), "$this->self?a=forums&amp;s=edit&amp;id=") . '</div>');
+				return $this->message($this->lang->forum_edit, '<div style="text-align:left">' . $this->Text($this->htmlwidgets->forum_grab(), "$this->self?a=forums&amp;s=edit&amp;id=") . '</div>');
 			}
 			break;
 
@@ -89,7 +89,7 @@ class forums extends admin
 				}
 			} else {
 				$this->tree($this->lang->forum_delete);
-				return $this->message($this->lang->forum_delete, '<div style="text-align:left">' . $this->Text($this->forum_grab(), "$this->self?a=forums&amp;s=delete&amp;id=") . '</div>');
+				return $this->message($this->lang->forum_delete, '<div style="text-align:left">' . $this->Text($this->htmlwidgets->forum_grab(), "$this->self?a=forums&amp;s=delete&amp;id=") . '</div>');
 			}
 			break;
 
@@ -100,7 +100,7 @@ class forums extends admin
 			if (isset($this->post['addforum'])) {
 				return $this->message($this->lang->forum_create, $this->AddForum());
 			} else {
-				$select = $this->select_forums($this->forum_grab());
+				$select = $this->htmlwidgets->select_forums();
 
 				if ($forums_exist['count']) {
 					$quickperms = $select;
@@ -118,7 +118,7 @@ class forums extends admin
 			if (isset($this->post['orderforum'])) {
 				return $this->message($this->lang->forum_ordering, $this->OrderUpdate());
 			}
-			$forum = $this->InputBox($this->forum_grab());
+			$forum = $this->InputBox($this->htmlwidgets->forum_grab());
 			return eval($this->template('ADMIN_FORUM_ORDER'));
 			break;
 
@@ -142,7 +142,7 @@ class forums extends admin
 	 **/
 	function CheckParent($array, $id, $check)
 	{
-		$arr = $this->forum_array($array, $id);
+		$arr = $this->htmlwidgets->forum_array($array, $id);
 		if ($arr) {
 			foreach ($arr as $val) {
 				if ($val['forum_id'] == $check) {
@@ -183,7 +183,7 @@ class forums extends admin
 	 **/
 	function DeleteForum($id)
 	{
-		if ($this->forum_array($this->forum_grab(), $id)) {
+		if ($this->htmlwidgets->forum_array($this->htmlwidgets->forum_grab(), $id)) {
 			return $this->message($this->lang->forum_delete, $this->lang->forum_no_orphans);
 		}
 
@@ -202,9 +202,7 @@ class forums extends admin
 
 		$this->db->query("DELETE FROM {$this->pre}forums WHERE forum_id=$id");
 
-		$perms = new $this->modules['permissions'];
-		$perms->db = &$this->db;
-		$perms->pre = &$this->pre;
+		$perms = new $this->modules['permissions']($this);
 
 		// Groups
 		while ($perms->get_group())
@@ -238,7 +236,7 @@ class forums extends admin
 		}
 
 		$subcat = isset($this->post['subcat']) ? 1 : 0;
-		$forums = $this->forum_grab();
+		$forums = $this->htmlwidgets->forum_grab();
 		if (($this->post['parent'] == $id) || $this->CheckParent($forums, $id, $this->post['parent'])) {
 			return $this->message($this->lang->forum_edit, $this->lang->forum_parent);
 		}
@@ -270,9 +268,9 @@ class forums extends admin
 			return $this->lang->forum_empty;
 		}
 
-		$forums = $this->forum_grab();
+		$forums = $this->htmlwidgets->forum_grab();
 
-		$forums_arr = $this->forum_array($forums, $this->post['parent']);
+		$forums_arr = $this->htmlwidgets->forum_array($forums, $this->post['parent']);
 		$position   = $forums_arr ? count($forums_arr) : 0;
 		$subcat     = isset($this->post['subcat']) ? 1 : 0;
 
@@ -282,9 +280,7 @@ class forums extends admin
 
 		$id = $this->db->insert_id();
 
-		$perms = new $this->modules['permissions'];
-		$perms->db = &$this->db;
-		$perms->pre = &$this->pre;
+		$perms = new $this->modules['permissions']($this);
 
 		while ($perms->get_group())
 		{

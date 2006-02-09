@@ -26,6 +26,10 @@ require_once $set['include_path'] . '/lib/tool.php';
  **/
 class htmltools extends tool
 {
+	var $replaces_loaded;
+	var $censor;		// Curse words to filter @var array
+	var $emotes;            // Text strings to be replaced with images @var array
+	
 	/**
 	 * Constructor
 	 *
@@ -37,9 +41,73 @@ class htmltools extends tool
 		$this->pre = &$qsf->pre;
 		$this->sets = &$qsf->sets;
 		$this->modules = &$qsf->modules;
-		$this->lang = &$qsf->lang;
-		$this->self = &$qsf->self;
+		$this->lang = $qsf->lang;
+		$this->self = $qsf->self;
+		$this->skin = $qsf->skin;
+		
+		// Make the properties static (even on PHP 4)
+		static $replaces_loaded = false;
+		static $censor = array();
+		static $emotes = array(
+			'replacement' => array(),
+			'replacement_clickable' => array());
+			
+		$this->replaces_loaded =& $replaces_loaded;
+		$this->censor =& $censor;
+		$this->emotes =& $emotes;
 	}
+
+	/**
+	 * Generates clickable emoticon HTML
+	 *
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since Beta 3.0
+	 * @return string HTML
+	 * @todo move to HTMLwidgets
+	 **/
+	function make_clickable()
+	{
+		$return = null;
+
+		if (!$this->replaces_loaded) {
+			$this->get_replaces();
+		}
+
+		foreach ($this->emotes['replacement_clickable'] as $search => $replace)
+		{
+			$return .= "\n<li><a href=\"javascript:insertSmiley('{$search}');\">{$replace}</a></li>";
+		}
+
+		return $return;
+	}
+
+	/**
+	 * Loads emoticon and censor information from the replacements table
+	 *
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since Beta 2.1
+	 * @return void
+	 **/
+	function get_replaces()
+	{
+		$this->replaces_loaded = true;
+
+		$replace = $this->db->query("SELECT * FROM {$this->pre}replacements ORDER BY LENGTH(replacement_search) DESC");
+		while ($r = $this->db->nqfetch($replace))
+		{
+			if ($r['replacement_type'] == 'emoticon') {
+				$this->emotes['replacement'][$r['replacement_search']] = "<img src=\"./skins/$this->skin/emoticons/{$r['replacement_replace']}\" alt=\"{$r['replacement_search']}\" />";
+
+				if ($r['replacement_clickable']) {
+					$this->emotes['replacement_clickable'][$r['replacement_search']] = "<img src=\"./skins/$this->skin/emoticons/{$r['replacement_replace']}\" alt=\"{$r['replacement_search']}\" />";
+				}
+			} elseif ($r['replacement_type'] == 'censor') {
+				$this->censor[] = '/' . $r['replacement_search'] . '/i';
+			}
+		}
+	}
+	
+
 }
 
 ?>

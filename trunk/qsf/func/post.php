@@ -139,7 +139,7 @@ class post extends qsfglobal
 
 			$this->get['f'] = $topic['forum_id'];
 
-			$this->tree_forums($topic['forum_id'], true);
+			$this->htmlwidgets->tree_forums($topic['forum_id'], true);
 			$this->tree($shortened_title, $this->self . '?a=topic&amp;t=' . $this->get['t'] . '&amp;f=' . $topic['forum_id']);
 			$this->tree($this->lang->post_replying1);
 			break;
@@ -163,7 +163,7 @@ class post extends qsfglobal
 				return $this->message($this->lang->post_creating, $this->lang->post_no_forum);
 			}
 
-			$this->tree_forums($this->get['f'], true);
+			$this->htmlwidgets->tree_forums($this->get['f'], true);
 			$this->tree($this->lang->post_creating_poll);
 			break;
 
@@ -186,7 +186,7 @@ class post extends qsfglobal
 				return $this->message($this->lang->post_creating, $this->lang->post_no_forum);
 			}
 
-			$this->tree_forums($this->get['f'], true);
+			$this->htmlwidgets->tree_forums($this->get['f'], true);
 			$this->tree($this->lang->post_creating);
 		}
 
@@ -242,7 +242,7 @@ class post extends qsfglobal
 
 				$params = FORMAT_BREAKS | FORMAT_CENSOR | FORMAT_HTMLCHARS;
 
-				if (isset($this->post['parseCode']) && $this->quote_check($this->post['post'])) {
+				if (isset($this->post['parseCode']) && $this->bbcode->quote_check($this->post['post'])) {
 					$params |= FORMAT_MBCODE;
 					$checkCode = ' checked=\'checked\'';
 				} else {
@@ -342,8 +342,8 @@ class post extends qsfglobal
 
 			$icon = isset($this->post['icon']) ? $this->post['icon'] : -1;
 
-			$msg_icons = $this->get_icons($icon);
-			$clickable = $this->make_clickable();
+			$msg_icons = $this->htmlwidgets->get_icons($icon);
+			$clickable = $this->htmlwidgets->make_clickable();
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
 
@@ -396,7 +396,7 @@ class post extends qsfglobal
 			if (!isset($this->post['parseCode'])) $this->post['parseCode'] = 0;
 			if (!isset($this->post['parseEmot'])) $this->post['parseEmot'] = 0;
 
-			if ($this->post['parseCode'] && !$this->quote_check($this->post['post'])) {
+			if ($this->post['parseCode'] && !$this->bbcode->quote_check($this->post['post'])) {
 				$this->post['parseCode'] = 0;
 			}
 

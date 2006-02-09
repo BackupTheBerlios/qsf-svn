@@ -784,7 +784,7 @@ $queries['ADMIN_FORUM_ORDER'] = "INSERT INTO {$pre}templates (template_skin, tem
   <td class=\"tabledark\">
    <table width=\"100%\" cellpadding=\"5\" cellspacing=\"0\" border=\"0\">
     <tr>
-     <td style=\"text-align:center\">{\$forum}</td>
+     <td>{\$forum}</td>
     </tr>
    </table>
   </td>
@@ -1020,7 +1020,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
 
 {\$admin->table}
  <tr>
-  <td class=\"headerbw\"><span class=\"tree\"><b><a href=\"{\$admin->self}\">Admin CP</a>{\$admin->tree}</b></span></td>
+  <td class=\"headerbw\"><span class=\"tree\"><b><a href=\"{\$admin->self}\">Admin CP</a>{\$admin->htmlwidgets->tree}</b></span></td>
  </tr>
 {\$admin->etable}
 
@@ -1093,7 +1093,7 @@ $queries['ADMIN_MASS_MAIL'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
  <tr>
   <td class=\"tabledark\" valign=\"top\">
-   <b>{\$this->lang->mail_groups}</b><br />[<a href=\"#\" onclick=\"select_all_groups()\">{\$this->lang->mail_select_all}</a>]
+   <b>{\$this->lang->mail_groups}</b><br />[<a href=\"javascript:select_all_groups();\">{\$this->lang->mail_select_all}</a>]
   </td>
   <td class=\"tabledark\" valign=\"top\">
    <select name=\"groups[]\" size=\"8\" multiple=\"multiple\">
@@ -2100,7 +2100,7 @@ $queries['MAIN_HEADER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, tem
      ( <a href=\"{\$qsf->self}?a=login&amp;s=on\">{\$qsf->lang->main_login}</a> | <a href=\"{\$qsf->self}?a=register\">{\$qsf->lang->main_register}</a> )
     </span>
    </td>
-   <td>{\$qsf->tree}</td>
+   <td>{\$qsf->htmlwidgets->tree}</td>
   </tr>
  {\$qsf->etable}
 
@@ -2121,7 +2121,7 @@ $queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, te
      ( <a href=\"{\$qsf->self}?a=recent\" title=\"{\$qsf->lang->main_recent1}\">{\$qsf->lang->main_recent}</a> | <a href=\"{\$qsf->self}?s=mark\" title=\"{\$qsf->lang->main_mark1}\">{\$qsf->lang->main_mark}</a> | <a href=\"{\$qsf->self}?a=login&amp;s=off\">{\$qsf->lang->main_logout}</a><IF \$qsf->perms->auth(\'is_admin\')> | <a href=\"./admincp/index.php\">{\$qsf->lang->main_admincp}</a></IF> )
     </span>
    </td>
-   <td>{\$qsf->tree}</td>
+   <td>{\$qsf->htmlwidgets->tree}</td>
   </tr>
  {\$qsf->etable}
 
@@ -2751,7 +2751,7 @@ $queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, templat
   </td>
  </tr>', 'Post Designer - WYSIWYG', 'The visual post creator interface', 2)";
 $queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_CLICKABLE_SMILIES', '  <td class=\"tablelight\" style=\"width:30%;\" valign=\"top\">
-   <div><strong>{\$this->lang->post_msg}</strong><br />[<a href=\"#\" onclick=\"return getLength()\">{\$this->lang->post_length}</a>]<br /><br /><br /></div>
+   <div><strong>{\$this->lang->post_msg}</strong><br /><br /><br /></div>
    <div class=\"clickablesmilies\"><div>
    <strong>{\$this->lang->post_smiles}</strong>
    <ul>
@@ -3189,7 +3189,7 @@ $queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
    {\$this->lang->search_for}:<br />
    <input class=\"input\" type=\"text\" style=\"width:100%\" name=\"query\" />
    <br /><br />
-   {\$this->lang->search_in}: <a href=\"#\" onclick=\"select_all_forums()\">{\$this->lang->search_select_all}</a><br />
+   {\$this->lang->search_in}: <a href=\"javascript:select_all_forums()\">{\$this->lang->search_select_all}</a><br />
    <select class=\"input\" name=\"forums[]\" size=\"10\" style=\"width:100%\" multiple=\"multiple\">
     {\$forum_options}
    </select><br />

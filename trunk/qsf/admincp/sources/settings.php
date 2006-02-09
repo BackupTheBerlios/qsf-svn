@@ -55,7 +55,7 @@ class settings extends admin
 
 			$attachsize = ($this->sets['attach_upload_size'] / 1024);
 			$attachtypes = implode("\r\n", $this->sets['attach_types']);
-			$defaultlang = $this->select_langs($this->sets['default_lang'], '..');
+			$defaultlang = $this->htmlwidgets->select_langs($this->sets['default_lang'], '..');
 			$avatarsize = ($this->sets['avatar_upload_size'] / 1024);
 			$spideragents = implode("\r\n", $this->sets['spider_agent']);
 			$spidernames = implode("\r\n", $this->sets['spider_name']);

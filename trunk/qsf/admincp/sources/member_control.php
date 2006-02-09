@@ -338,7 +338,7 @@ class member_control extends admin
 				continue;
 			}
 
-			$out .= '<option value="' . $code . '"' . (($code == $current) ? ' selected=\'selected\'' : null) . '>' . $this->get_lang_name($code) . "</option>\n";
+			$out .= '<option value="' . $code . '"' . (($code == $current) ? ' selected=\'selected\'' : null) . '>' . $this->htmlwidgets->get_lang_name($code) . "</option>\n";
 		}
 
 		return $out . '</select>';

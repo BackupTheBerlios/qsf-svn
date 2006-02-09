@@ -20,7 +20,6 @@ function getLength(){
 
 function insertSmiley(smiley) {
   insertCode(getText() + ' ' + smiley);
-  return false;
 }
 
 function insertCode(code) {

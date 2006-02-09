@@ -94,9 +94,7 @@ class upgrade extends qsfglobal
 				$this->sets = $this->get_settings($this->sets);
 			}
 
-			$this->perms = new $this->modules['permissions'];
-			$this->perms->db  = &$this->db;
-			$this->perms->pre = &$this->pre;
+			$this->perms = new $this->modules['permissions']($this);
 
 			while ($this->get['from'] <= LATEST)
 			{

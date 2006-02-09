@@ -219,7 +219,7 @@ class admin extends qsfglobal
 	 **/
 	function Text($array, $link = "", $parent = 0)
 	{
-		$arr = $this->forum_array($array, $parent);
+		$arr = $this->htmlwidgets->forum_array($array, $parent);
 
 		if ($arr) {
 			$return = null;
@@ -243,15 +243,16 @@ class admin extends qsfglobal
 	 **/
 	function InputBox($array, $parent = 0)
 	{
-		$arr = $this->forum_array($array, $parent);
+		$arr = $this->htmlwidgets->forum_array($array, $parent);
 
 		if ($arr) {
-			$return = null;
+			$return = "<ul>\n";
 			foreach ($arr as $val) {
-				$return .= '<ul>' . "
-				<li><input class='input' name='_{$val['forum_id']}' value='{$val['forum_position']}' size='2' /> {$val['forum_name']}</li>" .
-				$this->InputBox($array, $val['forum_id']) . '</ul>';
+				$return .= "<li><input class='input' name='_{$val['forum_id']}' value='{$val['forum_position']}' size='2' /> {$val['forum_name']}";
+				$return .= $this->InputBox($array, $val['forum_id']);
+				$return .= "</li>\n";
 			}
+			$return .= "</ul>\n";
 			return $return;
 		}
 	}
@@ -269,7 +270,7 @@ class admin extends qsfglobal
 	 **/
 	function CheckBox($array, $select = 0, $parent = 0, $space = '')
 	{
-		$arr = $this->forum_array($array, $parent);
+		$arr = $this->htmlwidgets->forum_array($array, $parent);
 
 		if ($arr) {
 			$return = null;

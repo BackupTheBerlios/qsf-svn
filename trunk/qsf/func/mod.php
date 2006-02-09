@@ -122,7 +122,7 @@ class mod extends qsfglobal
 		}
 
 		if (!isset($this->post['submit'])) {
-			$forumlist = $this->select_forums($this->forum_grab(), $topic['topic_forum']);
+			$forumlist = $this->htmlwidgets->select_forums($topic['topic_forum']);
 			return eval($this->template('MOD_MOVE_TOPIC'));
 		} else {
 			$this->post['newforum'] = intval($this->post['newforum']);
@@ -240,8 +240,8 @@ class mod extends qsfglobal
 			}
 
 			$quote     = $this->format($data['post_text'], FORMAT_HTMLCHARS);
-			$msg_icons = $this->get_icons(($data['post_icon'] == '') ? -1 : $data['post_icon']);
-			$clickable = $this->make_clickable();
+			$msg_icons = $this->htmlwidgets->get_icons(($data['post_icon'] == '') ? -1 : $data['post_icon']);
+			$clickable = $this->htmlwidgets->make_clickable();
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
 
@@ -267,7 +267,7 @@ class mod extends qsfglobal
 			$emot = isset($this->post['emoticons']) ? 1 : 0;
 			$code = isset($this->post['code']) ? 1 : 0;
 
-			if ($code && !$this->quote_check($this->post['post'])) {
+			if ($code && !$this->bbcode->quote_check($this->post['post'])) {
 				$code = 0;
 			}
 

@@ -91,7 +91,7 @@ class forum extends qsfglobal
 
 		$pagelinks = $this->htmlwidgets->get_pages($topic['count'], "a=forum&amp;f=$f&amp;order={$this->get['order']}&amp;asc=$lasc", $min, $n);
 		$SubForums = $this->getSubs($f);
-		$forumjump = $this->select_forums($this->forum_grab(), $f, 0, null, true);
+		$forumjump = $this->htmlwidgets->select_forums($f, 0, null, true);
 
 		if($exists['forum_subcat'] == '0') {
 			$topics = $this->getTopics($f, $min, $n, $order);
@@ -104,7 +104,7 @@ class forum extends qsfglobal
 			$Forum_TopicList = null;
 		}
 
-		$this->tree_forums($f);
+		$this->htmlwidgets->tree_forums($f);
 
 		if ($SubForums) {
 			$Forum_SubMain = eval($this->template('FORUM_SUBFORUM_MAIN'));

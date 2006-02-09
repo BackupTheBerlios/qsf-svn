@@ -27,6 +27,8 @@ require_once $set['include_path'] . '/lib/htmltools.php';
  **/
 class htmlwidgets extends htmltools
 {
+	var $tree    = null;              // The navigational tree @var string
+
 	/**
 	 * Constructor
 	 *
@@ -38,6 +40,8 @@ class htmlwidgets extends htmltools
 
 		// Need the time for timezone stuff
 		$this->time = &$qsf->time;
+		// Needed for tree forums
+		$this->perms = &$qsf->perms;
 	}
 	
 	/**
@@ -390,6 +394,242 @@ class htmlwidgets extends htmltools
 		return $out;
 	}
 
+	/**
+	 * Options for an HTML select box (all forums in correct order)
+	 *
+	 * @param int $select Option to set as selected (-1 for all)
+	 * @param int $parent Used to degredate down through the recursive loop
+	 * @param string $space Used to increment the spacing before the text in the box
+	 * @param bool $identify_category Set to true to place a period before the value of a category
+	 * @return string Options for an HTML select box (all forums in correct order)
+	 **/
+	function select_forums($select = 0, $parent = 0, $space = '', $identify_category = false)
+	{
+		$array = $this->forum_grab();
+		return $this->_select_forums_recurse($array, $select, $parent, $space, $identify_category);
+	}
+	
+	/**
+	 * Options for an HTML select box (all forums in correct order)
+	 *
+	 * PRIVATE
+	 *
+	 * @param array $array Array of forums to look through
+	 * @param int $select Option to set as selected (-1 for all)
+	 * @param int $parent Used to degredate down through the recursive loop
+	 * @param string $space Used to increment the spacing before the text in the box
+	 * @param bool $identify_category Set to true to place a period before the value of a category
+	 * @author Mark Elliot <mark.elliot@mercuryboard.com>
+	 * @since Beta 4.0
+	 * @return string Options for an HTML select box (all forums in correct order)
+	 **/
+	function _select_forums_recurse($array, $select, $parent, $space, $identify_category = false)
+	{
+		$arr = $this->forum_array($array, $parent);
+
+		$return = null;
+		foreach ($arr as $val)
+		{
+			if (!$this->perms->auth('forum_view', $val['forum_id'])) {
+				continue;
+			}
+
+			if ($identify_category && !$val['forum_parent']) {
+				$dot = '.';
+			} else {
+				$dot = null;
+			}
+
+			if (($val['forum_id'] != $select) && ($select != -1)) {
+				$selected = null;
+			} else {
+				$selected = ' selected="selected"';
+			}
+
+			$return .= '<option value="' . $dot . $val['forum_id'] . '"' . $selected . '>' . $space . $val['forum_name'] . "</option>\n" .
+			$this->_select_forums_recurse($array, $select, $val['forum_id'], $space . '&nbsp; &nbsp;');
+		}
+
+		return $return;
+	}
+
+	/**
+	 * Create options of selectable languages
+	 *
+	 * @param string $current The current language being used
+	 * @param string $relative Path to look for avatars in (optional)
+	 * @return string HTML
+	 **/
+	function select_langs($current, $relative = '.')
+	{
+		$out   = null;
+		$langs = array();
+		$dir   = opendir($relative . '/languages');
+
+		while (($file = readdir($dir)) !== false)
+		{
+			if (is_dir($relative . '/languages/' . $file)) {
+				continue;
+			}
+
+			$code = substr($file, 0, -4);
+			$ext  = substr($file, -4);
+			if ($ext != '.php') {
+				continue;
+			}
+
+			$langs[$code] = $this->get_lang_name($code);
+		}
+
+		asort($langs);
+
+		foreach ($langs as $code => $name)
+		{
+			$out .= "<option value='$code'" . (($code == $current) ? ' selected=\'selected\'' : null) . ">$name</option>\n";
+		}
+
+		return $out;
+	}
+
+	/**
+	 * Fetch the language name for the language code
+	 *
+	 * @param string $code Two character country code
+	 * @return string Language name (in English)
+	 **/
+	function get_lang_name($code)
+	{
+		$code = strtolower($code);
+
+		switch($code)
+		{
+		case 'bg': return 'Bulgarian'; break;
+		case 'zh': return 'Chinese'; break;
+		case 'cs': return 'Czech'; break;
+		case 'nl': return 'Dutch'; break;
+		case 'en': return 'English'; break;
+		case 'fi': return 'Finnish'; break;
+		case 'fr': return 'French'; break;
+		case 'de': return 'German'; break;
+		case 'he': return 'Hebrew'; break;
+		case 'hu': return 'Hungarian'; break;
+		case 'id': return 'Indonesian'; break;
+		case 'it': return 'Italian'; break;
+		case 'no': return 'Norwegian'; break;
+		case 'pt': return 'Portuguese'; break;
+		case 'ru': return 'Russian'; break;
+		case 'sk': return 'Slovak'; break;
+		case 'es': return 'Spanish'; break;
+		case 'sv': return 'Swedish'; break;
+		default: return $code; break;
+		}
+	}
+
+	/**
+	 * Adds an entry to the navigation tree
+	 *
+	 * @param string $label Label for the tree entry
+	 * @param string $link URL to link to
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since Beta 2.1
+	 * @return void
+	 **/
+	function tree($label, $link = null)
+	{
+		$this->tree .= ' <b>&raquo;</b> ' . ($link ? "<a href='$link'>$label</a>" : $label);
+	}
+
+	/**
+	 * Traces a forum back to the parent category and adds entries to the tree - see tree()
+	 *
+	 * @param int $f Forum to generate tree for
+	 * @param bool $linklast True to make the last entry a link (default is false)
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since Beta 2.1
+	 * @return void
+	 **/
+	function tree_forums($f, $linklast = false)
+	{
+		$forums = $this->db->query("SELECT forum_tree, forum_id, forum_name FROM {$this->pre}forums ORDER BY forum_id");
+
+		while ($forum = $this->db->nqfetch($forums))
+		{
+			if (!$this->perms->auth('forum_view', $forum['forum_id'])) {
+				continue;
+			}
+
+			$id         = $forum['forum_id'];
+			$fid[$id]   = $forum['forum_id'];
+			$ftree[$id] = $forum['forum_tree'];
+			$fname[$id] = $forum['forum_name'];
+		}
+
+		if (!isset($ftree[$f])) { //error? lets get out while we can
+			return;
+		}
+
+		$cat = 1; //first forum is always a category
+		$ft  = explode(',', $ftree[$f]);
+		foreach ($ft as $i)
+		{
+			if ($i) {
+				if (!$cat) {
+					$this->tree($fname[$i], "$this->self?a=forum&amp;f={$fid[$i]}");
+				} else {
+					$this->tree($fname[$i], "$this->self?c={$fid[$i]}");
+					$cat = 0;
+				}
+			}
+		}
+
+		if (!$linklast) {
+			$this->tree($fname[$f]);
+		} else {
+			$this->tree($fname[$f], "$this->self?a=forum&amp;f={$fid[$f]}");
+		}
+	}
+
+	/**
+	 * Retrieves message icons and puts them into a table as radio buttons
+	 *
+	 * @param string $select Icon to select
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since Beta 2.0
+	 * @return string HTML-formatted message icons
+	 **/
+	function get_icons($select = -1)
+	{
+		$i     = 0;
+		$icons = array();
+		$dir   = opendir("./skins/$this->skin/mbicons");
+
+		while (($file = readdir($dir)) !== false)
+		{
+			$ext = substr($file, -4);
+
+			if ((($ext == '.gif') || ($ext == '.jpg') || ($ext == '.png')) && !is_dir("./skins/$this->skin/mbicons/$file")) {
+				$icons[$i] = $file;
+				$i++;
+			}
+		}
+
+		closedir($dir);
+		natsort($icons);
+
+		$msgicons = null;
+		$i        = 0;
+
+		foreach ($icons as $icon)
+		{
+			if (($i % 8 == 0) && ($i != 0)) {
+				$msgicons .= "\n</tr><tr>\n\n";
+			}
+
+			$msgicons .= "\n<td><input type=\"radio\" name=\"icon\" id=\"icon$i\" value=\"$icon\"" . (($select == $icon) ? ' checked=\'checked\'' : null) . " /><label for=\"icon$i\"><img src=\"./skins/$this->skin/mbicons/$icon\" alt=\"Message Icon\" /></label>&nbsp;</td>";
+			$i++;
+		}
+		return $msgicons;
+	}
 }
 
 ?>
