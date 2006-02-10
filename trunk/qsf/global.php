@@ -74,6 +74,7 @@ class qsfglobal
 		$this->query   = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : null;
 		$this->ip      = addslashes($_SERVER['REMOTE_ADDR']);
 		$this->agent   = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
+		$this->agent   = substr($this->agent, 0, 99); // Cut off after 100 characters.
 		$this->self    = $_SERVER['PHP_SELF'];
 		$this->server  = $_SERVER;
 		$this->get     = $_GET;
