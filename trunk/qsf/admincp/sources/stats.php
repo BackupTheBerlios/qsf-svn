@@ -73,7 +73,7 @@ class stats extends admin
 		$barplot->SetFillColor('darkorange');
 
 		$graph->add($barplot);
-		$graph->Stroke("{$this->time}1.png");
+		$graph->Stroke("../stats/{$this->time}1.png");
 
 		/**
 		 * Registrations
@@ -108,11 +108,11 @@ class stats extends admin
 		$barplot->SetFillColor('darkorange');
 
 		$graph->add($barplot);
-		$graph->Stroke("{$this->time}2.png");
+		$graph->Stroke("../stats/{$this->time}2.png");
 
 		return $this->message($this->lang->stats,
-		"<img src='{$this->time}1.png' alt='{$this->lang->stats_post_by_month}' /><br /><br />
-		<img src='{$this->time}2.png' alt='{$this->lang->stats_reg_by_month}' />");
+		"<img src='../stats/{$this->time}1.png' alt='{$this->lang->stats_post_by_month}' /><br /><br />
+		<img src='../stats/{$this->time}2.png' alt='{$this->lang->stats_reg_by_month}' />");
 	}
 }
 ?>

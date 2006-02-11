@@ -196,9 +196,9 @@ class register extends qsfglobal
 		$graph = new AntiSpam();
 		
 		$text  = strtoupper($graph->Rand(6));
-		$graph->Stroke('./register.png');
+		$graph->Stroke('./stats/register.png');
 
-		return array(md5("{$this->sets['db_pass']}{$this->sets['mostonlinetime']}$text"), './register.png');
+		return array(md5("{$this->sets['db_pass']}{$this->sets['mostonlinetime']}$text"), './stats/register.png');
 	}
 }
 ?>
