@@ -261,7 +261,7 @@ class bbcode extends htmltools
 		}
 
 		if (isset($tagged)) {
-			$input = str_replace(array('&lt;?php ', '?&gt;'), '', $input);
+			$input = str_replace(array('&lt;?php&nbsp;', '?&gt;'), '', $input);
 		}
 
 		if ($title == 'PHP') {
