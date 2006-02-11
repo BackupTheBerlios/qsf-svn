@@ -246,7 +246,7 @@ class pm extends qsfglobal
 		$pm = $this->db->fetch("
 		SELECT
 		  p.*,
-		  m.user_name, m.user_signature, g.group_name, m.user_posts, m.user_joined, m.user_title, m.user_avatar, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height,
+		  m.user_name, m.user_signature, g.group_name, m.user_posts, m.user_joined, m.user_title, m.user_avatar, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_active,
 		  a.active_time
 		FROM
 		  ({$this->pre}pmsystem p, {$this->pre}users m, {$this->pre}groups g)
@@ -285,7 +285,7 @@ class pm extends qsfglobal
 		$pm['pm_time']     = $this->mbdate(DATE_LONG, $pm['pm_time']);
 		$pm['user_joined'] = $this->mbdate(DATE_ONLY_LONG, $pm['user_joined']);
 
-		$online = ($pm['active_time'] && ($pm['active_time'] > ($this->time - 900)));
+		$online = ($pm['active_time'] && ($pm['active_time'] > ($this->time - 900)) && $pm['user_active']);
 
 		$recipients = null;
 		$foldername = $this->lang->pm_folder_inbox;

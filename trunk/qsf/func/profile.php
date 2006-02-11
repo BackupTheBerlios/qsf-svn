@@ -124,7 +124,7 @@ class profile extends qsfglobal
 			$PostInfo = eval($this->template('PROFILE_NO_POSTS'));
 		}
 
-		$online = ($profile['active_time'] && ($profile['active_time'] > ($this->time - 900)));
+		$online = ($profile['active_time'] && ($profile['active_time'] > ($this->time - 900)) && $profile['user_active']);
 
 		if ($profile['user_birthday'] == '0000-00-00') {
 			$profile['user_birthday'] = null;

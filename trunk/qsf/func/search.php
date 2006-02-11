@@ -231,7 +231,7 @@ class search extends qsfglobal
 
 		$sql .= "
 			p.post_id, p.post_text, p.post_topic, INET_NTOA(p.post_ip) as post_ip, p.post_author, p.post_icon, p.post_time, p.post_mbcode, p.post_emoticons,
-			m.user_name, m.user_title, m.user_avatar_type, m.user_avatar, m.user_avatar_width, m.user_avatar_height, m.user_posts, m.user_joined, m.user_level,
+			m.user_name, m.user_title, m.user_avatar_type, m.user_avatar, m.user_avatar_width, m.user_avatar_height, m.user_posts, m.user_joined, m.user_level, m.user_active,
 			m2.user_name AS Starter,
 			t.topic_title, t.topic_forum, t.topic_replies, t.topic_starter,
 			mt.membertitle_icon,
@@ -424,7 +424,7 @@ class search extends qsfglobal
 					}
 
 					if ($match['post_author'] != USER_GUEST_UID) {
-						$online = ($match['active_time'] && ($match['active_time'] > $oldtime));
+						$online = ($match['active_time'] && ($match['active_time'] > $oldtime) && $match['user_active']);
 
 						if (($match['user_avatar_type'] != 'none') && $this->user['user_view_avatars']) {
 							if (substr($match['user_avatar'], -4) != '.swf') {

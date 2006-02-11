@@ -243,7 +243,7 @@ class topic extends qsfglobal
 		SELECT
 		  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
 		  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
-		  m.user_icq, m.user_yahoo, m.user_homepage, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_msn, m.user_pm, m.user_email_show, m.user_email_form,
+		  m.user_icq, m.user_yahoo, m.user_homepage, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_msn, m.user_pm, m.user_email_show, m.user_email_form, m.user_active,
 		  t.membertitle_icon,
 		  g.group_name,
 		  a.active_time
@@ -298,7 +298,7 @@ class topic extends qsfglobal
 			$Poster_Icons = null;
 
 			if ($post['post_author'] != USER_GUEST_UID) {
-				$online = ($post['active_time'] && ($post['active_time'] > $oldtime));
+				$online = ($post['active_time'] && ($post['active_time'] > $oldtime) && $post['user_active']);
 
 				$icons = array(
 					'user_email' => array(
