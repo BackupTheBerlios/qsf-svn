@@ -98,7 +98,7 @@ class de
 		$this->admin_install_emoticons = 'Emoticons installieren';
 		$this->admin_install_skin = 'Skin installieren';
 		$this->admin_logs = 'Moderatoraktivit&auml;ten anschauen';
-		$this->admin_mass_mail = 'Sende Email an deine Mitglieder';
+		$this->admin_mass_mail = 'Sende Email an Mitglieder';
 		$this->admin_members = 'Mitglieder';
 		$this->admin_phpinfo = 'PHP Info anschauen';
 		$this->admin_prune = 'Alte Themen abschneiden';
@@ -107,7 +107,7 @@ class de
 		$this->admin_skins = 'Skins';
 		$this->admin_stats = 'Statistik-Zentrum';
 		$this->admin_upgrade_skin = 'Skin modernisieren';
-		$this->admin_your_board = 'Dein Board';
+		$this->admin_your_board = 'Ihr Board';
 	}
 
 	function backup()
@@ -115,7 +115,7 @@ class de
 		$this->backup_create = 'Datenbank sichern';
 		$this->backup_done = 'Die Datenbank wurde im Quicksilver Forums Hauptverzeichnis gesichert.';
 		$this->backup_found = 'Die folgenden Sicherungen wurden im Quicksilver Forums Verzeichnis gefunden';
-		$this->backup_invalid = 'Die Sicherung scheint ung&uuml;ltig zu sein.Es wurden keine Ver&auml;nderungen an der Datenbank vorgenommen.';
+		$this->backup_invalid = 'Die Sicherung scheint ung&uuml;ltig zu sein. Es wurden keine Ver&auml;nderungen an der Datenbank vorgenommen.';
 		$this->backup_none = 'Es wurden keine Sicherungen im Quicksilver Forums Verzeichnis gefunden.';
 		$this->backup_restore = 'Sicherung wiederherstellen';
 		$this->backup_restore_done = 'Die Datenbank wurde erfolgreich wieder hergestellt.';
@@ -128,12 +128,12 @@ class de
 		$this->ban_banned_ips = 'Gesperrte IP Adressen';
 		$this->ban_banned_members = 'Gesperrte Mitglieder';
 		$this->ban_ip = 'IP Adressen sperren';
-		$this->ban_member_explain1 = 'Um Benutzer zu sperren, &auml;ndere ihre Gruppe zu';
+		$this->ban_member_explain1 = 'Um Benutzer zu sperren, &auml;ndern sie ihre Gruppe zu';
 		$this->ban_member_explain2 = 'in der Mitgliederverwaltung.';
 		$this->ban_members = 'Mitglieder sperren';
 		$this->ban_nomembers = 'Aktuell gibt es keine gesperrten Mitglieder.';
 		$this->ban_one_per_line = 'Eine Adresse pro Linie.';
-		$this->ban_regex_allowed = 'Regul&auml;re Ausdr&uuml;cke sind erlaubt. Benutze * f&uuml;r eine oder mehrere Stellen.';
+		$this->ban_regex_allowed = 'Regul&auml;re Ausdr&uuml;cke sind erlaubt. Benutzen sie * f&uuml;r eine oder mehrere Stellen.';
 		$this->ban_settings = 'Sperr-Einstellungen';
 		$this->ban_users_banned = 'Gesperrte Benutzer.';
 	}
@@ -142,10 +142,10 @@ class de
 	{
 		$this->board_active_users = 'Aktive Benutzer';
 		$this->board_birthdays = 'Heutige Geburtstage';
-		$this->board_bottom_page = 'Gehe zum Ende der Seite';
-		$this->board_can_post = 'Du kannst in diesem Forum antworten.';
-		$this->board_can_topics = 'Du kannst in diesem Forum Themen sehen aber keine erstellen.';
-		$this->board_cant_post = 'Du kannst in diesem Forum nicht antworten.';
+		$this->board_bottom_page = 'Zum Ende der Seite';
+		$this->board_can_post = 'Sie k&ouml;nnen in diesem Forum antworten.';
+		$this->board_can_topics = 'Sie k&ouml;nnen in diesem Forum Themen sehen aber keine erstellen.';
+		$this->board_cant_post = 'Sie k&ouml;nnen in diesem Forum nicht antworten.';
 		$this->board_cant_topics = 'Du kannst in diesem Forum keine Themen sehen oder erstellen.';
 		$this->board_forum = 'Forum';
 		$this->board_guests = 'G&auml;ste';
@@ -158,22 +158,22 @@ class de
 		$this->board_nobday = 'Kein Mitglied hat heute Geburtstag.';
 		$this->board_nobody = 'Momentan sind keine Mitglieder online.';
 		$this->board_nopost = 'Keine Beitr&auml;ge';
-		$this->board_noview = 'Du hast nicht die Erlaubnis, dieses Board zu sehen.';
-		$this->board_regfirst = 'Du hast nicht die Erlaubnis, dieses Board zu sehen - vielleicht wenn du dich registrierst.';
+		$this->board_noview = 'Sie haben nicht die Erlaubnis, dieses Board zu sehen.';
+		$this->board_regfirst = 'Sie haben nicht die Erlaubnis, dieses Board zu sehen, vielleicht wenn sie sich registrieren.';
 		$this->board_replies = 'Antworten';
 		$this->board_stats = 'Statistiken';
 		$this->board_stats_string = '%s Benutzer sind registriert. Unser neustes Mitglied ist %s.<br />Es gibt %s Themen und %s Beitr&auml;ge mit einer Gesamtzahl von %s Beitr&auml;gen.';
 		$this->board_top_page = 'Gehe zum Anfang der Seite';
 		$this->board_topics = 'Themen';
 		$this->board_users = 'Benutzer';
-		$this->board_write_topics = 'Du kannst Themen sehen und erstellen.';
+		$this->board_write_topics = 'Sie k&ouml;nnen Themen sehen und erstellen.';
 	}
 
 	function censoring()
 	{
 		$this->censor = 'W&ouml;rter zensieren';
 		$this->censor_one_per_line = 'Eins pro Linie.';
-		$this->censor_regex_allowed = 'Regul&auml;re Ausdr&uuml;cke sind erlaubt. Benutze * f&uuml;r ein oder mehrere Zeichen.';
+		$this->censor_regex_allowed = 'Regul&auml;re Ausdr&uuml;cke sind erlaubt. Benutzen sie * f&uuml;r ein oder mehrere Zeichen.';
 		$this->censor_updated = 'W&ouml;rterliste aktualisiert';
 	}
 
@@ -183,26 +183,26 @@ class de
 		$this->cp_already_member = 'Die eingegebene Emailadresse ist bereits einem Mitglied zugeordnet.';
 		$this->cp_apr = 'April';
 		$this->cp_aug = 'August';
-		$this->cp_avatar_current = 'Dein momentaner Avatar';
+		$this->cp_avatar_current = 'Ihr momentaner Avatar';
 		$this->cp_avatar_error = 'Avatarproblem';
-		$this->cp_avatar_must_select = 'Du musst einen Avatar ausw&auml;hlen.';
+		$this->cp_avatar_must_select = 'Sie m&uuml;ssen einen Avatar ausw&auml;hlen.';
 		$this->cp_avatar_none = 'Benutze keinen Avatar';
 		$this->cp_avatar_pixels = 'Pixel';
-		$this->cp_avatar_select = 'W&auml;hle einen Avatar aus';
+		$this->cp_avatar_select = 'W&auml;hlen sie einen Avatar aus';
 		$this->cp_avatar_size_height = 'Die H&ouml;he des Avatars liegt zwischen 1 und';
 		$this->cp_avatar_size_width = 'Die Breite des Avatars liegt zwischen 1 und';
-		$this->cp_avatar_upload = 'Lade einen Avatar von deiner Festplatte hoch';
+		$this->cp_avatar_upload = 'Laden sie einen Avatar von ihrer Festplatte hoch';
 		$this->cp_avatar_upload_failed = 'Der Upload ist schiefgegangen.  Die Datei existiert m&ouml;glicherweise nicht.';
-		$this->cp_avatar_upload_not_image = 'Du kannst Bilder nur hochladen um sie als Avatar zu benutzen.';
+		$this->cp_avatar_upload_not_image = 'Sie k&ouml;nnen Bilder nur hochladen um sie als Avatar zu benutzen.';
 		$this->cp_avatar_upload_too_large = 'Der Avatar ist zu gro&szlig;, um ihn hochzuladen. Das Limit betr&auml;gt %d kb.';
-		$this->cp_avatar_url = 'W&auml;hle eine URL f&uuml;r deinen Avatar';
-		$this->cp_avatar_use = 'Benutze deinen hochgeladenen Avatar';
+		$this->cp_avatar_url = 'W&auml;hlen sie eine URL f&uuml;r ihren Avatar';
+		$this->cp_avatar_use = 'Benutzen sie den hochgeladenen Avatar';
 		$this->cp_bday = 'Geburtstag';
-		$this->cp_been_updated = 'Dein Profil wurde aktualisiert.';
-		$this->cp_been_updated1 = 'Dein Avatar wurde aktualisiert.';
-		$this->cp_been_updated_prefs = 'Deine Pr&auml;ferenzen wurden aktualisiert.';
+		$this->cp_been_updated = 'Ihr Profil wurde aktualisiert.';
+		$this->cp_been_updated1 = 'Ihr Avatar wurde aktualisiert.';
+		$this->cp_been_updated_prefs = 'Ihre Pr&auml;ferenzen wurden aktualisiert.';
 		$this->cp_changing_pass = 'Passwort editieren';
-		$this->cp_contact_pm = 'Erlaube es Anderen, dich via Messenger zu kontaktieren?';
+		$this->cp_contact_pm = 'Erlaube es Anderen, mich via Messenger zu kontaktieren?';
 		$this->cp_cp = 'Kontrollzentum';
 		$this->cp_current_avatar = 'Aktueller Avatar';
 		$this->cp_current_time = 'Es ist momentan %s.';
@@ -212,12 +212,12 @@ class de
 		$this->cp_editing_avatar = 'Editiere Avatar';
 		$this->cp_editing_profile = 'Editiere Profil';
 		$this->cp_email = 'Email';
-		$this->cp_email_form = 'Erlaube es Anderen, dich via Email zu kontaktieren?';
+		$this->cp_email_form = 'Erlaube es Anderen, mich via Email zu kontaktieren?';
 		$this->cp_email_invaid = 'Die eingegebene Emailadresse ist ung&uuml;ltig.';
 		$this->cp_err_avatar = 'Fehler beim Aktualisieren des Avatars';
 		$this->cp_err_updating = 'Fehler beim Aktualisieren des Profils';
 		$this->cp_feb = 'Februar';
-		$this->cp_file_type = 'Der eingebene Avatar ist nicht in Ordnung. Gehe sicher, das die URL richtig eingegeben ist und die Datei entweder die Endung GIF, JPG oder PNG hat.';
+		$this->cp_file_type = 'Der eingebene Avatar ist nicht in Ordnung. Gehen sie sicher, das die URL richtig eingegeben ist und die Datei entweder die Endung GIF, JPG oder PNG hat.';
 		$this->cp_format = 'Namensformatierung';
 		$this->cp_gtalk = 'GTalk Konto';
 		$this->cp_header = 'Benutzer Kontrollzentum';
@@ -234,13 +234,13 @@ class de
 		$this->cp_label_edit_sig = 'Editiere Signatur';
 		$this->cp_label_edit_subs = 'Editiere Abonnements';
 		$this->cp_language = 'Sprache';
-		$this->cp_less_charac = 'Dein Name muss kleiner als 32 Zeichen sein.';
+		$this->cp_less_charac = 'Ihr Name muss kleiner als 32 Zeichen sein.';
 		$this->cp_location = 'Ort';
-		$this->cp_login_first = 'Du musst dich einloggen, um zu deinem Kontrollzentum zu gelangen.';
+		$this->cp_login_first = 'Sie m&uuml;ssen sich anmelden um zu ihrem Kontrollzentum zu gelangen.';
 		$this->cp_mar = 'M&auml;rz';
 		$this->cp_may = 'Mai';
-		$this->cp_msn = 'MSN Identit&auml;t';
-		$this->cp_must_orig = 'Dein Name muss identisch mit dem Original sein. Du kannst nur die Klein/Gro&szlig;schreibung sowie den Abstand &auml;ndern.';
+		$this->cp_msn = 'MSN Konto';
+		$this->cp_must_orig = 'Ihr Name muss identisch mit dem Original sein. Sie k&ouml;nnen nur die Klein/Gro&szlig;schreibung sowie den Zeichenabstand &auml;ndern.';
 		$this->cp_new_notmatch = 'Die neuen eingegebenen Passw&ouml;rter stimmen nicht &uuml;berein.';
 		$this->cp_new_pass = 'Neues Passwort';
 		$this->cp_no_flash = 'Flash Avatare sind auf diesem Board nicht erlaubt.';
@@ -249,13 +249,13 @@ class de
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Das alte eingegebene Passwort stimmt nicht mit dem in der Datenbank &uuml;berein.';
 		$this->cp_old_pass = 'Altes Passwort';
-		$this->cp_pass_notvaid = 'Dein Passwort ist nicht g&uuml;ltig. Gehe sicher, das nur g&uuml;ltige Zeichen benutzt werden wie z.B. Buchstaben, Zahlen, Bindestriche, Unterstriche oder Leerzeichen.';
+		$this->cp_pass_notvaid = 'Ihr Passwort ist nicht g&uuml;ltig. Gehen sie sicher, das nur g&uuml;ltige Zeichen benutzt werden wie z.B. Buchstaben, Zahlen, Bindestriche, Unterstriche oder Leerzeichen.';
 		$this->cp_preferences = 'Ver&auml;ndere Einstellungen';
 		$this->cp_preview_sig = 'Signatur Vorschau:';
 		$this->cp_privacy = 'Private Optionen';
-		$this->cp_repeat_pass = 'Wiederhole das neue Passwort';
+		$this->cp_repeat_pass = 'Wiederholen sie das neue Passwort';
 		$this->cp_sept = 'September';
-		$this->cp_show_active = 'Deine Aktionen anzeigen, wenn du im Forum bist?';
+		$this->cp_show_active = 'Ihre Aktionen anzeigen, wenn sie im Forum sind?';
 		$this->cp_show_email = 'Email Adresse im Profil anzeigen?';
 		$this->cp_signature = 'Signatur';
 		$this->cp_size_max = 'Die eingegebene Gr&ouml;&szlig;e des Avatars ist zu gro&szlig;. Die maximale Gr&ouml;&szlig;e betr&auml;gt %s x %s Pixel.';
@@ -265,7 +265,7 @@ class de
 		$this->cp_sub_expire = 'Verfallsdatum';
 		$this->cp_sub_name = 'Abonnementname';
 		$this->cp_sub_no_params = 'Keine Parameter angegeben.';
-		$this->cp_sub_success = 'Du hast nun %s abonniert.';
+		$this->cp_sub_success = 'Sie haben nun %s abonniert.';
 		$this->cp_sub_type = 'Abonnementtyp';
 		$this->cp_sub_updated = 'Ausgew&auml;hlte Abonnements wurden gel&ouml;scht.';
 		$this->cp_topic_option = 'Themen Optionen';
@@ -277,9 +277,9 @@ class de
 		$this->cp_view_avatar = 'Avatare anzeigen?';
 		$this->cp_view_emoticon = 'Smilies anzeigen?';
 		$this->cp_view_signature = 'Signaturen anzeigen?';
-		$this->cp_welcome = 'Willkommen im Benutzer-Kontrollzentrum. Hier kannst du deinen Account konfigurieren. Bitte w&auml;hle von den oberen Optionen aus.';
+		$this->cp_welcome = 'Willkommen im Benutzer-Kontrollzentrum. Hier k&ouml;nnen sie ihr Konto konfigurieren. Bitte w&auml;hlen sie von den oberen Optionen aus.';
 		$this->cp_width = 'L&auml;nge';
-		$this->cp_www = 'Homepage';
+		$this->cp_www = 'Webseite';
 		$this->cp_yahoo = 'Yahoo';
 		$this->cp_zone = 'Zeitzone';
 	}
@@ -289,10 +289,10 @@ class de
 		$this->email_blocked = 'Das Mitglied akzeptiert &uuml;ber dieses Board keine Emails.';
 		$this->email_email = 'Email';
 		$this->email_msgtext = 'Emailtext:';
-		$this->email_no_fields = 'Geh zur&uuml;ck und gehe sicher, das alle Felder ausgef&uuml;llt sind.';
+		$this->email_no_fields = 'Gehen sie zur&uuml;ck und gehen sie sicher, das alle Felder ausgef&uuml;llt sind.';
 		$this->email_no_member = 'Es wurde kein Mitglied mit diesem Namen gefunden';
-		$this->email_no_perm = 'Du hast keine Erlaubnis in diesem Board Emails zu schreiben.';
-		$this->email_sent = 'Deine Email wurde verschickt.';
+		$this->email_no_perm = 'Sie haben keine Erlaubnis auf diesem Board Emails zu schreiben.';
+		$this->email_sent = 'Ihre Email wurde verschickt.';
 		$this->email_subject = 'Betreff:';
 		$this->email_to = 'An:';
 	}
@@ -307,7 +307,7 @@ class de
 		$this->emote_image = 'Bild';
 		$this->emote_install = 'Emoticons installieren';
 		$this->emote_install_done = 'Emoticons wurden erfolgreich installiert.';
-		$this->emote_install_warning = 'Alle bestehenden Emoticon-Einstellungen werden gel&ouml;scht und die Emoticons deines aktuell ausgew&auml;hlten Skins werden in die Datenbank importiert.';
+		$this->emote_install_warning = 'Alle bestehenden Emoticon-Einstellungen werden gel&ouml;scht und die Emoticons ihres aktuell ausgew&auml;hlten Skins werden in die Datenbank importiert.';
 		$this->emote_no_text = 'Kein Emoticon Text.';
 		$this->emote_text = 'Text';
 	}
@@ -315,17 +315,17 @@ class de
 	function forum()
 	{
 		$this->forum_by = 'Von';
-		$this->forum_can_post = 'Du kannst in diesem Forum antworten.';
-		$this->forum_can_topics = 'Du kannst in diesem Forum Themen sehen.';
-		$this->forum_cant_post = 'Du kannst in diesem Forum nicht antworten.';
-		$this->forum_cant_topics = 'Du kannst in diesem Forum keine Themen sehen.';
+		$this->forum_can_post = 'Sie k&ouml;nnen in diesem Forum antworten.';
+		$this->forum_can_topics = 'Sie k&ouml;nnen in diesem Forum Themen sehen.';
+		$this->forum_cant_post = 'Sie k&ouml;nnen in diesem Forum nicht antworten.';
+		$this->forum_cant_topics = 'Sie k&ouml;nnen in diesem Forum keine Themen sehen.';
 		$this->forum_dot = 'Punkt';
-		$this->forum_dot_detail = 'zeigt, das du im Thema beigetragen hast';
+		$this->forum_dot_detail = 'zeigt, das sie im Thema einen Beitrag verfasst hast';
 		$this->forum_forum = 'Forum';
 		$this->forum_guest = 'Gast';
 		$this->forum_hot = 'Hei&szlig;';
 		$this->forum_icon = 'Nachrichtsymbol';
-		$this->forum_jump = 'Springe zum neuestem Beitrag im Thema';
+		$this->forum_jump = 'Springe zum neuesten Beitrag im Thema';
 		$this->forum_last = 'Letzter Beitrag';
 		$this->forum_locked = 'Gesperrt';
 		$this->forum_moved = 'Verschoben';
@@ -337,12 +337,12 @@ class de
 		$this->forum_noexist = 'Das ausgew&auml;hlte Forum existiert nicht.';
 		$this->forum_nopost = 'Keine Beitr&auml;ge';
 		$this->forum_not = 'Nicht';
-		$this->forum_noview = 'Du hast nicht die Erlaubnis Foren zu sehen.';
+		$this->forum_noview = 'Sie haben nicht die Erlaubnis Foren zu sehen.';
 		$this->forum_pages = 'Seiten';
 		$this->forum_pinned = 'Genagelt';
 		$this->forum_pinned_topic = 'Genageltes Thema';
 		$this->forum_poll = 'Umfrage';
-		$this->forum_regfirst = 'Du hast nicht die Erlaubnis Foren zu sehen  vielleicht wenn du dich registrierst.';
+		$this->forum_regfirst = 'Sie haben nicht die Erlaubnis Foren zu sehen, vielleicht wenn sie sich registrieren.';
 		$this->forum_replies = 'Antworten';
 		$this->forum_starter = 'Verfasser';
 		$this->forum_sub = 'Unterforum';
@@ -352,7 +352,7 @@ class de
 		$this->forum_subscribe = 'Benachrichtige mich per Email wenn Beitr&auml;ge in diesem Forum geschrieben wurden';
 		$this->forum_topic = 'Thema';
 		$this->forum_views = 'Gesehen';
-		$this->forum_write_topics = 'Du kannst in diesem Forum Themen erstellen.';
+		$this->forum_write_topics = 'Sie k&ouml;nnen in diesem Forum Themen erstellen.';
 	}
 
 	function forums()
@@ -363,7 +363,7 @@ class de
 		$this->forum_created = 'Forum erstellt';
 		$this->forum_default_perms = 'Standart Berechtigungen';
 		$this->forum_delete = 'Forum l&ouml;schen';
-		$this->forum_delete_warning = 'Bist du sicher dass du dieses Forum, die zugeh&ouml;rigen Themen und Beitr&auml;ge l&ouml;schen willst?<br />Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden.';
+		$this->forum_delete_warning = 'Sind sie sicher dass sie dieses Forum, die zugeh&ouml;rigen Themen und Beitr&auml;ge l&ouml;schen wollen?<br />Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden.';
 		$this->forum_deleted = 'Das Forum wurde gel&ouml;scht.';
 		$this->forum_description = 'Beschreibung';
 		$this->forum_edit = 'Forum bearbeiten';
@@ -371,11 +371,11 @@ class de
 		$this->forum_empty = 'Kein Forenname vergeben, bitte zur&uuml;ckgehen und einen Namen eintragen.';
 		$this->forum_is_subcat = 'Dieses Forum ist nur eine Unterkategorie.';
 		$this->forum_name = 'Name';
-		$this->forum_no_orphans = 'Du kannst ein Forum nicht verwaisen indem du dessen Eltern l&ouml;scht.';
+		$this->forum_no_orphans = 'Sie k&ouml;nnen ein Forum nicht verwaisen indem sie dessen Eltern l&ouml;schen.';
 		$this->forum_none = 'Es gibt keine Foren zum Manipulieren.';
 		$this->forum_ordered = 'Forum Anordnung aktualisiert';
 		$this->forum_ordering = 'Forum Anordnung &auml;ndern';
-		$this->forum_parent = 'So kannst du die Forumseltern nicht wechseln.';
+		$this->forum_parent = 'So k&ouml;nnen sie die Forumseltern nicht wechseln.';
 		$this->forum_parent_cat = 'Vorg&auml;nger Kategorie';
 		$this->forum_quickperm_select = 'W&auml;hle ein existierendes Forum um dessen Berechtigungen zu kopieren.';
 		$this->forum_quickperms = 'Schnellberechtigungen';
@@ -386,7 +386,7 @@ class de
 
 	function groups()
 	{
-		$this->groups_bad_format = 'Du musst %s in dem Format nutzen, welches den Gruppennamen repr&auml;sentiert.';
+		$this->groups_bad_format = 'Sie m&uuml;ssen %s in dem Format nutzen, welches den Gruppennamen repr&auml;sentiert.';
 		$this->groups_based_on = 'basiert auf';
 		$this->groups_create = 'Gruppe erstellen';
 		$this->groups_create_new = 'Erstelle eine neue Benutzergruppe';
@@ -402,7 +402,7 @@ class de
 		$this->groups_no_delete = 'Keine individuellen Gruppen zum L&ouml;schen vorhanden.<br />Die Kerngruppen sind notwendig das Quicksilver Forums funktioniert und k&ouml;nnen nicht gel&ouml;scht werden.';
 		$this->groups_no_group = 'Keine Gruppe spezifiziert.';
 		$this->groups_no_name = 'Kein Gruppenname.';
-		$this->groups_only_custom = 'Anmerkung: Du kannst nur individuelle Benutzergruppen l&ouml;schen. Die Kerngruppen sind notwendig das Quicksilver Forums funktioniert.';
+		$this->groups_only_custom = 'Anmerkung: Sie k&ouml;nnen nur individuelle Benutzergruppen l&ouml;schen. Die Kerngruppen sind notwendig das Quicksilver Forums funktioniert.';
 		$this->groups_the = 'Die Gruppe';
 		$this->groups_to_edit = 'Gruppe zum &Auml;ndern';
 		$this->groups_type = 'Gruppentyp';
@@ -426,32 +426,32 @@ class de
 		$this->help_no_title = 'Es wird ein Titel ben&ouml;tigt.';
 		$this->help_none = 'Es gibt keine Hilfedateien in der Datenbank.';
 		$this->help_not_exist = 'Diese Hilfe existiert nicht.';
-		$this->help_select = 'Bitte w&auml;hle eine Hilfe zum Bearbeiten';
-		$this->help_select_delete = 'Bitte w&auml;hle eine Hilfe zum L&ouml;schen';
+		$this->help_select = 'Bitte w&auml;hlen sie eine Hilfe zum Bearbeiten';
+		$this->help_select_delete = 'Bitte w&auml;hlen sie eine Hilfe zum L&ouml;schen';
 		$this->help_title = 'Titel';
 	}
 
 	function home()
 	{
-		$this->home_choose = 'W&auml;hle eine Aufgabe um zu beginnen.';
+		$this->home_choose = 'W&auml;hlen sie eine Aufgabe um zu beginnen.';
 		$this->home_menu_title = 'Administrator Kontrollzentrum Men&uuml;';
 	}
 
 	function login()
 	{
-		$this->login_cant_logged = 'Du konntest dich nicht anmelden. &Uuml;berpr&uuml;fe die Richtigkeit deines Benutzernamens und des Passworts.<br /><br />Bitte achte auch auf Gro&szlig;- und Kleinschreibung, also \'BeNuTzErNaMe\' ist nicht das gleiche wie \'Benutzername\'. &Uuml;berpr&uuml;fe auch das Cookies im Browser aktiviert sind.';
+		$this->login_cant_logged = 'Sie konnten sich nicht anmelden. &Uuml;berpr&uuml;fen sie die Richtigkeit ihres Benutzernamens und des Passworts.<br /><br />Bitte achten sie auch auf Gro&szlig;- und Kleinschreibung, also \'BeNuTzErNaMe\' ist nicht das gleiche wie \'Benutzername\'. &Uuml;berpr&uuml;fen sie auch das Cookies im Browser aktiviert sind.';
 		$this->login_cookies = 'Cookies m&uuml;ssen zum Anmelden aktiviert sein.';
 		$this->login_forgot_pass = 'Passwort vergessen?';
 		$this->login_header = 'Angemeldet';
-		$this->login_logged = 'Du bist nun angemeldet.';
-		$this->login_now_out = 'Du bist nun abgemeldet.';
+		$this->login_logged = 'Sie sind nun angemeldet.';
+		$this->login_now_out = 'Sie sind nun abgemeldet.';
 		$this->login_out = 'Abmelden';
 		$this->login_pass = 'Passwort';
 		$this->login_pass_no_id = 'Es gibt kein Mitglied mit dem eingegebenen Benutzernamen.';
-		$this->login_pass_request = 'Um das R&uuml;cksetzen des Passworts abzuschlie&szlig;en, klick bitte auf den Link welcher an die Emailadresse deines Kontos geschickt wurde .';
+		$this->login_pass_request = 'Um das R&uuml;cksetzen des Passworts abzuschlie&szlig;en, klickn sie bitte auf den Link welcher an die Emailadresse ihres Kontos geschickt wurde.';
 		$this->login_pass_reset = 'Passwort zur&uuml;cksetzen';
-		$this->login_pass_sent = 'Dein Passwort wurde zur&uuml;ckgesetzt. Das neue Passwort wurde an die angegebene Emailaddresse verschickt.';
-		$this->login_sure = 'Bist du dir sicher das du dich von \'%s\' abmelden willst?';
+		$this->login_pass_sent = 'Ihr Passwort wurde zur&uuml;ckgesetzt. Das neue Passwort wurde an die angegebene Emailaddresse verschickt.';
+		$this->login_sure = 'Sind sie sich sicher das sie sich von \'%s\' abmelden wollen?';
 		$this->login_user = 'Benutzername';
 	}
 
@@ -480,10 +480,10 @@ class de
 
 	function main()
 	{
-		$this->main_activate = 'Dein Account wurde noch nicht aktiviert.';
+		$this->main_activate = 'Ihr Konto wurde noch nicht aktiviert.';
 		$this->main_activate_resend = 'Sende Aktivierungsmail erneut';
 		$this->main_admincp = 'Administrator Kontrollzentrum';
-		$this->main_banned = 'Du wurdest vom Board verbannt.';
+		$this->main_banned = 'Sie wurden vom Board verbannt.';
 		$this->main_code = 'Code';
 		$this->main_cp = 'Kontrollzentrum';
 		$this->main_full = 'Voll';
@@ -503,7 +503,7 @@ class de
 		$this->main_quote = 'Zitat';
 		$this->main_recent = 'neueste Beitr&auml;ge';
 		$this->main_recent1 = 'Neue Themen seit dem letzten Besuch anschauen';
-		$this->main_register = 'Registriere';
+		$this->main_register = 'Registrieren';
 		$this->main_reminder = 'Erinnere';
 		$this->main_reminder_closed = 'Das Board ist geschlossen und kann nur von Administratoren eingesehen werden.';
 		$this->main_said = 'schrieb';
@@ -523,12 +523,12 @@ class de
 		$this->mail_message = 'Nachricht';
 		$this->mail_select_all = 'Alle ausw&auml;hlen';
 		$this->mail_send = 'Mail schicken';
-		$this->mail_sent = 'Deine Nachricht wurde gesendet an';
+		$this->mail_sent = 'Ihre Nachricht wurde gesendet an';
 	}
 
 	function mbcode()
 	{
-		$this->mbcode_address = 'Gib eine Adresse ein';
+		$this->mbcode_address = 'Geben sie eine Adresse ein';
 		$this->mbcode_arial = 'Arial';
 		$this->mbcode_blue = 'Blau';
 		$this->mbcode_bold = 'Fett';
@@ -555,7 +555,7 @@ class de
 		$this->mbcode_italic = 'Kursiv';
 		$this->mbcode_italic1 = 'K';
 		$this->mbcode_large = 'Gro&szlig;';
-		$this->mbcode_length = 'Deine Nachricht hat +length+ Zeichen.';
+		$this->mbcode_length = 'Ihre Nachricht hat +length+ Zeichen.';
 		$this->mbcode_limegreen = 'Limettengr&uuml;n';
 		$this->mbcode_medium = 'Mittel';
 		$this->mbcode_orange = 'Orange';
@@ -591,7 +591,7 @@ class de
 	function member_control()
 	{
 		$this->mc = 'Mitgliederkontrolle';
-		$this->mc_confirm = 'Bist du sicher das du l&ouml;schen willst';
+		$this->mc_confirm = 'Sind sie sicher das sie l&ouml;schen wollen';
 		$this->mc_delete = 'L&ouml;sche Mitglied';
 		$this->mc_deleted = 'Mitglied gel&ouml;scht.';
 		$this->mc_edit = 'Mitglied bearbeiten';
@@ -599,8 +599,8 @@ class de
 		$this->mc_email_invaid = 'Die eingegebene Emailadresse ist g&uuml;ltig.';
 		$this->mc_err_updating = 'Fehler bei Profilaktualisierung';
 		$this->mc_find = 'Finde Mitglieder deren Namen enthalten';
-		$this->mc_found = 'Die folgenden Mitglieder wurden gefunden. Bitte w&auml;hle einen aus.';
-		$this->mc_guest_needed = 'Das Gastkonto ist notwendig damit Quicksilver Forums funktionieren.';
+		$this->mc_found = 'Die folgenden Mitglieder wurden gefunden. Bitte w&auml;hlen sie einen aus.';
+		$this->mc_guest_needed = 'Das Gastkonto ist notwendig damit Quicksilver Forums funktionieren kann.';
 		$this->mc_not_found = 'Keine Treffer bei den Mitgliedern';
 		$this->mc_user_aim = 'AIM Name';
 		$this->mc_user_avatar = 'Avatar';
@@ -612,7 +612,7 @@ class de
 		$this->mc_user_email_show = 'Email ist &ouml;ffentlich';
 		$this->mc_user_group = 'Gruppe';
 		$this->mc_user_gtalk = 'GTalk Konto';
-		$this->mc_user_homepage = 'Homepage';
+		$this->mc_user_homepage = 'Webseite';
 		$this->mc_user_icq = 'ICQ Nummer';
 		$this->mc_user_id = 'Benutzer ID';
 		$this->mc_user_interests = 'Interessen';
@@ -622,7 +622,7 @@ class de
 		$this->mc_user_lastvisit = 'Letzter Besuch';
 		$this->mc_user_level = 'Level';
 		$this->mc_user_location = 'Ort';
-		$this->mc_user_msn = 'MSN Identifizierung';
+		$this->mc_user_msn = 'MSN Konto';
 		$this->mc_user_name = 'Name';
 		$this->mc_user_pm = 'Private Nachrichten akzeptieren';
 		$this->mc_user_posts = 'Beitr&auml;ge';
@@ -654,22 +654,22 @@ class de
 		$this->members_member = 'Mitglied';
 		$this->members_pm = 'PN';
 		$this->members_posts = 'Beitr&auml;ge';
-		$this->members_send_pm = 'Schicke dem Benutzer eine pers&ouml;nliche Nachricht';
+		$this->members_send_pm = 'Schicken sie dem Benutzer eine pers&ouml;nliche Nachricht';
 		$this->members_title = 'Titel';
-		$this->members_vist_www = 'Besuche des Mitglied\'s Webseite';
+		$this->members_vist_www = 'Besuchen sie des Mitglied\'s Webseite';
 		$this->members_www = 'Webseite';
 	}
 
 	function mod()
 	{
-		$this->mod_confirm_post_delete = 'Bist du dir sicher, das du diesen Beitrag l&ouml;schen willst?';
-		$this->mod_confirm_topic_delete = 'Bist du dir sicher, das du dieses Thema l&ouml;schen willst?';
-		$this->mod_error_first_post = 'Du kannst den ersten Beitrag eines Themas nicht l&ouml;schen.';
-		$this->mod_error_move_category = 'Du kannst ein Thema nicht zu einer Kategorie verschieben.';
-		$this->mod_error_move_create = 'Du hast keine Erlaubnis, Themen in dem Forum zu verschieben.';
-		$this->mod_error_move_forum = 'Du kannst das Thema nicht zu einem nicht existierendem Forum verschieben.';
-		$this->mod_error_move_global = 'Du kannst kein globales Thema verschieben. Editiere es vorher!';
-		$this->mod_error_move_same = 'Du kannst das Thema nicht in ein Forum verschieben, indem es sich schon befindet.';
+		$this->mod_confirm_post_delete = 'Sind sie sich sicher, das sie diesen Beitrag l&ouml;schen wollen?';
+		$this->mod_confirm_topic_delete = 'Sind sie sich sicher, das sie dieses Thema l&ouml;schen wollen?';
+		$this->mod_error_first_post = 'Sie k&ouml;nnen den ersten Beitrag eines Themas nicht l&ouml;schen.';
+		$this->mod_error_move_category = 'Sie k&ouml;nnen ein Thema nicht zu einer Kategorie verschieben.';
+		$this->mod_error_move_create = 'sie haben keine Erlaubnis, Themen in dem Forum zu verschieben.';
+		$this->mod_error_move_forum = 'Sie k&ouml;nnen das Thema nicht zu einem nicht existierendem Forum verschieben.';
+		$this->mod_error_move_global = 'Sie k&ouml;nnen kein globales Thema verschieben. Editieren sie es vorher!';
+		$this->mod_error_move_same = 'Sie k&ouml;nnen das Thema nicht in ein Forum verschieben, indem es sich schon befindet.';
 		$this->mod_label_controls = 'Moderator Kontrolle';
 		$this->mod_label_description = 'Beschreibung';
 		$this->mod_label_emoticon = 'Konvertiere Smilies in Bilder?';
@@ -693,19 +693,19 @@ class de
 		$this->mod_label_topic_split = 'Geteiltes Thema';
 		$this->mod_missing_post = 'Der ausgew&auml;hlte Beitrag exisitert nicht.';
 		$this->mod_missing_topic = 'Das ausgew&auml;hlte Thema exisitiert nicht.';
-		$this->mod_no_action = 'Du musst eine Aktion ausw&auml;hlen.';
-		$this->mod_no_post = 'Du musst einen Beitrag ausw&auml;hlen.';
-		$this->mod_no_topic = 'Du musst ein Thema ausw&auml;hlen.';
-		$this->mod_perm_post_delete = 'Du hast nicht die Erlaubnis diesen Beitrag zu l&ouml;schen.';
-		$this->mod_perm_post_edit = 'Du hast nicht die Erlaubnis diesen Beitrag zu editieren.';
-		$this->mod_perm_topic_delete = 'Du hast nicht die Erlaubnis dieses Thema zu l&ouml;schen.';
-		$this->mod_perm_topic_edit = 'Du hast nicht die Erlaubnis dieses Them zu editieren.';
-		$this->mod_perm_topic_lock = 'Du hast nicht die Erlaubnis dieses Thema zu sperren.';
-		$this->mod_perm_topic_move = 'Du hast nicht die Erlaubnis dieses Thema zu verschieben.';
-		$this->mod_perm_topic_pin = 'Du hast nicht die Erlaubnis dieses Thema zu nageln.';
-		$this->mod_perm_topic_split = 'Du hast nicht die Erlaubnis dieses Thema zu teilen.';
-		$this->mod_perm_topic_unlock = 'Du hast nicht die Erlaubnis dieses Thema zu &ouml;ffnen.';
-		$this->mod_perm_topic_unpin = 'Du hast nicht die Erlaubnis dieses Thema zu entnageln.';
+		$this->mod_no_action = 'Sie m&uuml;ssen eine Aktion ausw&auml;hlen.';
+		$this->mod_no_post = 'Sie m&uuml;ssen einen Beitrag ausw&auml;hlen.';
+		$this->mod_no_topic = 'Sie m&uuml;ssen ein Thema ausw&auml;hlen.';
+		$this->mod_perm_post_delete = 'Sie haben nicht die Erlaubnis diesen Beitrag zu l&ouml;schen.';
+		$this->mod_perm_post_edit = 'Sie haben nicht die Erlaubnis diesen Beitrag zu editieren.';
+		$this->mod_perm_topic_delete = 'Sie haben nicht die Erlaubnis dieses Thema zu l&ouml;schen.';
+		$this->mod_perm_topic_edit = 'Sie haben nicht die Erlaubnis dieses Them zu editieren.';
+		$this->mod_perm_topic_lock = 'Sie haben nicht die Erlaubnis dieses Thema zu sperren.';
+		$this->mod_perm_topic_move = 'Sie haben nicht die Erlaubnis dieses Thema zu verschieben.';
+		$this->mod_perm_topic_pin = 'Sie haben nicht die Erlaubnis dieses Thema zu nageln.';
+		$this->mod_perm_topic_split = 'Sie haben nicht die Erlaubnis dieses Thema zu teilen.';
+		$this->mod_perm_topic_unlock = 'Sie haben nicht die Erlaubnis dieses Thema zu &ouml;ffnen.';
+		$this->mod_perm_topic_unpin = 'Sie haben nicht die Erlaubnis dieses Thema zu entnageln.';
 		$this->mod_success_post_delete = 'Der Beitrag wurde erfolgreich gel&ouml;scht.';
 		$this->mod_success_post_edit = 'Der Beitrag wurde erfolgreich editiert.';
 		$this->mod_success_split = 'Das Thema wurde werfolgreich geteilt.';
@@ -724,12 +724,12 @@ class de
 	{
 		$this->perm = 'Berechtigung';
 		$this->perms = 'Berechtigungen';
-		$this->perms_board_view = 'Betrachte den Board-Index';
+		$this->perms_board_view = 'Betrachte Board-Index';
 		$this->perms_board_view_closed = 'Benutze Quicksilver Forums wenn es geschlossen ist';
 		$this->perms_do_anything = 'Benutze Quicksilver Forums';
 		$this->perms_edit_for = 'Bearbeite Berechtigungen f&uuml;r';
 		$this->perms_email_use = 'Sende &uuml;ber das Board Emails zu Mitgliedern';
-		$this->perms_forum_view = 'Betrachte das Forum';
+		$this->perms_forum_view = 'Betrachte Forum';
 		$this->perms_is_admin = 'Administrator-Kontrollzentrum einsehen';
 		$this->perms_only_user = 'Benutze f&uuml;r diesen Benutzer nur Gruppenberechtigungen';
 		$this->perms_override_user = 'Dies wird die Gruppenberechtigungen des Benutzers &uuml;berschreiben.';
@@ -780,31 +780,31 @@ class de
 	function pm()
 	{
 		$this->pm_avatar = 'Avatar';
-		$this->pm_cant_del = 'Du hast nicht die Erlaubnis diese Nachricht zu l&ouml;schen.';
+		$this->pm_cant_del = 'Sie haben nicht die Erlaubnis diese Nachricht zu l&ouml;schen.';
 		$this->pm_delallmsg = 'Alle Nachrichten l&ouml;schen';
 		$this->pm_delete = 'L&ouml;schen';
 		$this->pm_delete_selected = 'Ausgew&auml;hlte Nachrichten l&ouml;schen';
 		$this->pm_deleted = 'Nachricht gel&ouml;scht.';
 		$this->pm_deleted_all = 'Nachrichten gel&ouml;scht.';
 		$this->pm_error = 'Es tauchten Probleme beim schicken der Nachricht an die Mitglieder auf.<br /><br />Folgende Benutzer gibt es nicht: %s<br /><br />Folgende Benutzer wollen keine Nachrichten empfangen: %s';
-		$this->pm_fields = 'Nachricht wurde nicht verschickt. Gehe sicher, das alle ben&ouml;tigten Felder ausgef&uuml;llt wurden.';
-		$this->pm_flood = 'Du hast in den letzten %s Sekunden schon eine Nachricht verschickt und kannst jetzt noch keine neue senden<br /><br />Versuche es in ein paar Sekunden nochmal';
+		$this->pm_fields = 'Nachricht wurde nicht verschickt. Gehen sie sicher, das alle ben&ouml;tigten Felder ausgef&uuml;llt wurden.';
+		$this->pm_flood = 'Sie haben in den letzten %s Sekunden schon eine Nachricht verschickt und k&ouml;nnen jetzt noch keine neue senden<br /><br />Versuchen sie es in ein paar Sekunden nochmal';
 		$this->pm_folder_inbox = 'Eingang';
 		$this->pm_folder_new = '%s neu';
 		$this->pm_folder_sentbox = 'Gesendet';
 		$this->pm_from = 'Von';
 		$this->pm_group = 'Gruppe';
-		$this->pm_guest = 'Als Gast kannst du die Nachrichtenzentrale  nicht benutzen. Bitte log dich ein oder registrier dich.';
+		$this->pm_guest = 'Als Gast k&ouml;nnen sie die Nachrichtenzentrale nicht benutzen. Bitte melden sie sich an oder registrieren sie sich.';
 		$this->pm_joined = 'Teilgenommen';
 		$this->pm_messenger = 'Nachrichtenzentrale';
 		$this->pm_msgtext = 'Nachrichtentext';
 		$this->pm_multiple = 'Trenne mehrere Empf&auml;nger mit ;';
-		$this->pm_no_folder = 'Du musst einen Ordner ausw&auml;hlen.';
+		$this->pm_no_folder = 'Sie m&uuml;ssen einen Ordner ausw&auml;hlen.';
 		$this->pm_no_member = 'Kein Mitglied mit dieser ID wurde gefunden.';
 		$this->pm_no_number = 'Keine Nachricht mit dieser Nummer wurde gefunden.';
 		$this->pm_no_title = 'Kein Betreff';
 		$this->pm_nomsg = 'In diesem Ordner sind keine Nachrichten.';
-		$this->pm_noview = 'Du hast nicht die Erlaubnis diese Nachricht zu lesen.';
+		$this->pm_noview = 'Sie haben nicht die Erlaubnis diese Nachricht zu lesen.';
 		$this->pm_offline = 'Dieses Mitglied ist momentan offline';
 		$this->pm_online = 'Dieser Benutzer ist momentan online';
 		$this->pm_personal = 'Private Nachrichtenzentrale';
@@ -818,9 +818,9 @@ class de
 		$this->pm_sendamsg = 'Nachricht senden';
 		$this->pm_sendingpm = 'PN senden';
 		$this->pm_sendon = 'Gesendet';
-		$this->pm_success = 'Deine Nachricht wurde erfolgreich verschickt.';
-		$this->pm_sure_del = 'Bist du sicher, das du diese Nachricht l&ouml;schen willst?';
-		$this->pm_sure_delall = 'Bist du dir sicher, das du alle Nachrichten in diesem Ordner l&ouml;schen willst?';
+		$this->pm_success = 'Ihre Nachricht wurde erfolgreich verschickt.';
+		$this->pm_sure_del = 'Sind sie sicher, das sie diese Nachricht l&ouml;schen wollen?';
+		$this->pm_sure_delall = 'Sind sie sich sicher, das sie alle Nachrichten in diesem Ordner l&ouml;schen wollen?';
 		$this->pm_title = 'Titel';
 		$this->pm_to = 'An';
 	}
@@ -829,38 +829,38 @@ class de
 	{
 		$this->post_attach = 'Anh&auml;nge';
 		$this->post_attach_add = 'Anhang beif&uuml;gen';
-		$this->post_attach_disrupt = 'Hinzuf&uuml;gen oder l&ouml;schen wird deine Nachricht nicht beeinflussen.';
+		$this->post_attach_disrupt = 'Hinzuf&uuml;gen oder l&ouml;schen wird ihre Nachricht nicht beeinflussen.';
 		$this->post_attach_failed = 'Der Upload des Anhangs schlug fehl. Die eingegebe Datei existiert vielleicht nicht.';
-		$this->post_attach_not_allowed = 'Du kannst solche Dateitypen nicht anh&auml;ngen.';
+		$this->post_attach_not_allowed = 'Sie k&ouml;nnen solche Dateitypen nicht anh&auml;ngen.';
 		$this->post_attach_remove = 'Entferne Anhang';
 		$this->post_attach_too_large = 'Die eingegeben Datei ist zu gro&szlig;. Die maximale Gr&ouml;&szlig;e betr&auml;gt %d KB.';
-		$this->post_cant_create = 'Als Gast hast du keine Erlaubnis ein Thema zu erstellen  vielleicht wenn du dich registrierst.';
-		$this->post_cant_create1 = 'Du hast nicht die Erlaubnis ein Thema zu erstellen.';
-		$this->post_cant_enter = 'Dein Auswahl konnte nicht eingegeben werden. Entweder hast du sie schon ausgew&auml;hlt oder du hast keine Erlaubnis.';
-		$this->post_cant_poll = 'Als Gast hast du keine Erlaubnis eine Umfrage zu starten  vielleicht wenn du dich registrierst.';
-		$this->post_cant_poll1 = 'Du hast keine Erlaubnis eine Umfrage zu starten.';
-		$this->post_cant_reply = 'Du hast keine Erlaubnis auf Themen in diesem Forum zu antworten.';
-		$this->post_cant_reply1 = 'Als Gast hast du keine Erlaubnis auf Themen zu antworten  vielleicht wenn du dich registrierst.';
-		$this->post_cant_reply2 = 'Du hast keine Erlaubnis auf Themen zu antworten.';
+		$this->post_cant_create = 'Als Gast haben sie keine Erlaubnis ein Thema zu erstellen, vielleicht wenn sie sich registrieren.';
+		$this->post_cant_create1 = 'Sie haben nicht die Erlaubnis ein Thema zu erstellen.';
+		$this->post_cant_enter = 'Ihre Auswahl konnte nicht eingegeben werden. Entweder haben sie schon ausgew&auml;hlt oder sie haben keine Erlaubnis.';
+		$this->post_cant_poll = 'Als Gast haben sie keine Erlaubnis eine Umfrage zu starten, vielleicht wenn sie sich registrieren.';
+		$this->post_cant_poll1 = 'Sie haben keine Erlaubnis eine Umfrage zu starten.';
+		$this->post_cant_reply = 'Sie haben keine Erlaubnis auf Themen in diesem Forum zu antworten.';
+		$this->post_cant_reply1 = 'Als Gast haben sie keine Erlaubnis auf Themen zu antworten, vielleicht wenn sie sich registrieren.';
+		$this->post_cant_reply2 = 'Sie haben keine Erlaubnis auf Themen zu antworten.';
 		$this->post_closed = 'Dieses Thema wurde geschlossen.';
 		$this->post_create_poll = 'Erstelle Umfrage';
 		$this->post_create_topic = 'Erstelle Thema';
 		$this->post_creating = 'Erstelle Thema';
 		$this->post_creating_poll = 'Erstelle Umfrage';
-		$this->post_flood = 'Du hast in den letzten %s Sekunden einen Beitrag verfasst und darfst im Moment nicht mehr.<br /><br />Versuche es sp&auml;ter nochmal.';
+		$this->post_flood = 'Sie haben in den letzten %s Sekunden einen Beitrag verfasst und d&uuml;rfen im Moment nicht mehr.<br /><br />Versuchen sie es sp&auml;ter nochmal.';
 		$this->post_guest = 'Gast';
 		$this->post_icon = 'Beitragssymbol';
 		$this->post_last_five = 'Letzten 5 Beitr&auml;ge abw&auml;rts';
 		$this->post_length = '&uuml;berpr&uuml;fe L&auml;nge';
 		$this->post_msg = 'Nachricht';
-		$this->post_must_msg = 'Du musst eine Nachricht einf&uuml;gen wenn du einen Beitrag schreibst.';
-		$this->post_must_options = 'Du musst Optionen einf&uuml;gen wenn du eine Umfrage erstellst.';
-		$this->post_must_title = 'Du musst einen Titel vergeben wenn du ein Thema erstellst.';
+		$this->post_must_msg = 'Sie m&uuml;ssen eine Nachricht eingeben wenn sie einen Beitrag verfassen wollen.';
+		$this->post_must_options = 'Sie m&uuml;ssen Optionen festlegen wenn sie eine Umfrage erstellen wollen.';
+		$this->post_must_title = 'Sie m&uuml;ssen einen Titel vergeben wenn sie ein Thema erstellen wollen.';
 		$this->post_new_poll = 'Neue Umfrage';
 		$this->post_new_topic = 'Neues Thema';
 		$this->post_no_forum = 'Dieses Forum wurde nicht gefunden.';
 		$this->post_no_topic = 'Kein Thema ausgew&auml;hlt.';
-		$this->post_no_vote = 'Du musst eine Option zum Abstimmen ausw&auml;hlen.';
+		$this->post_no_vote = 'Sie m&uuml;ssen zum Abstimmen eine Option ausw&auml;hlen.';
 		$this->post_option_emoticons = 'Konvertiere Smilies zu Bildern?';
 		$this->post_option_global = 'Thema globalisieren?';
 		$this->post_option_mbcode = 'Formatiere MbCode?';
@@ -876,7 +876,7 @@ class de
 		$this->post_replying = 'Thema antworten';
 		$this->post_replying1 = 'Antworten';
 		$this->post_smiles = 'Klickbare Symbole';
-		$this->post_too_many_options = 'Du brauchst zwischen 2 und %d Optionen f&uuml;r eine Umfrage.';
+		$this->post_too_many_options = 'Sie brauchen zwischen 2 und %d Optionen f&uuml;r eine Umfrage.';
 		$this->post_topic_detail = 'Thema Beschreibung';
 		$this->post_topic_title = 'Thema Titel';
 		$this->post_view_topic = 'Zeige ganzes Thema';
@@ -888,8 +888,8 @@ class de
 		$this->printer_back = 'Zur&uuml;ck';
 		$this->printer_not_found = 'Das Thema konnte nicht gefunden werden. Es wurde vielleicht gel&ouml;scht, verschoben oder existierte niemals.';
 		$this->printer_not_found_title = 'Thema nicht gefunden';
-		$this->printer_perm_topics = 'Du hast keine Erlaubnis Themen zu sehen.';
-		$this->printer_perm_topics_guest = 'Du hast keine Erlaubnis Themen zu sehen  vielleicht wenn du dich registrierst.';
+		$this->printer_perm_topics = 'Sie haben keine Erlaubnis Themen zu sehen.';
+		$this->printer_perm_topics_guest = 'Sie haben keine Erlaubnis Themen zu sehen, vielleicht wenn sie sich registrieren.';
 		$this->printer_posted_on = 'Geschrieben am';
 		$this->printer_send = 'An Drucker senden';
 	}
@@ -914,9 +914,9 @@ class de
 		$this->profile_location = 'Wohnort';
 		$this->profile_member = 'Mitgliedsgruppe';
 		$this->profile_member_title = 'Mitgliedstitel';
-		$this->profile_msn = 'MSN Identit&auml;t';
-		$this->profile_must_user = 'Du musst einen Benutzer eintragen um das Profil zu sehen.';
-		$this->profile_no_member = 'Es gibt kein Mitglied mit dieser ID. Der Account wurde vielleicht.';
+		$this->profile_msn = 'MSN Konto';
+		$this->profile_must_user = 'Sie m&uuml;ssen einen Benutzer eintragen um ein Profil zu sehen.';
+		$this->profile_no_member = 'Es gibt kein Mitglied mit dieser ID. Das Konto wurde vielleicht.';
 		$this->profile_none = '[ Keiner ]';
 		$this->profile_not_post = 'hat noch keinen Beitrag geschrieben.';
 		$this->profile_offline = 'Dieses Mitglied ist momentan offline';
@@ -930,7 +930,7 @@ class de
 		$this->profile_unkown = '[ Unbekannt ]';
 		$this->profile_view_profile = 'Profil anzeigen';
 		$this->profile_www = 'Webseite';
-		$this->profile_yahoo = 'Yahoo Identit&auml;t';
+		$this->profile_yahoo = 'Yahoo Kontakt';
 	}
 
 	function prune()
@@ -963,19 +963,19 @@ class de
 		$this->query = 'Abfragen Interface';
 		$this->query_fail = 'fehlgeschlagen.';
 		$this->query_success = 'erfolgreich ausgef&uuml;hrt.';
-		$this->query_your = 'Deine Abfrage';
+		$this->query_your = 'Ihre Abfrage';
 	}
 
 	function recent()
 	{
 		$this->recent_active = 'Aktive Themen seit dem letzten Besuch';
 		$this->recent_by = 'Von';
-		$this->recent_can_post = 'Du kannst in diesem Forum antworten.';
-		$this->recent_can_topics = 'Du kannst in diesem Forum Themen sehen.';
-		$this->recent_cant_post = 'Du kannst in diesem Forum nicht antworten.';
-		$this->recent_cant_topics = 'Du kannst in diesem Forum keine Themen sehen.';
+		$this->recent_can_post = 'Sie k&ouml;nnen in diesem Forum antworten.';
+		$this->recent_can_topics = 'Sie k&ouml;nnen in diesem Forum Themen sehen.';
+		$this->recent_cant_post = 'Sie k&ouml;nnen in diesem Forum nicht antworten.';
+		$this->recent_cant_topics = 'Sie k&ouml;nnen in diesem Forum keine Themen sehen.';
 		$this->recent_dot = 'Punkt';
-		$this->recent_dot_detail = 'zeigt, das du im Thema beigetragen hast';
+		$this->recent_dot_detail = 'zeigt, das sie in diesem Thema einen Beitrag verfasst haben';
 		$this->recent_forum = 'Forum';
 		$this->recent_guest = 'Gast';
 		$this->recent_hot = 'Hei&szlig;';
@@ -992,12 +992,12 @@ class de
 		$this->recent_noexist = 'Das ausgew&auml;hlte Forum existiert nicht.';
 		$this->recent_nopost = 'Keine Beitr&auml;ge';
 		$this->recent_not = 'Nicht';
-		$this->recent_noview = 'Du hast nicht die Erlaubnis Foren zu sehen.';
+		$this->recent_noview = 'Sie haben nicht die Erlaubnis Foren zu sehen.';
 		$this->recent_pages = 'Seiten';
 		$this->recent_pinned = 'Genagelt';
 		$this->recent_pinned_topic = 'Genageltes Thema';
 		$this->recent_poll = 'Umfrage';
-		$this->recent_regfirst = 'Du hast nicht die Erlaubnis Foren zu sehen  vielleicht wenn du dich registrierst.';
+		$this->recent_regfirst = 'Sie haben nicht die Erlaubnis Foren zu sehen, vielleicht wenn sie sich registrieren.';
 		$this->recent_replies = 'Antworten';
 		$this->recent_starter = 'Verfasser';
 		$this->recent_sub = 'Unterforum';
@@ -1007,30 +1007,30 @@ class de
 		$this->recent_subscribe = 'Benachrichtige mich per Email wenn Beitr&auml;ge in diesem Forum geschrieben wurden';
 		$this->recent_topic = 'Thema';
 		$this->recent_views = 'Gesehen';
-		$this->recent_write_topics = 'Du kannst in diesem Forum Themen erstellen.';
+		$this->recent_write_topics = 'Sie k&ouml;nnen in diesem Forum Themen erstellen.';
 	}
 
 	function register()
 	{
-		$this->register_activated = 'Dein Account wurde aktiviert!';
-		$this->register_activating = 'Account Aktivierung';
-		$this->register_activation_error = 'Es gab ein Problem w&auml;hrend der Aktivierung deines Accounts. &uuml;berpr&uuml;fe, ob der Browser die komplette URL der Aktivierungsemail beinhaltet. Wenn das Problem weiterhin besteht kontaktiere den Boardadministrator um die Email erneut zu verschicken.';
+		$this->register_activated = 'Ihr Konto wurde aktiviert!';
+		$this->register_activating = 'Konto Aktivierung';
+		$this->register_activation_error = 'Es gab ein Problem w&auml;hrend der Aktivierung ihres Kontos. &uuml;berpr&uuml;fen sie ob der Browser die komplette URL der Aktivierungsemail beinhaltet. Wenn das Problem weiterhin besteht kontaktieren sie bitte den Boardadministrator um die Email erneut zu verschicken.';
 		$this->register_confirm_passwd = 'Best&auml;tige Passwort';
-		$this->register_done = 'Du bist nun registriert! Du kannst dich nun anmelden.';
+		$this->register_done = 'Sie wurden erfolgreich registriert! Sie k&ouml;nnen sich nun anmelden.';
 		$this->register_email = 'Emailadresse';
 		$this->register_email_invalid = 'Die eingegeben Emailadresse ist ung&uuml;ltig.';
-		$this->register_email_msg = 'Diese Email wurde von Quicksilver Forums generiert und im Auftrag an dich gesendet';
-		$this->register_email_msg2 = 'damit du dein Konto aktivieren kannst';
-		$this->register_email_msg3 = 'Bitte klicke den folgenden Link oder f&uuml;ge ihn in die Adressleiste deines Browsers ein:';
+		$this->register_email_msg = 'Diese Email wurde von Quicksilver Forums generiert und im Auftrag an sie gesendet';
+		$this->register_email_msg2 = 'damit sie ihr Konto aktivieren k&ouml;nnen';
+		$this->register_email_msg3 = 'Bitte klicken sie den folgenden Link oder f&uuml;gen sie ihn in die Adressleiste ihres Browsers ein:';
 		$this->register_email_used = 'Die eingegebene Emailadresse ist schon einem Mitglied zugeordnet.';
 		$this->register_fields = 'Nicht alle Felder wurden ausgef&uuml;llt.';
-		$this->register_image = 'Bitte gib den Text zum Bild ein.';
-		$this->register_image_invalid = 'Um deine Identit&auml;t zu pr&uuml;fen, musst du den Text vom Bild eintippen.';
-		$this->register_must_activate = 'Du bist nun registriert. Eine Email wurde verschickt zu %s mit Informationen wie du dein Konto aktivieren kannst. Dein Konto wird bis zur Aktivierung limitiert.';
+		$this->register_image = 'Bitte geben sie einen Text zum Bild ein.';
+		$this->register_image_invalid = 'Um ihre Identit&auml;t zu pr&uuml;fen, m&uuml;ssen sie den Text vom Bild eingeben.';
+		$this->register_must_activate = 'Sie sind registriert. Eine Email wurde verschickt zu %s mit Informationen wie sie ihr Konto aktivieren k&ouml;nnen. Ihr Konto wird bis zur Aktivierung limitiert.';
 		$this->register_name_invalid = 'Der eingegebene Name ist zu lang.';
 		$this->register_name_taken = 'Der Mitgliedsname ist bereits vergeben.';
-		$this->register_new_user = 'Ben&ouml;tigter Username';
-		$this->register_pass_invalid = 'Das eingegebene Passwort ist nicht g&uuml;ltig. Gehe sicher, das nur g&uuml;ltige Zeichen wie z.B. Buchstaben, Nummern, Striche, Unterstriche oder Leerzeichen sowie mindestens 5 Zeichen verwendet wurden.';
+		$this->register_new_user = 'Ben&ouml;tigter Benutzername';
+		$this->register_pass_invalid = 'Das eingegebene Passwort ist nicht g&uuml;ltig. Gehen sie sicher, das nur g&uuml;ltige Zeichen wie z.B. Buchstaben, Nummern, Striche, Unterstriche oder Leerzeichen sowie mindestens 5 Zeichen verwendet wurden.';
 		$this->register_pass_match = 'Die eingegebenen Passw&ouml;rter stimmen nicht &uuml;berein.';
 		$this->register_passwd = 'Passwort';
 		$this->register_reg = 'Registrierung';
@@ -1062,7 +1062,7 @@ class de
 		$this->search_day = 'Tag';
 		$this->search_days = 'Tage';
 		$this->search_exact_name = 'Exakter Name';
-		$this->search_flood = 'Du hast in den letzten %s Sekunden bereits eine Suchanfrage gestartet und kannst noch nicht wieder suchen.<br /><br />Versuche es in ein paar Sekunden wieder.';
+		$this->search_flood = 'Sie haben in den letzten %s Sekunden bereits eine Suchanfrage gestartet und k&ouml;nnen noch nicht wieder suchen.<br /><br />Versuchen sie es in ein paar Sekunden wieder.';
 		$this->search_for = 'Suche nach';
 		$this->search_forum = 'Forum';
 		$this->search_group = 'Gruppe';
@@ -1078,8 +1078,8 @@ class de
 		$this->search_months = 'Monate';
 		$this->search_mysqldoc = 'MySQL Dokumentation';
 		$this->search_newer = 'neuer';
-		$this->search_no_results = 'Deine Suche brachte keine Ergebnisse.';
-		$this->search_no_words = 'Du musst Suchbegriffe definieren.<br /><br />Jeder Begriff muss l&auml;nger als 3 Zeichen sein, inklusive Buchstaben, Nummern, Apostrophen und Unterstriche.';
+		$this->search_no_results = 'Ihre Suche brachte keine Ergebnisse.';
+		$this->search_no_words = 'Sie m&uuml;ssen Suchbegriffe definieren.<br /><br />Jeder Begriff muss l&auml;nger als 3 Zeichen sein, inklusive Buchstaben, Nummern, Apostrophen und Unterstriche.';
 		$this->search_offline = 'Dieses Mitglied ist momentan offline';
 		$this->search_older = '&auml;lter';
 		$this->search_online = 'Dieser Benutzer ist grade online';
@@ -1090,7 +1090,7 @@ class de
 		$this->search_posts = 'Beitr&auml;ge';
 		$this->search_posts_by = 'Nur Beitr&auml;ge von';
 		$this->search_regex = 'Suche nach regul&auml;ren Ausdr&uuml;cken';
-		$this->search_regex_failed = 'Die regul&auml;ren Audr&uuml;cke schlugen fehl. Bitte schau in der MySQL Dokumentation f&uuml;r Hilfe bei regul&auml;ren Ausdr&uuml;cken.';
+		$this->search_regex_failed = 'Die regul&auml;ren Audr&uuml;cke schlugen fehl. Bitte schauen sie in die MySQL Dokumentation f&uuml;r Hilfe bei regul&auml;ren Ausdr&uuml;cken.';
 		$this->search_relevance = 'Nachrichtrelevanz: %d%%';
 		$this->search_replies = 'Beitr&auml;ge';
 		$this->search_result = 'Suchergebnis';
@@ -1202,7 +1202,7 @@ class de
 		$this->settings_spider_enable = 'Spider Darstellung aktivieren';
 		$this->settings_spider_enable_msg = 'Aktiviere die Namen der Spider-Suchmaschinen in der aktiven Auflistung.';
 		$this->settings_spider_name = 'Spider Name';
-		$this->settings_spider_name_msg = 'Gib den Namen ein den du f&uuml;r jede der oberen Spiders in der aktiven Auflistung angezeigt haben m&ouml;chtest. Du musst den Spider-Namen in der gleichen Zeile wie den Spider-Benutzer Agent oben platzieren. Platzierst du zum Beispiel \'googlebot\' in der dritten Zeile der Spider-Benutzer Agents, setze \'Google\' in die dritte Zeile der Spider-Namen.';
+		$this->settings_spider_name_msg = 'Geben sie den Namen ein den sie f&uuml;r jede der oberen Spiders in der aktiven Auflistung angezeigt haben m&ouml;chten. Sie m&uuml;ssen den Spider-Namen in der gleichen Zeile wie den Spider-Benutzer Agent oben platzieren. Platzieren sie zum Beispiel \'googlebot\' in der dritten Zeile der Spider-Benutzer Agents, setze \'Google\' in die dritte Zeile der Spider-Namen.';
 		$this->settings_timezone = 'Zeitzone';
 		$this->settings_topics_page = 'Themen pro Forumseite';
 		$this->settings_tos = 'Nutzungsbestimmungen';
@@ -1248,7 +1248,7 @@ class de
 		$this->select_skin_edit = 'W&auml;hle ein Skin zum Bearbeiten aus';
 		$this->select_skin_edit_done = 'Skin erfolgreich bearbeitet.';
 		$this->select_template = 'Template ausw&auml;hlen';
-		$this->skin_chmod = 'Ein neues Verzeichnis konnte f&uuml;r den Skin nicht erstellt werden. Versuch mit CHMOD die Berechtigungen des Skin-Verzeichnisses auf 775 zu &auml;ndern.';
+		$this->skin_chmod = 'Ein neues Verzeichnis konnte f&uuml;r den Skin nicht erstellt werden. Versuchen sie mit CHMOD die Berechtigungen des Skin-Verzeichnisses auf 775 zu &auml;ndern.';
 		$this->skin_created = 'Skin erstellt.';
 		$this->skin_deleted = 'Skin erfolgreich gel&ouml;scht.';
 		$this->skin_dir_name = 'Sie m&uuml;ssen einen Namen f&uuml;r den Skin und das Verzeichnis vergeben.';
@@ -1328,7 +1328,7 @@ class de
 	{
 		$this->topic_attached = 'Angehangene Datei:';
 		$this->topic_attached_downloads = 'Downloads';
-		$this->topic_attached_perm = 'Du hast keine Erlaubnis diese Datei runterzuladen.';
+		$this->topic_attached_perm = 'Sie haben keine Erlaubnis diese Datei runterzuladen.';
 		$this->topic_attached_title = 'Angehangene Datei';
 		$this->topic_avatar = 'Avatar';
 		$this->topic_bottom = 'Gehe zum Ende der Seite';
@@ -1345,14 +1345,14 @@ class de
 		$this->topic_ip = 'IP';
 		$this->topic_joined = 'Teilgenommen';
 		$this->topic_level = 'Mitgliedslevel';
-		$this->topic_links_aim = 'Sende eine AIM Nachricht an %s';
-		$this->topic_links_email = 'Sende eine Email an %s';
-		$this->topic_links_gtalk = 'Sende eine GTalk Nachricht an %s';
-		$this->topic_links_icq = 'Sende eine ICQ Nachricht an %s';
+		$this->topic_links_aim = 'Sende AIM Nachricht an %s';
+		$this->topic_links_email = 'Sende Email an %s';
+		$this->topic_links_gtalk = 'Sende GTalk Nachricht an %s';
+		$this->topic_links_icq = 'Sende ICQ Nachricht an %s';
 		$this->topic_links_msn = 'Zeige %s\'s MSN Profil';
-		$this->topic_links_pm = 'Sende eine pers&ouml;nliche Nachricht an %s';
+		$this->topic_links_pm = 'Sende pers&ouml;nliche Nachricht an %s';
 		$this->topic_links_web = 'Besuche %s\'s Webseite';
-		$this->topic_links_yahoo = 'Sende eine Nachricht an %s mit Yahoo! Messenger';
+		$this->topic_links_yahoo = 'Sende Nachricht an %s mit Yahoo! Messenger';
 		$this->topic_lock = 'Sperren';
 		$this->topic_locked = 'Thema gesperrt';
 		$this->topic_move = 'Verschiebe';
@@ -1367,8 +1367,8 @@ class de
 		$this->topic_online = 'Dieser Benutzer ist grade online';
 		$this->topic_options = 'Thema Optionen';
 		$this->topic_pages = 'Seiten';
-		$this->topic_perm_view = 'Du hast keine Erlaubnis Themen zu sehen.';
-		$this->topic_perm_view_guest = 'Du hast keine Erlaubnis Themen zu sehen  vielleicht wenn du dich registrierst.';
+		$this->topic_perm_view = 'Sie haben keine Erlaubnis Themen zu sehen.';
+		$this->topic_perm_view_guest = 'Sie haben keine Erlaubnis Themen zu sehen, vielleicht wenn sie sich registrieren.';
 		$this->topic_pin = 'Nagel';
 		$this->topic_posted = 'Verfasst: ';
 		$this->topic_posts = 'Beitr&auml;ge';
@@ -1380,7 +1380,7 @@ class de
 		$this->topic_split_keep = 'Diesen Beitrag nicht verschieben';
 		$this->topic_split_move = 'Diesen Beitrag verschieben';
 		$this->topic_subscribe = 'Benachrichte mich per Email wenn in diesem Thema geantwortet wurde';
-		$this->topic_top = 'Gehe zum Anfang der Seite';
+		$this->topic_top = 'Zum Anfang der Seite';
 		$this->topic_unlock = 'Entsperren';
 		$this->topic_unpin = 'Entnageln';
 		$this->topic_unreg = 'Unregistriert';
