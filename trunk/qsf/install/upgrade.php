@@ -201,20 +201,118 @@ class upgrade extends qsfglobal
 
 		                while ($row2 = $this->db->nqfetch($query))
         		        {
-					$row2['template_html'] = str_replace('{$messageclass}', '<MODLET messagelink(class)>', $row2['template_html']);
-					$row2['template_html'] = str_replace('{$MessageLink}', '<MODLET messagelink(text)>', $row2['template_html']);
-					$row2['template_html'] = str_replace('$mercury', '$qsf', $row2['template_html']);
-					$row2['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row2['template_html']);
-					$row2['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row2['template_html']);
-					$row2['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row2['template_html']);
-					$row2['template_html'] = str_replace('$this->lang->pm_inbox', '$foldername', $row2['template_html']);
-					$row2['template_html'] = str_replace('$this->lang->board_topics_new', '$this->lang->main_topics_new', $row2['template_html']);
-					$row2['template_html'] = str_replace('$this->lang->forum_topics_new', '$this->lang->main_topics_new', $row2['template_html']);
-					$row2['template_html'] = str_replace('$this->lang->recent_topics_new', '$this->lang->main_topics_new', $row2['template_html']);
-					$row2['template_html'] = str_replace('post_mbcode_', 'mbcode_', $row2['template_html']);
-					$row2['template_html'] = addslashes($row2['template_html']);
-					$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin='{$skin}' AND template_name='{$row2['template_name']}'";
-					$this->db->query($sql);
+					if( strstr( $row2['template_html'], '{$messageclass}' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('{$messageclass}', '<MODLET messagelink(class)>', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               		                	$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+	                       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '{$MessageLink}' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('{$MessageLink}', '<MODLET messagelink(text)>', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+        	       		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                	       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$mercury' ) ) {
+						$didsomething = true;
+               		        	        $row2['template_html'] = str_replace('$mercury', '$qsf', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               		                	$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+	                       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$qsfboard' ) ) {
+						$didsomething = true;
+                       	        		$row2['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+        	       		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                	       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$qsf->lang->main_powered' ) ) {
+						$didsomething = true;
+	                                	$row2['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               			                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                       			        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$qsf->lang->main_seconds' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+	               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+        	               		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$this->lang->pm_inbox' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$this->lang->pm_inbox', '$foldername', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               			                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                       			        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$this->lang->board_topics_new' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$this->lang->board_topics_new', '$this->lang->main_topics_new', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               		                	$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+	                       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$this->lang->board_topics_new' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$this->lang->forum_topics_new', '$this->lang->main_topics_new', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+        	       		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                	       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$this->lang->recent_topics_new' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$this->lang->recent_topics_new', '$this->lang->main_topics_new', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               			                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                       			        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], 'post_mbcode_' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('post_mbcode_', 'mbcode_', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+	               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+        	               		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$qsf->tree' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$qsf->tree', '$qsf->htmlwidgets->tree', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               			                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                       			        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$admin->tree' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$admin->tree', '$admin->htmlwidgets->tree', $row2['template_html']);
+						$skinsupdated .= $row['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               		                	$sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+	                       		        $this->db->query($sql);
+					}
+					if( strstr( $row2['template_html'], '$this->tree' ) ) {
+						$didsomething = true;
+						$row2['template_html'] = str_replace('$this->tree', '$this->htmlwidgets->tree', $row2['template_html']);
+						$skinsupdated .= $row2['template_name'] . "<br />";
+						$row2['template_html'] = addslashes($row2['template_html']);
+               			                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                       			        $this->db->query($sql);
+					}
 		                }
 			}
 
