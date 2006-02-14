@@ -33,8 +33,7 @@ require_once $set['include_path'] . '/defaultutils.php';
 require '../global.php';
 
 $qsf = new qsfglobal;
-$qsf->htmlwidgets = new $qsf->modules['widgets']($qsf);
-
+$qsf->htmlwidgets = new $modules['widgets']($qsf);
 
 /* Recursive ksort() */
 function ksort_rec(&$array)
