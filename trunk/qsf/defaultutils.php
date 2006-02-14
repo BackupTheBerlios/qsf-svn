@@ -39,6 +39,8 @@ require_once $set['include_path'] . '/lib/bbcode.php';
 $modules['bbcode'] = 'bbcode';
 require_once $set['include_path'] . '/lib/tool.php';
 $modules['validator'] = 'tool';
+require_once $set['include_path'] . '/lib/readmarker.php';
+$modules['readmarker'] = 'readmarker';
 
 
 // Other variables that we can allow addons to change

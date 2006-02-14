@@ -48,7 +48,7 @@ class recent extends qsfglobal
 
 		$this->set_title($this->lang->recent_active);
         
-		$forums_str = $this->createForumPermissionsString();
+		$forums_str = $this->readmarker->create_forum_permissions_string();
 
 		// Handle the unlikely case where the user cannot view ANY forums
 		if ($forums_str == "()") {
@@ -68,30 +68,6 @@ class recent extends qsfglobal
 		}
 
 		return eval($this->template('RECENT_MAIN'));
-	}
-	
-	/**
-	 * Get a list of forums the user can view
-	 *
-	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.1.5
-	 * @return string comma delimited list for us in SQL
-	 **/
-	function createForumPermissionsString()
-	{
-		$forums_str = "(";
-		$query = $this->db->query("SELECT forum_id FROM {$this->pre}forums");
-		while ($row = $this->db->nqfetch($query))
-		{
-			if ($this->perms->auth('forum_view',$row['forum_id'])) {
-				if (strcmp($forums_str, "(")) {
-					$forums_str .= ",";
-				}
-		                $forums_str .= $row['forum_id'];
-			}
-		}
-		$forums_str .= ")";
-		return $forums_str;
 	}
 	
 	/**

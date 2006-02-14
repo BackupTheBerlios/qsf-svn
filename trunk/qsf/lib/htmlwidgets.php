@@ -40,8 +40,6 @@ class htmlwidgets extends htmltools
 
 		// Need the time for timezone stuff
 		$this->time = &$qsf->time;
-		// Needed for tree forums
-		$this->perms = &$qsf->perms;
 	}
 	
 	/**
@@ -550,42 +548,30 @@ class htmlwidgets extends htmltools
 	 **/
 	function tree_forums($f, $linklast = false)
 	{
-		$forums = $this->db->query("SELECT forum_tree, forum_id, forum_name FROM {$this->pre}forums ORDER BY forum_id");
-
-		while ($forum = $this->db->nqfetch($forums))
-		{
-			if (!$this->perms->auth('forum_view', $forum['forum_id'])) {
-				continue;
-			}
-
-			$id         = $forum['forum_id'];
-			$fid[$id]   = $forum['forum_id'];
-			$ftree[$id] = $forum['forum_tree'];
-			$fname[$id] = $forum['forum_name'];
-		}
-
-		if (!isset($ftree[$f])) { //error? lets get out while we can
+		$forumData = $this->forum_grab_sorted();
+		
+		if (!isset($forumData[$f])) { //error? lets get out while we can
 			return;
 		}
 
 		$cat = 1; //first forum is always a category
-		$ft  = explode(',', $ftree[$f]);
+		$ft  = explode(',', $forumData[$f]['forum_tree']);
 		foreach ($ft as $i)
 		{
 			if ($i) {
 				if (!$cat) {
-					$this->tree($fname[$i], "$this->self?a=forum&amp;f={$fid[$i]}");
+					$this->tree($forumData[$i]['forum_name'], "$this->self?a=forum&amp;f={$i}");
 				} else {
-					$this->tree($fname[$i], "$this->self?c={$fid[$i]}");
+					$this->tree($forumData[$i]['forum_name'], "$this->self?c={$i}");
 					$cat = 0;
 				}
 			}
 		}
 
 		if (!$linklast) {
-			$this->tree($fname[$f]);
+			$this->tree($forumData[$f]['forum_name']);
 		} else {
-			$this->tree($fname[$f], "$this->self?a=forum&amp;f={$fid[$f]}");
+			$this->tree($forumData[$f]['forum_name'], "$this->self?a=forum&amp;f={$f}");
 		}
 	}
 

@@ -121,23 +121,6 @@ if ($qsf->sets['max_load'] && ($server_load > $qsf->sets['max_load'])) {
 
 $qsf->add_feed($qsf->sets['loc_of_board'] . $qsf->mainfile . '?a=rssfeed');
 
-switch($qsf->get['a'])
-{
-case 'forum': $item = isset($qsf->get['f']) ? intval($qsf->get['f']) : 0; break;
-case 'topic': $item = isset($qsf->get['t']) ? intval($qsf->get['t']) : 0; break;
-case 'printer': $item = isset($qsf->get['t']) ? intval($qsf->get['t']) : 0; break;
-case 'profile': $item = isset($qsf->get['w']) ? intval($qsf->get['w']) : 0; break;
-default: $item = 0;
-}
-
-if ($module != 'rssfeed') {
-	if (!$qsf->perms->is_guest) {
-		$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES ({$qsf->user['user_id']}, '{$qsf->get['a']}', $item, $qsf->time, INET_ATON('$qsf->ip'), '$qsf->agent', '{$qsf->session['id']}')");
-	} else {
-		$qsf->db->query("REPLACE INTO {$qsf->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (" . USER_GUEST_UID . ", '{$qsf->get['a']}', $item, $qsf->time, INET_ATON('$qsf->ip'), '$qsf->agent', '{$qsf->session['id']}')");
-	}
-}
-
 $output = $qsf->execute();
 
 if (($qsf->get['a'] == 'forum') && isset($qsf->get['f'])) {
@@ -164,4 +147,11 @@ if (!$qsf->nohtml) {
 } else {
 	echo $output;
 }
+
+@ob_end_flush();
+@flush();
+
+// Do post output stuff
+$qsf->cleanup();
+
 ?>

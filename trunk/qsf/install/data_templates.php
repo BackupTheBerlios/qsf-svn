@@ -1313,7 +1313,7 @@ $queries['BOARD_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_
   <td class=\"tabledark\" style=\"text-align:center;\">{\$forum[\'forum_replies\']}</td>
   <td class=\"tablelight\">{\$user_lastpostBox}</td>
  </tr>', 'Board Forum Entry', 'Format the look of a \"forum\" entry on the index page or subcategory pages.', 1)";
-$queries['BOARD_LAST_POST_BOX'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_LAST_POST_BOX', '<IF (\$this->user[\'user_lastvisit\'] < \$forum[\'TopicLastTime\'])>
+$queries['BOARD_LAST_POST_BOX'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_LAST_POST_BOX', '<IF (\$topic_new)>
  <img src=\"./skins/{\$this->skin}/images/icons/topic_unread.png\" alt=\"{\$this->lang->main_topics_new}\" title=\"{\$this->lang->main_topics_new}\" />
 </IF>
 <a href=\"{\$this->self}?a=topic&amp;t={\$forum[\'LastTopicID\']}\" class=\"small\" title=\"{\$full_title}\">{\$forum[\'user_lastpost\']}</a><br />

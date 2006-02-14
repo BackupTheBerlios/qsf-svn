@@ -60,6 +60,7 @@ class qsfglobal
 	var $htmlwidgets;		  // HTML widget handler @var object
 	var $templater;			  // Template handler @var object
 	var $bbcode;			  // BBCode formatter @var object
+	var $readmarker;		  // Handles tracking what posts are read and unread
 	var $validator;			  // Handler for checking usernames, passwords, etc
 
 	/**
@@ -122,6 +123,7 @@ class qsfglobal
 		$this->templater = new $this->modules['templater']($this);
 		$this->bbcode = new $this->modules['bbcode']($this);
 		$this->validator = new $this->modules['validator']();
+		$this->readmarker = new $this->modules['readmarker']($this); 
 
 		$this->templater->init_templates($this->get['a'], $admin);
 		
@@ -129,10 +131,38 @@ class qsfglobal
 	}
 	
 	/**
+	 * Run actions that can be delayed until after output is sent
+	 *
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2.0
+	 **/
+	function cleanup()
+	{
+		// Handle active users
+		switch($this->get['a'])
+		{
+		case 'forum': $item = isset($this->get['f']) ? intval($this->get['f']) : 0; break;
+		case 'topic': $item = isset($this->get['t']) ? intval($this->get['t']) : 0; break;
+		case 'printer': $item = isset($this->get['t']) ? intval($this->get['t']) : 0; break;
+		case 'profile': $item = isset($this->get['w']) ? intval($this->get['w']) : 0; break;
+		default: $item = 0;
+		}
+
+		if (!$this->perms->is_guest) {
+			$this->db->query("REPLACE INTO {$this->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) 
+				VALUES ({$this->user['user_id']}, '{$this->get['a']}', $item, $this->time, INET_ATON('$this->ip'), '$this->agent', '{$this->session['id']}')");
+		} else {
+			$this->db->query("REPLACE INTO {$this->pre}active (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) 
+				VALUES (" . USER_GUEST_UID . ", '{$this->get['a']}', $item, $this->time, INET_ATON('$this->ip'), '$this->agent', '{$this->session['id']}')");
+		}
+		$this->readmarker->cleanup();
+	}
+	
+	/**
 	 * Set values for $this->table and $this->etable
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2
+	 * @since 1.2.0
 	 **/
 	function set_table()
 	{

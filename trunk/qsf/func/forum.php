@@ -142,11 +142,7 @@ class forum extends qsfglobal
 					$forum['forum_description'] = '<br />' . $forum['forum_description'];
 				}
 
-				if ($forum['LastTime'] > $this->user['user_lastvisit']) {
-					$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
-				} else {
-					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
-				}
+				$topic_new = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
 
 				if ($this->perms->auth('topic_view', $forum['forum_id'])) {
 					if ($this->perms->auth('topic_create', $forum['forum_id'])) {
@@ -180,7 +176,7 @@ class forum extends qsfglobal
 
 					$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 				} else {
-					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
+					$topic_new = false;
 
 					$user_lastpostBox = $this->lang->forum_nopost;
 				}
@@ -250,7 +246,7 @@ class forum extends qsfglobal
 				$state = 'locked';
 
 			} else {
-				if ($row['topic_edited'] > $this->user['user_lastvisit']) {
+				if (!$this->readmarker->is_topic_read($row['topic_id'], $row['topic_edited'])) {
 					$state = 'new';
 				}
 

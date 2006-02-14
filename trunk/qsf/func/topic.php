@@ -263,6 +263,7 @@ class topic extends qsfglobal
 		$i = 0;
 		$split = '';
 		$oldtime = $this->time - 900;
+		$newest_post_read = 0;
 
 		while ($post = $this->db->nqfetch($query))
 		{
@@ -272,6 +273,7 @@ class topic extends qsfglobal
 				$class = 'tabledark';
 			}
 
+			$newest_post_read = $post['post_time'];
 			$post['post_time']   = $this->mbdate(DATE_LONG, $post['post_time']);
 			$post['user_joined'] = $this->mbdate(DATE_ONLY_LONG, $post['user_joined']);
 
@@ -468,6 +470,8 @@ class topic extends qsfglobal
 		}
 
 		$pagelinks = $this->htmlwidgets->get_pages($topic['topic_replies'] + 1, 'a=topic&amp;t=' . $this->get['t'], $this->get['min'], $this->get['num']);
+		
+		$this->readmarker->mark_topic_read($this->get['t'], $newest_post_read);
 
 		return eval($this->template('TOPIC_MAIN'));
 	}

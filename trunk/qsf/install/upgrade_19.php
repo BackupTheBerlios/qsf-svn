@@ -31,10 +31,24 @@ $need_templates = array(
 	'MAIN_HEADER_MEMBER',
 	'POST_CLICKABLE_SMILIES',
 	'SEARCH_MAIN',
+	'BOARD_LAST_POST_BOX',
 	'ADMIN_INDEX',
 	'ADMIN_FORUM_ORDER',
 	'ADMIN_MASS_MAIL',
 	'ADMIN_EDIT_BOARD_SETTINGS'
 	);
+
+$queries[] = "DROP TABLE IF EXISTS {$pre}readmarks";
+$queries[] = "CREATE TABLE {$pre}readmarks (
+  readmark_user int(10) unsigned NOT NULL default '0',
+  readmark_topic int(10) unsigned NOT NULL default '0',
+  readmark_lastread int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (readmark_user,readmark_topic)
+) TYPE=MyISAM";
+
+// Set up a seperate column for 'mark all read'
+$queries[] = "ALTER TABLE {$pre}users ADD user_lastallread int(10) unsigned NOT NULL default '0' AFTER user_lastvisit";
+$queries[] = "UPDATE {$pre}users SET user_lastallread=user_lastvisit";
+
 
 ?>

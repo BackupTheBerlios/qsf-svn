@@ -16,7 +16,7 @@
  *
  **/
 
-require_once $set['include_path'] . '/lib/tool.php';
+require_once $set['include_path'] . '/lib/forumutils.php';
 
 /**
  * Contains functions generic to the different html formatting modules
@@ -24,7 +24,7 @@ require_once $set['include_path'] . '/lib/tool.php';
  * @author Geoffrey Dunn <geoff@warmage.com>
  * @since 1.2
  **/
-class htmltools extends tool
+class htmltools extends forumutils
 {
 	var $replaces_loaded;
 	var $censor;		// Curse words to filter @var array
@@ -37,9 +37,8 @@ class htmltools extends tool
 	 **/
 	function htmltools(&$qsf)
 	{
-		$this->db  = &$qsf->db;
-		$this->pre = &$qsf->pre;
-		$this->sets = &$qsf->sets;
+		parent::forumutils($qsf);
+		
 		$this->modules = &$qsf->modules;
 		$this->lang = $qsf->lang;
 		$this->self = $qsf->self;

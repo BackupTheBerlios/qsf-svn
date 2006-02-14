@@ -124,48 +124,6 @@ class tool
 	}
 
 	/**
-	 * Finds all subforums of $parent in $array
-	 *
-	 * @param array $array Array of forums from forum_grab()
-	 * @param int $parent forum_id of a parent forum
-	 * @author Mark Elliot <mark.elliot@mercuryboard.com>
-	 * @since Beta 4.0
-	 * @return array Array of subforums
-	 **/
-	function forum_array($array, $parent)
-	{
-		$arr = array();
-		for ($i = 0; $i < count($array); $i++)
-		{
-			if ($array[$i]['forum_parent'] == $parent) {
-				$arr[] = $array[$i];
-			}
-		}
-		return $arr;
-	}
-
-	/**
-	 * Gets all forums and puts them in an array
-	 *
-	 * @param string $sort Field to sort by
-	 * @author Mark Elliot <mark.elliot@mercuryboard.com>
-	 * @since Beta 4.0
-	 * @return array Array of all existing forums to be passed to select_forums()
-	 **/
-	function forum_grab($sort = 'forum_position')
-	{
-		$forums = array();
-		$q = $this->db->query('SELECT forum_id, forum_parent, forum_tree, forum_name, forum_position FROM ' . $this->pre . 'forums ORDER BY ' . $sort);
-
-		while ($f = $this->db->nqfetch($q))
-		{
-			$forums[] = $f;
-		}
-
-		return $forums;
-	}
-
-	/**
 	 * Checks if an email address looks valid
 	 *
 	 * PRIVATE

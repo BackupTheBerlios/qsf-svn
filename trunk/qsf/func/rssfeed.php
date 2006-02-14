@@ -20,8 +20,6 @@
  *
  **/
 
-require_once $set['include_path'] . '/func/recent.php';
- 
 /**
  * RSS Feed Generator
  *
@@ -29,7 +27,7 @@ require_once $set['include_path'] . '/func/recent.php';
  * @author Roger Libiez (Samson) <samson@afkmud.com>
  * @since 1.1.5
  **/
-class rssfeed extends recent
+class rssfeed
 {
 	/**
 	 * Main interface. Get a RSS feed of posts
@@ -62,6 +60,11 @@ class rssfeed extends recent
 
 		return $feed;
 	}
+	
+	function cleanup()
+	{
+		// Do nothing!
+	}
 
 	/**
 	 * Get a RSS feed of posts for the entire forum
@@ -82,7 +85,7 @@ class rssfeed extends recent
 		<generator>{$this->sets['forum_name']}</generator>
 		<ttl>{$this->sets['rss_feed_time']}</ttl>";
 		
-		$forums_str = $this->createForumPermissionsString();
+		$forums_str = $this->readmarker->create_forum_permissions_string();
 		
 		$query = $this->db->query( "SELECT
 				t.topic_id,

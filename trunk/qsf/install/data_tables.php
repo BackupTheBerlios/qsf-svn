@@ -139,6 +139,14 @@ $queries[] = "CREATE TABLE {$pre}posts (
   FULLTEXT KEY post_text (post_text)
 ) TYPE=MyISAM";
 
+$queries[] = "DROP TABLE IF EXISTS {$pre}readmarks";
+$queries[] = "CREATE TABLE {$pre}readmarks (
+  readmark_user int(10) unsigned NOT NULL default '0',
+  readmark_topic int(10) unsigned NOT NULL default '0',
+  readmark_lastread int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (readmark_user,readmark_topic)
+) TYPE=MyISAM";
+
 $queries[] = "DROP TABLE IF EXISTS {$pre}replacements";
 $queries[] = "CREATE TABLE {$pre}replacements (
   replacement_id smallint(3) unsigned NOT NULL auto_increment,
@@ -253,6 +261,7 @@ $queries[] = "CREATE TABLE {$pre}users (
   user_interests varchar(255) NOT NULL default '',
   user_signature text NOT NULL default '',
   user_lastvisit int(10) unsigned NOT NULL default '0',
+  user_lastallread int(10) unsigned NOT NULL default '0',
   user_lastpost int(10) unsigned NOT NULL default '0',
   user_lastpm int(10) unsigned NOT NULL default '0',
   user_lastsearch int(10) unsigned NOT NULL default '0',

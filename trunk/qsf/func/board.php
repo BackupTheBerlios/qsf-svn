@@ -54,7 +54,7 @@ class board extends qsfglobal
 
 		if (isset($this->get['s'])) {
 			if ($this->get['s'] == 'mark') {
-				$this->setuser_lastvisit();
+				$this->readmarker->mark_all_read($this->time);
 				return $this->message($this->lang->board_mark, $this->lang->board_mark1, $this->lang->continue, $this->self, $this->self);
 			} else {
 				$this->get['s'] = null;
@@ -154,11 +154,7 @@ class board extends qsfglobal
 					}
 
 					if ($forum['forum_lastpost']) {
-						if ($forum['LastTime'] > $this->user['user_lastvisit']) {
-							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
-						} else {
-							$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
-						}
+						$topic_new = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
 						
 						$forum['TopicLastTime'] = $forum['LastTime']; // store so skins can access
 
@@ -185,7 +181,7 @@ class board extends qsfglobal
 
 						$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 					} else {
-						$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
+						$topic_new = false;
 
 						$user_lastpostBox = $this->lang->board_nopost;
 					}
@@ -288,18 +284,6 @@ class board extends qsfglobal
 			'GUESTCOUNT'  => $OnGuests,
 			'TOTALCOUNT'  => $OnTotal
 		);
-	}
-
-	/**
-	 * Sets a user's last visit time
-	 *
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.1
-	 * @return void
-	 **/
-	function setuser_lastvisit()
-	{
-		$this->db->query('UPDATE ' . $this->pre . 'users SET user_lastvisit=' . $this->time . ' WHERE user_id=' . $this->user['user_id']);
 	}
 
 	/**
