@@ -742,6 +742,7 @@ class it
 		$this->perms_post_delete_own = 'Elimina solo i messaggi creati dall\'utente';
 		$this->perms_post_edit = 'Modifica ogni tipo di messaggio';
 		$this->perms_post_edit_own = 'Modifica solo i messaggi creati dall\'utente';
+		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
 		$this->perms_post_noflood = 'Ignora controllo antiflood messaggi';
 		$this->perms_post_viewip = 'Mostra indirizzi IP utenti';
 		$this->perms_search_noflood = 'Esente dal controllo antiflood per le ricerche';

@@ -39,6 +39,8 @@ $need_templates = array(
 	'ADMIN_MASS_MAIL',
 	'ADMIN_EDIT_BOARD_SETTINGS'
 	);
+	
+$new_permissions['post_inc_userposts'] = true;
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}readmarks";
 $queries[] = "CREATE TABLE {$pre}readmarks (

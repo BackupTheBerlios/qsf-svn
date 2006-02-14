@@ -744,6 +744,7 @@ class nl
 		$this->perms_post_delete_own = 'Verwijder alleen berichten die de gebruiker gemaakt heeft';
 		$this->perms_post_edit = 'Pas eender welk bericht aan';
 		$this->perms_post_edit_own = 'Pas enkel berichten aan die de oprichter gemaakt heeft';
+		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
 		$this->perms_post_noflood = 'STel vrij van berichten flood controle';
 		$this->perms_post_viewip = 'Bekijk de gebruiker zijn IP adressen';
 		$this->perms_search_noflood = 'Stel vrij van zoek flood controle';

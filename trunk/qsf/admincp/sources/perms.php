@@ -89,6 +89,7 @@ class perms extends admin
 				'poll_vote'		=> $this->lang->perms_poll_vote,
 				'post_create'		=> $this->lang->perms_post_create,
 				'topic_create'		=> $this->lang->perms_topic_create,
+				'post_inc_userposts'	=> $this->lang->perms_post_inc_userposts,
 				'post_noflood'		=> $this->lang->perms_post_noflood,
 				'post_delete'		=> $this->lang->perms_post_delete,
 				'post_delete_own'	=> $this->lang->perms_post_delete_own,

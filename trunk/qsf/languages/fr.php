@@ -742,6 +742,7 @@ class fr
 		$this->perms_post_delete_own = 'Delete only posts the user has created'; //Translate
 		$this->perms_post_edit = 'Edit any post'; //Translate
 		$this->perms_post_edit_own = 'Edit only posts the user has created'; //Translate
+		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
 		$this->perms_post_noflood = 'Exempt from post flood control'; //Translate
 		$this->perms_post_viewip = 'View user IP addresses'; //Translate
 		$this->perms_search_noflood = 'Exempt from search flood control'; //Translate
@@ -1308,7 +1309,7 @@ class fr
 		$this->upgrade_skin_already = 'was already upgraded. Nothing to do.'; //Translate
 		$this->upgrade_skin_detail = 'Skins upgraded using this method will still require template editing afterwards.<br />Select a skin to upgrade'; //Translate
 		$this->upgrade_skin_upgraded = 'skin has been upgraded.'; //Translate
-		$this->upgraded_templates = 'The following templates were added'; //Translate
+		$this->upgraded_templates = 'The following templates were added';
 	}
 
 	function titles()

@@ -742,6 +742,7 @@ class en
 		$this->perms_post_delete_own = 'Delete only posts the user has created';
 		$this->perms_post_edit = 'Edit any post';
 		$this->perms_post_edit_own = 'Edit only posts the user has created';
+		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count';
 		$this->perms_post_noflood = 'Exempt from post flood control';
 		$this->perms_post_viewip = 'View user IP addresses';
 		$this->perms_search_noflood = 'Exempt from search flood control';

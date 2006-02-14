@@ -743,6 +743,7 @@ class sk
 		$this->perms_post_delete_own = 'Maza iba vlastné príspevky';
 		$this->perms_post_edit = 'Editova lubovo¾nı príspevok';
 		$this->perms_post_edit_own = 'Editova iba vlastné príspevky';
+		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
 		$this->perms_post_noflood = 'Vyòa z kontroly zahltenosti príspevkov';
 		$this->perms_post_viewip = 'Zobrazova IP adresu uívate¾ov';
 		$this->perms_search_noflood = 'Vyòa z kontroly	zahltenosti vyhladávania';

@@ -54,6 +54,7 @@ class permissions
 		'post_edit_own' => false,
 		'post_noflood' => false,
 		'post_viewip' => false,
+		'post_inc_userposts' => false,
 		'search_noflood' => false,
 		'topic_create' => false,
 		'topic_delete' => false,

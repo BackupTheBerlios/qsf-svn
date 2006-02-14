@@ -743,6 +743,7 @@ class sv
 		$this->perms_post_delete_own = 'Ta bort endast inlägg som användaren gjort';
 		$this->perms_post_edit = 'Ändra valfritt inlägg';
 		$this->perms_post_edit_own = 'Ändra endast inlägg som användaren gjort';
+		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
 		$this->perms_post_noflood = 'Undanta från floodkontroll för inlägg';
 		$this->perms_post_viewip = 'Kolla användares IP adresser';
 		$this->perms_search_noflood = 'Undanta från floodkontroll för sökningar';
@@ -1048,7 +1049,7 @@ class sv
 		$this->rssfeed_cannot_read_forum = 'Du har inte tillstånd att läsa detta forum';
 		$this->rssfeed_cannot_read_topic = 'Du har inte tillstånd att läsa detta ämne';
 		$this->rssfeed_error = 'Ett fel uppstod';
-		$this->rssfeed_forum = 'Forum:';
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Skrivet av';
 		$this->rssfeed_topic = 'Ämne:';
 	}

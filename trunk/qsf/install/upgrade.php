@@ -83,6 +83,7 @@ class upgrade extends qsfglobal
 			$pre = $this->sets['prefix'];
 			$full_template_list = false;
 			$template_list = array();
+			$new_permissions = array();
 
 			$this->sets['installed'] = 1;
 
@@ -321,6 +322,32 @@ class upgrade extends qsfglobal
 			// New fields in forum tables need to be fixed in case the old install was a conversion
 			$this->updateForumTrees();
 			$this->RecountForums();
+			
+			// Check if new permissions need to be added
+			if (!empty($new_permissions)) {
+				foreach ($new_permissions as $id => $default)
+				{
+					// Groups
+					while ($this->perms->get_group())
+					{
+						if ($this->perms->auth('is_admin')) $default = true;
+						if (!$this->perms->auth('do_anything')) $default = false;
+						if ($this->perms->is_guest) $default = false;
+						$this->perms->add_perm($id, $default);
+						$this->perms->update();
+					}
+			
+					// Users
+					while ($this->perms->get_group(true))
+					{
+						if ($this->perms->auth('is_admin')) $default = true;
+						if (!$this->perms->auth('do_anything')) $default = false;
+						if ($this->perms->is_guest) $default = false;
+						$this->perms->add_perm($id, $default);
+						$this->perms->update();
+					}
+				}
+			}
 
 			$message ='';
 			if ($didsomething) {
