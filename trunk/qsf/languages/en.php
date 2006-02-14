@@ -1372,6 +1372,10 @@ class en
 		$this->topic_posted = 'Posted';
 		$this->topic_posts = 'Posts';
 		$this->topic_print = 'View Printable';
+		$this->topic_qr_emoticons = 'Emoticons';
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons';
+		$this->topic_qr_open_mbcode = 'Open MBCode';
+		$this->topic_quickreply = 'Quick Reply';
 		$this->topic_quote = 'Reply with a quote from this post';
 		$this->topic_reply = 'Reply to Topic';
 		$this->topic_split = 'Split';

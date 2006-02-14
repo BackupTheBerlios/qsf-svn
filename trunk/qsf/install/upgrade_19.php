@@ -26,7 +26,9 @@ if (!defined('INSTALLER')) {
 
 // Upgrade from 1.1.9 to 1.2.0
 $need_templates = array(
+	'TOPIC_QUICKREPLY',	// Added templates
 	'CP_PREFS',		// Changed templates
+	'TOPIC_MAIN',
 	'MAIN_HEADER_GUEST',
 	'MAIN_HEADER_MEMBER',
 	'POST_CLICKABLE_SMILIES',
@@ -49,6 +51,5 @@ $queries[] = "CREATE TABLE {$pre}readmarks (
 // Set up a seperate column for 'mark all read'
 $queries[] = "ALTER TABLE {$pre}users ADD user_lastallread int(10) unsigned NOT NULL default '0' AFTER user_lastvisit";
 $queries[] = "UPDATE {$pre}users SET user_lastallread=user_lastvisit";
-
 
 ?>
