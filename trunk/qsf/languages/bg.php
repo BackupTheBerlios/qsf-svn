@@ -1372,6 +1372,10 @@ class bg
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Мнения';
 		$this->topic_print = 'Виж във версия за принтиране';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Отговори с цитат от това мнение';
 		$this->topic_reply = 'Отговори на темата';
 		$this->topic_split = 'Split'; //Translate

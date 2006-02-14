@@ -1372,6 +1372,10 @@ class zh
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = '����';
 		$this->topic_print = '��ӡ';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = '���ø���������Ϊ���ӵĲ�������';
 		$this->topic_reply = '�ظ�������';
 		$this->topic_split = 'Split'; //Translate

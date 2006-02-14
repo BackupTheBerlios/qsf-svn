@@ -1373,6 +1373,10 @@ class de
 		$this->topic_posted = 'Verfasst: ';
 		$this->topic_posts = 'Beitr&auml;ge';
 		$this->topic_print = 'Zeige Druckversion';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Antworte mit einem Zitat des Beitrages';
 		$this->topic_reply = 'Thema antworten';
 		$this->topic_split = 'Geteilt';

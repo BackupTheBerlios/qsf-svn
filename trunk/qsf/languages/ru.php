@@ -1373,6 +1373,10 @@ class ru
 		$this->topic_posted = 'Отправлено';
 		$this->topic_posts = 'Сообщений';
 		$this->topic_print = 'Версия для печати';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Ответить с цитатированием';
 		$this->topic_reply = 'Ответить';
 		$this->topic_split = 'Разделить';

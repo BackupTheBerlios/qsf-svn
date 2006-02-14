@@ -1372,6 +1372,10 @@ class fi
 		$this->topic_posted = 'Lähetetty';
 		$this->topic_posts = 'Viestejä';
 		$this->topic_print = 'Näytä tulostettava versio';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Vastaa lainaten tätä viestiä';
 		$this->topic_reply = 'Vastaa keskusteluun';
 		$this->topic_split = 'Jaa';

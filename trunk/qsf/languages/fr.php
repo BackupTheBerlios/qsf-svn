@@ -1372,6 +1372,10 @@ class fr
 		$this->topic_posted = 'Posté';
 		$this->topic_posts = 'Messages';
 		$this->topic_print = 'Voir une version imprimable';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Répondre à une citation';
 		$this->topic_reply = 'Repondre au sujet';
 		$this->topic_split = 'Découper';

@@ -1372,6 +1372,10 @@ class cs
 		$this->topic_posted = 'Posláno';
 		$this->topic_posts = 'Pøíspìvkù';
 		$this->topic_print = 'Verze pro tisk';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Do odpovìdi "ocitovat" tento pøíspìvek';
 		$this->topic_reply = 'Odpovìdìt na téma';
 		$this->topic_split = 'Spojit';

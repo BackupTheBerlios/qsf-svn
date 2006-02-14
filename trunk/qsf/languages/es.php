@@ -1372,6 +1372,10 @@ class es
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Publicaciones';
 		$this->topic_print = 'Ver versión imprimible';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Responder citando a esta publicación';
 		$this->topic_reply = 'Responder al tópico';
 		$this->topic_split = 'Split'; //Translate

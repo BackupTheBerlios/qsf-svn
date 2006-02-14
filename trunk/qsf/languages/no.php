@@ -1372,6 +1372,10 @@ class no
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Innlegg';
 		$this->topic_print = 'Vise i utskriftsvennlig format';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Svare med dette innlegg som sitat';
 		$this->topic_reply = 'Svare på emne';
 		$this->topic_split = 'Split'; //Translate

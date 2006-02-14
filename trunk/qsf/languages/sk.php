@@ -1374,6 +1374,10 @@ class sk
 		$this->topic_posted = 'OdoslanÈ';
 		$this->topic_posts = 'PrÌspevky';
 		$this->topic_print = 'Zobraziù vytlaËiteæn˙ verziu';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Odpovedaù s cit·ciou z tohoto prÌspevku';
 		$this->topic_reply = 'Odpovedaù na tÈmu';
 		$this->topic_split = 'Rozdeliù';

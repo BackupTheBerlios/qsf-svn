@@ -1372,6 +1372,10 @@ class it
 		$this->topic_posted = 'Inviato';
 		$this->topic_posts = 'Messaggi';
 		$this->topic_print = 'Visualizza Stampabile';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Rispondi riportando questa discussione';
 		$this->topic_reply = 'Rispondi alla Discussione';
 		$this->topic_split = 'Dividi';

@@ -1374,6 +1374,10 @@ class nl
 		$this->topic_posted = 'Geplaatst';
 		$this->topic_posts = 'berichten';
 		$this->topic_print = 'Printervriendelijk';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Citeer';
 		$this->topic_reply = 'Antwoord op onderwerp';
 		$this->topic_split = 'Verdeel';

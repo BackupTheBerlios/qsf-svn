@@ -1372,6 +1372,10 @@ class he
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'дегетъ';
 		$this->topic_print = 'View Printable'; //Translate
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Reply with a quote from this post'; //Translate
 		$this->topic_reply = 'Reply to Topic'; //Translate
 		$this->topic_split = 'Split'; //Translate

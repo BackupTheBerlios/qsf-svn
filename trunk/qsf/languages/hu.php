@@ -1372,6 +1372,10 @@ class hu
 		$this->topic_posted = 'Feladva';
 		$this->topic_posts = 'Beírás';
 		$this->topic_print = 'Nyomtatható változat';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Idézve válaszol';
 		$this->topic_reply = 'Válasz erre';
 		$this->topic_split = 'Darabol';

@@ -1373,6 +1373,10 @@ class sv
 		$this->topic_posted = 'Inlaggd';
 		$this->topic_posts = 'Inlägg';
 		$this->topic_print = 'Visa Utskriftsvänlig';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Svara med ett citat från detta inlägg';
 		$this->topic_reply = 'Svara på Ämne';
 		$this->topic_split = 'Dela upp';

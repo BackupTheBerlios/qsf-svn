@@ -1372,6 +1372,10 @@ class id
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Post';
 		$this->topic_print = 'Lihat Print preview';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
+		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
+		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Balas dengan kutip dari posting ini';
 		$this->topic_reply = 'Balas ke Topik';
 		$this->topic_split = 'Split'; //Translate
