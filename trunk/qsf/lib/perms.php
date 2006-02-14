@@ -103,6 +103,13 @@ class permissions
 		}
 	}
 
+	/**
+	 * Initialise the permissions object cube
+	 *
+	 * @param int $group Group id to load perms from. Set to -1 if using user perms
+	 * @param int $user User id. Checked against USER_GUEST_UID as loaded as perms if group is set to -1
+	 * @param mixed $perms Optional array of permissions to use instead of group or user perms from the database
+	 **/
 	function get_perms($group, $user, $perms = false)
 	{
 		if (!$perms) {
@@ -126,6 +133,14 @@ class permissions
 		$this->user  = $user;
 	}
 
+	/**
+	 * Query if a permission is turned on or not
+	 *
+	 * @param string $y Indentifier of the permission being queried
+	 * @param mixed $z Forum to check the permission against
+	 *
+	 * @return true if found the permission and it is on
+	 **/
 	function auth($y, $z = false)
 	{
 		if (!isset($this->cube[$y])) {
@@ -139,6 +154,11 @@ class permissions
 		}
 	}
 
+	/**
+	 * Run through the cube and rebuild all permissions to on or off
+	 *
+	 * @param bool $bool What value to assign to all permissions
+	 **/
 	function reset_cube($bool)
 	{
 		$cube = $this->standard;
@@ -162,6 +182,13 @@ class permissions
 		$this->cube = $cube;
 	}
 
+	/**
+	 * Turn on or off a specific permission. Also turn on or off for all forums
+	 * that permission applies to
+	 *
+	 * @param string $y Indentifier of the permission being queried
+	 * @param bool $bool What value to assign to all permissions
+	 **/
 	function set_xy($y, $bool)
 	{
 		if (!isset($this->cube[$y])) {
@@ -196,6 +223,13 @@ class permissions
 		}
 	}
 
+	/**
+	 * Turn on or off a specific permission for a specific forum
+	 *
+	 * @param string $y Indentifier of the permission being queried
+	 * @param int $z Forum to check the permission against
+	 * @param bool $bool What value to assign to all permissions
+	 **/
 	function set_xyz($y, $z, $bool)
 	{
 		// Only allow z modifications on non-global permissions if there are forums
@@ -204,6 +238,13 @@ class permissions
 		}
 	}
 
+	/**
+	 * Run through the cube and add a new forum
+	 *
+	 * @param int $z Forum to create
+	 * @param mixed $bool Forum to copy permissions from. -1 if this is the first
+	 *	forum/category and to use a default. true or false to set all values to that
+	 **/
 	function add_z($z, $bool = -1)
 	{
 		foreach ($this->cube as $y => $zval)
@@ -224,6 +265,11 @@ class permissions
 		}
 	}
 
+	/**
+	 * Run through the cube and remove the specified forum
+	 *
+	 * @param int $z Forum to remove
+	 **/
 	function remove_z($z)
 	{
 		foreach ($this->cube as $y => $zval)
@@ -249,7 +295,9 @@ class permissions
 	 *     $perms->set_xy();
 	 *     $perms->update();
 	 * }
-	 */
+	 *
+	 * @param bool $users If true load user permissions instead of group permissions
+	 **/
 	function get_group($users = false)
 	{
 		static $start = true;
@@ -289,7 +337,34 @@ class permissions
 			return false;
 		}
 	}
+	
+	/**
+	 * Turn on or off a specific permission for a specific forum
+	 *
+	 * Note: This is only used for upgrades
+	 *
+	 * @param string $y Indentifier of the permission being added
+	 * @param bool $bool What value to assign to all permissions
+	 **/
+	function add_perm($y, $bool)
+	{
+		$new_global = isset($this->globals[$y]);
+		if (!isset($this->standard[$y])) return; // Don't allow the action!
+		
+		$forum_view_array = $this->cube['forum_view']; // Use this to find the exisitng forums
+		
+		if (!$new_global && is_array($forum_view_array)) {
+			foreach (array_keys($forum_view_array) as $forum) {
+				$this->cube[$y][$forum] = $bool;
+			}
+		} else {
+			$this->cube[$y] = $bool;
+		}
+	}
 
+	/**
+	 * Save the permissions back to the database
+	 **/
 	function update()
 	{
 		if ($this->cube) {
