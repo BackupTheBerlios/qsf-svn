@@ -92,7 +92,7 @@ class new_install extends qsfglobal
 				break;
 			}
 
-			if ($this->post['seed_data'] && !is_readable('./seed_data.php')) {
+			if (isset($this->post['seed_data']) && $this->post['seed_data'] && !is_readable('./seed_data.php')) {
 				echo 'Database connected, settings written, but no seed data could be loaded from file: seed_data.php';
 				break;
 			}
@@ -134,7 +134,7 @@ class new_install extends qsfglobal
 			$this->sets['members']++;
 			$this->sets['installed'] = 1;
 
-			if ($this->post['seed_data']) {
+			if (isset($this->post['seed_data']) && $this->post['seed_data']) {
 				include './seed_data.php';
 								
 				// Create Category
