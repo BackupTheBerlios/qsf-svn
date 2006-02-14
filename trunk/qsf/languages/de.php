@@ -128,8 +128,8 @@ class de
 		$this->ban_banned_ips = 'Gesperrte IP Adressen';
 		$this->ban_banned_members = 'Gesperrte Mitglieder';
 		$this->ban_ip = 'IP Adressen sperren';
-		$this->ban_member_explain1 = 'Um Benutzer zu sperren, &auml;ndern sie ihre Gruppe zu';
-		$this->ban_member_explain2 = 'in der Mitgliederverwaltung.';
+		$this->ban_member_explain1 = 'Um Benutzer zu sperren, &auml;ndern sie die Gruppe in der Mitgliederverwaltung zu';
+		$this->ban_member_explain2 = '.';
 		$this->ban_members = 'Mitglieder sperren';
 		$this->ban_nomembers = 'Aktuell gibt es keine gesperrten Mitglieder.';
 		$this->ban_one_per_line = 'Eine Adresse pro Linie.';
@@ -146,7 +146,7 @@ class de
 		$this->board_can_post = 'Sie k&ouml;nnen in diesem Forum antworten.';
 		$this->board_can_topics = 'Sie k&ouml;nnen in diesem Forum Themen sehen aber keine erstellen.';
 		$this->board_cant_post = 'Sie k&ouml;nnen in diesem Forum nicht antworten.';
-		$this->board_cant_topics = 'Du kannst in diesem Forum keine Themen sehen oder erstellen.';
+		$this->board_cant_topics = 'Sie k&ouml;nnen in diesem Forum keine Themen sehen oder erstellen.';
 		$this->board_forum = 'Forum';
 		$this->board_guests = 'G&auml;ste';
 		$this->board_last_post = 'Letzter Beitrag';
@@ -218,12 +218,12 @@ class de
 		$this->cp_err_updating = 'Fehler beim Aktualisieren des Profils';
 		$this->cp_feb = 'Februar';
 		$this->cp_file_type = 'Der eingebene Avatar ist nicht in Ordnung. Gehen sie sicher, das die URL richtig eingegeben ist und die Datei entweder die Endung GIF, JPG oder PNG hat.';
-		$this->cp_format = 'Namensformatierung';
+		$this->cp_format = 'Name';
 		$this->cp_gtalk = 'GTalk Konto';
 		$this->cp_header = 'Benutzer Kontrollzentum';
 		$this->cp_height = 'H&ouml;he';
 		$this->cp_icq = 'ICQ Nummer';
-		$this->cp_interest = 'Hobby';
+		$this->cp_interest = 'Hobbies';
 		$this->cp_jan = 'Januar';
 		$this->cp_july = 'Juli';
 		$this->cp_june = 'Juni';
@@ -242,18 +242,18 @@ class de
 		$this->cp_msn = 'MSN Konto';
 		$this->cp_must_orig = 'Ihr Name muss identisch mit dem Original sein. Sie k&ouml;nnen nur die Klein/Gro&szlig;schreibung sowie den Zeichenabstand &auml;ndern.';
 		$this->cp_new_notmatch = 'Die neuen eingegebenen Passw&ouml;rter stimmen nicht &uuml;berein.';
-		$this->cp_new_pass = 'Neues Passwort';
+		$this->cp_new_pass = 'Neues Passwort:';
 		$this->cp_no_flash = 'Flash Avatare sind auf diesem Board nicht erlaubt.';
 		$this->cp_not_exist = 'Das spezifizierte Datum (%s) existiert nicht!';
 		$this->cp_nov = 'November';
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Das alte eingegebene Passwort stimmt nicht mit dem in der Datenbank &uuml;berein.';
-		$this->cp_old_pass = 'Altes Passwort';
+		$this->cp_old_pass = 'Altes Passwort:';
 		$this->cp_pass_notvaid = 'Ihr Passwort ist nicht g&uuml;ltig. Gehen sie sicher, das nur g&uuml;ltige Zeichen benutzt werden wie z.B. Buchstaben, Zahlen, Bindestriche, Unterstriche oder Leerzeichen.';
 		$this->cp_preferences = 'Ver&auml;ndere Einstellungen';
 		$this->cp_preview_sig = 'Signatur Vorschau:';
 		$this->cp_privacy = 'Private Optionen';
-		$this->cp_repeat_pass = 'Wiederholen sie das neue Passwort';
+		$this->cp_repeat_pass = 'Wiederholen sie das neue Passwort:';
 		$this->cp_sept = 'September';
 		$this->cp_show_active = 'Ihre Aktionen anzeigen, wenn sie im Forum sind?';
 		$this->cp_show_email = 'Email Adresse im Profil anzeigen?';
@@ -288,7 +288,7 @@ class de
 	{
 		$this->email_blocked = 'Das Mitglied akzeptiert &uuml;ber dieses Board keine Emails.';
 		$this->email_email = 'Email';
-		$this->email_msgtext = 'Emailtext:';
+		$this->email_msgtext = 'Text:';
 		$this->email_no_fields = 'Gehen sie zur&uuml;ck und gehen sie sicher, das alle Felder ausgef&uuml;llt sind.';
 		$this->email_no_member = 'Es wurde kein Mitglied mit diesem Namen gefunden';
 		$this->email_no_perm = 'Sie haben keine Erlaubnis auf diesem Board Emails zu schreiben.';
@@ -387,7 +387,7 @@ class de
 	function groups()
 	{
 		$this->groups_bad_format = 'Sie m&uuml;ssen %s in dem Format nutzen, welches den Gruppennamen repr&auml;sentiert.';
-		$this->groups_based_on = 'basiert auf';
+		$this->groups_based_on = 'basierend auf';
 		$this->groups_create = 'Gruppe erstellen';
 		$this->groups_create_new = 'Erstelle eine neue Benutzergruppe';
 		$this->groups_created = 'Gruppe erstellt';
@@ -399,10 +399,10 @@ class de
 		$this->groups_i_confirm = 'Ich best&auml;tige das ich diese Benutzergruppe l&ouml;schen m&ouml;chte.';
 		$this->groups_name = 'Name';
 		$this->groups_no_action = 'Keine Aktivit&auml;ten.';
-		$this->groups_no_delete = 'Keine individuellen Gruppen zum L&ouml;schen vorhanden.<br />Die Kerngruppen sind notwendig das Quicksilver Forums funktioniert und k&ouml;nnen nicht gel&ouml;scht werden.';
+		$this->groups_no_delete = 'Keine individuellen Gruppen zum L&ouml;schen vorhanden.<br />Die Kerngruppen sind notwendig damit Quicksilver Forums funktioniert und k&ouml;nnen nicht gel&ouml;scht werden.';
 		$this->groups_no_group = 'Keine Gruppe spezifiziert.';
 		$this->groups_no_name = 'Kein Gruppenname.';
-		$this->groups_only_custom = 'Anmerkung: Sie k&ouml;nnen nur individuelle Benutzergruppen l&ouml;schen. Die Kerngruppen sind notwendig das Quicksilver Forums funktioniert.';
+		$this->groups_only_custom = 'Anmerkung: Sie k&ouml;nnen nur individuelle Benutzergruppen l&ouml;schen. Die Kerngruppen sind notwendig damit Quicksilver Forums funktioniert.';
 		$this->groups_the = 'Die Gruppe';
 		$this->groups_to_edit = 'Gruppe zum &Auml;ndern';
 		$this->groups_type = 'Gruppentyp';
@@ -433,7 +433,7 @@ class de
 
 	function home()
 	{
-		$this->home_choose = 'W&auml;hlen sie eine Aufgabe um zu beginnen.';
+		$this->home_choose = 'W&auml;hlen sie eine Aufgabe.';
 		$this->home_menu_title = 'Administrator Kontrollzentrum Men&uuml;';
 	}
 
@@ -488,7 +488,7 @@ class de
 		$this->main_cp = 'Kontrollzentrum';
 		$this->main_full = 'Voll';
 		$this->main_help = 'Hilfe';
-		$this->main_load = 'Lade';
+		$this->main_load = 'Ladevorg&auml;nge';
 		$this->main_login = 'Anmelden';
 		$this->main_logout = 'Abmelden';
 		$this->main_mark = 'Alle markieren';
@@ -591,14 +591,14 @@ class de
 	function member_control()
 	{
 		$this->mc = 'Mitgliederkontrolle';
-		$this->mc_confirm = 'Sind sie sicher das sie l&ouml;schen wollen';
+		$this->mc_confirm = 'Wirklich l&ouml;schen:';
 		$this->mc_delete = 'L&ouml;sche Mitglied';
 		$this->mc_deleted = 'Mitglied gel&ouml;scht.';
 		$this->mc_edit = 'Mitglied bearbeiten';
 		$this->mc_edited = 'Mitglied aktualisiert';
 		$this->mc_email_invaid = 'Die eingegebene Emailadresse ist g&uuml;ltig.';
 		$this->mc_err_updating = 'Fehler bei Profilaktualisierung';
-		$this->mc_find = 'Finde Mitglieder deren Namen enthalten';
+		$this->mc_find = 'Finde Mitglieder deren Namen folgendes enthalten';
 		$this->mc_found = 'Die folgenden Mitglieder wurden gefunden. Bitte w&auml;hlen sie einen aus.';
 		$this->mc_guest_needed = 'Das Gastkonto ist notwendig damit Quicksilver Forums funktionieren kann.';
 		$this->mc_not_found = 'Keine Treffer bei den Mitgliedern';
@@ -634,7 +634,7 @@ class de
 		$this->mc_user_view_avatars = 'Avatare anschauen';
 		$this->mc_user_view_emoticons = 'Emoticons anschauen';
 		$this->mc_user_view_signatures = 'Signaturen anschauen';
-		$this->mc_user_yahoo = 'Yahoo Identifizierung';
+		$this->mc_user_yahoo = 'Yahoo Konto';
 	}
 
 	function membercount()
@@ -717,7 +717,7 @@ class de
 	function optimize()
 	{
 		$this->optimize = 'Datenbank optimieren';
-		$this->optimized = 'Die Tabellen in der Datenbank wurden f&uuml;r f&uuml;r maximale Perfomance optimiert.';
+		$this->optimized = 'Die Tabellen in der Datenbank wurden f&uuml;r maximale Perfomance optimiert.';
 	}
 
 	function perms()
@@ -797,7 +797,7 @@ class de
 		$this->pm_guest = 'Als Gast k&ouml;nnen sie die Nachrichtenzentrale nicht benutzen. Bitte melden sie sich an oder registrieren sie sich.';
 		$this->pm_joined = 'Teilgenommen';
 		$this->pm_messenger = 'Nachrichtenzentrale';
-		$this->pm_msgtext = 'Nachrichtentext';
+		$this->pm_msgtext = 'Text';
 		$this->pm_multiple = 'Trenne mehrere Empf&auml;nger mit ;';
 		$this->pm_no_folder = 'Sie m&uuml;ssen einen Ordner ausw&auml;hlen.';
 		$this->pm_no_member = 'Kein Mitglied mit dieser ID wurde gefunden.';
@@ -903,7 +903,7 @@ class de
 		$this->profile_contact = 'Kontakt';
 		$this->profile_email_address = 'Emailaddresse';
 		$this->profile_fav = 'Favorisiertes Forum';
-		$this->profile_fav_forum = '%s (%d%% der Posts sind dort)';
+		$this->profile_fav_forum = '%s (%d%% der Beitr&auml;ge sind dort)';
 		$this->profile_gtalk = 'GTalk Konto';
 		$this->profile_icq_uin = 'ICQ Nummer';
 		$this->profile_info = 'Informationen';
@@ -1058,7 +1058,7 @@ class de
 		$this->search_advanced = 'Erweitere Optionen';
 		$this->search_avatar = 'Avatar';
 		$this->search_basic = 'Einfache Suche';
-		$this->search_characters = 'Zeichen eines Beitrags';
+		$this->search_characters = 'Zeichen eines Beitrags anzeigen';
 		$this->search_day = 'Tag';
 		$this->search_days = 'Tage';
 		$this->search_exact_name = 'Exakter Name';
@@ -1083,7 +1083,7 @@ class de
 		$this->search_offline = 'Dieses Mitglied ist momentan offline';
 		$this->search_older = '&auml;lter';
 		$this->search_online = 'Dieser Benutzer ist grade online';
-		$this->search_only_display = 'Nur Erste anzeigen';
+		$this->search_only_display = 'Nur die ersten';
 		$this->search_partial_name = 'Teil des Namen';
 		$this->search_post_icon = 'Nachrichtensymbol';
 		$this->search_posted_on = 'Geschrieben am';
@@ -1114,7 +1114,7 @@ class de
 		$this->settings_allow = 'Erlauben';
 		$this->settings_antibot = 'Anti-Bot Registrierung';
 		$this->settings_attach_ext = 'Anh&auml;nge - Dateiendungen';
-		$this->settings_attach_one_per = 'Einen pro Linie. Keine Frist.';
+		$this->settings_attach_one_per = 'Eine pro Linie.';
 		$this->settings_avatar = 'Avatar Einstellungen';
 		$this->settings_avatar_flash = 'Flash Avatare';
 		$this->settings_avatar_max_height = 'Maximale Avatar-H&ouml;he';
@@ -1137,7 +1137,7 @@ class de
 		$this->settings_cookie_time = 'Verbleibende Zeit bei Login';
 		$this->settings_db = 'Bearbeite Verbindungseinstellungen';
 		$this->settings_db_host = 'Datenbankhost';
-		$this->settings_db_leave_blank = 'Um nichts freizulassen.';
+		$this->settings_db_leave_blank = 'Optional';
 		$this->settings_db_multiple = 'Um mehrere Boards auf einer Datenbank zu installieren.';
 		$this->settings_db_name = 'Datenbankname';
 		$this->settings_db_password = 'Datenbankpasswort';
@@ -1146,9 +1146,9 @@ class de
 		$this->settings_db_socket = 'Datenbanksocket';
 		$this->settings_db_username = 'Datenbankbenutzername';
 		$this->settings_default_lang = 'Standardsprache';
-		$this->settings_default_no = 'Defaultnummer';
-		$this->settings_default_skin = 'Defaultskin';
-		$this->settings_default_yes = 'Default Ja';
+		$this->settings_default_no = 'Standardnummer';
+		$this->settings_default_skin = 'Standardskin';
+		$this->settings_default_yes = 'Standard Ja';
 		$this->settings_disabled = 'Deaktiviert';
 		$this->settings_disabled_notice = 'Deaktivierungshinweis';
 		$this->settings_email = 'E-Mail Einstellungen';
@@ -1178,7 +1178,7 @@ class de
 		$this->settings_pm_flood = 'Personal Messenger Flood-Kontrolle';
 		$this->settings_pm_min_time = 'Minimaler Zeitabstand zwischen 2 Nachrichten.';
 		$this->settings_polls = 'Umfragen';
-		$this->settings_polls_no = 'Benutzer kann an einer Umfrage nicht teilnehmen nachdem er die Ergebnisse gesehen hat';
+		$this->settings_polls_no = 'Benutzer kann an einer Umfrage nicht mehr teilnehmen nachdem er die Ergebnisse gesehen hat';
 		$this->settings_polls_yes = 'Benutzer kann an einer Umfrage teilnehmen nachdem er die Ergebnisse gesehen hat';
 		$this->settings_post_flood = 'Beitrags Flood-Kontrolle';
 		$this->settings_post_min_time = 'Minimaler Zeitabstand zwischen Beitr&auml;gen.';
@@ -1189,12 +1189,12 @@ class de
 		$this->settings_server_gzip = 'GZIP Komprimierung';
 		$this->settings_server_gzip_msg = 'Erh&ouml;ht Geschwindigkeit. Ausschalten wenn das Board durcheinander oder leer erscheint.';
 		$this->settings_server_maxload = 'Maximale Serverauslastung';
-		$this->settings_server_maxload_msg = 'Deaktive Board unter &uuml;berm&auml;&szlig;iger Serverbelastung. Eingabe von 0 deaktiviert.';
+		$this->settings_server_maxload_msg = 'Deaktiviere Board unter &uuml;berm&auml;&szlig;iger Serverbelastung. Eingabe von 0 deaktiviert.';
 		$this->settings_server_timezone = 'Server Zeitzone';
 		$this->settings_show_avatars = 'Avatare anzeigen';
 		$this->settings_show_email = 'Emailadressen anzeigen';
 		$this->settings_show_emotes = 'Emoticons anzeigen';
-		$this->settings_show_notice = 'Anzeigen wenn das Board deaktiviert ist';
+		$this->settings_show_notice = 'Wird angezeigt wenn das Board deaktiviert ist';
 		$this->settings_show_pm = 'Private Nachrichten akzeptieren';
 		$this->settings_show_sigs = 'Signaturen anzeigen';
 		$this->settings_spider_agent = 'Spider-Benutzer Agent';
@@ -1212,8 +1212,8 @@ class de
 	function stats()
 	{
 		$this->stats = 'Statistik-Center';
-		$this->stats_post_by_month = 'Beitr&auml;ge nach Monat';
-		$this->stats_reg_by_month = 'Registrierungen nach Monat';
+		$this->stats_post_by_month = 'Beitragsanzahl pro Monat';
+		$this->stats_reg_by_month = 'Registrierungen pro Monat';
 	}
 
 	function templates()
@@ -1273,7 +1273,7 @@ class de
 		$this->template_universal2 = 'Einige Variablen k&ouml;nnen in jedem Template, andere nur in einem Template benutzt werden. Bestandteile des $this Objektes k&ouml;nnen &uuml;berall benutzt werden.';
 		$this->template_updated = 'Template aktualisiert.';
 		$this->templates = 'Templates';
-		$this->temps_active = 'Active Benutzer Details';
+		$this->temps_active = 'Aktive Benutzer Details';
 		$this->temps_admin = '<b>Administrator Kontrollzentrum Universell</b>';
 		$this->temps_ban = 'Administrator Kontrollzentrum Sperrungen';
 		$this->temps_board_index = 'Board Index';
@@ -1395,7 +1395,7 @@ class de
 	function universal()
 	{
 		$this->aim = 'AIM';
-		$this->based_on = 'based on';
+		$this->based_on = 'basierend auf';
 		$this->board_by = 'Von';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Fortsetzen';
@@ -1415,7 +1415,7 @@ class de
 		$this->quote = 'Zitat';
 		$this->reply = 'Antwort';
 		$this->seconds = 'Sekunden';
-		$this->select_all = 'Alles ausw&auml;en';
+		$this->select_all = 'Alles ausw&auml;hlen';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
 		$this->spoiler = 'Spoiler';
