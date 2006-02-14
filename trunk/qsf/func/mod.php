@@ -806,7 +806,7 @@ class mod extends qsfglobal
 	{
 		$topic = $this->db->fetch('SELECT topic_forum FROM ' . $this->pre . 'topics WHERE topic_id=' . $t);
 
-		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_modes=' . ($topic_modes ^ TOPIC_PINNED) . ', topic_edited=' . $this->time . " WHERE topic_id=$t OR topic_moved=$t");
+		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_modes=' . ($topic_modes ^ TOPIC_PINNED) . " WHERE topic_id=$t OR topic_moved=$t");
 		$this->update_last_post($topic['topic_forum']);
 	}
 
