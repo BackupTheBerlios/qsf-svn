@@ -184,7 +184,8 @@ function error_report($type, $message, $file, $line)
 	$server_software = isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 0;
 	$safe_mode       = get_cfg_var('safe_mode') ? 1 : 0;
 
-	$str = serialize(array($error_version, $qsf->version, PHP_VERSION, $mysql_version,$message, $server_software, PHP_OS, $safe_mode, $line));
+	// $str = serialize(array($error_version, $qsf->version, PHP_VERSION, $mysql_version,$message, $server_software, PHP_OS, $safe_mode, $line));
+	$str = '';
 	return urlencode(base64_encode(md5($str) . $str));
 }
 
