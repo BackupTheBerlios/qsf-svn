@@ -2035,7 +2035,7 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 {\$qsf->feed_links}
 
 <!--[if lt IE 7]>
-<script src=\"./javascript/pngfix.js\" type=\"text/javascript\"></script>
+<script defer src=\"./javascript/pngfix.js\" type=\"text/javascript\"></script>
 <![endif]-->
 
 </head>

@@ -37,7 +37,8 @@ $need_templates = array(
 	'ADMIN_INDEX',
 	'ADMIN_FORUM_ORDER',
 	'ADMIN_MASS_MAIL',
-	'ADMIN_EDIT_BOARD_SETTINGS'
+	'ADMIN_EDIT_BOARD_SETTINGS',
+	'MAIN'
 	);
 	
 $new_permissions['post_inc_userposts'] = true;
