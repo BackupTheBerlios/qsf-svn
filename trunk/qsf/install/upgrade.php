@@ -330,20 +330,22 @@ class upgrade extends qsfglobal
 					// Groups
 					while ($this->perms->get_group())
 					{
-						if ($this->perms->auth('is_admin')) $default = true;
-						if (!$this->perms->auth('do_anything')) $default = false;
-						if ($this->perms->is_guest) $default = false;
-						$this->perms->add_perm($id, $default);
+						$perm_on = $default;
+						if ($this->perms->auth('is_admin')) $perm_on = true;
+						if (!$this->perms->auth('do_anything')) $perm_on = false;
+						if ($this->perms->is_guest) $perm_on = false;
+						$this->perms->add_perm($id, $perm_on);
 						$this->perms->update();
 					}
 			
 					// Users
 					while ($this->perms->get_group(true))
 					{
-						if ($this->perms->auth('is_admin')) $default = true;
-						if (!$this->perms->auth('do_anything')) $default = false;
-						if ($this->perms->is_guest) $default = false;
-						$this->perms->add_perm($id, $default);
+						$perm_on = $default;
+						if ($this->perms->auth('is_admin')) $perm_on = true;
+						if (!$this->perms->auth('do_anything')) $perm_on = false;
+						if ($this->perms->is_guest) $perm_on = false;
+						$this->perms->add_perm($id, $perm_on);
 						$this->perms->update();
 					}
 				}
