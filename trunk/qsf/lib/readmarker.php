@@ -155,6 +155,34 @@ class readmarker extends forumutils
 	}
 
 	/**
+	 * Query what date was the topic last read
+	 *
+	 * @param int $topic_id Topic to check
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since 1.2.0
+	 * @return date the topics was last read or all topics were read
+	 **/
+	function topic_last_read($topic_id)
+	{
+		$topic_id = intval($topic_id);
+		
+		$last_post_time = $this->last_read_all;
+		
+		if ($this->guest_mode) {
+			if (isset($_SESSION[$this->sets['cookie_prefix'] . 'read_topics'][$topic_id]) &&
+					$_SESSION[$this->sets['cookie_prefix'] . 'read_topics'][$topic_id] > $last_post_time) {
+				$last_post_time = $_SESSION[$this->sets['cookie_prefix'] . 'read_topics'][$topic_id];
+			}
+		} else {
+			$this->_load_readmarkers();
+			if (isset($this->readmarkers[$topic_id]) && $this->readmarkers[$topic_id] > $last_post_time) {
+				$last_post_time = $this->readmarkers[$topic_id];
+			}
+		}
+		return $last_post_time;
+	}
+
+	/**
 	 * Check if there are unread posts in a topic
 	 *
 	 * @param int $topic_id Topic to check
