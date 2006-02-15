@@ -717,7 +717,8 @@ class qsfglobal
 			'db_user',
 			'dbtype',
 			'prefix',
-			'installed'
+			'installed',
+			'include_path'
 		);
 
 		$sets = array();
