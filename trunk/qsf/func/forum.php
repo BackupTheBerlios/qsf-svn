@@ -217,6 +217,8 @@ class forum extends qsfglobal
 		while ($row = $this->db->nqfetch($query))
 		{
 			$row['topic_title'] = $this->format($row['topic_title'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
+			
+			$row['newpost'] = !$this->readmarker->is_topic_read($row['topic_id'], $row['topic_edited']);
 
 			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'] . '&amp;f=' . $f, ', ', 0, $this->sets['posts_per_page']);
 
@@ -243,10 +245,12 @@ class forum extends qsfglobal
 				$row['topic_id'] = $row['topic_moved'];
 
 			} elseif ($row['topic_modes'] & TOPIC_LOCKED) {
-				$state = 'locked';
-
+				if ($row['newpost']) {
+					$state = 'new';
+				}
+				$state .= 'locked';
 			} else {
-				if (!$this->readmarker->is_topic_read($row['topic_id'], $row['topic_edited'])) {
+				if ($row['newpost']) {
 					$state = 'new';
 				}
 

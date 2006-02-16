@@ -56,6 +56,16 @@ class topic extends qsfglobal
                 } else {
                         $this->get['view']  = false;
                 }
+		if (isset($this->get['p'])) {
+                        $this->validator->validate($this->get['p'], TYPE_UINT);
+                } else {
+                        $this->get['p']  = false;
+                }
+		if (isset($this->get['unread'])) {
+                        $this->get['unread']  = true;
+                } else {
+                        $this->get['unread']  = false;
+                }
 		
 		$topic = $this->db->fetch('
 		SELECT
@@ -120,6 +130,27 @@ class topic extends qsfglobal
 				}
 			}
                 }
+		if ($this->get['unread']) {
+			// Jump to the first unread post (or the last post)
+			$timeread = $this->readmarker->topic_last_read($topic['topic_forum']);
+			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM {$this->pre}posts WHERE post_topic = {$this->get['t']} AND post_time < $timeread");
+			if ($posts) $postCount = $posts['posts'] + 1;
+			else $postCount = 0;
+			$this->get['min'] = 0; // Start at the first page regardless
+			while ($postCount > ($this->get['min'] + $this->get['num'])) {
+				$this->get['min'] += $this->get['num'];
+			}
+		}
+		if ($this->get['p']) {
+			// We need to find what page this post exists on!
+			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM {$this->pre}posts WHERE post_topic = {$this->get['t']} AND post_id < {$this->get['p']}");
+			if ($posts) $postCount = $posts['posts'] + 1;
+			else $postCount = 0;
+			$this->get['min'] = 0; // Start at the first page regardless
+			while ($postCount > ($this->get['min'] + $this->get['num'])) {
+				$this->get['min'] += $this->get['num'];
+			}
+		}
 
 		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_views=topic_views+1 WHERE topic_id=' . $this->get['t']);
 
@@ -264,6 +295,7 @@ class topic extends qsfglobal
 		$split = '';
 		$oldtime = $this->time - 900;
 		$newest_post_read = 0;
+		$first_unread_post = false;
 
 		while ($post = $this->db->nqfetch($query))
 		{
@@ -274,6 +306,12 @@ class topic extends qsfglobal
 			}
 
 			$newest_post_read = $post['post_time'];
+			$post['newpost'] = !$this->readmarker->is_post_read($this->get['t'], $post['post_time']);
+			if ($first_unread_post === false && $post['newpost']) {
+				$first_unread_post = true;
+			} else if ($first_unread_post === true) {
+				$first_unread_post = 0;
+			}
 			$post['post_time']   = $this->mbdate(DATE_LONG, $post['post_time']);
 			$post['user_joined'] = $this->mbdate(DATE_ONLY_LONG, $post['user_joined']);
 

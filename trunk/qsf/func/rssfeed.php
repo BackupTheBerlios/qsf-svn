@@ -20,6 +20,8 @@
  *
  **/
 
+require_once $set['include_path'] . '/global.php';
+
 /**
  * RSS Feed Generator
  *
@@ -27,7 +29,7 @@
  * @author Roger Libiez (Samson) <samson@afkmud.com>
  * @since 1.1.5
  **/
-class rssfeed
+class rssfeed extends qsfglobal
 {
 	/**
 	 * Main interface. Get a RSS feed of posts
@@ -90,6 +92,7 @@ class rssfeed
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
+				p.post_id,
 				p.post_time,
 				p.post_text,
 				u.user_name
@@ -139,6 +142,7 @@ class rssfeed
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
+				p.post_id,
 				p.post_time,
 				p.post_text,
 				u.user_name
@@ -203,6 +207,7 @@ class rssfeed
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
+				p.post_id,
 				p.post_time,
 				p.post_text,
 				u.user_name
@@ -266,6 +271,7 @@ class rssfeed
 			<title>{$title} {$this->lang->rssfeed_posted_by} {$query_row['user_name']}</title>
 			<link>{$this->sets['loc_of_board']}{$this->mainfile}?a=topic&amp;t={$query_row['topic_id']}</link>
 			<description>{$desc}</description>
+			<guid isPermaLink=\"true\">{$this->sets['loc_of_board']}{$this->mainfile}?a=topic&amp;t={$query_row['topic_id']}&amp;p={$query_row['post_id']}#p{$query_row['post_id']}</guid>
 			<pubDate>{$pubdate}</pubDate>
 			</item>";
 	}

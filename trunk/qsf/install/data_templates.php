@@ -1867,7 +1867,7 @@ $queries['FORUM_SUBFORUM_MAIN'] = "INSERT INTO {$pre}templates (template_skin, t
 {\$this->etable}', 'Forum-view Subforums', 'Change the look of Subforums under the forum-view.', 3)";
 $queries['FORUM_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPIC', ' <tr>
   <td class=\"topicicons\">
-   <div class=\"<IF (\$state == \'locked\' && \$this->user[\'user_lastvisit\'] < \$row[\'edited\'])>new</IF>{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
+   <div class=\"{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
    <IF \$row[\'topic_modes\'] & TOPIC_PINNED>
     <div class=\"pinned\">&nbsp;</div>
    <ELSE>
@@ -3385,7 +3385,8 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->etable}', 'Topic View', 'Change the appearance of topics', 0)";
 $queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST', ' <tr>
   <td class=\"{\$class}\">
-   <a id=\"p{\$i}\"></a>
+   <a id=\"p{\$post[\'post_id\']}\"></a>
+   <IF \$first_unread_post><a id=\"unread\"></a></IF>
    <table style=\"width:100%\">
     <tr>
      <td class=\"posterinfo\" rowspan=\"3\">
