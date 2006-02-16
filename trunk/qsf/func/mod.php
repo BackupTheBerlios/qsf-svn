@@ -686,7 +686,7 @@ class mod extends qsfglobal
 	{
 		$posts = $this->db->query("
 		SELECT
-		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id
+		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count
 		FROM
 		  ({$this->pre}topics t,
 		  {$this->pre}posts p)
@@ -699,7 +699,9 @@ class mod extends qsfglobal
 
 		while ($post = $this->db->nqfetch($posts))
 		{
-			$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $post['post_author']);
+			if ($post['post_count']) {
+				$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $post['post_author']);
+			}
 
 			if ($post['attach_file']) {
 				$this->db->query('DELETE FROM ' . $this->pre . 'attach WHERE attach_post=' . $post['post_id']);
@@ -730,7 +732,7 @@ class mod extends qsfglobal
 	{
 		$result = $this->db->fetch("
 		SELECT
-		  t.topic_forum, t.topic_id, a.attach_file, p.post_author
+		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_count
 		FROM
 		  ({$this->pre}topics t,
 		  {$this->pre}posts p)
@@ -741,7 +743,9 @@ class mod extends qsfglobal
 
 		$this->db->query('UPDATE ' . $this->pre . 'forums SET forum_replies=forum_replies-1 WHERE forum_id=' . $result['topic_forum']);
 		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_replies=topic_replies-1 WHERE topic_id=' . $result['topic_id']);
-		$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $result['post_author']);
+		if ($result['post_count']) {
+			$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $result['post_author']);
+		}
 
 		$this->db->query('DELETE FROM ' . $this->pre . 'posts WHERE post_id=' . $p);
 

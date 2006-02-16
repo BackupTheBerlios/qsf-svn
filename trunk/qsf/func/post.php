@@ -435,9 +435,19 @@ class post extends qsfglobal
 
 				$this->get['t'] = $this->db->insert_id();
 			}
+			
+			if ($this->perms->auth('post_inc_userposts', $this->get['f'])) {
+				$post_count = 1;
+			} else {
+				$post_count = 0;
+			}
 
-			$newlevel = $this->get_level($this->user['user_posts'] + 1);
-
+			if ($post_count) {
+				$newlevel = $this->get_level($this->user['user_posts'] + 1);
+			} else {
+				$newlevel = $this->get_level($this->user['user_posts']);
+			}
+			
 			if ($this->user['user_title_custom']) {
 				$membertitle = $this->user['user_title'];
 			} else {
@@ -454,10 +464,15 @@ class post extends qsfglobal
 			}
 			*/
 
-			$this->db->query("INSERT INTO {$this->pre}posts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon) VALUES ({$this->get['t']}, {$this->user['user_id']}, '{$this->post['post']}', $this->time, {$this->post['parseEmot']}, {$this->post['parseCode']}, INET_ATON('$this->ip'), '{$this->post['icon']}')");
+			$this->db->query("INSERT INTO {$this->pre}posts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon)
+				VALUES ({$this->get['t']}, {$this->user['user_id']}, '{$this->post['post']}', $this->time, {$this->post['parseEmot']}, {$this->post['parseCode']}, $post_count, INET_ATON('$this->ip'), '{$this->post['icon']}')");
 			$post_id = $this->db->insert_id();
 
-			$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='$this->time', user_level='{$newlevel['user_level']}', user_title='" . addslashes($membertitle) . "' WHERE user_id='{$this->user['user_id']}'");
+			if ($post_count) {
+				$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='$this->time', user_level='{$newlevel['user_level']}', user_title='" . addslashes($membertitle) . "' WHERE user_id='{$this->user['user_id']}'");
+			} else {
+				$this->db->query("UPDATE {$this->pre}users SET user_lastpost='$this->time' WHERE user_id='{$this->user['user_id']}'");
+			}
 
 			if ($s == 'reply') {
 				$this->db->query("UPDATE {$this->pre}topics SET topic_replies=topic_replies+1, topic_edited=$this->time, topic_last_poster={$this->user['user_id']} WHERE topic_id={$this->get['t']}");

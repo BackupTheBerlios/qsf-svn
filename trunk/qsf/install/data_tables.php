@@ -128,6 +128,7 @@ $queries[] = "CREATE TABLE {$pre}posts (
   post_author int(10) unsigned NOT NULL default '0',
   post_emoticons tinyint(1) unsigned NOT NULL default '1',
   post_mbcode tinyint(1) unsigned NOT NULL default '1',
+  post_count tinyint(1) unsigned NOT NULL default '1',
   post_text text NOT NULL default '',
   post_time int(10) unsigned NOT NULL default '0',
   post_icon varchar(32) NOT NULL default '',

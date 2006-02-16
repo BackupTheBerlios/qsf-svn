@@ -28,7 +28,10 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	'TOPIC_QUICKREPLY',	// Added templates
 	'CP_PREFS',		// Changed templates
+	'FORUM_TOPIC',
 	'TOPIC_MAIN',
+	'TOPIC_POST',
+	'MAIN',
 	'MAIN_HEADER_GUEST',
 	'MAIN_HEADER_MEMBER',
 	'POST_CLICKABLE_SMILIES',
@@ -53,6 +56,7 @@ $queries[] = "CREATE TABLE {$pre}readmarks (
 
 // Set up a seperate column for 'mark all read'
 $queries[] = "ALTER TABLE {$pre}users ADD user_lastallread int(10) unsigned NOT NULL default '0' AFTER user_lastvisit";
+$queries[] = "ALTER TABLE {$pre}posts ADD post_count tinyint(1) unsigned NOT NULL default '1' AFTER post_mbcode";
 $queries[] = "UPDATE {$pre}users SET user_lastallread=user_lastvisit";
 
 ?>

@@ -130,7 +130,7 @@ class prune extends admin
 	{
 		$posts = $this->db->query("
 		SELECT
-		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id
+		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count
 		FROM
 		  ({$this->pre}topics t,
 		  {$this->pre}posts p)
@@ -143,7 +143,9 @@ class prune extends admin
 
 		while ($post = $this->db->nqfetch($posts))
 		{
-			$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $post['post_author']);
+			if ($post['post_count']) {
+				$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $post['post_author']);
+			}
 
 			if ($post['attach_file']) {
 				$this->db->query('DELETE FROM ' . $this->pre . 'attach WHERE attach_post=' . $post['post_id']);
