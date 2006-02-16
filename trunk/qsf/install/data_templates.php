@@ -3495,7 +3495,7 @@ $queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, temp
       mbcodeInit(\"mbpost\", \"post\");
    //-->
    </script>
-   [ <a href=\"javascript:showhide(\'emot\')\" title=\"{\$this->lang->topic_qr_open_emoticons}\">{\$this->lang->topic_qr_emoticons}</a> | <a href=\"javascript:showhide(\'code\')\" title=\"{$this->lang->topic_qr_open_mbcode}\">MBCode</a> ]
+   [ <a href=\"javascript:showhide(\'emot\')\" title=\"{\$this->lang->topic_qr_open_emoticons}\">{\$this->lang->topic_qr_emoticons}</a> | <a href=\"javascript:showhide(\'code\')\" title=\"{\$this->lang->topic_qr_open_mbcode}\">MBCode</a> ]
    <br /><br />
    <div id=\"emot\" style=\"display:none; align:center; text-align:center;\">
     <div class=\"clickablesmilies\">
