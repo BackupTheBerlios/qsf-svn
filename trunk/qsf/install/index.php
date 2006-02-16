@@ -39,7 +39,7 @@ ob_start();
 error_reporting(E_ALL);
 
 require '../settings.php';
-$set['include_path'] = str_replace('/install/index.php', '', $_SERVER['SCRIPT_FILENAME']);
+$set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require_once $set['include_path'] . '/global.php';
 

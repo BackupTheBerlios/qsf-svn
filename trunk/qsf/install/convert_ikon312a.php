@@ -33,7 +33,7 @@
 require_once './convert_db.php';
 require_once '../settings.php';
 require './settings.php';
-$set['include_path'] = str_replace('/install/convert_ikon312a.php', '', $_SERVER['SCRIPT_FILENAME']);
+$set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require_once $set['include_path'] . '/global.php';
 

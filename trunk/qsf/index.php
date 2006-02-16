@@ -26,7 +26,7 @@ $time_start = $time_now[1] + $time_now[0];
 srand((double)microtime() * 1234567);
 
 require './settings.php';
-$set['include_path'] = str_replace('/index.php', '', $_SERVER['SCRIPT_FILENAME']);
+$set['include_path'] = '.';
 require_once $set['include_path'] . '/defaultutils.php';
 
 if (!$set['installed']) {

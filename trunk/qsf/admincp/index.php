@@ -24,7 +24,7 @@ $time_now   = explode(' ', microtime());
 $time_start = $time_now[1] + $time_now[0];
 
 require '../settings.php';
-$set['include_path'] = str_replace('/admincp/index.php', '', $_SERVER['SCRIPT_FILENAME']);
+$set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 
 if (!$set['installed']) {

@@ -28,7 +28,7 @@
 
 error_reporting(E_ALL);
 require '../settings.php';
-$set['include_path'] = str_replace('/tools/lang_sync.php', '', $_SERVER['SCRIPT_FILENAME']);
+$set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require '../global.php';
 
