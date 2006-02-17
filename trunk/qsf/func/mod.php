@@ -276,23 +276,7 @@ class mod extends qsfglobal
 
 			$this->db->query('UPDATE ' . $this->pre . 'posts SET post_text="' . $this->post['post'] . '", post_emoticons=' . $emot . ', post_mbcode=' . $code . ', post_edited_by="' . $this->user['user_name'] . '", post_edited_time=' . $this->time . ', post_icon="' . $this->post['icon'] . '" WHERE post_id=' . $this->get['p']);
 
-			$prev = $this->db->fetch("
-			SELECT
-			  COUNT(p.post_id) AS prev_posts
-			FROM
-			  {$this->pre}posts p
-			WHERE
-			  p.post_topic = {$data['post_topic']} AND
-			  p.post_time < {$data['post_time']}
-			ORDER BY
-			  p.post_time");
-
-			if ($prev['prev_posts'] >= $this->sets['posts_per_page']) {
-				$min = floor($prev['prev_posts'] / $this->sets['posts_per_page']) * $this->sets['posts_per_page'];
-				$jump = "&min=$min#p" . ($prev['prev_posts'] - $min);
-			} else {
-				$jump = '#p' . $prev['prev_posts'];
-			}
+			$jump = '&amp;p=' . $this->get['p'] . '#p' . $this->get['p'];
 
 			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_post_edit, $this->lang->continue, "{$this->self}?a=topic&amp;t={$data['post_topic']}$jump", "$this->self?a=topic&t={$data['post_topic']}$jump");
 		}
@@ -521,21 +505,14 @@ class mod extends qsfglobal
 
 		$prev = $this->db->fetch("
 		SELECT
-		  COUNT(p.post_id) AS prev_posts
+		  MAX(p.post_id) AS prev_post
 		FROM
 		  {$this->pre}posts p
 		WHERE
 		  p.post_topic = {$post['post_topic']} AND
-		  p.post_time < {$post['post_time']}
-		ORDER BY
-		  p.post_time");
-
-		if ($prev['prev_posts'] >= $this->sets['posts_per_page']) {
-			$min = floor($prev['prev_posts'] / $this->sets['posts_per_page']) * $this->sets['posts_per_page'];
-			$jump = "&min=$min#p" . ($prev['prev_posts'] - $min);
-		} else {
-			$jump = '#p' . $prev['prev_posts'];
-		}
+		  p.post_time < {$post['post_time']}");
+		  
+		$jump = '&amp;p=' . $prev['prev_post'] . '#p' . $prev['prev_post'];
 
 		$this->delete_post($this->get['p']);
 		$this->update_last_post($post['topic_forum']);

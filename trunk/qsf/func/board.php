@@ -172,12 +172,7 @@ class board extends qsfglobal
 						$full_title = $this->format($full_title, FORMAT_CENSOR | FORMAT_HTMLCHARS);
 						$forum['user_lastpost'] = $this->format($forum['user_lastpost'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 
-						if ($forum['topic_replies'] >= $this->sets['posts_per_page']) {
-							$min = floor($forum['topic_replies'] / $this->sets['posts_per_page']) * $this->sets['posts_per_page'];
-							$forum['LastTopicID'] .= "&amp;min=$min#p" . ($forum['topic_replies'] - $min);
-						} else {
-							$forum['LastTopicID'] .= '#p' . $forum['topic_replies'];
-						}
+						$forum['LastTopicID'] .= '&amp;p=' . $forum['forum_lastpost'] . '#p' . $forum['forum_lastpost'];
 
 						$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 					} else {

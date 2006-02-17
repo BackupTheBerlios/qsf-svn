@@ -533,20 +533,7 @@ class post extends qsfglobal
 				$mailer->doSend();
 			}
 
-			if ($s == 'reply') {
-				$topic['topic_replies']++;
-
-				if ($topic['topic_replies'] >= $this->sets['posts_per_page']) {
-					$min = floor($topic['topic_replies'] / $this->sets['posts_per_page']) * $this->sets['posts_per_page'];
-					$jump = "&min=$min#p" . ($topic['topic_replies'] - $min);
-				} else {
-					$jump = '#p' . $topic['topic_replies'];
-				}
-
-				header('Location: ' . $this->self . '?a=topic&t=' . $this->get['t'] . $jump);
-			} else {
-				header('Location: ' . $this->self . '?a=topic&t=' . $this->get['t']);
-			}
+			header('Location: ' . $this->self . '?a=topic&t=' . $this->get['t'] . '&p=' . $post_id . '#p' . $post_id);
 		}
 	}
 

@@ -198,8 +198,7 @@ class forum extends qsfglobal
 		    DISTINCT(p.post_author) as dot,
 		    t.topic_id, t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
 		    t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved,
-		    s.user_name AS topic_starter_name,
-			m.user_name AS topic_last_poster_name
+		    s.user_name AS topic_starter_name, m.user_name AS topic_last_poster_name, p.post_id AS topic_last_post
 		FROM
 		    ({$this->pre}topics t,
 		    {$this->pre}users s)
@@ -265,12 +264,7 @@ class forum extends qsfglobal
 				}
 			}
 
-			if ($row['topic_replies'] >= $this->sets['posts_per_page']) {
-				$min = floor($row['topic_replies'] / $this->sets['posts_per_page']) * $this->sets['posts_per_page'];
-				$jump = "&amp;min=$min#p" . ($row['topic_replies'] - $min);
-			} else {
-				$jump = '#p' . $row['topic_replies'];
-			}
+			$jump = '&amp;p=' . $row['topic_last_post'] . '#p' . $row['topic_last_post'];
 
 			$row['edited'] = $row['topic_edited']; // Store so skin can access
 			$row['topic_edited'] = $this->mbdate(DATE_LONG, $row['topic_edited']);
