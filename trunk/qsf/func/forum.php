@@ -207,6 +207,7 @@ class forum extends qsfglobal
 		WHERE
 		    ((t.topic_forum = $f) OR (t.topic_modes & " . TOPIC_GLOBAL . ")) AND
 		    s.user_id = t.topic_starter
+		GROUP BY t.topic_id
 		ORDER BY
 			(t.topic_modes & " . TOPIC_PINNED . ") DESC,
 		    $order
