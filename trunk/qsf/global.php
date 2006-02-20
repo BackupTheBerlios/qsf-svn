@@ -62,6 +62,8 @@ class qsfglobal
 	var $bbcode;			  // BBCode formatter @var object
 	var $readmarker;		  // Handles tracking what posts are read and unread
 	var $validator;			  // Handler for checking usernames, passwords, etc
+	
+	var $debug_mode = false;	  // Switch to tell if debugging info is allowed
 
 	/**
 	 * Constructor; sets up variables
@@ -105,6 +107,10 @@ class qsfglobal
 	 **/
 	function init($admin = false)
 	{
+		if (@file_exists($this->sets['include_path'] . '/tools')) {
+			$this->debug_mode = true;
+		}
+
 		$this->perms = new $this->modules['permissions']($this);
 		
 		/* set timezone offset */

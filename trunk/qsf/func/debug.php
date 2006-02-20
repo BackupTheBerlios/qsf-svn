@@ -43,7 +43,7 @@ hr {height:1px; border:0 none inherit; border-top:1px solid #666666}
 <div>
 <span style='font-size:18px; color:#660000'><b>Quicksilver Forums Debug</b></span>";
 
-if (!@file_exists('./tools')) {
+if (!$this->debug_mode) {
 	$out .= "<br /><br /><span style='font-size:12px'>This feature has been disabled.</span>
 	</div></body></html>";
 	return;
