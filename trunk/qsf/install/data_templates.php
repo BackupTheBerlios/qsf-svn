@@ -3174,6 +3174,62 @@ $queries['REGISTER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, templat
  </tr>
 {\$this->etable}
 </form>', 'Register View', 'Change the appearance of the register screen', 0)";
+$queries['RSSFEED_ALL_POSTS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ALL_POSTS', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+<rss version=\"2.0\">
+    <channel>
+    <title>{\$this->sets[\'rss_feed_title\']}</title>
+    <link>{\$this->link}</link>
+    <description>{\$this->sets[\'rss_feed_desc\']}</description>
+    <language>{\$this->user[\'user_language\']}</language>
+    <generator>{\$this->sets[\'forum_name\']}</generator>
+    <ttl>{\$this->sets[\'rss_feed_time\']}</ttl>
+    \$items
+  </channel>
+</rss>', 'RSS All Posts Feed', 'RSS Feed for all posts on the site.', 1)";
+$queries['RSSFEED_ERROR'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ERROR', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+<rss version=\"2.0\">
+  <channel>
+    <title>{\$this->sets[\'rss_feed_title\']} - {\$this->lang->rssfeed_error}</title>
+    <link>{\$this->link}</link>
+    <description>{\$error}</description>
+    <language>{\$this->user[\'user_language\']}</language>
+    <generator>{\$this->sets[\'forum_name\']}</generator>
+    <ttl>{\$this->sets[\'rss_feed_time\']}</ttl>
+  </channel>
+</rss>', 'RSS Error', 'Feed for handling errors in RSS format.', 5)";
+$queries['RSSFEED_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_FORUM', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+<rss version=\"2.0\">
+    <channel>
+    <title>{\$this->sets[\'rss_feed_title\']} - {\$this->lang->rssfeed_forum} {\$exists[\'forum_name\']}</title>
+    <link>{\$this->link}</link>
+    <description>{\$this->sets[\'rss_feed_desc\']} - {\$exists[\'forum_description\']}</description>
+    <language>{\$this->user[\'user_language\']}</language>
+    <generator>{\$this->sets[\'forum_name\']}</generator>
+    <ttl>{\$this->sets[\'rss_feed_time\']}</ttl>
+    \$items
+  </channel>
+</rss>', 'RSS Forum Posts Feed', 'RSS Feed for posts within a forum.', 2)";
+$queries['RSSFEED_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ITEM', '    <item>
+      <title>{\$title}</title>
+      <link>{\$this->sets[\'loc_of_board\']}{\$this->mainfile}?a=topic&amp;t={\$query_row[\'topic_id\']}&amp;p={\$query_row[\'post_id\']}#p{\$query_row[\'post_id\']}</link>
+      <description>{\$desc}</description>
+      <guid isPermaLink=\"true\">{\$this->sets[\'loc_of_board\']}{\$this->mainfile}?a=topic&amp;t={\$query_row[\'topic_id\']}&amp;p={\$query_row[\'post_id\']}#p{\$query_row[\'post_id\']}</guid>
+      <pubDate>{\$pubdate}</pubDate>
+      <category>\$forum_name</category>
+      <author>{\$query_row[\'user_name\']}</author>
+    </item>', 'RSS Item', 'Feed for a single post in RSS format.', 4)";
+$queries['RSSFEED_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_TOPIC', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+<rss version=\"2.0\">
+    <channel>
+    <title>{\$this->sets[\'rss_feed_title\']} - {\$this->lang->rssfeed_topic} {\$topicdata[\'topic_title\']}</title>
+    <link>{\$this->link}</link>
+    <description>{\$this->sets[\'rss_feed_desc\']} - {\$topicdata[\'topic_description\']}</description>
+    <language>{\$this->user[\'user_language\']}</language>
+    <generator>{\$this->sets[\'forum_name\']}</generator>
+    <ttl>{\$this->sets[\'rss_feed_time\']}</ttl>
+    \$items
+  </channel>
+</rss>', 'RSS Topic Posts Feed', 'RSS Feed for replies to a topic.', 3)";
 $queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_MAIN', '<script type=\"text/javascript\" src=\"./javascript/selectallforums.js\"></script>
 <form action=\"{\$this->self}?a=search\" method=\"post\" id=\"search\">
 {\$this->table}

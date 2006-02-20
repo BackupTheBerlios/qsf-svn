@@ -1301,6 +1301,7 @@ class nl
 		$this->temps_profile = 'Profiel bekijken';
 		$this->temps_recent = 'Recente onderwerpen';
 		$this->temps_register = 'Registreren';
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Zoeken';
 		$this->temps_settings = 'AdminCP Opties';
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate

@@ -27,6 +27,11 @@ if (!defined('INSTALLER')) {
 // Upgrade from 1.1.9 to 1.2.0
 $need_templates = array(
 	'TOPIC_QUICKREPLY',	// Added templates
+	'RSSFEED_ALL_POSTS',
+	'RSSFEED_ERROR',
+	'RSSFEED_FORUM',
+	'RSSFEED_TOPIC',
+	'RSSFEED_ITEM',
 	'CP_PREFS',		// Changed templates
 	'FORUM_TOPIC',
 	'TOPIC_MAIN',

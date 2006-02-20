@@ -40,6 +40,7 @@ class rssfeed extends qsfglobal
 	function execute()
 	{
 		$this->nohtml = true;
+		$this->templater->debug_mode = false; // or else we end up with invalid XML
 		
 		$feed = null;
 		
@@ -76,22 +77,12 @@ class rssfeed extends qsfglobal
 	 **/
 	function generate_full_feed()
 	{
-		Header( "Content-type: text/xml", 1 );
-		$out = "<?xml version='1.0' encoding='{$this->lang->charset}'?>
-		<rss version='2.0'>
-		<channel>
-		<title>{$this->sets['rss_feed_title']}</title>
-		<link>{$this->link}</link>
-		<description>{$this->sets['rss_feed_desc']}</description>
-		<language>{$this->user['user_language']}</language>
-		<generator>{$this->sets['forum_name']}</generator>
-		<ttl>{$this->sets['rss_feed_time']}</ttl>";
-		
 		$forums_str = $this->readmarker->create_forum_permissions_string();
 		
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
+				t.topic_forum,
 				p.post_id,
 				p.post_time,
 				p.post_text,
@@ -105,13 +96,16 @@ class rssfeed extends qsfglobal
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
 			LIMIT {$this->sets['rss_feed_posts']}" );
+
+
+		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
 		{
-			$out .= $this->get_post($row);
+			$items .= $this->get_post($row);
 		}
-		$out .= "</channel>
-		</rss>";
-		return $out;
+
+		Header( "Content-type: text/xml", 1 );
+		return eval($this->template('RSSFEED_ALL_POSTS'));
 	}
 	
 	/**
@@ -127,21 +121,11 @@ class rssfeed extends qsfglobal
 		if (!isset($exists['forum_parent']) || !$exists['forum_parent'] || $exists['forum_subcat']) {
 			return $this->rss_error_message($this->lang->rssfeed_cannot_find_forum);
 		}
-
-		Header( "Content-type: text/xml", 1 );
-		$out = "<?xml version='1.0' encoding='{$this->lang->charset}'?>
-		<rss version='2.0'>
-		<channel>
-		<title>{$this->sets['rss_feed_title']} - {$this->lang->rssfeed_forum} {$exists['forum_name']}</title>
-		<link>{$this->link}</link>
-		<description>{$this->sets['rss_feed_desc']} - {$exists['forum_description']}</description>
-		<language>{$this->user['user_language']}</language>
-		<generator>{$this->sets['forum_name']}</generator>
-		<ttl>{$this->sets['rss_feed_time']}</ttl>";
 		
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
+				t.topic_forum,
 				p.post_id,
 				p.post_time,
 				p.post_text,
@@ -155,13 +139,15 @@ class rssfeed extends qsfglobal
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
 			LIMIT {$this->sets['rss_feed_posts']}" );
+			
+		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
 		{
-			$out .= $this->get_post($row);
+			$items .= $this->get_post($row);
 		}
-		$out .= "</channel>
-		</rss>";
-		return $out;
+
+		Header( "Content-type: text/xml", 1 );
+		return eval($this->template('RSSFEED_FORUM'));
 	}
 
 	/**
@@ -192,21 +178,11 @@ class rssfeed extends qsfglobal
 
 		$topicdata['topic_title'] = $this->format($topicdata['topic_title'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 		$topicdata['topic_description'] = $this->format($topicdata['topic_description'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
-
-		Header( "Content-type: text/xml", 1 );
-		$out = "<?xml version='1.0' encoding='{$this->lang->charset}'?>
-		<rss version='2.0'>
-		<channel>
-		<title>{$this->sets['rss_feed_title']} - {$this->lang->rssfeed_topic} {$topicdata['topic_title']}</title>
-		<link>{$this->link}</link>
-		<description>{$this->sets['rss_feed_desc']} - {$topicdata['topic_description']}</description>
-		<language>{$this->user['user_language']}</language>
-		<generator>{$this->sets['forum_name']}</generator>
-		<ttl>{$this->sets['rss_feed_time']}</ttl>";
 		
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
+				t.topic_forum,
 				p.post_id,
 				p.post_time,
 				p.post_text,
@@ -220,13 +196,15 @@ class rssfeed extends qsfglobal
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
 			LIMIT {$this->sets['rss_feed_posts']}" );
+
+		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
 		{
-			$out .= $this->get_post($row);
+			$items .= $this->get_post($row);
 		}
-		$out .= "</channel>
-		</rss>";
-		return $out;
+
+		Header( "Content-type: text/xml", 1 );
+		return eval($this->template('RSSFEED_TOPIC'));
 	}
 	
 	/**
@@ -239,17 +217,7 @@ class rssfeed extends qsfglobal
 	function rss_error_message($error)
 	{
 		Header( "Content-type: text/xml", 1 );
-		return "<?xml version='1.0' encoding='{$this->lang->charset}'?>
-		<rss version='2.0'>
-		<channel>
-		<title>{$this->sets['rss_feed_title']} - {$this->lang->rssfeed_error}</title>
-		<link>{$this->link}</link>
-		<description>{$error}</description>
-		<language>{$this->user['user_language']}</language>
-		<generator>{$this->sets['forum_name']}</generator>
-		<ttl>{$this->sets['rss_feed_time']}</ttl>
-		</channel>
-		</rss>";
+		return eval($this->template('RSSFEED_ERROR'));
 	}
 	
 	/**
@@ -266,14 +234,11 @@ class rssfeed extends qsfglobal
 		$desc = substr( $query_row['post_text'], 0, 500 );
 		$desc = htmlspecialchars( $desc );
 		$pubdate = $this->mbdate( DATE_ISO822, $query_row['post_time'], false );
+		$forum_name = 'Unknown';
+		$forum = $this->readmarker->get_forum($query_row['topic_forum']);
+		if ($forum != null) $forum_name = $forum['forum_name'];
 		
-		return "<item>
-			<title>{$title} {$this->lang->rssfeed_posted_by} {$query_row['user_name']}</title>
-			<link>{$this->sets['loc_of_board']}{$this->mainfile}?a=topic&amp;t={$query_row['topic_id']}</link>
-			<description>{$desc}</description>
-			<guid isPermaLink=\"true\">{$this->sets['loc_of_board']}{$this->mainfile}?a=topic&amp;t={$query_row['topic_id']}&amp;p={$query_row['post_id']}#p{$query_row['post_id']}</guid>
-			<pubDate>{$pubdate}</pubDate>
-			</item>";
+		return eval($this->template('RSSFEED_ITEM'));
 	}
 }
 ?>

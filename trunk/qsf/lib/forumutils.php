@@ -47,6 +47,26 @@ require_once $set['include_path'] . '/lib/tool.php';
 	}
 
 	/**
+	 * Requests the data on a forum given it's id
+	 *
+	 * @param array $array Array of forums from forum_grab()
+	 * @param int $forum_id forum_id for which data is being requested
+	 * @return array Row record of forum
+	 **/
+	function get_forum($forum_id)
+	{
+		$allForums = $this->forum_grab();
+		
+		foreach ($allForums as $row)
+		{
+			if ($row['forum_id'] == $forum_id) {
+				return $row;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Finds all subforums of $parent in $array
 	 *
 	 * @param array $array Array of forums from forum_grab()

@@ -55,6 +55,7 @@ class templates extends admin
 			'prune'          => $this->lang->temps_topic_prune,
 			'recent'	 => $this->lang->temps_recent,
 			'register'       => $this->lang->temps_register,
+			'rssfeed'        => $this->lang->temps_rssfeed,
 			'search'         => $this->lang->temps_search,
 			'settings'       => $this->lang->temps_settings,
 			'templates'      => $this->lang->temps_templates,

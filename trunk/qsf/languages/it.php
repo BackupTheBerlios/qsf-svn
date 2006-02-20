@@ -1299,6 +1299,7 @@ class it
 		$this->temps_profile = 'Profile Viewing'; //Translate
 		$this->temps_recent = 'Discussioni Recenti';
 		$this->temps_register = 'Registrazione';
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Ricerca';
 		$this->temps_settings = 'AdminCP Configurazione';
 		$this->temps_templates = 'AdminCP Editor Template';

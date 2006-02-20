@@ -1299,6 +1299,7 @@ class fi
 		$this->temps_profile = 'Profile Viewing'; //Translate
 		$this->temps_recent = 'Recent Topics'; //Translate
 		$this->temps_register = 'Registration'; //Translate
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Searching'; //Translate
 		$this->temps_settings = 'AdminCP Settings'; //Translate
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate

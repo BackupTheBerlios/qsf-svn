@@ -1300,6 +1300,7 @@ class de
 		$this->temps_profile = 'Profil-Betrachtung';
 		$this->temps_recent = 'Neueste Themen';
 		$this->temps_register = 'Registrierung';
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Suche';
 		$this->temps_settings = 'Administrator Kontrollzentrum Einstellungen';
 		$this->temps_templates = 'Administrator Kontrollzentrum Template-Editor';

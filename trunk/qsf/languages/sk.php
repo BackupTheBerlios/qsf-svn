@@ -1301,6 +1301,7 @@ class sk
 		$this->temps_profile = 'Zobrazenie Profilu';
 		$this->temps_recent = 'Najnovšie témy';
 		$this->temps_register = 'Registrácia';
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Vyh¾adávanie';
 		$this->temps_settings = 'AdminCP Nastavenia';
 		$this->temps_templates = 'AdminCP Editor Šablón';

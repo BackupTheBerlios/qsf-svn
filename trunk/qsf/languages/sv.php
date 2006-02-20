@@ -1300,6 +1300,7 @@ class sv
 		$this->temps_profile = 'Profilspaning';
 		$this->temps_recent = 'Nya Ämnen';
 		$this->temps_register = 'Registrering';
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Sökning';
 		$this->temps_settings = 'AdminKP Inställningar';
 		$this->temps_templates = 'AdminKP Mallediterare';
