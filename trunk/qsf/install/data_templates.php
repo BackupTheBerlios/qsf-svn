@@ -2761,13 +2761,12 @@ $queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO {$pre}templates (template_skin
   </td>', 'Clickable Smilies', 'Table cell for clickable smilies', 13)";
 $queries['POST_GLOBAL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_GLOBAL', '<br /><input type=\"checkbox\" name=\"global_topic\" value=\"1\" id=\"global_topic\"{\$checkGlob} /> <label for=\"global_topic\">{\$this->lang->post_option_global}</label><br />', 'Global Topic Checkbox', 'Displayed only to those able to make a topic global', 8)";
 $queries['POST_MESSAGE_ICONS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_MESSAGE_ICONS', ' <tr>
-  <td class=\"tabledark\" valign=\"top\"><b>{\$this->lang->post_icon}</b></td>
+  <td class=\"tabledark\" valign=\"top\">
+  <strong>{\$this->lang->post_icon}</strong></td>
   <td class=\"tabledark\">
-   <table border=\"0\" cellpadding=\"0\" cellspacing=\"5\">
-    <tr>
+    <ul class=\"messageicons\">
      {\$msg_icons}
-    </tr>
-   </table>
+    </ul>
   </td>
  </tr>', 'Message Icons', 'Table row for message icons in a post', 12)";
 $queries['POST_POLL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POLL', '{\$preview}

@@ -576,7 +576,7 @@ class htmlwidgets extends htmltools
 	}
 
 	/**
-	 * Retrieves message icons and puts them into a table as radio buttons
+	 * Retrieves message icons and puts them into a unordered list
 	 *
 	 * @param string $select Icon to select
 	 * @author Jason Warner <jason@mercuryboard.com>
@@ -607,11 +607,8 @@ class htmlwidgets extends htmltools
 
 		foreach ($icons as $icon)
 		{
-			if (($i % 8 == 0) && ($i != 0)) {
-				$msgicons .= "\n</tr><tr>\n\n";
-			}
-
-			$msgicons .= "\n<td><input type=\"radio\" name=\"icon\" id=\"icon$i\" value=\"$icon\"" . (($select == $icon) ? ' checked=\'checked\'' : null) . " /><label for=\"icon$i\"><img src=\"./skins/$this->skin/mbicons/$icon\" alt=\"Message Icon\" /></label>&nbsp;</td>";
+			$msgicons .= "<li><input type=\"radio\" name=\"icon\" id=\"icon$i\" value=\"$icon\"" . (($select == $icon) ? '
+				checked=\'checked\'' : null) . " />&nbsp;<label for=\"icon$i\"><img src=\"./skins/$this->skin/mbicons/$icon\" alt=\"{$this->lang->post_icon}\" /></label></li>\n";
 			$i++;
 		}
 		return $msgicons;
