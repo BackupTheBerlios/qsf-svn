@@ -86,6 +86,9 @@ class htmltools extends forumutils
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.1
 	 * @return void
+	 *
+	 * @todo Ordering by LENGTH() adds some strain to an otherwise simple query. I'd be good to add
+	 * an order column and allow manual ordering from that like we do with forums
 	 **/
 	function get_replaces()
 	{

@@ -62,48 +62,11 @@ class bbcode extends htmltools
 				$this->get_replaces();
 			}
 
-			if ($this->censor) {
-				$in = preg_replace($this->censor, '####', $in);
-			}
+			$in = $this->_do_censor($in);
 		}
 
 		if ($options & FORMAT_MBCODE) {
-			$search = array(
-				'~(^|\s)([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)~i',
-				'~(^|\s)(http|https|ftp)://(\w+[^\s\[\]]+)~ise'
-			);
-
-			$replace = array(
-				'\\1[email]\\2[/email]',
-				'\'\\1[url]\' . wordwrap(\'\\2://\\3\', 1, \' \', 1) . \'[/url]\''
-			);
-
-			$brackets = (strpos($in, '[') !== false) && (strpos($in, ']') !== false);
-
-			if ($brackets) {
-				$b_search = array(
-					'~\[code](.*?)\[/code]~ise',
-					'~\[php](.*?)\[/php]~ise',
-					'~\[php=([0-9]+?)](.*?)\[/php]~ise',
-					'~\[img](http|https|ftp)://(.*?)\[/img]~ise',
-					'~\[url](.*?)\[/url]~ise',
-					'~\[url=(http|https|ftp)://(.+?)](.+?)\[/url]~ise'
-				);
-
-				$b_replace = array(
-					'\'[code]\' . base64_encode(\'\\1\') . \'[/code]\'',
-					'\'[php]\' . base64_encode(\'\\1\') . \'[/php]\'',
-					'\'[php=\\1]\' . base64_encode(\'\\2\') . \'[/php]\'',
-					'\'[img]\' . wordwrap(\'\\1://\\2\', 1, \' \', 1) . \'[/img]\'',
-					'\'[url]\' . wordwrap(\'\\1\\2\', 1, \' \', 1) . \'[/url]\'',
-					'\'[url=\' . wordwrap(\'\\1://\\2\', 1, \' \', 1) . \']\\3[/url]\''
-				);
-
-				$search  = array_merge($search, $b_search);
-				$replace = array_merge($replace, $b_replace);
-			}
-
-			$in = preg_replace($search, $replace, $in);
+			$in = $this->_pre_parse_bbcode($in);
 
 			$brackets = (strpos($in, '[') !== false) && (strpos($in, ']') !== false); //We may have auto-parsed a URL, adding a bracket
 		}
@@ -133,81 +96,9 @@ class bbcode extends htmltools
 		$in = strtr($in, $strtr);
 
 		if (($options & FORMAT_MBCODE) && $brackets) {
-			$old_in = $in; // backup text in case quote tags fail
-			
-			$search = array();
-			$replace = array();
-			
-			$search[] = '~\[quote=(.+?)]~i';
-			$search[] = '~\[quote]~i';
+			$in = $this->_parse_quotes($in);
 
-			$replace[] = '<div class="quotebox"><strong>\\1 ' . $this->lang->main_said . ':</strong><div class="quote">';
-			$replace[] = '<div class="quotebox"><strong>' . $this->lang->main_quote . ':</strong><div class="quote">';
-
-			$startCount = preg_match_all($search[0], $in, $matches);
-			$startCount += preg_match_all($search[1], $in, $matches);
-			$in = preg_replace($search, $replace, $in);
-
-			$search = '~\[/quote]~i';
-			$replace = '</div></div>';
-
-			// Count matches first
-			$endCount = preg_match_all($search, $in, $matches);
-			$in = preg_replace($search, $replace, $in);
-			
-			// Match failed. Ignore quote tags!
-			if ($startCount != $endCount) {
-				$in = $old_in;
-			}
-
-
-			$search = array(
-				'~\[b](.*?)\[/b]~i',
-				'~\[i](.*?)\[/i]~i',
-				'~\[u](.*?)\[/u]~i',
-				'~\[s](.*?)\[/s]~i',
-				'~\[sup](.*?)\[/sup]~i',
-				'~\[sub](.*?)\[/sub]~i',
-				'~\[indent](.*?)\[/indent]~i',
-				'~\[email]([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)?\[/email]~i',
-				'~\[email=([^<]+?)](.*?)\[/email]~i',
-				'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
-				'~\[(left|right|center|justify)](.*?)\[/\1]~is',
-				'~\[color=(#?[a-zA-Z0-9]+?)](.*?)\[/color]~is',
-				'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
-				'~\[size=([0-9]+?)](.*?)\[/size]~is',
-				'~\[spoiler](.*?)\[/spoiler]~i',
-				'~\[code](.*?)\[/code]~ise',
-				'~\[php](.*?)\[/php]~ise',
-				'~\[php=([0-9]+?)](.*?)\[/php]~ise',
-				'~\[url](h t t p|h t t p s|f t p) : / /(.+?)\[/url]~ise',
-				'~\[url=(h t t p|h t t p s|f t p) : / /(.+?)](.+?)\[/url]~ise'
-			);
-
-			$replace = array(
-				'<strong>\\1</strong>',
-				'<em>\\1</em>',
-				'<span style="text-decoration: underline;">\\1</span>',
-				'<span style="text-decoration: line-through;">\\1</span>',
-				'<sup>\\1</sup>',
-				'<sub>\\1</sub>',
-				'<p style=\'text-indent:2em\'>\\1</p>',
-				'<a href="mailto:\\1">\\1</a>',
-				'<a href="mailto:\\1">\\2</a>',
-				'\'<img src="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" alt="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" />\'',
-				'<p style=\'text-align:\\1\'>\\2</p>',
-				'<span style=\'color:\\1\'>\\2</span>',
-				'<span style=\'font-family:\\1\'>\\2</span>',
-				'<span style=\'font-size:\\1ex\'>\\2</span>',
-				$this->lang->spoiler . ':<br /><div class="spoiler">\\1</div>',
-				'$this->_format_code(\'\\1\', 0)',
-				'$this->_format_code(\'\\1\', 1)',
-				'$this->_format_code(\'\\2\', 1, \'\\1\')',
-				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'</a>\'',
-				'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . stripslashes(\'\\3\') . \'</a>\''
-			);
-
-			$in = preg_replace($search, $replace, $in);
+			$in = $this->_parse_bbcode($in);
 
 			$in = str_replace(array('  ', "\t", '&amp;#'), array('&nbsp; ', '&nbsp; &nbsp; ', '&#'), $in);
 		}
@@ -234,8 +125,6 @@ class bbcode extends htmltools
 		$input = rtrim($input);
 		
 		if ($php) {
-			$title = 'PHP';
-
 			if (strpos($input, '<?') === false) {
 				$input  = '<?php ' . $input . '?>';
 				$tagged = true;
@@ -256,15 +145,13 @@ class bbcode extends htmltools
 			$input = preg_replace('/^<code><span style="color: #000000">\s(.+)\s<\/span>\s<\/code>$/', '<span style="color: #000000">$1</span>', $input);
 		} else {
 			$input = htmlspecialchars(str_replace(array('\'', '\"'), array('&#039;', '"'), $input));
-
-			$title = $this->lang->main_code;
 		}
 
 		if (isset($tagged)) {
 			$input = str_replace(array('&lt;?php&nbsp;', '?&gt;'), '', $input);
 		}
 
-		if ($title == 'PHP') {
+		if ($php) {
 			$lines = explode('<br />', $input);
 		} else {
 			$lines = explode("\n", $input);
@@ -280,18 +167,17 @@ class bbcode extends htmltools
 			$col2 .= $lines[$i];
 			$start++;
 		}
-
-		$height = ($count * 14) + 14;
+		
+		$codehtml = $this->_get_code_html($count);
 
 		$return = '';
 		if ($php) {
-			$return = '<div class="code phpcode">';
+			$return = $codehtml['start_php'];
 		} else {
-			$return = '<div class="code">';
+			$return = $codehtml['start_code'];
 		}
-		$return .= '<div class="codetitle">' . $title . ':</div>';
-		/* $return .= '<div class="codelines">$col1</div>'; */
-		$return .= '<pre style="height:' . $height . 'px;" class="codedata">' . $col2 . '</pre></div>';
+		$return .= $col2;
+		$return .= $codehtml['end'];
 
 		return $return;
 	}
@@ -338,6 +224,234 @@ class bbcode extends htmltools
 		return true;
 	}
 
+	/**
+	 * Handle formatting out censored workds
+	 *
+	 * PROTECTED
+	 *
+	 * @param string $in Unformatted input
+	 * @return string result with censored words replaced
+	 **/
+	function _do_censor($in)
+	{
+		if ($this->censor) {
+			$in = preg_replace($this->censor, '####', $in);
+		}
+		return $in;
+	}
+	
+	/**
+	 * Pre parsing is to help preserve contents of urls and code type blocks
+	 *
+	 * PROTECTED
+	 *
+	 * @param string $in Unformatted input
+	 * @return string result with pre parsing applied
+	 **/
+	function _pre_parse_bbcode($in)
+	{
+		$link_matches = $this->_get_link_matches();
+		$search = $link_matches['matches'];
+	
+		$replace = $link_matches['replacements'];
+	
+		$brackets = (strpos($in, '[') !== false) && (strpos($in, ']') !== false);
+	
+		if ($brackets) {
+			$b_search = array(
+				'~\[code](.*?)\[/code]~ise',
+				'~\[php](.*?)\[/php]~ise',
+				'~\[php=([0-9]+?)](.*?)\[/php]~ise',
+				'~\[img](http|https|ftp)://(.*?)\[/img]~ise',
+				'~\[url](.*?)\[/url]~ise',
+				'~\[url=(http|https|ftp)://(.+?)](.+?)\[/url]~ise'
+			);
+	
+			$b_replace = array(
+				'\'[code]\' . base64_encode(\'\\1\') . \'[/code]\'',
+				'\'[php]\' . base64_encode(\'\\1\') . \'[/php]\'',
+				'\'[php=\\1]\' . base64_encode(\'\\2\') . \'[/php]\'',
+				'\'[img]\' . wordwrap(\'\\1://\\2\', 1, \' \', 1) . \'[/img]\'',
+				'\'[url]\' . wordwrap(\'\\1\\2\', 1, \' \', 1) . \'[/url]\'',
+				'\'[url=\' . wordwrap(\'\\1://\\2\', 1, \' \', 1) . \']\\3[/url]\''
+			);
+	
+			$search  = array_merge($search, $b_search);
+			$replace = array_merge($replace, $b_replace);
+		}
+	
+		return preg_replace($search, $replace, $in);
+	}
+	
+	/**
+	 * Parsing BB code tags
+	 *
+	 * PROTECTED
+	 *
+	 * @param string $in Partially formatted input
+	 * @return string result with quote html applied
+	 **/
+	function _parse_bbcode($in)
+	{
+		$bbcode_matches = $this->_get_bbcode_matches();
+
+		$search = $bbcode_matches['matches'];
+
+		$replace = $bbcode_matches['replacements'];
+
+		return preg_replace($search, $replace, $in);
+	}
+	
+	/**
+	 * Parsing for quote BB code
+	 *
+	 * PROTECTED
+	 *
+	 * @param string $in Partially formatted input
+	 * @return string result with quote html applied
+	 **/
+	function _parse_quotes($in)
+	{
+		$old_in = $in; // backup text in case quote tags fail
+		
+		$quotehtml = $this->_get_quote_html();
+		
+		$search = array();
+		$replace = array();
+		
+		$search[] = '~\[quote=(.+?)]~i';
+		$search[] = '~\[quote]~i';
+
+		$replace[] = $quotehtml['start_named'];
+		$replace[] = $quotehtml['start'];
+
+		$startCount = preg_match_all($search[0], $in, $matches);
+		$startCount += preg_match_all($search[1], $in, $matches);
+		$in = preg_replace($search, $replace, $in);
+
+		$search = '~\[/quote]~i';
+		$replace = $quotehtml['end'];
+
+		// Count matches first
+		$endCount = preg_match_all($search, $in, $matches);
+		$in = preg_replace($search, $replace, $in);
+		
+		// Match failed. Ignore quote tags!
+		if ($startCount != $endCount) {
+			return $old_in;
+		}
+		return $in;
+	}
+
+	/**
+	 * Get the array of matches to check for links or urls
+	 *
+	 * PROTECTED
+	 *
+	 * @return array matches and replacements to check for links or emails
+	 **/
+	function _get_link_matches()
+	{
+		return array(
+			'matches' => array('~(^|\s)([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)~i',
+				'~(^|\s)(http|https|ftp)://(\w+[^\s\[\]]+)~ise'),
+			'replacements' => array('\\1[email]\\2[/email]',
+				'\'\\1[url]\' . wordwrap(\'\\2://\\3\', 1, \' \', 1) . \'[/url]\''));
+	}
+	
+	/**
+	 * Get the array of matches to check for basic bb code
+	 *
+	 * PROTECTED
+	 *
+	 * @return array matches and replacements to check for links or emails
+	 **/
+	function _get_bbcode_matches()
+	{
+		$bbcode_matches = array('~\[b](.*?)\[/b]~i',
+			'~\[i](.*?)\[/i]~i',
+			'~\[u](.*?)\[/u]~i',
+			'~\[s](.*?)\[/s]~i',
+			'~\[sup](.*?)\[/sup]~i',
+			'~\[sub](.*?)\[/sub]~i',
+			'~\[indent](.*?)\[/indent]~i',
+			'~\[email]([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)?\[/email]~i',
+			'~\[email=([^<]+?)](.*?)\[/email]~i',
+			'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
+			'~\[(left|right|center|justify)](.*?)\[/\1]~is',
+			'~\[color=(#?[a-zA-Z0-9]+?)](.*?)\[/color]~is',
+			'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
+			'~\[size=([0-9]+?)](.*?)\[/size]~is',
+			'~\[spoiler](.*?)\[/spoiler]~i',
+			'~\[code](.*?)\[/code]~ise',
+			'~\[php](.*?)\[/php]~ise',
+			'~\[php=([0-9]+?)](.*?)\[/php]~ise',
+			'~\[url](h t t p|h t t p s|f t p) : / /(.+?)\[/url]~ise',
+			'~\[url=(h t t p|h t t p s|f t p) : / /(.+?)](.+?)\[/url]~ise');
+
+		$bbcode_replacements = array('<strong>\\1</strong>',
+			'<em>\\1</em>',
+			'<span style="text-decoration: underline;">\\1</span>',
+			'<span style="text-decoration: line-through;">\\1</span>',
+			'<sup>\\1</sup>',
+			'<sub>\\1</sub>',
+			'<p style=\'text-indent:2em\'>\\1</p>',
+			'<a href="mailto:\\1">\\1</a>',
+			'<a href="mailto:\\1">\\2</a>',
+			'\'<img src="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" alt="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" />\'',
+			'<p style=\'text-align:\\1\'>\\2</p>',
+			'<span style=\'color:\\1\'>\\2</span>',
+			'<span style=\'font-family:\\1\'>\\2</span>',
+			'<span style=\'font-size:\\1ex\'>\\2</span>',
+			$this->lang->spoiler . ':<br /><div class="spoiler">\\1</div>',
+			'$this->_format_code(\'\\1\', 0)',
+			'$this->_format_code(\'\\1\', 1)',
+			'$this->_format_code(\'\\2\', 1, \'\\1\')',
+			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'</a>\'',
+			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . stripslashes(\'\\3\') . \'</a>\'');
+			
+		return array('matches' => $bbcode_matches,
+			'replacements' => $bbcode_replacements);
+	}
+	
+	/**
+	 * Get the array of html to wrap quotes in
+	 *
+	 * PROTECTED
+	 *
+	 * @return array HTML to use at start and end of quotes
+	 **/
+	function _get_quote_html()
+	{
+		$quote_html = array();
+		$quote_html['start_named'] = '<div class="quotebox"><strong>\\1 ' . $this->lang->main_said . ':</strong><div class="quote">';
+		$quote_html['start'] = '<div class="quotebox"><strong>' . $this->lang->main_quote . ':</strong><div class="quote">';
+		$quote_html['end'] = '</div></div>';
+		return $quote_html;
+	}
+	
+	/**
+	 * Get the array of html to wrap code and php in
+	 *
+	 * PROTECTED
+	 *
+	 * @param int $lines Number of lines of code to help estimate height
+	 * @return array HTML to use at start and end of quotes
+	 **/
+	function _get_code_html($lines)
+	{
+		$height = ($lines * 14) + 14;
+		
+		$code_html = array();
+		$code_html['start_php'] = '<div class="code phpcode">
+			<div class="codetitle">PHP:</div>
+			<pre style="height:' . $height . 'px;" class="codedata">';
+		$code_html['start_code'] = '<div class="code phpcode">
+			<div class="codetitle">' . $this->lang->main_code . ':</div>
+			<pre style="height:' . $height . 'px;" class="codedata">';
+		$code_html['end'] = '</pre></div>';
+		return $code_html;
+	}
 	/**
 	 * Returns an array of all the positions of needles in a haystack
 	 *
