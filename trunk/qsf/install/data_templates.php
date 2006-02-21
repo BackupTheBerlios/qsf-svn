@@ -1358,8 +1358,7 @@ $queries['BOARD_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
   <td class=\"tablelight\">
    {\$this->lang->board_stats_string}
    <br /><hr />
-   <b>{\$this->lang->board_birthdays}</b><br />
-   {\$birthdays}
+   <MODLET birthdays()>
   </td>
  </tr>
 {\$this->etable}', 'Board View', 'Change the appearance of the main board screen, which lists all available forums', 0)";

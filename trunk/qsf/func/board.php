@@ -82,7 +82,6 @@ class board extends qsfglobal
 		}
 
 		$forums    = $this->getForums($_forums, $this->get['c']);
-		$birthdays = $this->getuser_birthdays();
 		$stats     = $this->getStats();
 		$active    = $this->doActive();
 
@@ -212,35 +211,6 @@ class board extends qsfglobal
 			'MOSTONLINE'     => $this->sets['mostonline'],
 			'MOSTONLINETIME' => $this->mbdate(DATE_LONG, $this->sets['mostonlinetime'])
 		);
-	}
-
-	/**
-	 * Makes a list of people whose birthday is today
-	 *
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.1
-	 * @return string List of members and their ages
-	 **/
-	function getuser_birthdays()
-	{
-		$return   = null;
-		$members  = $this->db->query("SELECT user_id, user_name, user_birthday FROM {$this->pre}users WHERE user_birthday LIKE '" . $this->mbdate('%-m-d') . "'");
-		$count    = $this->db->num_rows($members);
-		$i        = 1;
-
-		if (!$count) {
-			return $this->lang->board_nobday;
-		}
-
-		while ($m = $this->db->nqfetch($members))
-		{
-			$year = explode('-', $m['user_birthday']);
-			$day = $this->mbdate('Y') - $year[0];
-			$comma = ($i < $count) ? ', ' : null;
-			$return .= "<a href=\"$this->self?a=profile&amp;w={$m['user_id']}\" class=\"bdaylink\">{$m['user_name']}</a> ($day)$comma";
-			$i++;
-		}
-		return $return;
 	}
 
 	/**
