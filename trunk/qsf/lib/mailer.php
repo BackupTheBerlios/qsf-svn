@@ -184,7 +184,9 @@ class mailer
 			$to = $this->recipient;
 		}
 
-		ini_set('SMTP', $this->server);
+		if ($this->server) {
+			@ini_set('SMTP', $this->server);
+		}
 
 		if (mail($to, $this->subject, $this->message, implode("\n", $this->headers))) {
 			return true;
