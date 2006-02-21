@@ -34,18 +34,18 @@ class he
 		$this->active_modules_active = 'צופה ברשימת משתמשים פעילים';
 		$this->active_modules_board = 'באינדקס הפורומים';
 		$this->active_modules_cp = 'משתמש בלוח בקרה אישי';
-		$this->active_modules_forum = 'Viewing a forum: %s'; //Translate
+		$this->active_modules_forum = '%s :מציג את הפורום'; 
 		$this->active_modules_help = 'משתמש בעזרה';
 		$this->active_modules_login = 'מתחבר\מתנתק';
 		$this->active_modules_members = 'צופה ברשימת חברי הפורום';
 		$this->active_modules_mod = 'מסדר פורומים';
 		$this->active_modules_pm = 'משתמש המסנג\'ר פרטי';
 		$this->active_modules_post = 'מפרסם הודעה';
-		$this->active_modules_printer = 'Printing a topic: %s'; //Translate
-		$this->active_modules_profile = 'Viewing a profile: %s'; //Translate
-		$this->active_modules_recent = 'Viewing recent posts'; //Translate
+		$this->active_modules_printer = '%s :מדפיס את ההודעה'; 
+		$this->active_modules_profile = '%s :מציג את הפרופיל'; 
+		$this->active_modules_recent = 'מציג את ההודעות האחרונות'; 
 		$this->active_modules_search = 'מחפש';
-		$this->active_modules_topic = 'Viewing a topic: %s'; //Translate
+		$this->active_modules_topic = '%s :מציג את ההודעה'; 
 		$this->active_time = 'זמן';
 		$this->active_user = 'משתמש';
 		$this->active_users = 'משתמשים פעילים';
@@ -53,95 +53,95 @@ class he
 
 	function admin()
 	{
-		$this->admin_add_emoticons = 'Add emoticons'; //Translate
-		$this->admin_add_member_titles = 'Add automatic member titles'; //Translate
-		$this->admin_add_templates = 'Add HTML templates'; //Translate
-		$this->admin_ban_ips = 'Ban IP addresses'; //Translate
-		$this->admin_censor = 'Censor words'; //Translate
-		$this->admin_cp_denied = 'Access Denied'; //Translate
-		$this->admin_cp_warning = 'The Admin CP is disabled until you delete your <b>install</b> directory, as it poses a serious security risk.'; //Translate
-		$this->admin_create_forum = 'Create a forum'; //Translate
-		$this->admin_create_group = 'Create a group'; //Translate
-		$this->admin_create_help = 'Create a help article'; //Translate
-		$this->admin_create_skin = 'Create a skin'; //Translate
-		$this->admin_db = 'Database'; //Translate
-		$this->admin_db_backup = 'Backup the database'; //Translate
-		$this->admin_db_conn = 'Edit connection settings'; //Translate
-		$this->admin_db_optimize = 'Optimize the database'; //Translate
-		$this->admin_db_query = 'Execute an SQL query'; //Translate
-		$this->admin_db_restore = 'Restore a backup'; //Translate
-		$this->admin_delete_forum = 'Delete a forum'; //Translate
-		$this->admin_delete_group = 'Delete a group'; //Translate
-		$this->admin_delete_help = 'Delete a help article'; //Translate
-		$this->admin_delete_member = 'Delete a member'; //Translate
-		$this->admin_delete_template = 'Delete HTML template'; //Translate
-		$this->admin_edit_emoticons = 'Edit or delete emoticons'; //Translate
-		$this->admin_edit_forum = 'Edit a forum'; //Translate
-		$this->admin_edit_group_name = 'Edit a group\'s name'; //Translate
-		$this->admin_edit_group_perms = 'Edit a group\'s permissions'; //Translate
-		$this->admin_edit_help = 'Edit a help article'; //Translate
-		$this->admin_edit_member = 'Edit a member'; //Translate
-		$this->admin_edit_member_perms = 'Edit a member\'s permissions'; //Translate
-		$this->admin_edit_member_titles = 'Edit or delete automatic member titles'; //Translate
-		$this->admin_edit_settings = 'Edit board settings'; //Translate
-		$this->admin_edit_skin = 'Edit or delete a skin'; //Translate
-		$this->admin_edit_templates = 'Edit HTML templates'; //Translate
-		$this->admin_emoticons = 'Emoticons'; //Translate
-		$this->admin_export_skin = 'Export a skin'; //Translate
-		$this->admin_fix_stats = 'Fix the member statistics'; //Translate
-		$this->admin_forum_order = 'Change the forum ordering'; //Translate
-		$this->admin_forums = 'Forums and Categories'; //Translate
-		$this->admin_groups = 'Groups'; //Translate
-		$this->admin_heading = 'Quicksilver Forums Admin Control Panel'; //Translate
-		$this->admin_help = 'Help Articles'; //Translate
-		$this->admin_install_emoticons = 'Install emoticons'; //Translate
-		$this->admin_install_skin = 'Install a skin'; //Translate
-		$this->admin_logs = 'View moderator actions'; //Translate
-		$this->admin_mass_mail = 'Send an email to your members'; //Translate
-		$this->admin_members = 'Members'; //Translate
-		$this->admin_phpinfo = 'View PHP information'; //Translate
-		$this->admin_prune = 'Prune old topics'; //Translate
-		$this->admin_recount_forums = 'Recount topics and replies'; //Translate
-		$this->admin_settings = 'Settings'; //Translate
-		$this->admin_skins = 'Skins'; //Translate
-		$this->admin_stats = 'Statistics center'; //Translate
-		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
-		$this->admin_your_board = 'Your Board'; //Translate
+		$this->admin_add_emoticons = 'הוספת סמלי הבעה'; 
+		$this->admin_add_member_titles = 'הוספת כותרת חבר אוטומטית'; 
+		$this->admin_add_templates = 'HTML הוספת תבניות'; 
+		$this->admin_ban_ips = 'IP חסימת כתובות'; 
+		$this->admin_censor = 'מילים מצונזרות'; 
+		$this->admin_cp_denied = 'הגישה נדחתה'; 
+		$this->admin_cp_warning = 'מאחר והיא יוצרת בעיית אבטחה חמורה. <b>ההתקנה<b> לוח בקרת המנהל יהיה מנוטרל עד מחיקת ספריית'; 
+		$this->admin_create_forum = 'יצירת פורום'; 
+		$this->admin_create_group = 'יצירת קבוצה'; 
+		$this->admin_create_help = 'יצירת מאמר עזרה'; 
+		$this->admin_create_skin = 'יצירת סקין'; 
+		$this->admin_db = 'מסד נתונים'; 
+		$this->admin_db_backup = 'גבוי מסד נתונים'; 
+		$this->admin_db_conn = 'עריכת הגדרות התחברות'; 
+		$this->admin_db_optimize = 'ייעול מסד הנתונים'; 
+		$this->admin_db_query = 'SQL ביצוע שאילתת'; 
+		$this->admin_db_restore = 'שיחזור מגיבוי'; 
+		$this->admin_delete_forum = 'מחיקת פורום'; 
+		$this->admin_delete_group = 'מחיקת קבוצה'; 
+		$this->admin_delete_help = 'מחיקת מאמר עזרה'; 
+		$this->admin_delete_member = 'מחיקת חבר'; 
+		$this->admin_delete_template = 'HTML מחיקת תבנית'; 
+		$this->admin_edit_emoticons = 'עריכה או מחיקת סמלי הבעה'; 
+		$this->admin_edit_forum = 'עריכת פורום'; 
+		$this->admin_edit_group_name = 'עריכת שם קבוצה/ות'; 
+		$this->admin_edit_group_perms = 'עריכת הרשאות קבוצה/ות'; 
+		$this->admin_edit_help = 'עריכת מאמר עזרה'; 
+		$this->admin_edit_member = 'עריכת חבר'; 
+		$this->admin_edit_member_perms = 'עריכת הרשאות חבר/ים'; 
+		$this->admin_edit_member_titles = 'עריכה או מחיקת כותרת חבר אוטומטית'; 
+		$this->admin_edit_settings = 'עריכת הגדרות לוח'; 
+		$this->admin_edit_skin = 'סקין עריכה או מחיקת'; 
+		$this->admin_edit_templates = 'HTML עריכת תבניות'; 
+		$this->admin_emoticons = 'סמלי הבעה'; 
+		$this->admin_export_skin = 'ייצוא סקין'; 
+		$this->admin_fix_stats = 'סדר סטטיסטיקות חבר'; 
+		$this->admin_forum_order = 'שינוי סדר הפרומים'; 
+		$this->admin_forums = 'פורומים וקטגוריות'; 
+		$this->admin_groups = 'קבוצות';
+		$this->admin_heading = 'Quicksilver לוח הבקרה של מנהל הפורומים של'; 
+		$this->admin_help = 'מאמרי עזרה'; 
+		$this->admin_install_emoticons = 'התקנת סמלי הבעה'; 
+		$this->admin_install_skin = 'סקין התקנת'; 
+		$this->admin_logs = 'תצוגת פעילות מנהל'; 
+		$this->admin_mass_mail = 'שליחת אימייל לחברים'; 
+		$this->admin_members = 'חברים'; 
+		$this->admin_phpinfo = 'PHP תצוגת מידע'; 
+		$this->admin_prune = 'מחיקת הודעות ישנות'; 
+		$this->admin_recount_forums = 'ספירת הודעות ותגובות'; 
+		$this->admin_settings = 'הגדרות'; 
+		$this->admin_skins = 'סקינים'; 
+		$this->admin_stats = 'מרכז הסטטיסטיקות'; 
+		$this->admin_upgrade_skin = 'סקין שידרוג'; 
+		$this->admin_your_board = 'הפורום שלך'; 
 	}
 
 	function backup()
 	{
-		$this->backup_create = 'Backup Database'; //Translate
-		$this->backup_done = 'The database has been backed up to the main Quicksilver Forums directory.';
-		$this->backup_found = 'The following backups were found in the Quicksilver Forums directory';
-		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.'; //Translate
-		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.'; //Translate
-		$this->backup_restore = 'Restore Backup'; //Translate
-		$this->backup_restore_done = 'The database has been restored successfully.'; //Translate
-		$this->backup_warning = 'Warning: This will overwrite all existing data used by Quicksilver Forums.'; //Translate
+		$this->backup_create = 'גיבוי מסד נתונים'; 
+		$this->backup_done = '.Quicksilver מסד הנתונים גובה לספרייה הראשית של הפורומים של';
+		$this->backup_found = '.Quicksilver הגיבויים הבאים נמצאו בספריית הפורומים של';
+		$this->backup_invalid = '.אין אפשרות לבצע גיבוי. לא נעשו שינויים במסד הנתונים'; 
+		$this->backup_none = '.Quicksilver לא נמצאו גיבויים בספריית הפורומים של'; 
+		$this->backup_restore = 'שחזר גיבוי'; 
+		$this->backup_restore_done = '.מסד הנתונים שוחזר בהצלחה'; 
+		$this->backup_warning = '.Quicksilver אזהרה: פעולה זו תשכתב את כל הנתונים בשימוש הפורומים של'; 
 	}
 
 	function ban()
 	{
-		$this->ban = 'Ban'; //Translate
-		$this->ban_banned_ips = 'Ban IP Addresses'; //Translate
-		$this->ban_banned_members = 'Banned Members'; //Translate
-		$this->ban_ip = 'Ban IP Addresses'; //Translate
-		$this->ban_member_explain1 = 'To ban users, change their user group to'; //Translate
-		$this->ban_member_explain2 = 'in the member controls.'; //Translate
-		$this->ban_members = 'Ban Members'; //Translate
-		$this->ban_nomembers = 'There are currently no banned members.'; //Translate
-		$this->ban_one_per_line = 'One address per line.'; //Translate
-		$this->ban_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more digits.'; //Translate
-		$this->ban_settings = 'Ban Settings'; //Translate
-		$this->ban_users_banned = 'Users banned.'; //Translate
+		$this->ban = 'חסום'; 
+		$this->ban_banned_ips = 'חסומות IP כתובות'; 
+		$this->ban_banned_members = 'חברים חסומים'; 
+		$this->ban_ip = 'חסומות IP כתובות'; 
+		$this->ban_member_explain1 = 'לחסימת משתמשים, שנה את קבוצת המשתמשים שלהם ל'; 
+		$this->ban_member_explain2 = '.בלוח בקרת המשתמשים'; 
+		$this->ban_members = 'חברים חסומים'; 
+		$this->ban_nomembers = 'אין כרגע חברים חסומים.'; 
+		$this->ban_one_per_line = '.כתובת אחת לכל שורה'; 
+		$this->ban_regex_allowed = 'ביטויים רגילים מורשים. באפשרותך להשתמש ב * בודדה כתו כללי לספרה אחת או יותר.'; 
+		$this->ban_settings = 'הגדרות חסימה'; 
+		$this->ban_users_banned = '.משתמשים חסומים'; 
 	}
 
 	function board()
 	{
-		$this->board_active_users = 'משתמשים מעילים';
+		$this->board_active_users = 'משתמשים פעילים';
 		$this->board_birthdays = 'ימי הולדת היום:';
-		$this->board_bottom_page = 'Go to the bottom of the page'; //Translate
+		$this->board_bottom_page = 'עבור לתחתית העמוד'; 
 		$this->board_can_post = 'אתה יכול להגיב בפורום הזה.';
 		$this->board_can_topics = 'אתה יכול לצפות בפורום אך לא לפרסם נושאים חדשים.';
 		$this->board_cant_post = 'אינן יכול להגיב בפורום הזה';
@@ -153,7 +153,7 @@ class he
 		$this->board_mark1 = 'כל ההודועת פורומים סומנו כנקראו.';
 		$this->board_members = 'משתמשים';
 		$this->board_message = '%s הודעה';
-		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
+		$this->board_most_online = '%s ב %d מספר המשתמשים המירבי שהיה מחובר הוא'; 
 		$this->board_nobday = 'אין ימי הולדת היום.';
 		$this->board_nobody = 'אין כרגע משתמש מחוברים.';
 		$this->board_nopost = 'אין הודעות';
@@ -161,8 +161,8 @@ class he
 		$this->board_regfirst = 'אין לך הרשאות לראות פורום. אם אתה נרשם, אתה יכול לראות פורום.';
 		$this->board_replies = 'תגובות';
 		$this->board_stats = 'סטטיסטיקות';
-		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
-		$this->board_top_page = 'Go to the top of the page'; //Translate
+		$this->board_stats_string = 'הודעות. %s תגובות סה"כ %s נושאים ו %s ישנם <b /> .%s משתמשים נרשמו.ברוך הבא משתמש חדש  %s'; 
+		$this->board_top_page = 'עבור לראש העמוד'; 
 		$this->board_topics = 'נושאים';
 		$this->board_users = 'משתמשים';
 		$this->board_write_topics = 'הינך יכול לראות ולכתוב בפורום הזה.';
@@ -170,10 +170,10 @@ class he
 
 	function censoring()
 	{
-		$this->censor = 'Censor Words'; //Translate
-		$this->censor_one_per_line = 'One per line.'; //Translate
-		$this->censor_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more characters.'; //Translate
-		$this->censor_updated = 'Word list updated.'; //Translate
+		$this->censor = 'מילים מצונזרות'; 
+		$this->censor_one_per_line = 'אחת בכל שורה.'; 
+		$this->censor_regex_allowed = 'ביטויים רגילים מורשים. באפשרותך להשתמש ב * בודדה כתו כללי לתו אחד או יותר.'; 
+		$this->censor_updated = '.רשימת המילים עודכנה'; 
 	}
 
 	function cp()
@@ -182,43 +182,43 @@ class he
 		$this->cp_already_member = 'דואר אלקטרוני שכתבת כבר בשימוש על ידי משתמש אחר.';
 		$this->cp_apr = 'אפריל';
 		$this->cp_aug = 'אוגוסט';
-		$this->cp_avatar_current = 'אווטר שלך';
-		$this->cp_avatar_error = 'שגיאה באווטר';
-		$this->cp_avatar_must_select = 'אתה חייב לבחור אווטר.';
-		$this->cp_avatar_none = 'ללא שימוש באווטר';
+		$this->cp_avatar_current = 'אווטרה שלך';
+		$this->cp_avatar_error = 'שגיאה באווטרה';
+		$this->cp_avatar_must_select = 'אתה חייב לבחור אווטרה.';
+		$this->cp_avatar_none = 'ללא שימוש באווטרה';
 		$this->cp_avatar_pixels = 'פיקסלים';
-		$this->cp_avatar_select = 'בחר אווטר';
-		$this->cp_avatar_size_height = 'אורך האווטר שלך חייב להיות באורך 1 ו';
-		$this->cp_avatar_size_width = 'רוחב האווטר שלך חייב להיות ברוחב 1 ו';
-		$this->cp_avatar_upload = 'העלת אווטר ממחשב שלך';
-		$this->cp_avatar_upload_failed = 'העלה של אווטר נכשלה. הקובץ לא קיים.';
-		$this->cp_avatar_upload_not_image = 'אתה יכול לעות רק תמונות ולהשתמש בהן כאווטר.';
-		$this->cp_avatar_upload_too_large = 'אווטר שאתה רוצה לעלות גדול מידי. קובל המקסימלי הוא %d קילובייט.';
-		$this->cp_avatar_url = 'קישר URL אל האווטר';
-		$this->cp_avatar_use = 'השתמש באווטר שהעלת';
+		$this->cp_avatar_select = 'בחר אווטרה';
+		$this->cp_avatar_size_height = 'אורך האווטרה שלך חייב להיות באורך 1 ו';
+		$this->cp_avatar_size_width = 'רוחב האווטרה שלך חייב להיות ברוחב 1 ו';
+		$this->cp_avatar_upload = 'העלת אווטרה ממחשב שלך';
+		$this->cp_avatar_upload_failed = 'העלה של אווטרה נכשלה. הקובץ לא קיים.';
+		$this->cp_avatar_upload_not_image = 'אתה יכול לעות רק תמונות ולהשתמש בהן כאווטרה.';
+		$this->cp_avatar_upload_too_large = 'אווטרה שאתה רוצה לעלות גדול מידי. קובל המקסימלי הוא %d קילובייט.';
+		$this->cp_avatar_url = 'קישר URL אל האווטרה';
+		$this->cp_avatar_use = 'השתמש באווטרה שהעלת';
 		$this->cp_bday = 'יום הולדת';
 		$this->cp_been_updated = 'פרופיל שלך עודכן.';
-		$this->cp_been_updated1 = 'אווטר שלך הועלה.';
+		$this->cp_been_updated1 = 'אווטרה שלך הועלה.';
 		$this->cp_been_updated_prefs = 'הגדרות שלך עודכנו.';
 		$this->cp_changing_pass = 'עריכת סיסמא';
 		$this->cp_contact_pm = 'הרשה לאחרים לשלוח לך הודעות פרטיות?';
 		$this->cp_cp = 'לוח בקרה';
-		$this->cp_current_avatar = 'אווטר';
+		$this->cp_current_avatar = 'אווטרה';
 		$this->cp_current_time = 'השעה עכשיו %s.';
-		$this->cp_custom_title = 'Custom Member Title'; //Translate
-		$this->cp_custom_title2 = 'This is a privledge reserved for board administrators'; //Translate
+		$this->cp_custom_title = 'כותרת חבר מותאמת אישית'; 
+		$this->cp_custom_title2 = 'זכויות אלו שמורות למנהלי הלוח'; 
 		$this->cp_dec = 'דצמבר';
-		$this->cp_editing_avatar = 'ערכית אווטר';
+		$this->cp_editing_avatar = 'ערכית אווטרה';
 		$this->cp_editing_profile = 'ערכית פרופיל';
 		$this->cp_email = 'דואר אלקטרוני';
-		$this->cp_email_form = 'Allow others to contact you via the email form?'; //Translate
+		$this->cp_email_form = 'לאפשר לאחרים ליצור קשר עימך דרך טופס האימייל?'; 
 		$this->cp_email_invaid = 'דואר אלקטרוני שהכנסת שגויי.';
-		$this->cp_err_avatar = 'שגיאה בהעלת אווטר';
+		$this->cp_err_avatar = 'שגיאה בהעלת אווטרה';
 		$this->cp_err_updating = 'שגיאה בעידכון פרופיל';
 		$this->cp_feb = 'פברואר';
-		$this->cp_file_type = 'אווטר שהכנסת איננו נכון. תבדוק אם הקישור לאווטר נכון, וסוג קובץ של אווטר הוא gif, jpg, או png.';
+		$this->cp_file_type = 'אווטרה שהכנסת איננו נכון. תבדוק אם הקישור לאווטרה נכון, וסוג קובץ של אווטרה הוא gif, jpg, או png.';
 		$this->cp_format = 'שם משתמש';
-		$this->cp_gtalk = 'GTalk Account'; //Translate
+		$this->cp_gtalk = 'GTalk חשבון'; 
 		$this->cp_header = 'לוח בקרה אישי';
 		$this->cp_height = 'אורך';
 		$this->cp_icq = 'מספר ICQ';
@@ -226,11 +226,11 @@ class he
 		$this->cp_jan = 'ינואר';
 		$this->cp_july = 'יולי';
 		$this->cp_june = 'יוני';
-		$this->cp_label_edit_avatar = 'עריכת אווטר';
+		$this->cp_label_edit_avatar = 'עריכת אווטרה';
 		$this->cp_label_edit_pass = 'עריכת סיסמא';
 		$this->cp_label_edit_prefs = 'עריכת הגדרות';
 		$this->cp_label_edit_profile = 'עריכת פרופיל';
-		$this->cp_label_edit_sig = 'Edit Signature'; //Translate
+		$this->cp_label_edit_sig = 'עריכת חתימה'; 
 		$this->cp_label_edit_subs = 'ערכית מינויי';
 		$this->cp_language = 'שפה';
 		$this->cp_less_charac = 'שם שלך יכול להיות 32 מקסימום.';
@@ -239,43 +239,43 @@ class he
 		$this->cp_mar = 'מרץ';
 		$this->cp_may = 'מאי';
 		$this->cp_msn = 'MSN מסנג\'ר';
-		$this->cp_must_orig = 'Your name must be identical to the original. You may only change the letter case and spacing.'; //Translate
-		$this->cp_new_notmatch = 'The new passwords you entered do not match.'; //Translate
+		$this->cp_must_orig = '.השם שלך חייב להיות זהה למקור. באפשרותך לשנות את גודל האות ורווחים'; 
+		$this->cp_new_notmatch = 'הסיסמא החדשה שהכנסת אינה תואמת.'; 
 		$this->cp_new_pass = 'סיסמא חדשה';
-		$this->cp_no_flash = 'Flash avatars are not allowed on this board.'; //Translate
-		$this->cp_not_exist = 'The date you specified (%s) does not exist!'; //Translate
+		$this->cp_no_flash = 'אווטרה בפלאש אסורים בלוח זה.'; 
+		$this->cp_not_exist = 'אינו קיים! (%s) התאריך שציינת'; 
 		$this->cp_nov = 'נובמבר';
 		$this->cp_oct = 'אוקטובר';
-		$this->cp_old_notmatch = 'The old password you entered does not match the one in our database.'; //Translate
+		$this->cp_old_notmatch = 'הסיסמא הישנה שהקלדת אינה קיימת במס הנתונים.'; 
 		$this->cp_old_pass = 'סיסמא ישנה';
-		$this->cp_pass_notvaid = 'Your password is not valid. Make sure it uses only valid characters such as letters, numbers, dashes, underscores, or spaces.'; //Translate
+		$this->cp_pass_notvaid = 'הסיסמא שלך לא תקינה. וודא שהינך משתמש בתווים תקינים כגון אותיות, מספרים, קו מפריד, קו תחתון ורווחים.'; 
 		$this->cp_preferences = 'משנה הגדרות';
-		$this->cp_preview_sig = 'Signature Preview:'; //Translate
-		$this->cp_privacy = 'Privacy Options'; //Translate
+		$this->cp_preview_sig = ':הצגה מוקדמת של החתימה'; 
+		$this->cp_privacy = 'אפשרויות פרטיות'; 
 		$this->cp_repeat_pass = 'חזור על הסיסמא החדשה';
 		$this->cp_sept = 'ספטמבר';
-		$this->cp_show_active = 'Show your activities when you are using the board?'; //Translate
-		$this->cp_show_email = 'Show email address in profile?'; //Translate
+		$this->cp_show_active = 'להציג את פעילותייך כשאתה משתמש בפורום?'; 
+		$this->cp_show_email = 'להציג כתובת אימייל בפרופיל?'; 
 		$this->cp_signature = 'חתימה';
-		$this->cp_size_max = 'The avatar size you entered is too large. The maximum size allowed is %s by %s pixels.'; //Translate
+		$this->cp_size_max = 'פיקסלים. %s על %s האווטר שהכנסת גדול מידי. הגודל המקסימלי המותר הוא'; 
 		$this->cp_skin = 'סקין של פורום';
-		$this->cp_sub_change = 'Changing Subscriptions'; //Translate
-		$this->cp_sub_delete = 'Delete'; //Translate
-		$this->cp_sub_expire = 'Expiration Date'; //Translate
-		$this->cp_sub_name = 'Subscription Name'; //Translate
-		$this->cp_sub_no_params = 'No parameters were given.'; //Translate
-		$this->cp_sub_success = 'You are now subscribed to this %s.'; //Translate
-		$this->cp_sub_type = 'Subscription Type'; //Translate
-		$this->cp_sub_updated = 'Selected subscriptions have been deleted.'; //Translate
+		$this->cp_sub_change = 'משנה רישום'; 
+		$this->cp_sub_delete = 'מחיקה'; 
+		$this->cp_sub_expire = 'תאריך תפוגה'; 
+		$this->cp_sub_name = 'שם רישום'; 
+		$this->cp_sub_no_params = 'לא ניתנו פרמטרים.'; 
+		$this->cp_sub_success = '.%s הינך רשום כעת ל'; 
+		$this->cp_sub_type = 'סוג הרשמה'; 
+		$this->cp_sub_updated = 'הרישומים שנבחר נמחקו.'; 
 		$this->cp_topic_option = 'אפשרויות נושאים';
 		$this->cp_updated = 'פרופיל עודכן';
-		$this->cp_updated1 = 'אווטר עודכן';
+		$this->cp_updated1 = 'אווטרה עודכן';
 		$this->cp_updated_prefs = 'הגדרות הודכנו';
-		$this->cp_user_exists = 'A user with that name formatting already exists.'; //Translate
-		$this->cp_valided = 'Your password was validated and changed.'; //Translate
-		$this->cp_view_avatar = 'הראה אווטרים?';
-		$this->cp_view_emoticon = 'הראה סמיילים?';
-		$this->cp_view_signature = 'הראה חתימות?';
+		$this->cp_user_exists = 'שם משתמש זה כבר קיים.'; 
+		$this->cp_valided = 'סיסמתך שונתה ותקפה.'; 
+		$this->cp_view_avatar = 'להראות אווטרים?';
+		$this->cp_view_emoticon = 'להראות סמיילים?';
+		$this->cp_view_signature = 'להראות חתימות?';
 		$this->cp_welcome = 'ברוכים הבאים ללוח בקרה אישי. כאן הינך יכול לערוך ולשנות אפשרויות שפורום נותן לך. אנא בחרו מאפשרויות שיש לכם למעלה.';
 		$this->cp_width = 'רוחב';
 		$this->cp_www = 'דף הבית';
@@ -285,12 +285,12 @@ class he
 
 	function email()
 	{
-		$this->email_blocked = 'That member is not accepting email through this form.'; //Translate
+		$this->email_blocked = 'החר אינו מקבל מיילים דרך טופס זה.'; 
 		$this->email_email = 'דואר אלקטרוני';
-		$this->email_msgtext = 'Email Body:'; //Translate
-		$this->email_no_fields = 'Go back and make sure that all fields are filled in.'; //Translate
-		$this->email_no_member = 'No member was found by that name'; //Translate
-		$this->email_no_perm = 'You do not have permission to send email through the board.'; //Translate
+		$this->email_msgtext = 'גוף הודעת המייל:'; 
+		$this->email_no_fields = 'חזור אחורה בכדי לוודא שכל השדות מלאים.'; 
+		$this->email_no_member = 'לא נמצא חבר בשם זה'; 
+		$this->email_no_perm = 'אין לך הרשאות לשלוח אימייל דרך הלוח.'; 
 		$this->email_sent = 'הודעה נשלחה.';
 		$this->email_subject = 'נושא:';
 		$this->email_to = 'אל:';
@@ -298,17 +298,17 @@ class he
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons'; //Translate
-		$this->emote_add = 'Add Emoticons'; //Translate
-		$this->emote_added = 'Emoticon added.'; //Translate
-		$this->emote_clickable = 'Clickable'; //Translate
-		$this->emote_edit = 'Edit Emoticons'; //Translate
-		$this->emote_image = 'Image'; //Translate
-		$this->emote_install = 'Install Emoticons'; //Translate
-		$this->emote_install_done = 'Emoticons have been successfully reinstalled.'; //Translate
-		$this->emote_install_warning = 'This will erase all existing emoticon settings and import uploaded emoticons from your currently selected skin into the database.'; //Translate
-		$this->emote_no_text = 'No emoticon text was given.'; //Translate
-		$this->emote_text = 'Text'; //Translate
+		$this->emote = 'סמלי הבעה'; 
+		$this->emote_add = 'הוסף סמלי הבעה'; 
+		$this->emote_added = 'סמל הבעה התווסף.'; 
+		$this->emote_clickable = 'ניתן ללחיצה'; 
+		$this->emote_edit = 'עריכת סמלי הבעה'; 
+		$this->emote_image = 'תמונה'; 
+		$this->emote_install = 'התקנה סמלי הבעה'; 
+		$this->emote_install_done = 'סמלי הבעה הותקנו מחדש בהצלחה.'; 
+		$this->emote_install_warning = 'פעולה זו תמחק את הגדרות סמלי ההבעה הקיימים ותייבא סמלי הבעה שהועלו מהסקין שכרגע נבחר למסד הנתונים.'; 
+		$this->emote_no_text = 'לא ניתן מלל לסמל ההבעה.'; 
+		$this->emote_text = 'טקסט'; 
 	}
 
 	function forum()
@@ -319,7 +319,7 @@ class he
 		$this->forum_cant_post = 'אתה לא יכול להגיב בפורום הזה.';
 		$this->forum_cant_topics = 'אתה לא יכול לראות נושאים בפורום הזה.';
 		$this->forum_dot = 'נקודה';
-		$this->forum_dot_detail = 'shows that you have posted in the topic';
+		$this->forum_dot_detail = 'מראה שהגבת להודעה';
 		$this->forum_forum = 'פורום';
 		$this->forum_guest = 'אורח';
 		$this->forum_hot = 'חם';
@@ -332,8 +332,8 @@ class he
 		$this->forum_new = 'חדש';
 		$this->forum_new_poll = 'פרסם סקר חדש';
 		$this->forum_new_topic = 'פרסם נושא חדש';
-		$this->forum_no_topics = 'There are no topics to display for this forum.'; //Translate
-		$this->forum_noexist = 'The specified forum does not exist.'; //Translate
+		$this->forum_no_topics = 'אין נושאים להצגה בפורום זה.';
+		$this->forum_noexist = 'הפורום שצויין לא קיים.'; 
 		$this->forum_nopost = 'אין הודעות';
 		$this->forum_not = 'לא';
 		$this->forum_noview = 'אין לך הרשאות לצפות בפורומים האלה.';
@@ -341,148 +341,148 @@ class he
 		$this->forum_pinned = 'נעוץ';
 		$this->forum_pinned_topic = 'נושא נעוץ';
 		$this->forum_poll = 'סקר';
-		$this->forum_regfirst = 'You do not have permission to view forums. If you register, you may be able to.'; //Translate
+		$this->forum_regfirst = 'אינך מורשה לצפות בפורום. אם תירשם, ייתכן ותוכל לצפות.'; 
 		$this->forum_replies = 'תגובות';
 		$this->forum_starter = 'מפרסם';
 		$this->forum_sub = 'תת-פורום';
 		$this->forum_sub_last_post = 'הודעה אחרונה';
 		$this->forum_sub_replies = 'תגובות';
 		$this->forum_sub_topics = 'נושאים';
-		$this->forum_subscribe = 'E-mail me when posts are made in this forum'; //Translate
+		$this->forum_subscribe = 'שלח לי הודעת מייל כשיגיבו לפורום זה'; 
 		$this->forum_topic = 'נושא';
 		$this->forum_views = 'צפיות';
-		$this->forum_write_topics = 'You can create topics in this forum.'; //Translate
+		$this->forum_write_topics = 'הינך מורשה ליצור הודעות בפורום זה.'; 
 	}
 
 	function forums()
 	{
-		$this->forum_controls = 'Forum Controls'; //Translate
-		$this->forum_create = 'Create Forum'; //Translate
-		$this->forum_create_cat = 'Create a Category'; //Translate
-		$this->forum_created = 'Forum Created'; //Translate
-		$this->forum_default_perms = 'Default Permissions'; //Translate
-		$this->forum_delete = 'Delete Forum'; //Translate
-		$this->forum_delete_warning = 'Are you sure you want to delete this forum, its topics, and its posts?<br />This action cannot be reversed.'; //Translate
-		$this->forum_deleted = 'The forum has been deleted.'; //Translate
-		$this->forum_description = 'Description'; //Translate
-		$this->forum_edit = 'Edit Forum'; //Translate
-		$this->forum_edited = 'The forum was edited successfully.'; //Translate
-		$this->forum_empty = 'The forum name is empty. Please go back and enter a name.'; //Translate
-		$this->forum_is_subcat = 'This forum is a subcategory only.'; //Translate
-		$this->forum_name = 'Name'; //Translate
-		$this->forum_no_orphans = 'You cannot orphan a forum by deleting its parent.'; //Translate
-		$this->forum_none = 'There are no forums to manipulate.'; //Translate
-		$this->forum_ordered = 'Forum Order Updated'; //Translate
-		$this->forum_ordering = 'Change Forum Ordering'; //Translate
-		$this->forum_parent = 'You can\'t change a forum\'s parent in that way.'; //Translate
-		$this->forum_parent_cat = 'Parent Category'; //Translate
-		$this->forum_quickperm_select = 'Select an existing forum to copy its permissions.'; //Translate
-		$this->forum_quickperms = 'Quick Permissions'; //Translate
-		$this->forum_recount = 'Recount Topics and Replies'; //Translate
-		$this->forum_select_cat = 'Select an existing category to create a forum.'; //Translate
-		$this->forum_subcat = 'Subcategory'; //Translate
+		$this->forum_controls = 'בקרת הפורום'; 
+		$this->forum_create = 'יצירת פורום'; 
+		$this->forum_create_cat = 'צור קטגוריה'; 
+		$this->forum_created = 'הפורום נוצר'; 
+		$this->forum_default_perms = 'הרשאות ברירת מחדל'; 
+		$this->forum_delete = 'מחיקת פורום'; 
+		$this->forum_delete_warning = 'פעולה זו לא הפיכה. <br />האם אתה בטוח רוצה למחוק את הפורום הזה כולל הודעותיו ותגובותיו?'; 
+		$this->forum_deleted = 'הפורום נמחק.'; 
+		$this->forum_description = 'תאור'; 
+		$this->forum_edit = 'עריכת פורום'; 
+		$this->forum_edited = 'הפורום נערך בהצלחה.';
+		$this->forum_empty = 'לא ניתן שם לפורום. אנא חזור ותן שם.'; 
+		$this->forum_is_subcat = 'פורום זה הוא תת-קטגוריה בלבד.'; 
+		$this->forum_name = 'שם'; 
+		$this->forum_no_orphans = 'אינך יכול לייתם פורום ע"י מחיקת פורום האב.'; 
+		$this->forum_none = 'אין פורומים לתפעול.'; 
+		$this->forum_ordered = 'סדר הפורומים עודכן'; 
+		$this->forum_ordering = 'שנה סדר הפורומים'; 
+		$this->forum_parent = 'אינך יכול לשנות את אב הפורום/ים בצורה זו.'; 
+		$this->forum_parent_cat = 'קטגוריית אב'; 
+		$this->forum_quickperm_select = 'בחר בפורום קיים בכדי להעתיק את ההרשאות שלו.'; 
+		$this->forum_quickperms = 'הרשאות מהירות'; 
+		$this->forum_recount = 'ספירת נושאים ותגובות'; 
+		$this->forum_select_cat = 'בחר בטגרויה קיימת בכדי ליצור פורום.'; 
+		$this->forum_subcat = 'תת-קטגוריה'; 
 	}
 
 	function groups()
 	{
-		$this->groups_bad_format = 'You must use %s in the format, which represents the group name.'; //Translate
-		$this->groups_based_on = 'based on'; //Translate
-		$this->groups_create = 'Create Group'; //Translate
-		$this->groups_create_new = 'Create a new user group named'; //Translate
-		$this->groups_created = 'Group Created'; //Translate
-		$this->groups_delete = 'Delete Group'; //Translate
-		$this->groups_deleted = 'Group Deleted.'; //Translate
-		$this->groups_edit = 'Edit Group'; //Translate
-		$this->groups_edited = 'Group Edited.'; //Translate
-		$this->groups_formatting = 'Display Formatting'; //Translate
-		$this->groups_i_confirm = 'I confirm that I want to delete this member group.'; //Translate
-		$this->groups_name = 'Name'; //Translate
-		$this->groups_no_action = 'No action was taken.'; //Translate
-		$this->groups_no_delete = 'There are no custom groups to delete.<br />The core groups are necessary for Quicksilver Forums to function, and cannot be deleted.'; //Translate
-		$this->groups_no_group = 'No group was specified.'; //Translate
-		$this->groups_no_name = 'No group name was given.'; //Translate
-		$this->groups_only_custom = 'Note: You can only delete custom member groups. The core groups are necessary for Quicksilver Forums to function.'; //Translate
-		$this->groups_the = 'The group'; //Translate
-		$this->groups_to_edit = 'Group to edit'; //Translate
-		$this->groups_type = 'Group Type'; //Translate
-		$this->groups_will_be = 'will be deleted.'; //Translate
-		$this->groups_will_become = 'Users from the deleted group will become'; //Translate
+		$this->groups_bad_format = 'בתבנית, אשר מייצג את שם הקבוצה. %Sחובה להשתמש ב'; 
+		$this->groups_based_on = 'מבוססת על'; 
+		$this->groups_create = 'יצירת קבוצה'; 
+		$this->groups_create_new = 'צור קבוצת משתמשים לדשה בשם'; 
+		$this->groups_created = 'קבוצה נוצרה'; 
+		$this->groups_delete = 'מחיקת קבוצה'; 
+		$this->groups_deleted = 'קבוצה נמחקה.'; 
+		$this->groups_edit = 'עריכת קבוצה'; 
+		$this->groups_edited = 'קבוצה נערכה.'; 
+		$this->groups_formatting = 'הצג תבנית'; 
+		$this->groups_i_confirm = 'אני מאשר שברצוני למחוק את קבוצת החברים.'; 
+		$this->groups_name = 'שם'; 
+		$this->groups_no_action = 'לא נעשתה פעולה.'; 
+		$this->groups_no_delete = ' = , ואינן ניתנות למחיקה.Quicksilver קבוצות הליבה חיוניות לתיפקוד הפורומים של<br />אין קבוצות מותאמות אישית למחיקה.'; 
+		$this->groups_no_group = 'לא צויינה קבוצה.'; 
+		$this->groups_no_name = 'לא ניתן שם לקבוצה.'; 
+		$this->groups_only_custom = '.Quicksilver הערה: באפשרותך למחוק רק קבוצות מותאמות אישית. קבוצות הליבה חיוניות לתיפקוד הפורומים של'; 
+		$this->groups_the = 'הקבוצה'; 
+		$this->groups_to_edit = 'קבוצה לעריכה'; 
+		$this->groups_type = 'סוג קבוצה'; 
+		$this->groups_will_be = 'תימחק.'; 
+		$this->groups_will_become = 'משתמשים מהקבוצה המחוקה יהפכו'; 
 	}
 
 	function help()
 	{
-		$this->help_add = 'Add Help Article'; //Translate
-		$this->help_article = 'Help Article Control'; //Translate
+		$this->help_add = 'הוספת מאמר עזרה'; 
+		$this->help_article = 'בקרת מאמר עזרה'; 
 		$this->help_available_files = 'עזרה';
-		$this->help_confirm = 'Are you sure you want to delete'; //Translate
-		$this->help_content = 'Article content'; //Translate
-		$this->help_delete = 'Delete Help Article'; //Translate
-		$this->help_deleted = 'Help Article Deleted.'; //Translate
-		$this->help_edit = 'Edit Help Article'; //Translate
-		$this->help_edited = 'Help article updated.'; //Translate
-		$this->help_inserted = 'Article inserted into the database.'; //Translate
-		$this->help_no_articles = 'No help articles were found in the database.'; //Translate
-		$this->help_no_title = 'You can\'t create a help article without a title.'; //Translate
+		$this->help_confirm = 'האם אתה בטוח רוצה למחוק'; 
+		$this->help_content = 'תוכן מאמר'; 
+		$this->help_delete = 'מחיקת מאמר עזרה'; 
+		$this->help_deleted = 'מאמר עזרה נמחק.'; 
+		$this->help_edit = 'עריכת מאמר עזרה'; 
+		$this->help_edited = 'מאמר עזרה עודכן.'; 
+		$this->help_inserted = 'מאמר הוכנס למסד הנתונים.'; 
+		$this->help_no_articles = 'לא נמצאו מאמרי עזרה במסד הנתונים'; 
+		$this->help_no_title = 'אין אפשרות ליצור מאמר עזרה ללא כותרת.'; 
 		$this->help_none = 'אין קבצי עזרה במסד נתונים';
-		$this->help_not_exist = 'That help article does not exist.'; //Translate
-		$this->help_select = 'Please select a help article to edit'; //Translate
-		$this->help_select_delete = 'Please select a help article to delete'; //Translate
-		$this->help_title = 'Title'; //Translate
+		$this->help_not_exist = 'מאמר עזרה זה לא קיים.'; 
+		$this->help_select = 'בחר במאמר עזרה לעריכה.'; 
+		$this->help_select_delete = 'בחר במאמר עזרה למחיקה.';
+		$this->help_title = 'כותרת'; 
 	}
 
 	function home()
 	{
-		$this->home_choose = 'Choose a task to begin.'; //Translate
-		$this->home_menu_title = 'Admin CP Menu'; //Translate
+		$this->home_choose = 'להתחלה בחר במשימה.'; 
+		$this->home_menu_title = 'תפריט לוח בקרת מנהל'; 
 	}
 
 	function login()
 	{
-		$this->login_cant_logged = 'You could not be logged in. Check to see that your user name and password are correct.<br /><br />They are case sensitive, so \'UsErNaMe\' is different from \'Username\'. Also, check to see that cookies are enabled in your browser.'; //Translate
-		$this->login_cookies = 'Cookies must be enabled to login.'; //Translate
-		$this->login_forgot_pass = 'Forgot your password?'; //Translate
+		$this->login_cant_logged = 'בדפדפן שלך. cookies . בנוסף, בדוק שמאופשר\'Username\' \' שונה מUsErNaMe\' ישנה רגישות לאותיות קטנות וגדולות, ז"א<br /><br />לא התאפשרה כניסתך למערכת. בדוק ששם המשתמש והסיסמא נכונים.'; 
+		$this->login_cookies = 'בכדי להיכנס למערכת. cookies חובה לאפשר'; 
+		$this->login_forgot_pass = 'שכחת את הסיסמא?'; 
 		$this->login_header = 'מתחבר';
 		$this->login_logged = 'הינך עכשיו מחובר\ת.';
 		$this->login_now_out = 'הינך עכשיו מנותק\ת.';
 		$this->login_out = 'מתנתק';
 		$this->login_pass = 'סיסמא';
-		$this->login_pass_no_id = 'There is no member with the user name you entered.'; //Translate
-		$this->login_pass_request = 'To complete the password reset, please click on the link sent to the email address associated with your account.'; //Translate
-		$this->login_pass_reset = 'Reset Password'; //Translate
-		$this->login_pass_sent = 'Your password has been reset. The new password has been sent to the email address associated with your account.'; //Translate
+		$this->login_pass_no_id = 'לא קיים חבר עם שם המשתמש שהכנסת.'; 
+		$this->login_pass_request = 'להשלמת איפוס סיסמתך, לחץ על הקישור שקיבלת במייל המשוייך עם חשבונך.'; 
+		$this->login_pass_reset = 'איפוס סיסמא'; 
+		$this->login_pass_sent = 'סיסמתך אופסה. הסיסמא החדשה נשלחה למייל המשוייך עם חשבונך.'; 
 		$this->login_sure = 'אתה בטוח שאתה רוצה להתנתק מ \'%s\'?';
 		$this->login_user = 'שם משתמש';
 	}
 
 	function logs()
 	{
-		$this->logs_action = 'Action'; //Translate
-		$this->logs_deleted_post = 'Deleted a post'; //Translate
-		$this->logs_deleted_topic = 'Deleted a topic'; //Translate
-		$this->logs_edited_post = 'Edited a post'; //Translate
-		$this->logs_edited_topic = 'Edited a topic'; //Translate
+		$this->logs_action = 'פעולה'; 
+		$this->logs_deleted_post = 'נמחקה תגובה'; 
+		$this->logs_deleted_topic = 'נמחקה הודעה'; 
+		$this->logs_edited_post = 'נערכה תגובה'; 
+		$this->logs_edited_topic = 'נערכה הודעה'; 
 		$this->logs_id = 'IDs'; //Translate
-		$this->logs_locked_topic = 'Locked a topic'; //Translate
-		$this->logs_moved_from = 'from forum'; //Translate
-		$this->logs_moved_to = 'to forum'; //Translate
-		$this->logs_moved_topic = 'Moved a topic'; //Translate
-		$this->logs_moved_topic_num = 'Moved topic #'; //Translate
-		$this->logs_pinned_topic = 'Pinned a topic'; //Translate
-		$this->logs_post = 'Post'; //Translate
-		$this->logs_time = 'Time'; //Translate
-		$this->logs_topic = 'Topic'; //Translate
-		$this->logs_unlocked_topic = 'Unlocked a topic'; //Translate
-		$this->logs_unpinned_topic = 'Unpinned a topic'; //Translate
-		$this->logs_user = 'User'; //Translate
-		$this->logs_view = 'View Moderator Actions'; //Translate
+		$this->logs_locked_topic = 'ננעלה הודעה'; 
+		$this->logs_moved_from = 'מהפורום'; 
+		$this->logs_moved_to = 'לפורום'; 
+		$this->logs_moved_topic = 'הועברה הודעה'; 
+		$this->logs_moved_topic_num = 'הועברה הודעה #'; 
+		$this->logs_pinned_topic = 'ננעצה הודעה'; 
+		$this->logs_post = 'תגובה'; 
+		$this->logs_time = 'זמן'; 
+		$this->logs_topic = 'נושא'; 
+		$this->logs_unlocked_topic = 'שוחררה הודעה'; 
+		$this->logs_unpinned_topic = 'נותקה הודעה'; 
+		$this->logs_user = 'משתמש'; 
+		$this->logs_view = 'הצג פעילות מבקר'; 
 	}
 
 	function main()
 	{
-		$this->main_activate = 'Your account has not yet been activated.'; //Translate
-		$this->main_activate_resend = 'Resend Activation Email'; //Translate
+		$this->main_activate = 'חשבונך לא הופעל עדיין.'; 
+		$this->main_activate_resend = 'שלח מחדש מייל הפעלה'; 
 		$this->main_admincp = 'לוח בקרה של מנהל';
-		$this->main_banned = 'You have been banned from viewing any portion of this board.'; //Translate
+		$this->main_banned = 'נחסמה ממך הצפייה בחלק כלשהו מהפורום.'; 
 		$this->main_code = 'קוד';
 		$this->main_cp = 'לוח בקרה';
 		$this->main_full = 'מלא';
@@ -490,9 +490,9 @@ class he
 		$this->main_load = 'טוען';
 		$this->main_login = 'התחבר';
 		$this->main_logout = 'התנתק';
-		$this->main_mark = 'mark all'; //Translate
-		$this->main_mark1 = 'Mark all topics as read'; //Translate
-		$this->main_max_load = 'We are sorry, but %s is currently unavailable, due to a massive amount of connected users.'; //Translate
+		$this->main_mark = 'סמן הכל'; 
+		$this->main_mark1 = 'סמן את כל ההודעות כנקראו'; 
+		$this->main_max_load = 'לא נגיש, עקב מספר גדול של משתמשים מחוברים. %s אנו מצטערים, כרגע ה'; 
 		$this->main_members = 'משתמשים';
 		$this->main_messenger = 'הודעות פרטיות';
 		$this->main_new = 'חדש';
@@ -500,12 +500,12 @@ class he
 		$this->main_prev = 'הקודם';
 		$this->main_queries = 'שאילתות';
 		$this->main_quote = 'ציטוט';
-		$this->main_recent = 'recent posts'; //Translate
-		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
+		$this->main_recent = 'תגובות אחרונות'; 
+		$this->main_recent1 = 'צפה בנודעות האחרונות מאז ביקורך האחרון'; 
 		$this->main_register = 'הרשמה';
-		$this->main_reminder = 'Reminder: The board is closed, and only viewable to admins.';
-		$this->main_reminder_closed = 'The board is closed and only viewable to admins.'; //Translate
-		$this->main_said = 'said'; //Translate
+		$this->main_reminder = 'תזכורת: פורום זה סגור ומותר לצפייה רק ע"י מנהלים.';
+		$this->main_reminder_closed = 'הפורום סגור ומותר לפייה רק ע"י מנהלים'; 
+		$this->main_said = 'אמר'; 
 		$this->main_search = 'חיפוש';
 		$this->main_topics_new = 'יש הודועת חדשות בפורום הזה.';
 		$this->main_topics_old = 'אין הודועת חדשות בפורום הזה.';
@@ -515,121 +515,121 @@ class he
 
 	function mass_mail()
 	{
-		$this->mail = 'Mass Mail'; //Translate
-		$this->mail_announce = 'Announcement From'; //Translate
-		$this->mail_groups = 'Recipient Groups'; //Translate
-		$this->mail_members = 'members.'; //Translate
-		$this->mail_message = 'Message'; //Translate
-		$this->mail_select_all = 'Select All'; //Translate
-		$this->mail_send = 'Send Mail'; //Translate
-		$this->mail_sent = 'Your message has been sent to'; //Translate
+		$this->mail = 'דואר קבוצתי'; 
+		$this->mail_announce = 'הודעה מ'; 
+		$this->mail_groups = 'קבוצות מקבלים'; 
+		$this->mail_members = 'חברים.'; 
+		$this->mail_message = 'הודעה'; 
+		$this->mail_select_all = 'בחר הכל'; 
+		$this->mail_send = 'שלח אימייל'; 
+		$this->mail_sent = 'הודעתך נשלחה ל'; 
 	}
 
 	function mbcode()
 	{
-		$this->mbcode_address = 'Enter an address'; //Translate
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Blue'; //Translate
-		$this->mbcode_bold = 'Bold'; //Translate
-		$this->mbcode_bold1 = 'B'; //Translate
-		$this->mbcode_chocolate = 'Chocolate'; //Translate
-		$this->mbcode_code = 'Code'; //Translate
-		$this->mbcode_color = 'Color'; //Translate
-		$this->mbcode_coral = 'Coral'; //Translate
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Crimson'; //Translate
-		$this->mbcode_darkblue = 'Dark Blue'; //Translate
-		$this->mbcode_darkred = 'Dark Red'; //Translate
-		$this->mbcode_deepink = 'Deep Pink'; //Translate
-		$this->mbcode_detail = 'Enter a description'; //Translate
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'Firebrick Red'; //Translate
-		$this->mbcode_font = 'Font'; //Translate
-		$this->mbcode_green = 'Green'; //Translate
-		$this->mbcode_huge = 'Huge'; //Translate
-		$this->mbcode_image = 'Image'; //Translate
-		$this->mbcode_image1 = 'IMG'; //Translate
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Indigo'; //Translate
-		$this->mbcode_italic = 'Italic'; //Translate
-		$this->mbcode_italic1 = 'I'; //Translate
-		$this->mbcode_large = 'Large'; //Translate
-		$this->mbcode_length = 'Your post is +length+ characters.'; //Translate
-		$this->mbcode_limegreen = 'Lime Green'; //Translate
-		$this->mbcode_medium = 'Medium'; //Translate
-		$this->mbcode_orange = 'Orange'; //Translate
-		$this->mbcode_orangered = 'Orange Red'; //Translate
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Purple'; //Translate
-		$this->mbcode_quote = 'Quote'; //Translate
-		$this->mbcode_red = 'Red'; //Translate
-		$this->mbcode_royalblue = 'Royal Blue'; //Translate
-		$this->mbcode_sandybrown = 'Sandy Brown'; //Translate
-		$this->mbcode_seagreen = 'Sea Green'; //Translate
-		$this->mbcode_sienna = 'Sienna'; //Translate
-		$this->mbcode_silver = 'Silver'; //Translate
-		$this->mbcode_size = 'Size'; //Translate
-		$this->mbcode_skyblue = 'Sky Blue'; //Translate
-		$this->mbcode_small = 'Small'; //Translate
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Strikethrough'; //Translate
-		$this->mbcode_strike1 = 'S'; //Translate
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Teal'; //Translate
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Tiny'; //Translate
-		$this->mbcode_tomato = 'Tomato'; //Translate
-		$this->mbcode_underline = 'Underline'; //Translate
-		$this->mbcode_underline1 = 'U'; //Translate
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Burly Wood'; //Translate
-		$this->mbcode_yellow = 'Yellow'; //Translate
+		$this->mbcode_address = 'הכנס כתובת'; 
+		$this->mbcode_arial = 'Arial'; 
+		$this->mbcode_blue = 'כחול'; 
+		$this->mbcode_bold = 'מודגש'; 
+		$this->mbcode_bold1 = 'B'; 
+		$this->mbcode_chocolate = 'חום שוקולד'; 
+		$this->mbcode_code = 'קוד'; 
+		$this->mbcode_color = 'צבע'; 
+		$this->mbcode_coral = 'קורל'; 
+		$this->mbcode_courier = 'Courier'; 
+		$this->mbcode_crimson = 'ארגמן'; 
+		$this->mbcode_darkblue = 'כחול כהה'; 
+		$this->mbcode_darkred = 'אדום כהה'; 
+		$this->mbcode_deepink = 'ורוד עמוק'; 
+		$this->mbcode_detail = 'הכנס תאור'; 
+		$this->mbcode_email = 'אימייל'; 
+		$this->mbcode_firered = 'אדום חום'; 
+		$this->mbcode_font = 'גופן'; 
+		$this->mbcode_green = 'ירוק'; 
+		$this->mbcode_huge = 'ענק'; 
+		$this->mbcode_image = 'צלמית'; 
+		$this->mbcode_image1 = 'IMG'; 
+		$this->mbcode_impact = 'Impact'; 
+		$this->mbcode_indigo = 'אינדיגו'; 
+		$this->mbcode_italic = 'נטוי'; 
+		$this->mbcode_italic1 = 'I'; 
+		$this->mbcode_large = 'גדול'; 
+		$this->mbcode_length = 'תווים. +length+ הודעתך באורך'; 
+		$this->mbcode_limegreen = 'צהוב לימון'; 
+		$this->mbcode_medium = 'בינוני'; 
+		$this->mbcode_orange = 'כתום'; 
+		$this->mbcode_orangered = 'אדום כתום'; 
+		$this->mbcode_php = 'PHP'; 
+		$this->mbcode_purple = 'סגול'; 
+		$this->mbcode_quote = 'ציטוט'; 
+		$this->mbcode_red = 'אדום'; 
+		$this->mbcode_royalblue = 'כחול רויאל'; 
+		$this->mbcode_sandybrown = 'חום חול'; 
+		$this->mbcode_seagreen = 'ירוק כהה'; 
+		$this->mbcode_sienna = 'סיאנה'; 
+		$this->mbcode_silver = 'כסף'; 
+		$this->mbcode_size = 'גודל'; 
+		$this->mbcode_skyblue = 'כחול שמיים'; 
+		$this->mbcode_small = 'קטן'; 
+		$this->mbcode_spoiler = 'ספויילר'; 
+		$this->mbcode_strike = 'קו חוצה'; 
+		$this->mbcode_strike1 = 'S'; 
+		$this->mbcode_tahoma = 'Tahoma'; 
+		$this->mbcode_teal = 'Teal'; 
+		$this->mbcode_times = 'Times'; 
+		$this->mbcode_tiny = 'זעיר'; 
+		$this->mbcode_tomato = 'אדום עגבנייה'; 
+		$this->mbcode_underline = 'קו תחתון'; 
+		$this->mbcode_underline1 = 'U'; 
+		$this->mbcode_url = 'URL'; 
+		$this->mbcode_verdana = 'Verdana'; 
+		$this->mbcode_wood = 'חום בהיר'; 
+		$this->mbcode_yellow = 'צהוב'; 
 	}
 
 	function member_control()
 	{
-		$this->mc = 'Member Control'; //Translate
-		$this->mc_confirm = 'Are you sure you want to delete'; //Translate
-		$this->mc_delete = 'Delete Member'; //Translate
-		$this->mc_deleted = 'Member Deleted.'; //Translate
-		$this->mc_edit = 'Edit Member'; //Translate
-		$this->mc_edited = 'Member Updated'; //Translate
-		$this->mc_email_invaid = 'The email address you entered is invalid.'; //Translate
-		$this->mc_err_updating = 'Error Updating Profile'; //Translate
-		$this->mc_find = 'Find members with names containing'; //Translate
-		$this->mc_found = 'The following members were found. Please select one.'; //Translate
-		$this->mc_guest_needed = 'The guest account is necessary for Quicksilver Forums to function.'; //Translate
-		$this->mc_not_found = 'No members were found matching'; //Translate
-		$this->mc_user_aim = 'AIM Name'; //Translate
-		$this->mc_user_avatar = 'Avatar'; //Translate
-		$this->mc_user_avatar_height = 'Avatar Height'; //Translate
-		$this->mc_user_avatar_type = 'Avatar Type'; //Translate
-		$this->mc_user_avatar_width = 'Avatar Width'; //Translate
-		$this->mc_user_birthday = 'Birthday'; //Translate
-		$this->mc_user_email = 'Email Address'; //Translate
-		$this->mc_user_email_show = 'Email Is Public'; //Translate
-		$this->mc_user_group = 'Group'; //Translate
-		$this->mc_user_gtalk = 'GTalk Account'; //Translate
-		$this->mc_user_homepage = 'Homepage'; //Translate
-		$this->mc_user_icq = 'ICQ Number'; //Translate
+		$this->mc = 'בקרת חבר'; 
+		$this->mc_confirm = 'האם אתה בטוח רוצה למחוק'; 
+		$this->mc_delete = 'מחיקת חבר'; 
+		$this->mc_deleted = 'חבר נמחק.'; 
+		$this->mc_edit = 'עריכת חבר'; 
+		$this->mc_edited = 'חבר עודכן'; 
+		$this->mc_email_invaid = 'כתובת האימייל שהכנסת אינה תקינה.'; 
+		$this->mc_err_updating = 'שגיאה בעדכון הפרופיל'; 
+		$this->mc_find = 'מצא חברים עם שמות המכילים'; 
+		$this->mc_found = 'החברים הבאים נמצאו. אנא בחר אחד.'; 
+		$this->mc_guest_needed = 'Quicksilver חשבון האורח חיוני לפעילות הפורומים של'; 
+		$this->mc_not_found = 'לא נמצאו חברים מתאימים'; 
+		$this->mc_user_aim = 'AIM שם'; 
+		$this->mc_user_avatar = 'אווטרה'; 
+		$this->mc_user_avatar_height = 'גובה אווטרה'; 
+		$this->mc_user_avatar_type = 'סוג אווטרה'; 
+		$this->mc_user_avatar_width = 'רוחב אווטרה'; 
+		$this->mc_user_birthday = 'יום הולדת'; 
+		$this->mc_user_email = 'כתובת אימייל'; 
+		$this->mc_user_email_show = 'האימייל ציבורי'; 
+		$this->mc_user_group = 'קבוצה'; 
+		$this->mc_user_gtalk = 'GTalk חשבון'; 
+		$this->mc_user_homepage = 'דף הבית'; 
+		$this->mc_user_icq = 'ICQ מספר'; 
 		$this->mc_user_id = 'User ID'; //Translate
-		$this->mc_user_interests = 'Interests'; //Translate
-		$this->mc_user_joined = 'Member Since'; //Translate
-		$this->mc_user_language = 'Language'; //Translate
-		$this->mc_user_lastpost = 'Last Post'; //Translate
-		$this->mc_user_lastvisit = 'Last Visit'; //Translate
-		$this->mc_user_level = 'Level'; //Translate
-		$this->mc_user_location = 'Location'; //Translate
+		$this->mc_user_interests = 'תחומי עניין'; 
+		$this->mc_user_joined = 'חבר מאז'; 
+		$this->mc_user_language = 'שפה'; 
+		$this->mc_user_lastpost = 'תגובה אחרונה'; 
+		$this->mc_user_lastvisit = 'ביקור אחרון'; 
+		$this->mc_user_level = 'רמה'; 
+		$this->mc_user_location = 'מיקום'; 
 		$this->mc_user_msn = 'MSN Identity'; //Translate
-		$this->mc_user_name = 'Name'; //Translate
+		$this->mc_user_name = 'שם'; 
 		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
-		$this->mc_user_posts = 'Posts'; //Translate
-		$this->mc_user_signature = 'Signature'; //Translate
-		$this->mc_user_skin = 'Skin'; //Translate
-		$this->mc_user_timezone = 'Time Zone'; //Translate
-		$this->mc_user_title = 'Member Title'; //Translate
-		$this->mc_user_title_custom = 'Use a Custom Member Title'; //Translate
+		$this->mc_user_posts = 'תגובות'; 
+		$this->mc_user_signature = 'חתימה'; 
+		$this->mc_user_skin = 'סקין'; 
+		$this->mc_user_timezone = 'אזור זמן'; 
+		$this->mc_user_title = 'כותרת חבר'; 
+		$this->mc_user_title_custom = 'השתמש בכותרת חבר מותאמת אישית'; 
 		$this->mc_user_view_avatars = 'Viewing Avatars'; //Translate
 		$this->mc_user_view_emoticons = 'Viewing Emoticons'; //Translate
 		$this->mc_user_view_signatures = 'Viewing Signatures'; //Translate
@@ -638,8 +638,8 @@ class he
 
 	function membercount()
 	{
-		$this->mcount = 'Fix Member Statistics'; //Translate
-		$this->mcount_updated = 'Member Count Updated.'; //Translate
+		$this->mcount = 'סדר סטטיסטיקות חברים'; 
+		$this->mcount_updated = 'ספירת חברים עודכנה.'; 
 	}
 
 	function members()
@@ -715,14 +715,14 @@ class he
 
 	function optimize()
 	{
-		$this->optimize = 'Optimize Database'; //Translate
+		$this->optimize = 'ייעל מסד נתונים'; 
 		$this->optimized = 'The tables in the database have been optimized for maximum performance.'; //Translate
 	}
 
 	function perms()
 	{
-		$this->perm = 'Permission'; //Translate
-		$this->perms = 'Permissions'; //Translate
+		$this->perm = 'הרשאות'; 
+		$this->perms = 'הרשאות'; 
 		$this->perms_board_view = 'View the board index'; //Translate
 		$this->perms_board_view_closed = 'Use Quicksilver Forums when it is closed'; //Translate
 		$this->perms_do_anything = 'Use Quicksilver Forums'; //Translate
@@ -773,13 +773,13 @@ class he
 
 	function php_info()
 	{
-		$this->php_error = 'Error'; //Translate
+		$this->php_error = 'שגיאה'; 
 		$this->php_error_msg = 'phpinfo() can not be executed. It appears that your host has disabled this feature.'; //Translate
 	}
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar'; //Translate
+		$this->pm_avatar = 'אווטרה'; 
 		$this->pm_cant_del = 'אין לך הרשאה למחק הודעה זו.';
 		$this->pm_delallmsg = 'מחק כל ההודעות';
 		$this->pm_delete = 'מחק';
@@ -818,7 +818,7 @@ class he
 		$this->pm_sendamsg = 'שלח הודעה פרטית';
 		$this->pm_sendingpm = 'שולח הודעה פרטית';
 		$this->pm_sendon = 'נשלח ב';
-		$this->pm_success = 'הודעה שלך נשחה בהצלחה.';
+		$this->pm_success = 'הודעה שלך נשלחה בהצלחה.';
 		$this->pm_sure_del = 'הינן בטוח\ה שברצונך למחוק הודעה זו?';
 		$this->pm_sure_delall = 'הינך בטוח שברצונך למחוק כל ההודעות?';
 		$this->pm_title = 'כותרת';
@@ -1299,7 +1299,7 @@ class he
 		$this->temps_profile = 'Profile Viewing'; //Translate
 		$this->temps_recent = 'Recent Topics'; //Translate
 		$this->temps_register = 'Registration'; //Translate
-		$this->temps_rssfeed = 'RSS Feed'; //Translate
+        $this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = 'Searching'; //Translate
 		$this->temps_settings = 'AdminCP Settings'; //Translate
 		$this->temps_templates = 'AdminCP Template Editor'; //Translate
@@ -1362,35 +1362,35 @@ class he
 		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'There are no votes for this poll.'; //Translate
 		$this->topic_not_found = 'נוששא לא קיים';
-		$this->topic_not_found_message = 'The topic could not be found. It may have been deleted, moved, perhaps never existed.'; //Translate
-		$this->topic_offline = 'This member is currently offline'; //Translate
-		$this->topic_older = 'Older Topic'; //Translate
-		$this->topic_online = 'This member is currently online'; //Translate
-		$this->topic_options = 'אפשרויות נושא';
+		$this->topic_not_found_message = 'לא נמצאה ההודעה. ייתכן והיא נמחקה,הועברה ואולי לא הייתה קיימת.'; //Translate
+		$this->topic_offline = 'החבר כרגע לא מחובר'; //Translate
+		$this->topic_older = 'הודעה ישנה'; //Translate
+		$this->topic_online = 'החבר כרגע מחובר'; //Translate
+		$this->topic_options = 'אפשרויות הודעה';
 		$this->topic_pages = 'עמודים';
-		$this->topic_perm_view = 'You do not have permission to view topics.'; //Translate
-		$this->topic_perm_view_guest = 'You do not have permission to view topics. If you register, you may be able to.'; //Translate
+		$this->topic_perm_view = 'אין לך הרשאות לצפות בהודעות.'; 
+		$this->topic_perm_view_guest = 'אין לך הרשאות לצפות בהודעות. אם תירשם, ייתכן ותוכל לצפות.'; 
 		$this->topic_pin = 'נעץ';
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'הודועת';
-		$this->topic_print = 'View Printable'; //Translate
-		$this->topic_qr_emoticons = 'Emoticons'; //Translate
-		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
-		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
-		$this->topic_quickreply = 'Quick Reply'; //Translate
-		$this->topic_quote = 'Reply with a quote from this post'; //Translate
-		$this->topic_reply = 'Reply to Topic'; //Translate
-		$this->topic_split = 'Split'; //Translate
-		$this->topic_split_finish = 'Finish All Splitting'; //Translate
-		$this->topic_split_keep = 'Do not move this post'; //Translate
-		$this->topic_split_move = 'Move this post'; //Translate
-		$this->topic_subscribe = 'E-mail me when replies are made to this topic'; //Translate
-		$this->topic_top = 'Go to the top of the page'; //Translate
+		$this->topic_print = 'הצג להדפסה'; 
+		$this->topic_qr_emoticons = 'סמלי הבעה'; 
+		$this->topic_qr_open_emoticons = 'פתח סמלי הבעה נלחצים'; 
+		$this->topic_qr_open_mbcode = 'MBCode פתח'; 
+		$this->topic_quickreply = 'הוספת תגובה מהירה'; 
+		$this->topic_quote = 'הוסף תגובה עם ציטוט מתגובה זו'; 
+		$this->topic_reply = 'הוסף תגובה';
+		$this->topic_split = 'פיצול'; 
+		$this->topic_split_finish = 'סיים כל הפיצולים'; 
+		$this->topic_split_keep = 'אל תעביר תגובה זו'; 
+		$this->topic_split_move = 'העבר תגובה זו'; 
+		$this->topic_subscribe = 'שלח לי מייל כשהגיבו להודעה זו'; 
+		$this->topic_top = 'עבור לראש הדף'; 
 		$this->topic_unlock = 'בטל נעילה';
 		$this->topic_unpin = 'בטח נעיצה';
 		$this->topic_unreg = 'לא רשום';
 		$this->topic_view = 'הראה תוצאות';
-		$this->topic_viewing = 'Viewing Topic'; //Translate
+		$this->topic_viewing = 'מציג הודעות'; 
 		$this->topic_vote = 'הצבעה';
 		$this->topic_vote_count_plur = '%d הצבעות';
 		$this->topic_vote_count_sing = '%d הצבעה';
@@ -1399,38 +1399,38 @@ class he
 
 	function universal()
 	{
-		$this->aim = 'AIM'; //Translate
-		$this->based_on = 'based on';
+		$this->aim = 'AIM'; 
+		$this->based_on = 'מבוסס על';
 		$this->board_by = 'על ידי';
 		$this->charset = 'windows-1255';
-		$this->continue = 'Continue'; //Translate
-		$this->delete = 'Delete'; //Translate
+		$this->continue = 'המשך'; 
+		$this->delete = 'מחיקה'; 
 		$this->direction = 'rtl';
-		$this->edit = 'Edit'; //Translate
-		$this->email = 'Email'; //Translate
-		$this->gtalk = 'GT'; //Translate
-		$this->icq = 'ICQ'; //Translate
-		$this->msn = 'MSN'; //Translate
-		$this->new_message = 'New Message'; //Translate
-		$this->new_poll = 'New Poll'; //Translate
-		$this->new_topic = 'New Topic'; //Translate
-		$this->no = 'No'; //Translate
-		$this->powered = 'Powered by'; //Translate
-		$this->private_message = 'PM'; //Translate
-		$this->quote = 'Quote'; //Translate
-		$this->reply = 'Reply'; //Translate
-		$this->seconds = 'Seconds'; //Translate
-		$this->select_all = 'Select All'; //Translate
-		$this->sep_decimals = '.'; //Translate
-		$this->sep_thousands = ','; //Translate
-		$this->spoiler = 'Spoiler'; //Translate
+		$this->edit = 'עריכה'; 
+		$this->email = 'אימייל'; 
+		$this->gtalk = 'GT'; 
+		$this->icq = 'ICQ'; 
+		$this->msn = 'MSN';
+		$this->new_message = 'הודעה חדשה'; 
+		$this->new_poll = 'סקר חדש'; 
+		$this->new_topic = 'הודעה חדשה'; 
+		$this->no = 'לא'; 
+		$this->powered = 'Powered by'; 
+		$this->private_message = 'PM'; 
+		$this->quote = 'ציטוט'; 
+		$this->reply = 'השב'; 
+		$this->seconds = 'שניות'; 
+		$this->select_all = 'בחר הכל'; 
+		$this->sep_decimals = '.'; 
+		$this->sep_thousands = ','; 
+		$this->spoiler = 'ספויילר'; 
 		$this->submit = 'אישור';
-		$this->subscribe = 'Subscribe'; //Translate
-		$this->today = 'Today'; //Translate
-		$this->website = 'WWW'; //Translate
-		$this->yahoo = 'Yahoo'; //Translate
-		$this->yes = 'Yes'; //Translate
-		$this->yesterday = 'Yesterday'; //Translate
+		$this->subscribe = 'הרשמה'; 
+		$this->today = 'היום'; 
+		$this->website = 'WWW'; 
+		$this->yahoo = 'Yahoo'; 
+		$this->yes = 'כן'; 
+		$this->yesterday = 'אתמול'; 
 	}
 }
 ?>
