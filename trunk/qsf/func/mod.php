@@ -78,6 +78,10 @@ class mod extends qsfglobal
 		case 'split':
 			return $this->split_topic();
 			break;
+			
+		case 'publish':
+			return $this->publish_topic();
+			break;
 
 		default:
 			return $this->message($this->lang->mod_label_controls, $this->lang->mod_no_action, $this->lang->continue, "javascript:history.go(-1)");
@@ -568,6 +572,46 @@ class mod extends qsfglobal
 	}
 
 	/**
+	 * Publish / UnPublish
+	 *
+	 * @author Jonathan West <jon@quicksilverforums.com>
+	 * @since 1.2.0
+	 * @return string message
+	 **/
+	function publish_topic()
+	{
+		$this->tree($this->lang->mod_label_controls, $this->self . '?a=mod');
+		$this->tree($this->lang->mod_label_publish);
+
+		// Parameters check
+		if (!isset($this->get['t'])) {
+			return $this->message($this->lang->mod_label_controls, $this->lang->mod_no_topic,  $this->lang->continue, "javascript:history.go(-1)");
+		}
+
+		$this->get['t'] = intval($this->get['t']);
+		$topic = $this->db->fetch('SELECT topic_modes, topic_forum FROM ' . $this->pre . 'topics WHERE topic_id=' . $this->get['t']);
+
+		// Existence check
+		if (!$topic) {
+			return $this->message($this->lang->mod_label_controls, $this->lang->mod_missing_topic,  $this->lang->continue, "javascript:history.go(-1)");
+		}
+		// Check permissions
+		if (!$this->perms->auth('topic_publish', $topic['topic_forum'])) {
+			return $this->message($this->lang->mod_label_controls, $this->lang->mod_perm_publish, $this->lang->continue, "$this->self?a=topic&amp;t={$this->get['t']}");
+		}
+		
+		if (!($topic['topic_modes'] & TOPIC_PUBLISH)) {
+			$this->log_action('topic_publish', $this->get['t']);
+			$this->publish($this->get['t'], $topic['topic_modes']);
+		} else {
+			$this->log_action('topic_unpublish', $this->get['t']);
+			$this->unpublish($this->get['t'], $topic['topic_modes']);
+		}
+
+		header('Location: ' . $this->self . '?a=topic&t=' . $this->get['t']);
+	}
+
+	/**
 	 * Splits a topic
 	 *
 	 * @author Jason Warner <jason@mercuryboard.com>
@@ -789,6 +833,30 @@ class mod extends qsfglobal
 
 		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_modes=' . ($topic_modes ^ TOPIC_PINNED) . " WHERE topic_id=$t OR topic_moved=$t");
 		$this->update_last_post($topic['topic_forum']);
+	}
+
+	/**
+	 * Publishes a topic
+	 *
+	 * @param int $t Topic ID
+	 * @param int $topic_modes Topic modes
+	 * @since 1.2
+	 **/
+	function publish($t, $topic_modes)
+	{
+		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_modes=' . ($topic_modes | TOPIC_PUBLISH) . ' WHERE topic_id=' . $t);
+	}
+
+	/**
+	 * Unpublishes a topic
+	 *
+	 * @param int $t Topic ID
+	 * @param int $topic_modes Topic modes
+	 * @since 1.2
+	 **/
+	function unpublish($t, $topic_modes)
+	{
+		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_modes=' . ($topic_modes ^ TOPIC_PUBLISH) . ' WHERE topic_id=' . $t);
 	}
 
 	/**

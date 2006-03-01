@@ -52,6 +52,9 @@ $need_templates = array(
 	);
 	
 $new_permissions['post_inc_userposts'] = true;
+$new_permissions['topic_publish_auto'] = true; // will publish on posting
+$new_permissions['topic_publish'] = false;
+$new_permissions['topic_view_unpublished'] = false;
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}readmarks";
 $queries[] = "CREATE TABLE {$pre}readmarks (
@@ -65,5 +68,6 @@ $queries[] = "CREATE TABLE {$pre}readmarks (
 $queries[] = "ALTER TABLE {$pre}users ADD user_lastallread int(10) unsigned NOT NULL default '0' AFTER user_lastvisit";
 $queries[] = "ALTER TABLE {$pre}posts ADD post_count tinyint(1) unsigned NOT NULL default '1' AFTER post_mbcode";
 $queries[] = "UPDATE {$pre}users SET user_lastallread=user_lastvisit";
+$queries[] = "UPDATE {$pre}topics SET topic_modes=topic_modes | " . TOPIC_PUBLISH; // Make all topics published
 
 ?>

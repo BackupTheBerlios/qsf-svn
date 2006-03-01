@@ -680,6 +680,7 @@ class de
 		$this->mod_label_post_delete = 'Lösche Beitrag';
 		$this->mod_label_post_edit = 'Editiere Beitrag';
 		$this->mod_label_post_icon = 'Beitragssymbol';
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Titel';
 		$this->mod_label_title_original = 'Urpsrünglicher Titel';
 		$this->mod_label_title_split = 'Spaltungstitel';
@@ -698,6 +699,7 @@ class de
 		$this->mod_no_topic = 'Sie müssen ein Thema auswählen.';
 		$this->mod_perm_post_delete = 'Sie haben nicht die Erlaubnis diesen Beitrag zu löschen.';
 		$this->mod_perm_post_edit = 'Sie haben nicht die Erlaubnis diesen Beitrag zu editieren.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Sie haben nicht die Erlaubnis dieses Thema zu löschen.';
 		$this->mod_perm_topic_edit = 'Sie haben nicht die Erlaubnis dieses Them zu editieren.';
 		$this->mod_perm_topic_lock = 'Sie haben nicht die Erlaubnis dieses Thema zu sperren.';
@@ -708,10 +710,12 @@ class de
 		$this->mod_perm_topic_unpin = 'Sie haben nicht die Erlaubnis dieses Thema zu entnageln.';
 		$this->mod_success_post_delete = 'Der Beitrag wurde erfolgreich gelöscht.';
 		$this->mod_success_post_edit = 'Der Beitrag wurde erfolgreich editiert.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Das Thema wurde werfolgreich geteilt.';
 		$this->mod_success_topic_delete = 'Das Thema wurde erfolgreich gelöscht.';
 		$this->mod_success_topic_edit = 'Das Thema wurde erfolgreich editiert.';
 		$this->mod_success_topic_move = 'Das Thema wurde erfolgreich in ein neues Forum verschoben.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -760,6 +764,8 @@ class de
 		$this->perms_topic_move_own = 'Nur Themen des Benutzers verschieben';
 		$this->perms_topic_pin = 'Jegliche Themen nageln';
 		$this->perms_topic_pin_own = 'Themen des Benutzers nageln';
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Jegliche Themen in mehrere Themen aufteilen';
 		$this->perms_topic_split_own = 'Nur Themen des Benutzers in mehrere Themen aufteilen';
 		$this->perms_topic_unlock = 'Jegliche Themen öffnen';
@@ -768,6 +774,7 @@ class de
 		$this->perms_topic_unpin = 'Jegliche Themen entnageln';
 		$this->perms_topic_unpin_own = 'Nur Themen des Benutzers entnageln';
 		$this->perms_topic_view = 'Themen anschauen';
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Berechtigungen wurden aktualisiert.';
 		$this->perms_user_inherit = 'Der Benutzer wird die Gruppenberechtigungen übernehmen.';
 	}
@@ -1375,6 +1382,7 @@ class de
 		$this->topic_posted = 'Verfasst: ';
 		$this->topic_posts = 'Beiträge';
 		$this->topic_print = 'Zeige Druckversion';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1389,6 +1397,8 @@ class de
 		$this->topic_top = 'Zum Anfang der Seite';
 		$this->topic_unlock = 'Entsperren';
 		$this->topic_unpin = 'Entnageln';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Unregistriert';
 		$this->topic_view = 'Zeige Ergebnisse';
 		$this->topic_viewing = 'Zeige Thema';

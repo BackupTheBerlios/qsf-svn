@@ -484,4 +484,20 @@ class search extends qsfglobal
 		define('MYSQL_INT_VERSION', (int)sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2])));
 	}
 }
+
+function highlight_search_criteria($search_results, $search_criteria, $bgcolor='yellow')
+{
+	if (empty($search_criteria)) return $search_results;
+	
+	for ($i=0; $i<count($search_criteria); $i++) {
+		$search_criteria = '/(' . $search_criteria . ')i';
+	}
+	
+	$start_tag = "<span style='background-color: $bgcolor'>";
+	$end_tag = '</span>';
+
+	return preg_replace($search_criteria, $start_tag . '\0' . $end_tag, $search_results);
+}
+
 ?>
+

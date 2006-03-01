@@ -679,6 +679,7 @@ class no
 		$this->mod_label_post_delete = 'Slette innlegg';
 		$this->mod_label_post_edit = 'Redigere innlegg';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Tittel';
 		$this->mod_label_title_original = 'Original Title'; //Translate
 		$this->mod_label_title_split = 'Split Title'; //Translate
@@ -697,6 +698,7 @@ class no
 		$this->mod_no_topic = 'Du må velge et emne.';
 		$this->mod_perm_post_delete = 'Du har ikke tillatelse til å slette dette innlegget.';
 		$this->mod_perm_post_edit = 'Du har ikke tillatelse til å redigere dette innlegget.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Du har ikke tillatelse til å slette dette emne.';
 		$this->mod_perm_topic_edit = 'Du har ikke tillatelse til å redigere dette emne.';
 		$this->mod_perm_topic_lock = 'Du har ikke tillatelse til å lese dette emne.';
@@ -707,10 +709,12 @@ class no
 		$this->mod_perm_topic_unpin = 'Du har ikke tillatelse til å fjerne markeringen på dette emne.';
 		$this->mod_success_post_delete = 'Innlegget er slettet.';
 		$this->mod_success_post_edit = 'Innlegget er redigert.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'The topic was successfully split.'; //Translate
 		$this->mod_success_topic_delete = 'Emnet er slettet.';
 		$this->mod_success_topic_edit = 'Emnet er redigert.';
 		$this->mod_success_topic_move = 'Emnet er flyttet til til et nytt forum.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class no
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class no
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class no
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Innlegg';
 		$this->topic_print = 'Vise i utskriftsvennlig format';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class no
 		$this->topic_top = 'Go to the top of the page'; //Translate
 		$this->topic_unlock = 'Lås opp';
 		$this->topic_unpin = 'Fjerne merke';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Uregistrert';
 		$this->topic_view = 'Vise resultat';
 		$this->topic_viewing = 'Viser emne';

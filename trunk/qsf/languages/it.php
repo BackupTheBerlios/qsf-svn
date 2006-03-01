@@ -679,6 +679,7 @@ class it
 		$this->mod_label_post_delete = 'Cancella Messaggio';
 		$this->mod_label_post_edit = 'Modifica Messaggio';
 		$this->mod_label_post_icon = 'Icona Messaggio';
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Titolo';
 		$this->mod_label_title_original = 'Titolo Originale';
 		$this->mod_label_title_split = 'Dividi Titolo';
@@ -697,6 +698,7 @@ class it
 		$this->mod_no_topic = 'Devi specifare una discussione.';
 		$this->mod_perm_post_delete = 'Non hai il permesso per eliminare questo messaggio.';
 		$this->mod_perm_post_edit = 'Non hai il permesso per moficare questo messaggio.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Non hai il permesso per eliminare questa discussione.';
 		$this->mod_perm_topic_edit = 'Non hai il permesso per modificare questa discussione.';
 		$this->mod_perm_topic_lock = 'Non hai il permesso per bloccare questa discussione.';
@@ -707,10 +709,12 @@ class it
 		$this->mod_perm_topic_unpin = 'non hai il permesso per unpin questa discussione.';
 		$this->mod_success_post_delete = 'Il messaggio è stato eliminato.';
 		$this->mod_success_post_edit = 'Il messaggio è stato modificato.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'La discussione è stata divisa.';
 		$this->mod_success_topic_delete = 'La discussione è stata eliminata.';
 		$this->mod_success_topic_edit = 'La discussione è stata modificata.';
 		$this->mod_success_topic_move = 'La discussione è stata spostata nel nuovo forum.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class it
 		$this->perms_topic_move_own = 'Muovi solo le discussioni create dall\'utente';
 		$this->perms_topic_pin = 'Evidenzia ogni tipo di discussione';
 		$this->perms_topic_pin_own = 'Evidenzia solo le discussioni create dall\'utente';
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Dividi ogni tipo di discussione';
 		$this->perms_topic_split_own = 'Dividi solo le discussioni create dall\'utente';
 		$this->perms_topic_unlock = 'Sblocca ogni tipo di discussione';
@@ -767,6 +773,7 @@ class it
 		$this->perms_topic_unpin = 'Togli evidenza da ogni tipo di discussione';
 		$this->perms_topic_unpin_own = 'Togli evidenza solo le discussioni create dall\'utente';
 		$this->perms_topic_view = 'Mostra discussioni';
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permessi aggiornati.';
 		$this->perms_user_inherit = 'Questo utente erediterierà i permessi del groppo.';
 	}
@@ -1374,6 +1381,7 @@ class it
 		$this->topic_posted = 'Inviato';
 		$this->topic_posts = 'Messaggi';
 		$this->topic_print = 'Visualizza Stampabile';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class it
 		$this->topic_top = 'Vai all\'inizio della pagina';
 		$this->topic_unlock = 'Sblocca';
 		$this->topic_unpin = 'Non in Rilievo';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Non Registrato';
 		$this->topic_view = 'Visualizza Risultati';
 		$this->topic_viewing = 'Visualizza Discussioni';

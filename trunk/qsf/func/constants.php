@@ -60,6 +60,7 @@ define('TOPIC_POLL_ONLY', 8);
 define('TOPIC_PINNED', 16);
 define('TOPIC_GLOBAL', 32);
 define('TOPIC_DELETED', 64);
+define('TOPIC_PUBLISH', 128);
 
 /* Users */
 define('USER_GUEST_UID', 1);

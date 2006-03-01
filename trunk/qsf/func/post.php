@@ -407,6 +407,10 @@ class post extends qsfglobal
 					$mode |= TOPIC_GLOBAL;
 				}
 
+				if ($this->perms->auth('topic_publish_auto', $this->get['f'])) {
+					$mode |= TOPIC_PUBLISH;
+				}
+
 				if (trim($this->post['title']) == '') {
 					return $this->message($this->lang->post_posting, $this->lang->post_must_title);
 				}

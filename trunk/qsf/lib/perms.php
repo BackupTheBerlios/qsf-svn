@@ -67,6 +67,8 @@ class permissions
 		'topic_move_own' => false,
 		'topic_pin' => false,
 		'topic_pin_own' => false,
+		'topic_publish' => false,
+		'topic_publish_auto' => false,
 		'topic_split' => false,
 		'topic_split_own' => false,
 		'topic_unlock' => false,
@@ -74,7 +76,8 @@ class permissions
 		'topic_unlock_own' => false,
 		'topic_unpin' => false,
 		'topic_unpin_own' => false,
-		'topic_view' => false
+		'topic_view' => false,
+		'topic_view_unpublished' => false
 	);
 
 	var $globals = array(

@@ -81,6 +81,10 @@ class topic extends qsfglobal
 			$this->set_title($this->lang->topic_not_found);
 			return $this->message($this->lang->topic_error, $this->lang->topic_not_found_message);
 		}
+		
+		if (!($topic['topic_modes'] & TOPIC_PUBLISH) && !$this->perms->auth('topic_view_unpublished', $topic['topic_forum'])) {
+			return $this->message($this->lang->topic_error, $this->lang->topic_unpublished);
+		}
 
 		if (!$this->perms->auth('topic_view', $topic['topic_forum'])) {
 			return $this->message(
@@ -221,6 +225,15 @@ class topic extends qsfglobal
 			$opts[] = '<a href="' . $this->self . '?a=mod&amp;s=edit_topic&amp;t=' . $this->get['t'] . '">' . $this->lang->topic_edit . '</a>';
 		}
 
+		if ($topic['topic_modes'] & TOPIC_PUBLISH) {
+			if ($this->perms->auth('topic_publish', $topic['topic_forum'])) {
+				$opts[] = '<a href="' . $this->self . '?a=mod&amp;s=publish&amp;t=' . $this->get['t'] . '">' . $this->lang->topic_unpublish . '</a>';
+			}
+		} else {
+			if ($this->perms->auth('topic_publish', $topic['topic_forum'])) {
+				$opts[] = '<a href="' . $this->self . '?a=mod&amp;s=publish&amp;t=' . $this->get['t'] . '">' . $this->lang->topic_publish . '</a>';
+			}
+		}
 		$splitmode = false;
 
 		if ($this->perms->auth('topic_split', $topic['topic_forum']) || ($this->perms->auth('topic_split_own', $topic['topic_forum']) && $user_started_topic)) {

@@ -679,6 +679,7 @@ class fr
 		$this->mod_label_post_delete = 'Effacer le message';
 		$this->mod_label_post_edit = 'Editer le message';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Titre';
 		$this->mod_label_title_original = 'Titre original ';
 		$this->mod_label_title_split = 'Découper le titre';
@@ -697,6 +698,7 @@ class fr
 		$this->mod_no_topic = 'Vous devez choisir un sujet.';
 		$this->mod_perm_post_delete = 'Vous n\'avez pas le droit d\'effacer ce message.';
 		$this->mod_perm_post_edit = 'Vous n\'avez pas le droit d\'éditer ce message.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Vous n\'avez pas le droit d\'effacer ce sujet.';
 		$this->mod_perm_topic_edit = 'Vous n\'avez pas le droit d\'éditer ce sujet. ';
 		$this->mod_perm_topic_lock = 'Vous n\'avez pas le droit de verrouiller ce sujet. ';
@@ -707,10 +709,12 @@ class fr
 		$this->mod_perm_topic_unpin = 'Vous n\'avez pas le droit de \'désépingler\' ce sujet.';
 		$this->mod_success_post_delete = 'Le message a été effacé.';
 		$this->mod_success_post_edit = 'Message édité';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Le sujet a été découpé avec succès. ';
 		$this->mod_success_topic_delete = 'Sujet effacé.';
 		$this->mod_success_topic_edit = 'Le sujet a été édité avec succès.';
 		$this->mod_success_topic_move = 'Le sujet a été déplacé avec succès.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class fr
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class fr
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class fr
 		$this->topic_posted = 'Posté';
 		$this->topic_posts = 'Messages';
 		$this->topic_print = 'Voir une version imprimable';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class fr
 		$this->topic_top = 'Aller en haut de la page';
 		$this->topic_unlock = 'Déverrouiller';
 		$this->topic_unpin = 'Désépingler';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Non enregistré';
 		$this->topic_view = 'Consultation des résultats';
 		$this->topic_viewing = 'Consultation d\'un sujet ';

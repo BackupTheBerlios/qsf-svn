@@ -274,6 +274,10 @@ class forum extends qsfglobal
 			if ($row['topic_modes'] & TOPIC_PINNED) {
 				$row['topic_title'] = "<b>" . $row['topic_title'] . "</b>";
 			}
+			if (!($row['topic_modes'] & TOPIC_PUBLISH)) {
+				$row['topic_title'] = "<i>" . $row['topic_title'] . "</i>";
+			}
+			
 			$row['icon'] = $row['topic_icon']; // Store so skin can still access
 			if ($row['topic_modes'] & TOPIC_POLL) {
 				$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" alt="' . $this->lang->forum_icon . '" />';

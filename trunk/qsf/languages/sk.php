@@ -680,6 +680,7 @@ class sk
 		$this->mod_label_post_delete = 'Zmaza príspevok';
 		$this->mod_label_post_edit = 'Editova príspevok';
 		$this->mod_label_post_icon = 'Ikona Príspevku';
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Nadpis';
 		$this->mod_label_title_original = 'Pôvodný nadpis';
 		$this->mod_label_title_split = 'Rozdeli nadpis';
@@ -698,6 +699,7 @@ class sk
 		$this->mod_no_topic = 'Musíte špecifikova tému.';
 		$this->mod_perm_post_delete = 'Nemáte povolenie na zmazanie tohoto príspevku.';
 		$this->mod_perm_post_edit = 'Nemáte povolenie na editáciu tohoto príspevku.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Nemáte povolenie na zmazanie tejto témy.';
 		$this->mod_perm_topic_edit = 'Nemáte povolenie na editáciu tejto témy.';
 		$this->mod_perm_topic_lock = 'Nemáte povolenie na zamknutie tejto témy.';
@@ -708,10 +710,12 @@ class sk
 		$this->mod_perm_topic_unpin = 'Nemáte povolenie na odšpendlenie tejto témy.';
 		$this->mod_success_post_delete = 'Príspevok bol úspešne zmazaný.';
 		$this->mod_success_post_edit = 'Príspevok bol úspešne zeditovaný.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Téma bola úspešne rozdelená.';
 		$this->mod_success_topic_delete = 'Téma bola úspešne zmazaná';
 		$this->mod_success_topic_edit = 'Téma bola úspešne zeditovaná.';
 		$this->mod_success_topic_move = 'Téma bola úspešne presunutá do nového fóra.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -760,6 +764,8 @@ class sk
 		$this->perms_topic_move_own = 'Presúvanie iba vlastných tém';
 		$this->perms_topic_pin = 'Prišpendlenie ¾ubovo¾nej témy';
 		$this->perms_topic_pin_own = 'Prišpendlenie iba vlastných tém';
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Rozde¾ovanie ¾ubovo¾nej témy na viaceré témy';
 		$this->perms_topic_split_own = 'Rozde¾ovanie iba vlastných tém na viaceré témy';
 		$this->perms_topic_unlock = 'Odomykanie ¾ubovo¾ných tém';
@@ -768,6 +774,7 @@ class sk
 		$this->perms_topic_unpin = 'Odšpendlenie ¾ubovo¾ných tém';
 		$this->perms_topic_unpin_own = 'Odšpendlenie iba vlastných tém';
 		$this->perms_topic_view = 'Prezeranie tém';
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Práva boli zaktualizované.';
 		$this->perms_user_inherit = 'Užívate¾ zdedí práva skupiny.';
 	}
@@ -1376,6 +1383,7 @@ class sk
 		$this->topic_posted = 'Odoslané';
 		$this->topic_posts = 'Príspevky';
 		$this->topic_print = 'Zobrazi vytlaèite¾nú verziu';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1390,6 +1398,8 @@ class sk
 		$this->topic_top = 'Skok na zaèiatok stránky';
 		$this->topic_unlock = 'Odomknú';
 		$this->topic_unpin = 'Odšpenli';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Neregistrovaný';
 		$this->topic_view = 'Zobrazi výsledky';
 		$this->topic_viewing = 'Prezeranie tém';

@@ -681,6 +681,7 @@ class nl
 		$this->mod_label_post_delete = 'Verwijder bericht';
 		$this->mod_label_post_edit = 'Bewerk bericht';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Titel';
 		$this->mod_label_title_original = 'Oorspronkelijke Titel';
 		$this->mod_label_title_split = 'Gespleten Titel';
@@ -699,6 +700,7 @@ class nl
 		$this->mod_no_topic = 'Je moet een onderwerp specificeren.';
 		$this->mod_perm_post_delete = 'Je hebt geen toestemming om dit bericht te verwijderen.';
 		$this->mod_perm_post_edit = 'Je hebt geen toestemming om dit bericht te bewerken.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Je hebt geen toestemming om dit onderwerp te verwijderen.';
 		$this->mod_perm_topic_edit = 'Je hebt geen toestemming om dit onderwerp te bewerken.';
 		$this->mod_perm_topic_lock = 'Je hebt geen toestemming om dit onderwerp te sluiten.';
@@ -709,10 +711,12 @@ class nl
 		$this->mod_perm_topic_unpin = 'Je hebt geen toestemming om dit onderwerp los te zetten.';
 		$this->mod_success_post_delete = 'Het bericht is verwijderd.';
 		$this->mod_success_post_edit = 'Bericht gewijzigd';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Het onderwerp is met succes opgedeeld.';
 		$this->mod_success_topic_delete = 'Onderwerp verwijderd.';
 		$this->mod_success_topic_edit = 'Het onderwerp is succesvol gewijzigd.';
 		$this->mod_success_topic_move = 'Het onderwerp is succesvol verplaatst.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -761,6 +765,8 @@ class nl
 		$this->perms_topic_move_own = 'Verplaats enkel onderwerpen die de opstichter aangemaakt heeft';
 		$this->perms_topic_pin = 'Maak elk onderwerp als sticky';
 		$this->perms_topic_pin_own = 'Maak elk onderwerp, dat de opstichter heeft gemaakt, als sticky';
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Verander alle onderwerpen in verschillende nieuwe onderwerpen';
 		$this->perms_topic_split_own = 'Verander alle onderwerpen die de opstichter heeft aangemaakt in nieuwe onderwerpen';
 		$this->perms_topic_unlock = 'Unlock elk onderwerp';
@@ -769,6 +775,7 @@ class nl
 		$this->perms_topic_unpin = 'Verwijder sticky van alle onderwerpen';
 		$this->perms_topic_unpin_own = 'Verwijder sticky van de onderwerpen die de opstichter aangemaakt heeft.';
 		$this->perms_topic_view = 'Bekijk onderwerpen';
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Toelatingen zijn geupdate.';
 		$this->perms_user_inherit = 'De opstichter zal de groepstoelatingen erven.';
 	}
@@ -1376,6 +1383,7 @@ class nl
 		$this->topic_posted = 'Geplaatst';
 		$this->topic_posts = 'berichten';
 		$this->topic_print = 'Printervriendelijk';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1390,6 +1398,8 @@ class nl
 		$this->topic_top = 'Ga naar bovenaan de pagina';
 		$this->topic_unlock = 'Heropenen';
 		$this->topic_unpin = 'Unsticky';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Ongeregistreerd';
 		$this->topic_view = 'Bekijk resultaten';
 		$this->topic_viewing = 'Bekijk onderwerp';

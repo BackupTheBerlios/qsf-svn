@@ -679,6 +679,7 @@ class cs
 		$this->mod_label_post_delete = 'Smazat pøíspìvek';
 		$this->mod_label_post_edit = 'Editovat pøíspìvek';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Název';
 		$this->mod_label_title_original = 'Pùvodní název';
 		$this->mod_label_title_split = 'Spojit témata';
@@ -697,6 +698,7 @@ class cs
 		$this->mod_no_topic = 'Musíte zvolit téma..';
 		$this->mod_perm_post_delete = 'Nemáte oprávnìní mazat pøíspìvky.';
 		$this->mod_perm_post_edit = 'Nemáte oprávnìní editovat pøíspìvky.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Nemáte oprávnìní mazat toto téma.';
 		$this->mod_perm_topic_edit = 'Nemáte oprávnìní editovat toto téma.';
 		$this->mod_perm_topic_lock = 'Nemáte oprávnìní zamknout toto téma.';
@@ -707,10 +709,12 @@ class cs
 		$this->mod_perm_topic_unpin = 'Nemáte oprávnìní odpinovat toto téma.';
 		$this->mod_success_post_delete = 'Pøíspìvek byl úspìšnì smazán.';
 		$this->mod_success_post_edit = 'Pøíspìvìk byl úspìšnì zmìnìn.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Témata byly úspìšnì spojeny.';
 		$this->mod_success_topic_delete = 'Téma bylo úspìšnì smazáno.';
 		$this->mod_success_topic_edit = 'Téma bylo úspìšnì zmìnìno.';
 		$this->mod_success_topic_move = 'Téma bylo úspìšnì pøesunuto do nové diskuse.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class cs
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class cs
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class cs
 		$this->topic_posted = 'Posláno';
 		$this->topic_posts = 'Pøíspìvkù';
 		$this->topic_print = 'Verze pro tisk';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class cs
 		$this->topic_top = 'Jít na zaèátek stránky';
 		$this->topic_unlock = 'Odemknout';
 		$this->topic_unpin = 'Zrušit zvýraznìní';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Neregistrován';
 		$this->topic_view = 'Prohlédnout výsledky';
 		$this->topic_viewing = 'Prohlížet téma';

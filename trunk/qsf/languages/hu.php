@@ -679,6 +679,7 @@ class hu
 		$this->mod_label_post_delete = 'Beírás törlése';
 		$this->mod_label_post_edit = 'Beírás szerkesztése';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Cím';
 		$this->mod_label_title_original = 'Eredeti cím';
 		$this->mod_label_title_split = 'Cím darabolása';
@@ -697,6 +698,7 @@ class hu
 		$this->mod_no_topic = 'Meg kell adni egy témát.';
 		$this->mod_perm_post_delete = 'Nincs jogod törölni ezt a beírást.';
 		$this->mod_perm_post_edit = 'Nincs jogod szerkeszteni ezt a beírást.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Nincs jogod törölni ezt a témát.';
 		$this->mod_perm_topic_edit = 'Nincs jogod szerkeszteni ezt a témát.';
 		$this->mod_perm_topic_lock = 'Nincs jogod zárolni ezt a témát.';
@@ -707,10 +709,12 @@ class hu
 		$this->mod_perm_topic_unpin = 'Nincs jogod levenni a kitûzést errõl a témáról.';
 		$this->mod_success_post_delete = 'A beírás sikeresen törölve.';
 		$this->mod_success_post_edit = 'A beírás sikeresen szerkesztve.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'A témát sikeresen daraboltuk.';
 		$this->mod_success_topic_delete = 'A téma sikeresen törölve.';
 		$this->mod_success_topic_edit = 'A téma sikeresen szerkesztve.';
 		$this->mod_success_topic_move = 'A téma sikeresen át lett helyezve.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class hu
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class hu
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class hu
 		$this->topic_posted = 'Feladva';
 		$this->topic_posts = 'Beírás';
 		$this->topic_print = 'Nyomtatható változat';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class hu
 		$this->topic_top = 'Oldal tetejére ugrás';
 		$this->topic_unlock = 'Felold';
 		$this->topic_unpin = 'Kitûzést levesz';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Nem regisztrált';
 		$this->topic_view = 'Eredmények megtekintése';
 		$this->topic_viewing = 'Téma megtekintése';

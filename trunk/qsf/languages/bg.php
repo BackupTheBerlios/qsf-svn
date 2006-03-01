@@ -679,6 +679,7 @@ class bg
 		$this->mod_label_post_delete = 'Изтрий мнение';
 		$this->mod_label_post_edit = 'Редактирай мнение';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Заглавие';
 		$this->mod_label_title_original = 'Original Title'; //Translate
 		$this->mod_label_title_split = 'Split Title'; //Translate
@@ -697,6 +698,7 @@ class bg
 		$this->mod_no_topic = 'Трябва да избереш тема.';
 		$this->mod_perm_post_delete = 'Нямаш разрешение да изтриеш това мнение.';
 		$this->mod_perm_post_edit = 'Нямаш разрешение да редактираш това мнение.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Нямаш разрешение да изтриеш тази тема.';
 		$this->mod_perm_topic_edit = 'Нямаш разрешение да редактираш това мнение.';
 		$this->mod_perm_topic_lock = 'Нямаш разрешение да заключиш тази тема.';
@@ -707,10 +709,12 @@ class bg
 		$this->mod_perm_topic_unpin = 'нямаш разрешение да откачаш темата.';
 		$this->mod_success_post_delete = 'Мнението беше успешно изтрито.';
 		$this->mod_success_post_edit = 'Мнението беше успешно редактирано.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'The topic was successfully split.'; //Translate
 		$this->mod_success_topic_delete = 'Темата беше успешно изтрита.';
 		$this->mod_success_topic_edit = 'Темата беше успешно изтрита.';
 		$this->mod_success_topic_move = 'Темата беше успешно преместена в нов форум.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class bg
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class bg
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class bg
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Мнения';
 		$this->topic_print = 'Виж във версия за принтиране';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class bg
 		$this->topic_top = 'Go to the top of the page'; //Translate
 		$this->topic_unlock = 'Отключи';
 		$this->topic_unpin = 'Освободи';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Нерегистриран';
 		$this->topic_view = 'Виж резултати';
 		$this->topic_viewing = 'Виж тема';

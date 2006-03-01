@@ -145,7 +145,7 @@ class new_install extends qsfglobal
 				
 				// Create Topic
 				$this->db->query("INSERT INTO {$this->pre}topics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes) 
-					VALUES ('$topicName', $forumId, '$topicDesc', $admin_uid, '$topicIcon', $this->time, $admin_uid, 0)");
+					VALUES ('$topicName', $forumId, '$topicDesc', $admin_uid, '$topicIcon', $this->time, $admin_uid, " . TOPIC_PUBLISH . ")");
 				$topicId = $this->db->insert_id();
 				
 				// Create Post

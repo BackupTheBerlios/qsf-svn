@@ -680,6 +680,7 @@ class ru
 		$this->mod_label_post_delete = 'Удалить сообщение';
 		$this->mod_label_post_edit = 'Изменить сообщение';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Заголовок';
 		$this->mod_label_title_original = 'Оригинальный заголовок';
 		$this->mod_label_title_split = 'Разделить заголовок';
@@ -698,6 +699,7 @@ class ru
 		$this->mod_no_topic = 'Не выбрана тема.';
 		$this->mod_perm_post_delete = 'У тебя нет права удалять это сообщение.';
 		$this->mod_perm_post_edit = 'У тебя нет права изменять это сообщение.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'У тебя нет права удалять эту тему.';
 		$this->mod_perm_topic_edit = 'У тебя нет права изменять эту тему.';
 		$this->mod_perm_topic_lock = 'У тебя нет права блокировать эту тему.';
@@ -708,10 +710,12 @@ class ru
 		$this->mod_perm_topic_unpin = 'У тебя нет права откреплять эту тему.';
 		$this->mod_success_post_delete = 'Сообщение было успешно удалено.';
 		$this->mod_success_post_edit = 'Сообщение было успешно изменено.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Тема была успешно разделена.';
 		$this->mod_success_topic_delete = 'Тема была успешно удалена.';
 		$this->mod_success_topic_edit = 'Тема была успешно изменена.';
 		$this->mod_success_topic_move = 'Тема была успешно перемещена в новый форум.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -760,6 +764,8 @@ class ru
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -768,6 +774,7 @@ class ru
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1375,6 +1382,7 @@ class ru
 		$this->topic_posted = 'Отправлено';
 		$this->topic_posts = 'Сообщений';
 		$this->topic_print = 'Версия для печати';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1389,6 +1397,8 @@ class ru
 		$this->topic_top = 'Вверх ';
 		$this->topic_unlock = 'Разблокировать';
 		$this->topic_unpin = 'Открепить';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Не зарегистрирован';
 		$this->topic_view = 'Посмотреть результаты';
 		$this->topic_viewing = 'Просмотр темы';

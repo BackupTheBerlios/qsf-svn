@@ -679,6 +679,7 @@ class id
 		$this->mod_label_post_delete = 'Hapus Posting';
 		$this->mod_label_post_edit = 'Edit Posting';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Judul';
 		$this->mod_label_title_original = 'Original Title'; //Translate
 		$this->mod_label_title_split = 'Split Title'; //Translate
@@ -697,6 +698,7 @@ class id
 		$this->mod_no_topic = 'Anda harus menentukan topik.';
 		$this->mod_perm_post_delete = 'Anda tidak punya izin untuk menghapus posting ini.';
 		$this->mod_perm_post_edit = 'Anda tidak punya izin untuk mengedit posting ini.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Anda tidak punya izin untuk menghapus posting ini.';
 		$this->mod_perm_topic_edit = 'Anda tidak punya izin untuk mengedit posting ini.';
 		$this->mod_perm_topic_lock = 'Anda tidak punya izin untuk mengunci topik ini.';
@@ -707,10 +709,12 @@ class id
 		$this->mod_perm_topic_unpin = 'Anda tidak punya izin untuk membuka pin topik ini.';
 		$this->mod_success_post_delete = 'Posting berhasil dihapus.';
 		$this->mod_success_post_edit = 'Posting berhasil diedit.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'The topic was successfully split.'; //Translate
 		$this->mod_success_topic_delete = 'Posting berhasil dihapus.';
 		$this->mod_success_topic_edit = 'Posting berhasil diedit.';
 		$this->mod_success_topic_move = 'Posting berhasil dipindahkan ke forum baru.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class id
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class id
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class id
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Post';
 		$this->topic_print = 'Lihat Print preview';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class id
 		$this->topic_top = 'Go to the top of the page'; //Translate
 		$this->topic_unlock = 'Unlock'; //Translate
 		$this->topic_unpin = 'Unpin'; //Translate
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Tidak terdaftar';
 		$this->topic_view = 'Lihat Hasil';
 		$this->topic_viewing = 'Lihat Topic';

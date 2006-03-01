@@ -679,6 +679,7 @@ class fi
 		$this->mod_label_post_delete = 'Poista viesti';
 		$this->mod_label_post_edit = 'Muokkaa viestiä';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Otsikko';
 		$this->mod_label_title_original = 'Alkuperäinen otsikko';
 		$this->mod_label_title_split = 'Jaettu otsikko';
@@ -697,6 +698,7 @@ class fi
 		$this->mod_no_topic = 'Sinun tulee valita keskustelu.';
 		$this->mod_perm_post_delete = 'Sinulla ei ole oikeuksia poistaa tätä viestiä.';
 		$this->mod_perm_post_edit = 'Sinulla ei ole oikeuksia muokata tätä viestiä.';
+		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
 		$this->mod_perm_topic_delete = 'Sinulla ei ole oikeuksia poistaa tätä keskustelua.';
 		$this->mod_perm_topic_edit = 'Sinulla ei ole oikeuksia muokata tätä keskustelua.';
 		$this->mod_perm_topic_lock = 'Sinulla ei ole oikeuksia lukita tätä keskustelua.';
@@ -707,10 +709,12 @@ class fi
 		$this->mod_perm_topic_unpin = 'Sinulla ei ole oikeuksia poistaa niittiä tästä keskustelusta.';
 		$this->mod_success_post_delete = 'Viestin poisto onnistui.';
 		$this->mod_success_post_edit = 'Viestin muokkaus onnistui.';
+		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'Keskustelun jako onnistui.';
 		$this->mod_success_topic_delete = 'Keskustelun poisto onnistui.';
 		$this->mod_success_topic_edit = 'Keskustelun muokkaus onnistui.';
 		$this->mod_success_topic_move = 'Keskustelun siirto uuteen huoneeseen onnistui.';
+		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
@@ -759,6 +763,8 @@ class fi
 		$this->perms_topic_move_own = 'Move only topics the user has created'; //Translate
 		$this->perms_topic_pin = 'Pin any topic'; //Translate
 		$this->perms_topic_pin_own = 'Pin topics the user has created'; //Translate
+		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
+		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
 		$this->perms_topic_split = 'Split any topic into multiple topics'; //Translate
 		$this->perms_topic_split_own = 'Split only topics the user has created into multiple topics'; //Translate
 		$this->perms_topic_unlock = 'Unlock any topic'; //Translate
@@ -767,6 +773,7 @@ class fi
 		$this->perms_topic_unpin = 'Unpin any topic'; //Translate
 		$this->perms_topic_unpin_own = 'Unpin only topics the user has created'; //Translate
 		$this->perms_topic_view = 'View topics'; //Translate
+		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
 		$this->perms_updated = 'Permissions have been updated.'; //Translate
 		$this->perms_user_inherit = 'The user will inherit the group\'s permissions.'; //Translate
 	}
@@ -1374,6 +1381,7 @@ class fi
 		$this->topic_posted = 'Lähetetty';
 		$this->topic_posts = 'Viestejä';
 		$this->topic_print = 'Näytä tulostettava versio';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
@@ -1388,6 +1396,8 @@ class fi
 		$this->topic_top = 'Palaa sivun alkuun';
 		$this->topic_unlock = 'Avaa';
 		$this->topic_unpin = 'Irroita niitti';
+		$this->topic_unpublish = 'UnPublish'; //Translate
+		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'Rekisteröitymätön';
 		$this->topic_view = 'Näytä tulokset';
 		$this->topic_viewing = 'Keskustelu';
