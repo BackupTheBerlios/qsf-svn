@@ -152,8 +152,14 @@ class board extends qsfglobal
 						$post_perms = "<img src='./skins/{$this->skin}/images/post_read.png' alt='{$this->lang->board_cant_post}' title='{$this->lang->board_cant_post}' />";
 					}
 
+					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
+					$topic_unread = false;
+
 					if ($forum['forum_lastpost']) {
-						$topic_new = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
+						$topic_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
+						if ($topic_unread) {
+							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
+						}
 						
 						$forum['TopicLastTime'] = $forum['LastTime']; // store so skins can access
 
@@ -175,8 +181,6 @@ class board extends qsfglobal
 
 						$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 					} else {
-						$topic_new = false;
-
 						$user_lastpostBox = $this->lang->board_nopost;
 					}
 
