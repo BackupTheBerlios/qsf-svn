@@ -124,7 +124,8 @@ class recent extends qsfglobal
 		    t.topic_edited >= {$this->user['user_lastvisit']} AND
 		    t.topic_forum = f.forum_id AND
 		    m.user_id = t.topic_last_poster AND
-		    s.user_id = t.topic_starter
+		    s.user_id = t.topic_starter AND
+		    t.topic_modes & " . TOPIC_MOVED . " = 0
 		ORDER BY
 			(t.topic_modes & " . TOPIC_PINNED . ") DESC,
 		    t.topic_edited DESC
