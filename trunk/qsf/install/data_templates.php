@@ -3422,8 +3422,9 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>
-
+<div class=\"quickreply\">
 {\$quickreply}
+</div>
 
 {\$this->table}
  <tr>
@@ -3520,41 +3521,34 @@ $queries['TOPIC_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, t
 {\$this->lang->topic_group}: {\$post[\'group_name\']}<br />
 {\$this->lang->topic_posts}: {\$post[\'user_posts\']}<br />
 {\$this->lang->topic_joined}: {\$post[\'user_joined\']}<br /><br />', 'Poster Information - Member', 'Edit the poster information in topics for members', 2)";
-$queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_QUICKREPLY', '<form action=\"{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}\" method=\"post\" id=\"mbpost\">
-{\$this->table}
- <tr valign=\"middle\">
-  <td class=\"header\" style=\"text-align:center\">{\$this->lang->post_options}</td>
-  <td class=\"header\" style=\"text-align:center\">{\$this->lang->topic_quickreply}</td>
- </tr>
+$queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_QUICKREPLY', '
+<script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
+<script type=\"text/javascript\">
+<!--
+   function showhide(element_id)
+   {
+     if (document.getElementById) {
+       node = document.getElementById(element_id);
+       if (node.style.display == \'none\') {
+         node.style.display = \'block\';
+       } else {
+         node.style.display = \'none\';
+       }
+     }
+  }
+  mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
+  mbcodeInit(\"mbpost\", \"post\");
+//-->
+</script>
 
- <tr>
-  <td class=\"tablelight\" style=\"width:20%;\" valign=\"middle\">
-   <input type=\"checkbox\" name=\"parseEmot\" value=\"1\" id=\"parseEmot\" checked=\"checked\" /> <label for=\"parseEmot\">{\$this->lang->post_option_emoticons}</label><br />
-   <input type=\"checkbox\" name=\"parseCode\" value=\"1\" id=\"parseCode\" checked=\"checked\" /> <label for=\"parseCode\">{\$this->lang->post_option_mbcode}</label>
-  </td>
-  <td class=\"tablelight\" style=\"margin-left:auto; margin-right:auto; text-align:center;\" valign=\"middle\">
-   <script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
-   <script type=\"text/javascript\">
-   <!--
-      function showhide(element_id)
-      {
-        node = document.getElementById(element_id);
-        if( node.style.display == \'none\' )
-        {
-          node.style.display = \'\';
-        }
-        else
-        {
-          node.style.display = \'none\';
-        }
-      }
-      mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
-      mbcodeInit(\"mbpost\", \"post\");
-   //-->
-   </script>
-   [ <a href=\"javascript:showhide(\'emot\')\" title=\"{\$this->lang->topic_qr_open_emoticons}\">{\$this->lang->topic_qr_emoticons}</a> | <a href=\"javascript:showhide(\'code\')\" title=\"{\$this->lang->topic_qr_open_mbcode}\">MBCode</a> ]
-   <br /><br />
-   <div id=\"emot\" style=\"display:none; align:center; text-align:center;\">
+<form action=\"{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}\" method=\"post\" id=\"mbpost\">
+{\$this->table}
+<tr><td>
+ <h2>
+   {\$this->lang->topic_quickreply}
+ </h2><div class=\"tabledark\">
+
+   <div id=\"emot\" style=\"display:none; float: left;\">
     <div class=\"clickablesmilies\">
      <ul>
       {\$clickable}
@@ -3562,20 +3556,25 @@ $queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, temp
     </div>
    </div>
 
-   <div id=\"code\" style=\"display:none; align:center; text-align:center;\">
+   <div id=\"code\" style=\"display:none; float: left;\">
     {\$mbcodeButtons}
    </div>
 
-   {\$this->lang->post_msg}:<br />
+   <div style=\"clear: left;\">
+   <div style=\"float:right;\">[ <a href=\"javascript:showhide(\'emot\')\" title=\"{\$this->lang->topic_qr_open_emoticons}\">{\$this->lang->topic_qr_emoticons}</a> | <a href=\"javascript:showhide(\'code\')\" title=\"{\$this->lang->topic_qr_open_mbcode}\">MBCode</a> ]</div>
+   {\$this->lang->post_msg}:
+   </div>
    <textarea class=\"input\" name=\"post\" rows=\"8\" cols=\"75\" onclick=\"storeCaret(this)\" onkeyup=\"storeCaret(this)\" onfocus=\"storeCaret(this)\" onmouseout=\"storeCaret(this)\"></textarea><br />
-   <br /><br />
+ </div><div class=\"tablelight\" style=\"text-align: center;\">
+   <input type=\"checkbox\" name=\"parseEmot\" value=\"1\" id=\"parseEmot\" checked=\"checked\" /> <label for=\"parseEmot\">{\$this->lang->post_option_emoticons}</label>
+   <input type=\"checkbox\" name=\"parseCode\" value=\"1\" id=\"parseCode\" checked=\"checked\" /> <label for=\"parseCode\">{\$this->lang->post_option_mbcode}</label>
+
+ </div><div class=\"footer\">
    <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->reply}\" />
    <input type=\"submit\" name=\"preview\" value=\"{\$this->lang->post_preview}\" />
-  </td>
- </tr>
- <tr>
-  <td class=\"footer\" colspan=\"2\">&nbsp;</td>
- </tr>
+   </div>
+
+ </td></tr>
 {\$this->etable}
 </form>', 'Quick Reply', 'The format of the Quick Reply box', 4)";
 ?>

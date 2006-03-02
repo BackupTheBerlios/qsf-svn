@@ -79,6 +79,18 @@ td.subheader      {color:black; font-weight:bold; border:1px solid #555555; back
 a.subheader       {color:black; font-weight:bold; text-decoration:none}
 a.subheader:hover {text-decoration:underline}
 
+h2 {
+	border:1px solid #555555; 
+	color:black; 
+	font-weight:bold; 
+	background-image:url(./images/header_gradient.png);
+	background-repeat: repeat-x;
+	background-color:#5ca0e6; 
+	padding:5px;
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
 td.footer     {
 	font-size: 0.90em; 
 	border:1px solid #555555; 
@@ -92,6 +104,7 @@ div.footer     {
 	border:1px solid #555555; border-top:0;
 	background-color:#5ca0e6; 
 	color:black;
+	text-align: center;
 }
 
 td.header .statistics {
