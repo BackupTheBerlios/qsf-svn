@@ -70,4 +70,10 @@ $queries[] = "ALTER TABLE {$pre}posts ADD post_count tinyint(1) unsigned NOT NUL
 $queries[] = "UPDATE {$pre}users SET user_lastallread=user_lastvisit";
 $queries[] = "UPDATE {$pre}topics SET topic_modes=topic_modes | " . TOPIC_PUBLISH; // Make all topics published
 
+// New timezones
+$queries[] = "INSERT INTO {$pre}timezones VALUES (384, 'America/Moncton', 'AST', -14400, 1143950460)";
+$queries[] = "INSERT INTO {$pre}timezones VALUES (385, 'America/Indiana/Petersburg', 'EST', -18000, 1143961200)";
+$queries[] = "INSERT INTO {$pre}timezones VALUES (386, 'America/Indiana/Vincennes', 'EST', -18000, 1143961200)";
+
+
 ?>

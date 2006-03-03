@@ -765,6 +765,9 @@ $queries[] = "INSERT INTO {$pre}timezones VALUES (380, 'Indian/Mayotte', 'EAT', 
 $queries[] = "INSERT INTO {$pre}timezones VALUES (381, 'Africa/Johannesburg', 'SAST', 7200, 1134774056)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (382, 'Africa/Lusaka', 'CAT', 7200, 1134774056)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (383, 'Africa/Harare', 'CAT', 7200, 1134774056)";
+$queries[] = "INSERT INTO {$pre}timezones VALUES (384, 'America/Moncton', 'AST', -14400, 1143950460)";
+$queries[] = "INSERT INTO {$pre}timezones VALUES (385, 'America/Indiana/Petersburg', 'EST', -18000, 1143961200)";
+$queries[] = "INSERT INTO {$pre}timezones VALUES (386, 'America/Indiana/Vincennes', 'EST', -18000, 1143961200)";
 
 // Build settings step by step
 $sets = array();
