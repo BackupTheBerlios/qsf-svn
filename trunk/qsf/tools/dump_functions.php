@@ -10,9 +10,12 @@ if (strstr($_SERVER['PHP_SELF'], '/dump_functions.php')) {
 
 $pma_version = '2.2.5';
 
-function makedump($table_select, $what)
+function makedump($table_select, $what, $db, $crlf = "\n")
 {
-	global $num_tables, $tables, $crlf, $db, $dump_buffer, $tmp_buffer;
+	global $dump_buffer, $tmp_buffer;
+	
+	$tables     = mysql_list_tables($db);
+	$num_tables = mysql_numrows($tables);
 
 	$dump_buffer = '';
 	$tmp_buffer  = '';
@@ -26,12 +29,12 @@ function makedump($table_select, $what)
 		}
 
 		if ($what != 'dataonly') {
-			$dump_buffer .= PMA_getTableDef($db, $table, $crlf, null) . ';' . $crlf . $crlf;
+			$dump_buffer .= PMA_getTableDef($db, $table, $crlf) . ';' . $crlf . $crlf;
 		}
 
 		if (($what == 'data') || ($what == 'dataonly')) {
 			$tmp_buffer  = '';
-			PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', null);
+			PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $crlf);
 			$dump_buffer .= $tmp_buffer . $crlf;
 		}
 		$i++;
@@ -61,7 +64,7 @@ function PMA_backquote($a_name, $do_it = TRUE)
 	}
 }
 
-function PMA_myHandler($sql_insert)
+function PMA_myHandler($sql_insert, $crlf)
 {
 	global $tmp_buffer;
 
@@ -69,9 +72,9 @@ function PMA_myHandler($sql_insert)
 			 ? ','
 			 : ';';
 	if (empty($GLOBALS['asfile'])) {
-		echo htmlspecialchars($sql_insert . $eol_dlm . $GLOBALS['crlf']);
+		echo htmlspecialchars($sql_insert . $eol_dlm . $crlf);
 	} else {
-		$tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
+		$tmp_buffer .= $sql_insert . $eol_dlm . $crlf;
 	}
 }
 
@@ -80,7 +83,7 @@ function PMA_htmlFormat($a_string = '')
 	return (empty($GLOBALS['asfile']) ? htmlspecialchars($a_string) : $a_string);
 }
 
-function PMA_getTableDef($db, $table, $crlf, $error_url)
+function PMA_getTableDef($db, $table, $crlf = "\n", $error_url =  null)
 {
 	global $drop;
 	global $use_backquotes;
@@ -103,7 +106,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url)
 	return $schema_create;
 }
 
-function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $error_url)
+function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $crlf, $error_url)
 {
 	global $use_backquotes;
 	global $rows_cnt;
@@ -169,14 +172,14 @@ function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $error_
 			}
 			unset($values);
 
-			$handler($insert_line);
+			$handler($insert_line, $crlf);
 		}
 	}
 	mysql_free_result($result);
 	return TRUE;
 }
 
-function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url)
+function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handler, $crlf = "\n", $error_url = null)
 {
 	if ($limit_from > 0) {
 		$limit_from--;
@@ -188,7 +191,7 @@ function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handl
 	} else {
 		$add_query  = '';
 	}
-	PMA_getTableContentFast($db, $table, $add_query, $handler, $error_url);
+	PMA_getTableContentFast($db, $table, $add_query, $handler, $crlf, $error_url);
 }
 
 function PMA_splitSqlFile(&$ret, $sql, $release)
