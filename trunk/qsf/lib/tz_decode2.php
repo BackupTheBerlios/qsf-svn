@@ -177,7 +177,16 @@ class tz_decode2
 	    	$this->abba = $this->abba.$this->body['names']{$iy};
 	    }
 
-        }
+        } elseif(isset($this->body['ttinfo'][0])) {
+		/* handle the case of when time stands still ;-) */
+		$this->gmt_offset = $this->body['ttinfo'][0]['gmtoff'];
+		$this->abba = $this->body['names'];
+		
+		
+	} else {
+		/* hope we never reach here! */
+		echo 'tz_decode2 error: Something strange going on with file: '.$this->tz_file;
+	}
     }
 }
 ?>
