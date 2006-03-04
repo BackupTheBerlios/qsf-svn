@@ -424,7 +424,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}users";
@@ -486,7 +486,7 @@ else if( $_GET['action'] == 'members' )
          if( $row['user_icq'] )
             $icq = intval( $row['user_icq'] );
 
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, 1, '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['user_email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', {$icq}, '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, 1, '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['user_email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', {$icq}, '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, 0, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
    }
@@ -628,7 +628,7 @@ else if( $_GET['action'] == 'topics' )
          $row['topic_poster'] = '1';
       }
 
-      $topic_modes = '0';
+      $topic_modes = TOPIC_PUBLISH;
       if( $row['topic_status'] == '1' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
       if( $row['topic_type'] == '1' || $row['topic_type'] == '2' )
@@ -742,7 +742,7 @@ else if( $_GET['action'] == 'posts' )
       $message = strip_phpbb2_tags( $row['post_text'] );
 
       $ip = get_ip( $row['poster_ip'] );
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['post_id']}, {$row['topic_id']}, '{$row['poster_id']}', {$row['enable_smilies']}, {$row['enable_bbcode']}, '{$message}', {$row['post_time']}, '', INET_ATON('{$ip}'), '', 0 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['post_id']}, {$row['topic_id']}, '{$row['poster_id']}', {$row['enable_smilies']}, {$row['enable_bbcode']}, 1, '{$message}', {$row['post_time']}, '', INET_ATON('{$ip}'), '', 0 )" );
       $i++;
    }
    if( $i == $all )

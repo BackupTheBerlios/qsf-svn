@@ -441,7 +441,7 @@ else if( $_GET['action'] == 'members' )
    $MID = $all + 1;
 
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}member_profiles";
@@ -516,7 +516,7 @@ else if( $_GET['action'] == 'members' )
       if( $row['ICQNUMBER'] )
          $icq = intval( $row['ICQNUMBER'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, {$level}, '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['MEMBER_EMAIL']}', {$showmail}, 1, '0000-00-00', 151, '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', {$icq}, '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, {$level}, '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['MEMBER_EMAIL']}', {$showmail}, 1, '0000-00-00', 151, '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', {$icq}, '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, 0, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 
@@ -736,7 +736,7 @@ else if( $_GET['action'] == 'topics' )
             $row['TOPIC_LAST_POSTER'] = $newid;
          }
       }
-      $topic_modes = '0';
+      $topic_modes = TOPIC_PUBLISH;
       if( $row['TOPIC_STATE'] == 'closed' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
       if( $row['PIN_STATE'] == '1' )
@@ -922,7 +922,7 @@ else if( $_GET['action'] == 'posts' )
       /* Try and clean up some of the junk in Ikonboard posts. MySQL isn't happy about some of it. */
       $row['POST'] = strip_ikon_tags( $row['POST'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['POST_ID']}, {$row['TOPIC_ID']}, '{$row['AUTHOR']}', {$row['ENABLE_EMO']}, 1, '{$row['POST']}', {$row['POST_DATE']}, '', INET_ATON('{$row['IP_ADDR']}'), '', 0 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['POST_ID']}, {$row['TOPIC_ID']}, '{$row['AUTHOR']}', {$row['ENABLE_EMO']}, 1, 1, '{$row['POST']}', {$row['POST_DATE']}, '', INET_ATON('{$row['IP_ADDR']}'), '', 0 )" );
       $i++;
    }
    if( $i == $all )

@@ -537,7 +537,7 @@ else if( $_GET['action'] == 'censor' )
 else if( $_GET['action'] == 'members' )
 {
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $i = '0';
@@ -605,7 +605,7 @@ else if( $_GET['action'] == 'members' )
          else
             $bday = "0000-00-00";
 
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', 'INVALID', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '{$bday}', 151, '{$row['website']}', {$row['posts']}, '{$row['location']}', {$row['icq_number']}, '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['id']}, '{$row['name']}', 'INVALID', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '{$bday}', 151, '{$row['website']}', {$row['posts']}, '{$row['location']}', {$row['icq_number']}, '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, 0, {$row['last_activity']}, 0, 0, 1, 1, 1, '' )" );
          $i++;
       }
    }
@@ -736,7 +736,7 @@ else if( $_GET['action'] == 'topics' )
       $row['starter_id']++;
       $row['last_poster_id']++;
 
-      $topic_modes = '0';
+      $topic_modes = TOPIC_PUBLISH;
       if( $row['state'] == 'closed' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
       if( $row['pinned'] == '1' )
@@ -852,7 +852,7 @@ else if( $_GET['action'] == 'posts' )
       /* Try and clean up some of the junk in Invisionboard posts. MySQL isn't happy about some of it. */
       $row['post'] = strip_ipb21_tags( $row['post'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['topic_id']}, '{$row['author_id']}', {$row['use_emo']}, 1, '{$row['post']}', {$row['post_date']}, '', INET_ATON('{$row['ip_address']}'), '{$row['edit_name']}', '{$row['edit_time']}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['topic_id']}, '{$row['author_id']}', {$row['use_emo']}, 1, 1, '{$row['post']}', {$row['post_date']}, '', INET_ATON('{$row['ip_address']}'), '{$row['edit_name']}', '{$row['edit_time']}' )" );
       $i++;
    }
    if( $i == $all )

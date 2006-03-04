@@ -394,7 +394,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}members";
@@ -460,7 +460,7 @@ else if( $_GET['action'] == 'members' )
       if( $row['ICQ'] )
          $icq = intval( $row['ICQ'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['ID_MEMBER']}, '{$row['memberName']}', '{$row['passwd']}', {$row['dateRegistered']}, 1, '{$row['usertitle']}', 0, {$row['ID_GROUP']}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['emailAddress']}', {$showmail}, 1, '{$row['birthdate']}', 151, '{$row['websiteUrl']}', {$row['posts']}, '{$row['location']}', {$icq}, '{$row['MSN']}', '{$row['AIM']}', '', 1, 1, '{$row['YIM']}', '', '{$row['signature']}', {$row['lastLogin']}, 0, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['ID_MEMBER']}, '{$row['memberName']}', '{$row['passwd']}', {$row['dateRegistered']}, 1, '{$row['usertitle']}', 0, {$row['ID_GROUP']}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['emailAddress']}', {$showmail}, 1, '{$row['birthdate']}', 151, '{$row['websiteUrl']}', {$row['posts']}, '{$row['location']}', {$icq}, '{$row['MSN']}', '{$row['AIM']}', '', 1, 1, '{$row['YIM']}', '', '{$row['signature']}', {$row['lastLogin']}, 0, 0, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 
@@ -613,7 +613,7 @@ else if( $_GET['action'] == 'forum' )
       else
          $row['ID_MEMBER_UPDATED']++;
 
-      $topic_modes = '0';
+      $topic_modes = TOPIC_PUBLISH;
       if( $row['locked'] == '1' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
       if( $row['isSticky'] == '1' )
@@ -734,7 +734,7 @@ else if( $_GET['action'] == 'posts' )
 
       $row['body'] = strip_smf_tags( $row['body'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['ID_MSG']}, {$row['ID_TOPIC']}, '{$row['ID_MEMBER']}', '{$row['smiliesEnabled']}', 1, '{$row['body']}', {$row['posterTime']}, '', INET_ATON('{$row['posterIP']}'), '', '{$row['modifiedTime']}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['ID_MSG']}, {$row['ID_TOPIC']}, '{$row['ID_MEMBER']}', '{$row['smiliesEnabled']}', 1, 1, '{$row['body']}', {$row['posterTime']}, '', INET_ATON('{$row['posterIP']}'), '', '{$row['modifiedTime']}' )" );
       $i++;
    }
    if( $i == $all )

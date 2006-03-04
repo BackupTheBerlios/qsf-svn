@@ -420,7 +420,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}members";
@@ -485,7 +485,7 @@ else if( $_GET['action'] == 'members' )
       if( $row['icq'] )
          $icq = intval( $row['icq'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '', 0, {$group}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['site']}', {$row['postnum']}, '{$row['location']}', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['sig']}', {$row['lastvisit']}, 0, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '', 0, {$group}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['site']}', {$row['postnum']}, '{$row['location']}', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['sig']}', {$row['lastvisit']}, 0, 0, 0, 0, 1, 1, 1, '' )" );
       $i++;
    }
 
@@ -630,7 +630,7 @@ else if( $_GET['action'] == 'topics' )
       $names = array();
       $count = array();
       $option = array();
-      $topic_modes = '0';
+      $topic_modes = TOPIC_PUBLISH;
 
       if( $row['closed'] == 'yes' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
@@ -755,7 +755,7 @@ else if( $_GET['action'] == 'posts' )
       if( $row['useip'] )
          $ip = $row['useip'];
       
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['tid']}, {$uid}, {$smilies}, 1, '{$row['message']}', {$row['dateline']}, '', INET_ATON( '{$ip}' ), '', 0 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['tid']}, {$uid}, {$smilies}, 1, 1, '{$row['message']}', {$row['dateline']}, '', INET_ATON( '{$ip}' ), '', 0 )" );
       $i++;
    }
    if( $i == $all )
