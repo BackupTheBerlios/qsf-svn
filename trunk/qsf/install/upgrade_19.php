@@ -35,6 +35,11 @@ $need_templates = array(
 	'CP_PREFS',		// Changed templates
 	'BOARD_MAIN',
 	'FORUM_TOPIC',
+	'FORUM_TOPICS_MAIN',
+	'FORUM_NO_TOPICS',
+	'RECENT_MAIN',
+	'RECENT_NO_TOPICS',
+	'RECENT_TOPIC',
 	'TOPIC_MAIN',
 	'TOPIC_POST',
 	'MAIN',

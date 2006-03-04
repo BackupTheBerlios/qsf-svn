@@ -233,6 +233,11 @@ td.topicicons div {
 	height: 26px;
 }
 
+/* And for displaying in the toplic list */
+img.topicicon {
+	float: right;
+}
+
 div.open { background: url(./images/topicicons/open.png) }
 div.hot { background: url(./images/topicicons/hot.png) }
 div.newopen { background: url(./images/topicicons/newopen.png) }
