@@ -142,8 +142,8 @@ class forum extends qsfglobal
 					$forum['forum_description'] = '<br />' . $forum['forum_description'];
 				}
 
-				$topic_new = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
-
+				$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
+				$topic_unread = false;
 				if ($this->perms->auth('topic_view', $forum['forum_id'])) {
 					if ($this->perms->auth('topic_create', $forum['forum_id'])) {
 						$topic_perms = "<a href=\"{$this->self}?a=post&amp;s=topic&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_write.png\" alt=\"{$this->lang->forum_write_topics}\" title=\"{$this->lang->forum_write_topics}\" /></a>";
@@ -162,6 +162,11 @@ class forum extends qsfglobal
 				}
 
 				if ($forum['forum_lastpost']) {
+					$topic_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
+					if ($topic_unread) {
+						$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
+					}
+
 					$forum['TopicLastTime'] = $forum['LastTime']; // Store so skin can access
 					$forum['LastTime'] = $this->mbdate(DATE_LONG, $forum['LastTime']);
 
@@ -176,8 +181,6 @@ class forum extends qsfglobal
 
 					$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 				} else {
-					$topic_new = false;
-
 					$user_lastpostBox = $this->lang->forum_nopost;
 				}
 
