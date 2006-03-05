@@ -62,8 +62,8 @@ class groups extends admin
 					$this->post['user_group'] = USER_MEMBER;
 				}
 
-				if (!isset($this->post['group_name'])) {
-					$this->post['group_name'] = 'New Group';
+				if (!isset($this->post['group_name']) || (trim($this->post['group_name']) == '')) {
+					return $this->message($this->lang->groups_create, $this->lang->groups_no_name);
 				}
 
 				$copying = $this->db->fetch("SELECT group_format, group_perms FROM {$this->pre}groups WHERE group_id={$this->post['user_group']}");
