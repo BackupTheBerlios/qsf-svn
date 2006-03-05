@@ -1659,7 +1659,9 @@ $queries['CP_PASS'] = "INSERT INTO {$pre}templates (template_skin, template_set,
  </tr>
 {\$this->etable}
 </form>', 'Change Password Form', 'The form that lets a user change their password', 4)";
-$queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PREFS', '<form action=\"{\$this->self}?a=cp&amp;s=prefs\" method=\"post\">
+$queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PREFS', '
+<script type=\"text/javascript\" src=\"./javascript/timezone.js\"></script>
+<form action=\"{\$this->self}?a=cp&amp;s=prefs\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->cp_label_edit_prefs}</td>
