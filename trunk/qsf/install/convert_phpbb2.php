@@ -30,6 +30,8 @@
  * It should be reasonably safe to use on any phpBB2 2.0.x version.
  **/
 
+define('QUICKSILVERFORUMS', true);
+
 require_once './convert_db.php';
 require_once '../settings.php';
 $set['include_path'] = '..';

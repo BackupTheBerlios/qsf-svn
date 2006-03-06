@@ -160,6 +160,11 @@ foreach ($result as $lang_name => $lang_words)
  *
  **/
 
+if (!defined(\'QUICKSILVERFORUMS\')) {
+	header(\'HTTP/1.0 403 Forbidden\');
+	die;
+}
+
 /**
  * ' . $qsf->htmlwidgets->get_lang_name($lang_name) . ' language module
  *' . $authors_list . '

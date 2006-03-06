@@ -30,6 +30,8 @@
  * Use with any other version has not been validated!
  **/
 
+define('QUICKSILVERFORUMS', true);
+
 require_once './convert_db.php';
 require_once '../settings.php';
 $set['include_path'] = '..';

@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS') || !defined('QSF_ADMIN')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 require_once $set['include_path'] . '/global.php';
 
 /**

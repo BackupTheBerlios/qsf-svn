@@ -29,6 +29,8 @@
  * This convertor has been tested on unmodified databases for MyBB 1.0
  **/
 
+define('QUICKSILVERFORUMS', true);
+
 require_once './convert_db.php';
 require_once '../settings.php';
 $set['include_path'] = '..';

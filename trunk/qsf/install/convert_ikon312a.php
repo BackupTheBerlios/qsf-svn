@@ -30,6 +30,8 @@
  * Use with any other version is not advised!
  **/
 
+define('QUICKSILVERFORUMS', true);
+
 require_once './convert_db.php';
 require_once '../settings.php';
 require './settings.php';

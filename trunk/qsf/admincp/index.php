@@ -20,6 +20,9 @@
  *
  **/
 
+define('QUICKSILVERFORUMS', true);
+define('QSF_ADMIN', true);
+
 $time_now   = explode(' ', microtime());
 $time_start = $time_now[1] + $time_now[0];
 

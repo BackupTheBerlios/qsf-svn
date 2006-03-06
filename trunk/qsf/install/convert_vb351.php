@@ -29,6 +29,8 @@
  * This convertor has only had limited testing on a vBulliten 3.5.1 live demo database
  **/
 
+define('QUICKSILVERFORUMS', true);
+
 require_once './convert_db.php';
 require_once '../settings.php';
 $set['include_path'] = '..';

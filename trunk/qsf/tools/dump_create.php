@@ -120,6 +120,11 @@ $out1 = '<?php
  *
  **/
 
+if (!defined(\'QUICKSILVERFORUMS\')) {
+	header(\'HTTP/1.0 403 Forbidden\');
+	die;
+}
+
 if (!defined(\'INSTALLER\')) {
 	exit(\'Use index.php to install.\');
 }' . "\n\n";

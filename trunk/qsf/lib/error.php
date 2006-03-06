@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 $error_version = '2.0';
 
 function error_fatal($type, $message, $file, $line = 0)

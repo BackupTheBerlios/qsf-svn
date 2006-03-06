@@ -20,6 +20,8 @@
  *
  **/
 
+define('QUICKSILVERFORUMS', true);
+
 /**
  * Executes an array of queries
  *

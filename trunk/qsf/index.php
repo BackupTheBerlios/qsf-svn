@@ -19,6 +19,9 @@
  * GNU General Public License for more details.
  *
  **/
+ 
+define('QUICKSILVERFORUMS', true);
+define('QSF_PUBLIC', true);
 
 $time_now   = explode(' ', microtime());
 $time_start = $time_now[1] + $time_now[0];

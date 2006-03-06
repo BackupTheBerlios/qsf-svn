@@ -20,6 +20,11 @@
  *
  **/
 
+ if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Generate a link to the PM with a count of unread messages
  *

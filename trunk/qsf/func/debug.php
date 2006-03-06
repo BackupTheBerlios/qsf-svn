@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 $this->nohtml = 1;
 
 $percent  = round(($this->db->querytime / $totaltime) * 100, 1);

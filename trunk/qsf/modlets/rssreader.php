@@ -19,7 +19,12 @@
  * GNU General Public License for more details.
  *
  **/
- 
+
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Generate a nicely formatted result of an RSS feed
  *
