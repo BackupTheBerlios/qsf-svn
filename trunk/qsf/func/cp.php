@@ -141,6 +141,7 @@ class cp extends qsfglobal
 				$this->db->query('UPDATE ' . $this->pre . 'users SET user_password=\'' . $hashed_pass . '\' WHERE user_id=' . $this->user['user_id']);
 
 				setcookie($this->sets['cookie_prefix'] . 'pass', $hashed_pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
+				$_SESSION['pass'] = md5($hashed_pass . stripslashes($this->ip));
 				$this->user['user_password'] = $hashed_pass;
 
 				return $this->message($this->lang->cp_changing_pass, sprintf($this->lang->cp_valided, $this->self));

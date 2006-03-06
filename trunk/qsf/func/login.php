@@ -79,13 +79,13 @@ class login extends qsfglobal
 			$this->post['pass'] = md5($this->post['pass']);
 
 			if ($this->post['pass'] == $pass) {
-				if (!setcookie($this->sets['cookie_prefix'] . 'user', $user, $this->time + $this->sets['logintime'], $this->sets['cookie_path'])
-				||  !setcookie($this->sets['cookie_prefix'] . 'pass', $pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'])) {
-					return $this->message($this->lang->login_header, $this->lang->login_cookies);
-				}
-
+				setcookie($this->sets['cookie_prefix'] . 'user', $user, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
+				setcookie($this->sets['cookie_prefix'] . 'pass', $pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
+				$_SESSION['user'] = $user;
+				$_SESSION['pass'] = md5($pass . stripslashes($this->ip));
+				
 				// Delete guest entry
-				$this->db->query("DELETE FROM {$this->pre}active WHERE active_ip='$this->ip' AND active_user_agent='$this->agent'");
+				$this->activeutil->delete_guest();
 
 				return $this->message($this->lang->login_header, $this->lang->login_logged, $this->lang->continue, str_replace('&', '&amp;', $this->post['request_uri']), $this->post['request_uri']);
 			} else {
@@ -102,11 +102,13 @@ class login extends qsfglobal
 		if (!isset($this->get['sure']) && !$this->perms->is_guest) {
 			return $this->message($this->lang->login_out, sprintf($this->lang->login_sure, $this->user['user_name']), $this->lang->continue, "$this->self?a=login&amp;s=off&amp;sure=1");
 		} else {
-			$this->db->query("DELETE FROM {$this->pre}active WHERE active_id={$this->user['user_id']}");
+			$this->activeutil->delete($this->user['user_id']);
 			$this->db->query('UPDATE ' . $this->pre . 'users SET user_lastvisit = ' . $this->time . ' WHERE user_id=' . $this->user['user_id']);
 
 			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
 			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
+			unset($_SESSION['user']);
+			unset($_SESSION['pass']);
 
 			$this->perms->is_guest = true;
 
