@@ -500,4 +500,3 @@ function highlight_search_criteria($search_results, $search_criteria, $bgcolor='
 }
 
 ?>
-
