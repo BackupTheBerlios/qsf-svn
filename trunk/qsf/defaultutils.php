@@ -41,6 +41,8 @@ require_once $set['include_path'] . '/lib/tool.php';
 $modules['validator'] = 'tool';
 require_once $set['include_path'] . '/lib/readmarker.php';
 $modules['readmarker'] = 'readmarker';
+require_once $set['include_path'] . '/lib/activeutil.php';
+$modules['active'] = 'activeutil';
 
 
 // Other variables that we can allow addons to change

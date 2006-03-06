@@ -41,7 +41,7 @@ $queries['ACTIVE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
  </tr>
 {\$this->etable}', 'Active Users Table', 'The active users table formatting and generalized code.', 0)";
 $queries['ACTIVE_USER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'active', 'ACTIVE_USER', ' <tr>
-  <td class=\"tablelight\">{\$username}</td>
+  <td class=\"tablelight\"><a {\$user[\'link\']} title=\"{\$user[\'title\']}\">{\$user[\'name\']}</a></td>
   <td class=\"tablelight\">{\$action}</td>
   <td class=\"tablelight\">{\$time}</td>
  </tr>', 'Active Users Table Entry', 'Format the look of the entry for a user in the Active Users main table listing.', 1)";

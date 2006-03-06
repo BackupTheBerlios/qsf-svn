@@ -85,7 +85,7 @@ class login extends qsfglobal
 				$_SESSION['pass'] = md5($pass . stripslashes($this->ip));
 				
 				// Delete guest entry
-				$this->activeutil->delete_guest();
+				$this->activeutil->delete_guest($user);
 
 				return $this->message($this->lang->login_header, $this->lang->login_logged, $this->lang->continue, str_replace('&', '&amp;', $this->post['request_uri']), $this->post['request_uri']);
 			} else {

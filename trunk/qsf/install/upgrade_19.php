@@ -32,7 +32,8 @@ $need_templates = array(
 	'RSSFEED_FORUM',
 	'RSSFEED_TOPIC',
 	'RSSFEED_ITEM',
-	'CP_PREFS',		// Changed templates
+	'ACTIVE_USER',  	// Changed templates
+	'CP_PREFS',
 	'BOARD_MAIN',
 	'FORUM_TOPIC',
 	'FORUM_TOPICS_MAIN',

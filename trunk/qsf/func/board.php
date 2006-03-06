@@ -226,8 +226,6 @@ class board extends qsfglobal
 	 **/
 	function doActive()
 	{
-		global $OnTotal, $OnMembers;
-
 		/**
 		 * If it exists, perhaps do something like UPDATE ... SELECT
 		 */
@@ -238,14 +236,16 @@ class board extends qsfglobal
 		} else {
 			$Active = $this->lang->board_nobody;
 		}
+		
+		$OnGuests = $this->activeutil->get_guests_online();
+		$OnMembers = $this->activeutil->get_members_online();
+		$OnTotal = $OnMembers + $OnGuests;
 
 		if ($OnTotal > $this->sets['mostonline']) {
 			$this->sets['mostonline']     = $OnTotal;
 			$this->sets['mostonlinetime'] = $this->time;
 			$this->write_sets();
 		}
-
-		$OnGuests = $OnTotal - $OnMembers;
 
 		return array(
 			'USERS'       => $Active,
@@ -265,61 +265,14 @@ class board extends qsfglobal
 	 **/
 	function getActive()
 	{
-		global $OnMembers, $OnTotal;
+		$allusers = '';
+		$all_active_users = $this->activeutil->get_active();
 
-		$OnMembers = 0;
-		$OnTotal   = 0;
-		$time      = $this->time - 900;
-		$oldusers  = array();
-		$allusers  = array();
-
-		$query = $this->db->query("
-		SELECT
-		  a.active_id, INET_NTOA(a.active_ip) AS active_ip, a.active_user_agent, a.active_action,
-		  a.active_item, a.active_time, a.active_session,
-		  u.user_name, u.user_active, g.group_format
-		FROM
-		  ({$this->pre}active a, {$this->pre}groups g, {$this->pre}users u)
-		WHERE
-		  a.active_id = u.user_id AND
-		  u.user_group = g.group_id
-		ORDER BY
-		  a.active_time DESC");
-
-		$botformat = '<i>%s</i>';
-
-		while ($user = $this->db->nqfetch($query))
+		foreach ($all_active_users as $user)
 		{
-			if ($user['active_time'] < $time) {
-				$oldusers[] = 'user_id=' . $user['active_id'];
-			} elseif ($user['user_active']) {
-				$OnTotal++;
-				if ($user['active_id'] != USER_GUEST_UID) {
-                    			if (!isset($allusers[$user['active_id']])) {
-			                        $allusers[$user['active_id']] = "<a href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\" class=\"activeuser\" title=\"" .
-							(!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  htmlspecialchars($user['active_user_agent']) . '">' . sprintf($user['group_format'], $user['user_name']) . '</a>';
-			                        $OnMembers++;
-					} else {
-			                        $OnTotal--;
-					}
-				} else {
-					$spider_name = $this->spider_check($user['active_user_agent']);
-					if ($spider_name)
-					{
-						if (!in_array(sprintf($botformat, $spider_name), $allusers)) {
-							$allusers[] = sprintf($botformat, $spider_name);
-						}
-						$OnTotal--;
-					}
-				}
-			}
+			$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
 		}
 
-		if ($oldusers) {
-			$oldusers = implode(' OR ', $oldusers);
-			$this->db->query('UPDATE ' . $this->pre . 'users SET user_lastvisit=' . $time . ' WHERE ' . $oldusers);
-			$this->db->query('DELETE FROM ' . $this->pre . 'active WHERE active_time < ' . $time);
-		}
 		return $allusers;
 	}
 }

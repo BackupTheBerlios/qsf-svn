@@ -92,7 +92,7 @@ class member_control extends admin
 				$this->db->query("UPDATE {$this->pre}topics SET topic_starter=" . USER_GUEST_UID . " WHERE topic_starter={$this->get['id']}");
 				$this->db->query("UPDATE {$this->pre}topics SET topic_last_poster=" . USER_GUEST_UID . " WHERE topic_last_poster={$this->get['id']}");
 				$this->db->query("UPDATE {$this->pre}logs SET log_user=" . USER_GUEST_UID . " WHERE log_user={$this->get['id']}");
-				$this->db->query("DELETE FROM {$this->pre}active WHERE active_id={$this->get['id']}");
+				$this->activeutil->delete($this->get['id']);
 				$this->db->query("DELETE FROM {$this->pre}subscriptions WHERE subscription_user={$this->get['id']}");
 				$this->db->query("DELETE FROM {$this->pre}votes WHERE vote_user={$this->get['id']}");
 				$this->db->query("DELETE FROM {$this->pre}users WHERE user_id={$this->get['id']}");
