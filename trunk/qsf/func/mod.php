@@ -629,7 +629,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_id, topic_forum, topic_starter, topic_title FROM ' . $this->pre . 'topics WHERE topic_id=' . $this->get['t']);
+		$topic = $this->db->fetch('SELECT topic_id, topic_forum, topic_starter, topic_title, topic_modes FROM ' . $this->pre . 'topics WHERE topic_id=' . $this->get['t']);
 
 		// Existence check
 		if (!isset($topic['topic_id'])) {
@@ -678,7 +678,12 @@ class mod extends qsfglobal
 					$this->db->clone_row($this->pre . 'topics', 'topic_id', $this->get['t']);
 					$id = $this->db->insert_id();
 
-					$this->db->query("UPDATE {$this->pre}topics SET topic_title='{$this->post['topic'][$x]}', topic_replies=0, topic_views=0, topic_description='', topic_modes=0 WHERE topic_id=$id");
+					if( $topic['topic_modes'] & TOPIC_PUBLISH ) {
+						$mode = TOPIC_PUBLISH;
+					} else {
+						$mode = 0;
+					}
+					$this->db->query("UPDATE {$this->pre}topics SET topic_title='{$this->post['topic'][$x]}', topic_replies={$where[$x][0]}, topic_views=0, topic_description='', topic_modes=$mode WHERE topic_id=$id");
 					$this->db->query("UPDATE {$this->pre}posts SET post_topic=$id WHERE " . substr($where[$x][1], 4));
 
 					$this->update_last_post_topic($id);
