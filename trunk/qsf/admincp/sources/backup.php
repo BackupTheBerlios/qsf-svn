@@ -104,6 +104,7 @@ class backup extends admin
 		$fp = fopen("../databases/$name", 'w');
 		fwrite($fp, $data);
 		fclose($fp);
+		$this->chmod("../databases/$name", 0777);
 
 		return $this->message($this->lang->backup_create, $this->lang->backup_done, $name, "../databases/$name");
 	}
