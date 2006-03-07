@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * German language module
  *
@@ -113,10 +118,13 @@ class de
 	function backup()
 	{
 		$this->backup_create = 'Datenbank sichern';
+		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'Die Datenbank wurde im Quicksilver Forums Hauptverzeichnis gesichert.';
+		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = 'Die folgenden Sicherungen wurden im Quicksilver Forums Verzeichnis gefunden';
 		$this->backup_invalid = 'Die Sicherung scheint ungültig zu sein. Es wurden keine Veränderungen an der Datenbank vorgenommen.';
 		$this->backup_none = 'Es wurden keine Sicherungen im Quicksilver Forums Verzeichnis gefunden.';
+		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'Sicherung wiederherstellen';
 		$this->backup_restore_done = 'Die Datenbank wurde erfolgreich wieder hergestellt.';
 		$this->backup_warning = 'Warnung: Alle bestehenden Daten werden überschrieben.';

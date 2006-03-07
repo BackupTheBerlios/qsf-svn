@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Hebrew language module
  *
@@ -112,10 +117,13 @@ class he
 	function backup()
 	{
 		$this->backup_create = 'גיבוי מסד נתונים';
+		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = '.Quicksilver מסד הנתונים גובה לספרייה הראשית של הפורומים של';
+		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = '.Quicksilver הגיבויים הבאים נמצאו בספריית הפורומים של';
 		$this->backup_invalid = '.אין אפשרות לבצע גיבוי. לא נעשו שינויים במסד הנתונים';
 		$this->backup_none = '.Quicksilver לא נמצאו גיבויים בספריית הפורומים של';
+		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'שחזר גיבוי';
 		$this->backup_restore_done = '.מסד הנתונים שוחזר בהצלחה';
 		$this->backup_warning = '.Quicksilver אזהרה: פעולה זו תשכתב את כל הנתונים בשימוש הפורומים של';

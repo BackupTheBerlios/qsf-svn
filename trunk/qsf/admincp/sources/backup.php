@@ -96,17 +96,33 @@ class backup extends admin
 	 **/
 	function create_backup()
 	{
-		$data = $this->dump_database($this->tables);
-		$name = 'mb-' . date('y-m-d-H-i-s') . '.mbb';
-
-		$this->chmod('../databases', 0777);
-
-		$fp = fopen("../databases/$name", 'w');
-		fwrite($fp, $data);
-		fclose($fp);
-		$this->chmod("../databases/$name", 0777);
-
-		return $this->message($this->lang->backup_create, $this->lang->backup_done, $name, "../databases/$name");
+		if (!isset($this->get['option'])) {
+			return $this->message($this->lang->backup_options, "<ul>
+				<li><a href=\"{$this->self}?a=backup&amp;s=create&amp;option=download\">{$this->lang->backup_download}</a></li>
+				<li><a href=\"{$this->self}?a=backup&amp;s=create&amp;option=file\">{$this->lang->backup_createfile}</a></li>
+				</ul>");
+		} else if ($this->get['option'] == 'download') {
+			$this->nohtml = true;
+			$data = $this->dump_database($this->tables);
+			$name = 'mb-' . date('y-m-d-H-i-s') . '.mbb';
+	
+			header("Content-type: application/octet-stream");
+			header("Content-Disposition: attachment; filename=\"$name\"");
+			echo $data;
+			
+		} else if ($this->get['option'] == 'file') {
+			$data = $this->dump_database($this->tables);
+			$name = 'mb-' . date('y-m-d-H-i-s') . '.mbb';
+	
+			$this->chmod('../databases', 0777);
+	
+			$fp = fopen("../databases/$name", 'w');
+			fwrite($fp, $data);
+			fclose($fp);
+			$this->chmod("../databases/$name", 0777);
+	
+			return $this->message($this->lang->backup_create, $this->lang->backup_done, $name, "../databases/$name");
+		}
 	}
 
 	/**

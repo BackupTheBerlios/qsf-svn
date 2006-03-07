@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Dutch language module
  *
@@ -114,10 +119,13 @@ class nl
 	function backup()
 	{
 		$this->backup_create = 'Maak een backup van de database';
+		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'De database heeft een backup gemaakt in de Quicksilver Forums.';
+		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = 'De volgende backups werden niet terug gevonden in de Quicksilver directory';
 		$this->backup_invalid = 'De backup is niet geldig. Er werden geen veranderingen in uw database aangebracht.';
 		$this->backup_none = 'Er werden geen backups teruggevonden in de Quicksilver Forums.';
+		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'Herstel de backup';
 		$this->backup_restore_done = 'De database is met succes herstelt.';
 		$this->backup_warning = 'Waarschuwing: Deze toepassing zal alle bestaande data, gebruikt door Quicksilver Forums, overschijven.';

@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Swedish language module
  *
@@ -113,10 +118,13 @@ class sv
 	function backup()
 	{
 		$this->backup_create = 'Skapa databasbackup';
+		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'En backup av databasen har skapats i mappen "databases".';
+		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = 'Följande backuper hittades i mappen "databases"';
 		$this->backup_invalid = 'Backupen verkar inte vara giltig. Inga förändingar gjordes av databasen.';
 		$this->backup_none = 'Inga backuper hittades i mappen "databases".';
+		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'Återställ Backup';
 		$this->backup_restore_done = 'Återställningen av Databasen lyckades.';
 		$this->backup_warning = 'Varning: Detta kommer att skriva över all befintlig information som används av Quicksilver Forums.';

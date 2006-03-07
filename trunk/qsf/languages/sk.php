@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Slovak language module
  *
@@ -112,10 +117,13 @@ class sk
 	function backup()
 	{
 		$this->backup_create = 'Zálohova Databázu';
+		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'Databáza bola zazálohovaná v hlavnom adresári Quicksilver Forums.';
+		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = 'Nasledujúce zálohy boli nájdené v adresári Quicksilver Forums';
 		$this->backup_invalid = 'Táto záloha nie je použite¾ná - neplatný formát. Do databázi neboli zapísané žiadne zmeny.';
 		$this->backup_none = 'V adresári Quicksilver Forums neboli nájdené žiadne zálohy.';
+		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'Obnovi zo zálohy';
 		$this->backup_restore_done = 'Databáza bola úspešne obnovená zo zálohy.';
 		$this->backup_warning = 'Upozornenie: týmto budú všetky existujúce dáta Quicksilver Fóra prepísané.';
