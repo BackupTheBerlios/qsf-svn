@@ -33,6 +33,8 @@ class bbcode extends htmltools
 {
 	var $user_view_emoticons = true;
 	
+	var $max_url_length = 60; // Maximum length of a url before applying trimming
+	
 	/**
 	 * Constructor
 	 *
@@ -412,7 +414,7 @@ class bbcode extends htmltools
 			'$this->_format_code(\'\\1\', 0)',
 			'$this->_format_code(\'\\1\', 1)',
 			'$this->_format_code(\'\\2\', 1, \'\\1\')',
-			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'</a>\'',
+			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . $this->_trim_string(str_replace(\' \', \'\', \'\\1://\\2\'), $this->max_url_length) . \'</a>\'',
 			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . stripslashes(\'\\3\') . \'</a>\'');
 			
 		return array('matches' => $bbcode_matches,
@@ -457,6 +459,7 @@ class bbcode extends htmltools
 		$code_html['end'] = '</pre></div>';
 		return $code_html;
 	}
+	
 	/**
 	 * Returns an array of all the positions of needles in a haystack
 	 *
@@ -489,6 +492,25 @@ class bbcode extends htmltools
 		return $array;
 	}
 
+	/**
+	 * Breaks down a long url into part...part
+	 *
+	 * PRIVATE
+	 *
+	 * @param string $url Url to trimp down
+	 * @param integer $trimLength Max length of string to allow (default 60)
+	 * @author ArticleTrader http://www.articletrader.com
+	 * @since 1.2.0
+	 * @return string The cut down string
+	 **/
+	function _trim_string($url, $trimLength = 60)
+	{
+		if (strlen($url) > $trimLength){
+			$url = substr($url,0,floor($trimLength*0.68)) . '..' . 
+				substr($url,-floor($trimLength*0.3));
+		}
+		return $url;
+	}
 	
 }
 
