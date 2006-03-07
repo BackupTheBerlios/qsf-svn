@@ -1,5 +1,3 @@
-== Introduction ==
-
 This guide was written to help with the initial installation and configuration of Quicksilver Forums (version 1.2.0), a MySQL and PHP-based forum/bulletin board system. You can peruse the features of Quicksilver Forums by [http://www.quicksilverforums.com/features.html clicking here]. Some noteworthy features include:
 
 * Built-in anti-robot, anti-spam controls;
