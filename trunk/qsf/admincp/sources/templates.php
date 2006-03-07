@@ -579,7 +579,7 @@ class templates extends admin
 		        $title = $this->post['title'];
 		        $desc = $this->post['desc'];
 
-			if (empty($name) || empty($html) || empty($title) || empty($desc) || empty($this->post['pos'])) {
+			if (empty($name) || empty($html) || empty($title) || empty($desc)) {
 				return $this->message($this->lang->add, $this->lang->all_fields_required);
 			}
 		        $pos = is_numeric($this->post['pos']) ? $this->post['pos'] : 1;
