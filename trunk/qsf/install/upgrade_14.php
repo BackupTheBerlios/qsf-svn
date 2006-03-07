@@ -95,41 +95,23 @@ $this->sets['rss_feed_time'] = 60;
 $this->sets['rss_feed_title'] = "";
 $this->sets['rss_feed_desc'] = "";
 $this->sets['spider_active'] = 1;
-$this->sets['spider_agent'] = array(
-	'googlebot',
-	'lycos',
-	'ask jeeves',
-	'scooter',
-	'fast-webcrawler',
-	'slurp@inktomi',
-	'turnitinbot',
-	'gigabot',
-	'yahoo',
-	'msnbot',
-	'mediapartners-google',
-	'naverbot',
-	'jetbot',
-	'alexa',
-	'ArchitextSpider',
-	'pipeLiner'
-);
 $this->sets['spider_name'] = array(
-	'Google',
-	'Lycos',
-	'Ask Jeeves',
-	'Altavista',
-	'AlltheWeb',
-	'Inktomi',
-	'Turnitin.com',
-	'Gigabot',
-	'Yahoo! Slurp',
-	'MSN Search',
-	'AdSense',
-	'Naver',
-	'JetEye',
-	'Alexa',
-	'Excite-Bot',
-	'PipeLine Spider'
+	'googlebot' 	=> 'Google',
+	'lycos' 	=> 'Google',
+	'ask jeeves' 	=> 'Google',
+	'scooter'	=> 'Altavista',
+	'fast-webcrawler'=>'AlltheWeb',
+	'slurp@inktomi' => 'Inktomi',
+	'turnitinbot'	=> 'Turnitin.com',
+	'gigabot'	=> 'Gigabot',
+	'yahoo'		=> 'Yahoo! Slurp',
+	'msnbot'	=> 'MSN Search',
+	'mediapartners-google'=>'AdSense',
+	'naverbot'	=> 'Naver',
+	'jetbot'	=> 'JetEye',
+	'alexa'		=> 'Alexa',
+	'ArchitextSpider'=>'Excite-Bot',
+	'pipeLiner'	=> 'PipeLine Spider'
 );
 $this->sets['optional_modules'] = array(
 	'active',

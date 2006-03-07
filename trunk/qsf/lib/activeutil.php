@@ -253,7 +253,7 @@ class activeutil extends bbcode
 	{
 		$user_agent = strtolower($user_agent);
 		if ($this->sets['spider_active']) {
-			foreach ($this->sets['spider_agent'] as $spiderstring) {
+			foreach (array_keys($this->sets['spider_name']) as $spiderstring) {
 				if (preg_match("#($spiderstring)#is", $user_agent, $agent))
 				{
 					return $this->sets['spider_name'][$agent[1]];

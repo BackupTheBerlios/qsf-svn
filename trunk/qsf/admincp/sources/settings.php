@@ -61,7 +61,7 @@ class settings extends admin
 			$attachtypes = implode("\r\n", $this->sets['attach_types']);
 			$defaultlang = $this->htmlwidgets->select_langs($this->sets['default_lang'], '..');
 			$avatarsize = ($this->sets['avatar_upload_size'] / 1024);
-			$spideragents = implode("\r\n", $this->sets['spider_agent']);
+			$spideragents = implode("\r\n", array_keys($this->sets['spider_name']));
 			$spidernames = implode("\r\n", $this->sets['spider_name']);
 			$optionalModules = implode("\r\n", $this->sets['optional_modules']);
 
@@ -164,16 +164,18 @@ class settings extends admin
 				$this->sets[$var] = $val;
 			}
 
+			$new_spider_names = array();
 			foreach ($this->sets['spider_agent'] as $key => $spider_name)
 			{
-				$this->sets['spider_agent'][$key] = strtolower($spider_name);
+				$new_spider_names[strtolower($spider_name)] = $this->sets['spider_name'][$key];
 			}
+			unset($this->sets['spider_agent']);
+			$this->sets['spider_name'] = $new_spider_names;
 
 			if (isset($this->get['db'])) {
 				$this->write_db_sets('../settings.php');
 			} else {
 				$this->db->query("UPDATE {$this->pre}users SET user_language='{$this->post['default_lang']}', user_skin='{$this->post['default_skin']}' WHERE user_id=" . USER_GUEST_UID);
-				$this->sets['spider_name'] = $this->array_combine($this->sets['spider_agent'], $this->sets['spider_name']);
 				$this->write_sets();
                                 $this->db->query("UPDATE {$this->pre}settings SET settings_tos='{$tos_text}'");
 			}
