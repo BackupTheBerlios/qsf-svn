@@ -26,6 +26,7 @@
  *
  */
 
+define('QUICKSILVERFORUMS', true);
 error_reporting(E_ALL);
 require '../settings.php';
 $set['include_path'] = '..';
