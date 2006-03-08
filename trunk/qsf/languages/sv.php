@@ -118,13 +118,13 @@ class sv
 	function backup()
 	{
 		$this->backup_create = 'Skapa databasbackup';
-		$this->backup_createfile = 'Backup and create a file on server'; //Translate
+		$this->backup_createfile = 'Gör en backup och spara filen på servern';
 		$this->backup_done = 'En backup av databasen har skapats i mappen "databases".';
-		$this->backup_download = 'Backup and download (recommended)'; //Translate
+		$this->backup_download = 'Gör en backup och ladda ner filen (Rekommenderas)';
 		$this->backup_found = 'Följande backuper hittades i mappen "databases"';
 		$this->backup_invalid = 'Backupen verkar inte vara giltig. Inga förändingar gjordes av databasen.';
 		$this->backup_none = 'Inga backuper hittades i mappen "databases".';
-		$this->backup_options = 'Select how you want your backup created'; //Translate
+		$this->backup_options = 'Välj hur du vill ha din backup skapad';
 		$this->backup_restore = 'Återställ Backup';
 		$this->backup_restore_done = 'Återställningen av Databasen lyckades.';
 		$this->backup_warning = 'Varning: Detta kommer att skriva över all befintlig information som används av Quicksilver Forums.';
@@ -688,7 +688,7 @@ class sv
 		$this->mod_label_post_delete = 'Radera Inlägg';
 		$this->mod_label_post_edit = 'Redigera Inlägg';
 		$this->mod_label_post_icon = 'Inläggsikon';
-		$this->mod_label_publish = 'Publishing'; //Translate
+		$this->mod_label_publish = 'Publicerar';
 		$this->mod_label_title = 'Titel';
 		$this->mod_label_title_original = 'Original Titel';
 		$this->mod_label_title_split = 'Dela Upp Titel';
@@ -707,7 +707,7 @@ class sv
 		$this->mod_no_topic = 'Du måste välja ett ämne.';
 		$this->mod_perm_post_delete = 'Du har inte tillåtelse att radera detta inlägg.';
 		$this->mod_perm_post_edit = 'Du har inte tillåtelse att redigera detta inlägg.';
-		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
+		$this->mod_perm_publish = 'Du har inte rättighet att publicera detta ämne.';
 		$this->mod_perm_topic_delete = 'Du har inte tillåtelse att radera detta ämne.';
 		$this->mod_perm_topic_edit = 'Du har inte tillåtelse att redigera detta ämne.';
 		$this->mod_perm_topic_lock = 'Du har inte tillåtelse att låsa detta ämne.';
@@ -718,12 +718,12 @@ class sv
 		$this->mod_perm_topic_unpin = 'Du har inte tillåtelse att klistra av detta ämne.';
 		$this->mod_success_post_delete = 'Inlägget raderades.';
 		$this->mod_success_post_edit = 'Inlägget redigerades.';
-		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
+		$this->mod_success_publish = 'Ämnet har publicerats.';
 		$this->mod_success_split = 'Ämnet har nu blivit uppdelat.';
 		$this->mod_success_topic_delete = 'Ämnet raderades.';
 		$this->mod_success_topic_edit = 'Ämnet redigerades.';
 		$this->mod_success_topic_move = 'Ämnet flyttades till ett nytt forum.';
-		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
+		$this->mod_success_unpublish = 'Ämnet har tagits bort från listan över publicerade.';
 	}
 
 	function optimize()
@@ -755,7 +755,7 @@ class sv
 		$this->perms_post_delete_own = 'Ta bort endast inlägg som användaren gjort';
 		$this->perms_post_edit = 'Ändra valfritt inlägg';
 		$this->perms_post_edit_own = 'Ändra endast inlägg som användaren gjort';
-		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
+		$this->perms_post_inc_userposts = 'Inläggen adderas till användarens totala antal inlägg';
 		$this->perms_post_noflood = 'Undanta från floodkontroll för inlägg';
 		$this->perms_post_viewip = 'Kolla användares IP adresser';
 		$this->perms_search_noflood = 'Undanta från floodkontroll för sökningar';
@@ -772,8 +772,8 @@ class sv
 		$this->perms_topic_move_own = 'Endast flytta ämnen som användaren skapat';
 		$this->perms_topic_pin = 'Klistra valfritt ämne';
 		$this->perms_topic_pin_own = 'Klistra ämnen som användaren skapat';
-		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
-		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
+		$this->perms_topic_publish = 'Publicera eller avpublicera valfritt ämne';
+		$this->perms_topic_publish_auto = 'Nya ämnen markeras som publicerade';
 		$this->perms_topic_split = 'Dela valfritt ämne till flera ämnen';
 		$this->perms_topic_split_own = 'Endast dela ämnen användaren skapat till flera ämnen';
 		$this->perms_topic_unlock = 'Låsa upp valfritt ämne';
@@ -782,7 +782,7 @@ class sv
 		$this->perms_topic_unpin = 'Klistra av valfritt ämne';
 		$this->perms_topic_unpin_own = 'Endast klistra av ämnen som användaren skapat';
 		$this->perms_topic_view = 'Kolla på ämnen';
-		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
+		$this->perms_topic_view_unpublished = 'Kolla  på ej publicerade ämnen';
 		$this->perms_updated = 'Rättigheterna har uppdaterats.';
 		$this->perms_user_inherit = 'Användaren kommer ärva gruppens rättigheter.';
 	}
@@ -1315,7 +1315,7 @@ class sv
 		$this->temps_profile = 'Profilspaning';
 		$this->temps_recent = 'Nya Ämnen';
 		$this->temps_register = 'Registrering';
-		$this->temps_rssfeed = 'RSS Feed'; //Translate
+		$this->temps_rssfeed = 'RSS Matning';
 		$this->temps_search = 'Sökning';
 		$this->temps_settings = 'AdminKP Inställningar';
 		$this->temps_templates = 'AdminKP Mallediterare';
@@ -1390,11 +1390,11 @@ class sv
 		$this->topic_posted = 'Inlaggd';
 		$this->topic_posts = 'Inlägg';
 		$this->topic_print = 'Visa Utskriftsvänlig';
-		$this->topic_publish = 'Publish'; //Translate
+		$this->topic_publish = 'Publicera';
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
-		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
-		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
-		$this->topic_quickreply = 'Quick Reply'; //Translate
+		$this->topic_qr_open_emoticons = 'Öppna Klickbara Emoticons';
+		$this->topic_qr_open_mbcode = 'Öppna MBCode';
+		$this->topic_quickreply = 'Snabbsvar';
 		$this->topic_quote = 'Svara med ett citat från detta inlägg';
 		$this->topic_reply = 'Svara på Ämne';
 		$this->topic_split = 'Dela upp';
@@ -1405,8 +1405,8 @@ class sv
 		$this->topic_top = 'Gå till toppen av sidan';
 		$this->topic_unlock = 'Lås Upp';
 		$this->topic_unpin = 'Klistra Av';
-		$this->topic_unpublish = 'UnPublish'; //Translate
-		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
+		$this->topic_unpublish = 'Avpublicera';
+		$this->topic_unpublished = 'Detta ämne är klassat som ej publicerat så du har inte rättighet att kolla det.';
 		$this->topic_unreg = 'Oregistrerad';
 		$this->topic_view = 'Visa Resultat';
 		$this->topic_viewing = 'Visar Ämne';
