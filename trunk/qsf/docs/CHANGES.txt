@@ -1,6 +1,52 @@
 Changes for 1.2.0:
-
+  General Changes and Additions
+* Added html version of Docs
+* Can now download a backup directly without saving to the server
+* Minor change to chmod the created backup file
+* Logins now support PHP sessions if cookies fail to set. Session is fixed to IP
+* Updated timezones including three new timezones
+* Removed no-cache settings for admin cp
+* Speed information now supressed when not in debug mode
+* Topics can now be marked as published or unpublished - Jon
+* Birthday display is now handled as a modlet
+* ini_set only used if a mailserver is selected
+* Message Icons now use an unordered list rather than a table
+* RSS feeds now use templates
+* RSS feeds now include guid
+* New permission now marks if a post contributes to that user's postcount
+* Upgrades can now introduce new permissions that default to ON
+* Quickreply now available as a native feature
+* All new hander for tracking read and unread posts
+* Upgrade now informs user of what skins have been modified
+* Registration and stats images are now created in the stats folder
+* Moved to a more modular system with many new classes in lib
+* Clickable smilies now use an unorded list instead of a table
+* Moved timezone styling out to CSS file
+* BB code formatting now users em and strong instead of i and b
+* Removed printer module
 * Dropped any support for PHP versions older than 4.3.0
+
+  Bugs Addressed:
+* Couldn't add a template with position 0
+* Spider agents are now set correctly and no longer require 2 arrays
+* Split topics did not count post replies properly
+* Could create a group without a name
+* Stopped moved topic leftovers showing in recent topics
+* Suckerfish menu was not working in IE for RTL languages
+* PNGs now render much better in IE
+* Unpinning a topic no longer marks it as new
+* No longer show users as online who wish to hide board activity
+* Very long user_agent string was causing errors
+* Was counting 1 too many replies when deleting a topic
+* Backup was providing an incorrect link to the backup file
+* User title not validated in admin cp - Matt
+* Extra slashes were appearing when editing attachments 
+
+  Translation Updates:
+* Updated Swedish translation - LadyAnna
+* Big update to German translation - Ibus
+* Significant update to Hebrew translation - David (ddady)
+
 
 Changes for 1.1.9:
 
