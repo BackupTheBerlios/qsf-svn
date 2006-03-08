@@ -118,13 +118,13 @@ class de
 	function backup()
 	{
 		$this->backup_create = 'Datenbank sichern';
-		$this->backup_createfile = 'Backup and create a file on server'; //Translate
+		$this->backup_createfile = 'Sichern und eine Datei auf dem Server erstellen';
 		$this->backup_done = 'Die Datenbank wurde im Quicksilver Forums Hauptverzeichnis gesichert.';
-		$this->backup_download = 'Backup and download (recommended)'; //Translate
+		$this->backup_download = 'Sichern und herunterladen (empfohlen)';
 		$this->backup_found = 'Die folgenden Sicherungen wurden im Quicksilver Forums Verzeichnis gefunden';
 		$this->backup_invalid = 'Die Sicherung scheint ungültig zu sein. Es wurden keine Veränderungen an der Datenbank vorgenommen.';
 		$this->backup_none = 'Es wurden keine Sicherungen im Quicksilver Forums Verzeichnis gefunden.';
-		$this->backup_options = 'Select how you want your backup created'; //Translate
+		$this->backup_options = 'W&auml;hlen sie aus wie sie das Backup erstellen m&ouml;chten';
 		$this->backup_restore = 'Sicherung wiederherstellen';
 		$this->backup_restore_done = 'Die Datenbank wurde erfolgreich wieder hergestellt.';
 		$this->backup_warning = 'Warnung: Alle bestehenden Daten werden überschrieben.';
@@ -688,7 +688,7 @@ class de
 		$this->mod_label_post_delete = 'Lösche Beitrag';
 		$this->mod_label_post_edit = 'Editiere Beitrag';
 		$this->mod_label_post_icon = 'Beitragssymbol';
-		$this->mod_label_publish = 'Publishing'; //Translate
+		$this->mod_label_publish = 'Publizieren';
 		$this->mod_label_title = 'Titel';
 		$this->mod_label_title_original = 'Urpsrünglicher Titel';
 		$this->mod_label_title_split = 'Spaltungstitel';
@@ -707,7 +707,7 @@ class de
 		$this->mod_no_topic = 'Sie müssen ein Thema auswählen.';
 		$this->mod_perm_post_delete = 'Sie haben nicht die Erlaubnis diesen Beitrag zu löschen.';
 		$this->mod_perm_post_edit = 'Sie haben nicht die Erlaubnis diesen Beitrag zu editieren.';
-		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
+		$this->mod_perm_publish = 'Sie haben nicht das Recht dieses Thema zu ver&ouml;ffentlichen.';
 		$this->mod_perm_topic_delete = 'Sie haben nicht die Erlaubnis dieses Thema zu löschen.';
 		$this->mod_perm_topic_edit = 'Sie haben nicht die Erlaubnis dieses Them zu editieren.';
 		$this->mod_perm_topic_lock = 'Sie haben nicht die Erlaubnis dieses Thema zu sperren.';
@@ -718,12 +718,12 @@ class de
 		$this->mod_perm_topic_unpin = 'Sie haben nicht die Erlaubnis dieses Thema zu entnageln.';
 		$this->mod_success_post_delete = 'Der Beitrag wurde erfolgreich gelöscht.';
 		$this->mod_success_post_edit = 'Der Beitrag wurde erfolgreich editiert.';
-		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
+		$this->mod_success_publish = 'Dieses Thema wurde erfolgreich ver&ouml;ffentlicht.';
 		$this->mod_success_split = 'Das Thema wurde werfolgreich geteilt.';
 		$this->mod_success_topic_delete = 'Das Thema wurde erfolgreich gelöscht.';
 		$this->mod_success_topic_edit = 'Das Thema wurde erfolgreich editiert.';
 		$this->mod_success_topic_move = 'Das Thema wurde erfolgreich in ein neues Forum verschoben.';
-		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
+		$this->mod_success_unpublish = 'Dieses Thema wurde von den Ver&ouml;ffentlichungen entfernt.';
 	}
 
 	function optimize()
@@ -755,7 +755,7 @@ class de
 		$this->perms_post_delete_own = 'Nur Beiträge des Benutzers löschen';
 		$this->perms_post_edit = 'Jegliche Beiträge bearbeiten';
 		$this->perms_post_edit_own = 'Nur Beiträge des Benutzers bearbeiten';
-		$this->perms_post_inc_userposts = 'Posts contribute to user\'s total post count'; //Translate
+		$this->perms_post_inc_userposts = 'Beitr&auml;ge zur Gesamtanzahl der Benutzerbeitr&auml;ge hinzunehmen';
 		$this->perms_post_noflood = 'Ausgenommen von Beitrags-Flood-Kontrolle';
 		$this->perms_post_viewip = 'Betrachte IP Adressen des Benutzers';
 		$this->perms_search_noflood = 'Ausgenommen von Suche-Flood-Kontrolle';
@@ -772,8 +772,8 @@ class de
 		$this->perms_topic_move_own = 'Nur Themen des Benutzers verschieben';
 		$this->perms_topic_pin = 'Jegliche Themen nageln';
 		$this->perms_topic_pin_own = 'Themen des Benutzers nageln';
-		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
-		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
+		$this->perms_topic_publish = 'Ein Thema ver/unver&ouml;ffentlichen';
+		$this->perms_topic_publish_auto = 'Neue Themen werden als ver&ouml;ffentlicht markiert';
 		$this->perms_topic_split = 'Jegliche Themen in mehrere Themen aufteilen';
 		$this->perms_topic_split_own = 'Nur Themen des Benutzers in mehrere Themen aufteilen';
 		$this->perms_topic_unlock = 'Jegliche Themen öffnen';
@@ -782,7 +782,7 @@ class de
 		$this->perms_topic_unpin = 'Jegliche Themen entnageln';
 		$this->perms_topic_unpin_own = 'Nur Themen des Benutzers entnageln';
 		$this->perms_topic_view = 'Themen anschauen';
-		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
+		$this->perms_topic_view_unpublished = 'Unver&ouml;ffentlichte Themen anschauen';
 		$this->perms_updated = 'Berechtigungen wurden aktualisiert.';
 		$this->perms_user_inherit = 'Der Benutzer wird die Gruppenberechtigungen übernehmen.';
 	}
@@ -1390,11 +1390,11 @@ class de
 		$this->topic_posted = 'Verfasst: ';
 		$this->topic_posts = 'Beiträge';
 		$this->topic_print = 'Zeige Druckversion';
-		$this->topic_publish = 'Publish'; //Translate
+		$this->topic_publish = 'Ver&ouml;ffentlichen';
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
-		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
-		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
-		$this->topic_quickreply = 'Quick Reply'; //Translate
+		$this->topic_qr_open_emoticons = '&Ouml;ffne klickbare Emoticons';
+		$this->topic_qr_open_mbcode = '&Ouml;ffne MBCode';
+		$this->topic_quickreply = 'Schnell-Antwort';
 		$this->topic_quote = 'Antworte mit einem Zitat des Beitrages';
 		$this->topic_reply = 'Thema antworten';
 		$this->topic_split = 'Geteilt';
@@ -1405,8 +1405,8 @@ class de
 		$this->topic_top = 'Zum Anfang der Seite';
 		$this->topic_unlock = 'Entsperren';
 		$this->topic_unpin = 'Entnageln';
-		$this->topic_unpublish = 'UnPublish'; //Translate
-		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
+		$this->topic_unpublish = 'Unver&ouml;ffentlichen';
+		$this->topic_unpublished = 'ieses Thema ist als unver&ouml;ffentlicht eingestuft und somit haben sie nicht das Recht es zu sehen.';
 		$this->topic_unreg = 'Unregistriert';
 		$this->topic_view = 'Zeige Ergebnisse';
 		$this->topic_viewing = 'Zeige Thema';
