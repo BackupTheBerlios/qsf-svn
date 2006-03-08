@@ -1,10 +1,13 @@
 Changes for 1.2.0:
-  General Changes and Additions
+  General Changes and Additions:
 * Added html version of Docs
+* Removed old (mercuryboard) install guide
 * Can now download a backup directly without saving to the server
 * Minor change to chmod the created backup file
+* Added javascript to assist timezone selection
 * Logins now support PHP sessions if cookies fail to set. Session is fixed to IP
 * Updated timezones including three new timezones
+* Topic icons no longer hasn it's own column
 * Removed no-cache settings for admin cp
 * Speed information now supressed when not in debug mode
 * Topics can now be marked as published or unpublished - Jon
@@ -29,6 +32,7 @@ Changes for 1.2.0:
   Bugs Addressed:
 * Couldn't add a template with position 0
 * Spider agents are now set correctly and no longer require 2 arrays
+* Timezone class to handle timezone files with only one entry - Matt
 * Split topics did not count post replies properly
 * Could create a group without a name
 * Stopped moved topic leftovers showing in recent topics
