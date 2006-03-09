@@ -1,5 +1,6 @@
 Changes for 1.2.0:
   General Changes and Additions:
+* Added db_pgsql class as a step towards future PostgreSQL support
 * Added html version of Docs
 * Removed old (mercuryboard) install guide
 * Can now download a backup directly without saving to the server

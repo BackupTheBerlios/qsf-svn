@@ -130,7 +130,7 @@ class new_install extends qsfglobal
 			);
 
 			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email, user_timezone) VALUES ('{$this->post['admin_name']}', '{$this->post['admin_pass']}', " . USER_ADMIN .  ", 'Administrator', 1, {$this->time}, '{$this->post['admin_email']}', {$this->sets['servertime']})");
-			$admin_uid = $this->db->insert_id();
+			$admin_uid = $this->db->insert_id("{$this->pre}users");
 
 			$this->sets['last_member'] = $this->post['admin_name'];
 			$this->sets['last_member_id'] = $admin_uid;
@@ -151,12 +151,12 @@ class new_install extends qsfglobal
 				// Create Topic
 				$this->db->query("INSERT INTO {$this->pre}topics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes) 
 					VALUES ('$topicName', $forumId, '$topicDesc', $admin_uid, '$topicIcon', $this->time, $admin_uid, " . TOPIC_PUBLISH . ")");
-				$topicId = $this->db->insert_id();
+				$topicId = $this->db->insert_id("{$this->pre}topics");
 				
 				// Create Post
 				$this->db->query("INSERT INTO {$this->pre}posts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon)
 					VALUES ($topicId, $admin_uid, '$topicPost', $this->time, 1, 1, INET_ATON('$this->ip'), '$topicIcon')");
-				$postId = $this->db->insert_id();
+				$postId = $this->db->insert_id("{$this->pre}posts");
 					
 				$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='{$this->time}' WHERE user_id='$admin_uid'");
 
@@ -207,7 +207,7 @@ class new_install extends qsfglobal
 			(forum_tree, forum_parent, forum_name, forum_description, forum_position, forum_subcat) VALUES
 			('$tree', '$parent', '$name', '$desc', '0', '0')");
 		
-		$forumId = $this->db->insert_id();
+		$forumId = $this->db->insert_id("{$this->pre}forums");
 		
 		$perms = new $this->modules['permissions']($this);
 		

@@ -25,7 +25,7 @@ $modules = array();
 
 // The below libraries can be replaced with children that customise behavior
 require_once $set['include_path'] . '/lib/' . $set['dbtype'] . '.php';
-$modules['database'] = 'database';
+$modules['database'] = 'db_' . $set['dbtype'];
 require_once $set['include_path'] .  '/lib/perms.php';
 $modules['permissions'] = 'permissions';
 require_once $set['include_path'] .  '/lib/user.php';

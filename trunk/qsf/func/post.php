@@ -442,7 +442,7 @@ class post extends qsfglobal
 					$this->db->query("INSERT INTO {$this->pre}topics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes, topic_poll_options) VALUES ('{$this->post['title']}', {$this->get['f']}, '{$this->post['desc']}', {$this->user['user_id']}, '{$this->post['icon']}', $this->time, {$this->user['user_id']}, $mode, '{$this->post['options']}')");
 				}
 
-				$this->get['t'] = $this->db->insert_id();
+				$this->get['t'] = $this->db->insert_id("{$this->pre}topics");
 			}
 			
 			if ($this->perms->auth('post_inc_userposts', $this->get['f'])) {
@@ -475,7 +475,7 @@ class post extends qsfglobal
 
 			$this->db->query("INSERT INTO {$this->pre}posts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon)
 				VALUES ({$this->get['t']}, {$this->user['user_id']}, '{$this->post['post']}', $this->time, {$this->post['parseEmot']}, {$this->post['parseCode']}, $post_count, INET_ATON('$this->ip'), '{$this->post['icon']}')");
-			$post_id = $this->db->insert_id();
+			$post_id = $this->db->insert_id("{$this->pre}posts");
 
 			if ($post_count) {
 				$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='$this->time', user_level='{$newlevel['user_level']}', user_title='" . addslashes($membertitle) . "' WHERE user_id='{$this->user['user_id']}'");

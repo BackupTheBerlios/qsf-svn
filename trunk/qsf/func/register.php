@@ -145,7 +145,7 @@ class register extends qsfglobal
 			VALUES ('$username', '$pass', $group_id, '{$level['user_title']}', $this->time, '$email', '{$this->sets['default_skin']}', {$this->sets['default_view_avatars']}, {$this->sets['default_view_emots']}, {$this->sets['default_view_sigs']}, '{$this->user['user_language']}', {$this->sets['default_email_shown']}, {$this->sets['default_pm']}, {$this->sets['default_timezone']})");
 
 			$this->sets['last_member'] = $username;
-			$this->sets['last_member_id'] = $this->db->insert_id();
+			$this->sets['last_member_id'] = $this->db->insert_id("{$this->pre}users");
 			$this->sets['members']++;
 			$this->write_sets();
 

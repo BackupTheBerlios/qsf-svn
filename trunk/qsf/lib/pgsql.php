@@ -28,15 +28,13 @@ if (!defined('QUICKSILVERFORUMS')) {
 require_once $set['include_path'] . '/lib/database.php';
 
 /**
- * MySQL Abstraction Class
+ * PostgreSQL Abstraction Class
  *
- * @author Jason Warner <jason@mercuryboard.com>
- * @since Beta 2.0
+ * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+ * @since 1.1.9
  **/
-class db_mysql extends database
+class db_pgsql extends database
 {
-	var $socket;             // Database Socket @var string
-
 	/**
 	 * Constructor; sets up variables and connection
 	 *
@@ -45,20 +43,16 @@ class db_mysql extends database
 	 * @param string $db_pass Password
 	 * @param string $db_name Database Name
 	 * @param int $db_port Database Port
-	 * @param string $db_socket Database Socket
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
+	 * @param string $db_socket unused
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 1.1.9
 	 * @return void
 	 **/
-	function db_mysql($db_host, $db_user, $db_pass, $db_name, $db_port = 3306, $db_socket = '')
+	function db_pgsql($db_host, $db_user, $db_pass, $db_name, $db_port = 5432, $db_socket)
 	{
-		$this->socket = $db_socket;
+		$pg_connstr = "host=$db_host port=$db_port dbname=$db_name user=$db_user password=$db_pass";
 
-		$this->connection = @mysql_connect("$db_host:$db_port" . (!$this->socket ? '' : ":$db_socket"), $db_user, $db_pass);
-
-		if (!@mysql_select_db($db_name, $this->connection)) {
-			$this->connection = false;
-		}
+		$this->connection = @pg_connect($pg_connstr);
 	}
 	
 	/**
@@ -79,25 +73,27 @@ class db_mysql extends database
 		return $data;
 	}
 
+
 	/**
 	 * Retrieves the insert ID of the last executed query
 	 *
 	 * @param string $table Table name - unused
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.1
+	 * @author Geoffrey Dunn <geoff@wwarmage.com>
+	 * @since 1.1.9
 	 * @return int Insert ID
 	 **/
 	function insert_id($table)
 	{
-		return mysql_insert_id($this->connection);
+		$results = $this->fetch("select currval('{$table}_seq') last_id");
+		return $results['last_id'];
 	}
 
 	/**
 	 * Executes a query
 	 *
 	 * @param string $query SQL query
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 1.1.9
 	 * @return resource Executed query
 	 **/
 	function query($query)
@@ -108,47 +104,59 @@ class db_mysql extends database
 			$this->debug($query);
 		}
 
-		$result = mysql_query($query, $this->connection) or error(QUICKSILVER_QUERY_ERROR, mysql_error($this->connection), $query, mysql_errno($this->connection));
-		return $result;
+		if (!pg_send_query($this->connection, $query))
+		{
+			$err = pg_get_result($this->connection);
+			error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
+		} else {
+			$this->last = pg_get_result($this->connection);
+
+			if (false === $this->last)
+			{
+				error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
+			}
+		}
+		return $this->last;
 	}
+
 
 	/**
 	 * Fetches an executed query into an array
 	 *
 	 * @param resource $query Executed SQL query
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 1.1.9
 	 * @return array Fetched rows
 	 **/
 	function nqfetch($query)
 	{
-		return mysql_fetch_array($query, MYSQL_ASSOC);
+		return pg_fetch_array($query);
 	}
 
 	/**
 	 * Gets the number of rows retrieved by a SELECT
 	 *
 	 * @param resource $query Executed SQL query
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 1.1.9
 	 * @return int Number of retrieved rows
 	 **/
 	function num_rows($query)
 	{
-		return mysql_num_rows($query);
+		return pg_num_rows($query);
 	}
 
 
 	/**
 	 * Gets the number of rows affected by the last executed UPDATE
 	 *
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.1
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 1.1.9
 	 * @return int Number of affected rows
 	 **/
 	function aff_rows()
 	{
-		return mysql_affected_rows($this->connection);
+		return pg_affected_rows($this->last);
 	}
 }
 ?>
