@@ -305,6 +305,14 @@ class templates extends admin
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
 				}
+				if( strstr( $row['template_html'], '$birthdays' ) ) {
+					$didsomething = true;
+					$row['template_html'] = str_replace('$birthdays', '<MODLET birthdays()>', $row['template_html']);
+					$temps .= $row['template_name'] . "<br />";
+					$row['template_html'] = addslashes($row['template_html']);
+               			        $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
+                       		        $this->db->query($sql);
+				}
 	                }
 
 	                if ($didsomething) {
