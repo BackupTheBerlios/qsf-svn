@@ -275,7 +275,9 @@ class board extends qsfglobal
 
 		foreach ($all_active_users as $user)
 		{
-			$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
+			if ($user['id'] != USER_GUEST_UID) {
+				$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
+			}
 		}
 
 		return $allusers;
