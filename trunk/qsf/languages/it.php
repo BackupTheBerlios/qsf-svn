@@ -141,7 +141,7 @@ class it
 		$this->ban_members = 'Banna Utenti';
 		$this->ban_nomembers = 'Non ci sono utenti bannati.';
 		$this->ban_one_per_line = 'un indirizzo per linea.';
-		$this->ban_regex_allowed = 'Espressioni regolari permesse. Puoi utilizzare un singolo * come una wildcard per una o piu' cifre.';
+		$this->ban_regex_allowed = 'Espressioni regolari permesse. Puoi utilizzare un singolo * come una wildcard per una o piu\' cifre.';
 		$this->ban_settings = 'Configurazione Ban';
 		$this->ban_users_banned = 'Utenti bannati.';
 	}
@@ -181,7 +181,7 @@ class it
 	{
 		$this->censor = 'Censura';
 		$this->censor_one_per_line = 'Una parola per linea.';
-		$this->censor_regex_allowed = 'Le Espressioni regolari sono permesse. Puoi utilizzare un singolo * come una wildcard per uno o piu' caratteri.'; 
+		$this->censor_regex_allowed = 'Le Espressioni regolari sono permesse. Puoi utilizzare un singolo * come una wildcard per uno o piu\' caratteri.'; 
 		$this->censor_updated = 'Lista censura aggiornata.';
 	}
 
@@ -406,7 +406,7 @@ class it
 		$this->groups_formatting = 'Formattazione';
 		$this->groups_i_confirm = 'Confermo che voglio eliminare il gruppo.';
 		$this->groups_name = 'Nome';
-		$this->groups_no_action = 'Nessuna Azione verra' presa.'; //Translate
+		$this->groups_no_action = 'Nessuna Azione verra\' presa.';
 		$this->groups_no_delete = 'Non ci sono gruppi personalizzati da eliminare.<br />Alcuni gruppi sono essenziali al funzionamento di Quicksilver Forums, e non possono essere cancellati.';
 		$this->groups_no_group = 'Nessun gruppo specificato.';
 		$this->groups_no_name = 'Nessun nome gruppo inserito.';
@@ -456,9 +456,9 @@ class it
 		$this->login_out = 'Disconnessione';
 		$this->login_pass = 'Password'; 
 		$this->login_pass_no_id = 'Non esiste alcun iscritto con il nome che hai inserito.';
-		$this->login_pass_request = 'Per completare il cambio di password, fai clic sul link inviato tramite l'indirizzo email associato al tuo account.'; 
+		$this->login_pass_request = 'Per completare il cambio di password, fai clic sul link inviato tramite l\'indirizzo email associato al tuo account.'; 
 		$this->login_pass_reset = 'Resetta Password';
-		$this->login_pass_sent = 'La tua password e' stata sostituita con una casuale. La nuova password è stata spedita all\' indirizzo email associato a questo account.';
+		$this->login_pass_sent = 'La tua password e\' stata sostituita con una casuale. La nuova password è stata spedita all\' indirizzo email associato a questo account.';
 		$this->login_sure = 'Sicuro di vorlerti disconnettere da \'%s\'?';
 		$this->login_user = 'Nome Utente';
 	}
@@ -755,7 +755,7 @@ class it
 		$this->perms_post_delete_own = 'Elimina solo i messaggi creati dall\'utente';
 		$this->perms_post_edit = 'Modifica ogni tipo di messaggio';
 		$this->perms_post_edit_own = 'Modifica solo i messaggi creati dall\'utente';
-		$this->perms_post_inc_userposts = 'Contributi post al totale conteggio post dell'utente'; 
+		$this->perms_post_inc_userposts = 'Contributi post al totale conteggio post dell\'utente'; 
 		$this->perms_post_noflood = 'Ignora controllo antiflood messaggi';
 		$this->perms_post_viewip = 'Mostra indirizzi IP utenti';
 		$this->perms_search_noflood = 'Esente dal controllo antiflood per le ricerche';
@@ -790,7 +790,7 @@ class it
 	function php_info()
 	{
 		$this->php_error = 'Errore';
-		$this->php_error_msg = 'phpinfo() non puo' essere eseguito. Questo perche' il tuo host potrebbe aver disabilitato questa caratteristica.'; 
+		$this->php_error_msg = 'phpinfo() non puo\' essere eseguito. Questo perche\' il tuo host potrebbe aver disabilitato questa caratteristica.'; 
 	}
 
 	function pm()
@@ -967,7 +967,7 @@ class it
 		$this->prune_notopics = 'Nessuna discussione selezionata per lo sfoltimento';
 		$this->prune_notopics_old = 'Nessuna discussione è vecchia abbastanza per lo sfoltimento';
 		$this->prune_novalidforum = 'Nessun forum valido per lo sfoltimento';
-		$this->prune_select_age = 'Seleziona l'eta' delle discusioni per limitare l'annoiamento a'; 
+		$this->prune_select_age = 'Seleziona l\'eta\' delle discusioni per limitare l\'annoiamento a'; 
 		$this->prune_select_topics = 'Seleziona le discussioni oppure usa Seleziona Tutto';
 		$this->prune_success = 'Discussioni sfoltite';
 		$this->prune_title = 'Sfoltimento discussioni';
@@ -1169,7 +1169,7 @@ class it
 		$this->settings_disabled_notice = 'Disabilita Avvisi'; 
 		$this->settings_email = 'Impostazioni E-Mail'; 
 		$this->settings_email_fake = 'Solo per visualizzazione. Potrebbe non essere un indirizzo email reale.'; 
-		$this->settings_email_from = 'E-mail Dall' Indirizzo'; 
+		$this->settings_email_from = 'E-mail Dall\' Indirizzo'; 
 		$this->settings_email_place1 = 'Assegna l\'utente al gruppo';
 		$this->settings_email_place2 = 'fino a quando non l\'e-mail non viene verificata';
 		$this->settings_email_place3 = 'Non richiede e-mail di attivazione';
@@ -1188,7 +1188,7 @@ class it
 		$this->settings_members = 'Configurazione Utenti';
 		$this->settings_modname_only = 'Solo il nome del modulo. Non inserire .php';
 		$this->settings_no_allow = 'Non permettere';
-		$this->settings_nodata = 'Nessun dato e' stato inviato da POST'; 
+		$this->settings_nodata = 'Nessun dato e\' stato inviato da POST'; 
 		$this->settings_one_per = 'Uno per linea';
 		$this->settings_pixels = 'Pixel';
 		$this->settings_pm_flood = 'AntiFlood Messaggi Privati';
@@ -1218,7 +1218,7 @@ class it
 		$this->settings_spider_enable = 'Abilita Visualizzazione degli Spider';
 		$this->settings_spider_enable_msg = 'Abilita visualizzazione del nome degli spider dei motori di ricerca nella lista Attività.';
 		$this->settings_spider_name = 'Nome Spider';
-		$this->settings_spider_name_msg = 'Inserisci il nome che vuoi visualizzare per ogni spider dell'elenco qui sopra. Hai bisogno di inserire il nome dello spider nella stessa linea dello spider user agent.Per Esempio, se inserisci \'googlebot\' nella terza linea, inserisci \'Google\' nella terza linea del nome dello Spider.'; 
+		$this->settings_spider_name_msg = 'Inserisci il nome che vuoi visualizzare per ogni spider dell\'elenco qui sopra. Hai bisogno di inserire il nome dello spider nella stessa linea dello spider user agent.Per Esempio, se inserisci \'googlebot\' nella terza linea, inserisci \'Google\' nella terza linea del nome dello Spider.'; 
 		$this->settings_timezone = 'Fuso Orario';
 		$this->settings_topics_page = 'Discussioni Per Pagina';
 		$this->settings_tos = 'Condizioni di Servizio'; 
@@ -1268,7 +1268,7 @@ class it
 		$this->skin_created = 'Skin creata.';
 		$this->skin_deleted = 'Skin eliminata.';
 		$this->skin_dir_name = 'Devi inserire il nome della skin ed il nome della cartella.';
-		$this->skin_dup = 'E' stata trovata una skin con un cartella con lo stesso nome. La cartella della skin verra' cambiata in'; 
+		$this->skin_dup = 'E\' stata trovata una skin con un cartella con lo stesso nome. La cartella della skin verra\' cambiata in'; 
 		$this->skin_name = 'Devi inserire un nome per la skin.';
 		$this->skin_none = 'Non ci sono skin da installare.';
 		$this->skin_set = 'Gruppo Skin';
@@ -1286,7 +1286,7 @@ class it
 		$this->template_set = 'Gruppo Template';
 		$this->template_title = 'Titolo Template';
 		$this->template_universal = 'Variabile Universale';
-		$this->template_universal2 = 'Alcune variabili posso essere utilizzate in alcuni temoplate, mentre altre possono essere utilizzate in un singolo template. Le proprieta' dell'oggetto $ questo puo' essere utilizzato sempre.'; 
+		$this->template_universal2 = 'Alcune variabili posso essere utilizzate in alcuni temoplate, mentre altre possono essere utilizzate in un singolo template. Le proprieta\' dell\'oggetto $ questo puo\' essere utilizzato sempre.'; 
 		$this->template_updated = 'Template aggiornato.';
 		$this->templates = 'Template';
 		$this->temps_active = 'Dettagli Utenti Attivi';
@@ -1394,7 +1394,6 @@ class it
 		$this->topic_qr_open_emoticons = 'Apri Emoticon Cliccabili'; 
 		$this->topic_qr_open_mbcode = 'Apri MBCode'; 
 		$this->topic_quickreply = 'Replica Veloce'; 
-		$this->topic_quickreply = 'Quick Reply'; //Translate
 		$this->topic_quote = 'Rispondi riportando questa discussione';
 		$this->topic_reply = 'Rispondi alla Discussione';
 		$this->topic_split = 'Dividi';
