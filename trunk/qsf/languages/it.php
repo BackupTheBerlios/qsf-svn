@@ -562,7 +562,7 @@ class it
 		$this->mbcode_indigo = 'Indigo'; 
 		$this->mbcode_italic = 'Corsivo'; 
 		$this->mbcode_italic1 = 'C'; 
-		$this->mbcode_large = 'Largo'; e
+		$this->mbcode_large = 'Largo';
 		$this->mbcode_length = 'Il tuo messaggio contiene +length+ caratteri.';
 		$this->mbcode_limegreen = 'Verde Lime '; 
 		$this->mbcode_medium = 'Medio'; 

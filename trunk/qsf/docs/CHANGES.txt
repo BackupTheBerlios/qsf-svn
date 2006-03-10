@@ -52,7 +52,7 @@ Changes for 1.2.0:
 * Updated Swedish translation - LadyAnna
 * Big update to German translation - Ibus
 * Significant update to Hebrew translation - David (ddady)
-
+* Big update to Italian translation - Giuseppe
 
 Changes for 1.1.9:
 
