@@ -124,9 +124,13 @@ class recent extends qsfglobal
 		    {$this->pre}users m,
 		    {$this->pre}users s)
 		LEFT JOIN {$this->pre}posts p ON (t.topic_id = p.post_topic AND p.post_author = {$this->user['user_id']})
+		LEFT JOIN {$this->pre}readmarks rm ON (t.topic_id = rm.readmark_topic AND rm.readmark_user = {$this->user['user_id']})
 		WHERE
 		    t.topic_forum IN $forums_str AND
-		    t.topic_edited >= {$this->user['user_lastvisit']} AND
+		    (t.topic_edited >= {$this->user['user_lastvisit']} OR
+		     (t.topic_edited >= {$this->user['user_lastallread']} AND
+		      (rm.readmark_lastread IS NULL OR rm.readmark_lastread < t.topic_edited)
+		    )) AND
 		    t.topic_forum = f.forum_id AND
 		    m.user_id = t.topic_last_poster AND
 		    s.user_id = t.topic_starter AND
@@ -140,6 +144,8 @@ class recent extends qsfglobal
 		while ($row = $this->db->nqfetch($query))
 		{
 			$row['topic_title'] = $this->format($row['topic_title'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
+
+			$row['newpost'] = !$this->readmarker->is_topic_read($row['topic_id'], $row['topic_edited']);
 
 			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'], ', ', 0, $this->sets['posts_per_page']);
 
@@ -166,10 +172,12 @@ class recent extends qsfglobal
 				$row['topic_id'] = $row['topic_moved'];
 
 			} elseif ($row['topic_modes'] & TOPIC_LOCKED) {
-				$state = 'locked';
-
+				if ($row['newpost']) {
+					$state = 'new';
+				}
+				$state .= 'locked';
 			} else {
-				if ($row['topic_edited'] > $this->user['user_lastvisit']) {
+				if ($row['newpost']) {
 					$state = 'new';
 				}
 
