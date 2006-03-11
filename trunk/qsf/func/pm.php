@@ -150,47 +150,46 @@ class pm extends qsfglobal
 			$to    = null;
 			$title = null;
 			$msg   = null;
-            $preview = '';
-            
-            if (isset($this->post['preview'])) {
-                $preview_text = stripslashes($this->post['message']);
+			$preview = '';
+
+			if (isset($this->post['preview'])) {
+				$preview_text = stripslashes($this->post['message']);
 				$msg = $this->format($preview_text, FORMAT_HTMLCHARS);
 				$preview_text = $this->format($preview_text, FORMAT_BREAKS | FORMAT_CENSOR | FORMAT_MBCODE | FORMAT_EMOTICONS);
-                
-                $to = $this->format(stripslashes($this->post['to']), FORMAT_HTMLCHARS);
-                $title = $this->format(stripslashes($this->post['title']), FORMAT_HTMLCHARS | FORMAT_CENSOR);
-                $preview_title = $title;
-                
-                $preview = eval($this->template('PM_PREVIEW'));
-            } else {
-                if (!isset($this->get['re'])) {
-                    if (isset($this->get['to'])) {
-                        $this->get['to'] = intval($this->get['to']);
-    
-                        $query = $this->db->fetch("SELECT user_name FROM {$this->pre}users WHERE user_id={$this->get['to']}");
-    
-                        if (!isset($query['user_name']) || ($this->get['to'] == USER_GUEST_UID)) {
-                            return $this->message($this->lang->pm_personal_msging, $this->lang->pm_no_member);
-                        }
-    
-                        $to = $query['user_name'];
-                    }
-                } else {
-                    $this->get['re'] = intval($this->get['re']);
-                    $reply = $this->db->fetch('SELECT p.pm_to, p.pm_title, p.pm_message, m.user_name FROM ' . $this->pre . 'pmsystem p, ' . $this->pre . 'users m WHERE p.pm_id=' . $this->get['re'] . ' AND p.pm_from=m.user_id');
-    
-                    if ($reply['pm_to'] == $this->user['user_id']) {
-                        $to    = $reply['user_name'];
-                        $title = $this->format($reply['pm_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
-                        if (strpos($title, 'Re:') === false) {
-                            $title = 'Re: ' . $title;
-                        }
-                        $msg   = '[quote]' . $this->format($reply['pm_message'], FORMAT_HTMLCHARS | FORMAT_CENSOR) . "[/quote]\n\n";
-                    }
-                }
-            }
-			return eval($this->template('PM_SEND'));
 
+				$to = $this->format(stripslashes($this->post['to']), FORMAT_HTMLCHARS);
+				$title = $this->format(stripslashes($this->post['title']), FORMAT_HTMLCHARS | FORMAT_CENSOR);
+				$preview_title = $title;
+
+				$preview = eval($this->template('PM_PREVIEW'));
+			} else {
+				if (!isset($this->get['re'])) {
+					if (isset($this->get['to'])) {
+						$this->get['to'] = intval($this->get['to']);
+
+						$query = $this->db->fetch("SELECT user_name FROM {$this->pre}users WHERE user_id={$this->get['to']}");
+
+						if (!isset($query['user_name']) || ($this->get['to'] == USER_GUEST_UID)) {
+							return $this->message($this->lang->pm_personal_msging, $this->lang->pm_no_member);
+						}
+
+						$to = $query['user_name'];
+					}
+				} else {
+					$this->get['re'] = intval($this->get['re']);
+					$reply = $this->db->fetch('SELECT p.pm_to, p.pm_title, p.pm_message, m.user_name FROM ' . $this->pre . 'pmsystem p, ' . $this->pre . 'users m WHERE p.pm_id=' . $this->get['re'] . ' AND p.pm_from=m.user_id');
+
+					if ($reply['pm_to'] == $this->user['user_id']) {
+						$to    = $reply['user_name'];
+						$title = $this->format($reply['pm_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
+						if (strpos($title, 'Re:') === false) {
+							$title = 'Re: ' . $title;
+						}
+						$msg   = '[quote]' . $this->format($reply['pm_message'], FORMAT_HTMLCHARS | FORMAT_CENSOR) . "[/quote]\n\n";
+					}
+				}
+			}
+			return eval($this->template('PM_SEND'));
 		} else {
 			if (!$this->perms->auth('pm_noflood') && ($this->user['user_lastpm'] > ($this->time - $this->sets['flood_time_pm']))) {
 				return $this->message($this->lang->pm_personal_msging, sprintf($this->lang->pm_flood, $this->sets['flood_time_pm']));
