@@ -2462,8 +2462,9 @@ $queries['PM_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 <br />', 'PM Preview', 'A private message being previewed with formatting', 6)";
-$queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_SEND', '{\$preview}
-<form action=\"{\$this->self}?a=pm&amp;s=send\" method=\"post\">
+$queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_SEND', '
+{\$preview}
+<form action=\"{\$this->self}?a=pm&amp;s=send\" method=\"post\" id=\"mbpost\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->pm_sendingpm}</td>
@@ -2477,8 +2478,18 @@ $queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set,
   <td class=\"tabledark\"><input class=\"input\" name=\"title\" size=\"60\" value=\"{\$title}\" /></td>
  </tr>
  <tr>
-  <td class=\"tablelight\" valign=\"top\"><b>{\$this->lang->pm_msgtext}</b></td>
-  <td class=\"tablelight\"><textarea class=\"input\" name=\"message\" cols=\"60\" rows=\"12\">{\$msg}</textarea></td>
+  {\$smilies}
+  <td class=\"tablelight\">
+   <script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
+   <script type=\"text/javascript\">
+   <!--
+    mbcodeSetLang(\"{\$this->lang->mbcode_length}\", \"{\$this->lang->mbcode_address}\", \"{\$this->lang->mbcode_detail}\", \"{\$this->lang->mbcode_url}\");
+    mbcodeInit(\"mbpost\", \"message\");
+   //-->
+   </script>
+   {\$mbcodeButtons}
+   <textarea class=\"input\" name=\"message\" cols=\"60\" rows=\"12\">{\$msg}</textarea>
+  </td>
  </tr>
  <tr>
   <td class=\"footer\" style=\"text-align:center\" colspan=\"2\">
