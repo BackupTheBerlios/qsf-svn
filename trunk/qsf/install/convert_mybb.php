@@ -40,7 +40,7 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'MyBB 1.0 Convertor');
+define('CONVERTER_NAME', 'MyBB 1.0/1.1 Convertor');
 
 $qsf = new qsfglobal;
 $qsf->db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
