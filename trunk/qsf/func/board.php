@@ -270,13 +270,15 @@ class board extends qsfglobal
 	 **/
 	function getActive()
 	{
-		$allusers = '';
+		$allusers = array();
+		$allnames = array();
 		$all_active_users = $this->activeutil->get_active();
 
 		foreach ($all_active_users as $user)
 		{
-			if ($user['id'] != USER_GUEST_UID) {
+			if (($user['id'] != USER_GUEST_UID || $user['bot']) && !in_array($user['name'], $allnames)) {
 				$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
+				$allnames[] = $user['name'];
 			}
 		}
 

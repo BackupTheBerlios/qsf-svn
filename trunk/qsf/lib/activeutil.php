@@ -188,6 +188,7 @@ class activeutil extends bbcode
 				$action_link = '';
 				$forum = null;
 				$topic = null;
+				$is_bot = false;
 				
 				$title = (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  htmlspecialchars($user['active_user_agent']);
 
@@ -201,6 +202,7 @@ class activeutil extends bbcode
 					$spider_name = $this->_spider_check($user['active_user_agent']);
 					if ($spider_name) {
 						$name = sprintf($botformat, $spider_name);
+						$is_bot = true;
 					} else {
 						$this->totalGuests++;
 					}
@@ -228,7 +230,8 @@ class activeutil extends bbcode
 				}
 
 				$this->activeUsers[] = array('id' => $user['active_id'], 'name' => $name, 'link' => $link, 'title' => $title,
-					'action' => $user['active_action'], 'action_link' => $action_link, 'topic' => $topic, 'forum' => $forum, 'time' => $user['active_time']);
+					'action' => $user['active_action'], 'action_link' => $action_link, 'topic' => $topic, 'forum' => $forum,
+					'time' => $user['active_time'], 'bot' => $is_bot);
 			}
 		}
 
