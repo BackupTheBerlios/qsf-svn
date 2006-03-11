@@ -118,13 +118,13 @@ class it
 	function backup()
 	{
 		$this->backup_create = 'Backup Database'; 
-		$this->backup_createfile = 'Backup and create a file on server'; //Translate
+		$this->backup_createfile = 'Backup e file creati sul server';
 		$this->backup_done = 'Il backup del database è stato creato nella cartella principale di Quicksilver Forums.';
-		$this->backup_download = 'Backup and download (recommended)'; //Translate
+		$this->backup_download = 'Backup e download (recommandato)';
 		$this->backup_found = 'I seguenti backup sono stati trovati nella cartella principale di Quicksilver Forums';
 		$this->backup_invalid = 'Il backup sembra non valido. Nessuna modifica apportata al database.';
 		$this->backup_none = 'Nussun backup trovato nella cartella principale di Quicksilver Forums.';
-		$this->backup_options = 'Select how you want your backup created'; //Translate
+		$this->backup_options = 'Seleziona come vuoi che il tuo che il backup venga creato';
 		$this->backup_restore = 'Ripristina Backup';
 		$this->backup_restore_done = 'Il database è stato ripristinato da un backup.';
 		$this->backup_warning = 'Attenzione: Tutti i dati usati da Quicksilver Forums saranno sovrascritti.';
@@ -688,7 +688,7 @@ class it
 		$this->mod_label_post_delete = 'Cancella Messaggio';
 		$this->mod_label_post_edit = 'Modifica Messaggio';
 		$this->mod_label_post_icon = 'Icona Messaggio';
-		$this->mod_label_publish = 'Publishing'; //Translate
+		$this->mod_label_publish = 'Pubblicato';
 		$this->mod_label_title = 'Titolo';
 		$this->mod_label_title_original = 'Titolo Originale';
 		$this->mod_label_title_split = 'Dividi Titolo';
@@ -707,7 +707,7 @@ class it
 		$this->mod_no_topic = 'Devi specifare una discussione.';
 		$this->mod_perm_post_delete = 'Non hai il permesso per eliminare questo messaggio.';
 		$this->mod_perm_post_edit = 'Non hai il permesso per moficare questo messaggio.';
-		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
+		$this->mod_perm_publish = 'Non hai il permesso per pubblicare questa discussione.';
 		$this->mod_perm_topic_delete = 'Non hai il permesso per eliminare questa discussione.';
 		$this->mod_perm_topic_edit = 'Non hai il permesso per modificare questa discussione.';
 		$this->mod_perm_topic_lock = 'Non hai il permesso per bloccare questa discussione.';
@@ -718,12 +718,12 @@ class it
 		$this->mod_perm_topic_unpin = 'non hai il permesso per unpin questa discussione.';
 		$this->mod_success_post_delete = 'Il messaggio è stato eliminato.';
 		$this->mod_success_post_edit = 'Il messaggio è stato modificato.';
-		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
+		$this->mod_success_publish = 'Questa discussione e\' stata pubblicata con successo.';
 		$this->mod_success_split = 'La discussione è stata divisa.';
 		$this->mod_success_topic_delete = 'La discussione è stata eliminata.';
 		$this->mod_success_topic_edit = 'La discussione è stata modificata.';
 		$this->mod_success_topic_move = 'La discussione è stata spostata nel nuovo forum.';
-		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
+		$this->mod_success_unpublish = 'Questa discussione verra\' rimossa dall\'elenco dei pubblicati.';
 	}
 
 	function optimize()
@@ -772,8 +772,8 @@ class it
 		$this->perms_topic_move_own = 'Muovi solo le discussioni create dall\'utente';
 		$this->perms_topic_pin = 'Evidenzia ogni tipo di discussione';
 		$this->perms_topic_pin_own = 'Evidenzia solo le discussioni create dall\'utente';
-		$this->perms_topic_publish = 'Publish or unpublish any topic'; //Translate
-		$this->perms_topic_publish_auto = 'New topics are marked as published'; //Translate
+		$this->perms_topic_publish = 'Pubblica o non pubblica qualsiasi discussione';
+		$this->perms_topic_publish_auto = 'Le nuove discussioni sono segnate come pubblicate';
 		$this->perms_topic_split = 'Dividi ogni tipo di discussione';
 		$this->perms_topic_split_own = 'Dividi solo le discussioni create dall\'utente';
 		$this->perms_topic_unlock = 'Sblocca ogni tipo di discussione';
@@ -782,7 +782,7 @@ class it
 		$this->perms_topic_unpin = 'Togli evidenza da ogni tipo di discussione';
 		$this->perms_topic_unpin_own = 'Togli evidenza solo le discussioni create dall\'utente';
 		$this->perms_topic_view = 'Mostra discussioni';
-		$this->perms_topic_view_unpublished = 'View unpublished topics'; //Translate
+		$this->perms_topic_view_unpublished = 'Visualizza discussioni non pubblicate';
 		$this->perms_updated = 'Permessi aggiornati.';
 		$this->perms_user_inherit = 'Questo utente erediterierà i permessi del groppo.';
 	}
@@ -1404,8 +1404,8 @@ class it
 		$this->topic_top = 'Vai all\'inizio della pagina';
 		$this->topic_unlock = 'Sblocca';
 		$this->topic_unpin = 'Non in Rilievo';
-		$this->topic_unpublish = 'UnPublish'; //Translate
-		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
+		$this->topic_unpublish = 'Non pubblicate';
+		$this->topic_unpublished = 'Questa discussione e\' classificata come non pubblicata per questo non hai il permesso di visualizzarla.';
 		$this->topic_unreg = 'Non Registrato';
 		$this->topic_view = 'Visualizza Risultati';
 		$this->topic_viewing = 'Visualizza Discussioni';
