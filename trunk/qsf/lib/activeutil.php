@@ -189,8 +189,9 @@ class activeutil extends bbcode
 				$forum = null;
 				$topic = null;
 				$is_bot = false;
-				
-				$title = (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  htmlspecialchars($user['active_user_agent']);
+				$ip = long2ip( $user['active_ip'] );
+
+				$title = (!$this->perms->auth('post_viewip') ? null : $ip . ' --- ') .  htmlspecialchars($user['active_user_agent']);
 
 				if ($user['active_id'] != USER_GUEST_UID) {
 					$link = "href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\"";
