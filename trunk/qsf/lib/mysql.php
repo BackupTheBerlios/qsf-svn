@@ -52,9 +52,10 @@ class db_mysql extends database
 	 **/
 	function db_mysql($db_host, $db_user, $db_pass, $db_name, $db_port = 3306, $db_socket = '')
 	{
+		parent::database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket);
 		$this->socket = $db_socket;
 
-		$this->connection = @mysql_connect("$db_host:$db_port" . (!$this->socket ? '' : ":$db_socket"), $db_user, $db_pass);
+		$this->connection = @mysql_connect("$db_host:$db_port" . (!$this->socket ? '' : ":$db_socket"), $db_user, $db_pass, true);
 
 		if (!@mysql_select_db($db_name, $this->connection)) {
 			$this->connection = false;
