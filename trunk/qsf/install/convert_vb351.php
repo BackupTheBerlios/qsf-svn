@@ -478,7 +478,7 @@ else if( $_GET['action'] == 'pmessages' )
          }
          if( $row['subject'] == '' )
             $row['subject'] = "No Title";
-         $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['pmid']}, {$row['userid']}, {$row['fromuserid']}, '{$bcc}', '{$row['title']}', {$row['dateline']}, '{$row['message']}', {$row['messageread']}, {$folder} )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['pmid']}, {$row['userid']}, {$row['fromuserid']}, 0, '{$bcc}', '{$row['title']}', {$row['dateline']}, '{$row['message']}', {$row['messageread']}, {$folder} )" );
       }
    }
 

@@ -34,7 +34,6 @@ define('QUICKSILVERFORUMS', true);
 
 require_once './convert_db.php';
 require_once '../settings.php';
-require './settings.php';
 $set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require_once $set['include_path'] . '/global.php';
@@ -599,7 +598,7 @@ else if( $_GET['action'] == 'pmessages' )
             }
             if( $row['TITLE'] == '' )
                $row['TITLE'] = "No Title";
-            $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['MESSAGE_ID']}, {$row['RECIPIENT_ID']}, {$row['FROM_ID']}, '{$bcc}', '{$row['TITLE']}', {$row['DATE']}, '{$row['MESSAGE']}', {$row['READ_STATE']}, {$folder} )" );
+            $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['MESSAGE_ID']}, {$row['RECIPIENT_ID']}, {$row['FROM_ID']}, 0, '{$bcc}', '{$row['TITLE']}', {$row['DATE']}, '{$row['MESSAGE']}', {$row['READ_STATE']}, {$folder} )" );
          }
       }
    }

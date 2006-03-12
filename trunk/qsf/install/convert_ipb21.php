@@ -656,7 +656,7 @@ else if( $_GET['action'] == 'pmessages' )
             if( $row['mt_title'] == '' )
                $row['mt_title'] = "No Title";
 
-            $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['mt_id']}, {$row['mt_to_id']}, {$row['mt_from_id']}, '{$bcc}', '{$row['mt_title']}', {$row['mt_date']}, '{$row['msg_post']}', {$row['mt_read']}, {$folder} )" );
+            $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['mt_id']}, {$row['mt_to_id']}, {$row['mt_from_id']}, 0, '{$bcc}', '{$row['mt_title']}', {$row['mt_date']}, '{$row['msg_post']}', {$row['mt_read']}, {$folder} )" );
          }
       }
    }

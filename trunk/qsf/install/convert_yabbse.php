@@ -531,14 +531,14 @@ else if( $_GET['action'] == 'pmessages' )
       {
          $SNDTABLE[] = array( 'mbto' => $row['ID_MEMBER_FROM'], 'mbfrom' => $row['ID_MEMBER_FROM'], 'bcc' => $row['ID_MEMBER_TO'], 'subject' => $row['subject'], 'time' => $row['msgtime'], 'text' => $row['body'] );
       }
-      $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['ID_IM']}, {$row['ID_MEMBER_TO']}, {$row['ID_MEMBER_FROM']}, '', '{$row['subject']}', {$row['msgtime']}, '{$row['body']}', 0, 0 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['ID_IM']}, {$row['ID_MEMBER_TO']}, {$row['ID_MEMBER_FROM']}, 0, '', '{$row['subject']}', {$row['msgtime']}, '{$row['body']}', 0, 0 )" );
       $topid = $row['ID_IM'];
    }
 
    for( $x = 0; $x < sizeof( $SNDTABLE ); $x++ )
    {
       $newid = ++$topid;
-      $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$newid}, {$SNDTABLE[$x]['mbto']}, {$SNDTABLE[$x]['mbfrom']}, '{$SNDTABLE[$x]['bcc']}', '{$SNDTABLE[$x]['subject']}', '{$SNDTABLE[$x]['msgtime']}', '{$SNDTABLE[$x]['text']}', 0, 1 )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$newid}, {$SNDTABLE[$x]['mbto']}, {$SNDTABLE[$x]['mbfrom']}, 0, '{$SNDTABLE[$x]['bcc']}', '{$SNDTABLE[$x]['subject']}', '{$SNDTABLE[$x]['msgtime']}', '{$SNDTABLE[$x]['text']}', 0, 1 )" );
       $i++;
    }
 

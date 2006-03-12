@@ -529,7 +529,7 @@ else if( $_GET['action'] == 'pmessages' )
          $bcc = $uto;
          $uto = $ufrom;
       }
-      $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['u2uid']}, {$uto}, {$ufrom}, '{$bcc}', '{$row['subject']}', {$row['dateline']}, '{$row['message']}', 0, {$folder} )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['u2uid']}, {$uto}, {$ufrom}, 0, '{$bcc}', '{$row['subject']}', {$row['dateline']}, '{$row['message']}', 0, {$folder} )" );
    }
 
    $oldset['pms'] = '1';

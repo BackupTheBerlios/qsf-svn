@@ -554,8 +554,9 @@ else if( $_GET['action'] == 'pmessages' )
          }
          if( $row['privmsgs_subject'] == '' )
             $row['privmsgs_subject'] = "No Title";
-
-         $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['privmsgs_id']}, {$row['privmsgs_to_userid']}, {$row['privmsgs_from_userid']}, '{$bcc}', '{$row['privmsgs_subject']}', {$row['privmsgs_date']}, '{$message}', {$readstate}, {$folder} )" );
+         $gip = get_ip( $row['privmsgs_ip'] );
+         $ip = ip2long( $gip );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['privmsgs_id']}, {$row['privmsgs_to_userid']}, {$row['privmsgs_from_userid']}, {$ip}, '{$bcc}', '{$row['privmsgs_subject']}', {$row['privmsgs_date']}, '{$message}', {$readstate}, {$folder} )" );
       }
    }
 
