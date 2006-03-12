@@ -389,7 +389,7 @@ class bbcode extends htmltools
 			'~\[color=(#?[a-zA-Z0-9]+?)](.*?)\[/color]~is',
 			'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
 			'~\[size=([0-9]+?)](.*?)\[/size]~is',
-			'~\[spoiler](.*?)\[/spoiler]~i',
+			'~\[spoiler](.*?)\[/spoiler]~is',
 			'~\[code](.*?)\[/code]~ise',
 			'~\[php](.*?)\[/php]~ise',
 			'~\[php=([0-9]+?)](.*?)\[/php]~ise',
