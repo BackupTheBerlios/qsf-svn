@@ -28,7 +28,10 @@ if (!defined('QUICKSILVERFORUMS')) {
 $this->nohtml = 1;
 
 $percent  = round(($this->db->querytime / $totaltime) * 100, 1);
-$normview = $this->self . '?' . substr($this->query, 0, -12);
+if (($query = substr($this->query, 0, -12)))
+	$normview = $this->self . '?' . $query;
+else
+	$normview = $this->self;
 
 $out = "
 <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
