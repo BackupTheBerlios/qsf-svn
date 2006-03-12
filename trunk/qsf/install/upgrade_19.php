@@ -33,6 +33,7 @@ $need_templates = array(
 	'RSSFEED_TOPIC',
 	'RSSFEED_ITEM',
 	'ACTIVE_USER',  	// Changed templates
+	'PM_SEND',
 	'CP_PREFS',
 	'BOARD_MAIN',
 	'FORUM_TOPIC',
@@ -43,7 +44,6 @@ $need_templates = array(
 	'RECENT_TOPIC',
 	'TOPIC_MAIN',
 	'TOPIC_POST',
-	'MAIN',
 	'MAIN_HEADER_GUEST',
 	'MAIN_HEADER_MEMBER',
 	'POST_CLICKABLE_SMILIES',
