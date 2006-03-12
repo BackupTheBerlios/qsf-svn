@@ -450,12 +450,8 @@ class bbcode extends htmltools
 		$height = ($lines * 14) + 14;
 		
 		$code_html = array();
-		$code_html['start_php'] = '<div class="code phpcode">
-			<div class="codetitle">PHP:</div>
-			<pre style="height:' . $height . 'px;" class="codedata">';
-		$code_html['start_code'] = '<div class="code">
-			<div class="codetitle">' . $this->lang->main_code . ':</div>
-			<pre style="height:' . $height . 'px;" class="codedata">';
+		$code_html['start_php'] = '<div class="code phpcode"><div class="codetitle">PHP:</div><pre style="height:' . $height . 'px;" class="codedata">';
+		$code_html['start_code'] = '<div class="code"><div class="codetitle">' . $this->lang->main_code . ':</div><pre style="height:' . $height . 'px;" class="codedata">';
 		$code_html['end'] = '</pre></div>';
 		return $code_html;
 	}
