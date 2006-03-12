@@ -277,7 +277,11 @@ class board extends qsfglobal
 		foreach ($all_active_users as $user)
 		{
 			if (($user['id'] != USER_GUEST_UID || $user['bot']) && !in_array($user['name'], $allnames)) {
-				$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
+				if ($user['bot']) {
+					$allusers[] = $user['name'];
+				} else {
+					$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
+				}
 				$allnames[] = $user['name'];
 			}
 		}
