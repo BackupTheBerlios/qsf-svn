@@ -930,6 +930,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
    <meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset={\$admin->lang->charset}\" />
    <link rel=\"stylesheet\" type=\"text/css\" href=\"../skins/{\$admin->skin}/styles.css\" />
    <link rel=\"stylesheet\" type=\"text/css\" href=\"../skins/{\$admin->skin}/admincp_menu.css\" />
+   <IF \$admin->debug_mode><link rel=\"stylesheet\" type=\"text/css\" href=\"../skins/{\$admin->skin}/hacks.css\" /></IF>
    <script type=\"text/javascript\" src=\"../javascript/admincp_menu.js\"></script>
   </head>
 
@@ -2031,6 +2032,7 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 <link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/styles.css\" media=\"screen\" />
 <link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/print.css\" media=\"print\" />
 <link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/handheld.css\" media=\"handheld\" />
+<IF \$qsf->debug_mode><link rel=\"stylesheet\" type=\"text/css\" href=\"./skins/{\$qsf->skin}/hacks.css\" /></IF>
 {\$qsf->feed_links}
 
 <!--[if lt IE 7]>

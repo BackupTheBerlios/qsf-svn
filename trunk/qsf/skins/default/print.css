@@ -161,13 +161,6 @@ div.container {
 	color: black;
 }
 
-/* Hack to force font size on IE */
-.container td {
-	font-size: 0.7em;
-	font-size: inherit;
-}
-
-
 /* Format the RSS Reader annoucements section to look like a normal menu field except with bullet points */
 .rssreader {
 	border:1px solid #999999;

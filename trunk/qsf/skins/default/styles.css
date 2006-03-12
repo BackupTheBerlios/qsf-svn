@@ -372,13 +372,6 @@ div.container {
 	font-size: 0.7em;
 }
 
-/* Hack to force font settings on IE */
-.container td {
-	font-size: 0.7em;
-	font-size: inherit;
-	color: black;
-}
-
 .round-top, .round-bottom {
 	margin-left: auto;
 	margin-right: auto;
@@ -452,12 +445,6 @@ body#admincp {
 	color: black;
 	font-size: 0.75em;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-}
-
-/* Hack to force font settings on IE */
-body#admincp td {
-	font-size: 0.7em;
-	font-size: inherit;
 }
 
 /* Stuff for the AdminCP mods */
