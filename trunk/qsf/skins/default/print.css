@@ -89,6 +89,13 @@ a.postlink    {color:black;}
 
 .copyright { margin-bottom: 0; text-align: center; }
 
+div.spoilerbox   {
+	padding-left:20px;
+	margin-top:5px;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-image: url(./images/icons/spoiler.png);
+}
 .spoiler      {border:1px #555555 solid; color: gray;}
 
 .pages        {font-size: 0.9em; color:#333333;}

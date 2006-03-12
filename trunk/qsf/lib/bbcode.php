@@ -410,7 +410,7 @@ class bbcode extends htmltools
 			'<span style=\'color:\\1\'>\\2</span>',
 			'<span style=\'font-family:\\1\'>\\2</span>',
 			'<span style=\'font-size:\\1ex\'>\\2</span>',
-			$this->lang->spoiler . ':<br /><div class="spoiler">\\1</div>',
+			'<div class="spoilerbox"><strong>' . $this->lang->spoiler . ':</strong><div class="spoiler">\\1</div></div>',
 			'$this->_format_code(\'\\1\', 0)',
 			'$this->_format_code(\'\\1\', 1)',
 			'$this->_format_code(\'\\2\', 1, \'\\1\')',

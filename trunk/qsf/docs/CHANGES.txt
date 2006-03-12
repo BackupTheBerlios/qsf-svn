@@ -1,5 +1,6 @@
 Changes for 1.2.0:
   General Changes and Additions:
+* Spoilers now display an icon (like quotes and code blocks)
 * Recent posts includes all topics since last visit as well as all unread topics
 * Added db_pgsql class as a step towards future PostgreSQL support
 * Added html version of Docs
