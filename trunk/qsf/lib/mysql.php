@@ -75,7 +75,7 @@ class db_mysql extends database
 	{
 		$data = array();
 		if (substr(trim(strtoupper($query)), 0, 6) == 'SELECT') {
-			$data = $this->fetch("EXPLAIN $query");
+			$data = $this->fetch("EXPLAIN $query", false);
 		}
 		return $data;
 	}
@@ -97,15 +97,16 @@ class db_mysql extends database
 	 * Executes a query
 	 *
 	 * @param string $query SQL query
+	 * @param bool $debug False allows the query to not show in debug page
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return resource Executed query
 	 **/
-	function query($query)
+	function query($query, $debug=true)
 	{
 		$this->querycount++;
 
-		if (isset($this->get['debug'])) {
+		if (isset($this->get['debug']) && $debug) {
 			$this->debug($query);
 		}
 

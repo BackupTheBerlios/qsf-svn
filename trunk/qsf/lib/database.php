@@ -119,9 +119,10 @@ class database
 	 * Interface version
 	 *
 	 * @param string $query SQL query
+	 * @param bool $debug False allows the query to not show in debug page
 	 * @return resource Executed query
 	 **/
-	function query($query)
+	function query($query, $debug=true)
 	{
 		return null;
 	}
@@ -130,13 +131,14 @@ class database
 	 * Executes a query and fetches it into an array
 	 *
 	 * @param string $query SQL query
+	 * @param bool $debug False allows the query to not show in debug page
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return array Fetched rows
 	 **/
-	function fetch($query)
+	function fetch($query, $debug=true)
 	{
-		return $this->nqfetch($this->query($query));
+		return $this->nqfetch($this->query($query, $debug));
 	}
 
 	/**

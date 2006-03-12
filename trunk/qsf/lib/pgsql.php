@@ -93,15 +93,16 @@ class db_pgsql extends database
 	 * Executes a query
 	 *
 	 * @param string $query SQL query
+	 * @param bool $debug False allows the query to not show in debug page
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 1.1.9
 	 * @return resource Executed query
 	 **/
-	function query($query)
+	function query($query, $debug=true)
 	{
 		$this->querycount++;
 
-		if (isset($this->get['debug'])) {
+		if (isset($this->get['debug']) && $debug) {
 			$this->debug($query);
 		}
 
