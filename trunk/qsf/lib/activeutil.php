@@ -166,7 +166,7 @@ class activeutil extends bbcode
 		$this->update($this->get['a'], $this->user_id);
 
 		$query = $this->db->query("
-			SELECT a.*, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
+			SELECT a.*, INET_NTOA(a.active_ip) as active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
 			FROM ({$this->pre}active a, {$this->pre}groups g, {$this->pre}users u)
 			LEFT JOIN {$this->pre}forums f ON f.forum_id=a.active_item
 			LEFT JOIN {$this->pre}topics t ON t.topic_id=a.active_item
@@ -189,9 +189,8 @@ class activeutil extends bbcode
 				$forum = null;
 				$topic = null;
 				$is_bot = false;
-				$ip = long2ip( $user['active_ip'] );
 
-				$title = (!$this->perms->auth('post_viewip') ? null : $ip . ' --- ') .  htmlspecialchars($user['active_user_agent']);
+				$title = (!$this->perms->auth('post_viewip') ? null : $user['active_ip'] . ' --- ') .  htmlspecialchars($user['active_user_agent']);
 
 				if ($user['active_id'] != USER_GUEST_UID) {
 					$link = "href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\"";
