@@ -2388,6 +2388,10 @@ $queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_se
 <script type=\"text/javascript\" src=\"./javascript/selectallboxes.js\"></script>
 {\$this->table}
  <tr>
+  <td>
+    <a href=\"{\$this->self}?a=pm&amp;f=0\">{\$this->lang->pm_folder_inbox}</a> |
+    <a href=\"{\$this->self}?a=pm&amp;f=1\">{\$this->lang->pm_folder_sentbox}</a>
+  </td>
   <td align=\"right\">
    <div class=\"bigbutton\"><a class=\"delete\" href=\"{\$this->self}?a=pm&amp;s=clear&amp;f={\$this->get[\'f\']}\" title=\"{\$this->lang->pm_delallmsg}\">{\$this->lang->delete}</a></div>
    <div class=\"bigbutton\"><a class=\"messenger\" href=\"{\$this->self}?a=pm&amp;s=send\" title=\"{\$this->lang->pm_sendamsg}\">{\$this->lang->new_message}</a></div>

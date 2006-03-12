@@ -33,6 +33,7 @@ Changes for 1.2.0:
 * Dropped any support for PHP versions older than 4.3.0
 
   Bugs Addressed:
+* Coundn't access PM outbox without javascript
 * Couldn't add a template with position 0
 * Spider agents are now set correctly and no longer require 2 arrays
 * Timezone class to handle timezone files with only one entry - Matt

@@ -34,6 +34,7 @@ $need_templates = array(
 	'RSSFEED_ITEM',
 	'ACTIVE_USER',  	// Changed templates
 	'PM_SEND',
+	'PM_FOLDER',
 	'CP_PREFS',
 	'BOARD_MAIN',
 	'FORUM_TOPIC',
