@@ -81,17 +81,6 @@ class activeutil extends bbcode
 	}
 
 	/**
-	 * Remove the active entry for a guest when a user logs in
-	 *
-	 * @param integer $user_id User who we are now logged in as
-	 **/
-	function delete_guest($user_id)
-	{
-		$this->db->query("DELETE FROM {$this->pre}active WHERE active_id= " . USER_GUEST_UID . "  AND active_ip='{$this->ip}' AND active_user_agent='{$this->agent}'");
-		$this->user_id = $user_id;
-	}
-	
-	/**
 	 * Get the full active data information
 	 *
 	 * @return array Full information on active users, links, and their actions
