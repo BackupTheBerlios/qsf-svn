@@ -406,7 +406,7 @@ class he
 		$this->groups_i_confirm = 'אני מאשר שברצוני למחוק את קבוצת החברים.'; 
 		$this->groups_name = 'שם'; 
 		$this->groups_no_action = 'לא נעשתה פעולה.'; 
-		$this->groups_no_delete ' = , ואינן ניתנות למחיקה.Quicksilver קבוצות הליבה חיוניות לתיפקוד הפורומים של<br />אין קבוצות מותאמות אישית למחיקה.'; 
+		$this->groups_no_delete = ' , ואינן ניתנות למחיקה.Quicksilver קבוצות הליבה חיוניות לתיפקוד הפורומים של<br />אין קבוצות מותאמות אישית למחיקה.'; 
 		$this->groups_no_group = 'לא צויינה קבוצה.'; 
 		$this->groups_no_name = 'לא ניתן שם לקבוצה.'; 
 		$this->groups_only_custom = '.Quicksilver הערה: באפשרותך למחוק רק קבוצות מותאמות אישית. קבוצות הליבה חיוניות לתיפקוד הפורומים של'; 
@@ -446,7 +446,7 @@ class he
 
 	function login()
 	{
-		$this->login_cant_logged = 'בדפדפן שלך. cookies . בנוסף, בדוק שמאופשר\'Username\' '\ שונה מUsErNaMe\' ישנה רגישות לאותיות קטנות וגדולות, ז"א<br /><br />לא התאפשרה כניסתך למערכת. בדוק ששם המשתמש והסיסמא נכונים.'; 
+		$this->login_cant_logged = 'בדפדפן שלך. cookies . בנוסף, בדוק שמאופשר\'Username\' \' שונה מUsErNaMe\' ישנה רגישות לאותיות קטנות וגדולות, ז"א<br /><br />לא התאפשרה כניסתך למערכת. בדוק ששם המשתמש והסיסמא נכונים.'; 
 		$this->login_cookies = 'בכדי להיכנס למערכת. cookies חובה לאפשר'; 
 		$this->login_forgot_pass = 'שכחת את הסיסמא?'; 
 		$this->login_header = 'מתחבר';
@@ -952,7 +952,7 @@ class he
 	{
 		$this->prune_action = 'פעולת קיצוץ לביצוע'; 
 		$this->prune_age_day = 'יום אחד'; 
-		$this->prune_age_eighthours = 8 שעות''; 
+		$this->prune_age_eighthours =' 8 שעות'; 
 		$this->prune_age_hour = 'שעה אחת'; 
 		$this->prune_age_month = 'חודש אחד'; 
 		$this->prune_age_threemonths = '3 חודשים'; 
@@ -1273,7 +1273,7 @@ class he
 		$this->skin_set = 'הגדרת סקין'; 
 		$this->skins_found = 'Quicksilver הסקינים הבאים נמצאו בסיפריית הפורומים של';
 		$this->template_about = 'אודות משתנים'; 
-		$this->template_about2 = משתנים הם חלקי טקסט המחליפים מידע דינאמי. משתנים תמיד מתחילים עם סימן דולר ולפעמים תחומים ב {סוגריים}''; 
+		$this->template_about2 = 'משתנים הם חלקי טקסט המחליפים מידע דינאמי. משתנים תמיד מתחילים עם סימן דולר ולפעמים תחומים ב {סוגריים}'; 
 		$this->template_add = 'הוסף'; 
 		$this->template_added = 'תבנית הוספה.'; 
 		$this->template_clear = 'נקה'; 
