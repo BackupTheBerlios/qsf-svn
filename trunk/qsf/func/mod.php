@@ -692,6 +692,9 @@ class mod extends qsfglobal
 					$this->db->query("UPDATE {$this->pre}posts SET post_topic=$id WHERE " . substr($where[$x][1], 4));
 
 					$this->update_last_post_topic($id);
+
+					$posts = $this->db->fetch("SELECT post_author, post_icon, post_time FROM {$this->pre}posts WHERE post_topic=$id ORDER BY post_time ASC");
+					$this->db->query("UPDATE {$this->pre}topics SET topic_starter={$posts['post_author']}, topic_icon='{$posts['post_icon']}' WHERE topic_id=$id");
 				}
 			}
 
