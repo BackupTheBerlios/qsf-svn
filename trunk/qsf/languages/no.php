@@ -572,13 +572,13 @@ class no
                $this->mbcode_purple = 'Purpur';
                $this->mbcode_quote = 'Sitere';
                $this->mbcode_red = 'Rød';
-               $this->mbcode_royalblue = 'Lyseblå'
+               $this->mbcode_royalblue = 'Lyseblå';
                $this->mbcode_sandybrown = 'Sandbrun';
                $this->mbcode_seagreen = 'Sjøgrønn';
                $this->mbcode_sienna = 'Brun';
                $this->mbcode_silver = 'Sølv';
                $this->mbcode_size = 'Størrelse';
-               $this->mbcode_skyblue = 'Himmelblå'
+               $this->mbcode_skyblue = 'Himmelblå';
                $this->mbcode_small = 'Liten';
                $this->mbcode_spoiler = 'Spoiler';
                $this->mbcode_strike = 'Gjennomstreking';
@@ -833,7 +833,7 @@ class no
                $this->pm_send = 'Send';
                $this->pm_sendamsg = 'Send en melding';
                $this->pm_sendingpm = 'Send en personlig melding';
-               $this->pm_sendon = 'Sending pågår'
+               $this->pm_sendon = 'Sending pågår';
                $this->pm_success = 'Meldingen er sendt.';
                $this->pm_sure_del = 'Er du sikker på at du vil slette denne meldingen?';
                $this->pm_sure_delall = 'Er du sikker på at du vil slette alle meldinger i denne mappen?';
