@@ -201,7 +201,8 @@ a.pagelinks:hover{color:#cc0000;}
 .clickablesmilies ul li {display: inline; padding: 2px; list-style-type: none;}
 
 ul.messageicons { padding: 0; margin: 0; }
-ul.messageicons li {display: inline; padding: 2px; list-style-type: none; white-space: nowrap;}
+ul.messageicons li {display: inline; padding: 2px; list-style-type: none; }
+html>body ul.messageicons li {white-space: nowrap;} /* Avoid IE */
 
 .mainmessage  {text-align: center;}
 .mainmessage .stand table.stand {text-align: center; width: 60%;}
