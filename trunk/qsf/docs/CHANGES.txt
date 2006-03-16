@@ -57,6 +57,7 @@ Changes for 1.2.0:
 * Significant update to Hebrew translation - David (ddady)
 * Big update to Italian translation - Giuseppe
 * Norwegian translation completely rewritten - Ingvild
+* Big update to French translation - Brinick
 
 Changes for 1.1.9:
 
