@@ -1039,6 +1039,7 @@ class cs
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'Vámi zadanou e-mailovou adresu ji pouívá jinı èlen.';
 		$this->register_fields = 'Nejsou vyplnìny všechny údaje.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Prosím zadejte text, kterı vidíte na obrázku.';
 		$this->register_image_invalid = 'Musíte zadat text, kterı vidíte na obrázku.';
 		$this->register_must_activate = 'ádost o registraci byla podána. Na adresu %s byl zaslán e-mail s informacemi, jak aktivovat Váš úèet. Dokud nebude úèet aktivován, budete mít na fóru omezené nìkteré funkce.';

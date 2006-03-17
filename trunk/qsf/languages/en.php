@@ -1039,6 +1039,7 @@ class en
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:';
 		$this->register_email_used = 'The email address you entered is already assigned to a member.';
 		$this->register_fields = 'Not all fields are filled in.';
+		$this->register_flood = 'You have registered already.';
 		$this->register_image = 'Please type the text shown in the image.';
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.';
 		$this->register_must_activate = 'You have been registered. An email has been sent to %s with information on how to activate your account. Your account will be limited until you activate it.';

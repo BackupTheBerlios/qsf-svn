@@ -1039,6 +1039,7 @@ class es
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'La cuenta de correo electrónico ya esta registrada por otro miembro';
 		$this->register_fields = 'No todos los campos estan completos';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.'; //Translate
 		$this->register_must_activate = 'You have been registered. An email has been sent to %s with information on how to activate your account. Your account will be limited until you activate it.'; //Translate

@@ -1040,6 +1040,7 @@ class ru
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'Введенный адрес email уже используется одним из пользователей.';
 		$this->register_fields = 'Не все поля заполнены.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Пожалуйста, введите текст, изображенный на картинке.';
 		$this->register_image_invalid = 'Чтобы убедится, что ты человек, а не поганый робот, введи текст, изображенный на картинке.';
 		$this->register_must_activate = 'Ты зарегистрировался. На адрес %s был выслан email с инструкциями по активизации твоего аккаунта. Перед началом работы необходимо активизировать аккаунт.';

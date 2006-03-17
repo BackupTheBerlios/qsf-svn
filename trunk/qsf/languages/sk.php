@@ -1041,6 +1041,7 @@ class sk
 		$this->register_email_msg3 = 'Prosím, kliknite na nasledujúci link alebo ho skopírujte do Vašeho web browsera:';
 		$this->register_email_used = 'Zadaná emailová adresa už bola pridelená inému èlenovi.';
 		$this->register_fields = 'Neboli vyplnené všetky polia.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Prosím napíšte text, ktorý je na obrázku.';
 		$this->register_image_invalid = 'Kvôli obmedzeniu automatizovaného registrovania musíte opísa text, ktorý vidíte na obrázku.';
 		$this->register_must_activate = 'Boli ste zaregistrovaný. Na adresu %s bol zaslaný email s informáciami oo aktivácii Vašeho konta. Vaše konto bude obmedzené, pokia¾ si ho neaktivujete.';

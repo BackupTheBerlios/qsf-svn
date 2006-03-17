@@ -1039,6 +1039,7 @@ class pt
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'Já tem usuário com este email.';
 		$this->register_fields = 'Não preencheu todos os campos.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'SElecione o texto que você ve na imagem.';
 		$this->register_image_invalid = 'Para verificar se realmente é você, é preciso digitar o texto que se vê na imagem.';
 		$this->register_must_activate = 'Você está sendo registrado. Você receberá um email, para %s com a informação para ativar sua conta. Será necessário ativá-la.';

@@ -33,6 +33,7 @@ Changes for 1.2.0:
 * Dropped any support for PHP versions older than 4.3.0
 
   Bugs Addressed:
+* [security] Registration now uses sessions to stop spamming registration form
 * Split topics would not pick up new topic start author
 * Coundn't access PM outbox without javascript
 * Couldn't add a template with position 0

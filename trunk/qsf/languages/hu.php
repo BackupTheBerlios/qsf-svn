@@ -1039,6 +1039,7 @@ class hu
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'A megadott email címen már valaki regisztrált.';
 		$this->register_fields = 'Nincs kitöltve minden mezõ.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Kérlek, írd be a képen látható szöveget.';
 		$this->register_image_invalid = 'Annak érdekében, hogy ellenõrizni lehessen a feliratkozó emberi mivoltát, be kell írni a képen látható szöveget.';
 		$this->register_must_activate = 'Sikeresen feliratkozotál. Elküldtünk egy emailt a %s címre a szükséges aktiválási részletekkel. A fiókod korlátozott lesz, amíg nincs aktiválva.';

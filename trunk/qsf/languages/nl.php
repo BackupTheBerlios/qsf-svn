@@ -93,7 +93,7 @@ class nl
 		$this->admin_edit_settings = 'Verander board opties';
 		$this->admin_edit_skin = 'Verander of verwijder een skin';
 		$this->admin_edit_templates = 'Verander HTML templates';
-		$this->admin_emoticons = 'Emoticons';
+		$this->admin_emoticons = 'Emoticons'; //Translate
 		$this->admin_export_skin = 'Exporteer a skin';
 		$this->admin_fix_stats = 'Herstel de gebruiker zijn statistieken';
 		$this->admin_forum_order = 'Verander de forum instellingen';
@@ -110,9 +110,9 @@ class nl
 		$this->admin_prune = 'Prune old topics'; //Translate
 		$this->admin_recount_forums = 'Tel de onderwerpen en antwoorden opnieuw';
 		$this->admin_settings = 'Settings'; //Translate
-		$this->admin_skins = 'Skins';
+		$this->admin_skins = 'Skins'; //Translate
 		$this->admin_stats = 'Statestieken center';
-		$this->admin_upgrade_skin = 'Upgrade a Skin';
+		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
 		$this->admin_your_board = 'Uw bestuurskamer';
 	}
 
@@ -133,7 +133,7 @@ class nl
 
 	function ban()
 	{
-		$this->ban = 'Ban';
+		$this->ban = 'Ban'; //Translate
 		$this->ban_banned_ips = 'Ban IP Addressen';
 		$this->ban_banned_members = 'Verbannen gebruikers';
 		$this->ban_ip = 'Verban IP Addressen';
@@ -156,7 +156,7 @@ class nl
 		$this->board_can_topics = 'Je mag onderwerpen bekijken in dit forum.';
 		$this->board_cant_post = 'Je mag niet antwoorden.';
 		$this->board_cant_topics = 'Je mag geen onderwerpen bekijken in dit forum.';
-		$this->board_forum = 'Forum';
+		$this->board_forum = 'Forum'; //Translate
 		$this->board_guests = 'Gasten';
 		$this->board_last_post = 'Laatst geplaatst op';
 		$this->board_mark = 'Markeer berichten als gelezen';
@@ -190,13 +190,13 @@ class nl
 	{
 		$this->cp_aim = 'AIM naam:';
 		$this->cp_already_member = 'Het opgegeven e-mail adres bestaat al.';
-		$this->cp_apr = 'April';
+		$this->cp_apr = 'April'; //Translate
 		$this->cp_aug = 'Augustus';
 		$this->cp_avatar_current = 'Huidige avatar';
 		$this->cp_avatar_error = 'Avatar fout';
 		$this->cp_avatar_must_select = 'Je moet een avatar kiezen.';
 		$this->cp_avatar_none = 'Gebruik geen avatar';
-		$this->cp_avatar_pixels = 'pixels';
+		$this->cp_avatar_pixels = 'pixels'; //Translate
 		$this->cp_avatar_select = 'Selecteer een avatar';
 		$this->cp_avatar_size_height = 'Uw avatar hoogte moet tussen 1 en zijn';
 		$this->cp_avatar_size_width = 'Uw avatar breedte moet tussen 1 en zijn';
@@ -217,7 +217,7 @@ class nl
 		$this->cp_current_time = 'Het is nu %s.';
 		$this->cp_custom_title = 'Gebruik gebruikerstitel';
 		$this->cp_custom_title2 = 'Dit is een privilege voorbehouden voor bestuur administrators.';
-		$this->cp_dec = 'December';
+		$this->cp_dec = 'December'; //Translate
 		$this->cp_editing_avatar = 'Verander uw avatar';
 		$this->cp_editing_profile = 'Wijzigen van profiel';
 		$this->cp_email = 'E-mail:';
@@ -228,7 +228,7 @@ class nl
 		$this->cp_feb = 'Februari';
 		$this->cp_file_type = 'De avatar die u heeft opgegeven is ongeldig. Controleer of u het adres goed heeft ingevoerd. Het mag alleen een .gif, .jpg of een .png bestand zijn.';
 		$this->cp_format = 'Gebruikersnaam:';
-		$this->cp_gtalk = 'GTalk Account';
+		$this->cp_gtalk = 'GTalk Account'; //Translate
 		$this->cp_header = 'Persoonlijke instellingen';
 		$this->cp_height = 'Hoogte';
 		$this->cp_icq = 'ICQ Nummer:';
@@ -254,16 +254,16 @@ class nl
 		$this->cp_new_pass = 'Nieuw wachtwoord';
 		$this->cp_no_flash = 'Flash-avatars zijn niet toegestaan.';
 		$this->cp_not_exist = 'De datum die u heeft ingevoerd: (%s) bestaat niet!';
-		$this->cp_nov = 'November';
+		$this->cp_nov = 'November'; //Translate
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Het oude wachtwoord dat u heeft ingegeven komt niet overeen met het wachtwoord in onze database.';
 		$this->cp_old_pass = 'Oude wachtwoord';
 		$this->cp_pass_notvaid = 'Uw wachtwoord is ongeldig. Zorg ervoor dat u alleen de toegestane leestekens zoals letters, nummers, verbindingsstreepjes, onderstreeptekens of spaties gebruikt.';
 		$this->cp_preferences = 'Verander je forum instellingen';
-		$this->cp_preview_sig = 'Signature Preview:';
+		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Privé Opties';
 		$this->cp_repeat_pass = 'Herhaal het nieuwe wachtwoord';
-		$this->cp_sept = 'September';
+		$this->cp_sept = 'September'; //Translate
 		$this->cp_show_active = 'Toon uw activiteiten wanneer u het forum gebruikt?';
 		$this->cp_show_email = 'E-mailadres laten zien in profiel?';
 		$this->cp_signature = 'Handtekening:';
@@ -308,7 +308,7 @@ class nl
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons'; 
+		$this->emote = 'Emoticons'; //Translate
 		$this->emote_add = 'Emoticons toevoegen';
 		$this->emote_added = 'Emoticon toegevoegd.';
 		$this->emote_clickable = 'Aanklikbaar';
@@ -330,7 +330,7 @@ class nl
 		$this->forum_cant_topics = 'U kan geen onderwerpen in dit forum bekijken.';
 		$this->forum_dot = 'punt';
 		$this->forum_dot_detail = 'Laat uw bericht zien in dit onderwerp.';
-		$this->forum_forum = 'Forum'; 
+		$this->forum_forum = 'Forum'; //Translate
 		$this->forum_guest = 'Gast';
 		$this->forum_hot = 'Hot item';
 		$this->forum_icon = 'Berichten icoontje';
@@ -424,7 +424,7 @@ class nl
 		$this->help_add = 'Voeg een hulpartikel toe.';
 		$this->help_article = 'Hulpartikel opties';
 		$this->help_available_files = 'Beschikbare hulp onderwerpen';
-		$this->help_confirm = 'Bent u zeker dat u hetvolgende wilt verwijderen?'; 
+		$this->help_confirm = 'Bent u zeker dat u hetvolgende wilt verwijderen?';
 		$this->help_content = 'Inhoud van het artikel';
 		$this->help_delete = 'Verwijder het hulpartikel';
 		$this->help_deleted = 'Het hulpartikel is verwijderd.';
@@ -443,7 +443,7 @@ class nl
 	function home()
 	{
 		$this->home_choose = 'Selecteer een taak om te beginnen.';
-		$this->home_menu_title = 'Admin CP Menu';
+		$this->home_menu_title = 'Admin CP Menu'; //Translate
 	}
 
 	function login()
@@ -471,7 +471,7 @@ class nl
 		$this->logs_deleted_topic = 'Onderwep verwijderd';
 		$this->logs_edited_post = 'Antwoord aangepast';
 		$this->logs_edited_topic = 'Onderwep aangepast';
-		$this->logs_id = 'IDs'; 
+		$this->logs_id = 'IDs'; //Translate
 		$this->logs_locked_topic = 'Onderwerp gesloten';
 		$this->logs_moved_from = 'van forum';
 		$this->logs_moved_to = 'naar forum';
@@ -493,7 +493,7 @@ class nl
 		$this->main_activate_resend = 'Verstuur activatie e-mail opnieuw';
 		$this->main_admincp = 'Beheerder instellingen';
 		$this->main_banned = 'U bent geblokkeerd op dit forum.';
-		$this->main_code = 'Code'; 
+		$this->main_code = 'Code'; //Translate
 		$this->main_cp = 'Instellingen';
 		$this->main_full = 'Vol';
 		$this->main_help = 'Help';
@@ -538,15 +538,15 @@ class nl
 	function mbcode()
 	{
 		$this->mbcode_address = 'Geef adres op';
-		$this->mbcode_arial = 'Arial'; 
+		$this->mbcode_arial = 'Arial'; //Translate
 		$this->mbcode_blue = 'Blauw';
 		$this->mbcode_bold = 'Vetgedrukt';
 		$this->mbcode_bold1 = 'V';
 		$this->mbcode_chocolate = 'Chocolade';
-		$this->mbcode_code = 'Code'; 
+		$this->mbcode_code = 'Code'; //Translate
 		$this->mbcode_color = 'Kleur';
 		$this->mbcode_coral = 'Koraal';
-		$this->mbcode_courier = 'Courier'; 
+		$this->mbcode_courier = 'Courier'; //Translate
 		$this->mbcode_crimson = 'Karmozijnrood';
 		$this->mbcode_darkblue = 'Donker Blauw';
 		$this->mbcode_darkred = 'Donker Rood';
@@ -560,16 +560,16 @@ class nl
 		$this->mbcode_image = 'Afbeelding';
 		$this->mbcode_image1 = 'AFB';
 		$this->mbcode_impact = 'Effect';
-		$this->mbcode_indigo = 'Indigo'; 
+		$this->mbcode_indigo = 'Indigo'; //Translate
 		$this->mbcode_italic = 'Cursief';
-		$this->mbcode_italic1 = 'I'; 
+		$this->mbcode_italic1 = 'I'; //Translate
 		$this->mbcode_large = 'Groot';
 		$this->mbcode_length = 'Je bericht heeft +length+ lettertekens.';
 		$this->mbcode_limegreen = 'Limoen Groen';
 		$this->mbcode_medium = 'Normaal';
 		$this->mbcode_orange = 'Oranje';
 		$this->mbcode_orangered = 'Oranje Rood';
-		$this->mbcode_php = 'PHP'; 
+		$this->mbcode_php = 'PHP'; //Translate
 		$this->mbcode_purple = 'Paars';
 		$this->mbcode_quote = 'Citeer';
 		$this->mbcode_red = 'Rood';
@@ -583,16 +583,16 @@ class nl
 		$this->mbcode_small = 'Klein';
 		$this->mbcode_spoiler = 'Spoiler'; //Translate
 		$this->mbcode_strike = 'Doorstrepen';
-		$this->mbcode_strike1 = 'S'; 
-		$this->mbcode_tahoma = 'Tahoma';
-		$this->mbcode_teal = 'Teal';
-		$this->mbcode_times = 'Times';
+		$this->mbcode_strike1 = 'S'; //Translate
+		$this->mbcode_tahoma = 'Tahoma'; //Translate
+		$this->mbcode_teal = 'Teal'; //Translate
+		$this->mbcode_times = 'Times'; //Translate
 		$this->mbcode_tiny = 'Heel Klein';
 		$this->mbcode_tomato = 'Tomaten Rood';
 		$this->mbcode_underline = 'Onderstreept';
-		$this->mbcode_underline1 = 'U';
-		$this->mbcode_url = 'URL';
-		$this->mbcode_verdana = 'Verdana';
+		$this->mbcode_underline1 = 'U'; //Translate
+		$this->mbcode_url = 'URL'; //Translate
+		$this->mbcode_verdana = 'Verdana'; //Translate
 		$this->mbcode_wood = 'Lichtbruin';
 		$this->mbcode_yellow = 'Geel';
 	}
@@ -612,7 +612,7 @@ class nl
 		$this->mc_guest_needed = 'Het gastenaccount is noodzakelijk voor Quicksilver Forums om te kunnen functioneren.';
 		$this->mc_not_found = 'Er werden geen gebruikers teruggevonden met de gegevens';
 		$this->mc_user_aim = 'AIM Naam';
-		$this->mc_user_avatar = 'Avatar';
+		$this->mc_user_avatar = 'Avatar'; //Translate
 		$this->mc_user_avatar_height = 'Hoogte Avatar';
 		$this->mc_user_avatar_type = 'Type Avatar';
 		$this->mc_user_avatar_width = 'Breedte Avatar';
@@ -620,8 +620,8 @@ class nl
 		$this->mc_user_email = 'E-mail adres';
 		$this->mc_user_email_show = 'E-mail is zichtbaar voor andere gebruikers';
 		$this->mc_user_group = 'Groep';
-		$this->mc_user_gtalk = 'GTalk Account';
-		$this->mc_user_homepage = 'Homepage';
+		$this->mc_user_gtalk = 'GTalk Account'; //Translate
+		$this->mc_user_homepage = 'Homepage'; //Translate
 		$this->mc_user_icq = 'ICQ Nummer';
 		$this->mc_user_id = 'Gebruiker\'s ID';
 		$this->mc_user_interests = 'Intresses';
@@ -629,14 +629,14 @@ class nl
 		$this->mc_user_language = 'Taal';
 		$this->mc_user_lastpost = 'Laaste Bericht';
 		$this->mc_user_lastvisit = 'Laatst bekeken';
-		$this->mc_user_level = 'Level';
+		$this->mc_user_level = 'Level'; //Translate
 		$this->mc_user_location = 'Woonplaats';
 		$this->mc_user_msn = 'MSN Messenger';
 		$this->mc_user_name = 'Naam';
 		$this->mc_user_pm = 'Accepteer privé berichten';
 		$this->mc_user_posts = 'Berichten';
 		$this->mc_user_signature = 'Handtekening';
-		$this->mc_user_skin = 'Skin';
+		$this->mc_user_skin = 'Skin'; //Translate
 		$this->mc_user_timezone = 'Tijdszone';
 		$this->mc_user_title = 'Gebruikerstitel';
 		$this->mc_user_title_custom = 'Gebruik een vaste gebruikerstitel';
@@ -688,7 +688,7 @@ class nl
 		$this->mod_label_options = 'Opties';
 		$this->mod_label_post_delete = 'Verwijder bericht';
 		$this->mod_label_post_edit = 'Bewerk bericht';
-		$this->mod_label_post_icon = 'Post Icon';
+		$this->mod_label_post_icon = 'Post Icon'; //Translate
 		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Titel';
 		$this->mod_label_title_original = 'Oorspronkelijke Titel';
@@ -796,7 +796,7 @@ class nl
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar';
+		$this->pm_avatar = 'Avatar'; //Translate
 		$this->pm_cant_del = 'Je hebt geen rechten om dit bericht te verwijderen';
 		$this->pm_delallmsg = 'Verwijder alle berichten';
 		$this->pm_delete = 'Verwijder';
@@ -915,13 +915,13 @@ class nl
 	{
 		$this->profile_aim_sn = 'AIM:';
 		$this->profile_av_sign = 'Avatar and handtekening';
-		$this->profile_avatar = 'Avatar';
+		$this->profile_avatar = 'Avatar'; //Translate
 		$this->profile_bday = 'Verjaardag:';
-		$this->profile_contact = 'Contact';
+		$this->profile_contact = 'Contact'; //Translate
 		$this->profile_email_address = 'E-mail:';
 		$this->profile_fav = 'Favoriete forum:';
 		$this->profile_fav_forum = '%s (%d%% van de berichten van deze gebruiker)';
-		$this->profile_gtalk = 'GTalk Account';
+		$this->profile_gtalk = 'GTalk Account'; //Translate
 		$this->profile_icq_uin = 'ICQ:';
 		$this->profile_info = 'Informatie';
 		$this->profile_interest = 'Wat ik kwijt wil:';
@@ -954,11 +954,11 @@ class nl
 	{
 		$this->prune_action = 'Prune action to take'; //Translate
 		$this->prune_age_day = '1 Dag';
-		$this->prune_age_eighthours = '8 Uren'; 
+		$this->prune_age_eighthours = '8 Uren';
 		$this->prune_age_hour = '1 Uur';
-		$this->prune_age_month = '1 Maand'; 
+		$this->prune_age_month = '1 Maand';
 		$this->prune_age_threemonths = '3 Maanden';
-		$this->prune_age_week = '1 Week';
+		$this->prune_age_week = '1 Week'; //Translate
 		$this->prune_age_year = '1 Jaar';
 		$this->prune_forums = 'Select forums to prune'; //Translate
 		$this->prune_invalidage = 'Invalid age specified for pruning'; //Translate
@@ -993,7 +993,7 @@ class nl
 		$this->recent_cant_topics = 'Je kunt geen onderwerpen in dit forum bekijken.';
 		$this->recent_dot = 'punt';
 		$this->recent_dot_detail = 'Laat je bericht zien in dit onderwerp';
-		$this->recent_forum = 'Forum';
+		$this->recent_forum = 'Forum'; //Translate
 		$this->recent_guest = 'Gast';
 		$this->recent_hot = 'Hot item';
 		$this->recent_icon = 'Berichten icoontje';
@@ -1041,6 +1041,7 @@ class nl
 		$this->register_email_msg3 = 'Klik op de volgende link, of kopieer hem naar een internetbrowser:';
 		$this->register_email_used = 'Het door jou ingegeven E-mail adres is al aan een andere gebruiker toegewezen.';
 		$this->register_fields = 'Je hebt niet alle velden ingevuld.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Gelieve de tekst in te geven die in het beeld wordt getoond.';
 		$this->register_image_invalid = 'Om te verifiëren dat je een menselijke registrant bent en geen robot, moet je de tekst zoals aangetoond in het beeld typen.';
 		$this->register_must_activate = 'Je bent geregistreerd. Er is een e-mail gestuurd naar %s met de activerings-informatie. Je account heeft beperkte mogelijkheden tot je account geactiveerd is.';
@@ -1065,15 +1066,15 @@ class nl
 		$this->rssfeed_cannot_read_forum = 'U heeft niet de toestemming om dit forum te bezichtigen.';
 		$this->rssfeed_cannot_read_topic = 'U heeft niet de toestemming om dit onderwerp te lezen.';
 		$this->rssfeed_error = 'Fout';
-		$this->rssfeed_forum = 'Forum:';
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Geplaatst door';
 		$this->rssfeed_topic = 'Onderwerp:';
-	
+	}
 
 	function search()
 	{
 		$this->search_advanced = 'Geavanceerd';
-		$this->search_avatar = 'Avatar';
+		$this->search_avatar = 'Avatar'; //Translate
 		$this->search_basic = 'Normaal';
 		$this->search_characters = 'Karakters van bericht';
 		$this->search_day = 'Dag';
@@ -1081,7 +1082,7 @@ class nl
 		$this->search_exact_name = 'Nauwkeurige naam';
 		$this->search_flood = 'Je hebt al naar bericht gezocht in de laatste %s seconden.<br /><br />Probeer het in enkele seconden nog eens.';
 		$this->search_for = 'Zoeken op';
-		$this->search_forum = 'Forum';
+		$this->search_forum = 'Forum'; //Translate
 		$this->search_group = 'Groep';
 		$this->search_guest = 'Gast';
 		$this->search_in = 'Zoeken in';
@@ -1133,7 +1134,7 @@ class nl
 		$this->settings_attach_ext = 'Bijlagen - File Extensions';
 		$this->settings_attach_one_per = 'One per line. No periods.'; //Translate
 		$this->settings_avatar = 'Avatar opties';
-		$this->settings_avatar_flash = 'Flash Avatars';
+		$this->settings_avatar_flash = 'Flash Avatars'; //Translate
 		$this->settings_avatar_max_height = 'Maximum Avatar hoogte';
 		$this->settings_avatar_max_width = 'Maximum Avatar breedte';
 		$this->settings_avatar_upload = 'Geuploade Avatars - Maximale bestandsgrootte';
@@ -1149,8 +1150,8 @@ class nl
 		$this->settings_board_rssfeed_title = 'RSS Feed Titel';
 		$this->settings_clickable = 'Aanklikbare smlies per rij';
 		$this->settings_cookie = 'Cookie and Flood Opties';
-		$this->settings_cookie_path = 'Cookie Path';
-		$this->settings_cookie_prefix = 'Cookie Prefix';
+		$this->settings_cookie_path = 'Cookie Path'; //Translate
+		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
 		$this->settings_cookie_time = 'Time to Remain Logged In'; //Translate
 		$this->settings_db = 'Edit Connection Settings'; //Translate
 		$this->settings_db_host = 'Database Host'; //Translate
@@ -1419,7 +1420,7 @@ class nl
 
 	function universal()
 	{
-		$this->aim = 'AIM';
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'Gebaseerd op';
 		$this->board_by = 'Door';
 		$this->charset = 'iso-8859-1';
@@ -1428,16 +1429,16 @@ class nl
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Aanpassen';
 		$this->email = 'E-mail';
-		$this->gtalk = 'GT'; 
-		$this->icq = 'ICQ'; 
-		$this->msn = 'MSN'; 
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
 		$this->new_message = 'Nieuw Bericht';
 		$this->new_poll = 'Nieuwe Poll';
 		$this->new_topic = 'Nieuw Onderwerp';
 		$this->no = 'Nee';
 		$this->powered = 'Powered by'; //Translate
 		$this->private_message = 'PB';
-		$this->quote = 'Citeer'; 
+		$this->quote = 'Citeer';
 		$this->reply = 'Antwoord';
 		$this->seconds = 'Seconden';
 		$this->select_all = 'Selecteer alles';
@@ -1445,10 +1446,10 @@ class nl
 		$this->sep_thousands = '.';
 		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Verzend';
-		$this->subscribe = 'Toeschrijven aan'; 
+		$this->subscribe = 'Toeschrijven aan';
 		$this->today = 'Vandaag';
-		$this->website = 'WWW'; 
-		$this->yahoo = 'Yahoo'; 
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = 'Ja';
 		$this->yesterday = 'Gisteren';
 	}

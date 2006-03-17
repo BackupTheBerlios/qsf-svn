@@ -90,7 +90,6 @@ class qsfglobal
 		$this->post    = $_POST;
 		$this->cookie  = $_COOKIE;
 		$this->files   = $_FILES;
-		$this->session = &$_SESSION;
 		$this->query   = htmlspecialchars($this->query);
 
 		// Do all magic quote stuff here

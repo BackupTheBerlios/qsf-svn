@@ -1039,6 +1039,7 @@ class bg
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'Има регистриран потребител с email адреса, който си въвел.';
 		$this->register_fields = 'Не всички задължителни полета са попълнени.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.'; //Translate
 		$this->register_must_activate = 'You have been registered. An email has been sent to %s with information on how to activate your account. Your account will be limited until you activate it.'; //Translate

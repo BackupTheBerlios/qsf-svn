@@ -1039,6 +1039,7 @@ class id
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'Email yang anda masukkan sudah dipakai oleh anggota lain.';
 		$this->register_fields = 'Semua field tidak diisi.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.'; //Translate
 		$this->register_must_activate = 'Anda telah terdaftar. Email telah terkirim ke %s dengan informasi dan cara untuk mengaktifkan account. Aktifasi account dibatasi hingga anda mengaktifkannya.';

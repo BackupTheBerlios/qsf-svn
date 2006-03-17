@@ -64,7 +64,7 @@ class fr
 		$this->admin_ban_ips = 'Protocole d\'Internet d\'interdiction adresse';
 		$this->admin_censor = 'Censurer des mots';
 		$this->admin_cp_denied = 'Accès interdit';
-		$this->admin_cp_warning = 'L\'Admin CP est désactivé jusqu\'a l\'effacement du répertoire <b>install</b> car son existence pose un risque de securité'; 
+		$this->admin_cp_warning = 'L\'Admin CP est désactivé jusqu\'a l\'effacement du répertoire <b>install</b> car son existence pose un risque de securité';
 		$this->admin_create_forum = 'Créer un forum';
 		$this->admin_create_group = 'Créer un group';
 		$this->admin_create_help = 'Créer un article d\'aide';
@@ -154,7 +154,7 @@ class fr
 		$this->board_can_topics = 'Vous pouvez voir les messages de ce forum.';
 		$this->board_cant_post = 'Vous ne pouvez pas répondre dans ce forum.';
 		$this->board_cant_topics = 'Vous ne pouvez pas voir les messages de ce forum.';
-		$this->board_forum = 'Forum';
+		$this->board_forum = 'Forum'; //Translate
 		$this->board_guests = 'invités';
 		$this->board_last_post = 'Dernier message';
 		$this->board_mark = 'Marquer tous les messages comme lus';
@@ -194,7 +194,7 @@ class fr
 		$this->cp_avatar_error = 'Erreur d\'avatar';
 		$this->cp_avatar_must_select = 'Vous devez choisir un avatar.';
 		$this->cp_avatar_none = 'N\'utilisez pas d\'avatar.';
-		$this->cp_avatar_pixels = 'pixels';
+		$this->cp_avatar_pixels = 'pixels'; //Translate
 		$this->cp_avatar_select = 'Choisissez un avatar';
 		$this->cp_avatar_size_height = 'La hauteur de l\'avatar doit être comprise entre 1 et ';
 		$this->cp_avatar_size_width = 'La largeur de l\'avatar doit être comprise entre 1 et ';
@@ -218,7 +218,7 @@ class fr
 		$this->cp_dec = 'Décembre';
 		$this->cp_editing_avatar = 'Mettre à jour son avatar';
 		$this->cp_editing_profile = 'Mettre à jour son profil';
-		$this->cp_email = 'Mél'; 
+		$this->cp_email = 'Mél';
 		$this->cp_email_form = 'Permettre aux autres membres de vous contacter par email?';
 		$this->cp_email_invaid = 'Le mél entré n\'est pas valide.';
 		$this->cp_err_avatar = 'Erreur en mettant à jour l\'avatar';
@@ -264,7 +264,7 @@ class fr
 		$this->cp_sept = 'Septembre';
 		$this->cp_show_active = 'Montrer votre activité pendant l\'utilisation du forum? ';
 		$this->cp_show_email = 'Montrer le mél dans le profil?';
-		$this->cp_signature = 'Signature';
+		$this->cp_signature = 'Signature'; //Translate
 		$this->cp_size_max = 'La taille de l\'avatar que vous avez choisie est trop importante. La taille maximale permise est de %s par %s pixels. ';
 		$this->cp_skin = 'Thème du forum';
 		$this->cp_sub_change = 'Changer les Abonnements';
@@ -311,7 +311,7 @@ class fr
 		$this->emote_added = 'Emotion a ajouté. ';
 		$this->emote_clickable = 'Cliquable';
 		$this->emote_edit = 'Editer les Emotions';
-		$this->emote_image = 'Image';
+		$this->emote_image = 'Image'; //Translate
 		$this->emote_install = 'Installer les émotions';
 		$this->emote_install_done = 'Les émotions ont été réinstallées avec succès.';
 		$this->emote_install_warning = 'Ceci effacera tous cadres d\'emoticon existants et l\'importation a téléchargé emoticons de votre peau actuellement choisie dans la base de données. ';
@@ -328,7 +328,7 @@ class fr
 		$this->forum_cant_topics = 'Vous ne pouvez pas voir les sujets dans ce forum. ';
 		$this->forum_dot = 'point';
 		$this->forum_dot_detail = 'Affiche ce que vous avez posté dans le sujet';
-		$this->forum_forum = 'Forum';
+		$this->forum_forum = 'Forum'; //Translate
 		$this->forum_guest = 'Invité';
 		$this->forum_hot = 'Chaud';
 		$this->forum_icon = 'Icone';
@@ -345,7 +345,7 @@ class fr
 		$this->forum_nopost = 'Aucun message';
 		$this->forum_not = 'Aïe!';
 		$this->forum_noview = 'Vous n\'avez pas la permission de voir les forums.';
-		$this->forum_pages = 'Pages';
+		$this->forum_pages = 'Pages'; //Translate
 		$this->forum_pinned = 'Epinglé';
 		$this->forum_pinned_topic = 'Sujet épinglé';
 		$this->forum_poll = 'Sondage';
@@ -372,7 +372,7 @@ class fr
 		$this->forum_delete = 'Supprimer le forum';
 		$this->forum_delete_warning = 'Etes-vous sûr de vouloir supprimer ce forum, ses sujets et ses messages?<br />Cette action ne peut être défaite.';
 		$this->forum_deleted = 'Ce forum a été supprimé';
-		$this->forum_description = 'Description';
+		$this->forum_description = 'Description'; //Translate
 		$this->forum_edit = 'Editer le forum';
 		$this->forum_edited = 'Le forum a été edité avec succès.';
 		$this->forum_empty = 'Le nom du forum est absent. Veuillez le remplir s\'il vous plaît.';
@@ -409,7 +409,7 @@ class fr
 		$this->groups_no_delete = 'Il n\'y a aucun groupe personalisé à supprimer.<br />Les groupes centraux sont ncessaires pour que Quicksilver Forums puisse fonctionner, et ainsi ne peuvent être supprimés.';
 		$this->groups_no_group = 'Aucun groupe n\'a été specifié.';
 		$this->groups_no_name = 'Aucun nom de groupe n\'a été specifié.';
-		$this->groups_only_custom = 'Notez que seuls les groupes personalisés peuvent être supprimés.<br />Les groupes centraux sont nécessaires pour que Quicksilver Forums fonctionne, et ainsi ne peuvent être supprimés.';
+		$this->groups_only_custom = 'Note: You can only delete custom member groups. The core groups are necessary for Quicksilver Forums to function.'; //Translate
 		$this->groups_the = 'Le groupe';
 		$this->groups_to_edit = 'Groupe à edité';
 		$this->groups_type = 'Type du groupe';
@@ -464,7 +464,7 @@ class fr
 
 	function logs()
 	{
-		$this->logs_action = 'Action';
+		$this->logs_action = 'Action'; //Translate
 		$this->logs_deleted_post = 'Un message supprimé';
 		$this->logs_deleted_topic = 'Un sujet supprimé';
 		$this->logs_edited_post = 'Un message edité';
@@ -491,7 +491,7 @@ class fr
 		$this->main_activate_resend = 'Renvoyer l\'email d\'activation';
 		$this->main_admincp = 'Administration';
 		$this->main_banned = 'Il vous a été interdit de consulter cette partie des forums.';
-		$this->main_code = 'Code';
+		$this->main_code = 'Code'; //Translate
 		$this->main_cp = 'Profil';
 		$this->main_full = 'Complet';
 		$this->main_help = 'Aide';
@@ -527,7 +527,7 @@ class fr
 		$this->mail_announce = 'Annonce de';
 		$this->mail_groups = 'Groupes receveurs';
 		$this->mail_members = 'membres.';
-		$this->mail_message = 'Message';
+		$this->mail_message = 'Message'; //Translate
 		$this->mail_select_all = 'Tout sélectionner';
 		$this->mail_send = 'Envoyer un Mél';
 		$this->mail_sent = 'Votre message a été envoyé à';
@@ -536,12 +536,12 @@ class fr
 	function mbcode()
 	{
 		$this->mbcode_address = 'Merci d\'entrer un email';
-		$this->mbcode_arial = 'Arial';
+		$this->mbcode_arial = 'Arial'; //Translate
 		$this->mbcode_blue = 'Bleu';
 		$this->mbcode_bold = 'Gras';
 		$this->mbcode_bold1 = 'G';
 		$this->mbcode_chocolate = 'Chocolat';
-		$this->mbcode_code = 'Code';
+		$this->mbcode_code = 'Code'; //Translate
 		$this->mbcode_color = 'Couleur';
 		$this->mbcode_coral = 'Corail';
 		$this->mbcode_courier = 'Courrier';
@@ -555,19 +555,19 @@ class fr
 		$this->mbcode_font = 'Police';
 		$this->mbcode_green = 'Vert';
 		$this->mbcode_huge = 'Enorme';
-		$this->mbcode_image = 'Image';
-		$this->mbcode_image1 = 'IMG';
-		$this->mbcode_impact = 'Impact';
-		$this->mbcode_indigo = 'Indigo';
+		$this->mbcode_image = 'Image'; //Translate
+		$this->mbcode_image1 = 'IMG'; //Translate
+		$this->mbcode_impact = 'Impact'; //Translate
+		$this->mbcode_indigo = 'Indigo'; //Translate
 		$this->mbcode_italic = 'Italique';
-		$this->mbcode_italic1 = 'I';
+		$this->mbcode_italic1 = 'I'; //Translate
 		$this->mbcode_large = 'Grand';
 		$this->mbcode_length = 'Votre message fait +length+ caractères.';
 		$this->mbcode_limegreen = 'Vert 2';
 		$this->mbcode_medium = 'Moyen';
-		$this->mbcode_orange = 'Orange';
+		$this->mbcode_orange = 'Orange'; //Translate
 		$this->mbcode_orangered = 'Orange rouge';
-		$this->mbcode_php = 'PHP';
+		$this->mbcode_php = 'PHP'; //Translate
 		$this->mbcode_purple = 'Mauve';
 		$this->mbcode_quote = 'Citer';
 		$this->mbcode_red = 'Rouge';
@@ -579,19 +579,19 @@ class fr
 		$this->mbcode_size = 'Taille';
 		$this->mbcode_skyblue = 'Bleu ciel';
 		$this->mbcode_small = 'Petit';
-		$this->mbcode_spoiler = 'Spoiler';
+		$this->mbcode_spoiler = 'Spoiler'; //Translate
 		$this->mbcode_strike = 'Rayé';
 		$this->mbcode_strike1 = 'R';
-		$this->mbcode_tahoma = 'Tahoma';
-		$this->mbcode_teal = 'Teal';
-		$this->mbcode_times = 'Times';
+		$this->mbcode_tahoma = 'Tahoma'; //Translate
+		$this->mbcode_teal = 'Teal'; //Translate
+		$this->mbcode_times = 'Times'; //Translate
 		$this->mbcode_tiny = 'Très petit';
 		$this->mbcode_tomato = 'Tomate';
 		$this->mbcode_underline = 'Souligné';
 		$this->mbcode_underline1 = 'S';
-		$this->mbcode_url = 'URL';
-		$this->mbcode_verdana = 'Verdana';
-		$this->mbcode_wood = 'Burly Wood';
+		$this->mbcode_url = 'URL'; //Translate
+		$this->mbcode_verdana = 'Verdana'; //Translate
+		$this->mbcode_wood = 'Burly Wood'; //Translate
 		$this->mbcode_yellow = 'Jaune';
 	}
 
@@ -610,7 +610,7 @@ class fr
 		$this->mc_guest_needed = 'Le compte invité est nécessaire pour que Quicksilver Forums puisse fonctionner.';
 		$this->mc_not_found = 'Aucun membre correspondant trouvé.';
 		$this->mc_user_aim = 'Nom AIM';
-		$this->mc_user_avatar = 'Avatar';
+		$this->mc_user_avatar = 'Avatar'; //Translate
 		$this->mc_user_avatar_height = 'Hauteur del\'Avatar';
 		$this->mc_user_avatar_type = 'Type de l\'Avatar';
 		$this->mc_user_avatar_width = 'Largeur de l\'Avatar';
@@ -633,7 +633,7 @@ class fr
 		$this->mc_user_name = 'Nom';
 		$this->mc_user_pm = 'Acceptant les messages privés';
 		$this->mc_user_posts = 'Messages';
-		$this->mc_user_signature = 'Signature';
+		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Peau';
 		$this->mc_user_timezone = 'Fuseau horaire';
 		$this->mc_user_title = 'Titre de membre';
@@ -678,12 +678,12 @@ class fr
 		$this->mod_error_move_global = 'Vous ne pouvez déplacer un sujet global. Veuillez l\'editer avant de le déplacer.';
 		$this->mod_error_move_same = 'Le forum vers lequel vous essayez de déplacer ce sujet est le même que celui de départ.';
 		$this->mod_label_controls = 'Contrôles de modération';
-		$this->mod_label_description = 'Description';
+		$this->mod_label_description = 'Description'; //Translate
 		$this->mod_label_emoticon = 'Convertir les smileys en images?';
 		$this->mod_label_global = 'Sujet général';
 		$this->mod_label_mbcode = 'Formatter le MbCode?';
 		$this->mod_label_move_to = 'Déplacer vers ';
-		$this->mod_label_options = 'Options';
+		$this->mod_label_options = 'Options'; //Translate
 		$this->mod_label_post_delete = 'Effacer le message';
 		$this->mod_label_post_edit = 'Editer le message';
 		$this->mod_label_post_icon = 'Poster l\'icône';
@@ -733,8 +733,8 @@ class fr
 
 	function perms()
 	{
-		$this->perm = 'Permission';
-		$this->perms = 'Permissions';
+		$this->perm = 'Permission'; //Translate
+		$this->perms = 'Permissions'; //Translate
 		$this->perms_board_view = 'Visualisier l\'index du board';
 		$this->perms_board_view_closed = 'Utiliser Quicksilver Forums quand celui-ci est fermé.';
 		$this->perms_do_anything = 'Utiliser Quicksilver Forums';
@@ -794,7 +794,7 @@ class fr
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar';
+		$this->pm_avatar = 'Avatar'; //Translate
 		$this->pm_cant_del = 'Vous n\'avez pas la permission de supprimer ce message.';
 		$this->pm_delallmsg = 'Supprimer tous les messages';
 		$this->pm_delete = 'Supprimer';
@@ -867,7 +867,7 @@ class fr
 		$this->post_icon = 'Icône';
 		$this->post_last_five = '5 derniers messages en ordre inverse';
 		$this->post_length = 'Vérifier la longueur';
-		$this->post_msg = 'Message';
+		$this->post_msg = 'Message'; //Translate
 		$this->post_must_msg = 'Vous devez saisir un message avant de poster.';
 		$this->post_must_options = 'Vous devez saisir des choix avant de poster un sondage.';
 		$this->post_must_title = 'Vous devez saisir un titre avant de poster.';
@@ -880,7 +880,7 @@ class fr
 		$this->post_option_global = 'Faire de ce sujet un sujet général?';
 		$this->post_option_mbcode = 'Formater le MbCode?';
 		$this->post_optional = 'facultatif';
-		$this->post_options = 'Options';
+		$this->post_options = 'Options'; //Translate
 		$this->post_poll_options = 'Réponses';
 		$this->post_poll_row = 'Une par ligne';
 		$this->post_posted = 'Posté le';
@@ -913,15 +913,15 @@ class fr
 	{
 		$this->profile_aim_sn = 'AIM';
 		$this->profile_av_sign = 'Avatar et signature';
-		$this->profile_avatar = 'Avatar';
+		$this->profile_avatar = 'Avatar'; //Translate
 		$this->profile_bday = 'Anniversaire';
-		$this->profile_contact = 'Contact';
+		$this->profile_contact = 'Contact'; //Translate
 		$this->profile_email_address = 'Adresse email';
 		$this->profile_fav = 'Forum préféré';
 		$this->profile_fav_forum = '%s (%d%% des posts de ce membre)';
 		$this->profile_gtalk = 'Compte GTalk';
 		$this->profile_icq_uin = 'ICQ';
-		$this->profile_info = 'Information';
+		$this->profile_info = 'Information'; //Translate
 		$this->profile_interest = 'Intérêts';
 		$this->profile_joined = 'S\'est inscrit';
 		$this->profile_last_post = 'Dernier message';
@@ -941,7 +941,7 @@ class fr
 		$this->profile_posts = 'Messages';
 		$this->profile_private = '[ Privé ]';
 		$this->profile_profile = 'Profil';
-		$this->profile_signature = 'Signature';
+		$this->profile_signature = 'Signature'; //Translate
 		$this->profile_unkown = '[ Inconnu ]';
 		$this->profile_view_profile = 'Consultation d\'un profil';
 		$this->profile_www = 'Page Perso';
@@ -991,7 +991,7 @@ class fr
 		$this->recent_cant_topics = 'Vous ne pouvez pas voir les sujets dans ce forum. ';
 		$this->recent_dot = 'point';
 		$this->recent_dot_detail = 'Affiche ce que vous avez posté dans le sujet';
-		$this->recent_forum = 'Forum';
+		$this->recent_forum = 'Forum'; //Translate
 		$this->recent_guest = 'Invité';
 		$this->recent_hot = 'Chaud';
 		$this->recent_icon = 'Icone';
@@ -1008,7 +1008,7 @@ class fr
 		$this->recent_nopost = 'Aucun message';
 		$this->recent_not = 'Aïe!';
 		$this->recent_noview = 'Vous n\'avez pas la permission de voir les forums.';
-		$this->recent_pages = 'Pages';
+		$this->recent_pages = 'Pages'; //Translate
 		$this->recent_pinned = 'Epinglé';
 		$this->recent_pinned_topic = 'Sujet épinglé';
 		$this->recent_poll = 'Sondage';
@@ -1039,6 +1039,7 @@ class fr
 		$this->register_email_msg3 = 'Veuillez cliquer sur le lien suivant, ou le coller dans votre browser web:';
 		$this->register_email_used = 'Cette adresse email est déjà prise par un autre membre.';
 		$this->register_fields = 'Certains champs n\'ont pas été remplis.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Veuillez taper le texte visible dans l\'image';
 		$this->register_image_invalid = 'Pour vérifier que vous êtes un abonneur humain, vous devez taper le texte visible dans l\'image.';
 		$this->register_must_activate = 'Vous avez été inscrit. Un mél a été envoyé à %s contenant les instructions pour activer votre compte. Votre compte sera limité jusqu\'à ce que vous le validez.';
@@ -1063,7 +1064,7 @@ class fr
 		$this->rssfeed_cannot_read_forum = 'Vous n\'avez pas la permission pour lire ce forum';
 		$this->rssfeed_cannot_read_topic = 'Vous n\'avez pas la permission pour lire ce sujet';
 		$this->rssfeed_error = 'Erreur';
-		$this->rssfeed_forum = 'Forum:';
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Poster par';
 		$this->rssfeed_topic = 'Sujet:';
 	}
@@ -1071,7 +1072,7 @@ class fr
 	function search()
 	{
 		$this->search_advanced = 'Options avancées';
-		$this->search_avatar = 'Avatar';
+		$this->search_avatar = 'Avatar'; //Translate
 		$this->search_basic = 'Trove classique';
 		$this->search_characters = 'caractères d\'un message';
 		$this->search_day = 'jour';
@@ -1079,12 +1080,12 @@ class fr
 		$this->search_exact_name = 'nom exact';
 		$this->search_flood = 'Vous avez fait une recherche dans les dernieres %s secondes, et ne pouvez en refaire tout de suite.<br /><br />Veuillez réessayer dans quelques secondes.';
 		$this->search_for = 'Trouve les termes';
-		$this->search_forum = 'Forum';
+		$this->search_forum = 'Forum'; //Translate
 		$this->search_group = 'Groupe';
 		$this->search_guest = 'Invité';
 		$this->search_in = 'Trouve dans';
 		$this->search_in_posts = 'Chercher seulement dans les mesages';
-		$this->search_ip = 'IP';
+		$this->search_ip = 'IP'; //Translate
 		$this->search_joined = 'Rejoint';
 		$this->search_level = 'Niveau du membre';
 		$this->search_match = 'Trouve par correspondence';
@@ -1189,7 +1190,7 @@ class fr
 		$this->settings_no_allow = 'Ne permettez pas';
 		$this->settings_nodata = 'Aucune donnée n\'a été envoyée depuis POST';
 		$this->settings_one_per = 'Un par ligne';
-		$this->settings_pixels = 'Pixels';
+		$this->settings_pixels = 'Pixels'; //Translate
 		$this->settings_pm_flood = 'Contrôle Flood du Messager Perso';
 		$this->settings_pm_min_time = 'Temps minimum entre les messages.';
 		$this->settings_polls = 'Sondages';
@@ -1296,7 +1297,7 @@ class fr
 		$this->temps_cp = 'Panneau de Contrôle des Membres';
 		$this->temps_email = 'Envoyer un mél à un membre';
 		$this->temps_emot_control = 'Les émotions de l\'AdminCP';
-		$this->temps_forum = 'Forums';
+		$this->temps_forum = 'Forums'; //Translate
 		$this->temps_forums = 'Forums AdminCP';
 		$this->temps_groups = ' Groupes AdminCP';
 		$this->temps_help = 'Aide';
@@ -1335,7 +1336,7 @@ class fr
 		$this->titles_control = 'Contrôle des titres des membres';
 		$this->titles_edit = 'Editer les titres des membres';
 		$this->titles_error = 'Aucun texte de titre ou de messages minimum n\'a été fourni';
-		$this->titles_image = 'Image';
+		$this->titles_image = 'Image'; //Translate
 		$this->titles_minpost = 'Messages minimums';
 		$this->titles_title = 'Titre';
 	}
@@ -1346,7 +1347,7 @@ class fr
 		$this->topic_attached_downloads = 'téléchargements';
 		$this->topic_attached_perm = 'Vous n\'avez pas la permission de télécharger ce fichier.';
 		$this->topic_attached_title = 'Fichier attaché';
-		$this->topic_avatar = 'Avatar';
+		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Aller en bas de la page';
 		$this->topic_create_poll = 'Créer un nouveau sondage';
 		$this->topic_create_topic = 'Créer un nouveau sujet';
@@ -1358,7 +1359,7 @@ class fr
 		$this->topic_error = 'Erreur';
 		$this->topic_group = 'Groupe';
 		$this->topic_guest = 'Innvité';
-		$this->topic_ip = 'IP';
+		$this->topic_ip = 'IP'; //Translate
 		$this->topic_joined = 'Rejoint';
 		$this->topic_level = 'Niveau du membre';
 		$this->topic_links_aim = 'Envoyer un message AIM à %s';
@@ -1382,14 +1383,14 @@ class fr
 		$this->topic_older = 'Sujet plus ancien';
 		$this->topic_online = 'Ce membre est actuellement connecté';
 		$this->topic_options = 'Options';
-		$this->topic_pages = 'Pages';
+		$this->topic_pages = 'Pages'; //Translate
 		$this->topic_perm_view = 'Vous n\'avez pas la permission de voir les sujets.';
 		$this->topic_perm_view_guest = 'Vous n\'avez pas la permission de voir les sujets. Si vous vous enregistrez, vous le pourrez.';
 		$this->topic_pin = 'Epingler';
 		$this->topic_posted = 'Posté';
 		$this->topic_posts = 'Messages';
 		$this->topic_print = 'Voir une version imprimable';
-		$this->topic_qr_emoticons = 'Emotions';
+		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Ouvrir le MBCode';
@@ -1410,43 +1411,43 @@ class fr
 		$this->topic_view = 'Consultation des résultats';
 		$this->topic_viewing = 'Consultation d\'un sujet ';
 		$this->topic_vote = 'Voter';
-		$this->topic_vote_count_plur = '%d votes';
-		$this->topic_vote_count_sing = '%d vote';
-		$this->topic_votes = 'Votes';
+		$this->topic_vote_count_plur = '%d votes'; //Translate
+		$this->topic_vote_count_sing = '%d vote'; //Translate
+		$this->topic_votes = 'Votes'; //Translate
 	}
 
 	function universal()
 	{
-		$this->aim = 'AIM';
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'basé sur';
 		$this->board_by = 'Par';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Continuer';
 		$this->delete = 'Supprimer';
-		$this->direction = 'ltr';
+		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Editer';
 		$this->email = 'Mél';
-		$this->gtalk = 'GT';
-		$this->icq = 'ICQ';
-		$this->msn = 'MSN';
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
 		$this->new_message = 'Nouveau Message';
 		$this->new_poll = 'Nouveau sondage';
 		$this->new_topic = 'Nouveau sujet';
 		$this->no = 'Non';
 		$this->powered = 'Alimenté par';
-		$this->private_message = 'PM';
+		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Citation';
 		$this->reply = 'Réponse';
 		$this->seconds = 'Secondes';
 		$this->select_all = 'Tout sélectionner';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = ' ';
-		$this->spoiler = 'Spoiler';
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Envoyer';
 		$this->subscribe = 'Souscrire';
 		$this->today = 'Aujourd\'hui';
-		$this->website = 'WWW';
-		$this->yahoo = 'Yahoo';
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = 'Oui';
 		$this->yesterday = 'Hier';
 	}

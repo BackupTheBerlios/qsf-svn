@@ -1039,6 +1039,7 @@ class zh
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = '�������Email�Ѿ�����һ���Աʹ���ˡ�';
 		$this->register_fields = 'û��������д���б����';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.'; //Translate
 		$this->register_must_activate = '���Ѿ��ɹ�ע�ᡣһ�⼤���ʼ����͵� %s �������Ժ���������伤������ʺ�����̳ʹ���л��յ����ơ�';

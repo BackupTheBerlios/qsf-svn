@@ -1039,6 +1039,7 @@ class fi
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
 		$this->register_email_used = 'Antamasi sähköpostiosoite on jo toisella käyttäjällä.';
 		$this->register_fields = 'Kaikkia kenttiä ei ole täytetty.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Kirjoita kuvassa näkyvä teksti.';
 		$this->register_image_invalid = 'Varmistaaksemme sinut ihmiskäyttäjäksi sinun tulee kirjoittaa kuvassa näkyvä teksti.';
 		$this->register_must_activate = 'Sinut on rekisteröity. Sähköposti on lähetetty osoitteeseen %s sisältäen tiedon siitä kuinka voit aktivoida tunnuksesi. Tunnuksesi on rajoitettu kunnes aktivoit sen.';

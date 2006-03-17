@@ -1040,6 +1040,7 @@ class sv
 		$this->register_email_msg3 = 'Klicka på den nedanstående länlen eller klistra in den i din webläsare:';
 		$this->register_email_used = 'E-post adressen du skrivit in används redan av en medlem.';
 		$this->register_fields = 'Alla fält är inte ifyllda.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Var god skriv av den text som visas i bilden';
 		$this->register_image_invalid = 'För att bevisa att det är en människa som registrerar och inte ett datorprogram, skriv av texten som visas i bilden.';
 		$this->register_must_activate = 'Du är nu registrerad. Ett epostmeddelande har sänts till %s med information om hur du aktiverar ditt användarkonto. Dina rättigheter i forumet är begränsade tills du utfört aktiveringen.';

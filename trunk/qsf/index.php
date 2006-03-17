@@ -79,6 +79,7 @@ session_start();
 $qsf->user_cl = new $modules['user']($qsf);
 $qsf->user    = $qsf->user_cl->login();
 $qsf->lang    = $qsf->get_lang($qsf->user['user_language'], $qsf->get['a']);
+$qsf->session = &$_SESSION;
 $qsf->session['id'] = session_id();
 
 if (!isset($qsf->get['skin'])) {

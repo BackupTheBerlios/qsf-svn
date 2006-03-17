@@ -72,6 +72,8 @@ class register extends qsfglobal
 			$tos_text = stripslashes($tos['settings_tos']);
 			$tos_text = nl2br($tos_text);
 
+			$_SESSION['allow_register'] = true;
+		
 			return eval($this->template('REGISTER_MAIN'));
 		} else {
 			$username = $this->post['desuser'];
@@ -106,6 +108,16 @@ class register extends qsfglobal
 					return $this->message($this->lang->register_reging, $this->lang->register_image_invalid);
 				}
 			}
+			
+			if (!isset($this->session['allow_register'])) {
+				// They must allow sessions to register! The session can only be set by loading the form
+				return $this->message($this->lang->register_reging, sprintf($this->lang->register_flood, $this->sets['flood_time']));
+			}
+			// Do some quick checks to prevent flooding registration
+			if (isset($this->session['last_register']) && $this->session['last_register'] > ($this->time - $this->sets['flood_time'])) {
+				return $this->message($this->lang->register_reging, sprintf($this->lang->register_flood, $this->sets['flood_time']));
+			}
+			$_SESSION['last_register'] = $this->time;
 
 			$username = str_replace('\\', '&#092;', $this->format(stripslashes($username), FORMAT_HTMLCHARS | FORMAT_CENSOR));
 

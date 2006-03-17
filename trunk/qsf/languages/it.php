@@ -59,7 +59,7 @@ class it
 
 	function admin()
 	{
-		$this->admin_add_emoticons = 'Aggiungi emoticon'; 
+		$this->admin_add_emoticons = 'Aggiungi emoticon';
 		$this->admin_add_member_titles = 'Aggiungi titoli utente automatici';
 		$this->admin_add_templates = 'Aggiungi template HTML';
 		$this->admin_ban_ips = 'Banna IP';
@@ -70,7 +70,7 @@ class it
 		$this->admin_create_group = 'Crea un gruppo';
 		$this->admin_create_help = 'Crea un articolo d\'aiuto';
 		$this->admin_create_skin = 'Crea una skin';
-		$this->admin_db = 'Database'; 
+		$this->admin_db = 'Database'; //Translate
 		$this->admin_db_backup = 'Backup del database';
 		$this->admin_db_conn = 'Modifica parametri di connessione';
 		$this->admin_db_optimize = 'Ottimizza il database';
@@ -80,8 +80,8 @@ class it
 		$this->admin_delete_group = 'Elimina un group';
 		$this->admin_delete_help = 'Elimina un articolo d\'aiuto help';
 		$this->admin_delete_member = 'Elimina un utente';
-		$this->admin_delete_template = 'Cancella template HTML'; 
-		$this->admin_edit_emoticons = 'Modifica o cancella emoticon'; 
+		$this->admin_delete_template = 'Cancella template HTML';
+		$this->admin_edit_emoticons = 'Modifica o cancella emoticon';
 		$this->admin_edit_forum = 'Modifica un forum';
 		$this->admin_edit_group_name = 'Modifica il nome gruppo';
 		$this->admin_edit_group_perms = 'Modifica i permessi gruppo';
@@ -92,7 +92,7 @@ class it
 		$this->admin_edit_settings = 'Modifica configurazione bacheca';
 		$this->admin_edit_skin = 'Modifica o elimina una skin';
 		$this->admin_edit_templates = 'Modifica template HTML';
-		$this->admin_emoticons = 'Emoticon'; 
+		$this->admin_emoticons = 'Emoticon';
 		$this->admin_export_skin = 'Esporta una skin';
 		$this->admin_fix_stats = 'Controlla statistiche utenti';
 		$this->admin_forum_order = 'Cambia ordine dei forum';
@@ -100,7 +100,7 @@ class it
 		$this->admin_groups = 'Gruppi';
 		$this->admin_heading = 'Quicksilver Forums Pannello Amministratore';
 		$this->admin_help = 'Articoli d\'aiuto';
-		$this->admin_install_emoticons = 'Installa emoticon'; 
+		$this->admin_install_emoticons = 'Installa emoticon';
 		$this->admin_install_skin = 'Installa una skin';
 		$this->admin_logs = 'Mostra azioni di moderazione';
 		$this->admin_mass_mail = 'Spedisci email ai tuoi utenti';
@@ -109,7 +109,7 @@ class it
 		$this->admin_prune = 'Sfoltisci vecchie discussioni';
 		$this->admin_recount_forums = 'Riconta discussioni e repliche';
 		$this->admin_settings = 'Configurazione';
-		$this->admin_skins = 'Skin'; 
+		$this->admin_skins = 'Skin';
 		$this->admin_stats = 'Statistiche';
 		$this->admin_upgrade_skin = 'Aggiorna una Skin';
 		$this->admin_your_board = 'La tua bacheca';
@@ -117,7 +117,7 @@ class it
 
 	function backup()
 	{
-		$this->backup_create = 'Backup Database'; 
+		$this->backup_create = 'Backup Database'; //Translate
 		$this->backup_createfile = 'Backup e file creati sul server';
 		$this->backup_done = 'Il backup del database è stato creato nella cartella principale di Quicksilver Forums.';
 		$this->backup_download = 'Backup e download (recommandato)';
@@ -181,7 +181,7 @@ class it
 	{
 		$this->censor = 'Censura';
 		$this->censor_one_per_line = 'Una parola per linea.';
-		$this->censor_regex_allowed = 'Le Espressioni regolari sono permesse. Puoi utilizzare un singolo * come una wildcard per uno o piu\' caratteri.'; 
+		$this->censor_regex_allowed = 'Le Espressioni regolari sono permesse. Puoi utilizzare un singolo * come una wildcard per uno o piu\' caratteri.';
 		$this->censor_updated = 'Lista censura aggiornata.';
 	}
 
@@ -219,7 +219,7 @@ class it
 		$this->cp_dec = 'Dicembre';
 		$this->cp_editing_avatar = 'Modifica Avatar';
 		$this->cp_editing_profile = 'Modifica Profile';
-		$this->cp_email = 'Email'; 
+		$this->cp_email = 'Email'; //Translate
 		$this->cp_email_form = 'Vuoi ricevere email da altri utenti tramite forum?';
 		$this->cp_email_invaid = 'L\'indirizzo email che hai inserito non è valido.';
 		$this->cp_err_avatar = 'Errore Aggiornamento Avatar';
@@ -227,7 +227,7 @@ class it
 		$this->cp_feb = 'Febbraio';
 		$this->cp_file_type = 'L\'avatar che hai inserito non è valido. Assicurati che l\'URL sia corretta, e che l\'estensione del file sia: gif, jpg, o png.';
 		$this->cp_format = 'Nome';
-		$this->cp_gtalk = 'Account GTalk'; 
+		$this->cp_gtalk = 'Account GTalk';
 		$this->cp_header = 'Pannello di Controllo Utente';
 		$this->cp_height = 'Altezza';
 		$this->cp_icq = 'Numero ICQ';
@@ -259,7 +259,7 @@ class it
 		$this->cp_old_pass = 'Vecchia Password';
 		$this->cp_pass_notvaid = 'La tua password non è valida. Assicurati di aver usato solo caratteri validi come lettere, numeri, trattini (-), underscore (_), o spazi.';
 		$this->cp_preferences = 'Modifica Preferenze';
-		$this->cp_preview_sig = 'Anteprima Firma:'; 
+		$this->cp_preview_sig = 'Anteprima Firma:';
 		$this->cp_privacy = 'Opzioni Privacy';
 		$this->cp_repeat_pass = 'Riscrivi Nuova Password';
 		$this->cp_sept = 'Settembre';
@@ -295,7 +295,7 @@ class it
 	function email()
 	{
 		$this->email_blocked = 'Questo utente non vuole ricevere email dal forum.';
-		$this->email_email = 'Email'; 
+		$this->email_email = 'Email'; //Translate
 		$this->email_msgtext = 'Corpo Email:';
 		$this->email_no_fields = 'Torna indietro ed assicurati che tutti i campi siano completi.';
 		$this->email_no_member = 'Nessun utente trovato con questo nome';
@@ -309,13 +309,13 @@ class it
 	{
 		$this->emote = 'Faccine';
 		$this->emote_add = 'Aggiungi faccine';
-		$this->emote_added = 'Emoticon aggiunto.'; 
+		$this->emote_added = 'Emoticon aggiunto.';
 		$this->emote_clickable = 'Cliccabile';
 		$this->emote_edit = 'Modifica faccine';
 		$this->emote_image = 'Immagine';
 		$this->emote_install = 'Installa faccine';
 		$this->emote_install_done = 'Le faccine sono state reinstallate.';
-		$this->emote_install_warning = 'Questo cancellerà tutte le impostazioni sugli emoticon esistenti e importa gli emotico caricati dal tuo skin corrente nel database.'; 
+		$this->emote_install_warning = 'Questo cancellerà tutte le impostazioni sugli emoticon esistenti e importa gli emotico caricati dal tuo skin corrente nel database.';
 		$this->emote_no_text = 'Nessun testo inserito.';
 		$this->emote_text = 'Testo';
 	}
@@ -329,7 +329,7 @@ class it
 		$this->forum_cant_topics = 'Non puoi leggere le discussoni.';
 		$this->forum_dot = 'punto';
 		$this->forum_dot_detail = 'significa che hai partecipato a questa discussione.';
-		$this->forum_forum = 'Forum'; 
+		$this->forum_forum = 'Forum'; //Translate
 		$this->forum_guest = 'Visitatore';
 		$this->forum_hot = 'Caldo';
 		$this->forum_icon = 'Icone Messaggi';
@@ -383,8 +383,8 @@ class it
 		$this->forum_none = 'Non ci sono forum da modificare.';
 		$this->forum_ordered = 'Ordine Forum Aggiornato';
 		$this->forum_ordering = 'Cambia Ordine Forum';
-		$this->forum_parent = 'Non puoi\'t un forum\ parente in questo modo.'; 
-		$this->forum_parent_cat = 'Categoria Parente'; 
+		$this->forum_parent = 'Non puoi\'t un forum\ parente in questo modo.';
+		$this->forum_parent_cat = 'Categoria Parente';
 		$this->forum_quickperm_select = 'seleziona un forum esistente per copiare i permessi.';
 		$this->forum_quickperms = 'Permessi Rapidi';
 		$this->forum_recount = 'Riconta discussioni e repliche';
@@ -410,7 +410,7 @@ class it
 		$this->groups_no_delete = 'Non ci sono gruppi personalizzati da eliminare.<br />Alcuni gruppi sono essenziali al funzionamento di Quicksilver Forums, e non possono essere cancellati.';
 		$this->groups_no_group = 'Nessun gruppo specificato.';
 		$this->groups_no_name = 'Nessun nome gruppo inserito.';
-		$this->groups_only_custom = 'Nota: Puoi solo cancellare i membri dei gruppi personalizzati. I gruppi centrali sono neccesari al funzionamento di Quicksilver Forums.'; 
+		$this->groups_only_custom = 'Nota: Puoi solo cancellare i membri dei gruppi personalizzati. I gruppi centrali sono neccesari al funzionamento di Quicksilver Forums.';
 		$this->groups_the = 'Il gruppo';
 		$this->groups_to_edit = 'Groppo da modificare';
 		$this->groups_type = 'Tipo Gruppo';
@@ -454,9 +454,9 @@ class it
 		$this->login_logged = 'Ora sei connesso.';
 		$this->login_now_out = 'Ora sei disconnesso.';
 		$this->login_out = 'Disconnessione';
-		$this->login_pass = 'Password'; 
+		$this->login_pass = 'Password'; //Translate
 		$this->login_pass_no_id = 'Non esiste alcun iscritto con il nome che hai inserito.';
-		$this->login_pass_request = 'Per completare il cambio di password, fai clic sul link inviato tramite l\'indirizzo email associato al tuo account.'; 
+		$this->login_pass_request = 'Per completare il cambio di password, fai clic sul link inviato tramite l\'indirizzo email associato al tuo account.';
 		$this->login_pass_reset = 'Resetta Password';
 		$this->login_pass_sent = 'La tua password e\' stata sostituita con una casuale. La nuova password è stata spedita all\' indirizzo email associato a questo account.';
 		$this->login_sure = 'Sicuro di vorlerti disconnettere da \'%s\'?';
@@ -481,7 +481,7 @@ class it
 		$this->logs_time = 'Data';
 		$this->logs_topic = 'Discussione';
 		$this->logs_unlocked_topic = 'Ha sbloccato una discussione';
-		$this->logs_unpinned_topic = 'Topic sbloccati'; 
+		$this->logs_unpinned_topic = 'Topic sbloccati';
 		$this->logs_user = 'Utente';
 		$this->logs_view = 'Mostra Azioni di Moderazione';
 	}
@@ -499,7 +499,7 @@ class it
 		$this->main_load = 'carico';
 		$this->main_login = 'connettiti';
 		$this->main_logout = 'disconnetti';
-		$this->main_mark = 'Segna tutto'; 
+		$this->main_mark = 'Segna tutto';
 		$this->main_mark1 = 'Segna tutte le discussioni come già lette';
 		$this->main_max_load = 'Siamo spiacenti, ma %s è momentaneamente non disponibile, a causa del numero elevato di utenti connessi.';
 		$this->main_members = 'iscritti';
@@ -507,7 +507,7 @@ class it
 		$this->main_new = 'nuovo';
 		$this->main_next = 'avanti';
 		$this->main_prev = 'indietro';
-		$this->main_queries = 'richieste'; 
+		$this->main_queries = 'richieste';
 		$this->main_quote = 'Citazione';
 		$this->main_recent = 'messaggi recenti';
 		$this->main_recent1 = 'Mostra le discussioni dalla tua ultima visita';
@@ -537,63 +537,63 @@ class it
 	function mbcode()
 	{
 		$this->mbcode_address = 'Inserisci un indirizzo';
-		$this->mbcode_arial = 'Arial'; 
-		$this->mbcode_blue = 'Blu'; 
-		$this->mbcode_bold = 'Grassetto'; 
-		$this->mbcode_bold1 = 'G'; 
-		$this->mbcode_chocolate = 'cioccolato'; 
-		$this->mbcode_code = 'Codice'; 
-		$this->mbcode_color = 'Colore'; 
-		$this->mbcode_coral = 'Corallo'; 
-		$this->mbcode_courier = 'Courier'; 
-		$this->mbcode_crimson = 'Cremisi'; 
-		$this->mbcode_darkblue = 'Blu Scuro'; 
-		$this->mbcode_darkred = 'Rosso Scuro'; 
-		$this->mbcode_deepink = 'Rosa Scuro'; 
-		$this->mbcode_detail = 'Inserisci una descrizione'; 
-		$this->mbcode_email = 'Email'; 
-		$this->mbcode_firered = 'Rosso Mattone'; 
-		$this->mbcode_font = 'Font'; 
-		$this->mbcode_green = 'Verde'; 
-		$this->mbcode_huge = 'Enorme'; 
-		$this->mbcode_image = 'Immagine'; 
-		$this->mbcode_image1 = 'IMG'; 
-		$this->mbcode_impact = 'Impact'; 
-		$this->mbcode_indigo = 'Indigo'; 
-		$this->mbcode_italic = 'Corsivo'; 
-		$this->mbcode_italic1 = 'C'; 
+		$this->mbcode_arial = 'Arial'; //Translate
+		$this->mbcode_blue = 'Blu';
+		$this->mbcode_bold = 'Grassetto';
+		$this->mbcode_bold1 = 'G';
+		$this->mbcode_chocolate = 'cioccolato';
+		$this->mbcode_code = 'Codice';
+		$this->mbcode_color = 'Colore';
+		$this->mbcode_coral = 'Corallo';
+		$this->mbcode_courier = 'Courier'; //Translate
+		$this->mbcode_crimson = 'Cremisi';
+		$this->mbcode_darkblue = 'Blu Scuro';
+		$this->mbcode_darkred = 'Rosso Scuro';
+		$this->mbcode_deepink = 'Rosa Scuro';
+		$this->mbcode_detail = 'Inserisci una descrizione';
+		$this->mbcode_email = 'Email'; //Translate
+		$this->mbcode_firered = 'Rosso Mattone';
+		$this->mbcode_font = 'Font'; //Translate
+		$this->mbcode_green = 'Verde';
+		$this->mbcode_huge = 'Enorme';
+		$this->mbcode_image = 'Immagine';
+		$this->mbcode_image1 = 'IMG'; //Translate
+		$this->mbcode_impact = 'Impact'; //Translate
+		$this->mbcode_indigo = 'Indigo'; //Translate
+		$this->mbcode_italic = 'Corsivo';
+		$this->mbcode_italic1 = 'C';
 		$this->mbcode_large = 'Largo';
 		$this->mbcode_length = 'Il tuo messaggio contiene +length+ caratteri.';
-		$this->mbcode_limegreen = 'Verde Lime '; 
-		$this->mbcode_medium = 'Medio'; 
-		$this->mbcode_orange = 'Arancio'; 
-		$this->mbcode_orangered = 'Rosso Arancio'; 
-		$this->mbcode_php = 'PHP'; 
-		$this->mbcode_purple = 'Porpora'; 
-		$this->mbcode_quote = 'Apice'; 
-		$this->mbcode_red = 'Rosso'; 
-		$this->mbcode_royalblue = 'Blu Regale'; 
-		$this->mbcode_sandybrown = 'Marrone Sabbia'; 
-		$this->mbcode_seagreen = 'Verde Mare'; 
-		$this->mbcode_sienna = 'Sienna'; 
+		$this->mbcode_limegreen = 'Verde Lime ';
+		$this->mbcode_medium = 'Medio';
+		$this->mbcode_orange = 'Arancio';
+		$this->mbcode_orangered = 'Rosso Arancio';
+		$this->mbcode_php = 'PHP'; //Translate
+		$this->mbcode_purple = 'Porpora';
+		$this->mbcode_quote = 'Apice';
+		$this->mbcode_red = 'Rosso';
+		$this->mbcode_royalblue = 'Blu Regale';
+		$this->mbcode_sandybrown = 'Marrone Sabbia';
+		$this->mbcode_seagreen = 'Verde Mare';
+		$this->mbcode_sienna = 'Sienna'; //Translate
 		$this->mbcode_silver = 'Argento';
-		$this->mbcode_size = 'Grandezza'; 
-		$this->mbcode_skyblue = 'Blu Cielo'; 
-		$this->mbcode_small = 'piccolo'; 
-		$this->mbcode_spoiler = 'Spoiler'; 
-		$this->mbcode_strike = 'Segnato'; 
-		$this->mbcode_strike1 = 'S'; 
-		$this->mbcode_tahoma = 'Tahoma'; 
-		$this->mbcode_teal = 'Teal'; 
-		$this->mbcode_times = 'Times'; 
-		$this->mbcode_tiny = 'Minuscolo'; 
-		$this->mbcode_tomato = 'Pomodoro'; 
-		$this->mbcode_underline = 'Sottolineato'; 
-		$this->mbcode_underline1 = 'S'; 
-		$this->mbcode_url = 'URL'; 
-		$this->mbcode_verdana = 'Verdana'; 
-		$this->mbcode_wood = 'Burly Wood'; 
-		$this->mbcode_yellow = 'Giallo'; 
+		$this->mbcode_size = 'Grandezza';
+		$this->mbcode_skyblue = 'Blu Cielo';
+		$this->mbcode_small = 'piccolo';
+		$this->mbcode_spoiler = 'Spoiler'; //Translate
+		$this->mbcode_strike = 'Segnato';
+		$this->mbcode_strike1 = 'S'; //Translate
+		$this->mbcode_tahoma = 'Tahoma'; //Translate
+		$this->mbcode_teal = 'Teal'; //Translate
+		$this->mbcode_times = 'Times'; //Translate
+		$this->mbcode_tiny = 'Minuscolo';
+		$this->mbcode_tomato = 'Pomodoro';
+		$this->mbcode_underline = 'Sottolineato';
+		$this->mbcode_underline1 = 'S';
+		$this->mbcode_url = 'URL'; //Translate
+		$this->mbcode_verdana = 'Verdana'; //Translate
+		$this->mbcode_wood = 'Burly Wood'; //Translate
+		$this->mbcode_yellow = 'Giallo';
 	}
 
 	function member_control()
@@ -611,7 +611,7 @@ class it
 		$this->mc_guest_needed = 'L\'account guest è necessario a Quicksilver Forums per funzionare correttamente.';
 		$this->mc_not_found = 'Nessun iscritto è stato trovato con il criterio dato';
 		$this->mc_user_aim = 'AIM Nome';
-		$this->mc_user_avatar = 'Avatar'; 
+		$this->mc_user_avatar = 'Avatar'; //Translate
 		$this->mc_user_avatar_height = 'Altezza Avatar';
 		$this->mc_user_avatar_type = 'Tipo Avatar';
 		$this->mc_user_avatar_width = 'Larghezza Avatar';
@@ -619,7 +619,7 @@ class it
 		$this->mc_user_email = 'Indirizzo Email';
 		$this->mc_user_email_show = 'Indirizzo Email Pubblico';
 		$this->mc_user_group = 'Groppo';
-		$this->mc_user_gtalk = 'Account GTalk'; 
+		$this->mc_user_gtalk = 'Account GTalk';
 		$this->mc_user_homepage = 'Sito web';
 		$this->mc_user_icq = 'Numero ICQ';
 		$this->mc_user_id = 'ID Utente';
@@ -635,12 +635,12 @@ class it
 		$this->mc_user_pm = 'Accetta Messaggi Privati';
 		$this->mc_user_posts = 'Messaggi';
 		$this->mc_user_signature = 'Firma';
-		$this->mc_user_skin = 'Skin'; 
+		$this->mc_user_skin = 'Skin'; //Translate
 		$this->mc_user_timezone = 'Fuso Orario';
 		$this->mc_user_title = 'Titolo Utente';
 		$this->mc_user_title_custom = 'Utilizza Titolo Utente Personalizzato';
 		$this->mc_user_view_avatars = 'Mostra Avatar';
-		$this->mc_user_view_emoticons = 'Visualizzando Emoticon'; 
+		$this->mc_user_view_emoticons = 'Visualizzando Emoticon';
 		$this->mc_user_view_signatures = 'Mostra Firme';
 		$this->mc_user_yahoo = 'Identità Yahoo';
 	}
@@ -654,7 +654,7 @@ class it
 	function members()
 	{
 		$this->members_all = 'tutti';
-		$this->members_email = 'Email'; 
+		$this->members_email = 'Email'; //Translate
 		$this->members_email_member = 'Scrivi Email a questo utente';
 		$this->members_group = 'Gruppo';
 		$this->members_joined = 'Iscritto il';
@@ -755,7 +755,7 @@ class it
 		$this->perms_post_delete_own = 'Elimina solo i messaggi creati dall\'utente';
 		$this->perms_post_edit = 'Modifica ogni tipo di messaggio';
 		$this->perms_post_edit_own = 'Modifica solo i messaggi creati dall\'utente';
-		$this->perms_post_inc_userposts = 'Contributi post al totale conteggio post dell\'utente'; 
+		$this->perms_post_inc_userposts = 'Contributi post al totale conteggio post dell\'utente';
 		$this->perms_post_noflood = 'Ignora controllo antiflood messaggi';
 		$this->perms_post_viewip = 'Mostra indirizzi IP utenti';
 		$this->perms_search_noflood = 'Esente dal controllo antiflood per le ricerche';
@@ -777,7 +777,7 @@ class it
 		$this->perms_topic_split = 'Dividi ogni tipo di discussione';
 		$this->perms_topic_split_own = 'Dividi solo le discussioni create dall\'utente';
 		$this->perms_topic_unlock = 'Sblocca ogni tipo di discussione';
-		$this->perms_topic_unlock_mod = 'Sblocca un moderatore\'bloccato'; 
+		$this->perms_topic_unlock_mod = 'Sblocca un moderatore\'bloccato';
 		$this->perms_topic_unlock_own = 'Sblocca solo le discussioni create dall\'utente';
 		$this->perms_topic_unpin = 'Togli evidenza da ogni tipo di discussione';
 		$this->perms_topic_unpin_own = 'Togli evidenza solo le discussioni create dall\'utente';
@@ -790,12 +790,12 @@ class it
 	function php_info()
 	{
 		$this->php_error = 'Errore';
-		$this->php_error_msg = 'phpinfo() non puo\' essere eseguito. Questo perche\' il tuo host potrebbe aver disabilitato questa caratteristica.'; 
+		$this->php_error_msg = 'phpinfo() non puo\' essere eseguito. Questo perche\' il tuo host potrebbe aver disabilitato questa caratteristica.';
 	}
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar'; 
+		$this->pm_avatar = 'Avatar'; //Translate
 		$this->pm_cant_del = 'Non hai il permesso per eliminare questo messaggio.';
 		$this->pm_delallmsg = 'Elimina tutti i messaggi';
 		$this->pm_delete = 'Elimina';
@@ -827,7 +827,7 @@ class it
 		$this->pm_personal_msging = 'Messaggi Personali';
 		$this->pm_pm = 'MP';
 		$this->pm_posts = 'Messaggi';
-		$this->pm_preview = 'Anteprima'; 
+		$this->pm_preview = 'Anteprima';
 		$this->pm_recipients = 'Destinario/i';
 		$this->pm_reply = 'Rispondi';
 		$this->pm_send = 'Invia';
@@ -877,7 +877,7 @@ class it
 		$this->post_no_forum = 'Questo forum non è stato trovato.';
 		$this->post_no_topic = 'Nessuna discussione specificata.';
 		$this->post_no_vote = 'Devi scegliere un\'opzione da votare.';
-		$this->post_option_emoticons = 'Convertire emoticon in immagine?'; 
+		$this->post_option_emoticons = 'Convertire emoticon in immagine?';
 		$this->post_option_global = 'Imposta come Discussione Globale?';
 		$this->post_option_mbcode = 'Formatta MbCode?';
 		$this->post_optional = 'facoltativa';
@@ -914,13 +914,13 @@ class it
 	{
 		$this->profile_aim_sn = 'Nome AIM';
 		$this->profile_av_sign = 'Avatar e Firma';
-		$this->profile_avatar = 'Avatar'; 
+		$this->profile_avatar = 'Avatar'; //Translate
 		$this->profile_bday = 'Compleanno';
 		$this->profile_contact = 'Contatto';
 		$this->profile_email_address = 'Indirizzo Email';
 		$this->profile_fav = 'Forum Preferito';
 		$this->profile_fav_forum = '%s (%d%% sono messaggi di questo utente)';
-		$this->profile_gtalk = 'Account GTalk'; 
+		$this->profile_gtalk = 'Account GTalk';
 		$this->profile_icq_uin = 'Numero ICQ';
 		$this->profile_info = 'Informazioni';
 		$this->profile_interest = 'Interessi';
@@ -967,7 +967,7 @@ class it
 		$this->prune_notopics = 'Nessuna discussione selezionata per lo sfoltimento';
 		$this->prune_notopics_old = 'Nessuna discussione è vecchia abbastanza per lo sfoltimento';
 		$this->prune_novalidforum = 'Nessun forum valido per lo sfoltimento';
-		$this->prune_select_age = 'Seleziona l\'eta\' delle discusioni per limitare l\'annoiamento a'; 
+		$this->prune_select_age = 'Seleziona l\'eta\' delle discusioni per limitare l\'annoiamento a';
 		$this->prune_select_topics = 'Seleziona le discussioni oppure usa Seleziona Tutto';
 		$this->prune_success = 'Discussioni sfoltite';
 		$this->prune_title = 'Sfoltimento discussioni';
@@ -992,7 +992,7 @@ class it
 		$this->recent_cant_topics = 'Non puoi leggere le discussoni.';
 		$this->recent_dot = 'punto';
 		$this->recent_dot_detail = 'significa che hai partecipato a questa discussione.';
-		$this->recent_forum = 'Forum'; 
+		$this->recent_forum = 'Forum'; //Translate
 		$this->recent_guest = 'Visitatore';
 		$this->recent_hot = 'Caldo';
 		$this->recent_icon = 'Icone Messaggi';
@@ -1040,6 +1040,7 @@ class it
 		$this->register_email_msg3 = 'Clicca sul link sottostante, o copia/incollalo nel tuo browser:';
 		$this->register_email_used = 'L\'indirizzo email che hai inserito risulta già usato da un altro utente.';
 		$this->register_fields = 'Non hai completato tutti i campi.';
+		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Per favore scrivi il testo che vedi nell\'immagine.';
 		$this->register_image_invalid = 'Per verificare che tua sia un utente umano, devi inserire il testo che vedi nell\'immagine.';
 		$this->register_must_activate = 'Sei stato registrato. Un\' email di attivazione è stata spedita a %s con le informazioni necessarie ad attivare il tuo account. Il tuo account sarà limitato finchè non lo attiverai.';
@@ -1048,13 +1049,13 @@ class it
 		$this->register_new_user = 'Nome Utente Desiderato';
 		$this->register_pass_invalid = 'La password che hai inserito non è valida. Assicurati di aver usato solo caratteri validi come lettere, numeri, trattini, underscores, o spazi, e che sia di almeno 5 caratteri.';
 		$this->register_pass_match = 'Le passwords inserite non corrispondono.';
-		$this->register_passwd = 'Password'; 
+		$this->register_passwd = 'Password'; //Translate
 		$this->register_reg = 'Registrati';
 		$this->register_reging = 'Registrazione';
-		$this->register_tos = 'Termini del Servizio'; 
+		$this->register_tos = 'Termini del Servizio';
 		$this->register_tos_i_agree = 'Accetto i termini';
 		$this->register_tos_not_agree = 'Non sono d\'accordo.';
-		$this->register_tos_read = 'Prego leggi i seguenti termini del servizio'; 
+		$this->register_tos_read = 'Prego leggi i seguenti termini del servizio';
 	}
 
 	function rssfeed()
@@ -1064,7 +1065,7 @@ class it
 		$this->rssfeed_cannot_read_forum = 'Non hai i permessi per leggere questo forum';
 		$this->rssfeed_cannot_read_topic = 'Non hai i permessi per leggere questa discussione';
 		$this->rssfeed_error = 'Errore';
-		$this->rssfeed_forum = 'Forum:'; 
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Inviato da';
 		$this->rssfeed_topic = 'Discussione:';
 	}
@@ -1072,7 +1073,7 @@ class it
 	function search()
 	{
 		$this->search_advanced = 'Opzioni Avanzate';
-		$this->search_avatar = 'Avatar';
+		$this->search_avatar = 'Avatar'; //Translate
 		$this->search_basic = 'Ricerca Semplice';
 		$this->search_characters = 'caratteri di un post';
 		$this->search_day = 'giorno';
@@ -1080,12 +1081,12 @@ class it
 		$this->search_exact_name = 'nome esatto';
 		$this->search_flood = 'Hai già eseguito una ricerca negli ultimi %s secondi, devi aspettare un pò.<br /><br />';
 		$this->search_for = 'Cerca Per';
-		$this->search_forum = 'Forum'; 
+		$this->search_forum = 'Forum'; //Translate
 		$this->search_group = 'Gruppo';
 		$this->search_guest = 'Visitatore';
 		$this->search_in = 'Cerca In';
 		$this->search_in_posts = 'Cerca solo nei messaggi';
-		$this->search_ip = 'IP'; 
+		$this->search_ip = 'IP'; //Translate
 		$this->search_joined = 'Iscritto il';
 		$this->search_level = 'Livello Utente';
 		$this->search_match = 'Cerca Parole Esatte';
@@ -1150,7 +1151,7 @@ class it
 		$this->settings_cookie = 'Configurazione Cookie e AntiFlood';
 		$this->settings_cookie_path = 'Percorso Cookie';
 		$this->settings_cookie_prefix = 'Prefisso Cookie';
-		$this->settings_cookie_time = 'Tempo per rimanere loggati'; 
+		$this->settings_cookie_time = 'Tempo per rimanere loggati';
 		$this->settings_db = 'Modifica Configurazione Connessione';
 		$this->settings_db_host = 'Host Database';
 		$this->settings_db_leave_blank = 'Lascia bianco per nessuno.';
@@ -1162,24 +1163,24 @@ class it
 		$this->settings_db_socket = 'Socket Database';
 		$this->settings_db_username = 'Username Database';
 		$this->settings_default_lang = 'Lingua di Default';
-		$this->settings_default_no = 'No Default'; 
+		$this->settings_default_no = 'No Default';
 		$this->settings_default_skin = 'Skin di Default';
 		$this->settings_default_yes = 'Default Sì';
 		$this->settings_disabled = 'Disabilitato';
-		$this->settings_disabled_notice = 'Disabilita Avvisi'; 
-		$this->settings_email = 'Impostazioni E-Mail'; 
-		$this->settings_email_fake = 'Solo per visualizzazione. Potrebbe non essere un indirizzo email reale.'; 
-		$this->settings_email_from = 'E-mail Dall\' Indirizzo'; 
+		$this->settings_disabled_notice = 'Disabilita Avvisi';
+		$this->settings_email = 'Impostazioni E-Mail';
+		$this->settings_email_fake = 'Solo per visualizzazione. Potrebbe non essere un indirizzo email reale.';
+		$this->settings_email_from = 'E-mail Dall\' Indirizzo';
 		$this->settings_email_place1 = 'Assegna l\'utente al gruppo';
 		$this->settings_email_place2 = 'fino a quando non l\'e-mail non viene verificata';
 		$this->settings_email_place3 = 'Non richiede e-mail di attivazione';
-		$this->settings_email_real = 'Deve essere un indirizzo email reale.'; 
+		$this->settings_email_real = 'Deve essere un indirizzo email reale.';
 		$this->settings_email_reply = 'Indirizzo E-mail Rispondi-a';
 		$this->settings_email_smtp = 'Server SMTP Mail';
 		$this->settings_email_valid = 'E-mail di Convalida ai Nuovi Iscritti';
 		$this->settings_enabled = 'Abilitato';
 		$this->settings_enabled_modules = 'Moduli Abilitati';
-		$this->settings_foreign_link = 'Obiettivo Link Estraneo'; 
+		$this->settings_foreign_link = 'Obiettivo Link Estraneo';
 		$this->settings_general = 'Configurazione Generale';
 		$this->settings_group_after = 'Gruppo Dopo la Registrazione';
 		$this->settings_hot_topic = 'Messaggi per Discussione Rovente';
@@ -1188,7 +1189,7 @@ class it
 		$this->settings_members = 'Configurazione Utenti';
 		$this->settings_modname_only = 'Solo il nome del modulo. Non inserire .php';
 		$this->settings_no_allow = 'Non permettere';
-		$this->settings_nodata = 'Nessun dato e\' stato inviato da POST'; 
+		$this->settings_nodata = 'Nessun dato e\' stato inviato da POST';
 		$this->settings_one_per = 'Uno per linea';
 		$this->settings_pixels = 'Pixel';
 		$this->settings_pm_flood = 'AntiFlood Messaggi Privati';
@@ -1205,7 +1206,7 @@ class it
 		$this->settings_server_gzip = 'Compressione GZIP';
 		$this->settings_server_gzip_msg = 'Aumenta la velocità. Disabilitare in caso di problemi.';
 		$this->settings_server_maxload = 'Carico Massimo del Server';
-		$this->settings_server_maxload_msg = 'Disabilita board sotto un eccesivo sforzo del server. Inserisci 0 per disabilitare.'; 
+		$this->settings_server_maxload_msg = 'Disabilita board sotto un eccesivo sforzo del server. Inserisci 0 per disabilitare.';
 		$this->settings_server_timezone = 'Fuso Orario del Server';
 		$this->settings_show_avatars = 'Mostra Avatar';
 		$this->settings_show_email = 'Mostra Indirizzi Email';
@@ -1218,10 +1219,10 @@ class it
 		$this->settings_spider_enable = 'Abilita Visualizzazione degli Spider';
 		$this->settings_spider_enable_msg = 'Abilita visualizzazione del nome degli spider dei motori di ricerca nella lista Attività.';
 		$this->settings_spider_name = 'Nome Spider';
-		$this->settings_spider_name_msg = 'Inserisci il nome che vuoi visualizzare per ogni spider dell\'elenco qui sopra. Hai bisogno di inserire il nome dello spider nella stessa linea dello spider user agent.Per Esempio, se inserisci \'googlebot\' nella terza linea, inserisci \'Google\' nella terza linea del nome dello Spider.'; 
+		$this->settings_spider_name_msg = 'Inserisci il nome che vuoi visualizzare per ogni spider dell\'elenco qui sopra. Hai bisogno di inserire il nome dello spider nella stessa linea dello spider user agent.Per Esempio, se inserisci \'googlebot\' nella terza linea, inserisci \'Google\' nella terza linea del nome dello Spider.';
 		$this->settings_timezone = 'Fuso Orario';
 		$this->settings_topics_page = 'Discussioni Per Pagina';
-		$this->settings_tos = 'Condizioni di Servizio'; 
+		$this->settings_tos = 'Condizioni di Servizio';
 		$this->settings_updated = 'Configurazione aggiornata.';
 	}
 
@@ -1268,7 +1269,7 @@ class it
 		$this->skin_created = 'Skin creata.';
 		$this->skin_deleted = 'Skin eliminata.';
 		$this->skin_dir_name = 'Devi inserire il nome della skin ed il nome della cartella.';
-		$this->skin_dup = 'E\' stata trovata una skin con un cartella con lo stesso nome. La cartella della skin verra\' cambiata in'; 
+		$this->skin_dup = 'E\' stata trovata una skin con un cartella con lo stesso nome. La cartella della skin verra\' cambiata in';
 		$this->skin_name = 'Devi inserire un nome per la skin.';
 		$this->skin_none = 'Non ci sono skin da installare.';
 		$this->skin_set = 'Gruppo Skin';
@@ -1278,15 +1279,15 @@ class it
 		$this->template_add = 'Aggiungi';
 		$this->template_added = 'Template aggiunto.';
 		$this->template_clear = 'Pulisci';
-		$this->template_confirm = 'Hai apportato delle modifiche al template. Vuoi salvare i tuoi cambiamenti?'; 
+		$this->template_confirm = 'Hai apportato delle modifiche al template. Vuoi salvare i tuoi cambiamenti?';
 		$this->template_description = 'Template Descrizione';
-		$this->template_html = 'Template HTML'; 
+		$this->template_html = 'Template HTML'; //Translate
 		$this->template_name = 'Nome Template';
 		$this->template_position = 'Posistion Template';
 		$this->template_set = 'Gruppo Template';
 		$this->template_title = 'Titolo Template';
 		$this->template_universal = 'Variabile Universale';
-		$this->template_universal2 = 'Alcune variabili posso essere utilizzate in alcuni temoplate, mentre altre possono essere utilizzate in un singolo template. Le proprieta\' dell\'oggetto $ questo puo\' essere utilizzato sempre.'; 
+		$this->template_universal2 = 'Alcune variabili posso essere utilizzate in alcuni temoplate, mentre altre possono essere utilizzate in un singolo template. Le proprieta\' dell\'oggetto $ questo puo\' essere utilizzato sempre.';
 		$this->template_updated = 'Template aggiornato.';
 		$this->templates = 'Template';
 		$this->temps_active = 'Dettagli Utenti Attivi';
@@ -1295,7 +1296,7 @@ class it
 		$this->temps_board_index = 'Indice Bocheca';
 		$this->temps_censoring = 'AdminCP Censure';
 		$this->temps_cp = 'Pannello Utente';
-		$this->temps_email = 'Email a Membro'; 
+		$this->temps_email = 'Email a Membro';
 		$this->temps_emot_control = 'AdminCP Faccine';
 		$this->temps_forum = 'Forum';
 		$this->temps_forums = 'AdminCP Forum';
@@ -1312,10 +1313,10 @@ class it
 		$this->temps_polls = 'Sondaggi';
 		$this->temps_post = 'Composizione Messaggi';
 		$this->temps_printer = 'Versione Stampabile';
-		$this->temps_profile = 'Visualizzazione Profilo'; 
+		$this->temps_profile = 'Visualizzazione Profilo';
 		$this->temps_recent = 'Discussioni Recenti';
 		$this->temps_register = 'Registrazione';
-		$this->temps_rssfeed = 'Fedd RSS '; 
+		$this->temps_rssfeed = 'Fedd RSS ';
 		$this->temps_search = 'Ricerca';
 		$this->temps_settings = 'AdminCP Configurazione';
 		$this->temps_templates = 'AdminCP Editor Template';
@@ -1344,10 +1345,10 @@ class it
 	function topic()
 	{
 		$this->topic_attached = 'File allegato:';
-		$this->topic_attached_downloads = 'download'; 
+		$this->topic_attached_downloads = 'download';
 		$this->topic_attached_perm = 'Non hai il permesso per il download di questo file.';
 		$this->topic_attached_title = 'File Allegato';
-		$this->topic_avatar = 'Avatar'; 
+		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Vai alla fine della pagina';
 		$this->topic_create_poll = 'Crea Nuovo Sondaggio';
 		$this->topic_create_topic = 'Crea Nuova Discussione';
@@ -1359,7 +1360,7 @@ class it
 		$this->topic_error = 'Errore';
 		$this->topic_group = 'Gruppo';
 		$this->topic_guest = 'Visualizza';
-		$this->topic_ip = 'IP'; 
+		$this->topic_ip = 'IP'; //Translate
 		$this->topic_joined = 'Iscritto il';
 		$this->topic_level = 'Livello Utente';
 		$this->topic_links_aim = 'Invia un messaggio AIM a %s';
@@ -1390,10 +1391,11 @@ class it
 		$this->topic_posted = 'Inviato';
 		$this->topic_posts = 'Messaggi';
 		$this->topic_print = 'Visualizza Stampabile';
-		$this->topic_qr_emoticons = 'Emoticon'; 
-		$this->topic_qr_open_emoticons = 'Apri Emoticon Cliccabili'; 
-		$this->topic_qr_open_mbcode = 'Apri MBCode'; 
-		$this->topic_quickreply = 'Replica Veloce'; 
+		$this->topic_publish = 'Publish'; //Translate
+		$this->topic_qr_emoticons = 'Emoticon';
+		$this->topic_qr_open_emoticons = 'Apri Emoticon Cliccabili';
+		$this->topic_qr_open_mbcode = 'Apri MBCode';
+		$this->topic_quickreply = 'Replica Veloce';
 		$this->topic_quote = 'Rispondi riportando questa discussione';
 		$this->topic_reply = 'Rispondi alla Discussione';
 		$this->topic_split = 'Dividi';
@@ -1417,36 +1419,36 @@ class it
 
 	function universal()
 	{
-		$this->aim = 'AIM'; 
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'Basato su';
 		$this->board_by = 'Di';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Continua';
 		$this->delete = 'Elimina';
-		$this->direction = 'ltr'; 
+		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Modifica';
-		$this->email = 'Email'; 
-		$this->gtalk = 'GT'; 
-		$this->icq = 'ICQ'; 
-		$this->msn = 'MSN'; 
+		$this->email = 'Email'; //Translate
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
 		$this->new_message = 'Nuovo Messaggio';
 		$this->new_poll = 'Nuovo Sondaggio';
 		$this->new_topic = 'Nuova Discussione';
-		$this->no = 'No'; 
-		$this->powered = 'Powered by'; 
-		$this->private_message = 'PM'; 
+		$this->no = 'No'; //Translate
+		$this->powered = 'Powered by'; //Translate
+		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Citazione';
 		$this->reply = 'Replica';
 		$this->seconds = 'Secondi';
 		$this->select_all = 'Seleziona Tutto';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
-		$this->spoiler = 'Spoiler'; 
+		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Invia';
 		$this->subscribe = 'Traccia';
 		$this->today = 'Oggi';
-		$this->website = 'WWW'; 
-		$this->yahoo = 'Yahoo'; 
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = 'Sì';
 		$this->yesterday = 'Ieri';
 	}
