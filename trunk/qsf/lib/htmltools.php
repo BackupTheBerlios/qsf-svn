@@ -45,7 +45,7 @@ class htmltools extends forumutils
 		parent::forumutils($qsf);
 		
 		$this->modules = &$qsf->modules;
-		$this->lang = $qsf->lang;
+		$this->lang = &$qsf->lang;
 		$this->self = $qsf->self;
 		$this->skin = $qsf->skin;
 		
