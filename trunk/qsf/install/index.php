@@ -1,7 +1,7 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2006 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
  * based off MercuryBoard
@@ -45,7 +45,7 @@ $set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require_once $set['include_path'] . '/global.php';
 
-define('LATEST', 19);   // ID of most recent upgrade script
+define('LATEST', 20);   // ID of most recent upgrade script
 define('INSTALLER', 1); // Used in query files
 
 // Check for any addons available

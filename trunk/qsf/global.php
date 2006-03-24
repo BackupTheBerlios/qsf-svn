@@ -1,7 +1,7 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2006 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
  * based off MercuryBoard
@@ -34,7 +34,7 @@ if (!defined('QUICKSILVERFORUMS')) {
 class qsfglobal
 {
 	var $name    = 'Quicksilver Forums'; // The name of the software @var string
-	var $version = 'v1.2.0';            // Quicksilver Forums' version @var string
+	var $version = 'v1.2.1';            // Quicksilver Forums' version @var string
 	var $server  = array();           // Alias for $_SERVER @var array
 	var $get     = array();           // Alias for $_GET @var array
 	var $post    = array();           // Alias for $_POST @var array

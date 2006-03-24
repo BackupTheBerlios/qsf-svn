@@ -8,7 +8,11 @@
         <td class='subheader' colspan='2'>Quicksilver Forums</td>
     </tr>
     <tr>
-        <td><input type='radio' name='from' value='19' id='upgrade19' checked='checked' /></td>
+        <td><input type='radio' name='from' value='20' id='upgrade20' checked='checked' /></td>
+        <td><label for='upgrade20'>Quicksilver Forums v1.2.0</label></td>
+    </tr>
+    <tr>
+        <td><input type='radio' name='from' value='19' id='upgrade19' /></td>
         <td><label for='upgrade19'>Quicksilver Forums v1.1.9</label></td>
     </tr>
     <tr>
