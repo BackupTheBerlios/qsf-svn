@@ -71,7 +71,7 @@ class birthdays extends modlet
 		{
 			$year = explode('-', $m['user_birthday']);
 			$day = $this->qsf->mbdate('Y') - $year[0];
-			$links[] = "<a href=\"$this->qsf->self?a=profile&amp;w={$m['user_id']}\" class=\"bdaylink\">{$m['user_name']}</a> ($day)";
+			$links[] = "<a href=\"{$this->qsf->self}?a=profile&amp;w={$m['user_id']}\" class=\"bdaylink\">{$m['user_name']}</a> ($day)";
 		}
 		return implode(', ', $links);
 	}
