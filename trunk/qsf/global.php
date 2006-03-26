@@ -122,8 +122,8 @@ class qsfglobal
 		if ($this->user['zone_updated'] < $this->time)
 		{
 			$tz = new $this->modules['timezone']('timezone/'.$this->user['zone_name']);
-			$this->magic2();
-			if (strlen($this->abba)<1) $this->abba='N/A';
+			$tz->magic2();
+			if (strlen($tz->abba)<1) $tz->abba='N/A';
 			$this->db->query("UPDATE {$this->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$this->user['zone_id']};");
 		} else {
 			$this->tz_adjust = $this->user['zone_offset'];
