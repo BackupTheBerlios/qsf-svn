@@ -1,4 +1,14 @@
+Changes for 1.2.1:
+
+  Bugs addressed:
+
+* Addons directory was not present.
+* Post editing not handling reference properly in PHP4.
+* Board crash when timezone update was required.
+* Birthdays modlet referencing URL value incorrectly.
+
 Changes for 1.2.0:
+
   General Changes and Additions:
 * Spoilers now display an icon (like quotes and code blocks)
 * Recent posts includes all topics since last visit as well as all unread topics
