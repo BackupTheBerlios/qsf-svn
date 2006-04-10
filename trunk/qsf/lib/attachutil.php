@@ -197,7 +197,7 @@ class attachutil
 		}
 
 		if (is_uploaded_file($file['tmp_name'])) {
-			$result = @copy($file['tmp_name'], str_replace('\\', '/', $destination));
+			$result = @move_uploaded_file($file['tmp_name'], str_replace('\\', '/', $destination));
 			if ($result) {
 				return UPLOAD_SUCCESS;
 			}
