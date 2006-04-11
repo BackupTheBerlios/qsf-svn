@@ -7,6 +7,7 @@ Changes for 1.2.1:
 * Board crash when timezone update was required.
 * Birthdays modlet referencing URL value incorrectly.
 * Upload patch to make safe mode attachments a little easier.
+* AdminCP not accessible if RSS feed is down.
 
 Changes for 1.2.0:
 
