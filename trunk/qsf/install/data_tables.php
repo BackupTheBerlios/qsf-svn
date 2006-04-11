@@ -207,7 +207,7 @@ $queries[] = "CREATE TABLE {$pre}timezones (
   zone_updated int(15) unsigned NOT NULL default '0',
   PRIMARY KEY  (zone_id),
   KEY name (zone_name)
-) TYPE=MyISAM AUTO_INCREMENT=384 ROW_FORMAT=FIXED";
+) TYPE=MyISAM AUTO_INCREMENT=387 ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}topics";
 $queries[] = "CREATE TABLE {$pre}topics (
