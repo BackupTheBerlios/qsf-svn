@@ -70,6 +70,10 @@ class rssreader extends modlet
 		
 		// Get the title
 		$node = $this->rssFeeds[$param]->GetNodeByPath('RSS/CHANNEL');
+
+		if (!isset($node['child']))
+			return null;
+
 		$item = $this->build_array_from_node($node['child']);
 		$title = eval($this->titleTemplate);
 		
