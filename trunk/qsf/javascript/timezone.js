@@ -78,12 +78,8 @@ function buildSecondaryList(element)
 }
 
 // Try different methods of attaching
-if (window.attachEvent) {
-	window.attachEvent("onload", rebuildAllTZSelect);
-} else if (document.addEventListener) {
+if (document.addEventListener) {
 	document.addEventListener("DOMContentLoaded", rebuildAllTZSelect, null);
-} else {
-	document.onload = rebuildAllTZSelect;
 }
                                
 
