@@ -9,6 +9,7 @@ Changes for 1.2.1:
 * Upload patch to make safe mode attachments a little easier.
 * AdminCP not accessible if RSS feed is down.
 * Timezone autoincrement value in the installer bumped up to 387.
+* UserCP timezone selectors did not work in IE6 with javascript enabled.
 
 Changes for 1.2.0:
 
