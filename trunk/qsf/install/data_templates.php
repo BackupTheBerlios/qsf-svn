@@ -3437,9 +3437,12 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>
+
+<IF \$this->perms->auth((\'post_create\'), \$topic[\'topic_forum\'])>
 <div class=\"quickreply\">
 {\$quickreply}
 </div>
+</IF>
 
 {\$this->table}
  <tr>
