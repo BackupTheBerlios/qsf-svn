@@ -109,15 +109,11 @@ class pm extends qsfglobal
 				}
 
 				$pm['pm_title'] = $this->format($pm['pm_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
+				$pm['pm_message'] = $this->format($pm['pm_message'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
 				$pm['pm_time']  = $this->mbdate(DATE_LONG, $pm['pm_time']);
 
 				// aWest's PM Preview mod
-				if (strlen($pm['pm_message']) > 200) {
-					$preview = htmlspecialchars(substr($pm['pm_message'], 0, 200) . "...");
-				} else {
-					$preview = htmlspecialchars($pm['pm_message']);
-				}
-
+				$preview = ((strlen($pm['pm_message']) > 200)) ? substr($pm['pm_message'], 0, 197) . '...' : $pm['pm_message']);
 				$messages .= eval($this->template('PM_FOLDER_MESSAGE'));
 			}
 		} else {
