@@ -1042,6 +1042,7 @@ class hu
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Kérlek, írd be a képen látható szöveget.';
 		$this->register_image_invalid = 'Annak érdekében, hogy ellenõrizni lehessen a feliratkozó emberi mivoltát, be kell írni a képen látható szöveget.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Sikeresen feliratkozotál. Elküldtünk egy emailt a %s címre a szükséges aktiválási részletekkel. A fiókod korlátozott lesz, amíg nincs aktiválva.';
 		$this->register_name_invalid = 'A megadott név túl hosszú.';
 		$this->register_name_taken = 'Ez a név már foglalt.';
@@ -1051,6 +1052,7 @@ class hu
 		$this->register_passwd = 'Jelszó';
 		$this->register_reg = 'Regisztrálás';
 		$this->register_reging = 'Regisztráció';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate

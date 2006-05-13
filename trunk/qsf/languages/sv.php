@@ -1043,6 +1043,7 @@ class sv
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Var god skriv av den text som visas i bilden';
 		$this->register_image_invalid = 'För att bevisa att det är en människa som registrerar och inte ett datorprogram, skriv av texten som visas i bilden.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Du är nu registrerad. Ett epostmeddelande har sänts till %s med information om hur du aktiverar ditt användarkonto. Dina rättigheter i forumet är begränsade tills du utfört aktiveringen.';
 		$this->register_name_invalid = 'Namnet du skrev in är för långt.';
 		$this->register_name_taken = 'Det medlemsnamnet är redan upptaget.';
@@ -1052,6 +1053,7 @@ class sv
 		$this->register_passwd = 'Lösenord';
 		$this->register_reg = 'Registrera';
 		$this->register_reging = 'Registrerar';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Vilkor för användande';
 		$this->register_tos_i_agree = 'Jag godkänner ovanstående vilkor';
 		$this->register_tos_not_agree = 'Du godkände inte villkoren.';

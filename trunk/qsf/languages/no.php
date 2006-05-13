@@ -1043,6 +1043,7 @@ class no
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Vennligst skriv inn teksten på bildet.';
 		$this->register_image_invalid = 'For å forsikre oss om at du er en person, må du skrive inn teksten som er vist på bildet.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Du er registrert. En epost er blitt sendt til %s med informasjon om hvordan du skal aktivere kontoen. Kontoen din vil være redusert inntil du aktiverer den.';
 		$this->register_name_invalid = 'Navnet du skrev inn er for langt.';
 		$this->register_name_taken = 'Det medlemsnavnet er allerede i bruk.';
@@ -1052,6 +1053,7 @@ class no
 		$this->register_passwd = 'Passord';
 		$this->register_reg = 'Registrere';
 		$this->register_reging = 'Registrering';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Bruksvilkår';
 		$this->register_tos_i_agree = 'Jeg aksepterer de ovennevnte vilkår';
 		$this->register_tos_not_agree = 'Du aksepterte ikke vilkårene.';

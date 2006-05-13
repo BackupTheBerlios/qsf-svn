@@ -1043,6 +1043,7 @@ class de
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Bitte geben sie einen Text zum Bild ein.';
 		$this->register_image_invalid = 'Um ihre Identität zu prüfen, müssen sie den Text vom Bild eingeben.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Sie sind registriert. Eine Email wurde verschickt zu %s mit Informationen wie sie ihr Konto aktivieren können. Ihr Konto wird bis zur Aktivierung limitiert.';
 		$this->register_name_invalid = 'Der eingegebene Name ist zu lang.';
 		$this->register_name_taken = 'Der Mitgliedsname ist bereits vergeben.';
@@ -1052,6 +1053,7 @@ class de
 		$this->register_passwd = 'Passwort';
 		$this->register_reg = 'Registrierung';
 		$this->register_reging = 'Registrierung';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Nutzungsbestimmungen';
 		$this->register_tos_i_agree = 'Ich stimme den Obenstehenden Bestimmungen zu';
 		$this->register_tos_not_agree = 'Sie haben den Bestimmungen nicht zugestimmt.';

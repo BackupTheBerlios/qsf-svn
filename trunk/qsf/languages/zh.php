@@ -1042,6 +1042,7 @@ class zh
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.'; //Translate
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = '���Ѿ��ɹ�ע�ᡣһ�⼤���ʼ����͵� %s �������Ժ���������伤������ʺ�����̳ʹ���л��յ����ơ�';
 		$this->register_name_invalid = '��������û����';
 		$this->register_name_taken = '���û����Ѿ�����ʹ�á�';
@@ -1051,6 +1052,7 @@ class zh
 		$this->register_passwd = '����';
 		$this->register_reg = 'ע��';
 		$this->register_reging = 'ע��';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate

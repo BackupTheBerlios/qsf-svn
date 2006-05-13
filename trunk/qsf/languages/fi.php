@@ -1042,6 +1042,7 @@ class fi
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Kirjoita kuvassa näkyvä teksti.';
 		$this->register_image_invalid = 'Varmistaaksemme sinut ihmiskäyttäjäksi sinun tulee kirjoittaa kuvassa näkyvä teksti.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Sinut on rekisteröity. Sähköposti on lähetetty osoitteeseen %s sisältäen tiedon siitä kuinka voit aktivoida tunnuksesi. Tunnuksesi on rajoitettu kunnes aktivoit sen.';
 		$this->register_name_invalid = 'Antamasi nimi on liian pitkä.';
 		$this->register_name_taken = 'Käyttäjätunnus on jo käytössä.';
@@ -1051,6 +1052,7 @@ class fi
 		$this->register_passwd = 'Salasana';
 		$this->register_reg = 'Rekisteröidy';
 		$this->register_reging = 'Rekisteröidään';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate

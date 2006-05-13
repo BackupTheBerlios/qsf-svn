@@ -173,10 +173,12 @@ class register extends qsfglobal
 	{
 		$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
-		$message  = "{$this->lang->register_email_msg}\n";
+		$message = "{$this->lang->register->requested} {$username}\n";
+		$message .= "{$this->lang->register->initiated} {$_SERVER['REMOTE_ADDR']}\n\n";
+		$message .= "{$this->lang->register_email_msg}\n";
 		$message .= "{$this->lang->register_email_msg2} {$this->sets['forum_name']}.\n\n";
 		$message .= "{$this->lang->register_email_msg3}\n";
-		$message .= "{$this->sets['loc_of_board']}{$this->mainfile}?a=register&s=activate&e=" . md5($email . $username . $pass . $jointime);
+		$message .= "{$this->sets['loc_of_board']}{$this->mainfile}?a=register&s=activate&e=" . md5($email . $username . $pass . $jointime) ."\n\n";
 
 		$mailer->setSubject("{$this->sets['forum_name']} - {$this->lang->register_activating}");
 		$mailer->setMessage($message);

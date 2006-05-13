@@ -1044,6 +1044,7 @@ class nl
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Gelieve de tekst in te geven die in het beeld wordt getoond.';
 		$this->register_image_invalid = 'Om te verifiëren dat je een menselijke registrant bent en geen robot, moet je de tekst zoals aangetoond in het beeld typen.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Je bent geregistreerd. Er is een e-mail gestuurd naar %s met de activerings-informatie. Je account heeft beperkte mogelijkheden tot je account geactiveerd is.';
 		$this->register_name_invalid = 'Je hebt een ongeldige naam ingevoerd.';
 		$this->register_name_taken = 'Die gebruikersnaam is al bezet.';
@@ -1053,6 +1054,7 @@ class nl
 		$this->register_passwd = 'Wachtwoord';
 		$this->register_reg = 'Registreer';
 		$this->register_reging = 'Aan het registreren';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Gebruikersvoorwaarden';
 		$this->register_tos_i_agree = 'Ik stem toe met de voorwaarden';
 		$this->register_tos_not_agree = 'U heeft niet toegestemd met de voorwaarden.';

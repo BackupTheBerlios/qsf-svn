@@ -1042,6 +1042,7 @@ class fr
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Veuillez taper le texte visible dans l\'image';
 		$this->register_image_invalid = 'Pour vérifier que vous êtes un abonneur humain, vous devez taper le texte visible dans l\'image.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Vous avez été inscrit. Un mél a été envoyé à %s contenant les instructions pour activer votre compte. Votre compte sera limité jusqu\'à ce que vous le validez.';
 		$this->register_name_invalid = 'Le nom d\'utilisateur est incorrect.';
 		$this->register_name_taken = 'Le nom d\'utilisateur est déjà pris.';
@@ -1051,6 +1052,7 @@ class fr
 		$this->register_passwd = 'Mot de passe';
 		$this->register_reg = 'Envoyer';
 		$this->register_reging = 'Enregistrement';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Conditions de service';
 		$this->register_tos_i_agree = 'J\'approuve les conditions ci-dessus';
 		$this->register_tos_not_agree = 'Vous n\'avez pas approuvé les conditions.';

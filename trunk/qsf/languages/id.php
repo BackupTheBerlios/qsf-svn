@@ -1042,6 +1042,7 @@ class id
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
 		$this->register_image_invalid = 'To verify you are a human registrant, you must type the text as shown in the image.'; //Translate
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Anda telah terdaftar. Email telah terkirim ke %s dengan informasi dan cara untuk mengaktifkan account. Aktifasi account dibatasi hingga anda mengaktifkannya.';
 		$this->register_name_invalid = 'Nama yang anda isikan terlalu panjang.';
 		$this->register_name_taken = 'Nama member sudah ada.';
@@ -1051,6 +1052,7 @@ class id
 		$this->register_passwd = 'Password'; //Translate
 		$this->register_reg = 'Daftar';
 		$this->register_reging = 'Mendaftar';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate

@@ -1043,6 +1043,7 @@ class ru
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Пожалуйста, введите текст, изображенный на картинке.';
 		$this->register_image_invalid = 'Чтобы убедится, что ты человек, а не поганый робот, введи текст, изображенный на картинке.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Ты зарегистрировался. На адрес %s был выслан email с инструкциями по активизации твоего аккаунта. Перед началом работы необходимо активизировать аккаунт.';
 		$this->register_name_invalid = 'Слишком длинное имя.';
 		$this->register_name_taken = 'Такое имя уже занято.';
@@ -1052,6 +1053,7 @@ class ru
 		$this->register_passwd = 'Пароль';
 		$this->register_reg = 'Регистрация';
 		$this->register_reging = 'Регистрируется';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate

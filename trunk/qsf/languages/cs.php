@@ -1042,6 +1042,7 @@ class cs
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Prosím zadejte text, který vidíte na obrázku.';
 		$this->register_image_invalid = 'Musíte zadat text, který vidíte na obrázku.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Žádost o registraci byla podána. Na adresu %s byl zaslán e-mail s informacemi, jak aktivovat Váš úèet. Dokud nebude úèet aktivován, budete mít na fóru omezené nìkteré funkce.';
 		$this->register_name_invalid = 'Vámi zadané jméno je pøíliš dlouhé.';
 		$this->register_name_taken = 'Vámi zadané jméno je již obsazeno.';
@@ -1051,6 +1052,7 @@ class cs
 		$this->register_passwd = 'Heslo';
 		$this->register_reg = 'Registrovat!';
 		$this->register_reging = 'Registrace';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Terms of Service'; //Translate
 		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate

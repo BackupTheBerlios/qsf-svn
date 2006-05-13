@@ -1042,6 +1042,7 @@ class he
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'אנא הקלד את הטקסט המוצג בתמונה.';
 		$this->register_image_invalid = 'בכדי לוודא שזהו רישום אמיתי, עלייך להקליד את הטקסט המוצג בתמונה.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'You have been registered. An email has been sent to %s with information on how to activate your account. Your account will be limited until you activate it.'; //Translate
 		$this->register_name_invalid = 'השם שהקלדת ארוך מידי.';
 		$this->register_name_taken = 'שם החבר שהקלדת כבר תפוס.';
@@ -1051,6 +1052,7 @@ class he
 		$this->register_passwd = 'סיסמה';
 		$this->register_reg = 'הירשם';
 		$this->register_reging = 'רישום';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'תנאי שימוש';
 		$this->register_tos_i_agree = 'אני מסכים לתנאים הנ"ל.';
 		$this->register_tos_not_agree = 'לא הסכמת לתנאים.';

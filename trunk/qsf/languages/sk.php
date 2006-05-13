@@ -1044,6 +1044,7 @@ class sk
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Prosím napíšte text, ktorý je na obrázku.';
 		$this->register_image_invalid = 'Kvôli obmedzeniu automatizovaného registrovania musíte opísa text, ktorý vidíte na obrázku.';
+		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Boli ste zaregistrovaný. Na adresu %s bol zaslaný email s informáciami oo aktivácii Vašeho konta. Vaše konto bude obmedzené, pokia¾ si ho neaktivujete.';
 		$this->register_name_invalid = 'Zadané meno je pridlhé.';
 		$this->register_name_taken = 'Toto èlenské meno je už obsadené.';
@@ -1053,6 +1054,7 @@ class sk
 		$this->register_passwd = 'Heslo';
 		$this->register_reg = 'Registrácia';
 		$this->register_reging = 'Prebieha registrácia';
+		$this->register_requested = 'Account activation request for:'; //Translate
 		$this->register_tos = 'Podmienky používania';
 		$this->register_tos_i_agree = 'Súhlasím s vyššie formulovanými podmienkami';
 		$this->register_tos_not_agree = 'Nesúhlasili ste s podmienkami.';
