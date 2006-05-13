@@ -169,7 +169,7 @@ $queries['ADMIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, templ
 {\$admin->etable}
 
 <p class=\"copyright\">
- {\$admin->lang->powered} <a href=\"http://www.quicksilverforums.com\" class=\"small\"><b>{\$admin->name}</b></a> [{\$admin->version}] &copy; 2005 The {\$admin->name} Development Team<br />
+ {\$admin->lang->powered} <a href=\"http://www.quicksilverforums.com\" class=\"small\"><b>{\$admin->name}</b></a> [{\$admin->version}] &copy; 2005-2006 The {\$admin->name} Development Team<br />
  {\$admin->lang->based_on} <a href=\"http://www.mercuryboard.com\" class=\"small\"><b>MercuryBoard</b></a> &copy; 2001-2005 The Mercury Development Team<br />
  <b>{\$time_exec}</b> seconds - <b>{\$admin->db->querycount}</b> queries - <b>{\$server_load}</b> load
 </p>', 'Copyright', 'Copyright footer for AdminCP', 10)";
@@ -2083,7 +2083,7 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 </body>
 </html>', 'Universal Template', 'Change the header and footer that will appear on every page', 0)";
 $queries['MAIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_COPYRIGHT', '<p class=\"copyright\">
-{\$qsf->lang->powered} <a href=\"http://www.quicksilverforums.com\" class=\"small\"><b>{\$qsf->name}</b></a> [{\$qsf->version}] &copy; 2005 The {\$qsf->name} Development Team<br />
+{\$qsf->lang->powered} <a href=\"http://www.quicksilverforums.com\" class=\"small\"><b>{\$qsf->name}</b></a> [{\$qsf->version}] &copy; 2005-2006 The {\$qsf->name} Development Team<br />
 {\$qsf->lang->based_on} <a href=\"http://www.mercuryboard.com\" class=\"small\"><b>MercuryBoard</b></a> &copy; 2001-2005 The Mercury Development Team
 </p>', 'Copyright', 'Format the look of the copyright on the board.<br><br><b>Warning: Modification to anything other than the style of this copyright will result in a violation of your terms of service</b>', 6)";
 $queries['MAIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_ETABLE', ' </table>
