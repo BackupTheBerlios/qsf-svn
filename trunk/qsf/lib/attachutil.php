@@ -168,7 +168,7 @@ class attachutil
 		{
 			$attachments .= "('$md5', '$filename', $post_id, '" . filesize('./attachments/' . $md5) . '\'), ';
 		}
-
+		$attachments = htmlspecialchars($attachments);
 		$this->db->query("INSERT INTO {$this->pre}attach (attach_file, attach_name, attach_post, attach_size) VALUES " . substr($attachments, 0, -2));
 	}
 
