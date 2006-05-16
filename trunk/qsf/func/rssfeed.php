@@ -91,7 +91,9 @@ class rssfeed extends qsfglobal
 				p.post_id,
 				p.post_time,
 				p.post_text,
-				u.user_name
+				u.user_name,
+				u.user_email,
+				u.user_email_show
 			FROM 
 				{$this->pre}topics t,
 				{$this->pre}posts p,
@@ -134,7 +136,9 @@ class rssfeed extends qsfglobal
 				p.post_id,
 				p.post_time,
 				p.post_text,
-				u.user_name
+				u.user_name,
+				u.user_email,
+				u.user_email_show
 			FROM 
 				{$this->pre}topics t,
 				{$this->pre}posts p,
@@ -191,7 +195,9 @@ class rssfeed extends qsfglobal
 				p.post_id,
 				p.post_time,
 				p.post_text,
-				u.user_name
+				u.user_name,
+				u.user_email,
+				u.user_email_show
 			FROM 
 				{$this->pre}topics t,
 				{$this->pre}posts p,

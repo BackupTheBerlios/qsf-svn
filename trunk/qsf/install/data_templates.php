@@ -3232,6 +3232,11 @@ $queries['RSSFEED_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template
       <guid isPermaLink=\"true\">{\$this->sets[\'loc_of_board\']}{\$this->mainfile}?a=topic&amp;t={\$query_row[\'topic_id\']}&amp;p={\$query_row[\'post_id\']}#p{\$query_row[\'post_id\']}</guid>
       <pubDate>{\$pubdate}</pubDate>
       <category>\$forum_name</category>
+      <IF \$query_row[\'user_email_show\']>
+       <author>{\$query_row[\'user_email\']}</author>
+      <ELSE>
+       <author>nobody@example.com</author>
+      </IF>
       <author>{\$query_row[\'user_name\']}</author>
     </item>', 'RSS Item', 'Feed for a single post in RSS format.', 4)";
 $queries['RSSFEED_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_TOPIC', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>

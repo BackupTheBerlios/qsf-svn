@@ -30,7 +30,8 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	// Changed templates
-	TOPIC_MAIN
+	TOPIC_MAIN,
+	RSSFEED_ITEM
 	);
 
 // Permission changes	
