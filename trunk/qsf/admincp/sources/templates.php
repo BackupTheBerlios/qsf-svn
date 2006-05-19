@@ -200,6 +200,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '{$MessageLink}' ) ) {
 					$didsomething = true;
@@ -208,6 +209,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$mercury' ) ) {
 					$didsomething = true;
@@ -216,6 +218,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$qsfboard' ) ) {
 					$didsomething = true;
@@ -224,6 +227,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$qsf->lang->main_powered' ) ) {
 					$didsomething = true;
@@ -232,6 +236,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$qsf->lang->main_seconds' ) ) {
 					$didsomething = true;
@@ -240,6 +245,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->pm_inbox' ) ) {
 					$didsomething = true;
@@ -248,6 +254,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->board_topics_new' ) ) {
 					$didsomething = true;
@@ -256,6 +263,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->board_topics_new' ) ) {
 					$didsomething = true;
@@ -264,6 +272,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->recent_topics_new' ) ) {
 					$didsomething = true;
@@ -272,6 +281,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], 'post_mbcode_' ) ) {
 					$didsomething = true;
@@ -280,6 +290,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$qsf->tree' ) ) {
 					$didsomething = true;
@@ -288,6 +299,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$admin->tree' ) ) {
 					$didsomething = true;
@@ -296,6 +308,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$this->tree' ) ) {
 					$didsomething = true;
@@ -304,6 +317,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                		                $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 				if( strstr( $row['template_html'], '$birthdays' ) ) {
 					$didsomething = true;
@@ -312,6 +326,7 @@ class templates extends admin
 					$row['template_html'] = addslashes($row['template_html']);
                			        $sql = "UPDATE {$this->pre}templates SET template_html='{$row['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row['template_name']}'";
                        		        $this->db->query($sql);
+                                        $row['template_html'] = stripslashes($row['template_html']);
 				}
 	                }
 
