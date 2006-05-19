@@ -73,7 +73,7 @@ class register extends qsfglobal
 			$tos_text = nl2br($tos_text);
 
 			$_SESSION['allow_register'] = true;
-		
+
 			return eval($this->template('REGISTER_MAIN'));
 		} else {
 			$username = $this->post['desuser'];
@@ -205,6 +205,11 @@ class register extends qsfglobal
 
 	function create_image()
 	{
+		// Need to get rid of other image files since the names will all be different now.
+		foreach( glob("./stats/*.png") as $filename ) {
+			unlink($filename);
+		}
+
 		require './lib/jpgraph/jpgraph.php';
 		require './lib/jpgraph/jpgraph_antispam.php';
 		
@@ -215,9 +220,10 @@ class register extends qsfglobal
 		$graph = new AntiSpam();
 		
 		$text  = strtoupper($graph->Rand(6));
-		$graph->Stroke('./stats/register.png');
+		$filename = "./stats/register" . $this->time . ".png";
+		$graph->Stroke($filename);
 
-		return array(md5("{$this->sets['db_pass']}{$this->sets['mostonlinetime']}$text"), './stats/register.png');
+		return array(md5("{$this->sets['db_pass']}{$this->sets['mostonlinetime']}$text"), $filename);
 	}
 }
 ?>
