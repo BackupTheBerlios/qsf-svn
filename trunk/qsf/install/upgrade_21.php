@@ -31,9 +31,7 @@ $need_templates = array(
 	// Added templates
 	// Changed templates
 	TOPIC_MAIN,
-	RSSFEED_ITEM,
-	ADMIN_EDIT_BOARD_SETTINGS,
-	ADMIN_MEMBER_PROFILE
+	RSSFEED_ITEM
 	);
 
 // Permission changes	
