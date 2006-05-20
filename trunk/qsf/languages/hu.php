@@ -1347,7 +1347,10 @@ class hu
 	{
 		$this->topic_attached = 'Csatolt fájl:';
 		$this->topic_attached_downloads = 'letöltés';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Nincs jogod letölteni ezt a fájlt.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Csatolt fájl';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

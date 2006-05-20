@@ -1347,7 +1347,10 @@ class zh
 	{
 		$this->topic_attached = '����:';
 		$this->topic_attached_downloads = '��';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = '����Ȩ�¸ĸ��ļ���';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = '������ļ�';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

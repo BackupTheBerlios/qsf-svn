@@ -1348,7 +1348,10 @@ class sv
 	{
 		$this->topic_attached = 'Bifogad fil:';
 		$this->topic_attached_downloads = 'nedladdningar';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Du har inte tillåtelse att ladda hem den här filen.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Bifogad Fil';
 		$this->topic_avatar = 'Visningsbild';
 		$this->topic_bottom = 'Gå till botten av sidan';

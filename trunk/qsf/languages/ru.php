@@ -1348,7 +1348,10 @@ class ru
 	{
 		$this->topic_attached = 'Вложенный файл:';
 		$this->topic_attached_downloads = 'раз скачано';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'У тебя нет прав скачивать этот файл.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Вложенный файл';
 		$this->topic_avatar = 'Аватара';
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

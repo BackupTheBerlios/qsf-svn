@@ -1348,8 +1348,11 @@ class sk
 	function topic()
 	{
 		$this->topic_attached = 'Priložený súbor:';
-		$this->topic_attached_downloads = 'downloads'; //Translate
+		$this->topic_attached_downloads = 'downloads';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Nemáte povolenie na download tohoto súboru.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Nadpis priloženého súboru';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Na spodok stránky';

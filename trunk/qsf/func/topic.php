@@ -496,13 +496,14 @@ class topic extends qsfglobal
 					if ($download_perm) {
 						$ext = strtolower(substr($file['attach_name'], -4));
 
-						if (($ext == '.jpg') || ($ext == '.gif') || ($ext == '.png')) {
-							$post['post_text'] .= "<br /><br />{$this->lang->topic_attached} {$file['attach_name']} ({$file['attach_downloads']} {$this->lang->topic_attached_downloads})<br /><img src='{$this->self}?a=topic&amp;s=attach&amp;id={$file['attach_id']}' alt='{$file['attach_name']}' />";
+						if (($ext == '.jpg') || ($ext == '.gif') || ($ext == '.png') || ($ext == '.bmp')) {
+							$post['post_text'] .= "<br /><br />{$this->lang->topic_attached_image} {$file['attach_name']} ({$file['attach_downloads']} {$this->lang->topic_attached_downloads})<br /><img src='{$this->self}?a=topic&amp;s=attach&amp;id={$file['attach_id']}' alt='{$file['attach_name']}' />";
 							continue;
 						}
 					}
-
-					$post['post_text'] .= "<br /><br />{$this->lang->topic_attached} <a href='{$this->self}?a=topic&amp;s=attach&amp;id={$file['attach_id']}'>{$file['attach_name']}</a> ({$file['attach_downloads']} {$this->lang->topic_attached_downloads}, " . ceil($file['attach_size'] / 1024) . ' KB)';
+					$filesize = ceil($file['attach_size'] / 1024);
+					$post_attachment = eval($this->template('TOPIC_POST_ATTACHMENT'));
+					$post['post_text'] .= $post_attachment;
 				}
 			}
 

@@ -1346,8 +1346,11 @@ class bg
 	function topic()
 	{
 		$this->topic_attached = 'Прикачи фай:';
-		$this->topic_attached_downloads = 'downloads'; //Translate
+		$this->topic_attached_downloads = 'downloads';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Нямаш разрешение да свалиш този файл.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Прикачен файл';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

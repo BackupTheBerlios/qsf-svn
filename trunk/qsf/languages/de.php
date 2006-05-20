@@ -1347,8 +1347,11 @@ class de
 	function topic()
 	{
 		$this->topic_attached = 'Angehangene Datei:';
-		$this->topic_attached_downloads = 'Downloads';
+		$this->topic_attached_downloads = 'Downloads'; //Translate
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Sie haben keine Erlaubnis diese Datei runterzuladen.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Angehangene Datei';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Gehe zum Ende der Seite';

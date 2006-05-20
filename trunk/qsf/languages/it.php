@@ -1348,7 +1348,10 @@ class it
 	{
 		$this->topic_attached = 'File allegato:';
 		$this->topic_attached_downloads = 'download';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Non hai il permesso per il download di questo file.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'File Allegato';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Vai alla fine della pagina';

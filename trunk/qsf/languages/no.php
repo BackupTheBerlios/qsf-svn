@@ -1348,7 +1348,10 @@ class no
 	{
 		$this->topic_attached = 'Vedlagt fil:';
 		$this->topic_attached_downloads = 'nedlastninger';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Du har ikke tilgang til å laste ned denne filen.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Vedlagt fil';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Gå til slutten av siden';

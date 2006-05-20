@@ -134,6 +134,16 @@ td.posterinfo {
 .postbottom   {vertical-align:bottom; height:2.5em; color:black;}
 div.signature {font-size:0.9em; color:#333333;}
 
+/* File attachment formatting */
+div.filebox {
+	padding-left:20px;
+	margin-top:5px;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-image: url(./images/icons/code.png);
+}
+.file        {background-color:#fefefe; color:#333333; border:1px #555555 solid;}
+
 /* Quote formatting */
 div.quotebox      {
 	padding-left:20px;

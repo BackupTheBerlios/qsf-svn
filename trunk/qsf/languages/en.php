@@ -1346,8 +1346,11 @@ class en
 	function topic()
 	{
 		$this->topic_attached = 'Attached file:';
-		$this->topic_attached_downloads = 'downloads';
+		$this->topic_attached_downloads = 'Downloads';
+		$this->topic_attached_filename = 'Filename:';
+		$this->topic_attached_image = 'Attached image:';
 		$this->topic_attached_perm = 'You do not have permission to download this file.';
+		$this->topic_attached_size = 'Size:';
 		$this->topic_attached_title = 'Attached File';
 		$this->topic_avatar = 'Avatar';
 		$this->topic_bottom = 'Go to the bottom of the page';

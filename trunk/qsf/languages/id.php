@@ -1347,7 +1347,10 @@ class id
 	{
 		$this->topic_attached = 'Sisipkan file:';
 		$this->topic_attached_downloads = 'download';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Anda tidak punya izin untuk mendownload file ini.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Sisipkan File';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

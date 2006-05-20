@@ -1347,7 +1347,10 @@ class cs
 	{
 		$this->topic_attached = 'Pøíloha:';
 		$this->topic_attached_downloads = 'x shlédnuto';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Nemáte oprávnìní stáhnout tento soubor.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Pøíloha';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

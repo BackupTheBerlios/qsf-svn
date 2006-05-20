@@ -3600,4 +3600,14 @@ $queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, temp
  </td></tr>
 {\$this->etable}
 </form>', 'Quick Reply', 'The format of the Quick Reply box', 4)";
+$queries['TOPIC_POST_ATTACHMENT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST_ATTACHMENT', '
+<br /><br />
+<div class=\"filebox\">
+ <strong>{\$this->lang->topic_attached}</strong>
+ <div class=\"file\">
+  <br />{\$this->lang->topic_attached_filename} <a href=\"{\$this->self}?a=topic&amp;s=attach&amp;id={\$file[\'attach_id\']}\">{\$file[\'attach_name\']}</a>
+  <br />{\$this->lang->topic_attached_size} {\$filesize} KB
+  <br />{\$this->lang->topic_attached_downloads}: {\$file[\'attach_downloads\']}
+ </div>
+</div>', 'Post Attachment', 'Format for an attached file within a post.', 5)";
 ?>

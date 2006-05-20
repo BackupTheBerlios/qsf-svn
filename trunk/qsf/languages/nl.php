@@ -1348,8 +1348,11 @@ class nl
 	function topic()
 	{
 		$this->topic_attached = 'Bijgesloten bestand:';
-		$this->topic_attached_downloads = 'Downloads';
+		$this->topic_attached_downloads = 'Downloads'; //Translate
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Je hebt geen toestemming om dit bestand te downloaden.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Bijgesloten bestand';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Ga naar onderaan de pagina';

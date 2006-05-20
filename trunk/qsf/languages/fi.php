@@ -1347,7 +1347,10 @@ class fi
 	{
 		$this->topic_attached = 'Liitetiedosto:';
 		$this->topic_attached_downloads = 'kopiointia';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'Sinulla ei ole oikeuksia kopioida tätä tiedostoa.';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'Liitetiedosto';
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate

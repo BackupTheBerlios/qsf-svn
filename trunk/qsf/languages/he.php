@@ -1347,7 +1347,10 @@ class he
 	{
 		$this->topic_attached = 'קובץ מצורף:';
 		$this->topic_attached_downloads = 'הורדות';
+		$this->topic_attached_filename = 'Filename:'; //Translate
+		$this->topic_attached_image = 'Attached image:'; //Translate
 		$this->topic_attached_perm = 'אין לך הרשאות להוריד קובץ זה';
+		$this->topic_attached_size = 'Size:'; //Translate
 		$this->topic_attached_title = 'קובץ מצורף';
 		$this->topic_avatar = 'אווטרה';
 		$this->topic_bottom = 'גש לתחתית העמוד';
