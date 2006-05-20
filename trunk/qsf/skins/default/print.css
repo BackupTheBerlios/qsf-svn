@@ -40,7 +40,7 @@ td.posterinfo {
 div.signature    {font-size: 0.9em; color:#333333;}
 
 /* File attachment formatting */
-div.filebox {
+table.filebox {
 	width:95%;
 	padding-left:20px;
 	background-repeat: no-repeat;
