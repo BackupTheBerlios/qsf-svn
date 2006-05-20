@@ -187,7 +187,9 @@ $queries['ADMIN_DELETE_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin,
  </tr>
 {\$this->etable}
 </form>', 'Delete Template', 'Form for deleting an HTML template', 6)";
-$queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'settings', 'ADMIN_EDIT_BOARD_SETTINGS', '<form action=\"{\$this->self}?a=settings&amp;s=update\" method=\"post\">
+$queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'settings', 'ADMIN_EDIT_BOARD_SETTINGS', '
+<script type=\"text/javascript\" src=\"../javascript/timezone.js\"></script>
+<form action=\"{\$this->self}?a=settings&amp;s=update\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_general}</td>
@@ -306,7 +308,9 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
  </tr>
  <tr>
   <td class=\"labeldark\">{\$this->lang->settings_timezone}</td>
-  <td class=\"tabledark\"><select class=\"timezone\" name=\"default_timezone\">{\$selectTimezones}</select></td>
+  <td class=\"tabledark\">
+   <select class=\"select timezone\" name=\"default_timezone\">{\$selectTimezones}</select>
+  </td>
  </tr>
  <tr>
   <td class=\"labellight\">{\$this->lang->settings_show_avatars}</td>
@@ -465,7 +469,9 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
  </tr>
  <tr>
   <td class=\"labeldark\">{\$this->lang->settings_server_timezone}</td>
-  <td class=\"tabledark\"><select class=\"timezone\" name=\"servertime\">{\$severTimezones}</select></td>
+  <td class=\"tabledark\">
+   <select class=\"select timezone\" name=\"servertime\">{\$severTimezones}</select>
+  </td>
  </tr>
  <tr>
   <td class=\"labellight\">{\$this->lang->settings_server_maxload}<br /><span class=\"tiny\">{\$this->lang->settings_server_maxload_msg}</span></td>
@@ -1121,7 +1127,9 @@ $queries['ADMIN_MEMBER_EDIT'] = "INSERT INTO {$pre}templates (template_skin, tem
   {\$line}
  </td>
 </tr>', 'Profile Edit - One Line', 'Format for one row on the profile editor', 1)";
-$queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'member_control', 'ADMIN_MEMBER_PROFILE', '<form action=\"{\$this->self}?a=member_control&amp;s=profile&amp;id={\$this->get[\'id\']}\" method=\"post\">
+$queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'member_control', 'ADMIN_MEMBER_PROFILE', '
+<script type=\"text/javascript\" src=\"../javascript/timezone.js\"></script>
+<form action=\"{\$this->self}?a=member_control&amp;s=profile&amp;id={\$this->get[\'id\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mc}</td>
