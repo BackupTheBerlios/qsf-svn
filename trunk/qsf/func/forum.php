@@ -50,7 +50,20 @@ class forum extends qsfglobal
 			);
 		}
 
-		$n   = isset($this->get['num']) ? intval($this->get['num']) : $this->sets['topics_per_page'];
+		if (isset($this->get['num'])) {
+			$n = intval($this->get['num']);
+		} elseif ($this->user['user_topics_page'] != 0) {
+			$n = $this->user['user_topics_page'];
+		} else {
+			$n = $this->sets['topics_per_page'];
+		}
+
+		if ($this->user['user_posts_page'] != 0) {
+			$m = $this->user['user_posts_page'];
+		} else {
+			$m = $this->sets['posts_per_page'];
+		}
+
 		$min = isset($this->get['min']) ? intval($this->get['min']) : 0;
 		$asc = isset($this->get['asc']) ? intval(!$this->get['asc']) : 1;
 		$lasc = $asc ? 0 : 1;
@@ -99,7 +112,7 @@ class forum extends qsfglobal
 		$forumjump = $this->htmlwidgets->select_forums($f, 0, null, true);
 
 		if($exists['forum_subcat'] == '0') {
-			$topics = $this->getTopics($f, $min, $n, $order);
+			$topics = $this->getTopics($f, $min, $n, $m, $order);
 
 			if (!$topics) {
 				$topics = eval($this->template('FORUM_NO_TOPICS'));
@@ -197,7 +210,7 @@ class forum extends qsfglobal
 		return $out;
 	}
 
-	function getTopics($f, $min, $n, $order)
+	function getTopics($f, $min, $n, $m, $order)
 	{
 		$out = null;
 
@@ -228,7 +241,7 @@ class forum extends qsfglobal
 			
 			$row['newpost'] = !$this->readmarker->is_topic_read($row['topic_id'], $row['topic_edited']);
 
-			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'] . '&amp;f=' . $f, ', ', 0, $this->sets['posts_per_page']);
+			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'] . '&amp;f=' . $f, ', ', 0, $m);
 
 			if (!empty($row['topic_description'])) {
 				$row['topic_description'] = '<br />&raquo; ' . $this->format($row['topic_description'], FORMAT_CENSOR | FORMAT_HTMLCHARS);

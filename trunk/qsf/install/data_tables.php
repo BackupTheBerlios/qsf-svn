@@ -269,6 +269,8 @@ $queries[] = "CREATE TABLE {$pre}users (
   user_view_avatars tinyint(1) unsigned NOT NULL default '1',
   user_view_signatures tinyint(1) unsigned NOT NULL default '1',
   user_view_emoticons tinyint(1) unsigned NOT NULL default '1',
+  user_topics_page tinyint(2) unsigned NOT NULL DEFAULT '0',
+  user_posts_page tinyint(2) unsigned NOT NULL DEFAULT '0',
   user_perms text NOT NULL default '',
   PRIMARY KEY  (user_id)
 ) TYPE=MyISAM";

@@ -53,8 +53,14 @@ class topic extends qsfglobal
 
 	function get_topic()
 	{
+		if (isset($this->get['num'])) {
+			$this->get['num'] = intval($this->get['num']);
+		} elseif ($this->user['user_posts_page'] != 0) {
+			$this->get['num'] = $this->user['user_posts_page'];
+		} else {
+			$this->get['num'] = $this->sets['posts_per_page'];
+		}
 		$this->get['min'] = isset($this->get['min']) ? intval($this->get['min']) : 0;
-		$this->get['num'] = isset($this->get['num']) ? intval($this->get['num']) : $this->sets['posts_per_page'];
 		$this->get['t']   = isset($this->get['t'])   ? intval($this->get['t'])   : 0;
 		if (isset($this->get['view'])) {
                         $this->validator->validate($this->get['view'], TYPE_STRING, array('newer', 'older'), false);

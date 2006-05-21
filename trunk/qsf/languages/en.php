@@ -257,6 +257,7 @@ class en
 		$this->cp_old_notmatch = 'The old password you entered does not match the one in our database.';
 		$this->cp_old_pass = 'Old Password';
 		$this->cp_pass_notvaid = 'Your password is not valid. Make sure it uses only valid characters such as letters, numbers, dashes, underscores, or spaces.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.';
 		$this->cp_preferences = 'Changing Preferences';
 		$this->cp_preview_sig = 'Signature Preview:';
 		$this->cp_privacy = 'Privacy Options';
@@ -276,6 +277,7 @@ class en
 		$this->cp_sub_type = 'Subscription Type';
 		$this->cp_sub_updated = 'Selected subscriptions have been deleted.';
 		$this->cp_topic_option = 'Topic Options';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.';
 		$this->cp_updated = 'Profile Updated';
 		$this->cp_updated1 = 'Avatar Updated';
 		$this->cp_updated_prefs = 'Preferences Updated';

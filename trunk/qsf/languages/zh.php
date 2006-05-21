@@ -257,6 +257,7 @@ class zh
 		$this->cp_old_notmatch = '������ľ����벻��ȷ��';
 		$this->cp_old_pass = '������';
 		$this->cp_pass_notvaid = '�������Ϊ�Ƿ����롣 ����ֻ������ĸ�����֣�-��_�Ϳո���ɡ�';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = '���ڸ��ƫ������';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = '��˽����';
@@ -276,6 +277,7 @@ class zh
 		$this->cp_sub_type = '��������';
 		$this->cp_sub_updated = '��ѡ�����Ѿ��ӵ����б���ɾ��';
 		$this->cp_topic_option = '����ѡ��';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = '�����Ѹ���';
 		$this->cp_updated1 = 'ͷ���Ѹ���';
 		$this->cp_updated_prefs = 'ƫ�������Ѹ���';

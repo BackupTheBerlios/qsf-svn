@@ -258,6 +258,7 @@ class sv
 		$this->cp_old_notmatch = 'Ditt gamla lösenord är ej korrekt.';
 		$this->cp_old_pass = 'Gammalt Lösenord';
 		$this->cp_pass_notvaid = 'Ditt lösenord är ogiltigt. Endast bokstäver, nummer, streck, understreck och mellanslag är tillåtna.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Ändrar Inställningar';
 		$this->cp_preview_sig = 'Förhandsgranska Signatur:';
 		$this->cp_privacy = 'Privata Inställningar';
@@ -277,6 +278,7 @@ class sv
 		$this->cp_sub_type = 'Prenumerationstyp';
 		$this->cp_sub_updated = 'Vald prenumeration har blivit raderad.';
 		$this->cp_topic_option = 'Foruminställningar';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profil Uppdaterad';
 		$this->cp_updated1 = 'Avatar Uppdaterad';
 		$this->cp_updated_prefs = 'Inställningar Uppdaterade';

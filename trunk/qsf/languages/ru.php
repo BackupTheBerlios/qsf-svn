@@ -258,6 +258,7 @@ class ru
 		$this->cp_old_notmatch = 'Введенный старый пароль не совпадает с данными в базе.';
 		$this->cp_old_pass = 'Старый пароль';
 		$this->cp_pass_notvaid = 'Твой пароль неверен. Убедись, что использованы только корректные символы, такие как буквы, числа, тире, подчеркивание или пробелы.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Изменение настроек';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Настройки безопасности';
@@ -277,6 +278,7 @@ class ru
 		$this->cp_sub_type = 'Тип подписки';
 		$this->cp_sub_updated = 'Выбранные подписки были удалены.';
 		$this->cp_topic_option = 'Настройки тем';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Профиль обновлен';
 		$this->cp_updated1 = 'Аватара обновлена';
 		$this->cp_updated_prefs = 'Настройки обновлены';

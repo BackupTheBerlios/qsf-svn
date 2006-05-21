@@ -257,6 +257,7 @@ class pt
 		$this->cp_old_notmatch = 'Sua antiga senha não coincide com as do banco de dados.';
 		$this->cp_old_pass = 'Senha antiga';
 		$this->cp_pass_notvaid = 'Sua senha não é válida.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Trocando preferências';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Opções de privacidade';
@@ -276,6 +277,7 @@ class pt
 		$this->cp_sub_type = 'Tipo de inscrição';
 		$this->cp_sub_updated = 'Inscrições selecionadas apagadas.';
 		$this->cp_topic_option = 'Opções de tópico';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Dados atualizados';
 		$this->cp_updated1 = 'Figura atualizada';
 		$this->cp_updated_prefs = 'Preferências ajustadas';

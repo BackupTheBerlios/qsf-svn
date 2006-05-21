@@ -257,6 +257,7 @@ class hu
 		$this->cp_old_notmatch = 'A régi jelszó nem egyezik az általunk tárolttal.';
 		$this->cp_old_pass = 'Régi jelszó';
 		$this->cp_pass_notvaid = 'A megadott jelszó nem helyes formátumban van.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Testreszabás';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Személyes opciók';
@@ -276,6 +277,7 @@ class hu
 		$this->cp_sub_type = 'Feliratkozás típusa';
 		$this->cp_sub_updated = 'A kiválasztott feliratkozásokat töröltük.';
 		$this->cp_topic_option = 'Téma beállításai';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Adatlap frissítve';
 		$this->cp_updated1 = 'Kiskép frissítve';
 		$this->cp_updated_prefs = 'Beállítások frissítve';

@@ -259,6 +259,7 @@ class nl
 		$this->cp_old_notmatch = 'Het oude wachtwoord dat u heeft ingegeven komt niet overeen met het wachtwoord in onze database.';
 		$this->cp_old_pass = 'Oude wachtwoord';
 		$this->cp_pass_notvaid = 'Uw wachtwoord is ongeldig. Zorg ervoor dat u alleen de toegestane leestekens zoals letters, nummers, verbindingsstreepjes, onderstreeptekens of spaties gebruikt.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Verander je forum instellingen';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Privé Opties';
@@ -278,6 +279,7 @@ class nl
 		$this->cp_sub_type = 'Type Abonnement';
 		$this->cp_sub_updated = 'De geselecteerde abonnementen zijn verwijderd.';
 		$this->cp_topic_option = 'De opties van het onderwerp';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profiel is bijgewerkt';
 		$this->cp_updated1 = 'Avatar is bijgewerkt';
 		$this->cp_updated_prefs = 'Instellingen zijn bijgewerkt';

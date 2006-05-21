@@ -258,6 +258,7 @@ class de
 		$this->cp_old_notmatch = 'Das alte eingegebene Passwort stimmt nicht mit dem in der Datenbank überein.';
 		$this->cp_old_pass = 'Altes Passwort:';
 		$this->cp_pass_notvaid = 'Ihr Passwort ist nicht gültig. Gehen sie sicher, das nur gültige Zeichen benutzt werden wie z.B. Buchstaben, Zahlen, Bindestriche, Unterstriche oder Leerzeichen.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Verändere Einstellungen';
 		$this->cp_preview_sig = 'Signatur Vorschau:';
 		$this->cp_privacy = 'Private Optionen';
@@ -277,6 +278,7 @@ class de
 		$this->cp_sub_type = 'Abonnementtyp';
 		$this->cp_sub_updated = 'Ausgewählte Abonnements wurden gelöscht.';
 		$this->cp_topic_option = 'Themen Optionen';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profile aktualisiert';
 		$this->cp_updated1 = 'Avatar aktualisiert';
 		$this->cp_updated_prefs = 'Einstellungen aktualisiert';

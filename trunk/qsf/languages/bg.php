@@ -257,6 +257,7 @@ class bg
 		$this->cp_old_notmatch = 'Паролата, която сте въвели е грешна.';
 		$this->cp_old_pass = 'Стара парола';
 		$this->cp_pass_notvaid = 'Грешна парола.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Промяна на настойки';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Privacy Options'; //Translate
@@ -276,6 +277,7 @@ class bg
 		$this->cp_sub_type = 'Тип на записване';
 		$this->cp_sub_updated = 'Избраните записи за изтрити.';
 		$this->cp_topic_option = 'Опции';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Профилът е променен';
 		$this->cp_updated1 = 'Аватрът е обновен';
 		$this->cp_updated_prefs = 'Настройките с обновени';

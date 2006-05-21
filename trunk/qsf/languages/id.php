@@ -257,6 +257,7 @@ class id
 		$this->cp_old_notmatch = 'Password lama yang anda masukkan tidak cocok dalam database kami.';
 		$this->cp_old_pass = 'Password lama';
 		$this->cp_pass_notvaid = 'Password tidak valid. Pastikan anda mengetik dengan benar.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Rubah Preference';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Option Pribadi';
@@ -276,6 +277,7 @@ class id
 		$this->cp_sub_type = 'Tipe Subscription';
 		$this->cp_sub_updated = 'Subscription berhasil dihapus.';
 		$this->cp_topic_option = 'Option Topik';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profil diupdate';
 		$this->cp_updated1 = 'Avatar diupdate';
 		$this->cp_updated_prefs = 'Preference diupdated';

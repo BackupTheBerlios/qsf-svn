@@ -258,6 +258,7 @@ class it
 		$this->cp_old_notmatch = 'La vecchia password che hai inserito non combacia con quella nel nostro database.';
 		$this->cp_old_pass = 'Vecchia Password';
 		$this->cp_pass_notvaid = 'La tua password non è valida. Assicurati di aver usato solo caratteri validi come lettere, numeri, trattini (-), underscore (_), o spazi.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Modifica Preferenze';
 		$this->cp_preview_sig = 'Anteprima Firma:';
 		$this->cp_privacy = 'Opzioni Privacy';
@@ -277,6 +278,7 @@ class it
 		$this->cp_sub_type = 'Tipo Sottoscrizione';
 		$this->cp_sub_updated = 'Le sottoscrizioni alle discussioni selezionate sono stati eliminati.';
 		$this->cp_topic_option = 'Opzioni Discussione';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profilo Aggiornato';
 		$this->cp_updated1 = 'Avatar Aggiornato';
 		$this->cp_updated_prefs = 'Preferenze Aggiornate';

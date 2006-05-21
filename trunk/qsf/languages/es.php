@@ -257,6 +257,7 @@ class es
 		$this->cp_old_notmatch = 'El antiguo Password especificano no coincide con el de la base de datos';
 		$this->cp_old_pass = 'Password antiguo';
 		$this->cp_pass_notvaid = 'Su password no es valido, asegurese que usa caracteres validos como letras, numeros, guiones, guiones bajos, etc.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Cambiando Preferencias';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Opciones de privacidad';
@@ -276,6 +277,7 @@ class es
 		$this->cp_sub_type = 'Tipo de suscripcion';
 		$this->cp_sub_updated = 'Las suscripciones seleccionadas han sido borradas';
 		$this->cp_topic_option = 'Opciones de tópico';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'perfíl actualizado';
 		$this->cp_updated1 = 'Avatar actualizado';
 		$this->cp_updated_prefs = 'Preferencias actualizadas';

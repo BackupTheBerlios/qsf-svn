@@ -32,13 +32,14 @@ $need_templates = array(
 	TOPIC_POST_ATTACHMENT,
 	// Changed templates
 	TOPIC_MAIN,
-	RSSFEED_ITEM
+	RSSFEED_ITEM,
+	CP_PREFS
 	);
 
 // Permission changes	
 // $new_permissions['new_perm'] = true;
 
 // Queries to run
-// $queries[] = "SQL";
-
+$queries[] = "ALTER TABLE {$pre}users ADD user_posts_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
+$queries[] = "ALTER TABLE {$pre}users ADD user_topics_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
 ?>

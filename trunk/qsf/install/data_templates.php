@@ -1705,7 +1705,9 @@ $queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set
    <input type=\"checkbox\" name=\"user_email_show\" id=\"user_email_show\" value=\"1\"{\$user_email_showCheck} /> <label for=\"user_email_show\">{\$this->lang->cp_show_email}</label><br />
    <input type=\"checkbox\" name=\"user_email_form\" id=\"user_email_form\" value=\"1\"{\$EmailFormCheck} /> <label for=\"user_email_form\">{\$this->lang->cp_email_form}</label><br />
    <input type=\"checkbox\" name=\"user_pm\" id=\"user_pm\" value=\"1\"{\$user_pmCheck} /> <label for=\"user_pm\">{\$this->lang->cp_contact_pm}</label><br />
-   <input type=\"checkbox\" name=\"user_active\" id=\"user_active\" value=\"1\"{\$active_check} /> <label for=\"user_active\">{\$this->lang->cp_show_active}</label>
+   <input type=\"checkbox\" name=\"user_active\" id=\"user_active\" value=\"1\"{\$active_check} /> <label for=\"user_active\">{\$this->lang->cp_show_active}</label><br />
+   <input type=\"text\" name=\"user_topics_page\" id=\"user_topics_page\" size=\"2\" value={\$this->user[\'user_topics_page\']} <label for=\"user_topics_page\"> {\$this->lang->cp_topics_page}</label><br />
+   <input type=\"text\" name=\"user_posts_page\" id=\"user_posts_page\" size=\"2\" value={\$this->user[\'user_posts_page\']} <label for=\"user_posts_page\"> {\$this->lang->cp_posts_page}</label>
   </td>
  </tr>
  <tr>

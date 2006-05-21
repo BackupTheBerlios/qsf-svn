@@ -206,6 +206,22 @@ class cp extends qsfglobal
 				$this->post['user_active'] = 0;
 			}
 
+			if (!isset($this->post['user_posts_page'])) {
+				$this->post['user_posts_page'] = 0;
+			} else {
+				if ($this->post['user_posts_page'] > 99) {
+					$this->post['user_posts_page'] = 99;
+				}
+			}
+
+			if (!isset($this->post['user_topics_page'])) {
+				$this->post['user_topics_page'] = 0;
+			} else {
+				if ($this->post['user_topics_page'] > 99) {
+					$this->post['user_topics_page'] = 99;
+				}
+			}
+
 			$this->post['user_language'] = preg_replace('/[^a-zA-Z0-9\-]/', '', $this->post['user_language']);
 
 			$this->db->query('
@@ -219,7 +235,9 @@ class cp extends qsfglobal
 			  user_pm=' . intval($this->post['user_pm']) . ',
 			  user_timezone="' . $this->post['user_timezone'] . '",
 			  user_skin="' . $this->post['user_skin'] . '",
-			  user_language="' . $this->post['user_language'] . '"
+			  user_language="' . $this->post['user_language'] . '",
+			  user_topics_page="' . intval($this->post['user_topics_page']) . '",
+			  user_posts_page="' . intval($this->post['user_posts_page']) . '"
 			WHERE user_id=' . $this->user['user_id']);
 
 			return $this->message($this->lang->cp_updated_prefs, $this->lang->cp_been_updated_prefs);

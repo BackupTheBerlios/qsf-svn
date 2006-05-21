@@ -257,6 +257,7 @@ class fr
 		$this->cp_old_notmatch = 'L\'ancien mot de passe que vous avez saisi est incorrect.';
 		$this->cp_old_pass = 'Ancien mot de passe';
 		$this->cp_pass_notvaid = 'Votre mot de passe est invalide. Assurez vous que vous ne utilisez que des caractères permis.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Changer ses préférences';
 		$this->cp_preview_sig = 'Aperçu de la signature:';
 		$this->cp_privacy = 'Options de la vie privée';
@@ -276,6 +277,7 @@ class fr
 		$this->cp_sub_type = 'Type de souscription';
 		$this->cp_sub_updated = 'Les abonnements sélectionnés ont été supprimés.';
 		$this->cp_topic_option = 'Options du sujet';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profil mis à jour';
 		$this->cp_updated1 = 'Avatar mis à jour';
 		$this->cp_updated_prefs = 'Préférences mises à jour';

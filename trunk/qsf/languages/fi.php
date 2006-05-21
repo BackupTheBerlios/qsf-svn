@@ -257,6 +257,7 @@ class fi
 		$this->cp_old_notmatch = 'Entinen salasana ei täsmännyt tietokannassa olevan kanssa.';
 		$this->cp_old_pass = 'Vanha salasana';
 		$this->cp_pass_notvaid = 'Salasanasi ei kelpaa. Voit käyttää vain perusmerkkejä kuten kirjaimia, numeroita, viivoja, alaviivaa tai välilyöntejä.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Muutetaan asetuksia';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Yksityisyyden suoja';
@@ -276,6 +277,7 @@ class fi
 		$this->cp_sub_type = 'Seurannan muoto';
 		$this->cp_sub_updated = 'Valitut seurantakohteet on poistettu seurantalistalta.';
 		$this->cp_topic_option = 'Keskustelun asetukset';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profiili päivitetty';
 		$this->cp_updated1 = 'Avatar päivitetty';
 		$this->cp_updated_prefs = 'Asetukset päivitetty';

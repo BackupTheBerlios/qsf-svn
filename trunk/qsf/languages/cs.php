@@ -257,6 +257,7 @@ class cs
 		$this->cp_old_notmatch = 'Heslo nesouhlasí s heslem v databázi.';
 		$this->cp_old_pass = 'Staré heslo';
 		$this->cp_pass_notvaid = 'Vaše heslo je neplatné. Ujistìte se, e pouívaté jen platné znaky - písmena, èíslice, pomlèky, podrtítka, nebo mezery.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Zmìnit záliby';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Privátní volby';
@@ -276,6 +277,7 @@ class cs
 		$this->cp_sub_type = 'Sekce';
 		$this->cp_sub_updated = 'Zasílaní informaèních e-mailù o tomto tématu bylo zrušeno.';
 		$this->cp_topic_option = 'Zobrazovat';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profil zmìnìn';
 		$this->cp_updated1 = 'Avatar zmìnìn';
 		$this->cp_updated_prefs = 'Nastavení zmìnìno';

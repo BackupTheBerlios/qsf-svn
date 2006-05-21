@@ -257,6 +257,7 @@ class he
 		$this->cp_old_notmatch = 'הסיסמא הישנה שהקלדת אינה קיימת במס הנתונים.';
 		$this->cp_old_pass = 'סיסמא ישנה';
 		$this->cp_pass_notvaid = 'הסיסמא שלך לא תקינה. וודא שהינך משתמש בתווים תקינים כגון אותיות, מספרים, קו מפריד, קו תחתון ורווחים.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'משנה הגדרות';
 		$this->cp_preview_sig = ':הצגה מוקדמת של החתימה';
 		$this->cp_privacy = 'אפשרויות פרטיות';
@@ -276,6 +277,7 @@ class he
 		$this->cp_sub_type = 'סוג הרשמה';
 		$this->cp_sub_updated = 'הרישומים שנבחר נמחקו.';
 		$this->cp_topic_option = 'אפשרויות נושאים';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'פרופיל עודכן';
 		$this->cp_updated1 = 'אווטרה עודכן';
 		$this->cp_updated_prefs = 'הגדרות הודכנו';

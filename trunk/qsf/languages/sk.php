@@ -257,6 +257,7 @@ class sk
 		$this->cp_old_notmatch = 'Pôvodné heslo, ktoré ste zadali sa nezhoduje s heslom v databáze.';
 		$this->cp_old_pass = 'Pôvodné heslo';
 		$this->cp_pass_notvaid = 'Vaše heslo je neplatné. Uistite sa, že obsahuje len platné znaky ako sú písmená, èísla, pomlèka, podtržítko alebo medzera.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Zmena nastavení';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
 		$this->cp_privacy = 'Možnosti ochrany súkromia';
@@ -276,6 +277,7 @@ class sk
 		$this->cp_sub_type = 'Typ objednávky';
 		$this->cp_sub_updated = 'Oznaèené objednávky boli vymazané.';
 		$this->cp_topic_option = 'Možnosti témy';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profil bol aktualizovaný';
 		$this->cp_updated1 = 'Avatar bol aktualizovaný';
 		$this->cp_updated_prefs = 'Nastavenia boli aktualizované';

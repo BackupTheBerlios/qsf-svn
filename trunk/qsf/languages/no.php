@@ -258,6 +258,7 @@ class no
 		$this->cp_old_notmatch = 'Ditt gamle passord er feil.';
 		$this->cp_old_pass = 'Gammelt passord';
 		$this->cp_pass_notvaid = 'Ditt passord er ugyldig. Kun bokstaver, sifre, bindestreker, understreker og mellomrom er tillatt.';
+		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Endre innstillinger';
 		$this->cp_preview_sig = 'Forhåndsvisning av signatur:';
 		$this->cp_privacy = 'Sikkerhetsinnstillinger';
@@ -277,6 +278,7 @@ class no
 		$this->cp_sub_type = 'Abonnementstype';
 		$this->cp_sub_updated = 'Det valgte abonnementet er slettet.';
 		$this->cp_topic_option = 'Forumvalg';
+		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
 		$this->cp_updated = 'Profilen er oppdatert';
 		$this->cp_updated1 = 'Avataren er oppdatert';
 		$this->cp_updated_prefs = 'Innstillinger er oppdatert';

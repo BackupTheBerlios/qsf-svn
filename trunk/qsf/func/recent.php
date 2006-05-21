@@ -48,7 +48,20 @@ class recent extends qsfglobal
 	{
 		// No forum need be specified
 
-		$n   = isset($this->get['n']) ? intval($this->get['n']) : $this->sets['topics_per_page'];
+		if (isset($this->get['num'])) {
+			$n = intval($this->get['num']);
+		} elseif ($this->user['user_topics_page'] != 0) {
+			$n = $this->user['user_topics_page'];
+		} else {
+			$n = $this->sets['topics_per_page'];
+		}
+
+		if ($this->user['user_posts_page'] != 0) {
+			$m = $this->user['user_posts_page'];
+		} else {
+			$m = $this->sets['posts_per_page'];
+		}
+
 		$min = isset($this->get['min']) ? intval($this->get['min']) : 0;
 
 		$this->set_title($this->lang->recent_active);
@@ -66,7 +79,7 @@ class recent extends qsfglobal
 
 		$forumjump = $this->htmlwidgets->select_forums(0, 0, null, true);
 
-		$topics = $this->getTopics($forums_str, $min, $n);
+		$topics = $this->getTopics($forums_str, $min, $n, $m);
 
 		if (!$topics) {
 			$topics = eval($this->template('RECENT_NO_TOPICS'));
@@ -106,7 +119,7 @@ class recent extends qsfglobal
 	 * @since 1.1.5
 	 * @return string html output
 	 **/
-	function getTopics($forums_str, $min, $n)
+	function getTopics($forums_str, $min, $n, $m)
 	{
 		$out = null;
 
@@ -147,7 +160,7 @@ class recent extends qsfglobal
 
 			$row['newpost'] = !$this->readmarker->is_topic_read($row['topic_id'], $row['topic_edited']);
 
-			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'], ', ', 0, $this->sets['posts_per_page']);
+			$Pages = $this->htmlwidgets->get_pages_topic($row['topic_replies'], 'a=topic&amp;t=' . $row['topic_id'], ', ', 0, $m);
 
 			if (!empty($row['topic_description'])) {
 				$row['topic_description'] = '<br />&raquo; ' . $this->format($row['topic_description'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
