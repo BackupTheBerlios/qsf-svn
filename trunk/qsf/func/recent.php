@@ -219,6 +219,9 @@ class recent extends qsfglobal
 			if ($row['topic_modes'] & TOPIC_PINNED) {
 				$row['topic_title'] = "<b>" . $row['topic_title'] . "</b>";
 			}
+			if (!($row['topic_modes'] & TOPIC_PUBLISH)) {
+				$row['topic_title'] = "<i>" . $row['topic_title'] . "</i>";
+			}
 			$row['icon'] = $row['topic_icon']; // Store so skin can access
 			if ($row['topic_modes'] & TOPIC_POLL) {
 				$row['topic_icon'] = '<img src="./skins/' . $this->skin . '/images/poll.png" alt="' . $this->lang->recent_icon . '" />';
@@ -228,7 +231,15 @@ class recent extends qsfglobal
 				}
 			}
 
-			$out .= eval($this->template('RECENT_TOPIC'));
+			if (!($row['topic_modes'] & TOPIC_PUBLISH)) {
+				if (!$this->perms->auth('topic_view_unpublished', $row['topic_forum'])) {
+					$out .= '';
+				}else{
+					$out .= eval($this->template('RECENT_TOPIC'));
+				}
+			}else{
+				$out .= eval($this->template('RECENT_TOPIC'));
+			}
 		}
 
 		return $out;
