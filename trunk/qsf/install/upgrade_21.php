@@ -34,7 +34,8 @@ $need_templates = array(
 	// Changed templates
 	TOPIC_MAIN,
 	RSSFEED_ITEM,
-	CP_PREFS
+	CP_PREFS,
+	BOARD_MAIN
 	);
 
 // Permission changes	
