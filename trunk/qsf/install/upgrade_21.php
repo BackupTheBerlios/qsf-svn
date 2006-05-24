@@ -32,6 +32,7 @@ $need_templates = array(
 	TOPIC_POST_ATTACHMENT,
 	BOARD_USERS,
 	// Changed templates
+	MAIN,
 	TOPIC_MAIN,
 	RSSFEED_ITEM,
 	CP_PREFS,
