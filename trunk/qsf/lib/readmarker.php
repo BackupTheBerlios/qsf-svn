@@ -35,6 +35,7 @@ class readmarker extends forumutils
 	var $last_read_all = 0;		// Time beyond which all posts are considered read
 	var $guest_mode = true;		// Mark if we're using a cookie or database records
 	var $readmarkers_loaded = false; // Have we queried the database yet
+	var $forum_topics_loaded = false; // Same as above execpt for the forums not the topics
 	var $user_id;			// What user ID should we use for any queries or updates
 	var $readmarkers = array();	// Data for user as pulled from the database
 	var $forumtopics = array();	// Cache of topics within forums
@@ -248,16 +249,11 @@ class readmarker extends forumutils
 		
 		if ($last_post_time < $this->last_read_all) return true;
 		
-		$this->_load_forum_topics($forum_id);
-		// Check if any topics are noted as unread
-		foreach (array_keys($this->forumtopics[$forum_id]) as $topic_id)
-		{
-			if (!$this->is_topic_read($topic_id, $this->forumtopics[$forum_id][$topic_id])) {
-				return false;
-			}
-		}
-		
-		
+		$this->_load_forum_topics();
+
+		if (isset($this->forumtopics[$forum_id]) && (0 != $this->forumtopics[$forum_id]))
+			return false;
+
 		return true;
 	}
 	
@@ -289,20 +285,32 @@ class readmarker extends forumutils
 	 * 
 	 * PRIVATE
 	 *
-	 * @param int $forum_id Forum to load topic list
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 * @since 1.2
+	 * @version 1.2.2 - Altered by Matt L to use fewer querys and removed unused parameter $forum_id.
 	 **/
-	function _load_forum_topics($forum_id)
+	function _load_forum_topics()
 	{
-		if (!isset($this->forumtopics[$forum_id])) {
-			$this->forumtopics[$forum_id] = array();
-			$query = $this->db->query("SELECT topic_id, topic_edited FROM {$this->pre}topics
-				WHERE topic_forum=$forum_id AND topic_edited > {$this->last_read_all}");
+		if (!$this->forum_topics_loaded)
+		{
+			/* find all topics since we pressed mark all read */
+			$query = $this->db->query("SELECT topic_id, topic_edited, topic_forum FROM {$this->pre}topics
+			   WHERE topic_edited > {$this->last_read_all}");
+
+			/* read all the records*/
 			while ($row = $this->db->nqfetch($query))
 			{
-				$this->forumtopics[$forum_id][$row['topic_id']] = $row['topic_edited'];
+				/* Set to 0 if not set */
+				if(!isset($this->forumtopics[$row['topic_forum']]))
+					$this->forumtopics[$row['topic_forum']] = 0;
+
+				/* increase un-read count */
+				if (!$this->is_topic_read($row['topic_id'], $row['topic_edited']))
+				{
+					$this->forumtopics[$row['topic_forum']]++;
+				}
 			}
+			$this->forum_topics_loaded = true;
 		}
 	}
 	
