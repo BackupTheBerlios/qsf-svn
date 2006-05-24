@@ -30,6 +30,7 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	TOPIC_POST_ATTACHMENT,
+	BOARD_USERS,
 	// Changed templates
 	TOPIC_MAIN,
 	RSSFEED_ITEM,

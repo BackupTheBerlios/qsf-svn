@@ -88,7 +88,6 @@ class board extends qsfglobal
 
 		$forums    = $this->getForums($_forums, $this->get['c']);
 		$stats     = $this->getStats();
-		$active    = $this->doActive();
 
 		$this->lang->board_stats_string = sprintf($this->lang->board_stats_string,
 		    $stats['MEMBERS'], "<a href=\"{$this->self}?a=profile&amp;w={$stats['LASTMEMBERID']}\">{$stats['LASTMEMBER']}</a>",
@@ -220,73 +219,6 @@ class board extends qsfglobal
 			'MOSTONLINE'     => $this->sets['mostonline'],
 			'MOSTONLINETIME' => $this->mbdate(DATE_LONG, $this->sets['mostonlinetime'])
 		);
-	}
-
-	/**
-	 * Formats list of active users
-	 *
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
-	 * @return array Active users: USERS, MEMBERCOUNT, GUESTCOUNT, TOTALCOUNT
-	 **/
-	function doActive()
-	{
-		/**
-		 * If it exists, perhaps do something like UPDATE ... SELECT
-		 */
-
-		$Active = $this->getActive();
-		if ($Active) {
-			$Active = implode(', ', $Active);
-		} else {
-			$Active = $this->lang->board_nobody;
-		}
-		
-		$OnGuests = $this->activeutil->get_guests_online();
-		$OnMembers = $this->activeutil->get_members_online();
-		$OnTotal = $OnMembers + $OnGuests;
-
-		if ($OnTotal > $this->sets['mostonline']) {
-			$this->sets['mostonline']     = $OnTotal;
-			$this->sets['mostonlinetime'] = $this->time;
-			$this->write_sets();
-		}
-
-		return array(
-			'USERS'       => $Active,
-			'MEMBERCOUNT' => $OnMembers,
-			'GUESTCOUNT'  => $OnGuests,
-			'TOTALCOUNT'  => $OnTotal
-		);
-	}
-
-	/**
-	 * Makes list of active users and filters out inactive ones - see doActive()
-	 *
-	 * @access protected
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
-	 * @return array Array of active members
-	 **/
-	function getActive()
-	{
-		$allusers = array();
-		$allnames = array();
-		$all_active_users = $this->activeutil->get_active();
-
-		foreach ($all_active_users as $user)
-		{
-			if (($user['id'] != USER_GUEST_UID || $user['bot']) && !in_array($user['name'], $allnames)) {
-				if ($user['bot']) {
-					$allusers[] = $user['name'];
-				} else {
-					$allusers[] = "<a {$user['link']} title=\"{$user['title']}\">{$user['name']}</a>";
-				}
-				$allnames[] = $user['name'];
-			}
-		}
-
-		return $allusers;
 	}
 }
 ?>
