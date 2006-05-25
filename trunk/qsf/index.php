@@ -92,7 +92,7 @@ $qsf->init();
 
 $server_load = $qsf->get_load();
 
-$qsf->tree($qsf->sets['forum_name'], $qsf->self);
+$qsf->tree($qsf->sets['forum_name'], "$qsf->self?a=board");
 
 if ($qsf->is_banned()) {
 	error(QUICKSILVER_NOTICE, $qsf->lang->main_banned);
