@@ -207,7 +207,7 @@ $queries[] = "CREATE TABLE {$pre}timezones (
   zone_updated int(15) unsigned NOT NULL default '0',
   PRIMARY KEY  (zone_id),
   KEY name (zone_name)
-) TYPE=MyISAM AUTO_INCREMENT=387 ROW_FORMAT=FIXED";
+) TYPE=MyISAM AUTO_INCREMENT=388 ROW_FORMAT=FIXED";
 
 $queries[] = "DROP TABLE IF EXISTS {$pre}topics";
 $queries[] = "CREATE TABLE {$pre}topics (
@@ -770,6 +770,7 @@ $queries[] = "INSERT INTO {$pre}timezones VALUES (383, 'Africa/Harare', 'CAT', 7
 $queries[] = "INSERT INTO {$pre}timezones VALUES (384, 'America/Moncton', 'AST', -14400, 1143950460)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (385, 'America/Indiana/Petersburg', 'EST', -18000, 1143961200)";
 $queries[] = "INSERT INTO {$pre}timezones VALUES (386, 'America/Indiana/Vincennes', 'EST', -18000, 1143961200)";
+$queries[] = "INSERT INTO {$pre}timezones VALUES (387, 'America/North_Dakota/New_Salem', 'CST', -18000, 1143961200)";
 
 // Build settings step by step
 $sets = array();
