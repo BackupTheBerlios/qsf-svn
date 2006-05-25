@@ -83,7 +83,7 @@ class users_online extends modlet
 
 		if ($OnTotal > $this->qsf->sets['mostonline']) {
 			$this->qsf->sets['mostonline']     = $OnTotal;
-			$this->qsf->sets['mostonlinetime'] = $this->time;
+			$this->qsf->sets['mostonlinetime'] = $this->qsf->time;
 			$this->qsf->write_sets();
 		}
 
