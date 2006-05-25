@@ -2061,6 +2061,7 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
  {\$userheader}
  {\$reminder}
  {\$quicksilverforums}
+ {\$copyright}
  <a id=\"bottom\"></a>
 </div>
 <div class=\"round-bottom\">

@@ -682,6 +682,13 @@ class templates extends admin
 
 			foreach ($this->post['code'] as $var => $val)
 			{
+				if ($var == 'MAIN' ) {
+					if (stristr($val, '$copyright') === false)
+					{
+						$evil = 1;
+						continue;
+					}
+				}
 				if ($var == 'MAIN_COPYRIGHT' ) {
 					if (stristr($val, 'MercuryBoard') === false ||
 						stristr($val, '$qsf->name') === false ||

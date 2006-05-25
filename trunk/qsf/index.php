@@ -146,7 +146,8 @@ if (isset($qsf->get['debug'])) {
 
 if (!$qsf->nohtml) {
 	$servertime = $qsf->mbdate( DATE_LONG, $qsf->time, false );
-	$quicksilverforums = $output . eval($qsf->template('MAIN_COPYRIGHT'));
+	$copyright = eval($qsf->template('MAIN_COPYRIGHT'));
+	$quicksilverforums = $output;
 	echo eval($qsf->template('MAIN'));
 } else {
 	echo $output;
