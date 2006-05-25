@@ -31,6 +31,7 @@ $need_templates = array(
 	// Added templates
 	TOPIC_POST_ATTACHMENT,
 	BOARD_USERS,
+	BOARD_STATS,
 	// Changed templates
 	MAIN,
 	TOPIC_MAIN,
