@@ -36,7 +36,7 @@ class users_online extends modlet
 	/**
 	* Display a listing of who is online.
 	*
-	* @param string $param unusued
+	* @param string $arg set to "true" to generate the onlinetoday list
 	* @author Geoffrey Dunn <geoff@warmage.com>
 	* @since 1.2.0
 	* @return string HTML with current online users and total membercount

@@ -333,15 +333,6 @@ class upgrade extends qsfglobal
                        			        $this->db->query($sql);
 						$row2['template_html'] = stripslashes($row2['template_html']);
 					}
-					if( strstr( $row2['template_html'], '$birthdays' ) ) {
-						$didsomething = true;
-						$row2['template_html'] = str_replace('$birthdays', '<MODLET birthdays()>', $row2['template_html']);
-						$skinsupdated .= $row['skin_name'] . " Modified: " . $row2['template_name'] . "<br />";
-						$row2['template_html'] = addslashes($row2['template_html']);
-               			                $sql = "UPDATE {$this->pre}templates SET template_html='{$row2['template_html']}' WHERE template_skin = '$skin' AND template_name = '{$row2['template_name']}'";
-                       			        $this->db->query($sql);
-						$row2['template_html'] = stripslashes($row2['template_html']);
-					}
 		                }
 			}
 

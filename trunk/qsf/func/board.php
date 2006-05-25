@@ -87,13 +87,6 @@ class board extends qsfglobal
 		}
 
 		$forums    = $this->getForums($_forums, $this->get['c']);
-		$stats     = $this->getStats();
-
-		$this->lang->board_stats_string = sprintf($this->lang->board_stats_string,
-		    $stats['MEMBERS'], "<a href=\"{$this->self}?a=profile&amp;w={$stats['LASTMEMBERID']}\">{$stats['LASTMEMBER']}</a>",
-		    $stats['TOPICS'], $stats['REPLIES'], $stats['POSTS']);
-
-		$this->lang->board_most_online = sprintf($this->lang->board_most_online, $stats['MOSTONLINE'], $stats['MOSTONLINETIME']);
 
 		return eval($this->template('BOARD_MAIN'));
 	}
@@ -198,27 +191,6 @@ class board extends qsfglobal
 		}
 
 		return $return;
-	}
-
-	/**
-	 * Gets common board stats
-	 *
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 2.0
-	 * @return array Board stats: LASTMEMBEreplacement_id, LASTMEMBER, MEMBERS, TOPICS, POSTS, REPLIES, MOSTONLINE, MOSTONLINETIME
-	 **/
-	function getStats()
-	{
-		return array(
-			'LASTMEMBERID'   => $this->sets['last_member_id'],
-			'LASTMEMBER'     => $this->sets['last_member'],
-			'MEMBERS'        => number_format($this->sets['members'], 0, null, $this->lang->sep_thousands),
-			'TOPICS'         => number_format($this->sets['topics'], 0, null, $this->lang->sep_thousands),
-			'POSTS'          => number_format($this->sets['posts'], 0, null, $this->lang->sep_thousands),
-			'REPLIES'        => number_format($this->sets['posts'] - $this->sets['topics'], 0, null, $this->lang->sep_thousands),
-			'MOSTONLINE'     => $this->sets['mostonline'],
-			'MOSTONLINETIME' => $this->mbdate(DATE_LONG, $this->sets['mostonlinetime'])
-		);
 	}
 }
 ?>
