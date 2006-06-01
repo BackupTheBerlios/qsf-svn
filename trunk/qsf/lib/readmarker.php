@@ -254,6 +254,16 @@ class readmarker extends forumutils
 		if (isset($this->forumtopics[$forum_id]) && (0 != $this->forumtopics[$forum_id]))
 			return false;
 
+		$forums = $this->forum_array($this->forum_grab(), $forum_id);
+		if (!$forums)
+			return true;
+
+		foreach ($forums as $f)
+		{
+			if (!$this->is_forum_read($f['forum_id'], $last_post_time)) {
+				return false;
+			}
+		}
 		return true;
 	}
 	
