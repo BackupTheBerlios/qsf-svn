@@ -567,7 +567,7 @@ class htmlwidgets extends htmltools
 				if (!$cat) {
 					$this->tree($forumData[$i]['forum_name'], "$this->self?a=forum&amp;f={$i}");
 				} else {
-					$this->tree($forumData[$i]['forum_name'], "$this->self?c={$i}");
+					$this->tree($forumData[$i]['forum_name'], "$this->self?a=board&amp;c={$i}");
 					$cat = 0;
 				}
 			}
