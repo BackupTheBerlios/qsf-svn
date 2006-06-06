@@ -752,6 +752,10 @@ class mod extends qsfglobal
 		$this->db->query('DELETE FROM ' . $this->pre . 'posts WHERE post_topic=' . $t);
 
 		$this->db->query("UPDATE {$this->pre}forums SET forum_topics=forum_topics-1, forum_replies=forum_replies-$deleted WHERE forum_id={$result['topic_forum']}");
+
+		$this->sets['posts'] -= ($deleted+1);
+		$this->sets['topics'] -= 1;
+		$this->write_sets();
 	}
 
 	/**
@@ -787,6 +791,9 @@ class mod extends qsfglobal
 			$this->db->query('DELETE FROM ' . $this->pre . 'attach WHERE attach_post=' . $p);
 			@unlink('./attachments/' . $result['attach_file']);
 		}
+
+		$this->sets['posts'] -= 1;
+		$this->write_sets();
 	}
 
 	/**
