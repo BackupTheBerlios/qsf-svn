@@ -1241,6 +1241,7 @@ class fr
 		$this->add = 'Ajouter des Maquettes HTML';
 		$this->add_in = 'Ajouter la maquette à:';
 		$this->all_fields_required = 'Tous les champs sont nécessaires pour ajouter une maquette';
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'Choississez une collection de maquettes';
 		$this->choose_skin = 'Choississez une peau';
 		$this->confirm1 = 'Vous êtes sur le point d\'effacer la';
@@ -1248,9 +1249,12 @@ class fr
 		$this->create_new = 'Creér une nouvelle peau appellée';
 		$this->create_skin = 'Créer une peau';
 		$this->credit = 'Veuillez s\'il vous plaît ne pas enlever notre seule mention!';
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'Effacer une Maquette';
 		$this->directory = 'Répertoire';
 		$this->display_name = 'Nom d\'affichage';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'Editer une peau';
 		$this->edit_templates = 'Editer les Maquettes';
 		$this->export_done = 'La peau a été exportée au répertoire principal des Forums QuickSilver.';
@@ -1262,6 +1266,7 @@ class fr
 		$this->install_overwrite = 'Enregister par dessus';
 		$this->install_skin = 'Installer une peau';
 		$this->menu_title = 'Sélectionner une partie de maquette à éditer';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'Il n\'y a qu\'une peau installée. Vous ne pouvez la supprimer.';
 		$this->or_new = 'Ou créer une nouvelle collection de maquettes appellée:';
 		$this->select_skin = 'Sélectionner une peau';

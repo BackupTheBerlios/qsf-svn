@@ -157,6 +157,22 @@ $queries['ADMIN_CENSOR_FORM'] = "INSERT INTO {$pre}templates (template_skin, tem
  </tr>
 {\$this->etable}
 </form>', 'Censored Words', 'The form for editing censored words', 0)";
+$queries['ADMIN_CSS_EDIT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_CSS_EDIT', '
+<form action=\"{\$this->self}?a=templates&amp;s=edit_css&amp;skin={\$skin}&amp;file={\$fname}\" method=\"post\">
+{\$this->table}
+ <tr>
+  <td class=\"header\" style=\"text-align:center\">{\$this->lang->edit_css}: {\$skin} - {\$fname}</td>
+ </tr>
+ <tr>
+  <td class=\"tabledark\"><textarea class=\"input\" name=\"css_text\" rows=\"25\" cols=\"80\" onclick=\"storeCaret(this)\" onkeyup=\"storeCaret(this)\" onfocus=\"storeCaret(this)\" onmouseout=\"storeCaret(this)\">{\$text}</textarea>
+ </tr>
+ <tr>
+  <td class=\"footer\" colspan=\"2\" style=\"text-align:center\">
+   <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->submit}\" />
+  </td>
+ </tr>
+{\$this->etable}
+</form>', 'CSS Editor', 'Textbox to edit CSS file in.', 9)";
 $queries['ADMIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_COPYRIGHT', '{\$admin->table}
  <tr>
   <td class=\"footer\" style=\"width:50%; text-align:center;\">
@@ -1050,6 +1066,12 @@ $queries['ADMIN_LIST_TEMPLATES'] = "INSERT INTO {$pre}templates (template_skin, 
    <span class=\"med\">2. {\$this->lang->choose_set}:</span><br />
    <ul>
     {\$out}
+   </ul>
+  </td>
+  <td class=\"tablelight\" valign=\"top\">
+   <span class=\"med\">2. {\$this->lang->choose_css}:</span></br />
+   <ul style=\"line-height:150%\">
+    {\$css}
    </ul>
   </td>
  </tr>

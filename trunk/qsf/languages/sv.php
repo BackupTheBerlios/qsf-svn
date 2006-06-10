@@ -1242,6 +1242,7 @@ class sv
 		$this->add = 'Lägg till HTML Mallar';
 		$this->add_in = 'Lägg till mall till:';
 		$this->all_fields_required = 'Alla fält krävs för att lägga till en mall';
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'Välje ett mallpaket';
 		$this->choose_skin = 'Välj ett skal';
 		$this->confirm1 = 'Du är på väg att ta bort';
@@ -1249,9 +1250,12 @@ class sv
 		$this->create_new = 'Skapa ett nytt skal med namnet';
 		$this->create_skin = 'Skapa Skal';
 		$this->credit = 'Var snäll och ta inte bort vårt enda erkännande!';
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'Ta bort Mall';
 		$this->directory = 'Mapp';
 		$this->display_name = 'Visningsnamn';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'Ändra Skal';
 		$this->edit_templates = 'Ändra Mallar';
 		$this->export_done = 'Skal exporterat till mappen skins.';
@@ -1263,6 +1267,7 @@ class sv
 		$this->install_overwrite = 'Skriv Över';
 		$this->install_skin = 'Installera Skal';
 		$this->menu_title = 'Välj ett mallpaket att ändra';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'Det finns bara ett skal installerat. Du får inte ta bort det här skalet.';
 		$this->or_new = 'Eller skapa en ny mall kallad:';
 		$this->select_skin = 'Välj ett skal';

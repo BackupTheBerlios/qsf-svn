@@ -1243,6 +1243,7 @@ class nl
 		$this->add = 'Voeg HTML Templates toe';
 		$this->add_in = 'Add template to:'; //Translate
 		$this->all_fields_required = 'All fields are required to add a template'; //Translate
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'Kies een template set';
 		$this->choose_skin = 'Kies een skin';
 		$this->confirm1 = 'You are about to delete the'; //Translate
@@ -1250,9 +1251,12 @@ class nl
 		$this->create_new = 'Maak een nieuwe skin aan, genaamd';
 		$this->create_skin = 'Maak een skin';
 		$this->credit = 'Please do not remove our only credit!'; //Translate
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'Verwijder Template';
 		$this->directory = 'Directory'; //Translate
 		$this->display_name = 'Toon naam';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'Pas de Skin aan';
 		$this->edit_templates = 'Pas Templates aan';
 		$this->export_done = 'Skin exported to the main Quicksilver Forums directory.';
@@ -1264,6 +1268,7 @@ class nl
 		$this->install_overwrite = 'Overschrijf';
 		$this->install_skin = 'Installeer Skin';
 		$this->menu_title = 'Selecteer een template section om aan te passen';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'Er is slechts 1 skin geïnstalleerd. U mag deze skin niet verwijderen.';
 		$this->or_new = 'Or create new template set named:'; //Translate
 		$this->select_skin = 'Selecteer een Skin';

@@ -1243,6 +1243,7 @@ class sk
 		$this->add = 'Prida HTML Šablóny';
 		$this->add_in = 'Prida šablónu na:';
 		$this->all_fields_required = 'Musíte vyplni všetky polia, aby bola pridané šablóna';
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'Zvoli sadu šablón';
 		$this->choose_skin = 'Zvo¾i skin';
 		$this->confirm1 = 'Chystáte sa zmaza';
@@ -1250,9 +1251,12 @@ class sk
 		$this->create_new = 'Založi nový skin s názvom';
 		$this->create_skin = 'Založi Skin';
 		$this->credit = 'Prosím, neodstraòujte náš jediný kredit!';
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'Zmaza Šablónu';
 		$this->directory = 'Adresár';
 		$this->display_name = 'Zobrazi názov';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'Editova Skin';
 		$this->edit_templates = 'Editova Šablónu';
 		$this->export_done = 'Skin bol exportovaný do hlavného adresára Quicksilver Fóra.';
@@ -1264,6 +1268,7 @@ class sk
 		$this->install_overwrite = 'Prepísa';
 		$this->install_skin = 'Nainštalova Skin';
 		$this->menu_title = 'Zvo¾te sekciu šablóny, ktorú chcete editova';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'Momentálne je nainštalovaný iba jeden skin. Tento skin nesmiete zmaza.';
 		$this->or_new = 'Alebo vytvori novú skupinu šablôn s názvom:';
 		$this->select_skin = 'Zvo¾te Skin';

@@ -1242,6 +1242,7 @@ class no
 		$this->add = 'Legg til HTML-maler';
 		$this->add_in = 'Legg mal til i:';
 		$this->all_fields_required = 'Alle felt må fylles ut for å legge til en mal';
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'Velg et malsett';
 		$this->choose_skin = 'Velg et skall';
 		$this->confirm1 = 'Du er i ferd med å slette malen';
@@ -1249,9 +1250,12 @@ class no
 		$this->create_new = 'Lag et nytt skall kalt';
 		$this->create_skin = 'Lag skall';
 		$this->credit = 'Vennligst ikke fjern vår eneste tilknytning til forumet!';
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'Slett mal';
 		$this->directory = 'Mappe';
 		$this->display_name = 'Visningsnavn';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'Endre skall';
 		$this->edit_templates = 'Endre maler';
 		$this->export_done = 'Skallet ble eksportert til hovedregisteret til Quicksilver Forums.';
@@ -1263,6 +1267,7 @@ class no
 		$this->install_overwrite = 'Overskriv';
 		$this->install_skin = 'Installér skall';
 		$this->menu_title = 'Velg en malseksjon å endre';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'Det er kun ett skall installert. Du kan ikke slette dette skallet.';
 		$this->or_new = 'Eller lag et nytt malsett kalt:';
 		$this->select_skin = 'Velg et skall';

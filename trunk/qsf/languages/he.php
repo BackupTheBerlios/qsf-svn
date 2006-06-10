@@ -1241,6 +1241,7 @@ class he
 		$this->add = 'HTML הוסף תבנית';
 		$this->add_in = 'הוסף תבנית ל:';
 		$this->all_fields_required = 'כל השדות חובה להוספת תבנית';
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'בחר בקבוצת תבניות';
 		$this->choose_skin = 'בחר סקין';
 		$this->confirm1 = 'אתה עומד למחוק את';
@@ -1248,9 +1249,12 @@ class he
 		$this->create_new = 'צור סקין חדש בשם';
 		$this->create_skin = 'צור סקין';
 		$this->credit = 'אנא אל תסיר את הקרדיט שלנו!';
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'מחק תבנית';
 		$this->directory = 'סיפרייה';
 		$this->display_name = 'שם תצוגה';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'ערוך סקין';
 		$this->edit_templates = 'ערוך תבניות';
 		$this->export_done = '.Quicksilver הסקין יוצא לסיפרייה הראשית של הפורומים של';
@@ -1262,6 +1266,7 @@ class he
 		$this->install_overwrite = 'החלף';
 		$this->install_skin = 'התקן סקין';
 		$this->menu_title = 'בחר את קטע התבנית לעריכה';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'רק סקין אחד מותקן. אל תמחק סקין זה.';
 		$this->or_new = 'או צור קבוצת תבניות בשם:';
 		$this->select_skin = 'בחר סקין';

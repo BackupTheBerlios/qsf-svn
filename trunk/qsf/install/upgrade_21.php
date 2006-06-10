@@ -32,12 +32,14 @@ $need_templates = array(
 	TOPIC_POST_ATTACHMENT,
 	BOARD_USERS,
 	BOARD_STATS,
+	ADMIN_CSS_EDIT,
 	// Changed templates
 	MAIN,
 	TOPIC_MAIN,
 	RSSFEED_ITEM,
 	CP_PREFS,
-	BOARD_MAIN
+	BOARD_MAIN,
+	ADMIN_LIST_TEMPLATES
 	);
 
 // Permission changes	

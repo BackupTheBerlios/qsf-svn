@@ -1241,6 +1241,7 @@ class en
 		$this->add = 'Add HTML Templates';
 		$this->add_in = 'Add template to:';
 		$this->all_fields_required = 'All fields are required to add a template';
+		$this->choose_css = 'Choose CSS Template';
 		$this->choose_set = 'Choose a template set';
 		$this->choose_skin = 'Choose a skin';
 		$this->confirm1 = 'You are about to delete the';
@@ -1248,9 +1249,12 @@ class en
 		$this->create_new = 'Create a new skin named';
 		$this->create_skin = 'Create Skin';
 		$this->credit = 'Please do not remove our only credit!';
+		$this->css_edited = 'CSS file has been updated.';
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.';
 		$this->delete_template = 'Delete Template';
 		$this->directory = 'Directory';
 		$this->display_name = 'Display Name';
+		$this->edit_css = 'Edit CSS';
 		$this->edit_skin = 'Edit Skin';
 		$this->edit_templates = 'Edit Templates';
 		$this->export_done = 'Skin exported to the skins directory.';
@@ -1262,6 +1266,7 @@ class en
 		$this->install_overwrite = 'Overwrite';
 		$this->install_skin = 'Install Skin';
 		$this->menu_title = 'Select a template section to edit';
+		$this->no_file = 'No such file.';
 		$this->only_skin = 'There is only one skin installed. You may not delete this skin.';
 		$this->or_new = 'Or create new template set named:';
 		$this->select_skin = 'Select a Skin';

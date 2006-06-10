@@ -1242,6 +1242,7 @@ class it
 		$this->add = 'Aggiungi Template HTML';
 		$this->add_in = 'Aggiungi template a:';
 		$this->all_fields_required = 'Tutti i campi sono obbligatori per aggiungere un template';
+		$this->choose_css = 'Choose CSS Template'; //Translate
 		$this->choose_set = 'Scegli il gruppo di template';
 		$this->choose_skin = 'Scegli una skin';
 		$this->confirm1 = 'Stai per eliminare';
@@ -1249,9 +1250,12 @@ class it
 		$this->create_new = 'Crea una nuova skin chiamata';
 		$this->create_skin = 'Crea Skin';
 		$this->credit = 'Per favore non rimuovere i crediti!';
+		$this->css_edited = 'CSS file has been updated.'; //Translate
+		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
 		$this->delete_template = 'Elimina Template';
 		$this->directory = 'Cartella';
 		$this->display_name = 'Nome Mostrato';
+		$this->edit_css = 'Edit CSS'; //Translate
 		$this->edit_skin = 'Modifica Skin';
 		$this->edit_templates = 'Modifica Template';
 		$this->export_done = 'Skin esportata nella cartella principale di Quicksilver Forums.';
@@ -1263,6 +1267,7 @@ class it
 		$this->install_overwrite = 'Sovrascrivi';
 		$this->install_skin = 'Installa Skin';
 		$this->menu_title = 'Seleziona la sezione da editare';
+		$this->no_file = 'No such file.'; //Translate
 		$this->only_skin = 'Hai una sola skin installata. Non puoi eliminare questa skin.';
 		$this->or_new = 'Oppure crea un nuovo gruppo di template chiamato:';
 		$this->select_skin = 'Seleziona la Skin';

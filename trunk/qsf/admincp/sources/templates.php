@@ -93,6 +93,11 @@ class templates extends admin
 
 		switch($this->get['s'])
 		{
+		case 'edit_css':
+			$this->tree($this->lang->edit_css);
+			return $this->edit_css($this->get['skin']);
+			break;
+
 		case 'upgradeskin':
 			$this->tree($this->lang->upgrade_skin);
 			return $this->upgrade_skin($this->get['skin']);
@@ -514,6 +519,65 @@ class templates extends admin
 		}
 	}
 
+	function edit_css($skin)
+	{
+		if (!isset($this->post['submit'])) {
+			if (!isset($this->get['file'])) {
+				return $this->message( $this->lang->edit_css, $this->lang->no_file );
+			}
+
+			$fname = $this->get['file'];
+
+			$file = "../skins/" . $skin . "/" . $fname;
+			$fp = fopen( $file, "r" );
+			$text = fread( $fp, filesize($file) );
+			fclose($fp);
+
+			return eval($this->template('ADMIN_CSS_EDIT'));
+		} else {
+			if (!isset($this->get['file'])) {
+				return $this->message( $this->lang->edit_css, $this->lang->no_file );
+			}
+
+			$fname = $this->get['file'];
+
+			/* just in-case */
+			if (strtolower(substr($fname, -4)) != '.css')
+				return $this->message( $this->lang->edit_css, $this->lang->no_file );
+
+			$text = str_replace( "\r", "", $this->post['css_text'] );
+
+			$file = "../skins/" . $skin . "/" . $fname;
+			$fp = @fopen( $file, "w" ) or $this->handle_perms( $file );
+
+			if (false === $fp)
+				return $this->message($this->lang->edit_css, $this->lang->css_fioerr );
+
+			fwrite( $fp, $text );
+			fclose($fp);
+
+			return $this->message($this->lang->edit_css, $this->lang->css_edited );
+		}
+	}
+
+	/**
+	 * Tries to fix file permissions on un-openable files
+	 * 
+	 * @prama $file the file to fix
+	 * @returns file handle on sucess or false on failure.
+	 */
+	function handle_perms($file)
+	{
+		$fd = false;
+
+		if ( false !== @chmod($file, 0777) )
+		{
+			if ( false !== ($fd = @fopen( $file, 'w' )) )
+				return $fd;
+		}
+		return $fd;
+	}
+
 	function remove_dir($dir)
 	{
 		$dp = opendir($dir);
@@ -566,6 +630,20 @@ class templates extends admin
 			}
 			$out .= eval($this->template('ADMIN_TEMPLATE_ENTRY'));
 		}
+
+		$css = "";
+		$dir = "../skins/" . $template;
+		$dp = opendir( $dir );
+		while (($file = readdir($dp)) !== false)
+		{
+			$ext = strtolower(substr($file, -4));
+
+			if ($ext == '.css') {
+				$css .= "<li><a href='{$this->self}?a=templates&amp;s=edit_css&amp;skin=$template&amp;file=$file'>{$file}</a></li>";
+			}
+		}
+		closedir($dp);
+
 		return eval($this->template('ADMIN_LIST_TEMPLATES'));
 	}
 
