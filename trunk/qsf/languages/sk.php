@@ -1349,6 +1349,7 @@ class sk
 		$this->titles_error = 'No title text or minimum posts was given'; //Translate
 		$this->titles_image = 'Obrázok';
 		$this->titles_minpost = 'Minimálny príspevok';
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'Nadpis';
 	}
 

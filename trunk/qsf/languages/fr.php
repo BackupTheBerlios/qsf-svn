@@ -1347,6 +1347,7 @@ class fr
 		$this->titles_error = 'Aucun texte de titre ou de messages minimum n\'a été fourni';
 		$this->titles_image = 'Image'; //Translate
 		$this->titles_minpost = 'Messages minimums';
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'Titre';
 	}
 

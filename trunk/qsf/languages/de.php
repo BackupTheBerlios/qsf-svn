@@ -1348,6 +1348,7 @@ class de
 		$this->titles_error = 'Kein Titel oder Mindest-Beiträge angegeben';
 		$this->titles_image = 'Bild';
 		$this->titles_minpost = 'Mindest-Beiträge';
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'Titel';
 	}
 

@@ -1348,6 +1348,7 @@ class no
 		$this->titles_error = 'Ingen titteltekst eller minimumsinnlegg ble gitt';
 		$this->titles_image = 'Bilde';
 		$this->titles_minpost = 'Minimumsinnlegg';
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'Tittel';
 	}
 

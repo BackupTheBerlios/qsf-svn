@@ -78,6 +78,10 @@ class titles extends admin
 			$out = null;
 			$this->iterator_init('tablelight', 'tabledark');
 
+			if (isset($this->get['delete']) && 1 == intval($this->get['delete'])) {
+				return $this->message($this->lang->titles_control, $this->lang->titles_nodel_default);
+			}
+
 			if (isset($this->get['delete'])) {
 				$this->db->query("DELETE FROM {$this->pre}membertitles WHERE membertitle_id=" . intval($this->get['delete']));
 				$this->update_titles();

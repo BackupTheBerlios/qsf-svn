@@ -1347,6 +1347,7 @@ class he
 		$this->titles_error = 'לא ניתנו כותרת טקסט או מינימום הודעות';
 		$this->titles_image = 'תמונה';
 		$this->titles_minpost = 'מינימום הודעות';
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'כותרת';
 	}
 

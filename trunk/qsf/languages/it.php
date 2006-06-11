@@ -1348,6 +1348,7 @@ class it
 		$this->titles_error = 'Nessun titolo o messaggi minimi inseriti';
 		$this->titles_image = 'Immagine';
 		$this->titles_minpost = 'Messaggi minimi';
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'Titolo';
 	}
 

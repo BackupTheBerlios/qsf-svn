@@ -1348,6 +1348,7 @@ class ru
 		$this->titles_error = 'No title text or minimum posts was given'; //Translate
 		$this->titles_image = 'Image'; //Translate
 		$this->titles_minpost = 'Minimum Posts'; //Translate
+		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
 		$this->titles_title = 'Title'; //Translate
 	}
 
