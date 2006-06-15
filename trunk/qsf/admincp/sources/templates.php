@@ -546,6 +546,7 @@ class templates extends admin
 				return $this->message( $this->lang->edit_css, $this->lang->no_file );
 
 			$text = str_replace( "\r", "", $this->post['css_text'] );
+			$text = stripslashes($text);
 
 			$file = "../skins/" . $skin . "/" . $fname;
 			$fp = @fopen( $file, "w" ) or $this->handle_perms( $file );
