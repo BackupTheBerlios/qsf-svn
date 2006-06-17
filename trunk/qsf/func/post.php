@@ -331,7 +331,7 @@ class post extends qsfglobal
 			if ($s == 'reply') {
 				if (isset($this->get['qu'])) {
 					$this->get['qu'] = intval($this->get['qu']);
-					$query = $this->db->fetch("SELECT p.post_text, m.user_name FROM {$this->pre}posts p, {$this->pre}users m WHERE p.post_id={$this->get['qu']} AND p.post_author=m.user_id");
+					$query = $this->db->fetch("SELECT p.post_text, m.user_name FROM {$this->pre}posts p, {$this->pre}users m WHERE p.post_id={$this->get['qu']} AND p.post_author=m.user_id AND p.post_topic={$this->get['t']}");
 
 					if ($query['post_text'] != '') {
 						$quote = '[quote=' . $query['user_name'] . ']' . $this->format($query['post_text'], FORMAT_CENSOR | FORMAT_HTMLCHARS) . '[/quote]';
