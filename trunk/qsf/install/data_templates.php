@@ -1368,9 +1368,9 @@ $queries['BOARD_USERS'] = "INSERT INTO {$pre}templates (template_skin, template_
  </tr>
  <tr>
   <td class=\"tablelight\">
-   <b>{\$active[\'TOTALCOUNT\']} {\$this->qsf->lang->board_users} ({\$active[\'MEMBERCOUNT\']} {\$this->qsf->lang->board_members}, {\$active[\'GUESTCOUNT\']} {\$this->qsf->lang->board_guests})</b><br />
+   <b>{\$users[\'TOTALCOUNT\']} {\$this->qsf->lang->board_users} ({\$users[\'MEMBERCOUNT\']} {\$this->qsf->lang->board_members}, {\$users[\'GUESTCOUNT\']} {\$this->qsf->lang->board_guests})</b><br />
    <hr />
-   {\$active[\'USERS\']}
+   {\$users[\'USERS\']}
    {\$userlist}
   </td>
  </tr>

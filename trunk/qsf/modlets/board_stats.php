@@ -55,9 +55,9 @@ class board_stats extends modlet
 
 		$this->qsf->lang->board_most_online = sprintf($this->qsf->lang->board_most_online, $stats['MOSTONLINE'], $stats['MOSTONLINETIME']);
 
-		$birthdays = "";
+		$bdays = "";
 		if( $arg == "true" ) {
-			$birthdays = "<strong>{$this->qsf->lang->board_birthdays}</strong><br />\n" . $this->getuser_birthdays();
+			$bdays = "<strong>{$this->qsf->lang->board_birthdays}</strong><br />\n" . $this->getuser_birthdays();
 		}
 
 		return eval($this->qsf->template('BOARD_STATS'));

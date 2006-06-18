@@ -47,7 +47,7 @@ class users_online extends modlet
 			$this->qsf->lang->board();
 		}
 
-		$active = $this->doActive();
+		$users = $this->doActive();
 
 		$userlist = "";
 		if( $arg == "true" ) {
