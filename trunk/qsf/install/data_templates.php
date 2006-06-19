@@ -1387,7 +1387,7 @@ $queries['BOARD_STATS'] = "INSERT INTO {$pre}templates (template_skin, template_
    {\$this->qsf->lang->board_stats_string}<br />
    {\$this->qsf->lang->board_most_online}
    <br /><hr />
-   {\$birthdays}
+   {\$bdays}
   </td>
  </tr>
 {\$this->qsf->etable}', 'MODLET: Board Statistics', 'Format for the board statistics table.', 6)";
