@@ -216,6 +216,7 @@ $queries[] = "CREATE TABLE {$pre}topics (
   topic_title varchar(75) NOT NULL default '0',
   topic_description varchar(35) NOT NULL default '',
   topic_starter int(10) unsigned NOT NULL default '0',
+  topic_last_post int(10) unsigned NOT NULL default '0',
   topic_last_poster int(10) unsigned NOT NULL default '0',
   topic_icon varchar(32) NOT NULL default '',
   topic_edited int(10) unsigned NOT NULL default '0',

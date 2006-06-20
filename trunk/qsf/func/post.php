@@ -477,6 +477,8 @@ class post extends qsfglobal
 				VALUES ({$this->get['t']}, {$this->user['user_id']}, '{$this->post['post']}', $this->time, {$this->post['parseEmot']}, {$this->post['parseCode']}, $post_count, INET_ATON('$this->ip'), '{$this->post['icon']}')");
 			$post_id = $this->db->insert_id("{$this->pre}posts");
 
+			$this->db->query("UPDATE {$this->pre}topics SET topic_last_post=$post_id WHERE topic_id={$this->get['t']}");
+
 			if ($post_count) {
 				$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='$this->time', user_level='{$newlevel['user_level']}', user_title='" . addslashes($membertitle) . "' WHERE user_id='{$this->user['user_id']}'");
 			} else {

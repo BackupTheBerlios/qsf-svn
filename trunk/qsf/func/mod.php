@@ -792,6 +792,7 @@ class mod extends qsfglobal
 			@unlink('./attachments/' . $result['attach_file']);
 		}
 
+		$this->update_last_post_topic($result['topic_id']);
 		$this->sets['posts'] -= 1;
 		$this->write_sets();
 	}
@@ -944,7 +945,7 @@ class mod extends qsfglobal
 	{
 		$last = $this->db->fetch("
 		SELECT
-			p.post_author, p.post_time
+			p.post_id, p.post_author, p.post_time
 		FROM
 			{$this->pre}posts p,
 			{$this->pre}topics t
@@ -955,7 +956,7 @@ class mod extends qsfglobal
 			p.post_time DESC
 		LIMIT 1");
 
-		$this->db->query("UPDATE {$this->pre}topics SET topic_last_poster={$last['post_author']}, topic_edited={$last['post_time']} WHERE topic_id=$t");
+		$this->db->query("UPDATE {$this->pre}topics SET topic_last_post={$last['post_id']}, topic_last_poster={$last['post_author']}, topic_edited={$last['post_time']} WHERE topic_id=$t");
 	}
 
 	/**

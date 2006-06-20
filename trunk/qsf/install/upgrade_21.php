@@ -48,6 +48,7 @@ $need_templates = array(
 // Queries to run
 $queries[] = "ALTER TABLE {$pre}users ADD user_posts_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
 $queries[] = "ALTER TABLE {$pre}users ADD user_topics_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
+$queries[] = "ALTER TABLE {$pre}topics ADD topic_last_post int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_starter";
 
 // New Timezones
 $queries[] = "INSERT INTO {$pre}timezones VALUES (387, 'America/North_Dakota/New_Salem', 'CST', -18000, 1143961200)";
