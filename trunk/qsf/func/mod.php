@@ -168,8 +168,11 @@ class mod extends qsfglobal
 			$this->update_last_post($topic['topic_forum']);
 			$this->update_last_post($this->post['newforum']);
 
-			$this->update_counts($topic['topic_forum']);
-			$this->update_counts($this->post['newforum']);
+			$ammount = $this->db->fetch('SELECT topic_replies FROM ' . $this->pre . 'topics WHERE topic_id = ' . $newtopic);
+			$ammount = intval($ammount['topic_replies']);
+
+			echo 'ammount='.$ammount;
+			$this->update_count_move($topic['topic_forum'], $this->post['newforum'], $ammount);
 
 			$this->log_action('topic_move', $this->get['t'], $topic['topic_forum'], $this->post['newforum']);
 
@@ -751,7 +754,11 @@ class mod extends qsfglobal
 		$this->db->query('DELETE FROM ' . $this->pre . 'topics WHERE topic_id=' . $t . ' OR topic_moved=' . $t);
 		$this->db->query('DELETE FROM ' . $this->pre . 'posts WHERE post_topic=' . $t);
 
-		$this->db->query("UPDATE {$this->pre}forums SET forum_topics=forum_topics-1, forum_replies=forum_replies-$deleted WHERE forum_id={$result['topic_forum']}");
+		$this->update_reply_count($result['topic_forum'], $deleted);
+
+		// Update all parent forums if any
+		$forums = $this->db->fetch("SELECT forum_tree FROM {$this->pre}forums WHERE forum_id={$result['topic_forum']}");
+		$this->db->query("UPDATE {$this->pre}forums SET forum_topics=forum_topics-1 WHERE forum_parent > 0 AND forum_id IN ({$forums['forum_tree']}) OR forum_id={$result['topic_forum']}");
 
 		$this->sets['posts'] -= ($deleted+1);
 		$this->sets['topics'] -= 1;
@@ -881,27 +888,48 @@ class mod extends qsfglobal
 	}
 
 	/**
-	 * Updates the post counts of a forum
+	 * Decrements a forum and all it's parents by the given value.
 	 *
-	 * @param int $f Forum ID
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 4.0
-	 * @return void
-	 **/
-	function update_counts($f)
+	 * @param int $f the forum identifier
+	 * @param int $ammount how much to decrement by
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 1.2.2
+	 * @returns void
+	**/
+	function update_reply_count($f, $ammount, $topic = 0)
 	{
-		$post  = $this->db->fetch('SELECT COUNT(p.post_id) as count FROM ' . $this->pre . 'posts p, ' . $this->pre . 'topics t WHERE p.post_topic=t.topic_id AND t.topic_forum=' . $f);
-		$topic = $this->db->fetch('SELECT COUNT(topic_id) as count FROM ' . $this->pre . 'topics WHERE NOT(topic_modes & ' . TOPIC_MOVED . ') AND topic_forum=' . $f);
+		if (0 == $ammount && 0 == $topic) // nothing to do
+			return;
 
-		if (!isset($post['count'])) {
-			$post['count'] = 0;
+		/* decrement the parent forums */
+		$forums = $this->db->fetch("SELECT forum_tree FROM {$this->pre}forums WHERE forum_id={$f}");
+
+		if (isset($forums['forum_tree']) && 0 != strlen($forums['forum_tree']))
+		{
+			$wip = explode(',', $forums['forum_tree']);
+
+			array_push($wip, $f);
+
+			foreach ($wip as $fid)
+			{
+				$fid = intval($fid);
+
+				if (0 == $fid)
+					continue;
+
+				$this->db->query('UPDATE ' . $this->pre . 'forums SET forum_replies=forum_replies-' . $ammount . ' WHERE forum_id=' . $fid);
+
+				if (0 != $topic)
+					$this->db->query('UPDATE ' . $this->pre . 'forums SET forum_topics=forum_topics-' . intval($topic) . ' WHERE forum_id=' . $fid);
+
+			}
 		}
+	}
 
-		if (!isset($topic['count'])) {
-			$topic['count'] = 0;
-		}
-
-		$this->db->query('UPDATE ' . $this->pre . 'forums SET forum_topics=' . $topic['count'] . ', forum_replies=' . ($post['count'] - $topic['count']) . ' WHERE forum_id=' . $f);
+	function update_count_move($f_from, $f_to, $ammount)
+	{
+		$this->update_reply_count($f_from, $ammount,  1);
+		$this->update_reply_count($f_to, 0-$ammount, -1);
 	}
 
 	/**
@@ -913,6 +941,31 @@ class mod extends qsfglobal
 	 * @return void
 	 **/
 	function update_last_post($f)
+	{
+		/* update any parent forums */
+		$forums = $this->db->fetch("SELECT forum_tree FROM {$this->pre}forums WHERE forum_id={$f}");
+
+		if (isset($forums['forum_tree']) && 0 != strlen($forums['forum_tree']))
+		{
+			$wip = explode(',', $forums['forum_tree']);
+
+			foreach ($wip as $fid)
+			{
+				$fid = intval($fid);
+
+				/* handle weird cases */
+				if (0 == $fid)
+					continue;
+
+				$this->_update_last_post($fid);
+			}
+		}
+
+		/* update the specified forum */
+		$this->_update_last_post($f);
+	}
+
+	function _update_last_post($f)
 	{
 		$post = $this->db->fetch('
 		SELECT p.post_id
