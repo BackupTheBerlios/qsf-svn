@@ -35,6 +35,9 @@ require_once $set['include_path'] . '/global.php';
  **/
 class cp extends qsfglobal
 {
+	/** Files allowed to be used as avatars **/
+	var $fileExtensions = array('jpg', 'jpeg', 'gif', 'png');
+
 	function execute()
 	{
 		if (!isset($this->get['s'])) {
@@ -399,6 +402,12 @@ class cp extends qsfglobal
 				$this->post['user_avatar_height'] = 1;
 			}
 
+
+			$fileExtension  = array_pop(explode('.',  $this->user['user_avatar']));
+			if (!in_array($fileExtension, $this->fileExtensions)) {
+				$fileExtension = 'avtr';
+			}
+
 			switch($this->post['user_avatar_type'])
 			{
 			case 'local':
@@ -408,7 +417,7 @@ class cp extends qsfglobal
 
 				$avatar = trim(addslashes($this->post['avatar_local']));
 				$type = 'local';
-				@unlink("./avatars/uploaded/{$this->user['user_id']}.avtr");
+				@unlink("./avatars/uploaded/{$this->user['user_id']}.$fileExtension");
 				break;
 
 			case 'url':
@@ -426,7 +435,7 @@ class cp extends qsfglobal
 
 				$avatar = $this->format(trim($this->post['avatar_url']), FORMAT_HTMLCHARS);
 				$type = 'url';
-				@unlink("./avatars/uploaded/{$this->user['user_id']}.avtr");
+				@unlink("./avatars/uploaded/{$this->user['user_id']}.$fileExtension");
 				break;
 
 			case 'upload':
@@ -451,15 +460,22 @@ class cp extends qsfglobal
 					break 2;
 				}
 
+				// Get extension
+				$fileExtension  = array_pop(explode('.',  $this->files['avatar_upload']['name']));
+				if (!in_array($fileExtension, $this->fileExtensions)) {
+					$fileExtension = 'avtr';
+				}
+
+				// Deliberate fall through
 			case 'use_uploaded':
-				$avatar = './avatars/uploaded/' . $this->user['user_id'] . '.avtr';
+				$avatar = './avatars/uploaded/' . $this->user['user_id'] . '.' . $fileExtension;
 				$type = 'uploaded';
 				break;
 
 			default:
 				$avatar = '';
 				$type = 'none';
-				@unlink("./avatars/uploaded/{$this->user['user_id']}.avtr");
+				@unlink("./avatars/uploaded/{$this->user['user_id']}.$fileExtension");
 				break;
 			}
 
