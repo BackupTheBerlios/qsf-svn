@@ -3474,12 +3474,6 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$this->etable}
 </form>
 
-<IF \$this->perms->auth((\'post_create\'), \$topic[\'topic_forum\'])>
-<div class=\"quickreply\">
-{\$quickreply}
-</div>
-</IF>
-
 {\$this->table}
  <tr>
   <td>
@@ -3494,7 +3488,13 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
    {\$this->lang->topic_pages}:{\$pagelinks}
   </td>
  </tr>
-{\$this->etable}', 'Topic View', 'Change the appearance of topics', 0)";
+{\$this->etable}
+
+<IF \$this->perms->auth((\'post_create\'), \$topic[\'topic_forum\'])>
+<div class=\"quickreply\">
+{\$quickreply}
+</div>
+</IF>', 'Topic View', 'Change the appearance of topics', 0)";
 $queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST', ' <tr>
   <td class=\"{\$class}\">
    <a id=\"p{\$post[\'post_id\']}\"></a>
