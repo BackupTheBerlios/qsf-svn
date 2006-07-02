@@ -1621,7 +1621,7 @@ mbcodeInit(\"mbpost\", \"sig\");
    <td class=\"header\">{\$this->lang->cp_label_edit_sig}</td>
  </tr>
  <tr>
-   <td class=\"tabledark\"><b>{\$this->lang->cp_preview_sig}</b><br/>........................................<div class=\"signature\">{\$preview}</div></td>
+   <td class=\"tabledark\"><b>{\$this->lang->cp_preview_sig}</b><br />........................................<div class=\"signature\">{\$preview}</div></td>
  </tr>
  <tr>
   <td class=\"tablelight\">
