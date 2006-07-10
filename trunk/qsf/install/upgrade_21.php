@@ -48,8 +48,29 @@ $need_templates = array(
 // Queries to run
 $queries[] = "ALTER TABLE {$pre}users ADD user_posts_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
 $queries[] = "ALTER TABLE {$pre}users ADD user_topics_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
-$queries[] = "ALTER TABLE {$pre}topics ADD topic_last_post int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_starter";
 
 // New Timezones
 $queries[] = "INSERT INTO {$pre}timezones VALUES (387, 'America/North_Dakota/New_Salem', 'CST', -18000, 1143961200)";
+
+// Required update for topic_last_post setting
+$db->query( "ALTER TABLE {$pre}topics ADD topic_last_post int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_starter" );
+$query = $db->query( "SELECT * FROM {$pre}topics" );
+while( $row = $db->nqfetch($query) )
+{
+	// Ripped the code from update_last_post_topic in mod.php for this.
+	$last = $db->fetch("
+	SELECT
+		p.post_id, p.post_author, p.post_time
+	FROM
+		{$pre}posts p,
+		{$pre}topics t
+	WHERE
+		p.post_topic=t.topic_id AND
+		t.topic_id={$row['topic_id']}
+	ORDER BY
+		p.post_time DESC
+	LIMIT 1");
+
+	$db->query("UPDATE {$pre}topics SET topic_last_post={$last['post_id']}, topic_last_poster={$last['post_author']}, topic_edited={$last['post_time']} WHERE topic_id={$row['topic_id']}");
+}
 ?>
