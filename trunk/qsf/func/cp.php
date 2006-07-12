@@ -26,6 +26,7 @@ if (!defined('QUICKSILVERFORUMS')) {
 }
 
 require_once $set['include_path'] . '/global.php';
+require_once $set['include_path'] . '/lib/imginfo.php';
 
 /**
  * User Control Panel
@@ -394,15 +395,6 @@ class cp extends qsfglobal
 			$this->post['user_avatar_width'] = intval($this->post['user_avatar_width']);
 			$this->post['user_avatar_height'] = intval($this->post['user_avatar_height']);
 
-			if ($this->post['user_avatar_width'] < 1) {
-				$this->post['user_avatar_width'] = 1;
-			}
-
-			if ($this->post['user_avatar_height'] < 1) {
-				$this->post['user_avatar_height'] = 1;
-			}
-
-
 			$fileExtension  = array_pop(explode('.',  $this->user['user_avatar']));
 			if (!in_array($fileExtension, $this->fileExtensions)) {
 				$fileExtension = 'avtr';
@@ -417,11 +409,11 @@ class cp extends qsfglobal
 
 				$avatar = trim(addslashes($this->post['avatar_local']));
 				$type = 'local';
-				@unlink("./avatars/uploaded/{$this->user['user_id']}.$fileExtension");
+				$this->delete_avatar();
 				break;
 
 			case 'url':
-				if (($this->post['user_avatar_width'] > $this->sets['avatar_width']) || ($this->post['user_avatar_width'] > $this->sets['avatar_height'])) {
+				if (($this->post['user_avatar_width'] > $this->sets['avatar_width']) || ($this->post['user_avatar_height'] > $this->sets['avatar_height'])) {
 					return $this->message($this->lang->cp_err_avatar, sprintf($this->lang->cp_size_max, $this->sets['avatar_width'], $this->sets['avatar_height']));
 				}
 
@@ -435,7 +427,7 @@ class cp extends qsfglobal
 
 				$avatar = $this->format(trim($this->post['avatar_url']), FORMAT_HTMLCHARS);
 				$type = 'url';
-				@unlink("./avatars/uploaded/{$this->user['user_id']}.$fileExtension");
+				$this->delete_avatar();
 				break;
 
 			case 'upload':
@@ -443,7 +435,14 @@ class cp extends qsfglobal
 					return $this->message($this->lang->cp_avatar_error, $this->lang->cp_avatar_upload_failed);
 				}
 
-				$upload = $this->attachmentutil->upload($this->files['avatar_upload'], './avatars/uploaded/' . $this->user['user_id'] . '.avtr', $this->sets['avatar_upload_size'], array('jpg', 'jpeg', 'gif', 'png'));
+				// Get extension
+				$fileExtension  = array_pop(explode('.',  $this->files['avatar_upload']['name']));
+				if (!in_array($fileExtension, $this->fileExtensions)) {
+					$fileExtension = 'avtr';
+				}
+				
+				$this->delete_avatar();
+				$upload = $this->attachmentutil->upload($this->files['avatar_upload'], './avatars/uploaded/' . $this->user['user_id'] . '.' . $fileExtension, $this->sets['avatar_upload_size'], array('jpg', 'jpeg', 'gif', 'png'));
 
 				switch($upload)
 				{
@@ -460,10 +459,12 @@ class cp extends qsfglobal
 					break 2;
 				}
 
-				// Get extension
-				$fileExtension  = array_pop(explode('.',  $this->files['avatar_upload']['name']));
-				if (!in_array($fileExtension, $this->fileExtensions)) {
-					$fileExtension = 'avtr';
+				// Get dimensions of image
+				$myImgInfo = new imginfo();
+				$data = $myImgInfo->info('./avatars/uploaded/' . $this->user['user_id'] . '.' . $fileExtension);
+				if ($data) {
+					$this->post['user_avatar_width'] = $data['X'];
+					$this->post['user_avatar_height'] = $data['Y'];
 				}
 
 				// Deliberate fall through
@@ -475,8 +476,24 @@ class cp extends qsfglobal
 			default:
 				$avatar = '';
 				$type = 'none';
-				@unlink("./avatars/uploaded/{$this->user['user_id']}.$fileExtension");
+				$this->delete_avatar();
 				break;
+			}
+
+			// Quick sanity check on dimensions
+			if ($this->post['user_avatar_width'] < 1) {
+				$this->post['user_avatar_width'] = 1;
+			}
+
+			if ($this->post['user_avatar_height'] < 1) {
+				$this->post['user_avatar_height'] = 1;
+			}
+
+			if ($this->post['user_avatar_width'] > $this->sets['avatar_width']) {
+				$this->post['user_avatar_width'] = $this->sets['avatar_width'];
+			}
+			if ($this->post['user_avatar_height'] > $this->sets['avatar_height']) {
+				$this->post['user_avatar_height'] = $this->sets['avatar_height'];
 			}
 
 			$this->db->query('
@@ -595,6 +612,19 @@ class cp extends qsfglobal
 		$this->db->query("INSERT INTO {$this->pre}subscriptions (subscription_user, subscription_type, subscription_item, subscription_expire) VALUES ({$this->user['user_id']}, '{$this->get['type']}', {$this->get['item']}, $expires)");
 
 		return $this->message($this->lang->cp_cp, sprintf($this->lang->cp_sub_success, $this->get['type']));
+	}
+	
+	/**
+	 * Delete the old uploaded avatar if any
+	 *
+	 * @author Geoffrey Dunn <geoff@warmage.com>
+	 * @since v1.2.2
+	 **/
+	function delete_avatar()
+	{
+		if ($this->user['user_avatar_type'] == 'uploaded') {
+			@unlink($this->user['user_avatar']);
+		}
 	}
 }
 ?>
