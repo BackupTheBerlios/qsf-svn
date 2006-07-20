@@ -191,7 +191,7 @@ class archive_tar
 	 **/
 	function add_as_file($contents, $filename)
 	{
-		$size = sizeof($contents);
+		$size = strlen($contents);
 
 		$this->_write($this->_tar_header($filename,
 			$this->_gen_stat($size)));
@@ -384,11 +384,22 @@ class archive_tar
 	 **/
 	function _gen_stat($size)
 	{
-		$stats = fstat($this->file_handle);
+		$stats = stat('index.php');
+		
 		
 		$stats['size'] = $size;
 		$stats[7] = $size;
-		
+		$stats['atime'] = time();
+		$stats['mtime'] = time();
+		$stats['ctime'] = time();
+		$stats[8] = time();
+		$stats[9] = time();
+		$stats[10] = time();
+		if ($stats['blksize'] > 0) {
+			$stats['blocks'] = ceil($size / $stats['blksize']);
+			$stats[12] = ceil($size / $stats['blksize']);
+		}
+
 		return $stats;
 	}
 
