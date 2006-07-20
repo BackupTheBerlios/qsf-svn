@@ -35,6 +35,8 @@ class archive_tar
 	
 	var $file_handle=false;	/** File handle for writing or reading **/
 	
+	var $seek_length=0;	/** Bytes to skip before reading the next file header **/
+	
 	var $file_writing=false;
 	
 	var $gz_mode=false;
@@ -78,7 +80,7 @@ class archive_tar
 	 *
 	 * @return bool TRUE if we could open the file
 	 **/
-	function open_file_reader($filename, $gzip=true)
+	function open_file_reader($filename)
 	{
 		if ($this->file_handle !== false) {
 			// Close old file first
@@ -97,19 +99,21 @@ class archive_tar
 			// Check it's a tar file
 			if ($lastExt != 'tar') return false;
 
-			$this->file_handle = gzopen($this->full_filename, 'rb');
+			$this->file_handle = gzopen($filename, 'rb');
 			$this->gz_mode = false;
 		} else {
 			$lastExt = array_pop($filenameParts);
 			// Check it's a tar file
 			if ($lastExt != 'tar') return false;
 			
-			$this->file_handle = fopen($this->full_filename, 'rb');
+			$this->file_handle = fopen($filename, 'rb');
 			
 			$this->gz_mode = false;
 		}
 		
 		$this->file_writing = false;
+		$this->full_filename = $filename;
+		$this->seek_length = 0;
 		
 		return ($this->file_handle !== false);
 	}
@@ -253,6 +257,9 @@ class archive_tar
 		if ($this->file_writing) return false;
 		
 		if ($this->file_handle === false) return false;
+		
+		if ($this->seek_length > 0) $this->_read($this->seek_length);
+		$this->seek_length = 0;
 
 		$rawHeader = $this->_read(512);
 		
@@ -286,12 +293,45 @@ class archive_tar
 				$header['filename']
 			    );
 		}
-
+		
 		// could do checksum stuff here
 		
-		return true;
+		return $this->currentFilename;
 	}
 	
+	/**
+	 * Go back to the start of reading an open archive
+	 **/
+	function rewind()
+	{
+		if ($this->file_writing) return;
+		
+		if ($this->file_handle === false) return;
+
+		if ($this->gz_mode) {
+			gzrewind($this->file_handle);
+		} else {
+			rewind($this->file_handle);
+		}
+		$this->seek_length = 0;
+	}
+	
+	/**
+	 * Skip to the next file
+	 *
+	 * @return string Filename for next file or false if eof
+	 **/
+	function skip_file()
+	{
+		if ($this->file_writing) return;
+		
+		if ($this->file_handle === false) return;
+		
+		$this->read_file();
+		
+		return $this->next_file();
+	}
+
 	/**
 	 * Read the contents of the current file
 	 *
@@ -307,7 +347,38 @@ class archive_tar
 			$actualLength = min($this->currentStat['size'], $size);
 		}
 		
+		$this->seek_length = $this->currentStat['size'] - $actualLength;
+		if ($this->currentStat['size'] % 512 > 0)
+			$this->seek_length = 512 - ($this->currentStat['size'] % 512);
+		
 		return $this->_read($actualLength);
+	}
+	
+	/**
+	 * Searches through the archive for the file and returns it's contents
+	 *
+	 * @param string filename to look for
+	 *
+	 * @return string Binary contents of file or FALSE if not found
+	 **/
+	function extract_file($filename)
+	{
+		if ($this->file_writing) return false;
+		
+		if ($this->file_handle === false) return false;
+
+		$this->rewind();
+		
+		$file = $this->next_file();
+		while ($file != $filename && $file !== false) {
+			$file = $this->skip_file();
+		}
+		
+		if ($file === false) {
+			return false;
+		} else {
+			return $this->read_file();
+		}
 	}
 	
 	
@@ -371,9 +442,9 @@ class archive_tar
 	function _read($size)
 	{
 		if ($this->gz_mode) {
-			return gzread($this->file_handle, $data);
+			return gzread($this->file_handle, $size);
 		} else {
-			return fread($this->file_handle, $data);
+			return fread($this->file_handle, $size);
 		}
 	}
 	
