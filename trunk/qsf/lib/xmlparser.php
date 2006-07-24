@@ -46,6 +46,19 @@ class xmlparser
     
     }
     
+    // Call this before attempting to reuse the parser class
+    function reset()
+    {
+	    if ($this->xml_obj !== null) {
+		    $this->output = array();
+		    xml_parser_free($this->xml_obj);
+		    $this->xml_obj = xml_parser_create();
+		    xml_set_object($this->xml_obj,$this);
+		    xml_set_character_data_handler($this->xml_obj, 'dataHandler'); 
+		    xml_set_element_handler($this->xml_obj, "startHandler", "endHandler");
+	    }
+    }
+    
     function parse($path)
     {
        if (!($fp = @fopen($path, "r"))) {
