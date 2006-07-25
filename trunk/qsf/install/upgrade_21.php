@@ -33,6 +33,7 @@ $need_templates = array(
 	'BOARD_USERS',
 	'BOARD_STATS',
 	'ADMIN_CSS_EDIT',
+	'ADMIN_INSTALL_SKIN',
 	// Changed templates
 	'MAIN',
 	'TOPIC_MAIN',

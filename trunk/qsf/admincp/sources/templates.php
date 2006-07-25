@@ -26,6 +26,8 @@ if (!defined('QUICKSILVERFORUMS') || !defined('QSF_ADMIN')) {
 }
 
 require_once $set['include_path'] . '/admincp/admin.php';
+require_once $set['include_path'] . '/lib/tar.php';
+require_once $set['include_path'] . '/lib/xmlparser.php';
 
 class templates extends admin
 {
@@ -183,9 +185,9 @@ class templates extends admin
 
 	                        if ($this->db->num_rows($miss) < 1)
         	                {
-                        	        $sql = "INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html,  template_displayname, template_description, template_position) VALUES
+                        	        $sql = "INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html,  template_displayname, template_description) VALUES
 						( '$skin', '" . addslashes($row['template_set']) ."', '".addslashes($row['template_name'])."', '".addslashes($row['template_html']) .
-						"', '".addslashes($row['template_displayname'])."', '".addslashes($row['template_description'])."', '".addslashes($row['template_position']). "')";
+						"', '".addslashes($row['template_displayname'])."', '".addslashes($row['template_description'])."')";
 	                                $this->db->query($sql);
 					$didsomething = true;
 					$temps .= $row['template_name'] . "<br />";
@@ -337,7 +339,8 @@ class templates extends admin
 
 	function install_skin()
 	{
-		if (!isset($this->post['submit']) && !isset($this->get['temp'])) {
+		if (!isset($this->post['submit']) && !isset($this->get['newskin']) && !isset($this->get['skindetails'])) {
+			// Build drop down list for the OLD method
 			$skin_box = '';
 
 			$dp = opendir('../skins');
@@ -350,16 +353,192 @@ class templates extends admin
 				}
 			}
 			closedir($dp);
+			
+			// Now check for skins using the NEW method
+			
+			// build a list of all the xml skin files
+			
+			$tarTool = new archive_tar();
 
-			return $this->message($this->lang->install_skin, "
-			<form action='$this->self?a=templates&amp;s=load' method='post'><div>
-				{$this->lang->skins_found}:<br /><br />
-				<select name='install'>
-					{$skin_box}
-				</select>
-				<input type='submit' name='submit' value='{$this->lang->install_skin}' /></div>
-			</form>");
+			$xmlInfo = new xmlparser();
+			
+			$new_skin_box = '';
+						
+			$dp = opendir('../packages');
+			while (($file = readdir($dp)) !== false)
+			{
+				if (strtolower(substr($file, -4)) == '.tar' ||
+					(strtolower(substr($file, -7)) == '.tar.gz' &&
+					$tarTool->can_gunzip()))
+				{
+					if ($tarTool->open_file_reader('../packages/' . $file)) {
+						// Okay. Look at packages.txt to find our xml file
+						$xmlFilename = $tarTool->extract_file('package.txt');
+						
+						if ($xmlFilename === false) continue;
+
+						$xmlData = $tarTool->extract_file($xmlFilename);
+						
+						if ($xmlData === false) continue;
+						
+						$xmlInfo->parseArray(array($xmlData));
+					} else {
+						continue;
+					}
+
+				}
+				else if (strtolower(substr($file, -4)) == '.xml')
+				{
+					$xmlInfo->parse('../packages/' . $file);
+				}
+				else
+				{
+					continue; // skip file
+				}
+					
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
+				
+				if ($node['content'] != 'skin')
+					continue; // skip other mods
+
+				$new_skin_box .= "  <li><a href=\"{$this->self}?a=templates&amp;s=load&amp;newskin=";
+				$new_skin_box .= urlencode(substr($file, 0, -4)) . "\" ";
+				
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
+				
+				if (isset($node['content']) && $node['content'])
+					$new_skin_box .= "title=\"" . htmlspecialchars($node['content']) . "\"";
+					
+				$new_skin_box .= ">";
+
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/TITLE');
+				$new_skin_box .= "<strong>" . htmlspecialchars($node['content']) . "</strong></a>";
+				
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/VERSION');
+				$new_skin_box .= " " . htmlspecialchars($node['content']);
+				
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/AUTHORNAME');
+				$new_skin_box .= " (" . htmlspecialchars($node['content']) . ")";
+				
+				$new_skin_box .= "</li>\n";
+				
+				$xmlInfo->reset();
+			}
+			closedir($dp);
+			
+			return $this->message($this->lang->install_skin, eval($this->template('ADMIN_INSTALL_SKIN')));
+		} else if (isset($this->get['skindetails'])) {
+			// Display some preview information on the skin
+		} else if (isset($this->get['newskin'])) {
+			// Use new method of install
+			
+			$XMLfilename = '../packages/' . stripslashes($this->get['newskin']) . '.xml';
+			
+			if (!file_exists($XMLfilename)) {
+				return $this->message($this->lang->install_skin, $this->lang->skin_none);
+			}
+			
+			// Open and parse the XML file
+			$xmlInfo = new xmlparser();
+						
+			$xmlInfo->parse($XMLfilename);
+			
+			// Get the folder name
+			$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
+			$skin_dir = addslashes($node['attrs']['FOLDER']);
+			
+			// Run the uninstall queries
+			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL');
+			foreach ($nodes['child'] as $node) {
+				if ($node['name'] == 'QUERY') {
+					$sql = $node['content'];
+					$sql = str_replace('{$pre}', $this->pre, $sql);
+					$this->db->query($sql);
+				}
+			}
+			
+			// Run the install queries
+			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/INSTALL');
+			foreach ($nodes['child'] as $node) {
+				if ($node['name'] == 'QUERY') {
+					$sql = $node['content'];
+					$sql = str_replace('{$pre}', $this->pre, $sql);
+					$this->db->query($sql);
+				}
+			}
+			
+			// Add the templates
+			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
+			foreach ($nodes['child'] as $node) {
+				if ($node['name'] == 'TEMPLATE') {
+					$temp_set = "";
+					$temp_name = "";
+					$temp_display = "";
+					$temp_desc = "";
+					$temp_html = "";
+
+					foreach ($node['child'] as $element) {
+						if (isset($element['content'])) {
+							switch($element['name']) {
+							case 'SET':
+								$temp_set = addslashes($element['content']);
+								break;
+							case 'NAME':
+								$temp_name = addslashes($element['content']);
+								break;
+							case 'DISPLAYNAME':
+								$temp_display = addslashes($element['content']);
+								break;
+							case 'DESCRIPTION':
+								$temp_desc = addslashes($element['content']);
+								break;
+							case 'HTML':
+								$temp_html = addslashes($element['content']);
+								break;
+							}
+						}
+					}
+					if (empty($temp_set) || empty($temp_name) || empty($temp_display)) {
+						echo "ERROR: No data available for template\n";
+						print_r($node);
+						die;
+					}
+					$this->db->query("INSERT INTO {$this->pre}templates
+						(template_skin, template_set, template_name, template_html, template_displayname, template_description)
+						VALUES ('$skin_dir', '$temp_set', '$temp_name', '$temp_html', '$temp_display', '$temp_desc')");
+				}
+			}
+
+			
+			// Extract the files
+			$tarTool = new archive_tar();
+			
+			if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar')) {
+				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar');
+			} else {
+				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz');
+			}
+			
+			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/FILES');
+			foreach ($nodes['child'] as $node) {
+				if ($node['name'] == 'FILE') {
+					$filename = $node['content'];
+					$data = $tarTool->extract_file($filename);
+					if ($data !== false) {
+						$this->_make_dir('../' . $filename);
+						$fh = fopen('../' . $filename, 'wb');
+						fwrite($fh, $data);
+						fclose($fh);
+					}
+				}
+			}
+			$tarTool->close_file();
+			
+			$this->chmod('../skins/' . $skin_dir, 0777, true);
+			
+			return $this->message($this->lang->install_skin, $this->lang->install_done);
 		} else {
+			// Use old method of install
 			if (!isset($this->get['temp']) && !isset($this->get['install'])) {
 				if (!isset($this->post['install'])) {
 					return $this->message($this->lang->install_skin, $this->lang->skin_none);
@@ -370,7 +549,7 @@ class templates extends admin
 
 				$zip = new zip;
 				$zip->extract($this->post['install'], "../skins/$dir");
-				$this->chmod("../skins/$dir",0777,true);
+				$this->chmod("../skins/$dir", 0777, true);
 				include "../skins/$dir/info.php";
 
 				if (is_dir("../skins/{$skin['dir']}")) {
@@ -389,7 +568,7 @@ class templates extends admin
 			}
 
 			rename("../skins/$dir", "../skins/{$skin['dir']}");
-			$this->chmod("../skins/{$skin['dir']}",0777,true);
+			$this->chmod("../skins/{$skin['dir']}", 0777, true);
 			$dir = $skin['dir'];
 
 			$queries = array();
@@ -421,34 +600,84 @@ class templates extends admin
 				<input type='submit' value='{$this->lang->export_skin}' /></div>
 			</form>");
 		} else {
-			$templates = $this->dump_database(array('templates' => "template_skin='{$this->post['skin']}'"));
-
+			// Dump the skin data into an XML file
+			
 			$skin = $this->db->fetch("SELECT * FROM {$this->pre}skins WHERE skin_dir='{$this->post['skin']}'");
-			$info =
-"<?php
-\$skin['name'] = \"" . addslashes($skin['skin_name']) . "\";
-\$skin['dir'] = \"" . addslashes($skin['skin_dir']) . "\";
-?>";
-
-			if (file_exists("../skins/{$this->post['skin']}/info.php")) {
-				unlink("../skins/{$this->post['skin']}/info.php");
+			
+			$fullSkinName = $skin['skin_dir'] . "-" . $this->version;
+			
+			if (file_exists("../packages/skin_$fullSkinName.xml")) {
+				unlink("../packages/skin_$fullSkinName.xml");
 			}
 
-			if (file_exists("../skins/{$this->post['skin']}/templates.php")) {
-				unlink("../skins/{$this->post['skin']}/templates.php");
+			$xmlFile = fopen("../packages/skin_$fullSkinName.xml", 'w');
+			
+			if ($xmlFile === false) {
+				return $this->message($this->lang->export_skin, "Error: Could not open file skins/{$skin['skin_dir']}/skin_$fullSkinName.xml for writing");
 			}
+			
+			fwrite($xmlFile, "<?xml version='1.0' encoding='utf-8'?>\n");
+			fwrite($xmlFile, "<qsfmod>\n");
+			fwrite($xmlFile, "  <title>Skin: " . htmlspecialchars($skin['skin_name']) . "</title>\n");
+			// Skin types need to specify a folder
+			fwrite($xmlFile, "  <type folder=\"" . htmlspecialchars($skin['skin_dir']) . "\">skin</type>\n");
+			fwrite($xmlFile, "  <version>{$this->version}</version>\n");
+			fwrite($xmlFile, "  <description></description>\n");
+			fwrite($xmlFile, "  <authorname>Skin Exporter</authorname>\n");
+			fwrite($xmlFile, "  <files>\n");
+			fwrite($xmlFile, "    <file>packages/skin_$fullSkinName.xml</file>\n");
+			$files = $this->recursive_dir("../skins/{$skin['skin_dir']}", "skins/{$skin['skin_dir']}");
+			foreach ($files as $file) {
+				fwrite($xmlFile, "    <file>" . htmlspecialchars($file) . "</file>\n");
+			}
+			fwrite($xmlFile, "  </files>\n");
+			fwrite($xmlFile, "  <templates>\n");
+			
+        	        $query = $this->db->query("SELECT * FROM {$this->pre}templates WHERE template_skin = '{$skin['skin_dir']}'");
+	                while ($row = $this->db->nqfetch($query))
+			{
+				fwrite($xmlFile, "    <template><set>{$row['template_set']}</set><name>{$row['template_name']}</name>\n");
+				fwrite($xmlFile, "      <displayname>" . htmlspecialchars($row['template_displayname']) . "</displayname>\n");
+				fwrite($xmlFile, "      <description>" . htmlspecialchars($row['template_description']) . "</description>\n");
+				fwrite($xmlFile, "      <html><![CDATA[\n");
+				fwrite($xmlFile, utf8_encode(trim($row['template_html'])) .  "\n");
+				fwrite($xmlFile, "      ]]></html>\n");
+				fwrite($xmlFile, "    </template>\n");
+			}
+       		       
+			fwrite($xmlFile, "  </templates>\n");
+			fwrite($xmlFile, "  <install>\n");
+			fwrite($xmlFile, "    <query>\n");
+			fwrite($xmlFile, "      INSERT INTO {\$pre}skins (skin_name, skin_dir)\n");
+			fwrite($xmlFile, "      VALUES ('" . htmlspecialchars($skin['skin_name']) . "', '" . htmlspecialchars($skin['skin_dir']) . "')\n");
+			fwrite($xmlFile, "    </query>\n");
+			fwrite($xmlFile, "  </install>\n");
+			fwrite($xmlFile, "  <uninstall>\n");
+			fwrite($xmlFile, "    <query>\n");
+			fwrite($xmlFile, "      DELETE FROM {\$pre}skins WHERE skin_dir ='" . htmlspecialchars($skin['skin_dir']) . "'\n");
+			fwrite($xmlFile, "    </query>\n");
+			fwrite($xmlFile, "    <query>\n");
+			fwrite($xmlFile, "      DELETE FROM {\$pre}templates WHERE template_skin ='" . htmlspecialchars($skin['skin_dir']) . "'\n");
+			fwrite($xmlFile, "    </query>\n");
+			fwrite($xmlFile, "  </uninstall>\n");
+			fwrite($xmlFile, "</qsfmod>\n");
 
-			include '../lib/zip.php';
+			fclose($xmlFile);
+			
+			$tarTool = new archive_tar;
+			$tarTool->open_file_writer("../packages/skin_$fullSkinName", true);
+			// Always wise to make these first for speed
+			$tarTool->add_as_file("packages/skin_$fullSkinName.xml", 'package.txt');
+			$tarTool->add_file("../packages/skin_$fullSkinName.xml", "packages/skin_$fullSkinName.xml");
+			// Now throw in everything else
+			$tarTool->add_dir("../skins/{$skin['skin_dir']}", "skins/{$skin['skin_dir']}");
+			$filename = $tarTool->close_file();
+			
+			@unlink("../packages/skin_$fullSkinName.xml");
+			
+			$this->chmod($filename, 0777);
 
-			$this->chmod('../skins', 0777);
-
-			$zip = new zip;
-			$zip->add("../skins/{$this->post['skin']}");
-			$zip->add_file($info, 'info.php');
-			$zip->add_file($templates, 'templates.php');
-			$zip->write_zip("../skins/{$this->post['skin']}.mbs");
-
-			return $this->message($this->lang->export_skin, $this->lang->export_done, "{$this->post['skin']}.mbs", "../skins/{$this->post['skin']}.mbs");
+			return $this->message($this->lang->export_skin, $this->lang->export_done, basename($filename), $filename);
 		}
 	}
 
@@ -677,7 +906,7 @@ class templates extends admin
 			}
 		        $pos = is_numeric($this->post['pos']) ? $this->post['pos'] : 1;
 
-		        $this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('$template', '$template_set', '$name', '$html', '$title', '$desc', $pos)");
+		        $this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description) VALUES ('$template', '$template_set', '$name', '$html', '$title', '$desc')");
 		        return $this->message($this->lang->templates, $this->lang->template_added, $this->lang->continue, "$this->self?a=templates&amp;skin=$template");
 	        }
 	}
@@ -736,7 +965,7 @@ class templates extends admin
 		$this->tree($title);
 
 		if (!isset($this->post['submitTemps'])) {
-			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html FROM {$this->pre}templates WHERE template_skin='$template' AND template_set='{$this->get['section']}' ORDER BY template_position ASC");
+			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html FROM {$this->pre}templates WHERE template_skin='$template' AND template_set='{$this->get['section']}' ORDER BY template_name");
 
 			$this->iterator_init('tablelight', 'tabledark');
 
@@ -841,11 +1070,56 @@ class templates extends admin
 				$r['template_html'] = addslashes($r['template_html']);
 				$r['template_displayname'] = addslashes($r['template_displayname']);
 				$r['template_description'] = addslashes($r['template_description']);
-				$r['template_position'] = addslashes($r['template_position']);
-				$this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('$name', '{$r['template_set']}', '{$r['template_name']}', '{$r['template_html']}', '{$r['template_displayname']}', '{$r['template_description']}', '{$r['template_position']}')");
+				$this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description) VALUES ('$name', '{$r['template_set']}', '{$r['template_name']}', '{$r['template_html']}', '{$r['template_displayname']}', '{$r['template_description']}')");
 			}
 
 			return $this->message($this->lang->create_skin, $this->lang->skin_created, $this->lang->continue, "$this->self?a=templates&amp;s=html&amp;skin=$name");
+		}
+	}
+	
+	function recursive_dir($dirname, $virtual_path)
+	{
+		$files = array();
+		
+		$dp = opendir($dirname);
+	
+		while (($file = readdir($dp)) !== false)
+		{
+			if ($file{0} == '.') {
+				// Don't include hidden files
+				continue;
+			}
+	
+			$real_path = $dirname . '/' . $file;
+	
+			if (is_dir($real_path)) {
+				$files = array_merge($files, $this->recursive_dir($real_path, $virtual_path . '/' . $file));
+			} else if (is_file($real_path)) {
+				$files[] = $virtual_path . '/' . $file;
+			}
+		}
+	
+		closedir($dp);
+		
+		return $files;
+	}
+	
+	function _make_dir($filename)
+	{
+		$path_parts = explode('/', $filename);
+		array_pop($path_parts); // remove the filename
+
+		$check_dir_exists = '';
+		for ($i = 0; $i < count($path_parts); $i++)
+		{
+			$check_dir_exists .= $path_parts[$i];
+			
+			if (!is_dir($check_dir_exists)) {
+				mkdir($check_dir_exists);
+				$this->chmod($check_dir_exists, 0777);
+			}
+				
+			$check_dir_exists .= '/';
 		}
 	}
 }
