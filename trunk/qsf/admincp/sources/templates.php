@@ -393,6 +393,7 @@ class templates extends admin
 				}
 				else
 				{
+					$xmlInfo->reset();
 					continue; // skip file
 				}
 					
@@ -432,16 +433,40 @@ class templates extends admin
 		} else if (isset($this->get['newskin'])) {
 			// Use new method of install
 			
-			$XMLfilename = '../packages/' . stripslashes($this->get['newskin']) . '.xml';
-			
-			if (!file_exists($XMLfilename)) {
-				return $this->message($this->lang->install_skin, $this->lang->skin_none);
-			}
+			$tarTool = new archive_tar();
 			
 			// Open and parse the XML file
 			$xmlInfo = new xmlparser();
-						
-			$xmlInfo->parse($XMLfilename);
+
+			if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.xml'))
+			{
+				$xmlInfo->parse('../packages/' . stripslashes($this->get['newskin']) . '.xml');
+			}
+			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar')
+			{
+				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar');
+
+				$xmlFilename = $tarTool->extract_file('package.txt');
+				
+				$xmlData = $tarTool->extract_file($xmlFilename);
+				
+				$xmlInfo->parseArray(array($xmlData));
+			}
+			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz'
+				&& $tarTool->can_gunzip())
+			{
+				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar.gz');
+
+				$xmlFilename = $tarTool->extract_file('package.txt');
+				
+				$xmlData = $tarTool->extract_file($xmlFilename);
+				
+				$xmlInfo->parseArray(array($xmlData));
+			}
+			else
+			{
+				return $this->message($this->lang->install_skin, $this->lang->skin_none);
+			}
 			
 			// Get the folder name
 			$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
@@ -511,7 +536,6 @@ class templates extends admin
 
 			
 			// Extract the files
-			$tarTool = new archive_tar();
 			
 			if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar')) {
 				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar');
