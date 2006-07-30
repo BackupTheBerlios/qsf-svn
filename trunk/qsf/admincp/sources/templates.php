@@ -442,9 +442,9 @@ class templates extends admin
 			{
 				$xmlInfo->parse('../packages/' . stripslashes($this->get['newskin']) . '.xml');
 			}
-			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar')
+			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar'))
 			{
-				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar');
+				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar'));
 
 				$xmlFilename = $tarTool->extract_file('package.txt');
 				
@@ -453,9 +453,9 @@ class templates extends admin
 				$xmlInfo->parseArray(array($xmlData));
 			}
 			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz'
-				&& $tarTool->can_gunzip())
+				&& $tarTool->can_gunzip()))
 			{
-				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar.gz');
+				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar.gz'));
 
 				$xmlFilename = $tarTool->extract_file('package.txt');
 				
