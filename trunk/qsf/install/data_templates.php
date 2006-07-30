@@ -1065,7 +1065,7 @@ $queries['ADMIN_LIST_TEMPLATES'] = "INSERT INTO {$pre}templates (template_skin, 
   <td class=\"header\">{\$this->lang->menu_title}</td>
  </tr>
  <tr>
-  <td class=\"tabledark\">
+  <td class=\"tabledark\" colspan=\"2\">
    <span class=\"med\">1. {\$this->lang->choose_skin}:</span><br /><br />
     <select name=\"skin\">
      {\$skin_box}
