@@ -458,8 +458,8 @@ class templates extends admin
 				
 				$xmlInfo->parseArray(array($xmlData));
 			}
-			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz'
-				&& $tarTool->can_gunzip()))
+			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz')
+				&& $tarTool->can_gunzip())
 			{
 				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar.gz'));
 
