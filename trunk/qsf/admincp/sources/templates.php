@@ -353,17 +353,16 @@ class templates extends admin
 				}
 			}
 			closedir($dp);
-			
+
 			// Now check for skins using the NEW method
-			
 			// build a list of all the xml skin files
-			
+
 			$tarTool = new archive_tar();
 
 			$xmlInfo = new xmlparser();
-			
+
 			$new_skin_box = '';
-						
+
 			$dp = opendir('../packages');
 			while (($file = readdir($dp)) !== false)
 			{
@@ -385,7 +384,6 @@ class templates extends admin
 					} else {
 						continue;
 					}
-
 				}
 				else if (strtolower(substr($file, -4)) == '.xml')
 				{
@@ -396,45 +394,45 @@ class templates extends admin
 					$xmlInfo->reset();
 					continue; // skip file
 				}
-					
+
 				$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
-				
+
 				if ($node['content'] != 'skin')
 					continue; // skip other mods
 
 				$new_skin_box .= "  <li><a href=\"{$this->self}?a=templates&amp;s=load&amp;newskin=";
-				$new_skin_box .= urlencode(substr($file, 0, -4)) . "\" ";
-				
+				$new_skin_box .= urlencode(substr($file, 0, -4)) . "\" "
+
 				$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
-				
+
 				if (isset($node['content']) && $node['content'])
 					$new_skin_box .= "title=\"" . htmlspecialchars($node['content']) . "\"";
-					
+
 				$new_skin_box .= ">";
 
 				$node = $xmlInfo->GetNodeByPath('QSFMOD/TITLE');
 				$new_skin_box .= "<strong>" . htmlspecialchars($node['content']) . "</strong></a>";
-				
+
 				$node = $xmlInfo->GetNodeByPath('QSFMOD/VERSION');
 				$new_skin_box .= " " . htmlspecialchars($node['content']);
-				
+
 				$node = $xmlInfo->GetNodeByPath('QSFMOD/AUTHORNAME');
 				$new_skin_box .= " (" . htmlspecialchars($node['content']) . ")";
-				
+
 				$new_skin_box .= "</li>\n";
-				
+
 				$xmlInfo->reset();
 			}
 			closedir($dp);
-			
+
 			return $this->message($this->lang->install_skin, eval($this->template('ADMIN_INSTALL_SKIN')));
 		} else if (isset($this->get['skindetails'])) {
 			// Display some preview information on the skin
 		} else if (isset($this->get['newskin'])) {
 			// Use new method of install
-			
+
 			$tarTool = new archive_tar();
-			
+
 			// Open and parse the XML file
 			$xmlInfo = new xmlparser();
 
@@ -467,11 +465,11 @@ class templates extends admin
 			{
 				return $this->message($this->lang->install_skin, $this->lang->skin_none);
 			}
-			
+
 			// Get the folder name
 			$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
 			$skin_dir = addslashes($node['attrs']['FOLDER']);
-			
+
 			// Run the uninstall queries
 			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL');
 			foreach ($nodes['child'] as $node) {
@@ -481,7 +479,7 @@ class templates extends admin
 					$this->db->query($sql);
 				}
 			}
-			
+
 			// Run the install queries
 			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/INSTALL');
 			foreach ($nodes['child'] as $node) {
@@ -491,7 +489,7 @@ class templates extends admin
 					$this->db->query($sql);
 				}
 			}
-			
+
 			// Add the templates
 			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
 			foreach ($nodes['child'] as $node) {
@@ -534,15 +532,14 @@ class templates extends admin
 				}
 			}
 
-			
 			// Extract the files
-			
+
 			if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar')) {
 				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar');
 			} else {
 				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz');
 			}
-			
+
 			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/FILES');
 			foreach ($nodes['child'] as $node) {
 				if ($node['name'] == 'FILE') {
@@ -557,9 +554,11 @@ class templates extends admin
 				}
 			}
 			$tarTool->close_file();
-			
+
 			$this->chmod('../skins/' . $skin_dir, 0777, true);
-			
+
+			@unlink('../packages/' . stripslashes($this->get['newskin']) . '.xml');
+
 			return $this->message($this->lang->install_skin, $this->lang->install_done);
 		} else {
 			// Use old method of install
