@@ -638,18 +638,22 @@ $queries['ADMIN_EDIT_SKIN'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Edit Skin', 'Form for editing and deleting skins', 0)";
-$queries['ADMIN_INSTALL_SKIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_INSTALL_SKIN', '<IF !empty(\$skin_box)>
-<form action=\"{\$this->self}?a=templates&amp;s=load\" method=\"post\"><div>
-	{\$this->lang->skins_found}:<br /><br />
-	<select name=\"install\">
-		{\$skin_box}
-	</select>
-	<input type=\"submit\" name=\"submit\" value=\"{$this->lang->install_skin}\" /></div>
-</form><br />
+$queries['ADMIN_INSTALL_SKIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_INSTALL_SKIN', '
+<IF !empty(\$skin_box)>
+<form action=\"{\$this->self}?a=templates&amp;s=load\" method=\"post\">
+<div>
+ {\$this->lang->skins_found}:<br /><br />
+ <select name=\"install\">
+  {\$skin_box}
+ </select>
+ <input type=\"submit\" name=\"submit\" value=\"{$this->lang->install_skin}\" />
+</div>
+</form>
+<br />
 </IF>
 <IF !empty(\$new_skin_box)>
 <ul>
-  {\$new_skin_box}
+ {\$new_skin_box}
 </ul>
 </IF>', 'Install Skin', 'Form for selecting a skin to install', 0)";
 $queries['ADMIN_EDIT_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE', '<form action=\"{\$this->self}?a=templates&amp;s=edit&amp;section={\$this->get[\'section\']}&amp;skin={\$template}\" method=\"post\">
