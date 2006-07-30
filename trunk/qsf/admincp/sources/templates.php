@@ -401,7 +401,15 @@ class templates extends admin
 					continue; // skip other mods
 
 				$new_skin_box .= "  <li><a href=\"{$this->self}?a=templates&amp;s=load&amp;newskin=";
-				$new_skin_box .= urlencode(substr($file, 0, -4)) . "\" "
+
+				if (strtolower(substr($file, -7)) == '.tar.gz')
+				{
+					$new_skin_box .= urlencode(substr($file, 0, -7)) . "\" ";
+				}
+				else
+				{
+					$new_skin_box .= urlencode(substr($file, 0, -4)) . "\" ";
+				}
 
 				$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
 
