@@ -43,21 +43,19 @@ include_addons($set['include_path'] . '/addons/');
 
 define('CONVERTER_NAME', 'XMB 1.9 Convertor');
 
-$qsf = new qsfglobal;
-$qsf->db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
-
-if( !$qsf->db->connection )
+$db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
+if( !$db->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the Quicksilver Forums database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
+$qsf = new qsfglobal($db);
 
-$oldboard = new qsfglobal; // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
-$oldboard->db = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
-
-if( !$oldboard->db->connection )
+$olddb = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
+if( !$olddb->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the XMB database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
+$oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
 
 $qsf->pre  = $qsf->db->db . "." . $set['prefix'];
 $oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
@@ -182,7 +180,7 @@ function strip_xmb_tags( $text )
    $text = str_replace( "&#124;", "|", $text );
 
    // And lastly, prep for database insertion.
-   $text = addslashes( $text );
+   $text = $qsf->db->escape( $text );
    return $text;
 }
 
@@ -422,7 +420,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}members";
@@ -487,7 +485,7 @@ else if( $_GET['action'] == 'members' )
       if( $row['icq'] )
          $icq = intval( $row['icq'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '', 0, {$group}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['site']}', {$row['postnum']}, '{$row['location']}', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['sig']}', {$row['lastvisit']}, 0, 0, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '', 0, {$group}, 'default', '{$lang}', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['site']}', {$row['postnum']}, '{$row['location']}', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['sig']}', {$row['lastvisit']}, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
       $i++;
    }
 
@@ -649,10 +647,10 @@ else if( $_GET['action'] == 'topics' )
          foreach( $option as $options => $pollopt )
             $poll_options .= $pollopt . "\n";
          $j++;
-         $poll_options = addslashes( $poll_options );
+         $poll_options = $qsf->db->escape( $poll_options );
       }
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, {$uid}, '', {$row['dateline']}, {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$uid}, 0, {$uid}, '', {$row['dateline']}, {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '{$poll_options}' )" );
       $i++;
    }
 

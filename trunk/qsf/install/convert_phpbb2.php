@@ -43,21 +43,19 @@ include_addons($set['include_path'] . '/addons/');
 
 define('CONVERTER_NAME', 'phpBB2 2.x Convertor');
 
-$qsf = new qsfglobal;
-$qsf->db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
-
-if( !$qsf->db->connection )
+$db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
+if( !$db->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the Quicksilver Forums database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
+$qsf = new qsfglobal($db);
 
-$oldboard = new qsfglobal; // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
-$oldboard->db = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
-
-if( !$oldboard->db->connection )
+$olddb = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
+if( !$olddb->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the phpBB2 database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
+$oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
 
 $qsf->pre  = $qsf->db->db . "." . $set['prefix'];
 $oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
@@ -130,6 +128,8 @@ function get_ip( $ip )
  */
 function strip_phpbb2_tags( $text )
 {
+   global $qsf;
+
    // The [html] BBCode tag is not supported by phpbb2 or Quicksilver Forums, so just strip those off and leave the contents.
    $text = preg_replace( '/\[html\](.+?)\[\/html\]/si', '\\1', $text );
 
@@ -205,7 +205,7 @@ function strip_phpbb2_tags( $text )
    $text = str_replace( "&#124;", "|", $text );
 
    // And lastly, prep for database insertion.
-   $text = addslashes( $text );
+   $text = $qsf->db->escape( $text );
    return $text;
 }
 
@@ -426,7 +426,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = '0';
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}users";
@@ -488,7 +488,7 @@ else if( $_GET['action'] == 'members' )
          if( $row['user_icq'] )
             $icq = intval( $row['user_icq'] );
 
-         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, 1, '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['user_email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', {$icq}, '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, 0, {$row['user_session_time']}, 0, 0, 1, 1, 1, '' )" );
+         $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, 1, '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['user_email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', {$icq}, '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, 0, {$row['user_session_time']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
          $i++;
       }
    }
@@ -640,7 +640,7 @@ else if( $_GET['action'] == 'topics' )
          $topic_modes = ($topic_modes | TOPIC_POLL);
 
       $row['topic_title'] = strip_phpbb2_tags( $row['topic_title'] );
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['topic_id']}, {$tid}, '{$row['topic_title']}', '', {$row['topic_poster']}, '{$row['topic_poster']}', '', '{$row['topic_time']}', {$row['topic_replies']}, {$row['topic_views']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['topic_id']}, {$tid}, '{$row['topic_title']}', '', {$row['topic_poster']}, '{$row['topic_last_post_id']}', '{$row['topic_poster']}', '', '{$row['topic_time']}', {$row['topic_replies']}, {$row['topic_views']}, {$topic_modes}, 0, '' )" );
       $i++;
    }
 

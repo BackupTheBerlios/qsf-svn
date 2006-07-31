@@ -43,21 +43,19 @@ include_addons($set['include_path'] . '/addons/');
 
 define('CONVERTER_NAME', 'Ikonboard 3.12a Convertor');
 
-$qsf = new qsfglobal;
-$qsf->db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
-
-if( !$qsf->db->connection )
+$db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
+if( !$db->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the Quicksilver Forums database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
+$qsf = new qsfglobal($db);
 
-$oldboard = new qsfglobal; // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
-$oldboard->db = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
-
-if( !$oldboard->db->connection )
+$olddb = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
+if( !$olddb->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the Ikonboard database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
+$oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
 
 $qsf->pre  = $qsf->db->db . "." . $set['prefix'];
 $oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
@@ -213,7 +211,7 @@ function strip_ikon_tags( $text )
    $text = str_replace( "&#124;", "|", $text );
 
    // And lastly, prep for database insertion.
-   $text = addslashes( $text );
+   $text = $qsf->db->escape( $text );
    return $text;
 }
 
@@ -442,7 +440,7 @@ else if( $_GET['action'] == 'members' )
    $MID = $all + 1;
 
    $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, '' )";
+   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
    $result = $qsf->db->query($sql);
 
    $sql = "SELECT * FROM {$oldboard->pre}member_profiles";
@@ -517,7 +515,7 @@ else if( $_GET['action'] == 'members' )
       if( $row['ICQNUMBER'] )
          $icq = intval( $row['ICQNUMBER'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, {$level}, '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['MEMBER_EMAIL']}', {$showmail}, 1, '0000-00-00', 151, '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', {$icq}, '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, 0, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, {$level}, '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['MEMBER_EMAIL']}', {$showmail}, 1, '0000-00-00', 151, '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', {$icq}, '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, 0, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
       $i++;
    }
 
@@ -747,7 +745,7 @@ else if( $_GET['action'] == 'topics' )
 
       $row['TOPIC_TITLE'] = strip_ikon_tags( $row['TOPIC_TITLE'] );
       $row['TOPIC_DESC'] = strip_ikon_tags( $row['TOPIC_DESC'] );
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['TOPIC_ID']}, {$tid}, '{$row['TOPIC_TITLE']}', '{$row['TOPIC_DESC']}', {$row['TOPIC_STARTER']}, {$row['TOPIC_LAST_POSTER']}, '', '{$row['TOPIC_LAST_DATE']}', {$row['TOPIC_POSTS']}, {$row['TOPIC_VIEWS']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['TOPIC_ID']}, {$tid}, '{$row['TOPIC_TITLE']}', '{$row['TOPIC_DESC']}', {$row['TOPIC_STARTER']}, 0, {$row['TOPIC_LAST_POSTER']}, '', '{$row['TOPIC_LAST_DATE']}', {$row['TOPIC_POSTS']}, {$row['TOPIC_VIEWS']}, {$topic_modes}, 0, '' )" );
       $i++;
    }
 
