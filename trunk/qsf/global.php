@@ -77,11 +77,15 @@ class qsfglobal
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 **/
-	function qsfglobal()
+	function qsfglobal($db=null)
 	{
+		$this->db      = $db;
 		$this->time    = time();
 		$this->query   = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : null;
-		$this->ip      = addslashes($_SERVER['REMOTE_ADDR']);
+		if($db)
+			$this->ip = $this->db->escape($_SERVER['REMOTE_ADDR']);
+		else
+			$this->ip = "127.0.0.1";
 		$this->agent   = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
 		$this->agent   = substr($this->agent, 0, 99); // Cut off after 100 characters.
 		$this->self    = $_SERVER['PHP_SELF'];
@@ -93,7 +97,8 @@ class qsfglobal
 		$this->query   = htmlspecialchars($this->query);
 
 		// Do all magic quote stuff here
-		$this->agent = addslashes($this->agent);
+		if($db)
+			$this->agent = $this->db->escape($this->agent);
 		if (!get_magic_quotes_gpc()) {
 			$this->set_magic_quotes_gpc($this->get);
 			$this->set_magic_quotes_gpc($this->post);
@@ -567,7 +572,7 @@ class qsfglobal
 	/**
 	 * Sets magic_quotes_gpc to on
 	 *
-	 * @param array $array Array to addslashes()
+	 * @param array $array Array to $this->db->escape()
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 4.0
 	 * @return void
@@ -580,7 +585,10 @@ class qsfglobal
 			if (is_array($array[$keys[$i]])) {
 				$this->set_magic_quotes_gpc($array[$keys[$i]]);
 			} else {
-				$array[$keys[$i]] = addslashes($array[$keys[$i]]);
+				if($this->db)
+					$array[$keys[$i]] = $this->db->escape($array[$keys[$i]]);
+				else
+					$array[$keys[$i]] = addslashes($array[$keys[$i]]);
 			}
 		}
 	}
@@ -710,7 +718,7 @@ class qsfglobal
 			}
 		}
 
-		$sets = addslashes(serialize($sets));
+		$sets = $this->db->escape(serialize($sets));
 		$this->db->query("UPDATE {$this->pre}settings SET settings_data='$sets'");
 	}
 	

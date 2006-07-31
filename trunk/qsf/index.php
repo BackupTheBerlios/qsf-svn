@@ -61,10 +61,9 @@ if (!isset($_GET['a']) || !in_array($_GET['a'],
 
 require './func/' . $module . '.php';
 
-$qsf = new $module;
+$qsf = new $module($db);
 $qsf->pre = $set['prefix'];
 
-$qsf->db = $db; 
 $qsf->get['a'] = $module;
 $qsf->sets     = $set;
 $qsf->modules  = $modules;

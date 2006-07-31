@@ -152,5 +152,36 @@ class db_mysql extends database
 	{
 		return mysql_affected_rows($this->connection);
 	}
+
+	/**
+	 * Returns a escaped string
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.com>
+	 * @since 1.2.2
+	 * @return string A string with the quotes and other charaters escaped
+	 * @param string $string The string to escape
+	 **/
+	function escape($string)
+	{
+		return mysql_real_escape_string($string, $this->connection);
+	}
+
+	function invalid($errmsg)
+	{
+		if (stristr($errmsg, 'mysql_fetch_array(): supplied argument is not a valid MySQL result resource'))
+			return true;
+		
+		return false;
+	}
+
+	function error_last()
+	{
+		return mysql_error($this->connection);
+	}
+
+	function version()
+	{
+		return mysql_result(mysql_query('SELECT VERSION() as version'), 0, 0);
+	}
 }
 ?>
