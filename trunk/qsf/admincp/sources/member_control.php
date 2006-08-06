@@ -49,7 +49,7 @@ class member_control extends admin
 				</div>
 				</form>");
 			} else {
-				$query = $this->db->query('SELECT user_id, user_name FROM ' . $this->pre . 'users WHERE user_name LIKE "%' . $this->post['membername'] . '%" LIMIT 250');
+				$query = $this->db->query("SELECT user_id, user_name FROM %pusers WHERE user_name LIKE '%%%s%%' LIMIT 250", $this->post['membername']);
 
 				if (!$this->db->num_rows($query)) {
 					return $this->message($this->lang->mc, "{$this->lang->mc_not_found} \"{$this->post['membername']}\"");
@@ -67,7 +67,7 @@ class member_control extends admin
 
 				while ($member = $this->db->nqfetch($query))
 				{
-					$ret .= "<a href='$this->self?$link&amp;id=" . $member['user_id'] . "'>{$member['user_name']}</a><br />";
+					$ret .= "<a href='{$this->self}?$link&amp;id=" . $member['user_id'] . "'>{$member['user_name']}</a><br />";
 				}
 
 				return $this->message($this->lang->mc, "{$this->lang->mc_found}<br /><br />$ret");
@@ -88,22 +88,22 @@ class member_control extends admin
 			}
 
 			if (!isset($this->get['confirm'])) {
-				$member = $this->db->fetch("SELECT user_name FROM {$this->pre}users WHERE user_id=" . $this->get['id']);
+				$member = $this->db->fetch("SELECT user_name FROM %pusers WHERE user_id=%d", $this->get['id']);
 				return $this->message($this->lang->mc_delete, "{$this->lang->mc_confirm} <b>{$member['user_name']}</b>?<br /><br /><a href='$this->self?a=member_control&amp;s=delete&amp;id={$this->get['id']}&amp;confirm=1'>{$this->lang->continue}</a>");
 			} else {
-				$this->db->query("UPDATE {$this->pre}posts SET post_author=" . USER_GUEST_UID . " WHERE post_author={$this->get['id']}");
-				$this->db->query("UPDATE {$this->pre}posts SET post_edited_by=" . USER_GUEST_UID . " WHERE post_edited_by={$this->get['id']}");
-				$this->db->query("UPDATE {$this->pre}topics SET topic_starter=" . USER_GUEST_UID . " WHERE topic_starter={$this->get['id']}");
-				$this->db->query("UPDATE {$this->pre}topics SET topic_last_poster=" . USER_GUEST_UID . " WHERE topic_last_poster={$this->get['id']}");
-				$this->db->query("UPDATE {$this->pre}logs SET log_user=" . USER_GUEST_UID . " WHERE log_user={$this->get['id']}");
+				$this->db->query("UPDATE %pposts SET post_author=%d WHERE post_author=%d", USER_GUEST_UID, $this->get['id']);
+				$this->db->query("UPDATE %pposts SET post_edited_by=%d WHERE post_edited_by=%d", USER_GUEST_UID, $this->get['id']);
+				$this->db->query("UPDATE %ptopics SET topic_starter=%d WHERE topic_starter=%d", USER_GUEST_UID, $this->get['id']);
+				$this->db->query("UPDATE %ptopics SET topic_last_poster=%d WHERE topic_last_poster=%d", USER_GUEST_UID, $this->get['id']);
+				$this->db->query("UPDATE %plogs SET log_user=%d WHERE log_user=%d", USER_GUEST_UID, $this->get['id']);
 				$this->activeutil->delete($this->get['id']);
-				$this->db->query("DELETE FROM {$this->pre}subscriptions WHERE subscription_user={$this->get['id']}");
-				$this->db->query("DELETE FROM {$this->pre}votes WHERE vote_user={$this->get['id']}");
-				$this->db->query("DELETE FROM {$this->pre}users WHERE user_id={$this->get['id']}");
-				$this->db->query("DELETE FROM {$this->pre}pmsystem WHERE pm_to={$this->get['id']}");
+				$this->db->query("DELETE FROM %psubscriptions WHERE subscription_user=%d", $this->get['id']);
+				$this->db->query("DELETE FROM %pvotes WHERE vote_user=%d", $this->get['id']);
+				$this->db->query("DELETE FROM %pusers WHERE user_id=%d", $this->get['id']);
+				$this->db->query("DELETE FROM %ppmsystem WHERE pm_to=%d", $this->get['id']);
 
-				$member = $this->db->fetch("SELECT user_id, user_name FROM {$this->pre}users ORDER BY user_id DESC LIMIT 1");
-				$counts = $this->db->fetch("SELECT COUNT(user_id) AS count FROM {$this->pre}users");
+				$member = $this->db->fetch("SELECT user_id, user_name FROM %pusers ORDER BY user_id DESC LIMIT 1");
+				$counts = $this->db->fetch("SELECT COUNT(user_id) AS count FROM %pusers");
 
 				$this->sets['last_member'] = $member['user_name'];
 				$this->sets['last_member_id'] = $member['user_id'];
@@ -120,7 +120,7 @@ class member_control extends admin
 			$this->get['id'] = intval($this->get['id']);
 
 			if (!isset($this->post['submit'])) {
-				$member = $this->db->fetch('SELECT * FROM ' . $this->pre . 'users WHERE user_id=' . $this->get['id'] . ' LIMIT 1');
+				$member = $this->db->fetch('SELECT * FROM %pusers WHERE user_id=%d LIMIT 1', $this->get['id']);
 
 				$this->iterator_init('tablelight', 'tabledark');
 				$out = "";
@@ -254,22 +254,22 @@ class member_control extends admin
 					}
 
 					if ($var == 'user_name') {
-						$val = $this->format(stripslashes($val), FORMAT_HTMLCHARS);
+						$val = $this->format($val, FORMAT_HTMLCHARS);
 					}
 
 					if ($var == 'user_email') {
-						$member = $this->db->fetch('SELECT user_name FROM ' . $this->pre . 'users WHERE user_id=' . $this->get['id'] . ' LIMIT 1');
-						$guest_email = stripslashes($val);
+						$member = $this->db->fetch('SELECT user_name FROM %pusers WHERE user_id=%d LIMIT 1', $this->get['id']);
+						$guest_email = $val;
 						if ($member['user_name'] != 'Guest' && !$this->validator->validate($guest_email, TYPE_EMAIL)) {
 							return $this->message($this->lang->mc_err_updating, $this->lang->mc_email_invaid);
 						}
 					}
-					$data .= "$var='$val', ";
+					$data .= "$var='" . $this->db->escape($val) . "', ";
 				}
 
 				$data = substr($data, 0, -2);
 
-				$this->db->query("UPDATE {$this->pre}users SET $data WHERE user_id=" . $this->get['id']);
+				$this->db->query("UPDATE %pusers SET $data WHERE user_id=%d", $this->get['id']);
 
 				if (($this->get['id'] == $this->sets['last_member_id'])
 				&& ($this->post['user_name'] != $this->sets['last_member'])) {
@@ -282,14 +282,14 @@ class member_control extends admin
 			break;
 
 		default:
-			return $this->message($this->lang->mc, "<a href='$this->self?a=member_control&amp;s=profile'>{$this->lang->mc_edit}</a><br />");
+			return $this->message($this->lang->mc, "<a href='{$this->self}?a=member_control&amp;s=profile'>{$this->lang->mc_edit}</a><br />");
 		}
 	}
 
 	function list_groups($val)
 	{
 		$out = "<select name='user_group'>";
-		$groups = $this->db->query('SELECT group_name, group_id FROM ' . $this->pre . 'groups ORDER BY group_name');
+		$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups ORDER BY group_name');
 
 		while ($group = $this->db->nqfetch($groups))
 		{
@@ -302,7 +302,7 @@ class member_control extends admin
 	function list_skins($val)
 	{
 		$out = "<select name='user_skin'>";
-		$groups = $this->db->query('SELECT skin_name, skin_dir FROM ' . $this->pre . 'skins ORDER BY skin_name');
+		$groups = $this->db->query('SELECT skin_name, skin_dir FROM %pskins ORDER BY skin_name');
 
 		while ($group = $this->db->nqfetch($groups))
 		{

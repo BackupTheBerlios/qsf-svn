@@ -48,15 +48,10 @@ class profile extends qsfglobal
 
 		$user = intval($this->get['w']);
 
-		$profile = $this->db->fetch("
-		SELECT
-		  m.*,
-		  g.group_name,
-		  a.active_time
-		FROM
-		  ({$this->pre}users m, {$this->pre}groups g)
-		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
-		WHERE m.user_id=$user AND g.group_id=m.user_group");
+		$profile = $this->db->fetch("SELECT m.*, g.group_name, a.active_time
+			FROM (%pusers m, %pgroups g)
+			LEFT JOIN %pactive a ON a.active_id=m.user_id
+			WHERE m.user_id=%d AND g.group_id=m.user_group", $user);
 
 		if (!$profile || ($user == USER_GUEST_UID)) {
 			return $this->message($this->lang->profile_view_profile, $this->lang->profile_no_member);
@@ -71,12 +66,11 @@ class profile extends qsfglobal
 
 			$user_postsPerDay = number_format($user_postsPerDay, 2, $this->lang->sep_decimals, $this->lang->sep_thousands);
 
-			$fav = $this->db->query("
-			SELECT COUNT(p.post_id) AS Forumuser_posts, f.forum_id AS Forum, f.forum_name
-			FROM {$this->pre}posts p, {$this->pre}topics t, {$this->pre}forums f
-			WHERE p.post_topic=t.topic_id AND t.topic_forum=f.forum_id AND p.post_author=$user
-			GROUP BY t.topic_forum
-			ORDER BY Forumuser_posts DESC");
+			$fav = $this->db->query("SELECT COUNT(p.post_id) AS Forumuser_posts, f.forum_id AS Forum, f.forum_name
+				FROM %pposts p, %ptopics t, %pforums f
+				WHERE p.post_topic=t.topic_id AND t.topic_forum=f.forum_id AND p.post_author=%d
+				GROUP BY t.topic_forum
+				ORDER BY Forumuser_posts DESC", $user);
 
 			$final_fav = null;
 
@@ -88,17 +82,11 @@ class profile extends qsfglobal
 					}
 			}
 
-			$last = $this->db->fetch("
-			SELECT
-			  t.topic_id, t.topic_forum, t.topic_title, p.post_time
-			FROM
-			  {$this->pre}topics t,
-			  {$this->pre}posts p
-			WHERE
-			  t.topic_id = p.post_topic AND
-			  p.post_author={$profile['user_id']}
-			ORDER BY p.post_time DESC
-			LIMIT 1");
+			$last = $this->db->fetch("SELECT t.topic_id, t.topic_forum, t.topic_title, p.post_time
+				FROM %ptopics t, %pposts p
+				WHERE t.topic_id = p.post_topic AND p.post_author=%d
+				ORDER BY p.post_time DESC
+				LIMIT 1", $profile['user_id']);
 
 			if (isset($last['topic_forum']) && $this->perms->auth('topic_view', $last['topic_forum'])) {
 				if (strlen($last['topic_title']) > 25) {
@@ -111,7 +99,7 @@ class profile extends qsfglobal
 			}
 
 			if (isset($final_fav['Forum'])) {
-				$posts_total = $this->db->fetch('SELECT COUNT(post_id) as count FROM ' . $this->pre . 'posts WHERE post_author=' . $user);
+				$posts_total = $this->db->fetch('SELECT COUNT(post_id) as count FROM %pposts WHERE post_author=%d', $user);
 
 				if (!$posts_total['count']) {
 					$fav_forum = $this->lang->profile_unkown;

@@ -42,14 +42,14 @@ include_addons($set['include_path'] . '/addons/');
 
 define('CONVERTER_NAME', 'MyBB 1.0/1.1 Convertor');
 
-$db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'] );
+$db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the Quicksilver Forums database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
 $qsf = new qsfglobal($db);
 
-$olddb = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'] );
+$olddb = new $modules['database']( $oldset['old_db_host'], $oldset['old_db_user'], $oldset['old_db_pass'], $oldset['old_db_name'], $oldset['old_db_port'], $oldset['old_db_socket'], $oldset['old_prefix'] );
 if( !$olddb->connection )
 {
    error( QUICKSILVER_ERROR, 'A connection to the MyBB database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
@@ -364,50 +364,50 @@ else if( $_GET['action'] == 'dropmybb' )
 
 else if( $_GET['action'] == 'confirmmybbdrop' )
 {
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}adminlog" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}adminoptions" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}announcements" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}attachments" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}attachtypes" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}awaitingactivation" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}badwords" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}banned" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}datacache" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}events" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}favorites" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}forumpermissions" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}forums" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}forumsubscriptions" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}groupleaders" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}helpdocs" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}helpsections" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}icons" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}joinrequests" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}moderatorlog" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}moderators" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}polls" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}pollvotes" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}posts" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}privatemessages" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}profilefields" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}regimages" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}reportedposts" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}reputation" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}searchlog" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}sessions" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}settinggroups" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}settings" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}smilies" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}templates" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}templatesets" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}themes" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}threadratings" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}threads" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}threadsread" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}userfields" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}usergroups" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}users" );
-   $oldboard->db->query( "DROP TABLE IF EXISTS {$oldboard->pre}usertitles" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %padminlog" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %padminoptions" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pannouncements" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pattachments" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pattachtypes" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pawaitingactivation" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pbadwords" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pbanned" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pdatacache" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pevents" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pfavorites" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pforumpermissions" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pforums" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pforumsubscriptions" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pgroupleaders" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %phelpdocs" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %phelpsections" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %picons" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pjoinrequests" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pmoderatorlog" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pmoderators" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %ppolls" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %ppollvotes" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pposts" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pprivatemessages" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pprofilefields" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pregimages" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %preportedposts" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %preputation" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %psearchlog" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %psessions" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %psettinggroups" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %psettings" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %psmilies" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %ptemplates" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %ptemplatesets" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pthemes" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pthreadratings" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pthreads" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pthreadsread" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %puserfields" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pusergroups" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pusers" );
+   $oldboard->db->query( "DROP TABLE IF EXISTS %pusertitles" );
 
    include 'templates/convert_header.php';
    include 'templates/convert_mybb_datadestroyed.php';
@@ -416,12 +416,12 @@ else if( $_GET['action'] == 'confirmmybbdrop' )
 
 else if( $_GET['action'] == 'censor' )
 {
-   $result = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}badwords" );
+   $result = $oldboard->db->query( "SELECT * FROM %pbadwords" );
    $i = '0';
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $qsf->db->query( "INSERT INTO {$qsf->pre}replacements (replacement_search, replacement_type) VALUES( '{$row['badword']}', 'censor' )" );
+      $qsf->db->query( "INSERT INTO %preplacements (replacement_search, replacement_type) VALUES( '{$row['badword']}', 'censor' )" );
       $i++;
    }
 
@@ -434,11 +434,11 @@ else if( $_GET['action'] == 'censor' )
 else if( $_GET['action'] == 'members' )
 {
    $i = '0';
-   $qsf->db->query( "TRUNCATE {$qsf->pre}users" );
-   $sql = "INSERT INTO {$qsf->pre}users VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
+   $qsf->db->query( "TRUNCATE %pusers" );
+   $sql = "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
    $result = $qsf->db->query($sql);
 
-   $sql = "SELECT * FROM {$oldboard->pre}users";
+   $sql = "SELECT * FROM %pusers";
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -504,7 +504,7 @@ else if( $_GET['action'] == 'members' )
       if( $row['icq'] )
          $icq = intval( $row['icq'] );
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}users VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '{$usertitle}', {$customtitle}, {$row['usergroup']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['website']}', {$row['postnum']}, '', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, 0, {$row['lastactive']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %pusers VALUES( {$row['uid']}, '{$row['username']}', '{$row['password']}', {$row['regdate']}, 1, '{$usertitle}', {$customtitle}, {$row['usergroup']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['website']}', {$row['postnum']}, '', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, 0, {$row['lastactive']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
       $i++;
    }
 
@@ -517,8 +517,8 @@ else if( $_GET['action'] == 'members' )
 else if( $_GET['action'] == 'pmessages' )
 {
    $i = '0';
-   $qsf->db->query( "TRUNCATE {$qsf->pre}pmsystem" );
-   $sql = "SELECT * FROM {$oldboard->pre}privatemessages";
+   $qsf->db->query( "TRUNCATE %ppmsystem" );
+   $sql = "SELECT * FROM %pprivatemessages";
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -551,7 +551,7 @@ else if( $_GET['action'] == 'pmessages' )
          }
          if( $row['subject'] == '' )
             $row['subject'] = "No Title";
-         $qsf->db->query( "INSERT INTO {$qsf->pre}pmsystem VALUES( {$row['pmid']}, {$row['toid']}, {$row['fromid']}, 0, '{$bcc}', '{$row['subject']}', {$row['dateline']}, '{$row['message']}', {$row['status']}, {$folder} )" );
+         $qsf->db->query( "INSERT INTO %ppmsystem VALUES( {$row['pmid']}, {$row['toid']}, {$row['fromid']}, 0, '{$bcc}', '{$row['subject']}', {$row['dateline']}, '{$row['message']}', {$row['status']}, {$folder} )" );
       }
    }
 
@@ -563,15 +563,15 @@ else if( $_GET['action'] == 'pmessages' )
 
 else if( $_GET['action'] == 'mtitles' )
 {
-   $num = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}usertitles" );
+   $num = $oldboard->db->query( "SELECT * FROM %pusertitles" );
    $all = $oldboard->db->num_rows( $num );
    $i = '0';
 
    if( $all > 0 )
    {
-      $qsf->db->query( "TRUNCATE {$qsf->pre}membertitles" );
+      $qsf->db->query( "TRUNCATE %pmembertitles" );
 
-      $sql = "SELECT * FROM {$oldboard->pre}usertitles";
+      $sql = "SELECT * FROM %pusertitles";
       $result= $oldboard->db->query($sql);
       while( $row = $oldboard->db->nqfetch($result) )
       {
@@ -582,7 +582,7 @@ else if( $_GET['action'] == 'mtitles' )
          else
             $icon = $row['stars'] . '.png';
 
-         $qsf->db->query( "INSERT INTO {$qsf->pre}membertitles VALUES( {$row['utid']}, '{$row['title']}', '{$row['posts']}', '{$icon}' )" );
+         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( {$row['utid']}, '{$row['title']}', '{$row['posts']}', '{$icon}' )" );
          $i++;
       }
    }
@@ -595,8 +595,8 @@ else if( $_GET['action'] == 'mtitles' )
 
 else if( $_GET['action'] == 'forums' )
 {
-   $qsf->db->query( "TRUNCATE {$qsf->pre}forums" );
-   $sql = "SELECT * FROM {$oldboard->pre}forums";
+   $qsf->db->query( "TRUNCATE %pforums" );
+   $sql = "SELECT * FROM %pforums";
    $result = $oldboard->db->query($sql);
    $i = '0';
 
@@ -610,7 +610,7 @@ else if( $_GET['action'] == 'forums' )
       else
          $subcat = '0';
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}forums VALUES( '{$row['fid']}', {$row['pid']}, '', '{$row['name']}', 1, '{$row['description']}', {$row['threads']}, {$row['posts']}, '{$row['lastpost']}', {$subcat} )" );
+      $qsf->db->query( "INSERT INTO %pforums VALUES( '{$row['fid']}', {$row['pid']}, '', '{$row['name']}', 1, '{$row['description']}', {$row['threads']}, {$row['posts']}, '{$row['lastpost']}', {$subcat} )" );
       $i++;
    }
 
@@ -622,8 +622,8 @@ else if( $_GET['action'] == 'forums' )
 
 else if( $_GET['action'] == 'topics' )
 {
-   $qsf->db->query( "TRUNCATE {$qsf->pre}topics" );
-   $sql = "SELECT * FROM {$oldboard->pre}threads";
+   $qsf->db->query( "TRUNCATE %ptopics" );
+   $sql = "SELECT * FROM %pthreads";
    $result = $oldboard->db->query($sql);
    $i = '0';
    while( $row = $oldboard->db->nqfetch($result) )
@@ -639,29 +639,29 @@ else if( $_GET['action'] == 'topics' )
          $topic_modes = ($topic_modes | TOPIC_POLL);
 
       $row['subject'] = strip_mybb_tags( $row['subject'] );
-      $qsf->db->query( "INSERT INTO {$qsf->pre}topics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$row['uid']}, {$row['lastpost']}, '{$row['uid']}', '', '{$row['dateline']}', {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %ptopics VALUES( {$row['tid']}, {$row['fid']}, '{$row['subject']}', '', {$row['uid']}, {$row['lastpost']}, '{$row['uid']}', '', '{$row['dateline']}', {$row['replies']}, {$row['views']}, {$topic_modes}, 0, '' )" );
       $i++;
    }
 
-   $qsf->db->query( "TRUNCATE {$qsf->pre}subscriptions" );
-   $sql = "SELECT * FROM {$oldboard->pre}forumsubscriptions";
+   $qsf->db->query( "TRUNCATE %psubscriptions" );
+   $sql = "SELECT * FROM %pforumsubscriptions";
    $result = $oldboard->db->query($sql);
    $expire = time() + 2592000;
    $sub_id = '0';
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $sub_id++;
-      $qsf->db->query( "INSERT INTO {$qsf->pre}subscriptions VALUES( {$sub_id}, {$row['uid']}, 'forum', {$row['fid']}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$sub_id}, {$row['uid']}, 'forum', {$row['fid']}, {$expire} )" );
    }
 
-   $sql = "SELECT * FROM {$oldboard->pre}favorites";
+   $sql = "SELECT * FROM %pfavorites";
    $result = $oldboard->db->query($sql);
    while( $row = $oldboard->db->nqfetch($result) )
    {
       if( $row['type'] == 's' )
       {
          $sub_id++;
-         $qsf->db->query( "INSERT INTO {$qsf->pre}subscriptions VALUES( {$sub_id}, {$row['uid']}, 'topic', {$row['tid']}, {$expire} )" );
+         $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$sub_id}, {$row['uid']}, 'topic', {$row['tid']}, {$expire} )" );
       }
    }
 
@@ -669,10 +669,10 @@ else if( $_GET['action'] == 'topics' )
    $oldset['topic_count'] = $i;
    write_olddb_sets( $oldset );
 
-   $qsf->db->query( "TRUNCATE {$qsf->pre}votes" );
+   $qsf->db->query( "TRUNCATE %pvotes" );
    $sql = "SELECT p.*, v.pid, v.uid, v.voteoption
-      FROM {$oldboard->pre}polls p
-      LEFT JOIN {$oldboard->pre}pollvotes v ON v.pid = p.pid";
+      FROM %ppolls p
+      LEFT JOIN %ppollvotes v ON v.pid = p.pid";
 
    $result = $oldboard->db->query($sql);
    $i = '0';
@@ -683,11 +683,11 @@ else if( $_GET['action'] == 'topics' )
 
       foreach( $polloptions as $options => $option )
          $pollanswers .= $option . "\n";
-      $qsf->db->query( "UPDATE {$qsf->pre}topics SET topic_poll_options = '{$pollanswers}' WHERE topic_id = '{$row['tid']}'" );
+      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options = '{$pollanswers}' WHERE topic_id = '{$row['tid']}'" );
 
       $user = $row['uid'] + 1;
       $vote = $row['voteoption'] - 1;
-      $qsf->db->query( "INSERT INTO {$qsf->pre}votes VALUES( {$user}, {$row['tid']}, {$vote} )" );
+      $qsf->db->query( "INSERT INTO %pvotes VALUES( {$user}, {$row['tid']}, {$vote} )" );
       $i++;
    }
 
@@ -699,13 +699,13 @@ else if( $_GET['action'] == 'topics' )
 
 else if( $_GET['action'] == 'attach' )
 {
-   $qsf->db->query( "TRUNCATE {$qsf->pre}attach" );
-   $result = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}attachments" );
+   $qsf->db->query( "TRUNCATE %pattach" );
+   $result = $oldboard->db->query( "SELECT * FROM %pattachments" );
    $i = '0';
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $qsf->db->query( "INSERT INTO {$qsf->pre}attach VALUES( {$row['aid']}, '{$row['attachname']}', '{$row['filename']}', {$row['pid']}, {$row['downloads']}, {$row['filesize']} )" );
+      $qsf->db->query( "INSERT INTO %pattach VALUES( {$row['aid']}, '{$row['attachname']}', '{$row['filename']}', {$row['pid']}, {$row['downloads']}, {$row['filesize']} )" );
       $i++;
    }
 
@@ -719,7 +719,7 @@ else if( $_GET['action'] == 'posts' )
 {
    if( !isset($_GET['start']) || $_GET['start'] == '' )
    {
-      $qsf->db->query( "TRUNCATE {$qsf->pre}posts" );
+      $qsf->db->query( "TRUNCATE %pposts" );
       $start = '0';
    }
    else
@@ -730,9 +730,9 @@ else if( $_GET['action'] == 'posts' )
    else
       $i = $_GET['i'];
 
-   $num = $oldboard->db->query( "SELECT * FROM {$oldboard->pre}posts" );
+   $num = $oldboard->db->query( "SELECT * FROM %pposts" );
    $all = $oldboard->db->num_rows( $num );
-   $sql = "SELECT * FROM {$oldboard->pre}posts LIMIT {$start}, {$oldset['post_inc']}";
+   $sql = "SELECT * FROM %pposts LIMIT {$start}, {$oldset['post_inc']}";
    $newstart = $start + $oldset['post_inc'];
 
    $result= $oldboard->db->query($sql);
@@ -748,7 +748,7 @@ else if( $_GET['action'] == 'posts' )
       else
          $smilies = '0';
 
-      $qsf->db->query( "INSERT INTO {$qsf->pre}posts VALUES( {$row['pid']}, {$row['tid']}, '{$row['uid']}', {$smilies}, 1, 1, '{$row['message']}', {$row['dateline']}, '', INET_ATON('{$row['ipaddress']}'), '', {$row['edittime']} )" );
+      $qsf->db->query( "INSERT INTO %pposts VALUES( {$row['pid']}, {$row['tid']}, '{$row['uid']}', {$smilies}, 1, 1, '{$row['message']}', {$row['dateline']}, '', INET_ATON('{$row['ipaddress']}'), '', {$row['edittime']} )" );
       $i++;
    }
    if( $i == $all )

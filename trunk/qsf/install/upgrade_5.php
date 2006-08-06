@@ -26,5 +26,5 @@ if (!defined('INSTALLER')) {
 
 $need_templates = true;
 
-$queries[] = "DELETE FROM {$pre}membertitles WHERE membertitle_icon='6.gif'";
+$queries[] = "DELETE FROM %pmembertitles WHERE membertitle_icon='6.gif'";
 ?>

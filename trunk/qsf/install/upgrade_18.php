@@ -40,16 +40,16 @@ $need_templates = array(
 	'ADMIN_PRUNE_TOPICLIST'
 	);
 
-$queries[] = "ALTER TABLE {$pre}groups CHANGE group_perms group_perms TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}help CHANGE help_article help_article TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}pmsystem CHANGE pm_bcc pm_bcc TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}pmsystem CHANGE pm_message pm_message TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}pmsystem ADD pm_ip INT UNSIGNED NOT NULL default '0' AFTER pm_from";
-$queries[] = "ALTER TABLE {$pre}posts CHANGE post_text post_text TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}settings CHANGE settings_data settings_data TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}settings CHANGE settings_tos settings_tos TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}templates CHANGE template_html template_html TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}topics CHANGE topic_poll_options topic_poll_options TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}users CHANGE user_signature user_signature TEXT NOT NULL DEFAULT ''";
-$queries[] = "ALTER TABLE {$pre}users CHANGE user_perms user_perms TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %pgroups CHANGE group_perms group_perms TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %phelp CHANGE help_article help_article TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %ppmsystem CHANGE pm_bcc pm_bcc TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %ppmsystem CHANGE pm_message pm_message TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %ppmsystem ADD pm_ip INT UNSIGNED NOT NULL default '0' AFTER pm_from";
+$queries[] = "ALTER TABLE %pposts CHANGE post_text post_text TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %psettings CHANGE settings_data settings_data TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %psettings CHANGE settings_tos settings_tos TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %ptemplates CHANGE template_html template_html TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %ptopics CHANGE topic_poll_options topic_poll_options TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %pusers CHANGE user_signature user_signature TEXT NOT NULL DEFAULT ''";
+$queries[] = "ALTER TABLE %pusers CHANGE user_perms user_perms TEXT NOT NULL DEFAULT ''";
 ?>

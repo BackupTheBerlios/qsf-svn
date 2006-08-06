@@ -74,9 +74,10 @@ class login extends qsfglobal
 
 			return eval($this->template('LOGIN_MAIN'));
 		} else {
-			$username = str_replace('\\', '&#092;', $this->format(stripslashes($this->post['user']), FORMAT_HTMLCHARS | FORMAT_CENSOR));
+			$username = str_replace('\\', '&#092;', $this->format($this->post['user'], FORMAT_HTMLCHARS | FORMAT_CENSOR));
 
-			$data  = $this->db->fetch("SELECT user_id, user_password FROM {$this->pre}users WHERE REPLACE(LOWER(user_name), ' ', '')='" . str_replace(' ', '', strtolower($username)) . '\' AND user_id != ' . USER_GUEST_UID . ' LIMIT 1');
+			$data  = $this->db->fetch("SELECT user_id, user_password FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d LIMIT 1",
+				str_replace(' ', '', strtolower($username)), USER_GUEST_UID);
 			$pass  = $data['user_password'];
 			$user  = $data['user_id'];
 
@@ -87,7 +88,7 @@ class login extends qsfglobal
 				setcookie($this->sets['cookie_prefix'] . 'user', $user, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
 				setcookie($this->sets['cookie_prefix'] . 'pass', $pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
 				$_SESSION['user'] = $user;
-				$_SESSION['pass'] = md5($pass . stripslashes($this->ip));
+				$_SESSION['pass'] = md5($pass . $this->ip);
 				
 				return $this->message($this->lang->login_header, $this->lang->login_logged, $this->lang->continue, str_replace('&', '&amp;', $this->post['request_uri']), $this->post['request_uri']);
 			} else {
@@ -105,7 +106,8 @@ class login extends qsfglobal
 			return $this->message($this->lang->login_out, sprintf($this->lang->login_sure, $this->user['user_name']), $this->lang->continue, "$this->self?a=login&amp;s=off&amp;sure=1");
 		} else {
 			$this->activeutil->delete($this->user['user_id']);
-			$this->db->query('UPDATE ' . $this->pre . 'users SET user_lastvisit = ' . $this->time . ' WHERE user_id=' . $this->user['user_id']);
+			$this->db->query('UPDATE %pusers SET user_lastvisit = %d WHERE user_id=%d',
+				$this->time, $this->user['user_id']);
 
 			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
 			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
@@ -126,7 +128,9 @@ class login extends qsfglobal
 		if (!isset($this->post['submit'])) {
 			return eval($this->template('LOGIN_PASS'));
 		} else {
-			$target = $this->db->fetch("SELECT user_id, user_name, user_password, user_joined, user_email FROM {$this->pre}users WHERE user_name='" . $this->format($this->post['user'], FORMAT_HTMLCHARS | FORMAT_CENSOR) . '\' AND user_id != ' . USER_GUEST_UID . ' LIMIT 1');
+			$target = $this->db->fetch("SELECT user_id, user_name, user_password, user_joined, user_email
+				FROM %pusers WHERE user_name='%s' AND user_id != %d LIMIT 1",
+				$this->format($this->post['user'], FORMAT_HTMLCHARS | FORMAT_CENSOR), USER_GUEST_UID);
 			if (!isset($target['user_id'])) {
 				return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_no_id);
 			}
@@ -159,7 +163,9 @@ class login extends qsfglobal
 			$this->get['e'] = null;
 		}
 
-		$target = $this->db->fetch("SELECT user_id, user_name, user_email FROM {$this->pre}users WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='" . preg_replace('/[^a-z0-9]/', '', $this->get['e']) . '\' AND user_id != ' . USER_GUEST_UID . ' LIMIT 1');
+		$target = $this->db->fetch("SELECT user_id, user_name, user_email FROM %pusers
+			WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' AND user_id != %d LIMIT 1",
+			 preg_replace('/[^a-z0-9]/', '', $this->get['e']), USER_GUEST_UID);
 		if (!isset($target['user_id'])) {
 			return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_no_id);
 		}
@@ -178,7 +184,8 @@ class login extends qsfglobal
 		$mailer->setServer($this->sets['mailserver']);
 		$mailer->doSend();
 
-		$this->db->query("UPDATE {$this->pre}users SET user_password='" . md5($newpass) . "' WHERE user_id={$target['user_id']}");
+		$this->db->query("UPDATE %pusers SET user_password='%s' WHERE user_id=%d",
+			md5($newpass), $target['user_id']);
 
 		return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_sent);
 	}

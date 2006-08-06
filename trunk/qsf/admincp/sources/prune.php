@@ -50,9 +50,9 @@ class prune extends admin
 			
 			$topics = '';
 			
-			$query = $this->db->query("SELECT * FROM {$this->pre}topics 
-					WHERE topic_edited < $age AND topic_forum in ($forums)
-					ORDER BY topic_edited");
+			$query = $this->db->query("SELECT * FROM %ptopics 
+					WHERE topic_edited < %d AND topic_forum in (%s)
+					ORDER BY topic_edited", $age, $forums);
 					
 			if ($this->db->num_rows($query) == 0) {
 				return $this->message($this->lang->prune_title, $this->lang->prune_notopics_old);
@@ -91,15 +91,15 @@ class prune extends admin
 			
 			if ($actionIsMove) {
 				// Check the destination is a real forum and not a category or some other rubish
-				$dest = $this->db->fetch("SELECT * FROM {$this->pre}forums WHERE forum_id={$this->post['dest']}");
+				$dest = $this->db->fetch("SELECT * FROM %pforums WHERE forum_id=%d", $this->post['dest']);
 				if (!$dest || $dest['forum_parent'] == 0 || $dest['forum_subcat'] == 1) {
 					// Can't move to a category!
 					return $this->message($this->lang->prune_title, $this->lang->prune_nodest);
 				}
 				
 				foreach ($this->post['topics'] as $t) {
-					$this->db->query("UPDATE {$this->pre}topics SET topic_forum={$this->post['dest']} WHERE topic_id={$t}");
-					$this->db->query("DELETE FROM {$this->pre}subscriptions WHERE subscription_item={$t} AND subscription_type='topic'");
+					$this->db->query("UPDATE %ptopics SET topic_forum=%d WHERE topic_id=%d", $this->post['dest'], $t);
+					$this->db->query("DELETE FROM %psubscriptions WHERE subscription_item=%d AND subscription_type='topic'", $t);
 				}
 	
 				$this->countTopicsAndReplies($this->post['dest']);
@@ -132,40 +132,34 @@ class prune extends admin
 	 **/
 	function delete_topic($t)
 	{
-		$posts = $this->db->query("
-		SELECT
-		  t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count
-		FROM
-		  ({$this->pre}topics t,
-		  {$this->pre}posts p)
-		LEFT JOIN {$this->pre}attach a ON p.post_id=a.attach_post
-		WHERE
-		  t.topic_id=$t AND
-		  t.topic_id=p.post_topic");
+		$posts = $this->db->query("SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count
+			FROM (%ptopics t, %pposts p)
+			LEFT JOIN %pattach a ON p.post_id=a.attach_post
+			WHERE t.topic_id=%d AND t.topic_id=p.post_topic", $t);
 
 		$deleted = 0;
 
 		while ($post = $this->db->nqfetch($posts))
 		{
 			if ($post['post_count']) {
-				$this->db->query('UPDATE ' . $this->pre . 'users SET user_posts=user_posts-1 WHERE user_id=' . $post['post_author']);
+				$this->db->query('UPDATE %pusers SET user_posts=user_posts-1 WHERE user_id=%d', $post['post_author']);
 			}
 
 			if ($post['attach_file']) {
-				$this->db->query('DELETE FROM ' . $this->pre . 'attach WHERE attach_post=' . $post['post_id']);
+				$this->db->query('DELETE FROM %pattach WHERE attach_post=%d', $post['post_id']);
 				@unlink('./attachments/' . $post['attach_file']);
 			}
 
 			$deleted++;
 		}
 
-		$result = $this->db->fetch('SELECT topic_forum FROM ' . $this->pre . 'topics WHERE topic_id=' . $t);
+		$result = $this->db->fetch('SELECT topic_forum FROM %ptopics WHERE topic_id=%d', $t);
 
-		$this->db->query('DELETE FROM ' . $this->pre . 'votes WHERE vote_topic=' . $t);
-		$this->db->query('DELETE FROM ' . $this->pre . 'topics WHERE topic_id=' . $t . ' OR topic_moved=' . $t);
-		$this->db->query('DELETE FROM ' . $this->pre . 'posts WHERE post_topic=' . $t);
+		$this->db->query('DELETE FROM %pvotes WHERE vote_topic=%d', $t);
+		$this->db->query('DELETE FROM %ptopics WHERE topic_id=%d OR topic_moved=%d', $t, $t);
+		$this->db->query('DELETE FROM %pposts WHERE post_topic=%d', $t);
 
-		$this->db->query("UPDATE {$this->pre}forums SET forum_topics=forum_topics-1, forum_replies=forum_replies-$deleted WHERE forum_id={$result['topic_forum']}");
+		$this->db->query("UPDATE %pforums SET forum_topics=forum_topics-1, forum_replies=forum_replies-%d WHERE forum_id=%d", $deleted, $result['topic_forum']);
 	}
 }
 ?>

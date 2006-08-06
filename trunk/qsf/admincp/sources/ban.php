@@ -49,17 +49,17 @@ class ban extends admin
 
 		if (!isset($this->post['submit'])) {
 			$ips = implode("\n", $this->sets['banned_ips']);
-			$ips = stripslashes($ips);
+			$ips = stripslashes($ips); // why do we strip slashes?
 
-			$banned_group = $this->db->fetch("SELECT group_name FROM {$this->pre}groups WHERE group_id=" . USER_BANNED);
+			$banned_group = $this->db->fetch("SELECT group_name FROM %pgroups WHERE group_id=%d", USER_BANNED);
 			$banned_group = $this->format($banned_group['group_name'], FORMAT_HTMLCHARS);
 
 			$banned = null;
 
-			$banned_query = $this->db->query("SELECT user_name FROM {$this->pre}users WHERE user_group=" . USER_BANNED . ' ORDER BY user_name ASC');
+			$banned_query = $this->db->query('SELECT user_name FROM %pusers WHERE user_group=%d ORDER BY user_name ASC', USER_BANNED);
 			while ($user = $this->db->nqfetch($banned_query))
 			{
-				$banned .= "{$user['user_name']}<br />";
+				$banned .= htmlspecialchars($user['user_name']) . "<br />";
 			}
 
 			if (!$banned) {

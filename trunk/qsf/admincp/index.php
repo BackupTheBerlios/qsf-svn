@@ -53,7 +53,7 @@ if (!isset($_GET['a']) || !in_array($_GET['a'], $modules['admin_modules'])) {
 
 require './sources/' . $module . '.php';
 
-$db = new $modules['database']($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
+$db = new $modules['database']($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix']);
 
 if (!$db->connection) {
 	exit('<center><font face="verdana" size="4" color="#000000"><b>A connection to the database could not be established and/or the specified database could not be found.</font></center>');

@@ -44,7 +44,7 @@ class emot_control extends admin
 			if (!isset($this->get['check'])) {
 				return $this->message($this->lang->emote_install, $this->lang->emote_install_warning, $this->lang->continue, "$this->self?a=emot_control&amp;s=import&amp;check=1");
 			} else {
-				$this->db->query("DELETE FROM {$this->pre}replacements WHERE replacement_type='emoticon'");
+				$this->db->query("DELETE FROM %preplacements WHERE replacement_type='emoticon'");
 				$dirname = "../skins/{$this->skin}/emoticons/";
 
 				$dir = opendir($dirname);
@@ -63,7 +63,7 @@ class emot_control extends admin
 					}
 
 					$name = substr($emo, 0, -4);
-					$this->db->query("INSERT INTO {$this->pre}replacements (replacement_search, replacement_replace, replacement_type, replacement_clickable) VALUES (':$name:', '$emo', 'emoticon', 1)");
+					$this->db->query("INSERT INTO %preplacements (replacement_search, replacement_replace, replacement_type, replacement_clickable) VALUES ('%s', '%s', 'emoticon', 1)", ":$name:", $emo);
 				}
 				return $this->message($this->lang->emote_install, $this->lang->emote_install_done);
 			}
@@ -77,7 +77,7 @@ class emot_control extends admin
 			$this->iterator_init('tablelight', 'tabledark');
 
 			if (isset($this->get['delete'])) {
-				$this->db->query("DELETE FROM {$this->pre}replacements WHERE replacement_id=" . intval($this->get['delete']));
+				$this->db->query("DELETE FROM %preplacements WHERE replacement_id=%d", intval($this->get['delete']));
 			}
 
 			if (!isset($this->get['edit'])) {
@@ -87,11 +87,12 @@ class emot_control extends admin
 			}
 
 			if (isset($this->post['submit']) && (trim($this->post['new_search']) != '') && (trim($this->post['new_replace']) != '')) {
-				$this->db->query("UPDATE {$this->pre}replacements SET replacement_search='{$this->post['new_search']}', replacement_replace='{$this->post['new_replace']}', replacement_clickable=" . intval(isset($this->post['new_click'])) . " WHERE replacement_id={$this->get['edit']}");
+				$this->db->query("UPDATE %preplacements SET replacement_search='%s', replacement_replace='%s', replacement_clickable=%d WHERE replacement_id=%d",
+					$this->post['new_search'], $this->post['new_replace'], intval(isset($this->post['new_click'])), $this->get['edit']);
 				$this->get['edit'] = null;
 			}
 
-			$query = $this->db->query("SELECT * FROM {$this->pre}replacements WHERE replacement_type='emoticon'");
+			$query = $this->db->query("SELECT * FROM %preplacements WHERE replacement_type='emoticon'");
 			while ($data = $this->db->nqfetch($query))
 			{
 				$class = $this->iterate();
@@ -135,7 +136,8 @@ class emot_control extends admin
 					return $this->message($this->lang->emote_add, $this->lang->emote_no_text);
 				}
 
-				$this->db->query("INSERT INTO {$this->pre}replacements (replacement_search, replacement_replace, replacement_clickable, replacement_type) VALUES ('{$this->post['new_search']}', '{$this->post['new_replace']}', " . intval(isset($this->post['new_click'])) . ", 'emoticon')");
+				$this->db->query("INSERT INTO %preplacements (replacement_search, replacement_replace, replacement_clickable, replacement_type) VALUES ('%s', '%s', %d, 'emoticon')",
+					$this->post['new_search'], $this->post['new_replace'], intval(isset($this->post['new_click'])));
 
 				return $this->message($this->lang->emote_add, $this->lang->emote_added);
 			}

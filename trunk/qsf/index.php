@@ -45,11 +45,11 @@ set_magic_quotes_runtime(0);
 include_addons($set['include_path'] . '/addons/');
 
 // Open connection to database
-$db = new $modules['database']($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket']);
+$db = new $modules['database']($set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix']);
 if (!$db->connection) {
     error(QUICKSILVER_ERROR, 'A connection to the database could not be established and/or the specified database could not be found.', __FILE__, __LINE__);
 }
-$settings = $db->fetch("SELECT settings_data FROM {$set['prefix']}settings LIMIT 1");
+$settings = $db->fetch("SELECT settings_data FROM %psettings LIMIT 1");
 $set = array_merge($set, unserialize($settings['settings_data']));
 
 if (!isset($_GET['a']) || !in_array($_GET['a'], 

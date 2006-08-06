@@ -26,5 +26,5 @@ if (!defined('INSTALLER')) {
 
 $need_templates = true;
 
-$queries[] = "ALTER TABLE {$pre}active ADD active_item INT( 10 ) UNSIGNED NOT NULL AFTER active_action";
+$queries[] = "ALTER TABLE %pactive ADD active_item INT( 10 ) UNSIGNED NOT NULL AFTER active_action";
 ?>

@@ -174,13 +174,77 @@ class backup extends admin
 
 			foreach ($this->tables as $table => $where)
 			{
-				$this->db->query("DELETE FROM {$pre}$table");
+				$this->db->query("DELETE FROM %p$table");
 			}
 
 			$this->execute_queries($queries);
 
 			return $this->message($this->lang->backup_restore, $this->lang->backup_restore_done);
 		}
+	}
+
+
+	/**
+	 * Dumps a database
+	 *
+	 * @param array $tables Array of table names => where clauses
+	 * @param bool $drop Drop tables
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since 1.0.2
+	 * @return string PHP script
+	 **/
+	function dump_database($tables, $drop = false)
+	{
+		$templates = "<?php\r\n";
+
+		foreach ($tables as $table => $where)
+		{
+			if ($drop) {
+				$templates .= '$queries[] = "DROP TABLE IF EXISTS %p' . $table . "\";\r\n";
+			}
+
+			$insert = '$queries[] = "INSERT INTO %p' . $table . ' (';
+
+			$query = $this->db->query("SELECT * FROM %p$table" . (($where == '*') ? '' : " WHERE $where"));
+			while ($temp = $this->db->nqfetch($query))
+			{
+				if (!isset($firstrow)) {
+					$firstrow = true;
+
+					foreach ($temp as $key => $val)
+					{
+						$insert .= "$key, ";
+					}
+
+					$insert = substr($insert, 0, -2) . ') VALUES (';
+				}
+
+				$templates .= $insert;
+
+				$temp = array_values($temp);
+
+				$count = count($temp);
+				for ($i=0; $i<$count; $i++)
+				{
+					if (is_numeric($temp[$i])) {
+						$templates .= $temp[$i];
+					} else {
+						$templates .= '\'' . str_replace('$', '\$', addslashes($temp[$i])) . '\'';
+					}
+
+					if (isset($temp[$i+1])) {
+						$templates .= ', ';
+					}
+				}
+
+				$templates .= ")\";\r\n";
+			}
+
+			unset($firstrow);
+			$templates .= "\r\n";
+		}
+
+		return $templates . '?>';
 	}
 }
 ?>

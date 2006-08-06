@@ -47,7 +47,7 @@ class mass_mail extends admin
 	function group_list()
 	{
 		$out   = null;
-		$query = $this->db->query("SELECT group_id, group_name, group_type FROM {$this->pre}groups ORDER BY group_name");
+		$query = $this->db->query("SELECT group_id, group_name, group_type FROM %pgroups ORDER BY group_name");
 
 		while ($group = $this->db->nqfetch($query))
 		{
@@ -59,21 +59,6 @@ class mass_mail extends admin
 		return $out;
 	}
 
-	function group_query($groups)
-	{
-		$out = array();
-		foreach ($groups as $group)
-		{
-			$out[] = 'user_group=' . $group;
-		}
-
-		if ($out) {
-			return ' WHERE (' . implode(' OR ', $out) . ')';
-		} else {
-			return ' WHERE user_id != ' . USER_GUEST_UID;
-		}
-	}
-
 	function send_mail()
 	{
 		if (!isset($this->post['groups'])) {
@@ -83,7 +68,7 @@ class mass_mail extends admin
 		$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 		$mailer->setSubject($this->post['subject']);
 
-		$message  = stripslashes($this->post['message']) . "\n";
+		$message  = $this->post['message'] . "\n";
 		$message .= '___________________' . "\n";
 		$message .= $this->sets['forum_name'] . "\n";
 		$message .= $this->sets['loc_of_board'] . "\n";
@@ -92,7 +77,12 @@ class mass_mail extends admin
 		$mailer->setServer($this->sets['mailserver']);
 
 		$i = 0;
-		$members = $this->db->query("SELECT user_email FROM {$this->pre}users" . $this->group_query($this->post['groups']));
+		$members = null;
+		if (count($this->post['groups'])) {
+			$members = $this->db->query("SELECT user_email FROM %pusers WHERE user_group IN (%s)", implode(', ', $this->post['groups']));
+		} else {
+			$members = $this->db->query("SELECT user_email FROM %pusers WHERE user_id != %d", USER_GUEST_UID);
+		}
 		while ($sub = $this->db->nqfetch($members))
 		{
 			$mailer->setBcc($sub['user_email']);

@@ -106,9 +106,10 @@ class attachutil
 		
 		if ($error == null) {
 			$md5 = key($temp_attached_data);
-			$filename = addslashes($temp_attached_data[$md5]);
-			$this->db->query("INSERT INTO {$this->pre}attach (attach_file, attach_name, attach_post, attach_size) VALUES 
-				('$md5', '$filename', $post_id, '" . filesize('./attachments/' . $md5) . '\')');
+			$filename = $temp_attached_data[$md5];
+			$this->db->query("INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES 
+				('%s', '%s', %d, %d)",
+				$md5, $filename, $post_id, filesize('./attachments/' . $md5));
 			
 			$attached_data = array_merge($attached_data, $temp_attached_data);
 		}
@@ -127,7 +128,8 @@ class attachutil
 	function delete_now($post_id, $filename, &$attached_data)
 	{
 		$this->delete($filename, $attached_data);
-		$this->db->query("DELETE FROM {$this->pre}attach WHERE attach_post={$post_id} AND attach_file = '$filename'");
+		$this->db->query("DELETE FROM %pattach WHERE attach_post=%d AND attach_file = '%s'",
+			$post_id, $filename);
 	}
 	
 	
@@ -162,14 +164,11 @@ class attachutil
 	 **/
 	function insert($post_id, $attached_data)
 	{
-		$attachments = null;
-
 		foreach ($attached_data as $md5 => $filename)
 		{
-			$attachments .= "('$md5', '$filename', $post_id, '" . filesize('./attachments/' . $md5) . '\'), ';
+			$this->db->query("INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES 
+				('%s', '%s', %d, %d)", $md5, $filename, $post_id, filesize('./attachments/' . $md5));
 		}
-		$attachments = htmlspecialchars($attachments);
-		$this->db->query("INSERT INTO {$this->pre}attach (attach_file, attach_name, attach_post, attach_size) VALUES " . substr($attachments, 0, -2));
 	}
 
 	/**
@@ -217,7 +216,7 @@ class attachutil
 	{
 		$attached_data = array();
 
-		$query = $this->db->query("SELECT attach_file, attach_name FROM {$this->pre}attach WHERE attach_post={$post_id}");
+		$query = $this->db->query("SELECT attach_file, attach_name FROM %pattach WHERE attach_post=%d", $post_id);
 		while ($row = $this->db->nqfetch($query))
 		{
 			$attached_data[$row['attach_file']] = $row['attach_name'];

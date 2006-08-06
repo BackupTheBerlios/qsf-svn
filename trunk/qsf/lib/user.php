@@ -60,15 +60,19 @@ class user
 	{
 		if(isset($this->cookie[$this->sets['cookie_prefix'] . 'user']) && isset($this->cookie[$this->sets['cookie_prefix'] . 'pass'])) {
 			$cookie_user = intval($this->cookie[$this->sets['cookie_prefix'] . 'user']);
-			$cookie_pass = addslashes($this->cookie[$this->sets['cookie_prefix'] . 'pass']);
-			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id='{$cookie_user}' AND m.user_password='{$cookie_pass}' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
+			$cookie_pass = $this->cookie[$this->sets['cookie_prefix'] . 'pass'];
+			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.*
+				FROM %ptimezones z, %pusers m, %pskins s, %pgroups g, %pmembertitles t
+				WHERE m.user_id='%s' AND m.user_password='%s' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1",
+				$cookie_user, $cookie_pass);
 
 		}else if(isset($this->session['user']) && isset($this->session['pass'])) {
 			$session_user = intval($this->session['user']);
-			$session_pass = addslashes($this->session['pass']);
+			$session_pass = $this->session['pass'];
 			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.*
-				FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t
-				WHERE m.user_id='{$session_user}' AND MD5(CONCAT(m.user_password,'{$this->ip}'))='{$session_pass}' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
+				FROM %ptimezones z, %pusers m, %pskins s, %pgroups g, %pmembertitles t
+				WHERE m.user_id='%s' AND MD5(CONCAT(m.user_password,'%s'))='%s' AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1",
+				$session_user, $this->ip, $session_pass);
 
 		}else {
 			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
@@ -76,7 +80,10 @@ class user
 		}
 
 		if (!isset($user['user_id'])) {
-			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.* FROM {$this->pre}timezones z, {$this->pre}users m, {$this->pre}skins s, {$this->pre}groups g, {$this->pre}membertitles t WHERE m.user_id=" . USER_GUEST_UID . " AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1");
+			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, t.membertitle_icon, z.*
+			FROM %ptimezones z, %pusers m, %pskins s, %pgroups g, %pmembertitles t
+			WHERE m.user_id=%d AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1",
+			USER_GUEST_UID);
 			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
 			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
 			unset($_SESSION['user']);

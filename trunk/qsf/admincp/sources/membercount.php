@@ -48,8 +48,8 @@ class membercount extends admin
 		$this->set_title($this->lang->mcount);
 		$this->tree($this->lang->mcount);
 
-		$member = $this->db->fetch("SELECT user_id, user_name FROM {$this->pre}users ORDER BY user_id DESC LIMIT 1");
-		$counts = $this->db->fetch("SELECT COUNT(user_id) AS count FROM {$this->pre}users");
+		$member = $this->db->fetch("SELECT user_id, user_name FROM %pusers ORDER BY user_id DESC LIMIT 1");
+		$counts = $this->db->fetch("SELECT COUNT(user_id) AS count FROM %pusers");
 
 		$this->sets['last_member'] = $member['user_name'];
 		$this->sets['last_member_id'] = $member['user_id'];

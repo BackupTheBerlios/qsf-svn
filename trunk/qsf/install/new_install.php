@@ -54,7 +54,7 @@ class new_install extends qsfglobal
 			break;
 
 		case 2:
-			$db = new $this->modules['database']($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
+			$db = new $this->modules['database']($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket'], $this->post['prefix']);
 
 			if (!$db->connection) {
 				echo "Couldn't connect to a database using the specified information.";
@@ -112,8 +112,8 @@ class new_install extends qsfglobal
 			execute_queries($queries, $db);
 
 			$this->sets = $this->get_settings($this->sets);
-			$this->sets['loc_of_board'] = stripslashes($this->post['board_url']);
-			$this->sets['forum_name'] = stripslashes($this->post['board_name']);
+			$this->sets['loc_of_board'] = $this->post['board_url'];
+			$this->sets['forum_name'] = $this->post['board_name'];
 
 			$this->post['admin_pass'] = md5($this->post['admin_pass']);
 
@@ -126,11 +126,13 @@ class new_install extends qsfglobal
 			$this->post['admin_name'] = str_replace(
 				array('&amp;#', '\''),
 				array('&#', '&#39;'),
-				htmlspecialchars(stripslashes($this->post['admin_name']))
+				htmlspecialchars($this->post['admin_name'])
 			);
 
-			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email, user_timezone) VALUES ('{$this->post['admin_name']}', '{$this->post['admin_pass']}', " . USER_ADMIN .  ", 'Administrator', 1, {$this->time}, '{$this->post['admin_email']}', {$this->sets['servertime']})");
-			$admin_uid = $this->db->insert_id("{$this->pre}users");
+			$this->db->query("INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email, user_timezone)
+				VALUES ('%s', '%s', %d, 'Administrator', 1, %d, '%s', %d)",
+				$this->post['admin_name'], $this->post['admin_pass'], USER_ADMIN, $this->time, $this->post['admin_email'], $this->sets['servertime']);
+			$admin_uid = $this->db->insert_id("users");
 
 			$this->sets['last_member'] = $this->post['admin_name'];
 			$this->sets['last_member_id'] = $admin_uid;
@@ -149,18 +151,20 @@ class new_install extends qsfglobal
 				$forumId = $this->create_forum($forumName, $forumDesc, $categoryId);
 				
 				// Create Topic
-				$this->db->query("INSERT INTO {$this->pre}topics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes) 
-					VALUES ('$topicName', $forumId, '$topicDesc', $admin_uid, '$topicIcon', $this->time, $admin_uid, " . TOPIC_PUBLISH . ")");
-				$topicId = $this->db->insert_id("{$this->pre}topics");
+				$this->db->query("INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes) 
+					VALUES ('%s', %d, '%s', %d, '%s', %d, %d, %d)",
+					$topicName, $forumId, $topicDesc, $admin_uid, $topicIcon, $this->time, $admin_uid, TOPIC_PUBLISH);
+				$topicId = $this->db->insert_id("topics");
 				
 				// Create Post
-				$this->db->query("INSERT INTO {$this->pre}posts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon)
-					VALUES ($topicId, $admin_uid, '$topicPost', $this->time, 1, 1, INET_ATON('$this->ip'), '$topicIcon')");
-				$postId = $this->db->insert_id("{$this->pre}posts");
+				$this->db->query("INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon)
+					VALUES (%d, %d, '%s', %d, 1, 1, INET_ATON('%s'), '%s')",
+					$topicId, $admin_uid, $topicPost, $this->time, $this->ip, $topicIcon);
+				$postId = $this->db->insert_id("posts");
 					
-				$this->db->query("UPDATE {$this->pre}users SET user_posts=user_posts+1, user_lastpost='{$this->time}' WHERE user_id='$admin_uid'");
+				$this->db->query("UPDATE %pusers SET user_posts=user_posts+1, user_lastpost=%d WHERE user_id=%d", $this->time, $admin_uid);
 
-				$this->db->query("UPDATE {$this->pre}forums SET forum_topics=forum_topics+1, forum_lastpost=$postId WHERE forum_id=$forumId");
+				$this->db->query("UPDATE %pforums SET forum_topics=forum_topics+1, forum_lastpost=%d WHERE forum_id=%d", $postId, $forumId);
 				
 				$this->sets['topics']++;
 				$this->sets['posts']++;
@@ -203,11 +207,12 @@ class new_install extends qsfglobal
 	{
 		$parent ? $tree = $parent : $tree = '';
 		
-		$this->db->query("INSERT INTO {$this->pre}forums
+		$this->db->query("INSERT INTO %pforums
 			(forum_tree, forum_parent, forum_name, forum_description, forum_position, forum_subcat) VALUES
-			('$tree', '$parent', '$name', '$desc', '0', '0')");
+			('%s', %d, '%s', '%s', '0', '0')",
+			$tree, $parent, $name, $desc);
 		
-		$forumId = $this->db->insert_id("{$this->pre}forums");
+		$forumId = $this->db->insert_id("forums");
 		
 		$perms = new $this->modules['permissions']($this);
 		

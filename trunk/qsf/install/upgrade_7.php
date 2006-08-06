@@ -26,10 +26,10 @@ if (!defined('INSTALLER')) {
 
 $need_templates = true;
 
-$queries[] = "ALTER TABLE {$pre}subscriptions
+$queries[] = "ALTER TABLE %psubscriptions
 ADD subscription_id int(12) unsigned NOT NULL auto_increment,
 ADD PRIMARY KEY (subscription_id)";
 
-$queries[] = "ALTER TABLE {$pre}users
+$queries[] = "ALTER TABLE %pusers
 ADD user_email_form tinyint(1) unsigned NOT NULL AFTER user_email_show DEFAULT '1'";
 ?>

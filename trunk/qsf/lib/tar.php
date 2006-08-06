@@ -120,6 +120,8 @@ class archive_tar
 
 	/**
 	 * Close the file pointer and perform any cleanup
+	 *
+	 * @return string Filename of opened file. Useful for writing which can create .tar or .tar.gz
 	 **/
 	function close_file()
 	{
@@ -424,7 +426,7 @@ class archive_tar
 		}
 	}
 	
-    	function _write($data)
+	function _write($data)
 	{
 		if (!$this->file_writing) return false;
 		

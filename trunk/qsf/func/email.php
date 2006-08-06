@@ -54,7 +54,7 @@ class email extends qsfglobal
 			$this->get['to'] = isset($this->get['to']) ? intval($this->get['to']) : '';
 
 			if ($this->get['to']) {
-				$target = $this->db->fetch("SELECT user_name FROM {$this->pre}users WHERE user_id={$this->get['to']}");
+				$target = $this->db->fetch("SELECT user_name FROM %pusers WHERE user_id=%d", $this->get['to']);
 
 				if (!isset($target['user_name']) || ($this->get['to'] == USER_GUEST_UID)) {
 					return $this->message($this->lang->email_email, $this->lang->email_no_member);
@@ -69,7 +69,8 @@ class email extends qsfglobal
 				return $this->message($this->lang->email_email, $this->lang->email_no_fields);
 			}
 
-			$target = $this->db->fetch("SELECT user_id, user_email, user_email_form FROM {$this->pre}users WHERE user_name='{$this->post['to']}'");
+			$target = $this->db->fetch("SELECT user_id, user_email, user_email_form FROM %pusers
+				WHERE user_name='%s'", $this->post['to']);
 
 			if (!$target['user_email_form']) {
 				return $this->message($this->lang->email_email, $this->lang->email_blocked);
@@ -82,7 +83,7 @@ class email extends qsfglobal
 			$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
 			$mailer->setSubject("{$this->sets['forum_name']} - {$this->post['subject']}");
-			$mailer->setMessage("This mail has been sent by {$this->user['user_name']} via {$this->sets['forum_name']}\n\n" . stripslashes($this->post['message']));
+			$mailer->setMessage("This mail has been sent by {$this->user['user_name']} via {$this->sets['forum_name']}\n\n" . $this->post['message']);
 			$mailer->setRecipient($target['user_email']);
 			$mailer->setServer($this->sets['mailserver']);
 

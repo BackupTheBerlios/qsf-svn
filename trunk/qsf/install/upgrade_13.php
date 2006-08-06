@@ -74,7 +74,7 @@ $this->sets['default_view_emots'] = 1;
 $this->sets['flood_time_pm'] = 30;
 $this->sets['flood_time_search'] = 10;
 
-$queries[] = "ALTER TABLE {$pre}pmsystem ADD pm_bcc text NOT NULL AFTER pm_from";
-$queries[] = "ALTER TABLE {$pre}users ADD user_lastsearch INT(10) UNSIGNED NOT NULL AFTER user_lastpost";
-$queries[] = "ALTER TABLE {$pre}users ADD user_lastpm INT(10) UNSIGNED NOT NULL AFTER user_lastpost";
+$queries[] = "ALTER TABLE %ppmsystem ADD pm_bcc text NOT NULL AFTER pm_from";
+$queries[] = "ALTER TABLE %pusers ADD user_lastsearch INT(10) UNSIGNED NOT NULL AFTER user_lastpost";
+$queries[] = "ALTER TABLE %pusers ADD user_lastpm INT(10) UNSIGNED NOT NULL AFTER user_lastpost";
 ?>

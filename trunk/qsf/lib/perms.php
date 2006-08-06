@@ -123,10 +123,10 @@ class permissions
 	{
 		if (!$perms) {
 			if ($group != -1) {
-				$data  = $this->db->fetch("SELECT group_perms FROM {$this->pre}groups WHERE group_id={$group}");
+				$data  = $this->db->fetch("SELECT group_perms FROM %pgroups WHERE group_id=%d", $group);
 				$perms = $data['group_perms'];
 			} else {
-				$data  = $this->db->fetch("SELECT user_perms, user_group FROM {$this->pre}users WHERE user_id={$user}");
+				$data  = $this->db->fetch("SELECT user_perms, user_group FROM %pusers WHERE user_id=%d", $group);
 				$perms = $data['user_perms'];
 				$group = $data['user_group'];
 			}
@@ -173,7 +173,7 @@ class permissions
 		$cube = $this->standard;
 		$forums = array();
 
-		$query = $this->db->query("SELECT forum_id FROM {$this->pre}forums ORDER BY forum_id");
+		$query = $this->db->query("SELECT forum_id FROM %pforums ORDER BY forum_id");
 		while ($forum = $this->db->nqfetch($query))
 		{
 			$forums[$forum['forum_id']] = $bool;
@@ -317,9 +317,9 @@ class permissions
 			$start = false;
 
 			if ($users) {
-				$query = $this->db->query("SELECT user_id, user_perms FROM {$this->pre}users WHERE user_perms != ''");
+				$query = $this->db->query("SELECT user_id, user_perms FROM %pusers WHERE user_perms != ''");
 			} else {
-				$query = $this->db->query("SELECT group_id, group_perms FROM {$this->pre}groups");
+				$query = $this->db->query("SELECT group_id, group_perms FROM %pgroups");
 			}
 
 			while ($group = $this->db->nqfetch($query))
@@ -378,15 +378,17 @@ class permissions
 	{
 		if ($this->cube) {
 			ksort($this->cube);
-			$serialized = addslashes(serialize($this->cube));
+			$serialized = serialize($this->cube);
 		} else {
 			$serialized = '';
 		}
 
 		if ($this->user == -1) {
-			$this->db->query("UPDATE {$this->pre}groups SET group_perms='$serialized' WHERE group_id={$this->group}");
+			$this->db->query("UPDATE %pgroups SET group_perms='%s' WHERE group_id=%d",
+				$serialized, $this->group);
 		} else {
-			$this->db->query("UPDATE {$this->pre}users SET user_perms='$serialized' WHERE user_id={$this->user}");
+			$this->db->query("UPDATE %pusers SET user_perms='%s' WHERE user_id=%d",
+				$serialized, $this->user);
 		}
 	}
 }

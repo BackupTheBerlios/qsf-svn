@@ -34,7 +34,7 @@ class logs extends admin
 		$this->set_title('View Moderator Actions');
 		$this->tree('View Moderator Actions');
 
-		$data = $this->db->query("SELECT l.*, u.user_name FROM {$this->pre}logs l, {$this->pre}users u WHERE u.user_id=l.log_user ORDER BY l.log_time DESC");
+		$data = $this->db->query("SELECT l.*, u.user_name FROM %plogs l, %pusers u WHERE u.user_id=l.log_user ORDER BY l.log_time DESC");
 
 		$this->iterator_init('tablelight', 'tabledark');
 

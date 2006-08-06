@@ -72,10 +72,10 @@ $need_templates = array(
 	'POST_CLICKABLE_SMILIES'
 );
 
-$queries[] = "ALTER TABLE {$pre}active ROW_FORMAT=FIXED";
-$queries[] = "ALTER TABLE {$pre}attach ROW_FORMAT=FIXED";
-$queries[] = "ALTER TABLE {$pre}membertitles ROW_FORMAT=FIXED";
-$queries[] = "ALTER TABLE {$pre}skins ROW_FORMAT=FIXED";
-$queries[] = "ALTER TABLE {$pre}timezones ROW_FORMAT=FIXED";
+$queries[] = "ALTER TABLE %pactive ROW_FORMAT=FIXED";
+$queries[] = "ALTER TABLE %pattach ROW_FORMAT=FIXED";
+$queries[] = "ALTER TABLE %pmembertitles ROW_FORMAT=FIXED";
+$queries[] = "ALTER TABLE %pskins ROW_FORMAT=FIXED";
+$queries[] = "ALTER TABLE %ptimezones ROW_FORMAT=FIXED";
 
 ?>

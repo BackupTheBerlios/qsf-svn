@@ -60,36 +60,21 @@ class search extends qsfglobal
 		return eval($this->template('SEARCH_MAIN'));
 	}
 
-	function create_forum_query($in)
-	{
-		if (!$in) {
-			return;
-		}
-
-		$out = null;
-
-		foreach ($in as $forum)
-		{
-			$out .= ' OR t.topic_forum=' . intval($forum);
-		}
-
-		return '(' . substr($out, 4) . ') AND ';
-	}
-
-	function create_word_query($in)
+	function create_word_query($in, &$sql_data)
 	{
 		$out = null;
 		$in  = explode(' ', $in);
 
 		foreach ($in as $word)
 		{
-			$out .= " OR (p.post_text LIKE '%$word%')";
+			$out .= " OR (p.post_text LIKE '%%%s%%')";
+			$sql_data[] = $word;
 		}
 
 		return '(' . substr($out, 4) . ')';
 	}
 
-	function create_time_query($way, $time)
+	function create_time_query($way, $time, &$sql_data)
 	{
 		$time = intval($time);
 		$time = $this->time - ($time * 86400);
@@ -100,7 +85,8 @@ class search extends qsfglobal
 			$way = '<=';
 		}
 
-		return "(p.post_time $way $time)";
+		$sql_data[] = $time;
+		return "(p.post_time $way %d)";
 	}
 
 	function create_sound_query($in)
@@ -117,18 +103,20 @@ class search extends qsfglobal
 		return '(' . substr($out, 4) . ')';
 	}
 
-	function create_member_query($member, $type)
+	function create_member_query($member, $type, &$sql_data)
 	{
 		if ($type == 'id') {
-			return 'm.user_id=' . intval($member);
+			$sql_data[] = intval($member);
+			return 'm.user_id=%d';
 		}
 
-		$member = $this->format(stripslashes($member), FORMAT_HTMLCHARS | FORMAT_CENSOR);
+		$member = $this->format($member, FORMAT_HTMLCHARS | FORMAT_CENSOR);
 
+		$sql_data[] = $member;
 		if ($type == 'exact') {
-			return "m.user_name='$member'";
+			return "m.user_name='%s'";
 		} else {
-			return "(m.user_name LIKE '%$member%')";
+			return "(m.user_name LIKE '%%%s%%')";
 		}
 	}
 
@@ -205,7 +193,7 @@ class search extends qsfglobal
 				$type = 'normal';
 
 				if ($this->post['searchtype'] != 'regex') {
-					$this->post['query'] = preg_split('/[^a-zA-Z0-9_\']/', stripslashes($this->post['query']), -1, PREG_SPLIT_NO_EMPTY);
+					$this->post['query'] = preg_split('/[^a-zA-Z0-9_\']/', $this->post['query'], -1, PREG_SPLIT_NO_EMPTY);
 					$size = count($this->post['query']);
 
 					for ($i = 0; $i < $size; $i++)
@@ -215,7 +203,7 @@ class search extends qsfglobal
 						}
 					}
 
-					$this->post['query'] = addslashes(implode(' ', $this->post['query']));
+					$this->post['query'] = implode(' ', $this->post['query']);
 				}
 			}
 
@@ -226,12 +214,15 @@ class search extends qsfglobal
 			$type = 'id';
 		}
 
-		$this->db->query("UPDATE {$this->pre}users SET user_lastsearch='$this->time' WHERE user_id='{$this->user['user_id']}'");
+		$this->db->query("UPDATE %pusers SET user_lastsearch=%d WHERE user_id=%d",
+			$this->time, $this->user['user_id']);
 
 		$sql = 'SELECT ';
+		$sql_data = array();
 
 		if ($type == 'fulltext') {
-			$sql .= "MATCH (p.post_text) AGAINST ('{$this->post['query']}') AS score, ";
+			$sql .= "MATCH (p.post_text) AGAINST ('%s') AS score, ";
+			$sql_data[] = $this->post['query'];
 		}
 
 		$sql .= "
@@ -244,28 +235,30 @@ class search extends qsfglobal
 			f.forum_name, f.forum_id,
 			a.active_time
 		FROM
-			({$this->pre}posts p,
-			{$this->pre}topics t,
-			{$this->pre}forums f,
-			{$this->pre}users m,
-			{$this->pre}users m2,
-			{$this->pre}membertitles mt,
-			{$this->pre}groups g)
-		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
+			(%pposts p,
+			%ptopics t,
+			%pforums f,
+			%pusers m,
+			%pusers m2,
+			%pmembertitles mt,
+			%pgroups g)
+		LEFT JOIN %pactive a ON a.active_id=m.user_id
 		WHERE ";
 
 		if ($type == 'fulltext') {
-			$sql .= "MATCH (p.post_text) AGAINST ('{$this->post['query']}'$boolean) AND ";
+			$sql .= "MATCH (p.post_text) AGAINST ('%s'$boolean) AND ";
+			$sql_data[] = $this->post['query'];
 		} elseif ($type == 'normal') {
 			if ($this->post['searchtype'] == 'match') {
-				$sql .= $this->create_word_query($this->post['query']) . ' AND ';
+				$sql .= $this->create_word_query($this->post['query'], $sql_data) . ' AND ';
 
 			} elseif ($this->post['searchtype'] == 'regex') {
 				if (@preg_match("/{$this->post['query']}/", 'anything') === false) {
 					return $this->message($this->lang->search_search, $this->lang->search_regex_failed, $this->lang->search_mysqldoc, 'http://www.mysql.com/doc/en/Regexp.html');
 				}
 
-				$sql .= '(p.post_text REGEXP "' . $this->post['query'] . '") AND ';
+				$sql .= "(p.post_text REGEXP '%s') AND ";
+				$sql_data[] = $this->post['query'];
 
 			} else {
 				$sql .= $this->create_sound_query($this->post['query']) . ' AND ';
@@ -275,18 +268,22 @@ class search extends qsfglobal
 		if ($type != 'id') {
 			$this->post['limit_chars'] = intval($this->post['limit_chars']);
 
-			$sql .= $this->create_forum_query($this->post['forums']);
+			// Limit forums being searched
+			if ($this->post['forums']) {
+				$sql .= 'f.forum_id IN (%s) AND ';
+				$sql_data[] = implode(',', $this->post['forums']);
+			}
 
 			if (isset($this->post['time_check'])) {
-				$sql .= $this->create_time_query($this->post['time_way_select'], $this->post['time_select']) . ' AND ';
+				$sql .= $this->create_time_query($this->post['time_way_select'], $this->post['time_select'], $sql_data) . ' AND ';
 			}
 
 			if (isset($this->post['member_check'])) {
-				$sql .= $this->create_member_query($this->post['member_text'], $this->post['member_select']) . ' AND ';
+				$sql .= $this->create_member_query($this->post['member_text'], $this->post['member_select'], $sql_data) . ' AND ';
 			}
 		} else {
 			$this->post['limit_chars'] = 400; //use default when searching by user id
-			$sql .= $this->create_member_query($this->get['id'], 'id') . ' AND ';
+			$sql .= $this->create_member_query($this->get['id'], 'id', $sql_data) . ' AND ';
 		}
 
 		$sql .= 'p.post_topic=t.topic_id AND
@@ -322,11 +319,17 @@ class search extends qsfglobal
 			(isset($this->post['limit_check']) ? 'limit_check=1' : '');
 		}
 
-		$pages = $this->htmlwidgets->get_pages($sql, "a=search&amp;$url", $this->get['min'], $this->get['num']);
+		$pages_sql = $sql_data;
+		array_unshift($pages_sql,$sql);
+		
+		$pages = $this->htmlwidgets->get_pages($pages_sql, "a=search&amp;$url", $this->get['min'], $this->get['num']);
 
-		$sql .= " LIMIT {$this->get['min']}, {$this->get['num']}";
+		$sql .= " LIMIT %d, %d";
+		$sql_data[] = $this->get['min'];
+		$sql_data[] = $this->get['num'];
 
-		$query = $this->db->query($sql);
+		array_unshift($sql_data,$sql);
+		$query = $this->db->query($sql_data);
 
 		$results = null;
 		$topics = array();
@@ -346,7 +349,7 @@ class search extends qsfglobal
 		}
 
 		if ($type != 'id') {
-			$match_finder = str_replace(' ', '|', preg_quote(preg_replace('/[+\\-"><]/', '', stripslashes($this->post['query'])), '/'));
+			$match_finder = str_replace(' ', '|', preg_quote(preg_replace('/[+\\-"><]/', '', $this->post['query']), '/'));
 		}
 
 		$i = 0;

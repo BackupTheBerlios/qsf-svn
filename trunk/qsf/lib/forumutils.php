@@ -146,7 +146,7 @@ require_once $set['include_path'] . '/lib/tool.php';
 				$forums[] = $row['forum_id'];
 			}
 		}
-		return '(' . implode(', ', $forums) . ')';
+		return implode(', ', $forums);
 	}
 	
 	/**
@@ -161,7 +161,8 @@ require_once $set['include_path'] . '/lib/tool.php';
 		if ($this->forum_data === false) {
 			$this->forum_data = array();
 			
-			$q = $this->db->query("SELECT forum_id, forum_parent, forum_tree, forum_name, forum_position FROM {$this->pre}forums ORDER BY forum_position");
+			$q = $this->db->query("SELECT forum_id, forum_parent, forum_tree, forum_name, forum_position
+				FROM %pforums ORDER BY forum_position");
 
 			while ($f = $this->db->nqfetch($q))
 			{

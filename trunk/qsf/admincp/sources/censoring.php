@@ -50,7 +50,7 @@ class censoring extends admin
 		if (!isset($this->post['submit'])) {
 			$words = null;
 
-			$query = $this->db->query("SELECT * FROM {$this->pre}replacements WHERE replacement_type='censor' ORDER BY replacement_id");
+			$query = $this->db->query("SELECT * FROM %preplacements WHERE replacement_type='censor' ORDER BY replacement_id");
 			while ($word = $this->db->nqfetch($query))
 			{
 				$words .= str_replace('(.*?)', '*', $word['replacement_search']) . "\n";
@@ -64,13 +64,12 @@ class censoring extends admin
 			$words = str_replace('*', '(.*?)', $words);
 			$words = explode("\n", $words);
 
-			$this->db->query("DELETE FROM {$this->pre}replacements WHERE replacement_type='censor'");
+			$this->db->query("DELETE FROM %preplacements WHERE replacement_type='censor'");
 
 			foreach ($words as $word)
 			{
-				$word = addslashes(trim($word));
 				if ($word) {
-					$this->db->query("INSERT INTO {$this->pre}replacements (replacement_search, replacement_replace, replacement_type) VALUES ('$word', '', 'censor')");
+					$this->db->query("INSERT INTO %preplacements (replacement_search, replacement_replace, replacement_type) VALUES ('%s', '', 'censor')", $word);
 				}
 			}
 

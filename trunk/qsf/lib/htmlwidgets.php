@@ -70,7 +70,7 @@ class htmlwidgets extends htmltools
 				$rows = $this->db->num_rows($this->db->query($rows));
 			}
 		} else {
-			$rows = $this->db->num_rows($records);
+			$rows = $this->db->num_rows($rows);
 		}
 
 		// some base variables
@@ -250,9 +250,9 @@ class htmlwidgets extends htmltools
 	function select_groups($val, $custom_only = false)
 	{
 		if ($custom_only) {
-			$groups = $this->db->query('SELECT group_name, group_id FROM ' . $this->pre . 'groups WHERE group_type="" ORDER BY group_name');
+			$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups WHERE group_type="" ORDER BY group_name');
 		} else {
-			$groups = $this->db->query('SELECT group_name, group_id FROM ' . $this->pre . 'groups ORDER BY group_name');
+			$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups ORDER BY group_name');
 		}
 
 		$out = null;
@@ -353,7 +353,7 @@ class htmlwidgets extends htmltools
 	{
 		$out = null;
 
-		$query = $this->db->query("SELECT * FROM {$this->pre}skins");
+		$query = $this->db->query("SELECT * FROM %pskins");
 		while ($s = $this->db->nqfetch($query))
 		{
 			if ($s['skin_dir'] == 'default') {
@@ -375,7 +375,7 @@ class htmlwidgets extends htmltools
 	{
 		$out = null;
 
-		$query = $this->db->query("SELECT zone_id, zone_name, zone_offset, zone_updated, zone_abbrev FROM {$this->pre}timezones ORDER BY zone_name ASC");
+		$query = $this->db->query("SELECT zone_id, zone_name, zone_offset, zone_updated, zone_abbrev FROM %ptimezones ORDER BY zone_name ASC");
 		while($row = $this->db->nqfetch($query))
 		{
 			if ($row['zone_updated'] < $this->time)
@@ -383,7 +383,8 @@ class htmlwidgets extends htmltools
 				$tz = new $this->modules['timezone']('timezone/'.$row['zone_name']);
 				$tz->magic2();
 				if (strlen($tz->abba)<1) $tz->abba='N/A';
-				$this->db->query("UPDATE {$this->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$row['zone_id']};");
+				$this->db->query("UPDATE %ptimezones SET zone_offset=%d, zone_updated=%d, zone_abbrev='%s' WHERE zone_id=%d",
+					$tz->gmt_offset, $tz->next_update, $tz->abba, $row['zone_id']);
 				$row['zone_abbrev'] = $tz->abba;
 				$row['zone_offset'] = $tz->gmt_offset;
 			}

@@ -297,80 +297,17 @@ class admin extends qsfglobal
 		$out = "<select name='$select'>";
 
 		if ($custom_only) {
-			$groups = $this->db->query('SELECT group_name, group_id FROM ' . $this->pre . 'groups WHERE group_type="" ORDER BY group_name');
+			$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups WHERE group_type="" ORDER BY group_name');
 		} else {
-			$groups = $this->db->query('SELECT group_name, group_id FROM ' . $this->pre . 'groups ORDER BY group_name');
+			$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups ORDER BY group_name');
 		}
 
 		while ($group = $this->db->nqfetch($groups))
 		{
-			$out .= "<option value='{$group['group_id']}'" . (($val == $group['group_id']) ? ' selected=\'selected\'' : '') . ">{$group['group_name']}</option>";
+			$out .= "<option value='{$group['group_id']}'" . (($val == $group['group_id']) ? ' selected=\'selected\'' : '') . ">" . htmlspecialchars($group['group_name']) . "</option>";
 		}
 
 		return $out . '</select>';
-	}
-
-	/**
-	 * Dumps a database
-	 *
-	 * @param array $tables Array of table names => where clauses
-	 * @param bool $drop Drop tables
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since 1.0.2
-	 * @return string PHP script
-	 **/
-	function dump_database($tables, $drop = false)
-	{
-		$templates = "<?php\r\n";
-
-		foreach ($tables as $table => $where)
-		{
-			if ($drop) {
-				$templates .= '$queries[] = "DROP TABLE IF EXISTS {$pre}' . $table . "\";\r\n";
-			}
-
-			$insert = '$queries[] = "INSERT INTO {$pre}' . $table . ' (';
-
-			$query = $this->db->query("SELECT * FROM {$this->pre}$table" . (($where == '*') ? '' : " WHERE $where"));
-			while ($temp = $this->db->nqfetch($query))
-			{
-				if (!isset($firstrow)) {
-					$firstrow = true;
-
-					foreach ($temp as $key => $val)
-					{
-						$insert .= "$key, ";
-					}
-
-					$insert = substr($insert, 0, -2) . ') VALUES (';
-				}
-
-				$templates .= $insert;
-
-				$temp = array_values($temp);
-
-				$count = count($temp);
-				for ($i=0; $i<$count; $i++)
-				{
-					if (is_numeric($temp[$i])) {
-						$templates .= $temp[$i];
-					} else {
-						$templates .= '\'' . str_replace('$', '\$', addslashes($temp[$i])) . '\'';
-					}
-
-					if (isset($temp[$i+1])) {
-						$templates .= ', ';
-					}
-				}
-
-				$templates .= ")\";\r\n";
-			}
-
-			unset($firstrow);
-			$templates .= "\r\n";
-		}
-
-		return $templates . '?>';
 	}
 
 	/**

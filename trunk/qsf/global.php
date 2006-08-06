@@ -52,7 +52,6 @@ class qsfglobal
 	var $mainfile = 'index.php';	  // Combined with set['loc_of_board'] to make full url
 	var $db;                          // Database object @var object
 	var $perms;                       // Permissions object @var object
-	var $pre;                         // Database table prefix @var string
 	var $skin;                        // The user's selected skin @var string
 	var $table;                       // Start to an HTML table @var string
 	var $etable;                      // End to an HTML table @var string
@@ -82,10 +81,7 @@ class qsfglobal
 		$this->db      = $db;
 		$this->time    = time();
 		$this->query   = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : null;
-		if($db)
-			$this->ip = $this->db->escape($_SERVER['REMOTE_ADDR']);
-		else
-			$this->ip = "127.0.0.1";
+		$this->ip      = $_SERVER['REMOTE_ADDR'];
 		$this->agent   = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
 		$this->agent   = substr($this->agent, 0, 99); // Cut off after 100 characters.
 		$this->self    = $_SERVER['PHP_SELF'];
@@ -96,13 +92,11 @@ class qsfglobal
 		$this->files   = $_FILES;
 		$this->query   = htmlspecialchars($this->query);
 
-		// Do all magic quote stuff here
-		if($db)
-			$this->agent = $this->db->escape($this->agent);
-		if (!get_magic_quotes_gpc()) {
-			$this->set_magic_quotes_gpc($this->get);
-			$this->set_magic_quotes_gpc($this->post);
-			$this->set_magic_quotes_gpc($this->cookie);
+		// Undo any magic quote slashes!
+		if (get_magic_quotes_gpc()) {
+			$this->unset_magic_quotes_gpc($this->get);
+			$this->unset_magic_quotes_gpc($this->post);
+			$this->unset_magic_quotes_gpc($this->cookie);
 		}
 	}
 	
@@ -129,7 +123,8 @@ class qsfglobal
 			$tz = new $this->modules['timezone']('timezone/'.$this->user['zone_name']);
 			$tz->magic2();
 			if (strlen($tz->abba)<1) $tz->abba='N/A';
-			$this->db->query("UPDATE {$this->pre}timezones SET zone_offset={$tz->gmt_offset}, zone_updated={$tz->next_update}, zone_abbrev='{$tz->abba}' WHERE zone_id={$this->user['zone_id']};");
+			$this->db->query("UPDATE %ptimezones SET zone_offset=%d, zone_updated=%d, zone_abbrev='%s' WHERE zone_id=%d",
+				$tz->gmt_offset, $tz->next_update, $tz->abba, $this->user['zone_id']);
 		} else {
 			$this->tz_adjust = $this->user['zone_offset'];
 		}
@@ -340,7 +335,7 @@ class qsfglobal
 			'user_level' => '0'
 		);
 
-		$titles = $this->db->query("SELECT * FROM {$this->pre}membertitles WHERE membertitle_posts <= $posts ORDER BY membertitle_posts");
+		$titles = $this->db->query("SELECT * FROM %pmembertitles WHERE membertitle_posts <= %d ORDER BY membertitle_posts", $posts);
 
 		while ($title = $this->db->nqfetch($titles))
 		{
@@ -402,7 +397,8 @@ class qsfglobal
 	 **/
 	function get_messages($seen = false, $folder = 0)
 	{
-		$count = $this->db->fetch("SELECT COUNT(pm_id) AS messages FROM {$this->pre}pmsystem WHERE pm_to={$this->user['user_id']} AND pm_folder=$folder" . (!$seen ? " AND pm_read=0" : null));
+		$count = $this->db->fetch("SELECT COUNT(pm_id) AS messages FROM %ppmsystem WHERE pm_to=%d AND pm_folder=%d" . (!$seen ? " AND pm_read=0" : null),
+			$this->user['user_id'], $folder);
 		return $count['messages'];
 	}
 
@@ -415,7 +411,7 @@ class qsfglobal
 	 **/
 	function get_settings($sets)
 	{
-		$settings = $this->db->fetch("SELECT settings_data FROM {$this->pre}settings LIMIT 1");
+		$settings = $this->db->fetch("SELECT settings_data FROM %psettings LIMIT 1");
 
 		return array_merge($sets, unserialize($settings['settings_data']));
 	}
@@ -570,25 +566,19 @@ class qsfglobal
 	}
 
 	/**
-	 * Sets magic_quotes_gpc to on
+	 * Sets magic_quotes_gpc to off
 	 *
-	 * @param array $array Array to $this->db->escape()
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since Beta 4.0
-	 * @return void
+	 * @param array $array Array to stripslashes
 	 **/
-	function set_magic_quotes_gpc(&$array)
+	function unset_magic_quotes_gpc(&$array)
 	{
 		$keys = array_keys($array);
 		for($i = 0; $i < count($array); $i++)
 		{
 			if (is_array($array[$keys[$i]])) {
-				$this->set_magic_quotes_gpc($array[$keys[$i]]);
+				$this->unset_magic_quotes_gpc($array[$keys[$i]]);
 			} else {
-				if($this->db)
-					$array[$keys[$i]] = $this->db->escape($array[$keys[$i]]);
-				else
-					$array[$keys[$i]] = addslashes($array[$keys[$i]]);
+				$array[$keys[$i]] = stripslashes($array[$keys[$i]]);
 			}
 		}
 	}
@@ -718,8 +708,7 @@ class qsfglobal
 			}
 		}
 
-		$sets = $this->db->escape(serialize($sets));
-		$this->db->query("UPDATE {$this->pre}settings SET settings_data='$sets'");
+		$this->db->query("UPDATE %psettings SET settings_data='%s'", serialize($sets));
 	}
 	
 	/* Forum utility functions */
@@ -734,15 +723,15 @@ class qsfglobal
 	function RecountForums()
 	{
 		// Recount all topics and posts - NiteShdw
-		$q = $this->db->query("SELECT topic_id, COUNT(post_id) AS replies FROM {$this->pre}topics, {$this->pre}posts WHERE post_topic=topic_id GROUP BY topic_id");
+		$q = $this->db->query("SELECT topic_id, COUNT(post_id) AS replies FROM %ptopics, %pposts WHERE post_topic=topic_id GROUP BY topic_id");
 		
 		while ($f = $this->db->nqfetch($q))
 		{
 			$treplies = $f['replies'] - 1;
-			$this->db->query("UPDATE {$this->pre}topics SET topic_replies={$treplies} WHERE topic_id={$f['topic_id']}");
+			$this->db->query("UPDATE %ptopics SET topic_replies=%d WHERE topic_id=%d", $treplies, $f['topic_id']);
 		}
 
-		$q = $this->db->query("SELECT forum_id FROM {$this->pre}forums WHERE forum_parent = 0");
+		$q = $this->db->query("SELECT forum_id FROM %pforums WHERE forum_parent = 0");
 		$this->sets['posts'] = 0;
 		$this->sets['topics'] = 0;
 
@@ -755,6 +744,7 @@ class qsfglobal
 		}
 
 		$this->write_sets();
+		// TODO: Use a translatable string
 		return "Recounted forums! Total topics: {$this->sets['topics']}. Total posts: {$this->sets['posts']}.";
 	}
 	
@@ -775,7 +765,7 @@ class qsfglobal
 		$lastPost = 0;
 		
 		// Check for subforums
-		$q = $this->db->query("SELECT forum_id FROM {$this->pre}forums WHERE forum_parent=$forum");
+		$q = $this->db->query("SELECT forum_id FROM %pforums WHERE forum_parent=%d", $forum);
 		while ($f = $this->db->nqfetch($q))
 		{
 			$results = $this->countTopicsAndReplies($f['forum_id']);
@@ -788,16 +778,15 @@ class qsfglobal
 		}
 		
 		// Count topics on this forum
-		$tc = $this->db->fetch('SELECT COUNT(topic_id) tc 
-				FROM ' . $this->pre . 'topics 
-				WHERE NOT(topic_modes & ' . TOPIC_MOVED . ') AND topic_forum=' . $forum);
+		$tc = $this->db->fetch('SELECT COUNT(topic_id) tc FROM %ptopics 
+				WHERE NOT(topic_modes & %d) AND topic_forum=%d', TOPIC_MOVED, $forum);
 		$rc = $this->db->fetch('SELECT COUNT(p.post_id) rc
-				FROM ' . $this->pre . 'posts p, ' . $this->pre . 'topics t 
-				WHERE p.post_topic=t.topic_id AND topic_forum=' . $forum);
+				FROM %pposts p, %ptopics t 
+				WHERE p.post_topic=t.topic_id AND topic_forum=%d', $forum);
 		$lp = $this->db->fetch('SELECT p.post_time pt, p.post_id post
-				FROM ' . $this->pre . 'posts p, ' . $this->pre . 'topics t 
-				WHERE p.post_topic=t.topic_id AND topic_forum=' . $forum . '
-				ORDER BY p.post_time DESC LIMIT 1');
+				FROM %pposts p, %ptopics t 
+				WHERE p.post_topic=t.topic_id AND topic_forum=%d
+				ORDER BY p.post_time DESC LIMIT 1', $forum);
 		
 		$topicCount += $tc['tc'];
 		$replyCount += $rc['rc'];
@@ -807,8 +796,9 @@ class qsfglobal
 		}
 		
 		// Update the details
-		$this->db->query("UPDATE {$this->pre}forums SET forum_replies='" . ($replyCount - $topicCount) . "',
-				forum_topics='{$topicCount}', forum_lastpost='{$lastPost}' WHERE forum_id='{$forum}'");
+		$this->db->query("UPDATE %pforums SET forum_replies=%d,
+				forum_topics=%d, forum_lastpost=%d WHERE forum_id=%d",
+				$replyCount - $topicCount, $topicCount, $lastPost, $forum);
 		
 		return array('topics' => $topicCount, 'replies' => $replyCount, 'lastPost' => $lastPost, 'lastPostTime' => $lastPostTime);
 	}
@@ -825,7 +815,7 @@ class qsfglobal
 		$forumTree = array();
 		
 		// Build tree structure of 'id' => 'parent' structure
-		$q = $this->db->query("SELECT forum_id, forum_parent FROM {$this->pre}forums ORDER BY forum_parent");
+		$q = $this->db->query("SELECT forum_id, forum_parent FROM %pforums ORDER BY forum_parent");
 		
 		while ($f = $this->db->nqfetch($q))
 		{
@@ -835,7 +825,7 @@ class qsfglobal
 		}
 		
 		// Run through group
-		$q = $this->db->query("SELECT forum_parent FROM {$this->pre}forums GROUP BY forum_parent");
+		$q = $this->db->query("SELECT forum_parent FROM %pforums GROUP BY forum_parent");
 
 		while ($f = $this->db->nqfetch($q))
 		{
@@ -845,7 +835,7 @@ class qsfglobal
 				$tree = '';
 			}
 		
-			$this->db->query("UPDATE {$this->pre}forums SET forum_tree='$tree' WHERE forum_parent={$f['forum_parent']}");
+			$this->db->query("UPDATE %pforums SET forum_tree='%s' WHERE forum_parent=%d", $tree, $f['forum_parent']);
 		}
 	}
 	

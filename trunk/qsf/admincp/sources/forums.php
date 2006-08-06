@@ -48,7 +48,7 @@ class forums extends admin
 			$this->get['s'] = '';
 		}
 
-		$forums_exist = $this->db->fetch('SELECT COUNT(forum_id) AS count FROM ' . $this->pre . 'forums');
+		$forums_exist = $this->db->fetch('SELECT COUNT(forum_id) AS count FROM %pforums');
 
 		if (!$forums_exist['count'] && ($this->get['s'] != 'add')) {
 			return $this->message($this->lang->forum_controls, $this->lang->forum_none, $this->lang->forum_create, "$this->self?a=forums&amp;s=add");
@@ -60,7 +60,7 @@ class forums extends admin
 			$this->set_title($this->lang->forum_edit);
 
 			if (isset($this->get['id'])) {
-				$f = $this->db->fetch("SELECT forum_name, forum_description, forum_parent, forum_subcat FROM {$this->pre}forums WHERE forum_id='{$this->get['id']}'");
+				$f = $this->db->fetch("SELECT forum_name, forum_description, forum_parent, forum_subcat FROM %pforums WHERE forum_id=%d", $this->get['id']);
 
 				$this->tree('Edit a Forum', "{$this->self}?a=forums&amp;s=edit");
 				$this->tree($f['forum_name']);
@@ -81,7 +81,7 @@ class forums extends admin
 			$this->set_title($this->lang->forum_delete);
 
 			if (isset($this->get['id'])) {
-				$f = $this->db->fetch("SELECT forum_name FROM {$this->pre}forums WHERE forum_id=" . intval($this->get['id']));
+				$f = $this->db->fetch("SELECT forum_name FROM %pforums WHERE forum_id=%d", intval($this->get['id']));
 
 				$this->tree('Delete a Forum', "{$this->self}?a=forums&amp;s=delete");
 				$this->tree($f['forum_name']);
@@ -193,18 +193,18 @@ class forums extends admin
 
 		$topics = null;
 
-		$query = $this->db->query("SELECT topic_id FROM {$this->pre}topics WHERE topic_forum=$id");
+		$query = $this->db->query("SELECT topic_id FROM %ptopics WHERE topic_forum=%d", $id);
 		while ($data = $this->db->nqfetch($query))
 		{
 			$topics .= "post_topic={$data['topic_id']} OR ";
 		}
 
 		if ($topics) {
-			$this->db->query("DELETE FROM {$this->pre}posts WHERE " . substr($topics, 0, -4));
-			$this->db->query("DELETE FROM {$this->pre}topics WHERE topic_forum=$id");
+			$this->db->query("DELETE FROM %pposts WHERE " . substr($topics, 0, -4));
+			$this->db->query("DELETE FROM %ptopics WHERE topic_forum=%d", $id);
 		}
 
-		$this->db->query("DELETE FROM {$this->pre}forums WHERE forum_id=$id");
+		$this->db->query("DELETE FROM %pforums WHERE forum_id=%d", $id);
 
 		$perms = new $this->modules['permissions']($this);
 
@@ -245,14 +245,10 @@ class forums extends admin
 			return $this->message($this->lang->forum_edit, $this->lang->forum_parent);
 		}
 
-		$this->db->query("
-		UPDATE {$this->pre}forums SET
-		  forum_parent={$this->post['parent']},
-		  forum_name='{$this->post['name']}',
-		  forum_description='{$this->post['description']}',
-		  forum_subcat='{$subcat}'
-		WHERE
-		  forum_id=$id");
+		$this->db->query("UPDATE %pforums SET
+			  forum_parent=%d, forum_name='%s', forum_description='%s', forum_subcat='%s'
+			  WHERE forum_id=%d",
+			  $this->post['parent'], $this->post['name'], $this->post['description'], $subcat, $id);
 
 		$this->updateForumTrees();
 
@@ -278,11 +274,13 @@ class forums extends admin
 		$position   = $forums_arr ? count($forums_arr) : 0;
 		$subcat     = isset($this->post['subcat']) ? 1 : 0;
 
-		$this->db->query("INSERT INTO {$this->pre}forums
-		(forum_tree, forum_parent, forum_name, forum_description, forum_position, forum_subcat) VALUES
-		('" . $this->CreateTree($forums, $this->post['parent']) . "', '{$this->post['parent']}', '{$this->post['name']}', '{$this->post['description']}', '$position', '$subcat')");
+		$this->db->query("INSERT INTO %pforums
+			(forum_tree, forum_parent, forum_name, forum_description, forum_position, forum_subcat) VALUES
+			('%s', '%s', '%s', '%s', '%s', '%s')",
+			$this->CreateTree($forums, $this->post['parent']),
+			$this->post['parent'], $this->post['name'], $this->post['description'], $position, $subcat);
 
-		$id = $this->db->insert_id("{$this->pre}forums");
+		$id = $this->db->insert_id("forums");
 
 		$perms = new $this->modules['permissions']($this);
 
@@ -327,10 +325,11 @@ class forums extends admin
 	 **/
 	function OrderUpdate()
 	{
-		$q = $this->db->query("SELECT forum_id FROM {$this->pre}forums ORDER BY forum_id ASC");
+		$q = $this->db->query("SELECT forum_id FROM %pforums ORDER BY forum_id ASC");
 		while ($f = $this->db->nqfetch($q))
 		{
-			$this->db->query("UPDATE {$this->pre}forums SET forum_position='{$this->post["_{$f['forum_id']}"]}' WHERE forum_id='{$f['forum_id']}'");
+			$this->db->query("UPDATE %pforums SET forum_position='%s' WHERE forum_id=%d",
+				$this->post["_{$f['forum_id']}"], $f['forum_id']);
 		}
 		return $this->lang->forum_ordered;
 	}

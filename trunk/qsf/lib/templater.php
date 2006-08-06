@@ -93,11 +93,17 @@ class templater extends htmltools
 	function get_templates($a, $getMain = true, $getAdmin = false)
 	{
 		if ($getMain) {
-			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND (template_set='Main' OR template_set='$a')");
+			$temp_query = $this->db->query("SELECT template_name, template_html FROM %ptemplates
+				WHERE template_skin='%s' AND (template_set='Main' OR template_set='%s')",
+				$this->skin, $a);
 		} elseif ($getAdmin) {
-			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND (template_set='Admin' OR template_set='$a')");
+			$temp_query = $this->db->query("SELECT template_name, template_html FROM %ptemplates
+				WHERE template_skin='%s' AND (template_set='Admin' OR template_set='%s')",
+				$this->skin, $a);
 		} else {
-			$temp_query = $this->db->query("SELECT template_name, template_html FROM {$this->pre}templates WHERE template_skin='$this->skin' AND template_set='$a'");
+			$temp_query = $this->db->query("SELECT template_name, template_html FROM %ptemplates
+				WHERE template_skin='%s' AND template_set='%s'",
+				$this->skin, $a);
 		}
 
 		while ($template = $this->db->nqfetch($temp_query))

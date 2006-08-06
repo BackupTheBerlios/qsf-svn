@@ -1,5 +1,5 @@
 -------------------------------
-== Quicksilver Forums v1.2.1 ==
+== Quicksilver Forums v1.2.2 ==
 -------------------------------
 
 === Installation ===
@@ -13,6 +13,7 @@
     ./databases/
     ./skins/
     ./stats/
+    ./packages/
     ./settings.php
 
  3. Go to the install directory in your browser

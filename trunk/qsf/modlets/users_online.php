@@ -128,7 +128,9 @@ class users_online extends modlet
 		$which_day = gmdate("d F Y", $this->qsf->time + $this->qsf->tz_adjust);
 		$today_date = strtotime("$which_day");
 
-		$query = $this->qsf->db->query( "SELECT user_id, user_name, user_lastvisit FROM {$this->qsf->pre}users WHERE user_lastvisit >= '$today_date' AND user_name NOT LIKE 'Guest' ORDER BY user_name" );
+		$query = $this->qsf->db->query( "SELECT user_id, user_name, user_lastvisit FROM %pusers
+			WHERE user_lastvisit >= %d AND user_name NOT LIKE 'Guest' ORDER BY user_name",
+			$today_date);
 
 		$count_users = $this->qsf->db->num_rows($query);
 		$user_names = '';

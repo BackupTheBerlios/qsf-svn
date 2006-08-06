@@ -46,13 +46,14 @@ class db_mysql extends database
 	 * @param string $db_name Database Name
 	 * @param int $db_port Database Port
 	 * @param string $db_socket Database Socket
+	 * @param string $db_prefix Prefix applied to all database queries
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return void
 	 **/
-	function db_mysql($db_host, $db_user, $db_pass, $db_name, $db_port = 3306, $db_socket = '')
+	function db_mysql($db_host, $db_user, $db_pass, $db_name, $db_port = 3306, $db_socket = '', $db_prefix)
 	{
-		parent::database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket);
+		parent::database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket, $db_prefix);
 		$this->socket = $db_socket;
 
 		$this->connection = @mysql_connect("$db_host:$db_port" . (!$this->socket ? '' : ":$db_socket"), $db_user, $db_pass, true);
@@ -75,7 +76,8 @@ class db_mysql extends database
 	{
 		$data = array();
 		if (substr(trim(strtoupper($query)), 0, 6) == 'SELECT') {
-			$data = $this->fetch("EXPLAIN $query", false);
+			$result = mysql_query("EXPLAIN $query", $this->connection) or error(QUICKSILVER_QUERY_ERROR, mysql_error($this->connection), $query, mysql_errno($this->connection));
+			$data = mysql_fetch_array($result, MYSQL_ASSOC);
 		}
 		return $data;
 	}
@@ -97,19 +99,27 @@ class db_mysql extends database
 	 * Executes a query
 	 *
 	 * @param string $query SQL query
-	 * @param bool $debug False allows the query to not show in debug page
+	 * @param string $args Data to pass into query as escaped strings
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return resource Executed query
 	 **/
-	function query($query, $debug=true)
+	function query($query)
 	{
-		$this->querycount++;
-
-		if (isset($this->get['debug']) && $debug) {
-			$this->debug($query);
+		$args = array();
+		if (is_array($query)) {
+			$args = $query; // only use arg 1
+		} else {
+			$args  = func_get_args();
 		}
 
+		$query = $this->_format_query($args);
+		
+		$this->querycount++;
+
+		if (isset($this->get['debug'])) {
+			$this->debug($query);
+		}
 		$result = mysql_query($query, $this->connection) or error(QUICKSILVER_QUERY_ERROR, mysql_error($this->connection), $query, mysql_errno($this->connection));
 		return $result;
 	}

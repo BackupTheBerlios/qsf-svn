@@ -67,15 +67,15 @@ class board extends qsfglobal
 		}
 
 		$query = $this->db->query("
-		SELECT
-		    f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
-		    t.topic_id as LastTopicID, t.topic_title as user_lastpost, t.topic_edited as LastTime, t.topic_replies,
-			m.user_name as user_lastposter, m.user_id as user_lastposterID
-		FROM {$this->pre}forums f
-		LEFT JOIN {$this->pre}posts p ON p.post_id = f.forum_lastpost
-		LEFT JOIN {$this->pre}topics t ON t.topic_id = p.post_topic
-		LEFT JOIN {$this->pre}users m ON m.user_id = p.post_author
-		ORDER BY f.forum_parent, f.forum_position");
+			SELECT
+				f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
+				t.topic_id as LastTopicID, t.topic_title as user_lastpost, t.topic_edited as LastTime, t.topic_replies,
+				m.user_name as user_lastposter, m.user_id as user_lastposterID
+			FROM %pforums f
+			LEFT JOIN %pposts p ON p.post_id = f.forum_lastpost
+			LEFT JOIN %ptopics t ON t.topic_id = p.post_topic
+			LEFT JOIN %pusers m ON m.user_id = p.post_author
+			ORDER BY f.forum_parent, f.forum_position");
 
 		$_forums = array();
 

@@ -47,15 +47,15 @@ $need_templates = array(
 // $new_permissions['new_perm'] = true;
 
 // Queries to run
-$queries[] = "ALTER TABLE {$pre}users ADD user_posts_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
-$queries[] = "ALTER TABLE {$pre}users ADD user_topics_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
+$queries[] = "ALTER TABLE %pusers ADD user_posts_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
+$queries[] = "ALTER TABLE %pusers ADD user_topics_page tinyint(2) unsigned NOT NULL DEFAULT '0' AFTER user_view_emoticons";
 
 // New Timezones
-$queries[] = "INSERT INTO {$pre}timezones VALUES (387, 'America/North_Dakota/New_Salem', 'CST', -18000, 1143961200)";
+$queries[] = "INSERT INTO %ptimezones VALUES (387, 'America/North_Dakota/New_Salem', 'CST', -18000, 1143961200)";
 
 // Required update for topic_last_post setting
-$db->query( "ALTER TABLE {$pre}topics ADD topic_last_post int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_starter" );
-$query = $db->query( "SELECT * FROM {$pre}topics" );
+$db->query( "ALTER TABLE %ptopics ADD topic_last_post int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_starter" );
+$query = $db->query( "SELECT * FROM %ptopics" );
 while( $row = $db->nqfetch($query) )
 {
 	// Ripped the code from update_last_post_topic in mod.php for this.
@@ -63,8 +63,8 @@ while( $row = $db->nqfetch($query) )
 	SELECT
 		p.post_id, p.post_author, p.post_time
 	FROM
-		{$pre}posts p,
-		{$pre}topics t
+		%pposts p,
+		%ptopics t
 	WHERE
 		p.post_topic=t.topic_id AND
 		t.topic_id={$row['topic_id']}
@@ -72,6 +72,6 @@ while( $row = $db->nqfetch($query) )
 		p.post_time DESC
 	LIMIT 1");
 
-	$db->query("UPDATE {$pre}topics SET topic_last_post={$last['post_id']}, topic_last_poster={$last['post_author']}, topic_edited={$last['post_time']} WHERE topic_id={$row['topic_id']}");
+	$db->query("UPDATE %ptopics SET topic_last_post={$last['post_id']}, topic_last_poster={$last['post_author']}, topic_edited={$last['post_time']} WHERE topic_id={$row['topic_id']}");
 }
 ?>

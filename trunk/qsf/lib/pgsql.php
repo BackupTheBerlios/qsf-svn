@@ -44,13 +44,14 @@ class db_pgsql extends database
 	 * @param string $db_name Database Name
 	 * @param int $db_port Database Port
 	 * @param string $db_socket unused
+	 * @param string $db_prefix Prefix applied to all database queries
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 1.1.9
 	 * @return void
 	 **/
-	function db_pgsql($db_host, $db_user, $db_pass, $db_name, $db_port = 5432, $db_socket)
+	function db_pgsql($db_host, $db_user, $db_pass, $db_name, $db_port = 5432, $db_socket, $db_prefix)
 	{
-		parent::database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket);
+		parent::database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket, $db_prefix);
 		$pg_connstr = "host=$db_host port=$db_port dbname=$db_name user=$db_user password=$db_pass";
 
 		$this->connection = @pg_connect($pg_connstr);
@@ -69,7 +70,19 @@ class db_pgsql extends database
 	{
 		$data = array();
 		if (substr(trim(strtoupper($query)), 0, 6) == 'SELECT') {
-			$data = $this->fetch("EXPLAIN $query");
+			if (!pg_send_query($this->connection, "EXPLAIN $query"))
+			{
+				$err = pg_get_result($this->connection);
+				error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
+			} else {
+				$result = pg_get_result($this->connection);
+	
+				if (false === $this->last)
+				{
+					error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
+				}
+			}
+			$data = pg_fetch_array($result);;
 		}
 		return $data;
 	}
@@ -78,14 +91,14 @@ class db_pgsql extends database
 	/**
 	 * Retrieves the insert ID of the last executed query
 	 *
-	 * @param string $table Table name - unused
+	 * @param string $table Table name
 	 * @author Geoffrey Dunn <geoff@wwarmage.com>
 	 * @since 1.1.9
 	 * @return int Insert ID
 	 **/
 	function insert_id($table)
 	{
-		$results = $this->fetch("select currval('{$table}_seq') last_id");
+		$results = $this->fetch("select currval('{$this->prefix}{$table}_seq') last_id");
 		return $results['last_id'];
 	}
 
@@ -93,16 +106,18 @@ class db_pgsql extends database
 	 * Executes a query
 	 *
 	 * @param string $query SQL query
-	 * @param bool $debug False allows the query to not show in debug page
+	 * @param string $args Data to pass into query as escaped strings
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 1.1.9
 	 * @return resource Executed query
 	 **/
-	function query($query, $debug=true)
+	function query($query)
 	{
 		$this->querycount++;
 
-		if (isset($this->get['debug']) && $debug) {
+		$query = $this->_format_query(func_get_args());
+
+		if (isset($this->get['debug'])) {
 			$this->debug($query);
 		}
 
@@ -159,6 +174,18 @@ class db_pgsql extends database
 	function aff_rows()
 	{
 		return pg_affected_rows($this->last);
+	}
+
+	/**
+	 * Returns a escaped string
+	 *
+	 * @since 1.2.2
+	 * @return string A string with the quotes and other charaters escaped
+	 * @param string $string The string to escape
+	 **/
+	function escape($string)
+	{
+		return pg_escape_string($string);
 	}
 }
 ?>

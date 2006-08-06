@@ -64,7 +64,9 @@ class titles extends admin
 					return $this->message($this->lang->titles_control, $this->lang->titles_error);
 				}
 
-				$this->db->query("INSERT INTO {$this->pre}membertitles (membertitle_title, membertitle_icon, membertitle_posts) VALUES ('{$this->post['new_title']}', '{$this->post['new_icon']}', " . intval($this->post['new_posts']) . ')');
+				$this->db->query("INSERT INTO %pmembertitles (membertitle_title, membertitle_icon, membertitle_posts)
+					VALUES ('%s', '%s', %d)",
+					$this->post['new_title'], $this->post['new_icon'],  intval($this->post['new_posts']));
 				$this->update_titles();
 
 				return $this->message($this->lang->titles_add, $this->lang->titles_added);
@@ -83,7 +85,7 @@ class titles extends admin
 			}
 
 			if (isset($this->get['delete'])) {
-				$this->db->query("DELETE FROM {$this->pre}membertitles WHERE membertitle_id=" . intval($this->get['delete']));
+				$this->db->query("DELETE FROM %pmembertitles WHERE membertitle_id=%d", intval($this->get['delete']));
 				$this->update_titles();
 			}
 
@@ -94,13 +96,14 @@ class titles extends admin
 			}
 
 			if (isset($this->post['submit']) && (trim($this->post['new_posts']) != '') && (trim($this->post['new_title']) != '')) {
-				$this->db->query("UPDATE {$this->pre}membertitles SET membertitle_title='{$this->post['new_title']}', membertitle_posts=" . intval($this->post['new_posts']) . ", membertitle_icon='{$this->post['new_icon']}' WHERE membertitle_id={$this->get['edit']}");
+				$this->db->query("UPDATE %pmembertitles SET membertitle_title='%s', membertitle_posts=%d, membertitle_icon='%s' WHERE membertitle_id=%d",
+					$this->post['new_title'], intval($this->post['new_posts']), $this->post['new_icon'], $this->get['edit']);
 				$this->get['edit'] = null;
 
 				$this->update_titles();
 			}
 
-			$query = $this->db->query("SELECT * FROM {$this->pre}membertitles");
+			$query = $this->db->query("SELECT * FROM %pmembertitles");
 			while ($data = $this->db->nqfetch($query))
 			{
 				$class = $this->iterate();
@@ -149,22 +152,25 @@ class titles extends admin
 
 	function update_titles()
 	{
-		$titles = $this->db->query("SELECT * FROM {$this->pre}membertitles ORDER BY membertitle_posts");
+		$titles = $this->db->query("SELECT * FROM %pmembertitles ORDER BY membertitle_posts");
 		$last_count = 0;
 		$last_level = 0;
 		$last_title = '';
 
 		while ($title = $this->db->nqfetch($titles))
 		{
-			$this->db->query("UPDATE {$this->pre}users SET user_title='$last_title', user_level='$last_level' WHERE (user_title_custom = 0) AND (user_posts >= $last_count) AND (user_posts < {$title['membertitle_posts']})");
+			$this->db->query("UPDATE %pusers SET user_title='%s', user_level='%s'
+				WHERE (user_title_custom = 0) AND (user_posts >= %d) AND (user_posts < %d)",
+				$last_title, $last_level, $last_count, $title['membertitle_posts']);
 
 			$last_count = $title['membertitle_posts'];
 			$last_level = $title['membertitle_id'];
-			$last_title = addslashes($title['membertitle_title']);
 		}
 
 		// We need this to take care of the users who have more posts than are set by any title
-		$this->db->query("UPDATE {$this->pre}users SET user_title='$last_title', user_level='$last_level' WHERE (user_title_custom = 0) AND (user_posts >= $last_count)");
+		$this->db->query("UPDATE %pusers SET user_title='%d', user_level='%s'
+			WHERE (user_title_custom = 0) AND (user_posts >= %d)",
+			$last_title, $last_level, $last_count);
 	}
 }
 ?>

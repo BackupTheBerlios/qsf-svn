@@ -119,9 +119,9 @@ class readmarker extends forumutils
 			}
 			setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
 		} else {
-			$this->db->query("UPDATE {$this->pre}users SET user_lastallread=$time WHERE user_id={$this->user_id}");
-			$this->db->query("DELETE FROM {$this->pre}readmarks 
-				WHERE readmark_user={$this->user_id} AND readmark_lastread<$time");
+			$this->db->query("UPDATE %pusers SET user_lastallread=%s WHERE user_id=%d", $time, $this->user_id);
+			$this->db->query("DELETE FROM %preadmarks 
+				WHERE readmark_user=%d AND readmark_lastread<%d", $this->user_id, $time);
 		}
 		$this->readmarkers_loaded = false;
 	}
@@ -148,9 +148,9 @@ class readmarker extends forumutils
 			} else {
 				$this->_load_readmarkers();
 				if (!isset($this->readmarkers[$topic_id]) || $this->readmarkers[$topic_id] < $time) {
-					$this->db->query("REPLACE INTO {$this->pre}readmarks
+					$this->db->query("REPLACE INTO %preadmarks
 						(readmark_user, readmark_topic, readmark_lastread)
-						VALUES ({$this->user_id}, {$topic_id}, {$time})");
+						VALUES (%d, %d, %d)", $this->user_id, $topic_id, $time);
 					$this->readmarkers[$topic_id] = $time;
 				}
 				
@@ -281,7 +281,7 @@ class readmarker extends forumutils
 	{
 		if (!$this->readmarkers_loaded) {
 			$this->readmarkers = array();
-			$query = $this->db->query("SELECT * FROM {$this->pre}readmarks WHERE readmark_user={$this->user_id}");
+			$query = $this->db->query("SELECT * FROM %preadmarks WHERE readmark_user=%d", $this->user_id);
 			while ($mark = $this->db->nqfetch($query))
 			{
 				$this->readmarkers[$mark['readmark_topic']] = $mark['readmark_lastread'];
@@ -304,8 +304,8 @@ class readmarker extends forumutils
 		if (!$this->forum_topics_loaded)
 		{
 			/* find all topics since we pressed mark all read */
-			$query = $this->db->query("SELECT topic_id, topic_edited, topic_forum FROM {$this->pre}topics
-			   WHERE topic_edited > {$this->last_read_all}");
+			$query = $this->db->query("SELECT topic_id, topic_edited, topic_forum FROM %ptopics
+			   WHERE topic_edited > %d", $this->last_read_all);
 
 			/* read all the records*/
 			while ($row = $this->db->nqfetch($query))
@@ -338,8 +338,9 @@ class readmarker extends forumutils
 	{
 		$readable_forums = $this->create_forum_permissions_string();
 		// Find the OLDEST unread post
-		$query = $this->db->query("SELECT topic_id, topic_edited FROM {$this->pre}topics
-			WHERE topic_edited > {$this->last_read_all} AND topic_forum IN $readable_forums");
+		$query = $this->db->query("SELECT topic_id, topic_edited FROM %ptopics
+			WHERE topic_edited > %d AND topic_forum IN (%s)",
+			$this->last_read_all, $readable_forums);
 		
 		$oldest_time = $this->time;
 		while ($row = $this->db->nqfetch($query))

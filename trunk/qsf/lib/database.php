@@ -37,6 +37,7 @@ class database
 	var $pass;               // Database Password @var string
 	var $db;                 // Database Name @var string
 	var $port = 3306;        // Database Port @var int
+	var $prefix = 'qsf_';    // Database Table Prefix @var string
 
 	/**
 	 * Constructor; sets up variables and connection
@@ -47,11 +48,12 @@ class database
 	 * @param string $db_name Database Name
 	 * @param int $db_port Database Port
 	 * @param string $db_socket Database Socket
+	 * @param string $db_prefix Prefix applied to all database queries
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return void
 	 **/
-	function database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket)
+	function database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket, $db_prefix)
 	{
 		$this->get    = $_GET;
 		$this->post   = $_POST;
@@ -119,10 +121,9 @@ class database
 	 * Interface version
 	 *
 	 * @param string $query SQL query
-	 * @param bool $debug False allows the query to not show in debug page
 	 * @return resource Executed query
 	 **/
-	function query($query, $debug=true)
+	function query($query)
 	{
 		return null;
 	}
@@ -131,14 +132,21 @@ class database
 	 * Executes a query and fetches it into an array
 	 *
 	 * @param string $query SQL query
-	 * @param bool $debug False allows the query to not show in debug page
+	 * @param string $args Data to pass into query as escaped strings
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return array Fetched rows
 	 **/
-	function fetch($query, $debug=true)
+	function fetch($query)
 	{
-		return $this->nqfetch($this->query($query, $debug));
+		$args = array();
+		if (is_array($query)) {
+			$args = $query; // only use arg 1
+		} else {
+			$args  = func_get_args();
+		}
+		
+		return $this->nqfetch($this->query($args));
 	}
 
 	/**
@@ -180,7 +188,7 @@ class database
 		$cols = null;
 		$vals = null;
 
-		$result = $this->fetch('SELECT * FROM ' . $table . ' WHERE ' . $unique_col . '=' . $unique_id);
+		$result = $this->fetch('SELECT * FROM %p' . $table . ' WHERE ' . $unique_col . '=' . $unique_id);
 		foreach ($result as $col => $val)
 		{
 			if ($col == $unique_col) {
@@ -188,10 +196,10 @@ class database
 			}
 
 			$cols .= $col . ', ';
-			$vals .= '"' . addslashes($val) . '", ';
+			$vals .= '"' . $this->escape($val) . '", ';
 		}
 
-		$this->query('INSERT INTO ' . $table . ' (' . substr($cols, 0, -2) . ') VALUES (' . substr($vals, 0, -2) . ')');
+		$this->query('INSERT INTO %p' . $table . ' (' . substr($cols, 0, -2) . ') VALUES (' . substr($vals, 0, -2) . ')');
 	}
 
 	/**
@@ -204,5 +212,46 @@ class database
 	{
 		return 0;
 	}
+	
+	/**
+	 * Returns a escaped string
+	 *
+	 * @since 1.2.2
+	 * @return string A string with the quotes and other charaters escaped
+	 * @param string $string The string to escape
+	 **/
+	function escape($string)
+	{
+		return addslashes($string);
+	}
+	
+	/**
+	 * Puts the data into the query using the escape function
+	 *
+	 * @param string $query SQL query
+	 * @param string $args Data to pass into query as escaped strings
+	 * @return string Formatted query
+	 **/
+	function _format_query($query)
+	{
+		// Format the query string
+		$args = array();
+		if (is_array($query)) {
+			$args = $query; // only use arg 1
+		} else {
+			$args  = func_get_args();
+		}
+		
+		$query = array_shift($args);
+		$query = str_replace('%p', $this->prefix, $query);
+		
+		for($i=0; $i<count($args); $i++) {
+			$args[$i] = $this->escape($args[$i]);
+		}
+		array_unshift($args,$query);
+		
+		return call_user_func_array('sprintf',$args);
+	}
+	
 }
 ?>

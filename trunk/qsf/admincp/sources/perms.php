@@ -69,7 +69,7 @@ class perms extends admin
 		$this->set_title($title);
 		$this->tree($title);
 
-		$forums_only = $this->db->query('SELECT forum_id, forum_name FROM ' . $this->pre . 'forums ORDER BY forum_name');
+		$forums_only = $this->db->query('SELECT forum_id, forum_name FROM %pforums ORDER BY forum_name');
 
 		$forums_list = array();
 		while ($forum = $this->db->nqfetch($forums_only))
@@ -127,10 +127,10 @@ class perms extends admin
 			$count = count($forums_list) + 1;
 
 			if ($mode == 'user') {
-				$query = $this->db->fetch("SELECT user_name, user_perms FROM {$this->pre}users WHERE user_id={$this->post['group']}");
+				$query = $this->db->fetch("SELECT user_name, user_perms FROM %pusers WHERE user_id=%d", $this->post['group']);
 				$label = "User '{$query['user_name']}'";
 			} else {
-				$query = $this->db->fetch("SELECT group_name FROM {$this->pre}groups WHERE group_id={$this->post['group']}");
+				$query = $this->db->fetch("SELECT group_name FROM %pgroups WHERE group_id=%d", $this->post['group']);
 				$label = "Group '{$query['group_name']}'";
 			}
 

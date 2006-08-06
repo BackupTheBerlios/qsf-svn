@@ -69,7 +69,7 @@ class recent extends qsfglobal
 		$forums_str = $this->readmarker->create_forum_permissions_string();
 
 		// Handle the unlikely case where the user cannot view ANY forums
-		if ($forums_str == "()") {
+		if ($forums_str == "") {
 			return $this->message($this->lang->recent_forum, $this->lang->recent_noexist);
 		}
         
@@ -98,13 +98,10 @@ class recent extends qsfglobal
 	 **/
 	function countTopics($forums_str)
 	{
-		$query = $this->db->fetch("
-		
-		SELECT COUNT(topic_id) AS count
-		FROM {$this->pre}topics
-		WHERE
-		    topic_forum IN $forums_str AND
-		    topic_edited >= {$this->user['user_lastvisit']}");
+		$query = $this->db->fetch("SELECT COUNT(topic_id) AS count
+			FROM %ptopics
+			WHERE topic_forum IN (%s) AND topic_edited >= %d",
+			$forums_str, $this->user['user_lastvisit']);
 
 		return $query['count'];
 	}
@@ -123,36 +120,37 @@ class recent extends qsfglobal
 	{
 		$out = null;
 
-		$query = $this->db->query("
-		SELECT
-		    DISTINCT(t.topic_id), p.post_author as dot,
-		    t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
-		    t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
-		    f.forum_id, f.forum_name,
-		    s.user_name AS topic_starter_name,
-			m.user_name AS topic_last_poster_name
-		FROM
-		    ({$this->pre}topics t,
-		    {$this->pre}forums f,
-		    {$this->pre}users m,
-		    {$this->pre}users s)
-		LEFT JOIN {$this->pre}posts p ON (t.topic_id = p.post_topic AND p.post_author = {$this->user['user_id']})
-		LEFT JOIN {$this->pre}readmarks rm ON (t.topic_id = rm.readmark_topic AND rm.readmark_user = {$this->user['user_id']})
-		WHERE
-		    t.topic_forum IN $forums_str AND
-		    (t.topic_edited >= {$this->user['user_lastvisit']} OR
-		     (t.topic_edited >= {$this->user['user_lastallread']} AND
-		      (rm.readmark_lastread IS NULL OR rm.readmark_lastread < t.topic_edited)
-		    )) AND
-		    t.topic_forum = f.forum_id AND
-		    m.user_id = t.topic_last_poster AND
-		    s.user_id = t.topic_starter AND
-		    t.topic_modes & " . TOPIC_MOVED . " = 0
-		ORDER BY
-			(t.topic_modes & " . TOPIC_PINNED . ") DESC,
-		    t.topic_edited DESC
-		LIMIT
-		    $min, $n");
+		$query = $this->db->query("SELECT
+				DISTINCT(t.topic_id), p.post_author as dot,
+				t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
+				t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
+				f.forum_id, f.forum_name,
+				s.user_name AS topic_starter_name,
+				m.user_name AS topic_last_poster_name
+			FROM
+				(%ptopics t,
+				%pforums f,
+				%pusers m,
+				%pusers s)
+			LEFT JOIN %pposts p ON (t.topic_id = p.post_topic AND p.post_author = %d)
+			LEFT JOIN %preadmarks rm ON (t.topic_id = rm.readmark_topic AND rm.readmark_user = %d)
+			WHERE
+				t.topic_forum IN (%s) AND
+				(t.topic_edited >= %d OR
+				 (t.topic_edited >= %d AND
+				  (rm.readmark_lastread IS NULL OR rm.readmark_lastread < t.topic_edited)
+				)) AND
+				t.topic_forum = f.forum_id AND
+				m.user_id = t.topic_last_poster AND
+				s.user_id = t.topic_starter AND
+				t.topic_modes & %d = 0
+			ORDER BY
+				t.topic_modes & %d DESC,
+				t.topic_edited DESC
+			LIMIT
+				%d, %d",
+			$this->user['user_id'], $this->user['user_id'], $forums_str, $this->user['user_lastvisit'],
+			$this->user['user_lastallread'], TOPIC_MOVED, TOPIC_PINNED, $min, $n);
 
 		while ($row = $this->db->nqfetch($query))
 		{

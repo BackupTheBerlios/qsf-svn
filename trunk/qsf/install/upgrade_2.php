@@ -26,8 +26,8 @@ if (!defined('INSTALLER')) {
 
 $need_templates = true;
 
-/* {$pre}active */
-$queries[] = "ALTER TABLE {$pre}active
+/* %pactive */
+$queries[] = "ALTER TABLE %pactive
 CHANGE ID id int(10) unsigned NOT NULL default '0',
 CHANGE Name name varchar(32) NOT NULL default '',
 CHANGE IP ip varchar(15) NOT NULL default 'Unknown',
@@ -38,8 +38,8 @@ CHANGE Time time int(10) unsigned NOT NULL default '0',
 DROP INDEX ID,
 ADD UNIQUE ID (id)";
 
-/* {$pre}forums */
-$queries[] = "ALTER TABLE {$pre}forums
+/* %pforums */
+$queries[] = "ALTER TABLE %pforums
 DROP LastTime,
 DROP LastPost,
 DROP LastPoster,
@@ -49,52 +49,52 @@ ADD allow_reply varchar(255) NOT NULL default '*' AFTER VisibleTo,
 ADD allow_create varchar(255) NOT NULL default '*' AFTER allow_reply,
 ADD allow_poll varchar(255) NOT NULL default '*' AFTER allow_create";
 
-/* {$pre}help */
-$queries[] = "DROP TABLE IF EXISTS {$pre}help";
-$queries[] = "CREATE TABLE {$pre}help (
+/* %phelp */
+$queries[] = "DROP TABLE IF EXISTS %phelp";
+$queries[] = "CREATE TABLE %phelp (
   hid int(11) NOT NULL auto_increment,
   title varchar(255) NOT NULL default '',
   article tinytext NOT NULL,
   PRIMARY KEY  (hid)
 )";
 
-/* {$pre}members */
-$queries[] = "ALTER TABLE {$pre}members
+/* %pmembers */
+$queries[] = "ALTER TABLE %pmembers
 ADD language varchar(6) NOT NULL default 'en' AFTER Skin,
 ADD avatar_type enum('local','url','uploaded','none') NOT NULL default 'none' AFTER Avatar";
-$queries[] = "UPDATE {$pre}members SET avatar_type='url' WHERE Avatar != ''";
+$queries[] = "UPDATE %pmembers SET avatar_type='url' WHERE Avatar != ''";
 
-/* {$pre}replacements */
-$queries[] = "DELETE FROM {$pre}replacements WHERE Type='emoticon'";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (';)', 'wink.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':thinking:', 'thinking.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':p', 'tongue.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':rolleyes:', 'rolleyes.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':(', 'sad.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':D', 'smile.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':)', 'smirk.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':stare:', 'stare.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':o', 'surprised.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':mad:', 'mad.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES ('B)', 'cool.gif', 'emoticon', 1)";
-$queries[] = "INSERT INTO {$pre}replacements (Search, Replacement, Type, Clickable) VALUES (':cyclops:', 'cyclops.gif', 'emoticon', 1)";
+/* %preplacements */
+$queries[] = "DELETE FROM %preplacements WHERE Type='emoticon'";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (';)', 'wink.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':thinking:', 'thinking.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':p', 'tongue.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':rolleyes:', 'rolleyes.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':(', 'sad.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':D', 'smile.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':)', 'smirk.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':stare:', 'stare.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':o', 'surprised.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':mad:', 'mad.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES ('B)', 'cool.gif', 'emoticon', 1)";
+$queries[] = "INSERT INTO %preplacements (Search, Replacement, Type, Clickable) VALUES (':cyclops:', 'cyclops.gif', 'emoticon', 1)";
 
-/* {$pre}searchwords */
-$queries[] = "DROP TABLE IF EXISTS {$pre}searchwords";
-$queries[] = "CREATE TABLE {$pre}searchwords (
+/* %psearchwords */
+$queries[] = "DROP TABLE IF EXISTS %psearchwords";
+$queries[] = "CREATE TABLE %psearchwords (
   post int(12) unsigned NOT NULL default '0',
   word varchar(50) NOT NULL default '',
   KEY word (word)
 )";
 
-/* {$pre}skins */
-$queries[] = "UPDATE {$pre}skins SET SkinName='Candy Corn' WHERE SkinDir='default'";
+/* %pskins */
+$queries[] = "UPDATE %pskins SET SkinName='Candy Corn' WHERE SkinDir='default'";
 
-/* {$pre}templates */
-$queries[] = "ALTER TABLE {$pre}templates MODIFY Template varchar(32) NOT NULL default 'default'";
+/* %ptemplates */
+$queries[] = "ALTER TABLE %ptemplates MODIFY Template varchar(32) NOT NULL default 'default'";
 
-/* {$pre}topics */
-$queries[] = "ALTER TABLE {$pre}topics
+/* %ptopics */
+$queries[] = "ALTER TABLE %ptopics
 DROP Starter,
 DROP TLastPoster,
 DROP TLastPosterID,

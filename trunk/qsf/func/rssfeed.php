@@ -95,14 +95,15 @@ class rssfeed extends qsfglobal
 				u.user_email,
 				u.user_email_show
 			FROM 
-				{$this->pre}topics t,
-				{$this->pre}posts p,
-				{$this->pre}users u
-			WHERE t.topic_forum IN $forums_str AND
+				%ptopics t,
+				%pposts p,
+				%pusers u
+			WHERE t.topic_forum IN (%s) AND
 				p.post_topic = t.topic_id AND
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
-			LIMIT {$this->sets['rss_feed_posts']}" );
+			LIMIT %d",
+			$forums_str, $this->sets['rss_feed_posts']);
 
 
 		$items = '';
@@ -124,7 +125,7 @@ class rssfeed extends qsfglobal
 	 **/
 	function generate_forum_feed($forum)
 	{
-		$exists = $this->db->fetch("SELECT forum_parent, forum_name, forum_description, forum_subcat FROM {$this->pre}forums WHERE forum_id=$forum");
+		$exists = $this->db->fetch("SELECT forum_parent, forum_name, forum_description, forum_subcat FROM %pforums WHERE forum_id=%d", $forum);
 		if (!isset($exists['forum_parent']) || !$exists['forum_parent'] || $exists['forum_subcat']) {
 			return $this->rss_error_message($this->lang->rssfeed_cannot_find_forum);
 		}
@@ -140,14 +141,15 @@ class rssfeed extends qsfglobal
 				u.user_email,
 				u.user_email_show
 			FROM 
-				{$this->pre}topics t,
-				{$this->pre}posts p,
-				{$this->pre}users u
-			WHERE t.topic_forum = $forum AND
+				%ptopics t,
+				%pposts p,
+				%pusers u
+			WHERE t.topic_forum = %d AND
 				p.post_topic = t.topic_id AND
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
-			LIMIT {$this->sets['rss_feed_posts']}" );
+			LIMIT %d",
+			$forum, $this->sets['rss_feed_posts']);
 			
 		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
@@ -172,10 +174,11 @@ class rssfeed extends qsfglobal
 			SELECT
 			    t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum, t.topic_replies, t.topic_poll_options, f.forum_name
 			FROM
-			    ' . $this->pre . 'topics t, ' . $this->pre . 'forums f
+			    %ptopics t, %pforums f
 			WHERE
-			    t.topic_id=' . $topic . ' AND
-			    f.forum_id=t.topic_forum');
+			    t.topic_id=%d AND
+			    f.forum_id=t.topic_forum',
+			$topic);
 
 		if (!$topicdata) {
 			return $this->rss_error_message($this->lang->rssfeed_cannot_find_topic);
@@ -199,14 +202,15 @@ class rssfeed extends qsfglobal
 				u.user_email,
 				u.user_email_show
 			FROM 
-				{$this->pre}topics t,
-				{$this->pre}posts p,
-				{$this->pre}users u
-			WHERE   t.topic_id = $topic AND
+				%ptopics t,
+				%pposts p,
+				%pusers u
+			WHERE   t.topic_id = %d AND
 				p.post_topic = t.topic_id AND
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
-			LIMIT {$this->sets['rss_feed_posts']}" );
+			LIMIT %d",
+			$topic, $this->sets['rss_feed_posts']);
 
 		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )

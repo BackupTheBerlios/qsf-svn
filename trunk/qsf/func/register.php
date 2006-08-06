@@ -68,8 +68,8 @@ class register extends qsfglobal
 			} else {
 				$image = null;
 			}
-			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
-			$tos_text = stripslashes($tos['settings_tos']);
+			$tos = $this->db->fetch("SELECT settings_tos FROM %psettings");
+			$tos_text = $tos['settings_tos'];
 			$tos_text = nl2br($tos_text);
 
 			$_SESSION['allow_register'] = true;
@@ -119,14 +119,15 @@ class register extends qsfglobal
 			}
 			$_SESSION['last_register'] = $this->time;
 
-			$username = str_replace('\\', '&#092;', $this->format(stripslashes($username), FORMAT_HTMLCHARS | FORMAT_CENSOR));
+			$username = str_replace('\\', '&#092;', $this->format($username, FORMAT_HTMLCHARS | FORMAT_CENSOR));
 
-			$exists = $this->db->fetch("SELECT user_id FROM {$this->pre}users WHERE REPLACE(LOWER(user_name), ' ', '')='" . str_replace(' ', '', strtolower($username)) . "'");
+			$exists = $this->db->fetch("SELECT user_id FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s'",
+				str_replace(' ', '', strtolower($username)));
 			if ($exists) {
 				return $this->message($this->lang->register_reging, $this->lang->register_name_taken);
 			}
 
-			$temp_email = stripslashes($email);
+			$temp_email = $email;
 			if (!$this->validator->validate($temp_email, TYPE_EMAIL)) {
 				return $this->message($this->lang->register_reging, $this->lang->register_email_invalid);
 			}
@@ -135,7 +136,7 @@ class register extends qsfglobal
 				return $this->message($this->lang->register_reging, $this->lang->register_pass_invalid);
 			}
 
-			$eexists = $this->db->fetch("SELECT user_email FROM {$this->pre}users WHERE user_email='$email'");
+			$eexists = $this->db->fetch("SELECT user_email FROM %pusers WHERE user_email='%s'", $email);
 			if ($eexists) {
 				return $this->message($this->lang->register_reging, $this->lang->register_email_used);
 			}
@@ -153,11 +154,13 @@ class register extends qsfglobal
 				$group_id = $this->sets['default_group'];
 			}
 
-			$this->db->query("INSERT INTO {$this->pre}users (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone)
-			VALUES ('$username', '$pass', $group_id, '{$level['user_title']}', $this->time, '$email', '{$this->sets['default_skin']}', {$this->sets['default_view_avatars']}, {$this->sets['default_view_emots']}, {$this->sets['default_view_sigs']}, '{$this->user['user_language']}', {$this->sets['default_email_shown']}, {$this->sets['default_pm']}, {$this->sets['default_timezone']})");
+			$this->db->query("INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures,
+				user_language, user_email_show, user_pm, user_timezone) VALUES ('%s', '%s', %d, '%s', %d, '%s', '%s', %d, %d, %d, '%s', %d, %d, %d)",
+				$username, $pass, $group_id, $level['user_title'], $this->time, $email, $this->sets['default_skin'], $this->sets['default_view_avatars'], $this->sets['default_view_emots'], $this->sets['default_view_sigs'],
+				$this->user['user_language'], $this->sets['default_email_shown'], $this->sets['default_pm'], $this->sets['default_timezone']);
 
 			$this->sets['last_member'] = $username;
-			$this->sets['last_member_id'] = $this->db->insert_id("{$this->pre}users");
+			$this->sets['last_member_id'] = $this->db->insert_id("users");
 			$this->sets['members']++;
 			$this->write_sets();
 
@@ -192,10 +195,11 @@ class register extends qsfglobal
 	function activateUser()
 	{
 		if (isset($this->get['e'])) {
-			$member = $this->db->fetch("SELECT user_id, user_group FROM {$this->pre}users WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='{$this->get['e']}' LIMIT 1");
+			$member = $this->db->fetch("SELECT user_id, user_group FROM %pusers WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' LIMIT 1", $this->get['e']);
 
 			if (isset($member['user_id']) && USER_GUEST_UID != $member['user_id'] && USER_AWAIT == $member['user_group']) {
-				$this->db->query("UPDATE {$this->pre}users SET user_group=" . $this->sets['default_group'] . " WHERE user_id={$member['user_id']}");
+				$this->db->query("UPDATE %pusers SET user_group=%d WHERE user_id=%d",
+					 $this->sets['default_group'], $member['user_id']);
 				return $this->message($this->lang->register_activating, $this->lang->register_activated);
 			}
 		}

@@ -97,14 +97,14 @@ class convert extends qsfglobal
 
 		case 2:
 			$oldboard = new qsfglobal;
-			$oldboard->db = new $this->modules['database']($this->post['old_db_host'], $this->post['old_db_user'], $this->post['old_db_pass'], $this->post['old_db_name'], $this->post['old_db_port'], $this->post['old_db_socket']);
+			$oldboard->db = new $this->modules['database']($this->post['old_db_host'], $this->post['old_db_user'], $this->post['old_db_pass'], $this->post['old_db_name'], $this->post['old_db_port'], $this->post['old_db_socket'], $this->post['old_prefix']);
 
 			if (!$oldboard->db->connection) {
 				echo "Couldn't connect to your old database using the specified information.";
 				break;
 			}
 
-			$this->db = new $this->modules['database']($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket']);
+			$this->db = new $this->modules['database']($this->post['db_host'], $this->post['db_user'], $this->post['db_pass'], $this->post['db_name'], $this->post['db_port'], $this->post['db_socket'], $this->post['prefix']);
 
 			if (!$this->db->connection) {
 				echo "Couldn't connect to your new database using the specified information.";
@@ -174,8 +174,8 @@ class convert extends qsfglobal
 			$this->pre  = $this->sets['prefix'];
 
 			$this->sets = $this->get_settings($this->sets);
-			$this->sets['loc_of_board'] = stripslashes($this->post['board_url']);
-			$this->sets['forum_name'] = stripslashes($this->post['board_name']);
+			$this->sets['loc_of_board'] = $this->post['board_url'];
+			$this->sets['forum_name'] = $this->post['board_name'];
 
 			$this->write_sets();
 

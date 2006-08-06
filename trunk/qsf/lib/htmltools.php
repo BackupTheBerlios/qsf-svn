@@ -99,7 +99,7 @@ class htmltools extends forumutils
 	{
 		$this->replaces_loaded = true;
 
-		$replace = $this->db->query("SELECT * FROM {$this->pre}replacements ORDER BY LENGTH(replacement_search) DESC");
+		$replace = $this->db->query("SELECT * FROM %preplacements ORDER BY LENGTH(replacement_search) DESC");
 		while ($r = $this->db->nqfetch($replace))
 		{
 			if ($r['replacement_type'] == 'emoticon') {

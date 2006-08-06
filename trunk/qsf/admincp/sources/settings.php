@@ -53,9 +53,9 @@ class settings extends admin
 			$this->sets['closedtext'] = $this->format($this->sets['closedtext'], FORMAT_HTMLCHARS);
 			$this->sets['forum_name'] = $this->format($this->sets['forum_name'], FORMAT_HTMLCHARS);
 
-			$group = $this->db->fetch("SELECT group_name FROM {$this->pre}groups WHERE group_id=" . USER_AWAIT);
-			$tos = $this->db->fetch("SELECT settings_tos FROM {$this->pre}settings");
-			$tos_text = stripslashes($tos['settings_tos']);
+			$group = $this->db->fetch("SELECT group_name FROM %pgroups WHERE group_id=%d", USER_AWAIT);
+			$tos = $this->db->fetch("SELECT settings_tos FROM %psettings");
+			$tos_text = htmlspecialchars($tos['settings_tos']);
 
 			$attachsize = ($this->sets['attach_upload_size'] / 1024);
 			$attachtypes = implode("\r\n", $this->sets['attach_types']);
@@ -80,7 +80,7 @@ class settings extends admin
 				break;
 			}
 
-			$tos_text = addslashes($this->post['tos']);
+			$tos_text = $this->post['tos'];
 			$vartypes = array(
 				'db_host' => 'string',
 				'db_name' => 'string',
@@ -158,7 +158,7 @@ class settings extends admin
 						$val[$i] = trim($val[$i]);
 					}
 				} elseif ($vartypes[$var] == 'string') {
-					$val = stripslashes($val);
+					$val = $val;
 				}
 
 				$this->sets[$var] = $val;
@@ -175,9 +175,10 @@ class settings extends admin
 			if (isset($this->get['db'])) {
 				$this->write_db_sets('../settings.php');
 			} else {
-				$this->db->query("UPDATE {$this->pre}users SET user_language='{$this->post['default_lang']}', user_skin='{$this->post['default_skin']}' WHERE user_id=" . USER_GUEST_UID);
+				$this->db->query("UPDATE %pusers SET user_language='%s', user_skin='%s' WHERE user_id=%d",
+					$this->post['default_lang'], $this->post['default_skin'], USER_GUEST_UID);
 				$this->write_sets();
-                                $this->db->query("UPDATE {$this->pre}settings SET settings_tos='{$tos_text}'");
+                $this->db->query("UPDATE %psettings SET settings_tos='%s'", $tos_text);
 			}
 
 			return $this->message($this->lang->settings, $this->lang->settings_updated);

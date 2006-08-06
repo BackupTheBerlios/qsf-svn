@@ -26,11 +26,11 @@ if (!defined('INSTALLER')) {
 
 $need_templates = false;
 
-$queries[] = "UPDATE {$pre}templates SET template_html='<p class=\'copyright\'>
+$queries[] = "UPDATE %ptemplates SET template_html='<p class=\'copyright\'>
   {\$qsf->lang->main_powered} <a href=\'http://www.mercuryboard.com\' class=\'small\'><b>MercuryBoard</b></a> [{\$qsf->version}]<br>
   &copy; 2001-2004 The Mercury Development Team
 </p>' WHERE template_name='MAIN_COPYRIGHT'";
-$queries[] = "UPDATE {$pre}templates SET template_html='<table width=\'95%\' align=\'center\' border=\'0\' cellpadding=\'4\' cellspacing=\'0\'>
+$queries[] = "UPDATE %ptemplates SET template_html='<table width=\'95%\' align=\'center\' border=\'0\' cellpadding=\'4\' cellspacing=\'0\'>
   <tr>
     <td align=\'right\'>
       <a href=\'{\$this->self}?a=pm&amp;s=send&amp;re={\$pm[\'pm_id\']}\'><img src=\'./skins/{\$this->skin}/images/message_reply.gif\' border=\'0\' title=\'{\$this->lang->pm_reply}\' alt=\'{\$this->lang->pm_reply}\'></a>
@@ -92,7 +92,7 @@ $queries[] = "UPDATE {$pre}templates SET template_html='<table width=\'95%\' ali
   </tr>
 </table>
 </table>' WHERE template_name='PM_VIEW'";
-$queries[] = "UPDATE {$pre}templates SET template_html='{\$this->table}
+$queries[] = "UPDATE %ptemplates SET template_html='{\$this->table}
   <tr>
     <td colspan=\'2\' class=\'header\'>{\$this->lang->profile_view_profile}: {\$profile[\'user_name\']}</td>
   </tr>
@@ -184,30 +184,30 @@ $queries[] = "UPDATE {$pre}templates SET template_html='{\$this->table}
   </tr>
 {\$this->etable}' WHERE template_name='PROFILE_MAIN'";
 
-$queries[] = "DELETE FROM {$pre}active";
-$queries[] = "ALTER TABLE {$pre}active ADD active_session varchar(32) NOT NULL default '',
+$queries[] = "DELETE FROM %pactive";
+$queries[] = "ALTER TABLE %pactive ADD active_session varchar(32) NOT NULL default '',
 DROP PRIMARY KEY,
 ADD UNIQUE KEY active_session (active_session),
 ADD UNIQUE KEY active_ip (active_ip)";
 
-$queries[] = "ALTER TABLE {$pre}groups
-MODIFY group_format varchar(255) NOT NULL default '%s',
+$queries[] = "ALTER TABLE %pgroups
+MODIFY group_format varchar(255) NOT NULL default '%%s',
 ADD group_perms text NOT NULL";
 
-$queries[] = "DROP TABLE IF EXISTS {$pre}perms";
+$queries[] = "DROP TABLE IF EXISTS %pperms";
 
-$queries[] = "ALTER TABLE {$pre}users ADD user_perms text NOT NULL AFTER user_view_emoticons";
+$queries[] = "ALTER TABLE %pusers ADD user_perms text NOT NULL AFTER user_view_emoticons";
 
-$queries[] = "UPDATE {$pre}groups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:1;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:1;s:9:\"email_use\";b:1;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:1;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:1;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:1;s:12:\"topic_create\";b:1;s:12:\"post_noflood\";b:1;s:11:\"post_delete\";b:1;s:15:\"post_delete_own\";b:1;s:12:\"topic_delete\";b:1;s:16:\"topic_delete_own\";b:1;s:9:\"post_edit\";b:1;s:13:\"post_edit_own\";b:1;s:10:\"topic_edit\";b:1;s:14:\"topic_edit_own\";b:1;s:10:\"topic_lock\";b:1;s:14:\"topic_lock_own\";b:1;s:12:\"topic_unlock\";b:1;s:16:\"topic_unlock_mod\";b:1;s:16:\"topic_unlock_own\";b:1;s:9:\"topic_pin\";b:1;s:13:\"topic_pin_own\";b:1;s:11:\"topic_unpin\";b:1;s:15:\"topic_unpin_own\";b:1;s:10:\"topic_move\";b:1;s:14:\"topic_move_own\";b:1;s:11:\"post_attach\";b:1;s:20:\"post_attach_download\";b:1;}' WHERE group_id=1";
-$queries[] = "UPDATE {$pre}groups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:1;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:0;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:1;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:1;s:12:\"topic_create\";b:1;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:1;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:1;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:1;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:1;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:1;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:1;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:1;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:1;s:11:\"post_attach\";b:1;s:20:\"post_attach_download\";b:1;}' WHERE group_id=2";
-$queries[] = "UPDATE {$pre}groups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:0;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:0;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:0;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:0;s:12:\"topic_create\";b:0;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:0;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:0;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:0;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:0;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:0;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:0;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:0;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:0;s:11:\"post_attach\";b:0;s:20:\"post_attach_download\";b:0;}' WHERE group_id=3";
-$queries[] = "UPDATE {$pre}groups SET group_perms='a:34:{s:10:\"board_view\";b:0;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:0;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:0;s:10:\"forum_view\";b:0;s:11:\"post_viewip\";b:0;s:10:\"topic_view\";b:0;s:11:\"poll_create\";b:0;s:9:\"poll_vote\";b:0;s:11:\"post_create\";b:0;s:12:\"topic_create\";b:0;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:0;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:0;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:0;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:0;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:0;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:0;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:0;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:0;s:11:\"post_attach\";b:0;s:20:\"post_attach_download\";b:0;}' WHERE group_id=4";
-$queries[] = "UPDATE {$pre}groups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:0;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:1;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:0;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:1;s:12:\"topic_create\";b:0;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:0;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:0;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:0;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:0;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:0;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:0;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:0;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:0;s:11:\"post_attach\";b:0;s:20:\"post_attach_download\";b:0;}' WHERE group_id=5";
+$queries[] = "UPDATE %pgroups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:1;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:1;s:9:\"email_use\";b:1;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:1;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:1;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:1;s:12:\"topic_create\";b:1;s:12:\"post_noflood\";b:1;s:11:\"post_delete\";b:1;s:15:\"post_delete_own\";b:1;s:12:\"topic_delete\";b:1;s:16:\"topic_delete_own\";b:1;s:9:\"post_edit\";b:1;s:13:\"post_edit_own\";b:1;s:10:\"topic_edit\";b:1;s:14:\"topic_edit_own\";b:1;s:10:\"topic_lock\";b:1;s:14:\"topic_lock_own\";b:1;s:12:\"topic_unlock\";b:1;s:16:\"topic_unlock_mod\";b:1;s:16:\"topic_unlock_own\";b:1;s:9:\"topic_pin\";b:1;s:13:\"topic_pin_own\";b:1;s:11:\"topic_unpin\";b:1;s:15:\"topic_unpin_own\";b:1;s:10:\"topic_move\";b:1;s:14:\"topic_move_own\";b:1;s:11:\"post_attach\";b:1;s:20:\"post_attach_download\";b:1;}' WHERE group_id=1";
+$queries[] = "UPDATE %pgroups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:1;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:0;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:1;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:1;s:12:\"topic_create\";b:1;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:1;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:1;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:1;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:1;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:1;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:1;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:1;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:1;s:11:\"post_attach\";b:1;s:20:\"post_attach_download\";b:1;}' WHERE group_id=2";
+$queries[] = "UPDATE %pgroups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:0;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:0;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:0;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:0;s:12:\"topic_create\";b:0;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:0;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:0;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:0;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:0;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:0;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:0;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:0;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:0;s:11:\"post_attach\";b:0;s:20:\"post_attach_download\";b:0;}' WHERE group_id=3";
+$queries[] = "UPDATE %pgroups SET group_perms='a:34:{s:10:\"board_view\";b:0;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:0;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:0;s:10:\"forum_view\";b:0;s:11:\"post_viewip\";b:0;s:10:\"topic_view\";b:0;s:11:\"poll_create\";b:0;s:9:\"poll_vote\";b:0;s:11:\"post_create\";b:0;s:12:\"topic_create\";b:0;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:0;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:0;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:0;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:0;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:0;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:0;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:0;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:0;s:11:\"post_attach\";b:0;s:20:\"post_attach_download\";b:0;}' WHERE group_id=4";
+$queries[] = "UPDATE %pgroups SET group_perms='a:34:{s:10:\"board_view\";b:1;s:17:\"board_view_closed\";b:0;s:11:\"do_anything\";b:1;s:8:\"is_admin\";b:0;s:9:\"email_use\";b:0;s:10:\"forum_view\";b:1;s:11:\"post_viewip\";b:1;s:10:\"topic_view\";b:1;s:11:\"poll_create\";b:0;s:9:\"poll_vote\";b:1;s:11:\"post_create\";b:1;s:12:\"topic_create\";b:0;s:12:\"post_noflood\";b:0;s:11:\"post_delete\";b:0;s:15:\"post_delete_own\";b:0;s:12:\"topic_delete\";b:0;s:16:\"topic_delete_own\";b:0;s:9:\"post_edit\";b:0;s:13:\"post_edit_own\";b:0;s:10:\"topic_edit\";b:0;s:14:\"topic_edit_own\";b:0;s:10:\"topic_lock\";b:0;s:14:\"topic_lock_own\";b:0;s:12:\"topic_unlock\";b:0;s:16:\"topic_unlock_mod\";b:0;s:16:\"topic_unlock_own\";b:0;s:9:\"topic_pin\";b:0;s:13:\"topic_pin_own\";b:0;s:11:\"topic_unpin\";b:0;s:15:\"topic_unpin_own\";b:0;s:10:\"topic_move\";b:0;s:14:\"topic_move_own\";b:0;s:11:\"post_attach\";b:0;s:20:\"post_attach_download\";b:0;}' WHERE group_id=5";
 
 /**
  * To do:
  * Add forums to the group permissions cube
  */
 
-$queries[] = "UPDATE {$pre}users SET user_email_form=0 WHERE user_id=1";
+$queries[] = "UPDATE %pusers SET user_email_form=0 WHERE user_id=1";
 ?>

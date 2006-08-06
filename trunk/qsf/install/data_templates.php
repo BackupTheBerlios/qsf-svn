@@ -24,28 +24,28 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to install.');
 }
 
-$queries['ACTIVE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'active', 'ACTIVE_MAIN', '{\$this->table}
+$queries['ACTIVE_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'active', 'ACTIVE_MAIN', '{\$this->table}
  <tr>
   <td class=\"header\" colspan=\"3\">
    {\$this->lang->active_users}
   </td>
  </tr>
  <tr>
-  <td class=\"subheader\" style=\"width:40%\">{\$this->lang->active_user}</td>
-  <td class=\"subheader\" style=\"width:30%\">{\$this->lang->active_last_action}</td>
-  <td class=\"subheader\" style=\"width:30%\">{\$this->lang->active_time}</td>
+  <td class=\"subheader\" style=\"width:40%%\">{\$this->lang->active_user}</td>
+  <td class=\"subheader\" style=\"width:30%%\">{\$this->lang->active_last_action}</td>
+  <td class=\"subheader\" style=\"width:30%%\">{\$this->lang->active_time}</td>
  </tr>
  {\$ActiveList}
  <tr>
   <td class=\"footer\" colspan=\"3\">&nbsp;</td>
  </tr>
 {\$this->etable}', 'Active Users Table', 'The active users table formatting and generalized code.', 0)";
-$queries['ACTIVE_USER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'active', 'ACTIVE_USER', ' <tr>
+$queries['ACTIVE_USER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'active', 'ACTIVE_USER', ' <tr>
   <td class=\"tablelight\"><a {\$user[\'link\']} title=\"{\$user[\'title\']}\">{\$user[\'name\']}</a></td>
   <td class=\"tablelight\">{\$action}</td>
   <td class=\"tablelight\">{\$time}</td>
  </tr>', 'Active Users Table Entry', 'Format the look of the entry for a user in the Active Users main table listing.', 1)";
-$queries['ADMIN_ADD_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_ADD_TEMPLATE', '{\$this->table}
+$queries['ADMIN_ADD_TEMPLATE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_ADD_TEMPLATE', '{\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->add}</td>
  </tr>
@@ -108,7 +108,7 @@ $queries['ADMIN_ADD_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, te
  </tr>
 {\$this->etable}
 </form>', 'Add New Template', 'Form for adding a new template to a skin', 1)";
-$queries['ADMIN_BAN_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'ban', 'ADMIN_BAN_FORM', '<form action=\"{\$this->self}?a=ban\" method=\"post\">
+$queries['ADMIN_BAN_FORM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'ban', 'ADMIN_BAN_FORM', '<form action=\"{\$this->self}?a=ban\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->ban_settings}</td>
@@ -136,7 +136,7 @@ $queries['ADMIN_BAN_FORM'] = "INSERT INTO {$pre}templates (template_skin, templa
  </tr>
 {\$this->etable}
 </form>', 'Banned Users', 'Form for editing ban information', 0)";
-$queries['ADMIN_CENSOR_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'censoring', 'ADMIN_CENSOR_FORM', '<form action=\"{\$this->self}?a=censoring\" method=\"post\">
+$queries['ADMIN_CENSOR_FORM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'censoring', 'ADMIN_CENSOR_FORM', '<form action=\"{\$this->self}?a=censoring\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->censor}</td>
@@ -157,7 +157,7 @@ $queries['ADMIN_CENSOR_FORM'] = "INSERT INTO {$pre}templates (template_skin, tem
  </tr>
 {\$this->etable}
 </form>', 'Censored Words', 'The form for editing censored words', 0)";
-$queries['ADMIN_CSS_EDIT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_CSS_EDIT', '
+$queries['ADMIN_CSS_EDIT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_CSS_EDIT', '
 <form action=\"{\$this->self}?a=templates&amp;s=edit_css&amp;skin={\$skin}&amp;file={\$fname}\" method=\"post\">
 {\$this->table}
  <tr>
@@ -173,12 +173,12 @@ $queries['ADMIN_CSS_EDIT'] = "INSERT INTO {$pre}templates (template_skin, templa
  </tr>
 {\$this->etable}
 </form>', 'CSS Editor', 'Textbox to edit CSS file in.', 9)";
-$queries['ADMIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_COPYRIGHT', '{\$admin->table}
+$queries['ADMIN_COPYRIGHT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_COPYRIGHT', '{\$admin->table}
  <tr>
-  <td class=\"footer\" style=\"width:50%; text-align:center;\">
+  <td class=\"footer\" style=\"width:50%%; text-align:center;\">
    <a href=\"..\" style=\"font-weight:bold\">{\$admin->lang->admin_your_board}</a>
   </td>
-  <td class=\"footer\" style=\"width:50%; text-align:center;\">
+  <td class=\"footer\" style=\"width:50%%; text-align:center;\">
    <a href=\"http://www.quicksilverforums.com\" style=\"font-weight:bold\">{\$admin->name}</a>
   </td>
  </tr>
@@ -189,7 +189,7 @@ $queries['ADMIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, templ
  {\$admin->lang->based_on} <a href=\"http://www.mercuryboard.com\" class=\"small\"><b>MercuryBoard</b></a> &copy; 2001-2005 The Mercury Development Team<br />
  <b>{\$time_exec}</b> seconds - <b>{\$admin->db->querycount}</b> queries - <b>{\$server_load}</b> load
 </p>', 'Copyright', 'Copyright footer for AdminCP', 10)";
-$queries['ADMIN_DELETE_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_DELETE_TEMPLATE', '<form action=\"{\$this->self}?a=templates&amp;s=delete&amp;i=confirm&amp;section={\$section}&amp;skin={\$skin}\" method=\"post\">
+$queries['ADMIN_DELETE_TEMPLATE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_DELETE_TEMPLATE', '<form action=\"{\$this->self}?a=templates&amp;s=delete&amp;i=confirm&amp;section={\$section}&amp;skin={\$skin}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"subheader\" style=\"text-align:center\">{\$this->lang->confirm1} <span class=\"red\">{\$name}</span> {\$this->lang->confirm2} <span class=\"red\">{\$template}</span>.</td>
@@ -203,7 +203,7 @@ $queries['ADMIN_DELETE_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin,
  </tr>
 {\$this->etable}
 </form>', 'Delete Template', 'Form for deleting an HTML template', 6)";
-$queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'settings', 'ADMIN_EDIT_BOARD_SETTINGS', '<form action=\"{\$this->self}?a=settings&amp;s=update\" method=\"post\">
+$queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'settings', 'ADMIN_EDIT_BOARD_SETTINGS', '<form action=\"{\$this->self}?a=settings&amp;s=update\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_general}</td>
@@ -222,7 +222,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   </td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\">{\$this->lang->settings_board_name}</td>
+  <td class=\"labellight\" style=\"width:50%%\">{\$this->lang->settings_board_name}</td>
   <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"forum_name\" value=\"{\$this->sets[\'forum_name\']}\" size=\"40\" />
   </td>
@@ -309,7 +309,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_members}</td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\">{\$this->lang->settings_default_skin}</td>
+  <td class=\"labellight\" style=\"width:50%%\">{\$this->lang->settings_default_skin}</td>
   <td class=\"tablelight\"><select name=\"default_skin\">{\$selectSkins}</select></td>
  </tr>
  <tr>
@@ -378,7 +378,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_email}</td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\">{\$this->lang->settings_email_reply}<br /><span class=\"tiny\">{\$this->lang->settings_email_real}</span></td>
+  <td class=\"labellight\" style=\"width:50%%\">{\$this->lang->settings_email_reply}<br /><span class=\"tiny\">{\$this->lang->settings_email_real}</span></td>
   <td class=\"tablelight\"><input class=\"input\" type=\"text\" name=\"admin_incoming\" value=\"{\$this->sets[\'admin_incoming\']}\" size=\"40\" /></td>
  </tr>
  <tr>
@@ -408,7 +408,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_cookie}</td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\">{\$this->lang->settings_cookie_time}<br /><span class=\"tiny\">{\$this->lang->seconds}</span></td>
+  <td class=\"labellight\" style=\"width:50%%\">{\$this->lang->settings_cookie_time}<br /><span class=\"tiny\">{\$this->lang->seconds}</span></td>
   <td class=\"tablelight\"><input class=\"input\" type=\"text\" name=\"logintime\" value=\"{\$this->sets[\'logintime\']}\" size=\"40\" /></td>
  </tr>
  <tr>
@@ -443,7 +443,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_avatar}</td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\">{\$this->lang->settings_avatar_flash}<br /><span class=\"tiny\">.swf</span></td>
+  <td class=\"labellight\" style=\"width:50%%\">{\$this->lang->settings_avatar_flash}<br /><span class=\"tiny\">.swf</span></td>
   <td class=\"tablelight\">
    <input type=\"radio\" name=\"flash_avs\" value=\"1\" <IF \$this->sets[\'flash_avs\']>checked=\"checked\"</IF> id=\"flash_avs1\" /><label for=\"flash_avs1\">{\$this->lang->settings_allow}</label><br />
    <input type=\"radio\" name=\"flash_avs\" value=\"0\" <IF !\$this->sets[\'flash_avs\']>checked=\"checked\"</IF> id=\"flash_avs2\" /><label for=\"flash_avs2\">{\$this->lang->settings_no_allow}</label>
@@ -473,7 +473,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_server}</td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\">{\$this->lang->settings_server_gzip}<br /><span class=\"tiny\">{\$this->lang->settings_server_gzip_msg}</span></td>
+  <td class=\"labellight\" style=\"width:50%%\">{\$this->lang->settings_server_gzip}<br /><span class=\"tiny\">{\$this->lang->settings_server_gzip_msg}</span></td>
   <td class=\"tablelight\">
    <input type=\"radio\" name=\"output_buffer\" value=\"1\" <IF \$this->sets[\'output_buffer\']>checked=\"checked\"</IF> id=\"output_buffer1\" /><label for=\"output_buffer1\">{\$this->lang->settings_enabled}</label><br />
    <input type=\"radio\" name=\"output_buffer\" value=\"0\" <IF !\$this->sets[\'output_buffer\']>checked=\"checked\"</IF> id=\"output_buffer2\" /><label for=\"output_buffer2\">{\$this->lang->settings_disabled}</label>
@@ -499,7 +499,7 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_active}</td>
  </tr>
  <tr>
-  <td class=\"labeldark\" style=\"width:50%\">{\$this->lang->settings_spider_enable}<br /><span class=\"tiny\">{\$this->lang->settings_spider_enable_msg}</span></td>
+  <td class=\"labeldark\" style=\"width:50%%\">{\$this->lang->settings_spider_enable}<br /><span class=\"tiny\">{\$this->lang->settings_spider_enable_msg}</span></td>
   <td class=\"tabledark\">
    <input type=\"radio\" name=\"spider_active\" value=\"1\" <IF \$this->sets[\'spider_active\']>checked=\"checked\"</IF> id=\"spider_active1\" /><label for=\"spider_active1\">{\$this->lang->yes}</label>
    <input type=\"radio\" name=\"spider_active\" value=\"0\" <IF !\$this->sets[\'spider_active\']>checked=\"checked\"</IF> id=\"spider_active2\" /><label for=\"spider_active2\">{\$this->lang->no}</label>
@@ -555,13 +555,13 @@ $queries['ADMIN_EDIT_BOARD_SETTINGS'] = "INSERT INTO {$pre}templates (template_s
  </tr>
 {\$this->etable}
 </form>', 'Edit Board Settings', 'Form for editing the board settings', 1)";
-$queries['ADMIN_EDIT_DB_SETTINGS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'settings', 'ADMIN_EDIT_DB_SETTINGS', '<form action=\"{\$this->self}?a=settings&amp;s=update&amp;db=1\" method=\"post\">
+$queries['ADMIN_EDIT_DB_SETTINGS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'settings', 'ADMIN_EDIT_DB_SETTINGS', '<form action=\"{\$this->self}?a=settings&amp;s=update&amp;db=1\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->settings_db}</td>
  </tr>
  <tr>
-  <td class=\"labellight\" style=\"width:50%\"><b>{\$this->lang->settings_db_host}</b></td>
+  <td class=\"labellight\" style=\"width:50%%\"><b>{\$this->lang->settings_db_host}</b></td>
   <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"db_host\" value=\"{\$this->sets[\'db_host\']}\" size=\"40\" />
   </td>
@@ -609,14 +609,14 @@ $queries['ADMIN_EDIT_DB_SETTINGS'] = "INSERT INTO {$pre}templates (template_skin
  </tr>
 {\$this->etable}
 </form>', 'Edit Connection Settings', 'Form for editing the database conenction settings', 0)";
-$queries['ADMIN_EDIT_SKIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_SKIN', '<form action=\"{\$this->self}?a=templates&amp;s=editskin\" method=\"post\">
+$queries['ADMIN_EDIT_SKIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_SKIN', '<form action=\"{\$this->self}?a=templates&amp;s=editskin\" method=\"post\">
 <input type=\"hidden\" name=\"skin\" value=\"{\$this->post[\'skin\']}\" />
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->edit_skin}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->display_name}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->display_name}</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"skin_name\" value=\"{\$skin[\'skin_name\']}\" size=\"50\" />
   </td>
@@ -638,7 +638,7 @@ $queries['ADMIN_EDIT_SKIN'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Edit Skin', 'Form for editing and deleting skins', 0)";
-$queries['ADMIN_INSTALL_SKIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_INSTALL_SKIN', '
+$queries['ADMIN_INSTALL_SKIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_INSTALL_SKIN', '
 <IF !empty(\$skin_box)>
 <form action=\"{\$this->self}?a=templates&amp;s=load\" method=\"post\">
 <div>
@@ -656,7 +656,7 @@ $queries['ADMIN_INSTALL_SKIN'] = "INSERT INTO {$pre}templates (template_skin, te
  {\$new_skin_box}
 </ul>
 </IF>', 'Install Skin', 'Form for selecting a skin to install', 0)";
-$queries['ADMIN_EDIT_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE', '<form action=\"{\$this->self}?a=templates&amp;s=edit&amp;section={\$this->get[\'section\']}&amp;skin={\$template}\" method=\"post\">
+$queries['ADMIN_EDIT_TEMPLATE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE', '<form action=\"{\$this->self}?a=templates&amp;s=edit&amp;section={\$this->get[\'section\']}&amp;skin={\$template}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->edit_templates}</td>
@@ -672,38 +672,38 @@ $queries['ADMIN_EDIT_TEMPLATE'] = "INSERT INTO {$pre}templates (template_skin, t
  {\$out}
 {\$this->etable}
 </form>', 'Edit Template', 'Form for editing a skin\'s templates', 3)";
-$queries['ADMIN_EDIT_TEMPLATE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE_ENTRY', '<tr>
+$queries['ADMIN_EDIT_TEMPLATE_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_EDIT_TEMPLATE_ENTRY', '<tr>
  <td class=\"{\$class}\">
   <span style=\"font-weight:bold; font-size:14px\">{\$data[\'template_displayname\']}</span><br /><br />
   {\$data[\'template_name\']}
   <input type=\"submit\" name=\"submitTemps\" value=\"{\$this->lang->edit_templates}\" style=\"float:right\" /><br />
   {\$data[\'template_description\']}<br /><br />
-  <textarea onchange=\"this.style.backgroundColor=\'#FFFFEE\'; changed=true\" name=\"code[{\$data[\'template_name\']}]\" style=\"background-color:white; font-family:\'courier new\', courier, monospaced, serif; font-size:12px; width:100%\" rows=\"18\" cols=\"80\" wrap=\"off\">{\$data[\'template_html\']}</textarea>
+  <textarea onchange=\"this.style.backgroundColor=\'#FFFFEE\'; changed=true\" name=\"code[{\$data[\'template_name\']}]\" style=\"background-color:white; font-family:\'courier new\', courier, monospaced, serif; font-size:12px; width:100%%\" rows=\"18\" cols=\"80\" wrap=\"off\">{\$data[\'template_html\']}</textarea>
  </td>
 </tr>', 'Edit Template - Single Entry', 'Format of an individual section in the template editor form', 8)";
-$queries['ADMIN_EMOTICONS_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'emot_control', 'ADMIN_EMOTICONS_ENTRY', '<tr>
- <td class=\"{\$class}\" style=\"width:35%\">{\$data[\'replacement_search\']}</td>
- <td class=\"{\$class}\" style=\"width:35%\">{\$data[\'replacement_replace\']}</td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\"><img src=\"../skins/{\$this->skin}/emoticons/{\$data[\'replacement_replace\']}\" alt=\"{\$data[\'replacement_replace\']}\" /></td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\">{\$clickable}</td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\"><a href=\"\$this->self?a=emot_control&amp;s=edit&amp;edit={\$data[\'replacement_id\']}\">{\$this->lang->edit}</a></td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\"><a href=\"\$this->self?a=emot_control&amp;s=edit&amp;delete={\$data[\'replacement_id\']}\">{\$this->lang->delete}</a></td>
+$queries['ADMIN_EMOTICONS_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'emot_control', 'ADMIN_EMOTICONS_ENTRY', '<tr>
+ <td class=\"{\$class}\" style=\"width:35%%\">{\$data[\'replacement_search\']}</td>
+ <td class=\"{\$class}\" style=\"width:35%%\">{\$data[\'replacement_replace\']}</td>
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\"><img src=\"../skins/{\$this->skin}/emoticons/{\$data[\'replacement_replace\']}\" alt=\"{\$data[\'replacement_replace\']}\" /></td>
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\">{\$clickable}</td>
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\"><a href=\"\$this->self?a=emot_control&amp;s=edit&amp;edit={\$data[\'replacement_id\']}\">{\$this->lang->edit}</a></td>
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\"><a href=\"\$this->self?a=emot_control&amp;s=edit&amp;delete={\$data[\'replacement_id\']}\">{\$this->lang->delete}</a></td>
 </tr>', 'Edit Emoticons - One Entry', 'Format of one row on the emoticon editing form', 1)";
-$queries['ADMIN_EMOTICONS_ENTRY_MOD'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'emot_control', 'ADMIN_EMOTICONS_ENTRY_MOD', '<tr>
- <td class=\"{\$class}\" style=\"width:35%\">
+$queries['ADMIN_EMOTICONS_ENTRY_MOD'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'emot_control', 'ADMIN_EMOTICONS_ENTRY_MOD', '<tr>
+ <td class=\"{\$class}\" style=\"width:35%%\">
   <input class=\"input\" name=\"new_search\" value=\"{\$data[\'replacement_search\']}\" />
  </td>
- <td class=\"{\$class}\" style=\"width:35%\">
+ <td class=\"{\$class}\" style=\"width:35%%\">
   <select name=\"new_replace\" onchange=\"document.emot_preview.src=\'../skins/{\$this->skin}/emoticons/\'+this.options[selectedIndex].value\">
    {\$replacement}
   </select>
  </td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\"><img src=\"../skins/{\$this->skin}/emoticons/{\$data[\'replacement_replace\']}\" alt=\"{\$data[\'replacement_replace\']}\" /></td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\"><input type=\"checkbox\" name=\"new_click\"{\$clickable} /></td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\"><input type=\"submit\" name=\"submit\" value=\"{\$this->lang->edit}\" /></td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\"><a href=\"{\$this->self}?a=emot_control&amp;s=edit&amp;delete={\$data[\'replacement_id\']}\">{\$this->lang->delete}</a></td>
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\"><img src=\"../skins/{\$this->skin}/emoticons/{\$data[\'replacement_replace\']}\" alt=\"{\$data[\'replacement_replace\']}\" /></td>
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\"><input type=\"checkbox\" name=\"new_click\"{\$clickable} /></td>
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\"><input type=\"submit\" name=\"submit\" value=\"{\$this->lang->edit}\" /></td>
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\"><a href=\"{\$this->self}?a=emot_control&amp;s=edit&amp;delete={\$data[\'replacement_id\']}\">{\$this->lang->delete}</a></td>
 </tr>', 'Edit Emoticons - Modify', 'Form for modifying a row in the emoticon table', 2)";
-$queries['ADMIN_EMOTICON_EDIT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'emot_control', 'ADMIN_EMOTICON_EDIT', '<form action=\"{\$this->self}?a=emot_control&amp;s=edit&amp;edit={\$this->get[\'edit\']}\" method=\"post\">
+$queries['ADMIN_EMOTICON_EDIT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'emot_control', 'ADMIN_EMOTICON_EDIT', '<form action=\"{\$this->self}?a=emot_control&amp;s=edit&amp;edit={\$this->get[\'edit\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"6\">{\$this->lang->emote}</td>
@@ -717,15 +717,15 @@ $queries['ADMIN_EMOTICON_EDIT'] = "INSERT INTO {$pre}templates (template_skin, t
  {\$out}
 {\$this->etable}
 </form>', 'Edit Emoticons', 'Edit the existing emoticons', 0)";
-$queries['ADMIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_ETABLE', ' </table>
+$queries['ADMIN_ETABLE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_ETABLE', ' </table>
 </div>', 'Admin Table End', 'The end of all admin tables', 9)";
-$queries['ADMIN_FORUM_ADD'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_ADD', '<form action=\"{\$this->self}?a=forums&amp;s=add\" method=\"post\">
+$queries['ADMIN_FORUM_ADD'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_ADD', '<form action=\"{\$this->self}?a=forums&amp;s=add\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->forum_create}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">
+  <td class=\"tablelight\" style=\"width:30%%\">
    <b>{\$this->lang->forum_parent_cat}</b><br />{\$this->lang->forum_select_cat}
   </td>
   <td class=\"tabledark\">
@@ -769,13 +769,13 @@ $queries['ADMIN_FORUM_ADD'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Add Forum', 'Change display for add forum form', 1)";
-$queries['ADMIN_FORUM_EDIT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_EDIT', '<form action=\"{\$this->self}?a=forums&amp;s=edit&amp;id={\$this->get[\'id\']}\" method=\"post\">
+$queries['ADMIN_FORUM_EDIT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_EDIT', '<form action=\"{\$this->self}?a=forums&amp;s=edit&amp;id={\$this->get[\'id\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->forum_create}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\"><b>{\$this->lang->forum_parent_cat}</b></td>
+  <td class=\"tablelight\" style=\"width:30%%\"><b>{\$this->lang->forum_parent_cat}</b></td>
   <td class=\"tabledark\">
    <select name=\"parent\">
     <option value=\"0\">{\$this->lang->forum_create_cat}</option>
@@ -809,14 +809,14 @@ $queries['ADMIN_FORUM_EDIT'] = "INSERT INTO {$pre}templates (template_skin, temp
  </tr>
 {\$this->etable}
 </form>', 'Edit Forum', 'Change the display of the forum editor', 2)";
-$queries['ADMIN_FORUM_ORDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_ORDER', '<form action=\"{\$this->self}?a=forums&amp;s=order\" method=\"post\">
+$queries['ADMIN_FORUM_ORDER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forums', 'ADMIN_FORUM_ORDER', '<form action=\"{\$this->self}?a=forums&amp;s=order\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->forum_ordering}</td>
  </tr>
  <tr>
   <td class=\"tabledark\">
-   <table width=\"100%\" cellpadding=\"5\" cellspacing=\"0\" border=\"0\">
+   <table width=\"100%%\" cellpadding=\"5\" cellspacing=\"0\" border=\"0\">
     <tr>
      <td>{\$forum}</td>
     </tr>
@@ -830,7 +830,7 @@ $queries['ADMIN_FORUM_ORDER'] = "INSERT INTO {$pre}templates (template_skin, tem
  </tr>
 {\$this->etable}
 </form>', 'Forum Ordering', 'Change the display of the forum order menu', 0)";
-$queries['ADMIN_GROUP_EDIT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'groups', 'ADMIN_GROUP_EDIT', '<form action=\"{\$this->self}?a=groups&amp;s=edit\" method=\"post\">
+$queries['ADMIN_GROUP_EDIT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'groups', 'ADMIN_GROUP_EDIT', '<form action=\"{\$this->self}?a=groups&amp;s=edit\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->groups_edit}</td>
@@ -859,18 +859,18 @@ $queries['ADMIN_GROUP_EDIT'] = "INSERT INTO {$pre}templates (template_skin, temp
  </tr>
 {\$this->etable}
 </form>', 'Group Editing', 'Form for editing groups', 0)";
-$queries['ADMIN_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_HOME', '{\$this->table}
+$queries['ADMIN_HOME'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_HOME', '{\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->home_menu_title}</td>
  </tr>
  <tr>
   <td class=\"tabledark\">
-   <table width=\"100%\" cellpadding=\"5\" cellspacing=\"0\" border=\"0\">
+   <table width=\"100%%\" cellpadding=\"5\" cellspacing=\"0\" border=\"0\">
     <tr>
      <td style=\"font-size:17px; font-weight:bold; padding-bottom:15px; text-align:center\" colspan=\"2\">{\$this->lang->home_choose}</td>
     </tr>
     <tr>
-     <td style=\"width:50%;\" valign=\"top\">
+     <td style=\"width:50%%;\" valign=\"top\">
       <div class=\"fieldset\">
        <div class=\"legend\">{\$this->lang->admin_forums}</div><br />
        <a href=\"{\$this->self}?a=forums&amp;s=add\">{\$this->lang->admin_create_forum}</a><br />
@@ -957,7 +957,7 @@ $queries['ADMIN_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_s
   </td>
  </tr>
 {\$this->etable}', 'Admin CP Home Page', 'Edit the layout of the main AdminCP page', 1)";
-$queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_INDEX', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
+$queries['ADMIN_INDEX'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_INDEX', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
  <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"{\$admin->user[\'user_language\']}\" dir=\"{\$admin->lang->direction}\">
   <head>
    <title>{\$title}</title>
@@ -1063,7 +1063,7 @@ $queries['ADMIN_INDEX'] = "INSERT INTO {$pre}templates (template_skin, template_
 
 </body>
 </html>', 'AdminCP Index', 'The index page for the AdminCP', 0)";
-$queries['ADMIN_LIST_TEMPLATES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_LIST_TEMPLATES', '<form action=\"{\$this->self}\" method=\"get\">
+$queries['ADMIN_LIST_TEMPLATES'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_LIST_TEMPLATES', '<form action=\"{\$this->self}\" method=\"get\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->menu_title}</td>
@@ -1088,14 +1088,14 @@ $queries['ADMIN_LIST_TEMPLATES'] = "INSERT INTO {$pre}templates (template_skin, 
   </td>
   <td class=\"tablelight\" valign=\"top\">
    <span class=\"med\">2. {\$this->lang->choose_css}:</span></br />
-   <ul style=\"line-height:150%\">
+   <ul style=\"line-height:150%%\">
     {\$css}
    </ul>
   </td>
  </tr>
 {\$this->etable}
 </form>', 'List Templates', 'Page that displays a skin\'s templates', 4)";
-$queries['ADMIN_LIST_TEMPLATES_DELETE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_LIST_TEMPLATES_DELETE', '<form action=\"{\$this->self}\" method=\"get\">
+$queries['ADMIN_LIST_TEMPLATES_DELETE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_LIST_TEMPLATES_DELETE', '<form action=\"{\$this->self}\" method=\"get\">
 {\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->menu_title}</td>
@@ -1121,15 +1121,15 @@ $queries['ADMIN_LIST_TEMPLATES_DELETE'] = "INSERT INTO {$pre}templates (template
  </tr>
 {\$this->etable}
 </form>', 'List Templates - Delete', 'Edit the form for selecting a template to delete', 4)";
-$queries['ADMIN_MASS_MAIL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mass_mail', 'ADMIN_MASS_MAIL', '<script src=\"../javascript/groupselect.js\" type=\"text/javascript\"></script>
+$queries['ADMIN_MASS_MAIL'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mass_mail', 'ADMIN_MASS_MAIL', '<script src=\"../javascript/groupselect.js\" type=\"text/javascript\"></script>
 <form action=\"{\$this->self}?a=mass_mail\" method=\"post\" id=\"mailer\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mail}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:15%\"><b>Subject</b></td>
-  <td class=\"tablelight\" style=\"width:85%\" valign=\"top\">
+  <td class=\"tablelight\" style=\"width:15%%\"><b>Subject</b></td>
+  <td class=\"tablelight\" style=\"width:85%%\" valign=\"top\">
    <input class=\"input\" type=\"text\" name=\"subject\" size=\"60\" value=\"{\$announcement}\" /></td>
  </tr>
  <tr>
@@ -1153,15 +1153,15 @@ $queries['ADMIN_MASS_MAIL'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Mass Mailing Form', 'The form for sending a mass message to all users', 0)";
-$queries['ADMIN_MEMBER_EDIT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'member_control', 'ADMIN_MEMBER_EDIT', '<tr>
- <td class=\"{\$class}\" style=\"width:30%; text-align:right\">
+$queries['ADMIN_MEMBER_EDIT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'member_control', 'ADMIN_MEMBER_EDIT', '<tr>
+ <td class=\"{\$class}\" style=\"width:30%%; text-align:right\">
   <b>{\$cols[\$var][0]}</b>
  </td>
  <td class=\"{\$class}\">
   {\$line}
  </td>
 </tr>', 'Profile Edit - One Line', 'Format for one row on the profile editor', 1)";
-$queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'member_control', 'ADMIN_MEMBER_PROFILE', '<form action=\"{\$this->self}?a=member_control&amp;s=profile&amp;id={\$this->get[\'id\']}\" method=\"post\">
+$queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'member_control', 'ADMIN_MEMBER_PROFILE', '<form action=\"{\$this->self}?a=member_control&amp;s=profile&amp;id={\$this->get[\'id\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mc}</td>
@@ -1174,7 +1174,7 @@ $queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, 
  </tr>
 {\$this->etable}
 </form>', 'Admin Member Control', 'Form for editing member profiles', 0)";
-$queries['ADMIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_MESSAGE', '<div class=\"mainmessage\">
+$queries['ADMIN_MESSAGE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_MESSAGE', '<div class=\"mainmessage\">
    {\$this->table}
     <tr>
      <td class=\"header\">{\$title}</td>
@@ -1187,25 +1187,25 @@ $queries['ADMIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, templat
     </tr>
    {\$this->etable}
 </div>', 'AdminCP Generic Message', 'The generic messages that appear throughout the AdminCP', 2)";
-$queries['ADMIN_MOD_LOGS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'logs', 'ADMIN_MOD_LOGS', '{\$this->table}
+$queries['ADMIN_MOD_LOGS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'logs', 'ADMIN_MOD_LOGS', '{\$this->table}
  <tr>
   <td class=\"header\" colspan=\"4\">{\$this->lang->logs_view}</td>
  </tr>
  <tr>
-  <td class=\"subheader\" style=\"width:25%; text-align:center\">{\$this->lang->logs_time}</td>
-  <td class=\"subheader\" style=\"width:25%; text-align:center\">{\$this->lang->logs_user}</td>
-  <td class=\"subheader\" style=\"width:25%; text-align:center\">{\$this->lang->logs_action}</td>
-  <td class=\"subheader\" style=\"width:25%; text-align:center\">{\$this->lang->logs_id}</td>
+  <td class=\"subheader\" style=\"width:25%%; text-align:center\">{\$this->lang->logs_time}</td>
+  <td class=\"subheader\" style=\"width:25%%; text-align:center\">{\$this->lang->logs_user}</td>
+  <td class=\"subheader\" style=\"width:25%%; text-align:center\">{\$this->lang->logs_action}</td>
+  <td class=\"subheader\" style=\"width:25%%; text-align:center\">{\$this->lang->logs_id}</td>
  </tr>
  {\$out}
 {\$this->etable}', 'View Moderator Logs', 'Format of the moderator log view', 0)";
-$queries['ADMIN_MOD_LOGS_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'logs', 'ADMIN_MOD_LOGS_ENTRY', '<tr>
+$queries['ADMIN_MOD_LOGS_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'logs', 'ADMIN_MOD_LOGS_ENTRY', '<tr>
  <td class=\"{\$class}\">{\$date}</td>
  <td class=\"{\$class}\">{\$user}</td>
  <td class=\"{\$class}\">{\$action}</td>
  <td class=\"{\$class}\">{\$id}</td>
 </tr>', 'Moderator Log Entry', 'The format for one log entry', 1)";
-$queries['ADMIN_PRUNE_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_FORM', '<form action=\"{\$this->self}?a=prune\" method=\"post\">
+$queries['ADMIN_PRUNE_FORM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_FORM', '<form action=\"{\$this->self}?a=prune\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->prune_select_age}</td>
@@ -1239,13 +1239,13 @@ $queries['ADMIN_PRUNE_FORM'] = "INSERT INTO {$pre}templates (template_skin, temp
  </tr>
 {\$this->etable}
 </form>', 'Admin CP Pruning topic age form', 'The form used to select what forums and topic age you want to see for pruning', 1)";
-$queries['ADMIN_PRUNE_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPIC', ' <tr>
-  <td class=\"<IF \$topicCount % 2>tabledark<ELSE>tablelight</IF>\" colspan=\"2\">
+$queries['ADMIN_PRUNE_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPIC', ' <tr>
+  <td class=\"<IF \$topicCount %% 2>tabledark<ELSE>tablelight</IF>\" colspan=\"2\">
     <input type=\"checkbox\" name=\"topics[]\" value=\"{\$topic[\'topic_id\']}\" />
 <a href=\"../{\$this->mainfile}?a=topic&amp;t={\$topic[\'topic_id\']}\">{\$topic[\'topic_title\']}</a>{\$topic[\'topic_description\']}
   </td>
  </tr>', 'Admin CP Prune Topic Display', 'Edit the display of a single topic when pruning', 3)";
-$queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPICLIST', '<script type=\"text/javascript\" src=\"../javascript/selectallboxes.js\"></script>
+$queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'prune', 'ADMIN_PRUNE_TOPICLIST', '<script type=\"text/javascript\" src=\"../javascript/selectallboxes.js\"></script>
 <form action=\"{\$this->self}?a=prune\" method=\"post\" name=\"prune\">
 <input type=\"hidden\" name=\"forums\" value=\"{\$forums}\" />
 {\$this->table}
@@ -1278,53 +1278,53 @@ $queries['ADMIN_PRUNE_TOPICLIST'] = "INSERT INTO {$pre}templates (template_skin,
  </tr>
 {\$this->etable}
 </form>', 'Admin CP Pruning topic list display', 'Edit the display of the list of topics to prune', 2)";
-$queries['ADMIN_RSSREADER_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_ITEM', '<li><a href=\"{\$item[\'link\']}\" title=\"{\$item[\'description\']}\">{\$item[\'title\']}</a></li>', 'Admin CP RSS reader item', 'Edit the layout of a rss feed item', 13)";
-$queries['ADMIN_RSSREADER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_MAIN', '<ul class=\"rssreader\">{\$title}{\$rssItems}</ul>', 'Admin CP RSS reader', 'Edit the layout of the annoucements rss feed', 11)";
-$queries['ADMIN_RSSREADER_TITLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_TITLE', '<li class=\"rsstitle\"><a href=\"{\$item[\'link\']}\">{\$item[\'title\']}</a></li>', 'Admin CP RSS reader title', 'Edit the layout of the rss feed title', 12)";
-$queries['ADMIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_TABLE', '<div class=\"stand\">
+$queries['ADMIN_RSSREADER_ITEM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_ITEM', '<li><a href=\"{\$item[\'link\']}\" title=\"{\$item[\'description\']}\">{\$item[\'title\']}</a></li>', 'Admin CP RSS reader item', 'Edit the layout of a rss feed item', 13)";
+$queries['ADMIN_RSSREADER_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_MAIN', '<ul class=\"rssreader\">{\$title}{\$rssItems}</ul>', 'Admin CP RSS reader', 'Edit the layout of the annoucements rss feed', 11)";
+$queries['ADMIN_RSSREADER_TITLE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_RSSREADER_TITLE', '<li class=\"rsstitle\"><a href=\"{\$item[\'link\']}\">{\$item[\'title\']}</a></li>', 'Admin CP RSS reader title', 'Edit the layout of the rss feed title', 12)";
+$queries['ADMIN_TABLE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Admin', 'ADMIN_TABLE', '<div class=\"stand\">
  <table class=\"stand\" cellpadding=\"5\" cellspacing=\"0\">', 'Admin Table Start', 'The beginning of the admin table', 8)";
-$queries['ADMIN_TEMPLATE_DELETE_CONTENTS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_TEMPLATE_DELETE_CONTENTS', '<tr>
+$queries['ADMIN_TEMPLATE_DELETE_CONTENTS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_TEMPLATE_DELETE_CONTENTS', '<tr>
  <td class=\"{\$class}\">
   <span style=\"font-weight:bold; font-size:14px\">{\$data[\'template_displayname\']}</span><br /><br />
   {\$data[\'template_name\']}<br /><br />
   {\$data[\'template_description\']}<br /><br />
-  <textarea style=\"background-color:white; font-family:\'courier new\', courier, monospaced, serif; font-size:12px; width:100%\" rows=\"18\" wrap=\"off\">{\$data[\'template_html\']}</textarea>
+  <textarea style=\"background-color:white; font-family:\'courier new\', courier, monospaced, serif; font-size:12px; width:100%%\" rows=\"18\" wrap=\"off\">{\$data[\'template_html\']}</textarea>
  </td>
 </tr>', 'Delete Template - Contents', 'The format for the box that shows the contents of a template being deleted', 7)";
-$queries['ADMIN_TEMPLATE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_TEMPLATE_ENTRY', '<li>
+$queries['ADMIN_TEMPLATE_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'templates', 'ADMIN_TEMPLATE_ENTRY', '<li>
  <a href=\"{\$this->self}?a=templates&amp;s={\$action}&amp;section={\$data[\'temp_set\']}&amp;skin={\$template}\">{\$sections[\$data[\'temp_set\']]}</a>
 </li>', 'Templates List Entry', 'A single entry on the edit or delete templates list', 5)";
-$queries['ADMIN_TITLE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_ENTRY', '<tr>
- <td class=\"{\$class}\" style=\"width:35%\">{\$data[\'membertitle_title\']}</td>
- <td class=\"{\$class}\" style=\"width:35%\">{\$data[\'membertitle_icon\']}</td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\"><img src=\"../skins/{\$this->skin}/images/{\$data[\'membertitle_icon\']}\" alt=\"{\$data[\'membertitle_icon\']}\" /></td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\">{\$data[\'membertitle_posts\']}</td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\"><a href=\"{\$this->self}?a=titles&amp;s=edit&amp;edit={\$data[\'membertitle_id\']}\">{\$this->lang->edit}</a></td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\"><a href=\"{\$this->self}?a=titles&amp;s=edit&amp;delete={\$data[\'membertitle_id\']}\">{\$this->lang->delete}</a></td>
+$queries['ADMIN_TITLE_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_ENTRY', '<tr>
+ <td class=\"{\$class}\" style=\"width:35%%\">{\$data[\'membertitle_title\']}</td>
+ <td class=\"{\$class}\" style=\"width:35%%\">{\$data[\'membertitle_icon\']}</td>
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\"><img src=\"../skins/{\$this->skin}/images/{\$data[\'membertitle_icon\']}\" alt=\"{\$data[\'membertitle_icon\']}\" /></td>
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\">{\$data[\'membertitle_posts\']}</td>
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\"><a href=\"{\$this->self}?a=titles&amp;s=edit&amp;edit={\$data[\'membertitle_id\']}\">{\$this->lang->edit}</a></td>
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\"><a href=\"{\$this->self}?a=titles&amp;s=edit&amp;delete={\$data[\'membertitle_id\']}\">{\$this->lang->delete}</a></td>
 </tr>', 'Admin Title Entry', 'An entry in the member titles list', 1)";
-$queries['ADMIN_TITLE_ENTRY_MOD'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_ENTRY_MOD', '<tr>
- <td class=\"{\$class}\" style=\"width:35%\">
+$queries['ADMIN_TITLE_ENTRY_MOD'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_ENTRY_MOD', '<tr>
+ <td class=\"{\$class}\" style=\"width:35%%\">
   <input class=\"input\" name=\"new_title\" value=\"{\$data[\'membertitle_title\']}\" size=\"30\" />
  </td>
- <td class=\"{\$class}\" style=\"width:35%\">
+ <td class=\"{\$class}\" style=\"width:35%%\">
   <select name=\"new_icon\" onchange=\"document.title_preview.src=\'../skins/{\$this->skin}/images/\'+this.options[selectedIndex].value\">
    {\$icon}
   </select>
  </td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\">
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\">
   <img src=\"../skins/{\$this->skin}/images/{\$data[\'membertitle_icon\']}\" />
  </td>
- <td class=\"{\$class}\" style=\"width:5%; text-align:center\">
+ <td class=\"{\$class}\" style=\"width:5%%; text-align:center\">
   <input class=\"input\" name=\"new_posts\" value=\"{\$data[\'membertitle_posts\']}\" size=\"8\" />
  </td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\">
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\">
   <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->edit}\" />
  </td>
- <td class=\"{\$class}\" style=\"width:10%; text-align:center\">
+ <td class=\"{\$class}\" style=\"width:10%%; text-align:center\">
   <a href=\"{\$this->self}?a=titles&amp;s=edit&amp;delete={\$data[\'membertitle_id\']}\">{\$this->lang->delete}</a>
  </td>
 </tr>', 'Admin Title Entry Modifying', 'Modifying an entry in the member titles', 2)";
-$queries['ADMIN_TITLE_FORM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_FORM', '<form action=\"{\$this->self}?a=titles&amp;s=edit&amp;edit={\$this->get[\'edit\']}\" method=\"post\">
+$queries['ADMIN_TITLE_FORM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'titles', 'ADMIN_TITLE_FORM', '<form action=\"{\$this->self}?a=titles&amp;s=edit&amp;edit={\$this->get[\'edit\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"6\">{\$this->lang->titles_edit}</td>
@@ -1338,7 +1338,7 @@ $queries['ADMIN_TITLE_FORM'] = "INSERT INTO {$pre}templates (template_skin, temp
  {\$out}
 {\$this->etable}
 </form>', 'Member Titles', 'Form for editing and deleting member titles', 0)";
-$queries['BOARD_CATEGORY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY', ' <tr>
+$queries['BOARD_CATEGORY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY', ' <tr>
   <td class=\"subheader\" colspan=\"4\">
    <div style=\"float:left;\"><a href=\"{\$this->self}?c={\$forum[\'forum_id\']}\" class=\"header\">{\$forum[\'forum_name\']}</a></div>
    <div style=\"text-align:right;\">
@@ -1347,25 +1347,25 @@ $queries['BOARD_CATEGORY'] = "INSERT INTO {$pre}templates (template_skin, templa
    </div>
   </td>
  </tr>', 'Board Category', 'Format the look of the categories on the index page of your forum.', 2)";
-$queries['BOARD_CATEGORY_END'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY_END', '', 'Board Category End', 'Format the look of the end of a category.', 4)";
-$queries['BOARD_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_FORUM', ' <tr>
+$queries['BOARD_CATEGORY_END'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_CATEGORY_END', '', 'Board Category End', 'Format the look of the end of a category.', 4)";
+$queries['BOARD_FORUM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_FORUM', ' <tr>
   <td class=\"tablelight\" style=\"height:35px\"><a href=\"{\$this->self}?a=forum&amp;f={\$forum[\'forum_id\']}\">{\$forum[\'forum_name\']}</a>{\$forum[\'forum_description\']}</td>
   <td class=\"tabledark\" style=\"text-align:center;\">{\$forum[\'forum_topics\']}</td>
   <td class=\"tabledark\" style=\"text-align:center;\">{\$forum[\'forum_replies\']}</td>
   <td class=\"tablelight\">{\$user_lastpostBox}</td>
  </tr>', 'Board Forum Entry', 'Format the look of a \"forum\" entry on the index page or subcategory pages.', 1)";
-$queries['BOARD_LAST_POST_BOX'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_LAST_POST_BOX', '<IF (\$topic_unread)>
+$queries['BOARD_LAST_POST_BOX'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_LAST_POST_BOX', '<IF (\$topic_unread)>
  <img src=\"./skins/{\$this->skin}/images/icons/topic_unread.png\" alt=\"{\$this->lang->main_topics_new}\" title=\"{\$this->lang->main_topics_new}\" />
 </IF>
 <a href=\"{\$this->self}?a=topic&amp;t={\$forum[\'LastTopicID\']}\" class=\"small\" title=\"{\$full_title}\">{\$forum[\'user_lastpost\']}</a><br />
 {\$this->lang->board_by} {\$forum[\'user_lastposter\']}<br />
 {\$forum[\'LastTime\']}', 'Last Post Box', 'Change the look of the last poster box on the forums.', 3)";
-$queries['BOARD_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_MAIN', '{\$this->table}
+$queries['BOARD_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_MAIN', '{\$this->table}
  <tr>
-  <td class=\"header\" style=\"width:55%\">{\$this->lang->board_forum}</td>
-  <td class=\"header\" style=\"width:10%; text-align:center\">{\$this->lang->board_topics}</td>
-  <td class=\"header\" style=\"width:10%; text-align:center\">{\$this->lang->board_replies}</td>
-  <td class=\"header\" style=\"width:25%\">{\$this->lang->board_last_post}</td>
+  <td class=\"header\" style=\"width:55%%\">{\$this->lang->board_forum}</td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\">{\$this->lang->board_topics}</td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\">{\$this->lang->board_replies}</td>
+  <td class=\"header\" style=\"width:25%%\">{\$this->lang->board_last_post}</td>
  </tr>
  {\$forums}
 {\$this->etable}
@@ -1377,7 +1377,7 @@ $queries['BOARD_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 <p></p>
 
 <MODLET board_stats(true)>', 'Board View', 'Change the appearance of the main board screen, which lists all available forums', 0)";
-$queries['BOARD_USERS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_USERS', '
+$queries['BOARD_USERS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_USERS', '
 {\$this->qsf->table}
  <tr>
   <td class=\"header\">
@@ -1393,7 +1393,7 @@ $queries['BOARD_USERS'] = "INSERT INTO {$pre}templates (template_skin, template_
   </td>
  </tr>
 {\$this->qsf->etable}', 'MODLET: Active Users List', 'Format for the active users list generated by the users_online modlet.', 5)";
-$queries['BOARD_STATS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_STATS', '
+$queries['BOARD_STATS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'board', 'BOARD_STATS', '
 {\$this->qsf->table}
  <tr>
   <td class=\"header\">
@@ -1409,7 +1409,7 @@ $queries['BOARD_STATS'] = "INSERT INTO {$pre}templates (template_skin, template_
   </td>
  </tr>
 {\$this->qsf->etable}', 'MODLET: Board Statistics', 'Format for the board statistics table.', 6)";
-$queries['CP_AVATAR'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_AVATAR', '<script type=\"text/javascript\">
+$queries['CP_AVATAR'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_AVATAR', '<script type=\"text/javascript\">
 <!--
 function enable(what)
 {
@@ -1511,7 +1511,7 @@ function check(i)
   <td class=\"header\" colspan=\"2\">{\$this->lang->cp_label_edit_avatar}</td>
  </tr>
  <tr>
-  <td class=\"tabledark\" style=\"width:30%; text-align:center;\" rowspan=\"5\">
+  <td class=\"tabledark\" style=\"width:30%%; text-align:center;\" rowspan=\"5\">
    <table border=\"0\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
      <td style=\"text-align:center\" colspan=\"2\">
@@ -1625,7 +1625,7 @@ function check(i)
 enable(\'\$init\');
 //-->
 </script>', 'Avatar Controls', 'The form that allows users to customize their avatar', 3)";
-$queries['CP_EDIT_SIG'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_EDIT_SIG', '
+$queries['CP_EDIT_SIG'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_EDIT_SIG', '
 <form action=\"{\$this->self}?a=cp&amp;s=sig\" method=\"post\" id=\"mbpost\">
 <script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
 <script type=\"text/javascript\">
@@ -1654,7 +1654,7 @@ mbcodeInit(\"mbpost\", \"sig\");
   </tr>
 {\$this->etable}
 </form>', 'Edit Signature', 'Allows you to edit how signatures are handled', 8)";
-$queries['CP_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_HOME', '{\$this->table}
+$queries['CP_HOME'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_HOME', '{\$this->table}
  <tr>
   <td class=\"header\">{\$this->lang->cp_header}</td>
  </tr>
@@ -1665,30 +1665,30 @@ $queries['CP_HOME'] = "INSERT INTO {$pre}templates (template_skin, template_set,
   <td class=\"footer\">&nbsp;</td>
  </tr>
 {\$this->etable}', 'Control Panel Home', 'The page shown when the control panel is opened', 1)";
-$queries['CP_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_MAIN', '{\$this->table}
+$queries['CP_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_MAIN', '{\$this->table}
  <tr>
   <td class=\"header\" colspan=\"6\">{\$this->lang->cp_header}</td>
  </tr>
  <tr>
-  <td class=\"{\$class[\'avatar\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=avatar\">{\$this->lang->cp_label_edit_avatar}</a></td>
-  <td class=\"{\$class[\'cpass\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=cpass\">{\$this->lang->cp_label_edit_pass}</a></td>
-  <td class=\"{\$class[\'prefs\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=prefs\">{\$this->lang->cp_label_edit_prefs}</a></td>
-  <td class=\"{\$class[\'profile\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=profile\">{\$this->lang->cp_label_edit_profile}</a></td>
-  <td class=\"{\$class[\'subs\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=subs\">{\$this->lang->cp_label_edit_subs}</a></td>
-  <td class=\"{\$class[\'sig\']}\" style=\"width:16%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=sig\">{\$this->lang->cp_label_edit_sig}</a></td>
+  <td class=\"{\$class[\'avatar\']}\" style=\"width:16%%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=avatar\">{\$this->lang->cp_label_edit_avatar}</a></td>
+  <td class=\"{\$class[\'cpass\']}\" style=\"width:16%%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=cpass\">{\$this->lang->cp_label_edit_pass}</a></td>
+  <td class=\"{\$class[\'prefs\']}\" style=\"width:16%%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=prefs\">{\$this->lang->cp_label_edit_prefs}</a></td>
+  <td class=\"{\$class[\'profile\']}\" style=\"width:16%%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=profile\">{\$this->lang->cp_label_edit_profile}</a></td>
+  <td class=\"{\$class[\'subs\']}\" style=\"width:16%%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=subs\">{\$this->lang->cp_label_edit_subs}</a></td>
+  <td class=\"{\$class[\'sig\']}\" style=\"width:16%%; text-align:center;\"><a href=\"{\$this->self}?a=cp&amp;s=sig\">{\$this->lang->cp_label_edit_sig}</a></td>
  </tr>
 {\$this->etable}
 
 <p></p>
 
 {\$control_page}', 'Control Panel Menu', 'The control panel navigation menu', 0)";
-$queries['CP_PASS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PASS', '<form action=\"{\$this->self}?a=cp&amp;s=cpass\" method=\"post\">
+$queries['CP_PASS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PASS', '<form action=\"{\$this->self}?a=cp&amp;s=cpass\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->cp_label_edit_pass}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->cp_old_pass}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->cp_old_pass}</td>
   <td class=\"tablelight\"><input class=\"input\" type=\"password\" name=\"old_pass\" size=\"40\" /></td>
  </tr>
  <tr>
@@ -1706,7 +1706,7 @@ $queries['CP_PASS'] = "INSERT INTO {$pre}templates (template_skin, template_set,
  </tr>
 {\$this->etable}
 </form>', 'Change Password Form', 'The form that lets a user change their password', 4)";
-$queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PREFS', '
+$queries['CP_PREFS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PREFS', '
 <script type=\"text/javascript\" src=\"./javascript/timezone.js\"></script>
 <form action=\"{\$this->self}?a=cp&amp;s=prefs\" method=\"post\">
 {\$this->table}
@@ -1714,7 +1714,7 @@ $queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set
   <td class=\"header\" colspan=\"2\">{\$this->lang->cp_label_edit_prefs}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->cp_zone}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->cp_zone}</td>
   <td class=\"tablelight\">
    <select class=\"select timezone\" name=\"user_timezone\">
     {\$time_list}
@@ -1763,13 +1763,13 @@ $queries['CP_PREFS'] = "INSERT INTO {$pre}templates (template_skin, template_set
  </tr>
 {\$this->etable}
 </form>', 'Board Preferences Form', 'Allows users to edit their board preferences', 5)";
-$queries['CP_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PROFILE', '<form action=\"{\$this->self}?a=cp&amp;s=profile\" method=\"post\" id=\"profile\">
+$queries['CP_PROFILE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_PROFILE', '<form action=\"{\$this->self}?a=cp&amp;s=profile\" method=\"post\" id=\"profile\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->cp_label_edit_profile}</td>
  </tr>
  <tr>
-  <td class=\"tabledark\" style=\"width:30%\">{\$this->lang->cp_format}</td>
+  <td class=\"tabledark\" style=\"width:30%%\">{\$this->lang->cp_format}</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"Newuser_name\" value=\"{\$this->user[\'user_name\']}\" size=\"40\" />
   </td>
@@ -1851,7 +1851,7 @@ $queries['CP_PROFILE'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>', 'Edit Profile Form', 'The form that edits profiles', 2)";
-$queries['CP_SUB_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_SUB_MAIN', '<form action=\"{\$this->self}?a=cp&amp;s=subs\" method=\"post\">
+$queries['CP_SUB_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_SUB_MAIN', '<form action=\"{\$this->self}?a=cp&amp;s=subs\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" style=\"text-align:center\">{\$this->lang->cp_sub_delete}</td>
@@ -1867,20 +1867,20 @@ $queries['CP_SUB_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
  </tr>
 {\$this->etable}
 </form>', 'Subscriptions Main', 'The subscriptions main table', 6)";
-$queries['CP_SUB_ROW'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_SUB_ROW', ' <tr>
+$queries['CP_SUB_ROW'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'cp', 'CP_SUB_ROW', ' <tr>
   <td class=\"tabledark\" style=\"text-align:center\"><input type=\"checkbox\" name=\"delete[{\$sub[\'subscription_id\']}]\" /></td>
   <td class=\"tablelight\" style=\"text-align:center\">{\$sub[\'subscription_type\']}</td>
   <td class=\"tablelight\" style=\"text-align:center\"><a href=\"{\$this->self}?{\$link}\">{\$sub[\'item_name\']}</a></td>
   <td class=\"tablelight\" style=\"text-align:center\">{\$sub[\'subscription_expire\']}</td>
  </tr>', 'Subscription', 'An individual subscription row', 7)";
-$queries['EMAIL_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'email', 'EMAIL_MAIN', '<form action=\"{\$this->self}?a=email\" method=\"post\">
+$queries['EMAIL_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'email', 'EMAIL_MAIN', '<form action=\"{\$this->self}?a=email\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->email_email}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->email_to}</td>
-  <td class=\"tablelight\" style=\"width:70%\"><input class=\"input\" name=\"to\" size=\"60\" value=\"{\$this->get[\'to\']}\" /></td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->email_to}</td>
+  <td class=\"tablelight\" style=\"width:70%%\"><input class=\"input\" name=\"to\" size=\"60\" value=\"{\$this->get[\'to\']}\" /></td>
  </tr>
  <tr>
   <td class=\"tabledark\">{\$this->lang->email_subject}</td>
@@ -1897,25 +1897,25 @@ $queries['EMAIL_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>', 'Send An Email Form', 'The form to send an email', 0)";
-$queries['FORUM_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_MAIN', '{\$Forum_SubMain}
+$queries['FORUM_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_MAIN', '{\$Forum_SubMain}
 
 {\$Forum_TopicList}', 'Forum View', 'Change the appearance of the forums\' topic lists', 0)";
-$queries['FORUM_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_NO_TOPICS', ' <tr>
+$queries['FORUM_NO_TOPICS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_NO_TOPICS', ' <tr>
   <td class=\"tablelight\" style=\"text-align:center; padding:30px\" colspan=\"6\">{\$this->lang->forum_no_topics}</td>
  </tr>', 'Error Display', 'Format the look of an error on the forum view.', 5)";
-$queries['FORUM_SUBFORUM_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_SUBFORUM_MAIN', '{\$this->table}
+$queries['FORUM_SUBFORUM_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_SUBFORUM_MAIN', '{\$this->table}
  <tr>
-  <td class=\"header\" style=\"width:55%\">{\$this->lang->forum_sub}</td>
-  <td class=\"header\" style=\"width:10%; text-align:center\">{\$this->lang->forum_sub_topics}</td>
-  <td class=\"header\" style=\"width:10%; text-align:center\">{\$this->lang->forum_sub_replies}</td>
-  <td class=\"header\" style=\"width:25%\">{\$this->lang->forum_sub_last_post}</td>
+  <td class=\"header\" style=\"width:55%%\">{\$this->lang->forum_sub}</td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\">{\$this->lang->forum_sub_topics}</td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\">{\$this->lang->forum_sub_replies}</td>
+  <td class=\"header\" style=\"width:25%%\">{\$this->lang->forum_sub_last_post}</td>
  </tr>
  {\$SubForums}
  <tr>
   <td class=\"footer\" colspan=\"4\">&nbsp;</td>
  </tr>
 {\$this->etable}', 'Forum-view Subforums', 'Change the look of Subforums under the forum-view.', 3)";
-$queries['FORUM_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPIC', ' <tr>
+$queries['FORUM_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPIC', ' <tr>
   <td class=\"topicicons\">
    <div class=\"{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
    <IF \$row[\'topic_modes\'] & TOPIC_PINNED>
@@ -1945,7 +1945,7 @@ $queries['FORUM_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_
    </table>
   </td>
  </tr>', 'Forum Topics', 'Format the default look of a given forum topic.', 1)";
-$queries['FORUM_TOPICS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPICS_MAIN', '<script type=\"text/javascript\" src=\"./javascript/forumjump.js\"></script>
+$queries['FORUM_TOPICS_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'forum', 'FORUM_TOPICS_MAIN', '<script type=\"text/javascript\" src=\"./javascript/forumjump.js\"></script>
 {\$this->table}
  <tr>
   <td>
@@ -1958,12 +1958,12 @@ $queries['FORUM_TOPICS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, tem
 
 {\$this->table}
  <tr>
-  <td class=\"header\" style=\"width:5%\">&nbsp;</td>
-  <td class=\"header\" style=\"width:40%\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=title&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_topic}</a></td>
-  <td class=\"header\" style=\"width:15%; text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=starter&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_starter}</a></td>
-  <td class=\"header\" style=\"width:10%; text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=replies&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_replies}</a></td>
-  <td class=\"header\" style=\"width:10%; text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=views&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_views}</a></td>
-  <td class=\"header\" style=\"width:20%\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=last&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_last}</a></td>
+  <td class=\"header\" style=\"width:5%%\">&nbsp;</td>
+  <td class=\"header\" style=\"width:40%%\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=title&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_topic}</a></td>
+  <td class=\"header\" style=\"width:15%%; text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=starter&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_starter}</a></td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=replies&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_replies}</a></td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=views&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_views}</a></td>
+  <td class=\"header\" style=\"width:20%%\"><a href=\"{\$this->self}?a=forum&amp;f={\$f}&amp;min={\$min}&amp;n={\$n}&amp;order=last&amp;asc={\$asc}\" class=\"header\">{\$this->lang->forum_last}</a></td>
  </tr>
  {\$topics}
  <tr>
@@ -2004,7 +2004,7 @@ $queries['FORUM_TOPICS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, tem
   </tr>
  </table>
 </div>', 'Forum Topics List', 'The display of topic listings in a forum', 6)";
-$queries['HELP_DESCRIPTIVE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_DESCRIPTIVE_ENTRY', '<div class=\"header\">
+$queries['HELP_DESCRIPTIVE_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_DESCRIPTIVE_ENTRY', '<div class=\"header\">
  <a id=\"h{\$ar[\'help_id\']}\"><b>{\$ar[\'help_title\']}</b></a>
 </div>
 <div class=\"tablelight\">
@@ -2013,7 +2013,7 @@ $queries['HELP_DESCRIPTIVE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin
 <div class=\"footer\">&nbsp;</div>
 
 <p></p>', 'Descriptive Entry', 'The actual help entry\'s view.', 1)";
-$queries['HELP_FULL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_FULL', '<div class=\"header\">{\$this->lang->help_available_files}</div>
+$queries['HELP_FULL'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_FULL', '<div class=\"header\">{\$this->lang->help_available_files}</div>
 <div class=\"tablelight\">
  <ol>
   {\$top}
@@ -2024,14 +2024,14 @@ $queries['HELP_FULL'] = "INSERT INTO {$pre}templates (template_skin, template_se
 <p></p>
 
 {\$desc}', 'Help Screen Layout', 'The entire layout of the help screen and formatting.', 0)";
-$queries['HELP_SIMPLE_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_SIMPLE_ENTRY', '<li><a href=\"{\$this->self}?a=help#h{\$ar[\'help_id\']}\">{\$ar[\'help_title\']}</a></li>', 'Simple Entry', 'The entry style for the listing of articles with links', 2)";
-$queries['LOGIN_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'login', 'LOGIN_MAIN', '<form action=\"{\$this->self}?a=login&amp;s=on\" method=\"post\">
+$queries['HELP_SIMPLE_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'help', 'HELP_SIMPLE_ENTRY', '<li><a href=\"{\$this->self}?a=help#h{\$ar[\'help_id\']}\">{\$ar[\'help_title\']}</a></li>', 'Simple Entry', 'The entry style for the listing of articles with links', 2)";
+$queries['LOGIN_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'login', 'LOGIN_MAIN', '<form action=\"{\$this->self}?a=login&amp;s=on\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->login_header}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->login_user}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->login_user}</td>
   <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"user\" size=\"30\" tabindex=\"1\" />
   </td>
@@ -2053,13 +2053,13 @@ $queries['LOGIN_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>', 'Login Form', 'Format the look of the login form.', 0)";
-$queries['LOGIN_PASS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'login', 'LOGIN_PASS', '<form action=\"{\$this->self}?a=login&amp;s=pass\" method=\"post\">
+$queries['LOGIN_PASS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'login', 'LOGIN_PASS', '<form action=\"{\$this->self}?a=login&amp;s=pass\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->login_pass_reset}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->login_user}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->login_user}</td>
   <td class=\"tablelight\">
    <input class=\"input\" type=\"text\" name=\"user\" size=\"30\" />
   </td>
@@ -2071,7 +2071,7 @@ $queries['LOGIN_PASS'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>', 'Reset Password', 'The forgotten password form', 1)";
-$queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
+$queries['MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN', '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
 <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"{\$qsf->user[\'user_language\']}\" dir=\"{\$qsf->lang->direction}\">
 <head>
 <meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset={\$qsf->lang->charset}\" />
@@ -2131,13 +2131,13 @@ $queries['MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, te
 </div>
 </body>
 </html>', 'Universal Template', 'Change the header and footer that will appear on every page', 0)";
-$queries['MAIN_COPYRIGHT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_COPYRIGHT', '<p class=\"copyright\">
+$queries['MAIN_COPYRIGHT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_COPYRIGHT', '<p class=\"copyright\">
 {\$qsf->lang->powered} <a href=\"http://www.quicksilverforums.com\" class=\"small\"><b>{\$qsf->name}</b></a> [{\$qsf->version}] &copy; 2005-2006 The {\$qsf->name} Development Team<br />
 {\$qsf->lang->based_on} <a href=\"http://www.mercuryboard.com\" class=\"small\"><b>MercuryBoard</b></a> &copy; 2001-2005 The Mercury Development Team
 </p>', 'Copyright', 'Format the look of the copyright on the board.<br><br><b>Warning: Modification to anything other than the style of this copyright will result in a violation of your terms of service</b>', 6)";
-$queries['MAIN_ETABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_ETABLE', ' </table>
+$queries['MAIN_ETABLE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_ETABLE', ' </table>
 </div>', 'Table End', 'Edit the end of all html that uses \$this->etable', 5)";
-$queries['MAIN_HEADER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_GUEST', ' <ul class=\"nav\">
+$queries['MAIN_HEADER_GUEST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_GUEST', ' <ul class=\"nav\">
   <li><a href=\"{\$qsf->self}?a=members\">{\$qsf->lang->main_members}</a></li>
   <li><a href=\"{\$qsf->self}?a=search{\$searchlink}\">{\$qsf->lang->main_search}</a></li>
   <li><a href=\"{\$qsf->self}?a=help\">{\$qsf->lang->main_help}</a></li>
@@ -2147,7 +2147,7 @@ $queries['MAIN_HEADER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, tem
 
  {\$qsf->table}
   <tr>
-   <td style=\"width:30%; white-space:nowrap\">
+   <td style=\"width:30%%; white-space:nowrap\">
     {\$qsf->lang->main_welcome_guest}
     <span class=\"useroptions\">
      ( <a href=\"{\$qsf->self}?a=login&amp;s=on\">{\$qsf->lang->main_login}</a> | <a href=\"{\$qsf->self}?a=register\">{\$qsf->lang->main_register}</a> )
@@ -2158,7 +2158,7 @@ $queries['MAIN_HEADER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, tem
  {\$qsf->etable}
 
  <p></p>', 'Welcome Message - Not logged in', 'Edit the menu bar for unregistered and logged out users', 3)";
-$queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_MEMBER', ' <ul class=\"nav\">
+$queries['MAIN_HEADER_MEMBER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_HEADER_MEMBER', ' <ul class=\"nav\">
   <li><a href=\"{\$qsf->self}?a=members\">{\$qsf->lang->main_members}</a></li>
   <li><a href=\"{\$qsf->self}?a=search{\$searchlink}\">{\$qsf->lang->main_search}</a></li>
   <li><a href=\"{\$qsf->self}?a=help\">{\$qsf->lang->main_help}</a></li>
@@ -2168,7 +2168,7 @@ $queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, te
 
  {\$qsf->table}
   <tr>
-   <td style=\"width:30%; white-space:nowrap\">
+   <td style=\"width:30%%; white-space:nowrap\">
     {\$qsf->lang->main_welcome} <a href=\"{\$qsf->self}?a=profile&amp;w={\$qsf->user[\'user_id\']}\"><b>{\$qsf->user[\'user_name\']}</b></a>!
     <span class=\"useroptions\">
      ( <a href=\"{\$qsf->self}?a=recent\" title=\"{\$qsf->lang->main_recent1}\">{\$qsf->lang->main_recent}</a> | <a href=\"{\$qsf->self}?s=mark\" title=\"{\$qsf->lang->main_mark1}\">{\$qsf->lang->main_mark}</a> | <a href=\"{\$qsf->self}?a=login&amp;s=off\">{\$qsf->lang->main_logout}</a><IF \$qsf->perms->auth(\'is_admin\')> | <a href=\"./admincp/index.php\">{\$qsf->lang->main_admincp}</a></IF> )
@@ -2179,7 +2179,7 @@ $queries['MAIN_HEADER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, te
  {\$qsf->etable}
 
  <p></p>', 'Welcome Message - Logged In', 'Edit the menu bar for logged in members', 2)";
-$queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MESSAGE', '<div class=\"mainmessage\">
+$queries['MAIN_MESSAGE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MESSAGE', '<div class=\"mainmessage\">
    {\$this->table}
     <tr>
      <td class=\"header\">{\$title}</td>
@@ -2192,7 +2192,7 @@ $queries['MAIN_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template
     </tr>
    {\$this->etable}
 </div>', 'Generic Message', 'Edit the html that displays generic messages throughout the board', 1)";
-$queries['MAIN_MBCODE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MBCODE', '
+$queries['MAIN_MBCODE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_MBCODE', '
   <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\">
     <tr>
      <td><input type=\"button\" onclick=\"mbCode(this)\" name=\"b\" title=\"{\$this->lang->mbcode_bold}\" accesskey=\"b\" class=\"mbcButton\" value=\"{\$this->lang->mbcode_bold1}\" style=\"font-weight:bold\" /></td>
@@ -2219,12 +2219,12 @@ $queries['MAIN_MBCODE'] = "INSERT INTO {$pre}templates (template_skin, template_
    </table>
    <br />
 ', 'BB Code buttons', 'Edit the buttons used as bbcode tools when posting', 8)";
-$queries['MAIN_REMINDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', ' <p class=\"reminder\">
+$queries['MAIN_REMINDER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_REMINDER', ' <p class=\"reminder\">
   {\$qsf->lang->main_reminder}<br /><br />{\$reminder_text}
  </p>', 'Reminder', 'Used for important reminders for certain users, such as explaining to members awaiting activation how to enable their accounts.', 7)";
-$queries['MAIN_TABLE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_TABLE', '<div class=\"stand\">
+$queries['MAIN_TABLE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'Main', 'MAIN_TABLE', '<div class=\"stand\">
  <table class=\"stand\" cellpadding=\"5\" cellspacing=\"0\">', 'Table Start', 'Edit the beginning of all html that uses \$this->table', 4)";
-$queries['MEMBERS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MAIN', '{\$this->table}
+$queries['MEMBERS_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MAIN', '{\$this->table}
  <tr>
   <td>{\$PageNums}</td>
   <td style=\"text-align:right\">
@@ -2281,7 +2281,7 @@ $queries['MEMBERS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
   <td>{\$PageNums}</td>
  </tr>
 {\$this->etable}', 'Memberlist', 'Change the look of the main area of the memberlist.', 0)";
-$queries['MEMBERS_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MEMBER', ' <tr>
+$queries['MEMBERS_MEMBER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'members', 'MEMBERS_MEMBER', ' <tr>
   <td class=\"{\$class}\" style=\"text-align:center\"><a href=\"{\$this->self}?a=profile&amp;w={\$member[\'user_id\']}\">{\$member[\'user_name\']}</a></td>
   <td class=\"{\$class}\" style=\"text-align:center\">
    <IF \$member[\'user_email_show\']>
@@ -2306,11 +2306,11 @@ $queries['MEMBERS_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, templa
    </IF>
   </td>
  </tr>', 'Memberlist Entry', 'Format the look of a memberlist entry.', 1)";
-$queries['MOD_EDIT_GLOBAL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_GLOBAL', ' <tr>
+$queries['MOD_EDIT_GLOBAL'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_GLOBAL', ' <tr>
   <td class=\"tablelight\">{\$this->lang->mod_label_global}</td>
   <td class=\"tablelight\"><input type=\"checkbox\" name=\"global_topic\"{\$checkGlob} /></td>
  </tr>', 'Edit Topic, Global', ' Displayed only to those able to make a topic global', 3)";
-$queries['MOD_EDIT_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_POST', '<form action=\"{\$this->self}?a=mod&amp;s=edit_post&amp;p={\$this->get[\'p\']}\" method=\"post\" name=\"mbpost\" enctype=\"multipart/form-data\">
+$queries['MOD_EDIT_POST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_POST', '<form action=\"{\$this->self}?a=mod&amp;s=edit_post&amp;p={\$this->get[\'p\']}\" method=\"post\" name=\"mbpost\" enctype=\"multipart/form-data\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mod_label_post_edit}</td>
@@ -2331,14 +2331,14 @@ $queries['MOD_EDIT_POST'] = "INSERT INTO {$pre}templates (template_skin, templat
  </tr>
 {\$this->etable}
 </form>', 'Edit Post Form', 'Edit the form that edits an existing post', 1)";
-$queries['MOD_EDIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_TOPIC', '<form action=\"{\$this->self}?a=mod&amp;s=edit_topic&amp;t={\$this->get[\'t\']}\" method=\"post\">
+$queries['MOD_EDIT_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_EDIT_TOPIC', '<form action=\"{\$this->self}?a=mod&amp;s=edit_topic&amp;t={\$this->get[\'t\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mod_label_topic_edit}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title}</td>
-  <td class=\"tablelight\" style=\"width:70%\">
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->mod_label_title}</td>
+  <td class=\"tablelight\" style=\"width:70%%\">
    <input class=\"input\" type=\"text\" size=\"40\" name=\"title\" value=\"{\$topic[\'topic_title\']}\" />
   </td>
  </tr>
@@ -2356,13 +2356,13 @@ $queries['MOD_EDIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templa
  </tr>
 {\$this->etable}
 </form>', 'Edit Topic', 'Change the view of the edit topic screen', 0)";
-$queries['MOD_MOVE_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_MOVE_TOPIC', '<form action=\"{\$this->self}?a=mod&amp;s=move&amp;t={\$this->get[\'t\']}\" method=\"post\">
+$queries['MOD_MOVE_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_MOVE_TOPIC', '<form action=\"{\$this->self}?a=mod&amp;s=move&amp;t={\$this->get[\'t\']}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mod_label_topic_move}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_move_to}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->mod_label_move_to}</td>
   <td class=\"tabledark\">
    <select size=\"1\" name=\"newforum\">
     {\$forumlist}
@@ -2383,7 +2383,7 @@ $queries['MOD_MOVE_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templa
  </tr>
 {\$this->etable}
 </form>', 'Move', 'The form that moderators use to move a topic', 2)";
-$queries['MOD_SPLIT_SELECT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_SPLIT_SELECT', '<select name=\"posttarget[{\$post[\'post_id\']}]\" class=\"input\">
+$queries['MOD_SPLIT_SELECT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_SPLIT_SELECT', '<select name=\"posttarget[{\$post[\'post_id\']}]\" class=\"input\">
  <option value=\"0\" selected=\"selected\">{\$this->lang->topic_split_keep}</option>
  <option value=\"1\">{\$this->lang->topic_split_move} (1)</option>
  <option value=\"2\">{\$this->lang->topic_split_move} (2)</option>
@@ -2393,38 +2393,38 @@ $queries['MOD_SPLIT_SELECT'] = "INSERT INTO {$pre}templates (template_skin, temp
 <br />
 <input name=\"submit\" type=\"submit\" value=\"{\$this->lang->topic_split_finish}\" />
 <br /><br />', 'Topic Split Form', 'An interface to split a topic off a post', 4)";
-$queries['MOD_SPLIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_SPLIT_TOPIC', '<form action=\"{\$this->self}?a=mod&amp;s=split&amp;t={\$this->get[\'t\']}\" method=\"post\">
+$queries['MOD_SPLIT_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'mod', 'MOD_SPLIT_TOPIC', '<form action=\"{\$this->self}?a=mod&amp;s=split&amp;t={\$this->get[\'t\']}\" method=\"post\">
 <input type=\"hidden\" name=\"posttarget\" value=\"{\$posttarget}\" />
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->mod_label_topic_split}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\'width:30%\'>{\$this->lang->mod_label_title_original}</td>
+  <td class=\"tablelight\" style=\'width:30%%\'>{\$this->lang->mod_label_title_original}</td>
   <td class=\"tabledark\">
    {\$topic[\'topic_title\']}
   </td>
  </tr>
  <tr style=\"{\$display[1]}\">
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 1</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->mod_label_title_split} 1</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[1]\" size=\"60\" maxlength=\"75\" />
   </td>
  </tr>
  <tr style=\"{\$display[2]}\">
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 2</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->mod_label_title_split} 2</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[2]\" size=\"60\" maxlength=\"75\" />
   </td>
  </tr>
  <tr style=\"{\$display[3]}\">
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 3</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->mod_label_title_split} 3</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[3]\" size=\"60\" maxlength=\"75\" />
   </td>
  </tr>
  <tr style=\"{\$display[4]}\">
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->mod_label_title_split} 4</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->mod_label_title_split} 4</td>
   <td class=\"tabledark\">
    <input class=\"input\" type=\"text\" name=\"topic[4]\" size=\"60\" maxlength=\"75\" />
   </td>
@@ -2435,7 +2435,7 @@ $queries['MOD_SPLIT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templ
  </tr>
 {\$this->etable}
 </form>', 'Topic Split Titles', 'Used to assign titles to split topics', 5)";
-$queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER', '<script type=\"text/javascript\" src=\"./javascript/folderjump.js\"></script>
+$queries['PM_FOLDER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER', '<script type=\"text/javascript\" src=\"./javascript/folderjump.js\"></script>
 <script type=\"text/javascript\" src=\"./javascript/selectallboxes.js\"></script>
 {\$this->table}
  <tr>
@@ -2456,11 +2456,11 @@ $queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_se
   <td class=\"header\" colspan=\"5\">{\$foldername}</td>
  </tr>
  <tr>
-  <td class=\"subheader\" style=\"width:5%\">{\$this->lang->pm_delete}</td>
-  <td class=\"subheader\" style=\"width:5%\">&nbsp;</td>
-  <td class=\"subheader\" style=\"width:35%\">{\$this->lang->pm_title}</td>
-  <td class=\"subheader\" style=\"width:20%\">{\$this->lang->pm_from}</td>
-  <td class=\"subheader\" style=\"width:35%\">{\$this->lang->pm_sendon}</td>
+  <td class=\"subheader\" style=\"width:5%%\">{\$this->lang->pm_delete}</td>
+  <td class=\"subheader\" style=\"width:5%%\">&nbsp;</td>
+  <td class=\"subheader\" style=\"width:35%%\">{\$this->lang->pm_title}</td>
+  <td class=\"subheader\" style=\"width:20%%\">{\$this->lang->pm_from}</td>
+  <td class=\"subheader\" style=\"width:35%%\">{\$this->lang->pm_sendon}</td>
  </tr>
  {\$messages}
  <tr>
@@ -2484,7 +2484,7 @@ $queries['PM_FOLDER'] = "INSERT INTO {$pre}templates (template_skin, template_se
   </td>
  </tr>
 {\$this->etable}', 'Folder', 'A view of the personal messages list', 1)";
-$queries['PM_FOLDER_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER_MESSAGE', ' <tr>
+$queries['PM_FOLDER_MESSAGE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_FOLDER_MESSAGE', ' <tr>
   <td class=\"tablelight\" style=\"text-align:center\"><input type=\"checkbox\" name=\"delete[{\$pm[\'pm_id\']}]\" /></td>
   <td class=\"tablelight\" style=\"text-align:center\">
    <IF (\$pm[\'pm_read\'] == \'new\')>
@@ -2497,16 +2497,16 @@ $queries['PM_FOLDER_MESSAGE'] = "INSERT INTO {$pre}templates (template_skin, tem
   <td class=\"tablelight\"><a href=\"{\$this->self}?a=profile&amp;w={\$pm[\'pm_from\']}\">{\$pm[\'user_name\']}</a></td>
   <td class=\"tablelight\">{\$pm[\'pm_time\']}</td>
  </tr>', 'Message', 'A message entry in the list', 2)";
-$queries['PM_NO_MESSAGES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_NO_MESSAGES', ' <tr>
+$queries['PM_NO_MESSAGES'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_NO_MESSAGES', ' <tr>
   <td class=\"tablelight\" style=\"text-align:center; padding:30px;\" colspan=\"5\">{\$this->lang->pm_nomsg}</td>
  </tr>', 'No Messages', 'To display when there are no messages', 5)";
-$queries['PM_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_PREVIEW', '{\$this->table}
+$queries['PM_PREVIEW'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_PREVIEW', '{\$this->table}
  <tr>
   <td class=\"header\">{\$preview_title}</td>
  </tr>
  <tr>
   <td class=\"tablelight\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"4\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"4\" cellspacing=\"0\">
     <tr>
      <td class=\"post\" valign=\"top\">
       {\$preview_text}
@@ -2517,7 +2517,7 @@ $queries['PM_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 <br />', 'PM Preview', 'A private message being previewed with formatting', 6)";
-$queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_SEND', '
+$queries['PM_SEND'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_SEND', '
 {\$preview}
 <form action=\"{\$this->self}?a=pm&amp;s=send\" method=\"post\" id=\"mbpost\">
 {\$this->table}
@@ -2525,7 +2525,7 @@ $queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set,
   <td class=\"header\" colspan=\"2\">{\$this->lang->pm_sendingpm}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\"><b>{\$this->lang->pm_to}</b><br />{\$this->lang->pm_multiple}</td>
+  <td class=\"tablelight\" style=\"width:30%%\"><b>{\$this->lang->pm_to}</b><br />{\$this->lang->pm_multiple}</td>
   <td class=\"tablelight\"><input class=\"input\" name=\"to\" size=\"60\" value=\"{\$to}\" /></td>
  </tr>
  <tr>
@@ -2554,7 +2554,7 @@ $queries['PM_SEND'] = "INSERT INTO {$pre}templates (template_skin, template_set,
  </tr>
 {\$this->etable}
 </form>', 'Send A PM Form', 'The form to send a new personal message', 4)";
-$queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_VIEW', '{\$this->table}
+$queries['PM_VIEW'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'pm', 'PM_VIEW', '{\$this->table}
  <tr>
   <td align=\"right\">
    <div class=\"bigbutton\"><a class=\"delete\" href=\"{\$this->self}?a=pm&amp;s=delete&amp;m={\$pm[\'pm_id\']}\" title=\"{\$this->lang->pm_delete}\">{\$this->lang->delete}</a></div>
@@ -2570,7 +2570,7 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
  </tr>
  <tr>
   <td class=\"tablelight\">
-   <table style=\"width:100%;\">
+   <table style=\"width:100%%;\">
     <tr>
      <td class=\"posterinfo\" rowspan=\"2\">
       <IF \$online><img src=\"./skins/{\$this->skin}/images/icons/user_online.png\" alt=\"{\$this->lang->pm_online}\" title=\"{\$this->lang->pm_online}\" height=\"16\" width=\"16\" />
@@ -2611,7 +2611,7 @@ $queries['PM_VIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set,
   </td>
  </tr>
 {\$this->etable}', 'PM View', 'A personal message', 3)";
-$queries['POLL_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_MAIN', '<form action=\"{\$this->self}?a=post&amp;s=vote&amp;t={\$t}\" method=\"post\">
+$queries['POLL_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_MAIN', '<form action=\"{\$this->self}?a=post&amp;s=vote&amp;t={\$t}\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" style=\"text-align:center\" colspan=\"2\">
@@ -2627,23 +2627,23 @@ $queries['POLL_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_se
  </tr>
 {\$this->etable}
 </form>', 'Polls', 'Format the look of a poll.', 0)";
-$queries['POLL_OPTION'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_OPTION', ' <tr>
-  <td class=\"tabledark\" style=\"width:5%; text-align:center\">
+$queries['POLL_OPTION'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_OPTION', ' <tr>
+  <td class=\"tabledark\" style=\"width:5%%; text-align:center\">
    <input type=\"radio\" name=\"pollvote\" id=\"pollvote_{\$i}\" value=\"{\$i}\" />
   </td>
   <td class=\"tablelight\"><label for=\"pollvote_{\$i}\">{\$option}</label></td>
  </tr>', 'Poll Options', 'Change the look of the poll options.', 1)";
-$queries['POLL_RESULTS_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_RESULTS_ENTRY', ' <tr>
-  <td class=\"tablelight\" style=\"width:50%\">{\$option}</td>
-  <td class=\"tabledark\" style=\"width:50%\"><img src=\"./skins/{\$this->skin}/images/vote_left.png\" width=\"6\" height=\"12\" alt=\"\" /><img src=\"./skins/{\$this->skin}/images/vote_bar.png\" width=\"{\$width}\" height=\"12\" alt=\"\" /><img src=\"./skins/{\$this->skin}/images/vote_right.png\" width=\"6\" height=\"12\" alt=\"\" /> &nbsp;{\$percent}% - {\$votes}</td>
+$queries['POLL_RESULTS_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_RESULTS_ENTRY', ' <tr>
+  <td class=\"tablelight\" style=\"width:50%%\">{\$option}</td>
+  <td class=\"tabledark\" style=\"width:50%%\"><img src=\"./skins/{\$this->skin}/images/vote_left.png\" width=\"6\" height=\"12\" alt=\"\" /><img src=\"./skins/{\$this->skin}/images/vote_bar.png\" width=\"{\$width}\" height=\"12\" alt=\"\" /><img src=\"./skins/{\$this->skin}/images/vote_right.png\" width=\"6\" height=\"12\" alt=\"\" /> &nbsp;{\$percent}%% - {\$votes}</td>
  </tr>', 'Poll Results Entry', 'Change the appearance of a poll option in the view results screen', 3)";
-$queries['POLL_RESULTS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_RESULTS_MAIN', '{\$this->table}
+$queries['POLL_RESULTS_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'poll', 'POLL_RESULTS_MAIN', '{\$this->table}
  <tr>
   <td class=\"header\" style=\"text-align:center\" colspan=\"2\">{\$title_html} ({\$total_votes} {\$this->lang->topic_votes})</td>
  </tr>
  {\$out}
 {\$this->etable}', 'Poll Results Display', 'Format the look of the poll results.', 2)";
-$queries['POST_ATTACH'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_ATTACH', ' <tr>
+$queries['POST_ATTACH'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_ATTACH', ' <tr>
   <td class=\"tablelight\" valign=\"top\"><b>{\$this->lang->post_attach}</b><br />{\$this->lang->post_attach_disrupt}</td>
   <td class=\"tablelight\">
    <input type=\"file\" name=\"attach_upload\" />
@@ -2651,13 +2651,13 @@ $queries['POST_ATTACH'] = "INSERT INTO {$pre}templates (template_skin, template_
    {\$remove_box}
   </td>
  </tr>', 'Attachments', 'Displayed when the admin allows file attachments', 6)";
-$queries['POST_ATTACH_REMOVE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_ATTACH_REMOVE', '   <br /><br />
+$queries['POST_ATTACH_REMOVE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_ATTACH_REMOVE', '   <br /><br />
    {\$attached_data}
    <select class=\"input\" name=\"attached\">
     {\$attached}
    </select>
    <input type=\"submit\" name=\"detach\" value=\"{\$this->lang->post_attach_remove}\" />', 'Attachments', 'Displayed when there are attachments', 7)";
-$queries['POST_BOX_PLAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_PLAIN', '
+$queries['POST_BOX_PLAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_PLAIN', '
  {\$posticons}
  <tr>
   {\$smilies}
@@ -2673,7 +2673,7 @@ $queries['POST_BOX_PLAIN'] = "INSERT INTO {$pre}templates (template_skin, templa
    <textarea class=\"input\" name=\"post\" rows=\"12\" cols=\"60\" onclick=\"storeCaret(this)\" onkeyup=\"storeCaret(this)\" onfocus=\"storeCaret(this)\" onmouseout=\"storeCaret(this)\">{\$quote}</textarea>
   </td>
  </tr>', 'Post Designer - Normal', 'The normal post creator interface', 1)";
-$queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_RICH', ' {\$posticons}
+$queries['POST_BOX_RICH'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_BOX_RICH', ' {\$posticons}
  <tr>
   {\$smilies}
   <td class=\"tablelight\">
@@ -2691,7 +2691,7 @@ $queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, templat
     span p {margin:0px;}
    </style>
    <script src=\"./javascript/postboxrich.js\" type=\"text/javascript\"></script>
-   <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border:1px #666666 solid\">
+   <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%%\" style=\"border:1px #666666 solid\">
     <tr>
      <td class=\"toolbar\">
       <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
@@ -2786,11 +2786,11 @@ $queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, templat
 
     <tr id=\"color_tool\" style=\"display:none\">
      <td>
-      <table class=\"toolbar\" border=\"0\" cellpadding=\"0\" cellspacing=\"2\" style=\"position:absolute; width:100%\">
+      <table class=\"toolbar\" border=\"0\" cellpadding=\"0\" cellspacing=\"2\" style=\"position:absolute; width:100%%\">
        <tr>
         <td style=\"text-align:center; white-space:nowrap\">
          <span class=\"button_over\" style=\"cursor:pointer; text-align:center; font-size:11px; font-weight:bold; height:18px\" onclick=\"color_select(\'close\')\">X</span>
-         <span id=\"color_face\" style=\"border:1px #666666 solid; padding:1px; font-size:11px; font-weight:bold; height:13px; width:90%\">Select A Color</span>
+         <span id=\"color_face\" style=\"border:1px #666666 solid; padding:1px; font-size:11px; font-weight:bold; height:13px; width:90%%\">Select A Color</span>
         </td>
        </tr>
        <tr>
@@ -2812,13 +2812,13 @@ $queries['POST_BOX_RICH'] = "INSERT INTO {$pre}templates (template_skin, templat
      <td>
       <textarea style=\"display:none\" name=\"post\"></textarea>
       <input type=\"hidden\" name=\"rich\" value=\"true\" />
-      <span id=\"box\" style=\"width:100%; height:200px; background-color:white; color:black; padding:5px; font-size:12px; font-family:Verdana; cursor:text; overflow:auto; word-wrap:break-word; overflow-y:scroll\" contenteditable>{\$quote}</span>
+      <span id=\"box\" style=\"width:100%%; height:200px; background-color:white; color:black; padding:5px; font-size:12px; font-family:Verdana; cursor:text; overflow:auto; word-wrap:break-word; overflow-y:scroll\" contenteditable>{\$quote}</span>
      </td>
     </tr>
    </table>
   </td>
  </tr>', 'Post Designer - WYSIWYG', 'The visual post creator interface', 2)";
-$queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_CLICKABLE_SMILIES', '  <td class=\"tablelight\" style=\"width:30%;\" valign=\"top\">
+$queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_CLICKABLE_SMILIES', '  <td class=\"tablelight\" style=\"width:30%%;\" valign=\"top\">
    <div><strong>{\$this->lang->post_msg}</strong><br /><br /><br /></div>
    <div class=\"clickablesmilies\"><div>
    <strong>{\$this->lang->post_smiles}</strong>
@@ -2827,8 +2827,8 @@ $queries['POST_CLICKABLE_SMILIES'] = "INSERT INTO {$pre}templates (template_skin
    </ul>
    </div></div>
   </td>', 'Clickable Smilies', 'Table cell for clickable smilies', 13)";
-$queries['POST_GLOBAL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_GLOBAL', '<br /><input type=\"checkbox\" name=\"global_topic\" value=\"1\" id=\"global_topic\"{\$checkGlob} /> <label for=\"global_topic\">{\$this->lang->post_option_global}</label><br />', 'Global Topic Checkbox', 'Displayed only to those able to make a topic global', 8)";
-$queries['POST_MESSAGE_ICONS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_MESSAGE_ICONS', ' <tr>
+$queries['POST_GLOBAL'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_GLOBAL', '<br /><input type=\"checkbox\" name=\"global_topic\" value=\"1\" id=\"global_topic\"{\$checkGlob} /> <label for=\"global_topic\">{\$this->lang->post_option_global}</label><br />', 'Global Topic Checkbox', 'Displayed only to those able to make a topic global', 8)";
+$queries['POST_MESSAGE_ICONS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_MESSAGE_ICONS', ' <tr>
   <td class=\"tabledark\" valign=\"top\">
   <strong>{\$this->lang->post_icon}</strong></td>
   <td class=\"tabledark\">
@@ -2837,7 +2837,7 @@ $queries['POST_MESSAGE_ICONS'] = "INSERT INTO {$pre}templates (template_skin, te
     </ul>
   </td>
  </tr>', 'Message Icons', 'Table row for message icons in a post', 12)";
-$queries['POST_POLL'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POLL', '{\$preview}
+$queries['POST_POLL'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POLL', '{\$preview}
 <form action=\"{\$this->self}?a=post&amp;s=poll&amp;f={\$this->get[\'f\']}\" method=\"post\" id=\"mbpost\" enctype=\"multipart/form-data\">
 {\$this->table}
  <tr>
@@ -2873,8 +2873,8 @@ $queries['POST_POLL'] = "INSERT INTO {$pre}templates (template_skin, template_se
  </tr>
 {\$this->etable}
 </form>', 'New Poll Form', 'Edit the form that creates a new poll', 5)";
-$queries['POST_POSTER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POSTER_GUEST', '<b>{\$this->lang->topic_guest}<br />{\$this->lang->topic_unreg}</b><br /><br />', 'Poster Information - Guest', 'The poster information in previewed posts for guests', 11)";
-$queries['POST_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POSTER_MEMBER', '<b><a href=\"{\$this->self}?a=profile&amp;w={\$this->user[\'user_id\']}\">{\$this->user[\'user_name\']}</a><br />
+$queries['POST_POSTER_GUEST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POSTER_GUEST', '<b>{\$this->lang->topic_guest}<br />{\$this->lang->topic_unreg}</b><br /><br />', 'Poster Information - Guest', 'The poster information in previewed posts for guests', 11)";
+$queries['POST_POSTER_MEMBER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_POSTER_MEMBER', '<b><a href=\"{\$this->self}?a=profile&amp;w={\$this->user[\'user_id\']}\">{\$this->user[\'user_name\']}</a><br />
 {\$this->user[\'user_title\']}</b><br /><br />
 {\$avatar}<br />
 
@@ -2883,13 +2883,13 @@ $queries['POST_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, te
 {\$this->lang->topic_group}: {\$this->user[\'group_name\']}<br />
 {\$this->lang->topic_posts}: {\$this->user[\'user_posts\']}<br />
 {\$this->lang->topic_joined}: {\$joined}<br /><br />', 'Poster Information - Member', 'The poster information in previewed posts for members', 10)";
-$queries['POST_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_PREVIEW', '{\$this->table}
+$queries['POST_PREVIEW'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_PREVIEW', '{\$this->table}
  <tr>
   <td class=\"header\">{\$preview_title}</td>
  </tr>
  <tr>
   <td class=\"tablelight\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"4\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"4\" cellspacing=\"0\">
     <tr>
      <td class=\"posterinfo\" rowspan=\"2\">
       {\$Poster_Info}
@@ -2908,7 +2908,7 @@ $queries['POST_PREVIEW'] = "INSERT INTO {$pre}templates (template_skin, template
  </tr>
 {\$this->etable}
 <br />', 'Post Preview', 'A post being previewed with formatting', 9)";
-$queries['POST_REPLY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_REPLY', '{\$preview}
+$queries['POST_REPLY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_REPLY', '{\$preview}
 <form action=\"{\$this->self}?a=post&amp;s=reply&amp;t={\$this->get[\'t\']}\" method=\"post\" id=\"mbpost\" enctype=\"multipart/form-data\">
 {\$this->table}
  <tr>
@@ -2940,9 +2940,9 @@ $queries['POST_REPLY'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
  {\$review}
 {\$this->etable}', 'Reply to Topic Form', 'Edit the form that replies to an existing topic', 3)";
-$queries['POST_REVIEW_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_REVIEW_ENTRY', ' <tr>
+$queries['POST_REVIEW_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_REVIEW_ENTRY', ' <tr>
   <td class=\"tablelight\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"3\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
      <td class=\"posterinfo\">
       <b>{\$last[\'user_name\']}</b>
@@ -2955,7 +2955,7 @@ $queries['POST_REVIEW_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, tem
    </table>
   </td>
  </tr>', 'Reply Review Entry', 'An entry in the topic review, seen below the reply form', 4)";
-$queries['POST_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_TOPIC', '{\$preview}
+$queries['POST_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'post', 'POST_TOPIC', '{\$preview}
 <form action=\"{\$this->self}?a=post&amp;s=topic&amp;f={\$this->get[\'f\']}\" method=\"post\" id=\"mbpost\" enctype=\"multipart/form-data\">
 {\$this->table}
  <tr>
@@ -2987,7 +2987,7 @@ $queries['POST_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_s
  </tr>
 {\$this->etable}
 </form>', 'New Topic Form', 'Edit the form that creates a new topic', 0)";
-$queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'profile', 'PROFILE_MAIN', '{\$this->table}
+$queries['PROFILE_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'profile', 'PROFILE_MAIN', '{\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->profile_view_profile}: 
    <IF \$online><img src=\"./skins/{\$this->skin}/images/icons/user_online.png\" alt=\"{\$this->lang->profile_online}\" title=\"{\$this->lang->profile_online}\" />
@@ -2995,14 +2995,14 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
   </td>
  </tr>
  <tr>
-  <td class=\"subheader\" style=\"width:50%; text-align:center\">{\$this->lang->profile_contact}</td>
+  <td class=\"subheader\" style=\"width:50%%; text-align:center\">{\$this->lang->profile_contact}</td>
   <td class=\"subheader\" style=\"text-align:center\">{\$this->lang->profile_info}</td>
  </tr>
  <tr>
   <td class=\"tablelight\" valign=\"top\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"3\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
-     <td style=\"width:30%\"><b>{\$this->lang->profile_email_address}</b></td>
+     <td style=\"width:30%%\"><b>{\$this->lang->profile_email_address}</b></td>
      <td>{\$profile[\'user_email\']}</td>
     </tr>
     <tr>
@@ -3032,9 +3032,9 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
    </table>
   </td>
   <td class=\"tablelight\" valign=\"top\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"3\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
-     <td style=\"width:30%\"><b>{\$this->lang->profile_member}</b></td>
+     <td style=\"width:30%%\"><b>{\$this->lang->profile_member}</b></td>
      <td>{\$profile[\'group_name\']}</td>
     </tr>
     <tr>
@@ -3065,7 +3065,7 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
   </td>
  </tr>
  <tr>
-  <td class=\"subheader\" style=\"width:50%; text-align:center\">{\$this->lang->profile_posts}</td>
+  <td class=\"subheader\" style=\"width:50%%; text-align:center\">{\$this->lang->profile_posts}</td>
   <td class=\"subheader\" style=\"text-align:center\">{\$this->lang->profile_av_sign}</td>
  </tr>
  <tr>
@@ -3073,9 +3073,9 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
    {\$PostInfo}
   </td>
   <td class=\"tablelight\" valign=\"top\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"3\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
-     <td style=\"width:30%\"><b>{\$this->lang->profile_avatar}</b></td>
+     <td style=\"width:30%%\"><b>{\$this->lang->profile_avatar}</b></td>
      <td>{\$profile[\'user_avatar\']}</td>
     </tr>
     <tr>
@@ -3089,14 +3089,14 @@ $queries['PROFILE_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template
   </td>
  </tr>
 {\$this->etable}', 'Profile View', 'Change the appearance of profiles', 0)";
-$queries['PROFILE_NO_POSTS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'profile', 'PROFILE_NO_POSTS', '   <table border=\"0\" width=\"100%\" cellpadding=\"3\" cellspacing=\"0\">
+$queries['PROFILE_NO_POSTS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'profile', 'PROFILE_NO_POSTS', '   <table border=\"0\" width=\"100%%\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
      <td style=\"text-align:center\">{\$profile[\'user_name\']} {\$this->lang->profile_not_post}</td>
     </tr>
    </table>', 'Post Information - Not Posted', 'The post information for users who have not posted', 2)";
-$queries['PROFILE_POST_INFO'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'profile', 'PROFILE_POST_INFO', '   <table border=\"0\" width=\"100%\" cellpadding=\"3\" cellspacing=\"0\">
+$queries['PROFILE_POST_INFO'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'profile', 'PROFILE_POST_INFO', '   <table border=\"0\" width=\"100%%\" cellpadding=\"3\" cellspacing=\"0\">
     <tr>
-     <td style=\"width:30%\"><b>{\$this->lang->profile_posts}</b></td>
+     <td style=\"width:30%%\"><b>{\$this->lang->profile_posts}</b></td>
      <td>{\$profile[\'user_posts\']}</td>
     </tr>
     <tr>
@@ -3108,7 +3108,7 @@ $queries['PROFILE_POST_INFO'] = "INSERT INTO {$pre}templates (template_skin, tem
      <td>{\$lastpost}</td>
     </tr>
    </table>', 'Post Information', 'The post information for users who have posted', 1)";
-$queries['RECENT_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_MAIN', '<script type=\"text/javascript\" src=\"./javascript/forumjump.js\"></script>
+$queries['RECENT_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_MAIN', '<script type=\"text/javascript\" src=\"./javascript/forumjump.js\"></script>
 {\$this->table}
  <tr>
   <td align=\"left\">{\$this->lang->recent_pages}: {\$pagelinks}</td>
@@ -3117,11 +3117,11 @@ $queries['RECENT_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
 
 {\$this->table}
  <tr>
-  <td class=\"header\" style=\"width:5%\">&nbsp;</td>
-  <td class=\"header\" style=\"width:45%\">{\$this->lang->recent_topic}</td>
-  <td class=\"header\" style=\"width:15%; text-align:center\">{\$this->lang->recent_starter}</td>
-  <td class=\"header\" style=\"width:15%\">{\$this->lang->recent_forum}</td>
-  <td class=\"header\" style=\"width:20%\">{\$this->lang->recent_last}</td>
+  <td class=\"header\" style=\"width:5%%\">&nbsp;</td>
+  <td class=\"header\" style=\"width:45%%\">{\$this->lang->recent_topic}</td>
+  <td class=\"header\" style=\"width:15%%; text-align:center\">{\$this->lang->recent_starter}</td>
+  <td class=\"header\" style=\"width:15%%\">{\$this->lang->recent_forum}</td>
+  <td class=\"header\" style=\"width:20%%\">{\$this->lang->recent_last}</td>
  </tr>
  {\$topics}
  <tr>
@@ -3158,10 +3158,10 @@ $queries['RECENT_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
   </tr>
  </table>
 </div>', 'Recent View', 'Change the appearance of the recent topics lists', 0)";
-$queries['RECENT_NO_TOPICS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_NO_TOPICS', ' <tr>
+$queries['RECENT_NO_TOPICS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_NO_TOPICS', ' <tr>
   <td class=\"tablelight\" style=\"text-align:center; padding:30px;\" colspan=\"5\">{\$this->lang->recent_no_topics}</td>
  </tr>', 'Error Display', 'Format the look of an error on the recent topics view.', 3)";
-$queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_TOPIC', ' <tr>
+$queries['RECENT_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'recent', 'RECENT_TOPIC', ' <tr>
   <td class=\"topicicons\">
    <div class=\"<IF (\$state == \'locked\' && \$this->user[\'user_lastvisit\'] < \$row[\'edited\'])>new</IF>{\$state}<IF (\$row[\'topic_modes\'] & TOPIC_POLL)>poll</IF>\">
    <IF \$row[\'topic_modes\'] & TOPIC_PINNED>
@@ -3191,7 +3191,7 @@ $queries['RECENT_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template
    </table>
   </td>
  </tr>', 'Recent Topics', 'Format the default look of a given forum topic.', 1)";
-$queries['REGISTER_IMAGE'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'register', 'REGISTER_IMAGE', ' <tr>
+$queries['REGISTER_IMAGE'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'register', 'REGISTER_IMAGE', ' <tr>
   <td class=\"tablelight\">{\$this->lang->register_image}</td>
   <td class=\"tablelight\">
    <input type=\"hidden\" name=\"imagestring\" value=\"{\$imagesrc[0]}\" />
@@ -3199,13 +3199,13 @@ $queries['REGISTER_IMAGE'] = "INSERT INTO {$pre}templates (template_skin, templa
    <img src=\"{\$imagesrc[1]}\" alt=\"{\$this->lang->register_image}\" />
   </td>
  </tr>', 'Validation Image', 'The dynamic image used to validate the registrant as human.', 1)";
-$queries['REGISTER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'register', 'REGISTER_MAIN', '<form action=\"{\$this->self}?a=register\" method=\"post\">
+$queries['REGISTER_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'register', 'REGISTER_MAIN', '<form action=\"{\$this->self}?a=register\" method=\"post\">
 {\$this->table}
  <tr>
   <td class=\"header\" colspan=\"2\">{\$this->lang->register_reging}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:30%\">{\$this->lang->register_new_user}</td>
+  <td class=\"tablelight\" style=\"width:30%%\">{\$this->lang->register_new_user}</td>
   <td class=\"tablelight\"><input class=\"input\" type=\"text\" name=\"desuser\" size=\"50\" /></td>
  </tr>
  <tr>
@@ -3239,7 +3239,7 @@ $queries['REGISTER_MAIN'] = "INSERT INTO {$pre}templates (template_skin, templat
  </tr>
 {\$this->etable}
 </form>', 'Register View', 'Change the appearance of the register screen', 0)";
-$queries['RSSFEED_ALL_POSTS'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ALL_POSTS', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+$queries['RSSFEED_ALL_POSTS'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ALL_POSTS', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
 <rss version=\"2.0\">
     <channel>
     <title>{\$this->sets[\'rss_feed_title\']}</title>
@@ -3251,7 +3251,7 @@ $queries['RSSFEED_ALL_POSTS'] = "INSERT INTO {$pre}templates (template_skin, tem
     \$items
   </channel>
 </rss>', 'RSS All Posts Feed', 'RSS Feed for all posts on the site.', 1)";
-$queries['RSSFEED_ERROR'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ERROR', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+$queries['RSSFEED_ERROR'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ERROR', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
 <rss version=\"2.0\">
   <channel>
     <title>{\$this->sets[\'rss_feed_title\']} - {\$this->lang->rssfeed_error}</title>
@@ -3262,7 +3262,7 @@ $queries['RSSFEED_ERROR'] = "INSERT INTO {$pre}templates (template_skin, templat
     <ttl>{\$this->sets[\'rss_feed_time\']}</ttl>
   </channel>
 </rss>', 'RSS Error', 'Feed for handling errors in RSS format.', 5)";
-$queries['RSSFEED_FORUM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_FORUM', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+$queries['RSSFEED_FORUM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_FORUM', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
 <rss version=\"2.0\">
     <channel>
     <title>{\$this->sets[\'rss_feed_title\']} - {\$this->lang->rssfeed_forum} {\$exists[\'forum_name\']}</title>
@@ -3274,7 +3274,7 @@ $queries['RSSFEED_FORUM'] = "INSERT INTO {$pre}templates (template_skin, templat
     \$items
   </channel>
 </rss>', 'RSS Forum Posts Feed', 'RSS Feed for posts within a forum.', 2)";
-$queries['RSSFEED_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ITEM', '    <item>
+$queries['RSSFEED_ITEM'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_ITEM', '    <item>
       <title>{\$title}</title>
       <link>{\$this->sets[\'loc_of_board\']}{\$this->mainfile}?a=topic&amp;t={\$query_row[\'topic_id\']}&amp;p={\$query_row[\'post_id\']}#p{\$query_row[\'post_id\']}</link>
       <description>{\$desc}</description>
@@ -3288,7 +3288,7 @@ $queries['RSSFEED_ITEM'] = "INSERT INTO {$pre}templates (template_skin, template
       </IF>
       <author>{\$query_row[\'user_name\']}</author>
     </item>', 'RSS Item', 'Feed for a single post in RSS format.', 4)";
-$queries['RSSFEED_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_TOPIC', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
+$queries['RSSFEED_TOPIC'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'rssfeed', 'RSSFEED_TOPIC', '<?xml version=\"1.0\" encoding=\"{\$this->lang->charset}\"?>
 <rss version=\"2.0\">
     <channel>
     <title>{\$this->sets[\'rss_feed_title\']} - {\$this->lang->rssfeed_topic} {\$topicdata[\'topic_title\']}</title>
@@ -3300,7 +3300,7 @@ $queries['RSSFEED_TOPIC'] = "INSERT INTO {$pre}templates (template_skin, templat
     \$items
   </channel>
 </rss>', 'RSS Topic Posts Feed', 'RSS Feed for replies to a topic.', 3)";
-$queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_MAIN', '<script type=\"text/javascript\" src=\"./javascript/selectallforums.js\"></script>
+$queries['SEARCH_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_MAIN', '<script type=\"text/javascript\" src=\"./javascript/selectallforums.js\"></script>
 <form action=\"{\$this->self}?a=search\" method=\"post\" id=\"search\">
 {\$this->table}
  <tr>
@@ -3311,12 +3311,12 @@ $queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
   <td class=\"subheader\" style=\"text-align:center\">{\$this->lang->search_advanced}</td>
  </tr>
  <tr>
-  <td class=\"tablelight\" style=\"width:50%\">
+  <td class=\"tablelight\" style=\"width:50%%\">
    {\$this->lang->search_for}:<br />
-   <input class=\"input\" type=\"text\" style=\"width:100%\" name=\"query\" />
+   <input class=\"input\" type=\"text\" style=\"width:100%%\" name=\"query\" />
    <br /><br />
    {\$this->lang->search_in}: <a href=\"javascript:select_all_forums()\">{\$this->lang->search_select_all}</a><br />
-   <select class=\"input\" name=\"forums[]\" size=\"10\" style=\"width:100%\" multiple=\"multiple\">
+   <select class=\"input\" name=\"forums[]\" size=\"10\" style=\"width:100%%\" multiple=\"multiple\">
     {\$forum_options}
    </select><br />
   </td>
@@ -3387,24 +3387,24 @@ $queries['SEARCH_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_
  </tr>
 {\$this->etable}
 </form>', 'Display List Page', 'This page shows the list of forums and input for entering search terms', 0)";
-$queries['SEARCH_RESULTS_ENTRY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_ENTRY', ' <tr>
+$queries['SEARCH_RESULTS_ENTRY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_ENTRY', ' <tr>
   <td class=\"subheader\"><a href=\"{\$this->self}?a=topic&amp;t={\$search[\'post_topic\']}\"><b>{\$search[\'topic_title\']}</b></a></td>
   <td class=\"subheader\" style=\"text-align:center\"><a href=\"{\$this->self}?a=forum&amp;f={\$search[\'topic_forum\']}\"><b>{\$search[\'forum_name\']}</b></a></td>
   <td class=\"subheader\" style=\"text-align:center\"><b>{\$topic_starter}</b></td>
   <td class=\"subheader\" style=\"text-align:center\"><b>{\$search[\'topic_replies\']}</b></td>
   <td class=\"subheader\" style=\"text-align:center\"><b>{\$matches}</b></td>
  </tr>', 'Results Entry', 'This is the format for an entry in the results view.', 2)";
-$queries['SEARCH_RESULTS_GUEST_INFO'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_GUEST_INFO', '<b>{\$this->lang->search_guest}<br />{\$this->lang->search_unreg}</b><br /><br />', 'Search Results Guest Info', '', 5)";
-$queries['SEARCH_RESULTS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_MAIN', '{\$this->table}
+$queries['SEARCH_RESULTS_GUEST_INFO'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_GUEST_INFO', '<b>{\$this->lang->search_guest}<br />{\$this->lang->search_unreg}</b><br /><br />', 'Search Results Guest Info', '', 5)";
+$queries['SEARCH_RESULTS_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_MAIN', '{\$this->table}
  <tr>
   <td colspan=\"5\">{\$pages}</td>
  </tr>
  <tr>
-  <td class=\"header\" style=\"width:30%\">{\$this->lang->search_topic}</td>
-  <td class=\"header\" style=\"width:25%; text-align:center\">{\$this->lang->search_forum}</td>
-  <td class=\"header\" style=\"width:20%; text-align:center\">{\$this->lang->search_starter}</td>
-  <td class=\"header\" style=\"width:10%; text-align:center\">{\$this->lang->search_replies}</td>
-  <td class=\"header\" style=\"width:10%; text-align:center\">{\$this->lang->search_matches}</td>
+  <td class=\"header\" style=\"width:30%%\">{\$this->lang->search_topic}</td>
+  <td class=\"header\" style=\"width:25%%; text-align:center\">{\$this->lang->search_forum}</td>
+  <td class=\"header\" style=\"width:20%%; text-align:center\">{\$this->lang->search_starter}</td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\">{\$this->lang->search_replies}</td>
+  <td class=\"header\" style=\"width:10%%; text-align:center\">{\$this->lang->search_matches}</td>
  </tr>
  {\$results}
  <tr>
@@ -3414,7 +3414,7 @@ $queries['SEARCH_RESULTS_MAIN'] = "INSERT INTO {$pre}templates (template_skin, t
   <td colspan=\"5\">{\$pages}</td>
  </tr>
 {\$this->etable}', 'Results Page', 'This is the main format for the results view', 1)";
-$queries['SEARCH_RESULTS_MEMBER_INFO'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_MEMBER_INFO', '<IF \$online><img src=\"./skins/{\$this->skin}/images/icons/user_online.png\" alt=\"{\$this->lang->search_online}\" title=\"{\$this->lang->search_online}\" />
+$queries['SEARCH_RESULTS_MEMBER_INFO'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_MEMBER_INFO', '<IF \$online><img src=\"./skins/{\$this->skin}/images/icons/user_online.png\" alt=\"{\$this->lang->search_online}\" title=\"{\$this->lang->search_online}\" />
 <ELSE><img src=\"./skins/{\$this->skin}/images/icons/user_offline.png\" alt=\"{\$this->lang->search_offline}\" title=\"{\$this->lang->search_offline}\" /></IF>
 <b><a href=\"{\$this->self}?a=profile&amp;w={\$match[\'post_author\']}\">{\$match[\'user_name\']}</a><br />
 {\$match[\'user_title\']}</b><br /><br />
@@ -3425,23 +3425,23 @@ $queries['SEARCH_RESULTS_MEMBER_INFO'] = "INSERT INTO {$pre}templates (template_
 {\$this->lang->search_group}: {\$match[\'group_name\']}<br />
 {\$this->lang->search_posts}: {\$match[\'user_posts\']}<br />
 {\$this->lang->search_joined}: {\$match[\'user_joined\']}<br /><br />', 'Search Results Member Information', '', 4)";
-$queries['SEARCH_RESULTS_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_POST', ' <tr>
+$queries['SEARCH_RESULTS_POST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'search', 'SEARCH_RESULTS_POST', ' <tr>
   <td class=\"{\$class}\" colspan=\"5\">
-   <table border=\"0\" width=\"100%\" cellpadding=\"4\" cellspacing=\"0\">
+   <table border=\"0\" width=\"100%%\" cellpadding=\"4\" cellspacing=\"0\">
     <tr>
-     <td style=\"width:20%\" rowspan=\"3\" valign=\"top\">
+     <td style=\"width:20%%\" rowspan=\"3\" valign=\"top\">
       {\$Poster_Info}
       {\$match[\'post_ip\']}
      </td>
     </tr>
     <tr>
-     <td class=\"post\" style=\"width:80%\" valign=\"top\">
+     <td class=\"post\" style=\"width:80%%\" valign=\"top\">
       {\$match[\'post_text\']}
      </td>
     </tr>
     <tr>
      <td valign=\"bottom\">
-      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">
+      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%%\">
        <tr>
         <td colspan=\"3\"><hr /></td>
        </tr>
@@ -3456,7 +3456,7 @@ $queries['SEARCH_RESULTS_POST'] = "INSERT INTO {$pre}templates (template_skin, t
    </table>
   </td>
  </tr>', 'Search Results Post Entry', 'An individual post that was matched by the search', 3)";
-$queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_MAIN', '{\$PollDisplay}
+$queries['TOPIC_MAIN'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_MAIN', '{\$PollDisplay}
 {\$this->table}
  <tr>
   <td>
@@ -3513,11 +3513,11 @@ $queries['TOPIC_MAIN'] = "INSERT INTO {$pre}templates (template_skin, template_s
 {\$quickreply}
 </div>
 </IF>', 'Topic View', 'Change the appearance of topics', 0)";
-$queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST', ' <tr>
+$queries['TOPIC_POST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST', ' <tr>
   <td class=\"{\$class}\">
    <a id=\"p{\$post[\'post_id\']}\"></a>
    <IF \$first_unread_post><a id=\"unread\"></a></IF>
-   <table style=\"width:100%\">
+   <table style=\"width:100%%\">
     <tr>
      <td class=\"posterinfo\" rowspan=\"3\">
       {\$split}
@@ -3578,8 +3578,8 @@ $queries['TOPIC_POST'] = "INSERT INTO {$pre}templates (template_skin, template_s
    </table>
   </td>
  </tr>', 'Posts', 'Format the look of a post within a given topic.', 1)";
-$queries['TOPIC_POSTER_GUEST'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POSTER_GUEST', '<b>{\$this->lang->topic_guest}<br />{\$this->lang->topic_unreg}</b><br /><br />', 'Poster Information - Guest', 'Edit the poster information in topics for unregistered members', 3)";
-$queries['TOPIC_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POSTER_MEMBER', '<IF \$online>
+$queries['TOPIC_POSTER_GUEST'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POSTER_GUEST', '<b>{\$this->lang->topic_guest}<br />{\$this->lang->topic_unreg}</b><br /><br />', 'Poster Information - Guest', 'Edit the poster information in topics for unregistered members', 3)";
+$queries['TOPIC_POSTER_MEMBER'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POSTER_MEMBER', '<IF \$online>
   <img src=\"./skins/{\$this->skin}/images/icons/user_online.png\" alt=\"{\$this->lang->topic_online}\" title=\"{\$this->lang->topic_online}\" />
 <ELSE>
   <img src=\"./skins/{\$this->skin}/images/icons/user_offline.png\" alt=\"{\$this->lang->topic_offline}\" title=\"{\$this->lang->topic_offline}\" />
@@ -3593,7 +3593,7 @@ $queries['TOPIC_POSTER_MEMBER'] = "INSERT INTO {$pre}templates (template_skin, t
 {\$this->lang->topic_group}: {\$post[\'group_name\']}<br />
 {\$this->lang->topic_posts}: {\$post[\'user_posts\']}<br />
 {\$this->lang->topic_joined}: {\$post[\'user_joined\']}<br /><br />', 'Poster Information - Member', 'Edit the poster information in topics for members', 2)";
-$queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_QUICKREPLY', '
+$queries['TOPIC_QUICKREPLY'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_QUICKREPLY', '
 <script type=\"text/javascript\" src=\"./javascript/postboxplain.js\"></script>
 <script type=\"text/javascript\">
 <!--
@@ -3649,7 +3649,7 @@ $queries['TOPIC_QUICKREPLY'] = "INSERT INTO {$pre}templates (template_skin, temp
  </td></tr>
 {\$this->etable}
 </form>', 'Quick Reply', 'The format of the Quick Reply box', 4)";
-$queries['TOPIC_POST_ATTACHMENT'] = "INSERT INTO {$pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST_ATTACHMENT', '
+$queries['TOPIC_POST_ATTACHMENT'] = "INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position) VALUES ('default', 'topic', 'TOPIC_POST_ATTACHMENT', '
 <br /><br />
 <div class=\"filebox\">
  <strong>{\$this->lang->topic_attached}</strong>

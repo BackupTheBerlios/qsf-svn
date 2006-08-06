@@ -27,6 +27,7 @@ if (!defined('QUICKSILVERFORUMS') || !defined('QSF_ADMIN')) {
 
 require_once $set['include_path'] . '/admincp/admin.php';
 require_once $set['include_path'] . '/lib/tar.php';
+require_once $set['include_path'] . '/lib/zip.php';
 require_once $set['include_path'] . '/lib/xmlparser.php';
 
 class templates extends admin
@@ -83,7 +84,7 @@ class templates extends admin
 
 		$skins = array();
 
-		$query = $this->db->query("SELECT * FROM {$this->pre}skins");
+		$query = $this->db->query("SELECT * FROM %pskins");
 		while ($s = $this->db->nqfetch($query))
 		{
 			$skins[$s['skin_dir']] = $s['skin_name'];
@@ -162,7 +163,7 @@ class templates extends admin
 			$skin_box = $this->htmlwidgets->select_skins($this->skin);
 
 			return $this->message($this->lang->select_skin, "
-			<form action='$this->self?a=templates&amp;s=upgradeskin' method='post'><div>
+			<form action='{$this->self}?a=templates&amp;s=upgradeskin' method='post'><div>
 				{$this->lang->upgrade_skin_detail}:<br /><br />
 				<select name='skin'>
 					{$skin_box}
@@ -171,202 +172,181 @@ class templates extends admin
 			</form>");
 		} else {
 			$skin = $this->post['skin'];
-			$temps = '';
+			$new_temps = array();
+			$updated_temps = array();
 			$didsomething = false;
 
-	                /* find missing templates and dump code from default */
-        	        $sql = "SELECT * FROM {$this->pre}templates WHERE template_skin = 'default'";
-                	$query = $this->db->query($sql);
+			/* find missing templates and dump code from default */
+			$sql = "SELECT * FROM %ptemplates WHERE template_skin = 'default'";
+			$query = $this->db->query($sql);
 
-	                while ($row = $this->db->nqfetch($query))
-        	        {
-                	        $sql = "SELECT template_name FROM {$this->pre}templates WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                        	$miss = $this->db->query($sql);
+			while ($row = $this->db->nqfetch($query))
+			{
+					$sql = "SELECT template_name FROM %ptemplates WHERE template_skin='%s' AND template_name='%s'";
+					$miss = $this->db->query($sql, $skin, $row['template_name']);
 
-	                        if ($this->db->num_rows($miss) < 1)
-        	                {
-					$tset = $this->db->escape($row['template_set']);
-					$tname = $this->db->escape($row['template_name']);
-					$thtml = $this->db->escape($row['template_html']);
-					$tdname = $this->db->escape($row['template_displayname']);
-					$tdesc = $this->db->escape($row['template_description']);
+					if ($this->db->num_rows($miss) < 1)
+					{
+						$thtml = $this->db->escape($row['template_html']);
+						$tdname = $this->db->escape($row['template_displayname']);
+						$tdesc = $this->db->escape($row['template_description']);
 
-                        	        $sql = "INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position)
-						VALUES( '{$skin}', '{$tset}', '{$tname}', '{$thtml}', '{$tdname}', '{$tdesc}', {$row['template_position']} )";
+						$this->db->query("INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description)
+							VALUES( '%s', '%s', '%s', '%s', '%s', '%s')", $skin, $row['template_set'], $row['template_name'], $row['template_html'], $row['template_displayname'], $row['template_description']);
 
-					$didsomething = true;
-					$temps .= $row['template_name'] . "<br />";
-        	                }
-                	}
+						$didsomething = true;
+						$new_temps[] = $row['template_name'];
+					}
+			}
 
-	                /* Iterate over all our templates */
-	                $sql = "SELECT template_html, template_name FROM {$this->pre}templates WHERE template_skin = '$skin'";
-        	        $query = $this->db->query($sql);
+			/* Iterate over all our templates */
+			$query = $this->db->query("SELECT template_html, template_name FROM %ptemplates WHERE template_skin = '%s'", $skin);
 
-	                while ($row = $this->db->nqfetch($query))
-       		        {
+			while ($row = $this->db->nqfetch($query))
+			{
 				if( strstr( $row['template_html'], '{$messageclass}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$messageclass}', '<MODLET messagelink(class)>', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$MessageLink}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$MessageLink}', '<MODLET messagelink(text)>', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$mercury' ) ) {
 					$didsomething = true;
-               	        	        $row['template_html'] = str_replace('$mercury', '$qsf', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+               	    $row['template_html'] = str_replace('$mercury', '$qsf', $row['template_html']);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsfboard' ) ) {
 					$didsomething = true;
-                       	        	$row['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+       	        	$row['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row['template_html']);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsf->lang->main_powered' ) ) {
 					$didsomething = true;
-                                	$row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+                    $row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsf->lang->main_seconds' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->pm_inbox' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->pm_inbox', '$foldername', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->board_topics_new' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->board_topics_new', '$this->lang->main_topics_new', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->board_topics_new' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->forum_topics_new', '$this->lang->main_topics_new', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->recent_topics_new' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->recent_topics_new', '$this->lang->main_topics_new', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], 'post_mbcode_' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('post_mbcode_', 'mbcode_', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsf->tree' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$qsf->tree', '$qsf->htmlwidgets->tree', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$admin->tree' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$admin->tree', '$admin->htmlwidgets->tree', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->tree' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->tree', '$this->htmlwidgets->tree', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'TOTALCOUNT\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'TOTALCOUNT\']}', 'Skin Update Required', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'USERS\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'USERS\']}', 'Skin Update Required', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'MEMBERCOUNT\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'MEMBERCOUNT\']}', 'Skin Update Required', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'GUESTCOUNT\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'GUESTCOUNT\']}', 'Skin Update Required', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$birthdays}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$birthdays}', 'Skin Update Required', $row['template_html']);
-					$temps .= $row['template_name'] . "<br />";
-					$temp = $this->db->escape($row['template_html']);
-               		                $sql = "UPDATE {$this->pre}templates SET template_html='{$temp}' WHERE template_skin='{$skin}' AND template_name='{$row['template_name']}'";
-                       		        $this->db->query($sql);
+					$updated_temps[] = $row['template_name'];
+               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
+						$row['template_html'], $skin, $row['template_name']);
 				}
-	                }
+	        }
 
-	                if ($didsomething) {
-				$message = $skin . " " . $this->lang->upgrade_skin_upgraded . "<br /><br />{$this->lang->upgraded_templates}:<br /><br />" . $temps;
+	        if ($didsomething) {
+				$message = $skin . " " . $this->lang->upgrade_skin_upgraded . "<br /><br />{$this->lang->upgraded_templates}:<br /><br />" . implode('<br/> ', $temps);
 				return $this->message($this->lang->upgrade_skin, $message);
 			} else {
 				return $this->message($this->lang->upgrade_skin, "{$skin} {$this->lang->upgrade_skin_already}");
 			}
 		}
-        }
+    }
 
 	function install_skin()
 	{
@@ -475,13 +455,13 @@ class templates extends admin
 			// Open and parse the XML file
 			$xmlInfo = new xmlparser();
 
-			if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.xml'))
+			if (file_exists('../packages/' . $this->get['newskin'] . '.xml'))
 			{
-				$xmlInfo->parse('../packages/' . stripslashes($this->get['newskin']) . '.xml');
+				$xmlInfo->parse('../packages/' . $this->get['newskin'] . '.xml');
 			}
-			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar'))
+			else if (file_exists('../packages/' . $this->get['newskin'] . '.tar'))
 			{
-				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar'));
+				$tarTool->open_file_reader('../packages/' . $this->get['newskin'] . '.tar');
 
 				$xmlFilename = $tarTool->extract_file('package.txt');
 				
@@ -489,10 +469,10 @@ class templates extends admin
 				
 				$xmlInfo->parseArray(array($xmlData));
 			}
-			else if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz')
+			else if (file_exists('../packages/' . $this->get['newskin'] . '.tar.gz')
 				&& $tarTool->can_gunzip())
 			{
-				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin'] . '.tar.gz'));
+				$tarTool->open_file_reader('../packages/' . $this->get['newskin'] . '.tar.gz');
 
 				$xmlFilename = $tarTool->extract_file('package.txt');
 				
@@ -507,27 +487,13 @@ class templates extends admin
 
 			// Get the folder name
 			$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
-			$skin_dir = addslashes($node['attrs']['FOLDER']);
+			$skin_dir = $node['attrs']['FOLDER'];
 
 			// Run the uninstall queries
-			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL');
-			foreach ($nodes['child'] as $node) {
-				if ($node['name'] == 'QUERY') {
-					$sql = $node['content'];
-					$sql = str_replace('{$pre}', $this->pre, $sql);
-					$this->db->query($sql);
-				}
-			}
+			$this->_run_queries($xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL'));
 
 			// Run the install queries
-			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/INSTALL');
-			foreach ($nodes['child'] as $node) {
-				if ($node['name'] == 'QUERY') {
-					$sql = $node['content'];
-					$sql = str_replace('{$pre}', $this->pre, $sql);
-					$this->db->query($sql);
-				}
-			}
+			$this->_run_queries($xmlInfo->GetNodeByPath('QSFMOD/INSTALL'));
 
 			// Add the templates
 			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
@@ -543,19 +509,19 @@ class templates extends admin
 						if (isset($element['content'])) {
 							switch($element['name']) {
 							case 'SET':
-								$temp_set = addslashes($element['content']);
+								$temp_set = $element['content'];
 								break;
 							case 'NAME':
-								$temp_name = addslashes($element['content']);
+								$temp_name = $element['content'];
 								break;
 							case 'DISPLAYNAME':
-								$temp_display = addslashes($element['content']);
+								$temp_display = $element['content'];
 								break;
 							case 'DESCRIPTION':
-								$temp_desc = addslashes($element['content']);
+								$temp_desc = $element['content'];
 								break;
 							case 'HTML':
-								$temp_html = addslashes($element['content']);
+								$temp_html = trim($element['content']);
 								break;
 							}
 						}
@@ -565,18 +531,19 @@ class templates extends admin
 						print_r($node);
 						die;
 					}
-					$this->db->query("INSERT INTO {$this->pre}templates
+					$this->db->query("INSERT INTO %ptemplates
 						(template_skin, template_set, template_name, template_html, template_displayname, template_description)
-						VALUES ('$skin_dir', '$temp_set', '$temp_name', '$temp_html', '$temp_display', '$temp_desc')");
+						VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
+						$skin_dir, $temp_set, $temp_name, $temp_html, $temp_display, $temp_desc);
 				}
 			}
 
 			// Extract the files
 
-			if (file_exists('../packages/' . stripslashes($this->get['newskin']) . '.tar')) {
-				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar');
+			if (file_exists('../packages/' . $this->get['newskin'] . '.tar')) {
+				$tarTool->open_file_reader('../packages/' . $this->get['newskin'] . '.tar');
 			} else {
-				$tarTool->open_file_reader('../packages/' . stripslashes($this->get['newskin']) . '.tar.gz');
+				$tarTool->open_file_reader('../packages/' . $this->get['newskin'] . '.tar.gz');
 			}
 
 			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/FILES');
@@ -596,8 +563,6 @@ class templates extends admin
 
 			$this->chmod('../skins/' . $skin_dir, 0777, true);
 
-			@unlink('../packages/' . stripslashes($this->get['newskin']) . '.xml');
-
 			return $this->message($this->lang->install_skin, $this->lang->install_done);
 		} else {
 			// Use old method of install
@@ -605,11 +570,10 @@ class templates extends admin
 				if (!isset($this->post['install'])) {
 					return $this->message($this->lang->install_skin, $this->lang->skin_none);
 				}
-				include '../lib/zip.php';
 
 				$dir = md5(microtime());
 
-				$zip = new zip;
+				$zip = new zip();
 				$zip->extract($this->post['install'], "../skins/$dir");
 				$this->chmod("../skins/$dir", 0777, true);
 				include "../skins/$dir/info.php";
@@ -634,13 +598,13 @@ class templates extends admin
 			$dir = $skin['dir'];
 
 			$queries = array();
-			$pre = $this->pre;
+			$pre = $this->db->prefix;
 
 			include "../skins/$dir/templates.php";
 
-			$this->db->query("DELETE FROM {$this->pre}skins WHERE skin_dir='$dir'");
-			$this->db->query("INSERT INTO {$this->pre}skins (skin_name, skin_dir) VALUES ('{$skin['name']}', '$dir')");
-			$this->db->query("DELETE FROM {$this->pre}templates WHERE template_skin='$dir'");
+			$this->db->query("DELETE FROM %pskins WHERE skin_dir='%s'", $dir);
+			$this->db->query("INSERT INTO %pskins (skin_name, skin_dir) VALUES ('%s', '%s')", $skin['name'], $dir);
+			$this->db->query("DELETE FROM %ptemplates WHERE template_skin='%s'", $dir);
 
 			$this->execute_queries($queries);
 
@@ -655,7 +619,7 @@ class templates extends admin
 
 			return $this->message($this->lang->export_skin, "
 			{$this->lang->export_select}:<br /><br />
-			<form action='$this->self?a=templates&amp;s=export' method='post'><div>
+			<form action='{$this->self}?a=templates&amp;s=export' method='post'><div>
 				<select name='skin'>
 					{$skin_box}
 				</select>
@@ -664,7 +628,7 @@ class templates extends admin
 		} else {
 			// Dump the skin data into an XML file
 			
-			$skin = $this->db->fetch("SELECT * FROM {$this->pre}skins WHERE skin_dir='{$this->post['skin']}'");
+			$skin = $this->db->fetch("SELECT * FROM %pskins WHERE skin_dir='%s'", $this->post['skin']);
 			
 			$fullSkinName = $skin['skin_dir'] . "-" . $this->version;
 			
@@ -695,8 +659,8 @@ class templates extends admin
 			fwrite($xmlFile, "  </files>\n");
 			fwrite($xmlFile, "  <templates>\n");
 			
-        	        $query = $this->db->query("SELECT * FROM {$this->pre}templates WHERE template_skin = '{$skin['skin_dir']}'");
-	                while ($row = $this->db->nqfetch($query))
+        	$query = $this->db->query("SELECT * FROM %ptemplates WHERE template_skin = '%s'", $skin['skin_dir']);
+	        while ($row = $this->db->nqfetch($query))
 			{
 				fwrite($xmlFile, "    <template><set>{$row['template_set']}</set><name>{$row['template_name']}</name>\n");
 				fwrite($xmlFile, "      <displayname>" . htmlspecialchars($row['template_displayname']) . "</displayname>\n");
@@ -710,23 +674,26 @@ class templates extends admin
 			fwrite($xmlFile, "  </templates>\n");
 			fwrite($xmlFile, "  <install>\n");
 			fwrite($xmlFile, "    <query>\n");
-			fwrite($xmlFile, "      INSERT INTO {\$pre}skins (skin_name, skin_dir)\n");
-			fwrite($xmlFile, "      VALUES ('" . htmlspecialchars($skin['skin_name']) . "', '" . htmlspecialchars($skin['skin_dir']) . "')\n");
+			fwrite($xmlFile, "      <sql>INSERT INTO %pskins (skin_name, skin_dir) VALUES ('%s', '%s')</sql>\n");
+			fwrite($xmlFile, "      <data>" . htmlspecialchars($skin['skin_name']) . "</data>\n");
+			fwrite($xmlFile, "      <data>" . htmlspecialchars($skin['skin_dir']) . "</data>\n");
 			fwrite($xmlFile, "    </query>\n");
 			fwrite($xmlFile, "  </install>\n");
 			fwrite($xmlFile, "  <uninstall>\n");
 			fwrite($xmlFile, "    <query>\n");
-			fwrite($xmlFile, "      DELETE FROM {\$pre}skins WHERE skin_dir ='" . htmlspecialchars($skin['skin_dir']) . "'\n");
+			fwrite($xmlFile, "      <sql>DELETE FROM %pskins WHERE skin_dir ='%s'</sql>\n");
+			fwrite($xmlFile, "      <data>" . htmlspecialchars($skin['skin_dir']) . "</data>\n");
 			fwrite($xmlFile, "    </query>\n");
 			fwrite($xmlFile, "    <query>\n");
-			fwrite($xmlFile, "      DELETE FROM {\$pre}templates WHERE template_skin ='" . htmlspecialchars($skin['skin_dir']) . "'\n");
+			fwrite($xmlFile, "      <sql>DELETE FROM %ptemplates WHERE template_skin ='%s'</sql>\n");
+			fwrite($xmlFile, "      <data>" . htmlspecialchars($skin['skin_dir']) . "</data>\n");
 			fwrite($xmlFile, "    </query>\n");
 			fwrite($xmlFile, "  </uninstall>\n");
 			fwrite($xmlFile, "</qsfmod>\n");
 
 			fclose($xmlFile);
 			
-			$tarTool = new archive_tar;
+			$tarTool = new archive_tar();
 			$tarTool->open_file_writer("../packages/skin_$fullSkinName", true);
 			// Always wise to make these first for speed
 			$tarTool->add_as_file("packages/skin_$fullSkinName.xml", 'package.txt');
@@ -749,7 +716,7 @@ class templates extends admin
 			$skin_box = $this->htmlwidgets->select_skins($this->skin);
 
 			return $this->message($this->lang->select_skin, "
-			<form action='$this->self?a=templates&amp;s=editskin' method='post'><div>
+			<form action='{$this->self}?a=templates&amp;s=editskin' method='post'><div>
 				{$this->lang->select_skin_edit}:<br /><br />
 				<select name='skin'>
 					{$skin_box}
@@ -758,21 +725,21 @@ class templates extends admin
 			</form>");
 		} else {
 			if (!isset($this->post['submit'])) {
-				$skin = $this->db->fetch("SELECT skin_name, skin_dir FROM {$this->pre}skins WHERE skin_dir='{$this->post['skin']}'");
+				$skin = $this->db->fetch("SELECT skin_name, skin_dir FROM %pskins WHERE skin_dir='%s'", $this->post['skin']);
 
 				return eval($this->template('ADMIN_EDIT_SKIN'));
 			} else {
 				if (isset($this->post['deleteskin'])) {
-					$existing = $this->db->fetch("SELECT skin_dir FROM {$this->pre}skins WHERE skin_dir!='{$this->post['skin']}' LIMIT 1");
+					$existing = $this->db->fetch("SELECT skin_dir FROM %pskins WHERE skin_dir!='%s' LIMIT 1", $this->post['skin']);
 					if (!isset($existing['skin_dir'])) {
 						return $this->message($this->lang->edit_skin, $this->lang->only_skin);
 					}
 
 					$this->remove_dir("../skins/{$this->post['skin']}");
 
-					$this->db->query("DELETE FROM {$this->pre}skins WHERE skin_dir='{$this->post['skin']}'");
-					$this->db->query("DELETE FROM {$this->pre}templates WHERE template_skin='{$this->post['skin']}'");
-					$this->db->query("UPDATE {$this->pre}users SET user_skin='{$existing['skin_dir']}' WHERE user_skin='{$this->post['skin']}'");
+					$this->db->query("DELETE FROM %pskins WHERE skin_dir='%s'", $this->post['skin']);
+					$this->db->query("DELETE FROM %ptemplates WHERE template_skin='%s'", $this->post['skin']);
+					$this->db->query("UPDATE %pusers SET user_skin='%s' WHERE user_skin='%s'", $existing['skin_dir'], $this->post['skin']);
 
 					return $this->message($this->lang->edit_skin, $this->lang->skin_deleted);
 				} else {
@@ -794,11 +761,12 @@ class templates extends admin
 
 						rename("../skins/{$this->post['skin']}", "../skins/{$this->post['skin_dir']}");
 
-						$this->db->query("UPDATE {$this->pre}templates SET template_skin='{$this->post['skin_dir']}' WHERE template_skin='{$this->post['skin']}'");
-						$this->db->query("UPDATE {$this->pre}users SET user_skin='{$this->post['skin_dir']}' WHERE user_skin='{$this->post['skin']}'");
+						$this->db->query("UPDATE %ptemplates SET template_skin='%s' WHERE template_skin='%s'", $this->post['skin_dir'], $this->post['skin']);
+						$this->db->query("UPDATE %pusers SET user_skin='%s' WHERE user_skin='%s'", $this->post['skin_dir'], $this->post['skin']);
 					}
 
-					$this->db->query("UPDATE {$this->pre}skins SET skin_name='{$this->post['skin_name']}', skin_dir='{$this->post['skin_dir']}' WHERE skin_dir='{$this->post['skin']}'");
+					$this->db->query("UPDATE %pskins SET skin_name='%s', skin_dir='%s' WHERE skin_dir='%s'",
+						$this->post['skin_name'], $this->post['skin_dir'], $this->post['skin']);
 
 					if (!$dup) {
 						return $this->message($this->lang->edit_skin, $this->lang->select_skin_edit_done);
@@ -837,7 +805,6 @@ class templates extends admin
 				return $this->message( $this->lang->edit_css, $this->lang->no_file );
 
 			$text = str_replace( "\r", "", $this->post['css_text'] );
-			$text = stripslashes($text);
 
 			$file = "../skins/" . $skin . "/" . $fname;
 			$fp = @fopen( $file, "w" ) or $this->handle_perms( $file );
@@ -897,7 +864,7 @@ class templates extends admin
 
 		$out = "";
 		$action = 'delete';
-		$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM {$this->pre}templates WHERE template_skin='$template'");
+		$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM %ptemplates WHERE template_skin='%s'", $template);
 		while ($data = $this->db->nqfetch($query))
 		{
 			if (!isset($sections[$data['temp_set']])) {
@@ -914,7 +881,7 @@ class templates extends admin
 
 		$out = "";
 		$action = 'edit';
-		$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM {$this->pre}templates WHERE template_skin='$template'");
+		$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM %ptemplates WHERE template_skin='%s'", $template);
 		while ($data = $this->db->nqfetch($query))
 		{
 			if (!isset($sections[$data['temp_set']])) {
@@ -945,7 +912,7 @@ class templates extends admin
 			$skin_box = $this->htmlwidgets->select_skins($template);
 			$template_box = '';
 
-			$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM {$this->pre}templates WHERE template_skin='$template'");
+			$query = $this->db->query("SELECT DISTINCT(template_set) as temp_set FROM %ptemplates WHERE template_skin='%s'", $template);
 			while ($data = $this->db->nqfetch($query))
 			{
 				if (!isset($sections[$data['temp_set']])) {
@@ -968,7 +935,9 @@ class templates extends admin
 			}
 		        $pos = is_numeric($this->post['pos']) ? $this->post['pos'] : 1;
 
-		        $this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description) VALUES ('$template', '$template_set', '$name', '$html', '$title', '$desc')");
+		        $this->db->query("INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description)
+					VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
+					$template, $template_set, $name, $html, $title, $desc);
 		        return $this->message($this->lang->templates, $this->lang->template_added, $this->lang->continue, "$this->self?a=templates&amp;skin=$template");
 	        }
 	}
@@ -979,7 +948,8 @@ class templates extends admin
 		$this->tree($title);
 
 		if (!isset($this->post['submit']) &&!isset($this->post['submitTemp'])) {
-			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html, template_set FROM {$this->pre}templates WHERE template_skin='{$this->get['skin']}' AND template_set='{$this->get['section']}'");
+			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html, template_set
+				FROM %ptemplates WHERE template_skin='%s' AND template_set='%s'", $this->get['skin'], $this->get['section']);
 
 			$out = "";
 			while ($data = $this->db->nqfetch($query))
@@ -987,7 +957,7 @@ class templates extends admin
 			   $out .= "<option value='{$data['template_name']}'>" . $data['template_name'] . "</option>";
 			}
 			return $this->message($this->lang->delete_template, "
-				<form action='$this->self?a=templates&amp;s=delete&amp;section={$this->get['section']}&amp;skin={$this->get['skin']}' method='post'>
+				<form action='{$this->self}?a=templates&amp;s=delete&amp;section={$this->get['section']}&amp;skin={$this->get['skin']}' method='post'>
 				<div>
 				{$this->lang->select_template}:<br /><br />
 				<select name='template'>
@@ -998,7 +968,8 @@ class templates extends admin
 		} elseif( !isset($this->get['i'])) {
 			$this->iterator_init('tablelight', 'tabledark');
 
-			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html FROM {$this->pre}templates WHERE template_skin='$template' AND template_name='{$this->post['template']}'");
+			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html
+				FROM %ptemplates WHERE template_skin='%s' AND template_name='%s'", $template, $this->post['template']);
 			$class = $this->iterate();
 			$name = $this->post['template'];
 			$section = $this->get['section'];
@@ -1016,7 +987,7 @@ class templates extends admin
 			$out = eval($this->template('ADMIN_DELETE_TEMPLATE'));
 			return $this->message($this->lang->delete_template,$out);
 		} else {
-			$this->db->query("DELETE FROM {$this->pre}templates WHERE template_skin='{$this->get['skin']}' AND template_name='{$this->post['submitTemp']}'");
+			$this->db->query("DELETE FROM %ptemplates WHERE template_skin='%s' AND template_name='%s'", $this->get['skin'], $this->post['submitTemp']);
 			return $this->message($this->lang->delete_template,"Template Deleted");
 		}
 	}
@@ -1027,7 +998,8 @@ class templates extends admin
 		$this->tree($title);
 
 		if (!isset($this->post['submitTemps'])) {
-			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html FROM {$this->pre}templates WHERE template_skin='$template' AND template_set='{$this->get['section']}' ORDER BY template_name");
+			$query = $this->db->query("SELECT template_displayname, template_description, template_name, template_html
+				FROM %ptemplates WHERE template_skin='%s' AND template_set='%s' ORDER BY template_name", $template, $this->get['section']);
 
 			$this->iterator_init('tablelight', 'tabledark');
 
@@ -1044,7 +1016,7 @@ class templates extends admin
 				$data['template_html'] = $this->format($data['template_html'], FORMAT_HTMLCHARS);
 
 				$class = $this->iterate();
-				$out .= stripslashes( eval($this->template('ADMIN_EDIT_TEMPLATE_ENTRY')) );
+				$out .= eval($this->template('ADMIN_EDIT_TEMPLATE_ENTRY'));
 			}
 			return eval($this->template('ADMIN_EDIT_TEMPLATE'));
 		} else {
@@ -1080,7 +1052,8 @@ class templates extends admin
 
 				//$val = preg_replace('/\{lang-(.+?)\}/', '{$this->lang->\\1}', $val);
 
-				$this->db->query("UPDATE {$this->pre}templates SET template_html='$val' WHERE template_skin='$template' AND template_name='$var' AND template_set='{$this->get['section']}'");
+				$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s' AND template_set='%s'",
+					$val, $template, $var, $this->get['section']);
 			}
 
 			if (!$evil) {
@@ -1098,7 +1071,7 @@ class templates extends admin
 			$skin_box = $this->htmlwidgets->select_skins(0);
 
 			return $this->message($this->lang->create_skin, "
-			<form action='$this->self?a=templates&amp;s=skin' method='post'><div>
+			<form action='{$this->self}?a=templates&amp;s=skin' method='post'><div>
 				{$this->lang->create_new} <input type='text' name='new_name' size='24' maxlength='32' class='input' /> {$this->lang->based_on}
 				<select name='new_based'>
 					{$skin_box}
@@ -1121,20 +1094,14 @@ class templates extends admin
 			}
 			$this->chmod("../skins/$name/",0775,true);
 
-			$this->db->query("INSERT INTO {$this->pre}skins (skin_name, skin_dir) VALUES ('" . $this->db->escape($this->post['new_name']) . "', '$name')");
+			$this->db->query("INSERT INTO %pskins (skin_name, skin_dir) VALUES ('%s', '%s')", $this->post['new_name'], $name);
 
-			$query = $this->db->query("SELECT * FROM {$this->pre}templates WHERE template_skin='{$this->post['new_based']}'");
+			$query = $this->db->query("SELECT * FROM %ptemplates WHERE template_skin='%s'", $this->post['new_based']);
 			while ($r = $this->db->nqfetch($query))
 			{
-				$r['template_skin'] = $this->db->escape($r['template_skin']);
-				$r['template_set'] = $this->db->escape($r['template_set']);
-				$r['template_name'] = $this->db->escape($r['template_name']);
-				$r['template_html'] = $this->db->escape($r['template_html']);
-				$r['template_displayname'] = $this->db->escape($r['template_displayname']);
-				$r['template_description'] = $this->db->escape($r['template_description']);
-
-				$this->db->query("INSERT INTO {$this->pre}templates (template_skin, template_set, template_name, template_html, template_displayname, template_description, template_position)
-					VALUES('$name', '{$r['template_set']}', '{$r['template_name']}', '{$r['template_html']}', '{$r['template_displayname']}', '{$r['template_description']}', {$r['template_position']})");
+				$this->db->query("INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description)
+					VALUES('%s', '%s', '%s', '%s', '%s', '%s')",
+					$name, $r['template_set'], $r['template_name'], $r['template_html'], $r['template_displayname'], $r['template_description']);
 			}
 
 			return $this->message($this->lang->create_skin, $this->lang->skin_created, $this->lang->continue, "$this->self?a=templates&amp;s=html&amp;skin=$name");
@@ -1186,5 +1153,35 @@ class templates extends admin
 			$check_dir_exists .= '/';
 		}
 	}
+	
+	function _run_queries($nodes)
+	{
+		foreach ($nodes['child'] as $node) {
+			if ($node['name'] == 'QUERY') {
+				// Build up query and data
+				$query = "";
+				$data = array();
+				foreach ($node['child'] as $element) {
+					if (isset($element['content'])) {
+						switch($element['name'])
+						{
+						case 'SQL':
+							$query = $element['content'];
+							break;
+						case 'DATA':
+							$data[] = $element['content'];
+							break;
+						}
+					}
+				}
+				
+				if ($query) {
+					array_unshift($data, $query);
+					$this->db->query($data);
+				}
+			}
+		}
+	}
+
 }
 ?>

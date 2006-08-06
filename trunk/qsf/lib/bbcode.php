@@ -415,7 +415,7 @@ class bbcode extends htmltools
 			'$this->_format_code(\'\\1\', 1)',
 			'$this->_format_code(\'\\2\', 1, \'\\1\')',
 			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . $this->_trim_string(str_replace(\' \', \'\', \'\\1://\\2\'), $this->max_url_length) . \'</a>\'',
-			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\' . stripslashes(\'\\3\') . \'</a>\'');
+			'\'<a href="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" onclick="window.open(this.href,\\\'' . $this->sets['link_target'] . '\\\');return false;" rel="nofollow">\\3</a>\'');
 			
 		return array('matches' => $bbcode_matches,
 			'replacements' => $bbcode_replacements);

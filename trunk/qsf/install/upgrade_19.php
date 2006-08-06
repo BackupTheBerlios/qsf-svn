@@ -63,8 +63,8 @@ $new_permissions['topic_publish_auto'] = true; // will publish on posting
 $new_permissions['topic_publish'] = false;
 $new_permissions['topic_view_unpublished'] = false;
 
-$queries[] = "DROP TABLE IF EXISTS {$pre}readmarks";
-$queries[] = "CREATE TABLE {$pre}readmarks (
+$queries[] = "DROP TABLE IF EXISTS %preadmarks";
+$queries[] = "CREATE TABLE %preadmarks (
   readmark_user int(10) unsigned NOT NULL default '0',
   readmark_topic int(10) unsigned NOT NULL default '0',
   readmark_lastread int(10) unsigned NOT NULL default '0',
@@ -72,15 +72,15 @@ $queries[] = "CREATE TABLE {$pre}readmarks (
 ) TYPE=MyISAM";
 
 // Set up a seperate column for 'mark all read'
-$queries[] = "ALTER TABLE {$pre}users ADD user_lastallread int(10) unsigned NOT NULL default '0' AFTER user_lastvisit";
-$queries[] = "ALTER TABLE {$pre}posts ADD post_count tinyint(1) unsigned NOT NULL default '1' AFTER post_mbcode";
-$queries[] = "UPDATE {$pre}users SET user_lastallread=user_lastvisit";
-$queries[] = "UPDATE {$pre}topics SET topic_modes=topic_modes | " . TOPIC_PUBLISH; // Make all topics published
+$queries[] = "ALTER TABLE %pusers ADD user_lastallread int(10) unsigned NOT NULL default '0' AFTER user_lastvisit";
+$queries[] = "ALTER TABLE %pposts ADD post_count tinyint(1) unsigned NOT NULL default '1' AFTER post_mbcode";
+$queries[] = "UPDATE %pusers SET user_lastallread=user_lastvisit";
+$queries[] = "UPDATE %ptopics SET topic_modes=topic_modes | " . TOPIC_PUBLISH; // Make all topics published
 
 // New timezones
-$queries[] = "INSERT INTO {$pre}timezones VALUES (384, 'America/Moncton', 'AST', -14400, 1143950460)";
-$queries[] = "INSERT INTO {$pre}timezones VALUES (385, 'America/Indiana/Petersburg', 'EST', -18000, 1143961200)";
-$queries[] = "INSERT INTO {$pre}timezones VALUES (386, 'America/Indiana/Vincennes', 'EST', -18000, 1143961200)";
+$queries[] = "INSERT INTO %ptimezones VALUES (384, 'America/Moncton', 'AST', -14400, 1143950460)";
+$queries[] = "INSERT INTO %ptimezones VALUES (385, 'America/Indiana/Petersburg', 'EST', -18000, 1143961200)";
+$queries[] = "INSERT INTO %ptimezones VALUES (386, 'America/Indiana/Vincennes', 'EST', -18000, 1143961200)";
 
 
 ?>

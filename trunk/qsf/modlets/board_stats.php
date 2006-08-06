@@ -94,7 +94,7 @@ class board_stats extends modlet
 	function getuser_birthdays()
 	{
 		$links  = array();
-		$members  = $this->qsf->db->query("SELECT user_id, user_name, user_birthday FROM {$this->qsf->pre}users WHERE user_birthday LIKE '" . $this->qsf->mbdate('%-m-d') . "'");
+		$members  = $this->qsf->db->query("SELECT user_id, user_name, user_birthday FROM %pusers WHERE user_birthday LIKE '%s'", $this->qsf->mbdate('%-m-d'));
 		$count    = $this->qsf->db->num_rows($members);
 	
 		if (!$count) {

@@ -62,7 +62,7 @@ class help extends admin
 		case 'new':
 			if (!isset($this->post['submit'])) {
 				return $this->message($this->lang->help_add,"
-				<form action='$this->self?a=help&amp;s=new&amp;' method='post'><div>
+				<form action='{$this->self}?a=help&amp;s=new&amp;' method='post'><div>
 				<b>{$this->lang->help_title}:</b><br />
 				<input name='title' type='text' size='40' class='input' /><br /><br />
 				<b>{$this->lang->help_content}</b>
@@ -74,7 +74,7 @@ class help extends admin
 					return $this->message($this->lang->help_add, $this->lang->help_no_title);
 				}
 
-				$query = $this->db->query("INSERT INTO {$this->pre}help VALUES ('', '{$this->post['title']}', '{$this->post['article']}')");
+				$query = $this->db->query("INSERT INTO %phelp VALUES ('', '%s', '%s')", $this->post['title'], $this->post['article']);
 
 				return $this->message($this->lang->help_add, $this->lang->help_inserted);
 			}
@@ -82,7 +82,7 @@ class help extends admin
 
 		case 'edit':
 			if (!isset($this->get['id'])) {
-				$query = $this->db->query("SELECT help_id, help_title FROM {$this->pre}help ORDER by help_title DESC");
+				$query = $this->db->query("SELECT help_id, help_title FROM %phelp ORDER by help_title DESC");
 
 				if (!$this->db->num_rows($query)) {
 					return $this->message($this->lang->help_edit, $this->lang->help_no_articles);
@@ -90,7 +90,7 @@ class help extends admin
 					while ($file = $this->db->nqfetch($query))
 					{
 						$title = $this->format($file['help_title'], FORMAT_HTMLCHARS);
-						$ret .= "<a href='$this->self?$link&amp;id=" . $file['help_id'] . "'>{$title}</a><br />";
+						$ret .= "<a href='{$this->self}?$link&amp;id=" . $file['help_id'] . "'>{$title}</a><br />";
 					}
 
 					return $this->message($this->lang->help_edit, "{$this->lang->help_select}:<br /><br />$ret");
@@ -99,7 +99,7 @@ class help extends admin
 				if (!isset($this->post['submit'])) {
 					$id = intval($this->get['id']);
 
-					$query = $this->db->query("SELECT * FROM {$this->pre}help WHERE help_id=$id");
+					$query = $this->db->query("SELECT * FROM %phelp WHERE help_id=%d", $id);
 
 					if (!$this->db->num_rows($query)) {
 						return $this->message($this->lang->help_edit, $this->lang->help_not_exist);
@@ -125,7 +125,8 @@ class help extends admin
 						return $this->message($this->lang->help_add, $this->lang->help_no_title);
 					}
 
-					$query = $this->db->query("UPDATE {$this->pre}help SET help_title='{$this->post['title']}', help_article='{$this->post['article']}' WHERE help_id=$id");
+					$query = $this->db->query("UPDATE %phelp SET help_title='%s', help_article='%s' WHERE help_id=%d",
+						$this->post['title'], $this->post['article'], $id);
 
 					return $this->message($this->lang->help_edit, $this->lang->help_edited);
 				}
@@ -135,7 +136,7 @@ class help extends admin
 		case 'delete':
 			if (!isset($this->post['submit'])) {
 				if(!isset($this->get['id'])){
-					$query = $this->db->query("SELECT help_id, help_title FROM {$this->pre}help ORDER by help_title DESC");
+					$query = $this->db->query("SELECT help_id, help_title FROM %phelp ORDER by help_title DESC");
 
 					if (!$this->db->num_rows($query)) {
 						return $this->message($this->lang->help_delete, $this->lang->help_no_articles);
@@ -148,7 +149,7 @@ class help extends admin
 						return $this->message($this->lang->help_delete, "{$this->lang->help_select_delete}:<br /><br />$ret");
 					}
 				} else {
-					$query   = $this->db->query("SELECT help_id, help_title FROM {$this->pre}help WHERE help_id=" . intval($this->get['id']));
+					$query   = $this->db->query("SELECT help_id, help_title FROM %phelp WHERE help_id=%d", intval($this->get['id']));
 					$content = $this->db->nqfetch($query);
 
 					$ret = "{$this->lang->help_confirm} <b>{$content['help_title']}</b>?<br /><br />
@@ -160,7 +161,7 @@ class help extends admin
 				}
 
 			} else {
-				$query = $this->db->query("DELETE FROM {$this->pre}help WHERE help_id=" . intval($this->get['id']));
+				$query = $this->db->query("DELETE FROM %phelp WHERE help_id=%d", intval($this->get['id']));
 				return $this->message($this->lang->help_delete, $this->lang->help_deleted);
 			}
 			break;

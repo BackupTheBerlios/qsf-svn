@@ -57,7 +57,7 @@ class groups extends admin
 
 			if (!isset($this->post['submit'])) {
 				return $this->message($this->lang->groups_create, "
-				<form action='$this->self?a=groups&amp;s=add' method='post'><div>
+				<form action='{$this->self}?a=groups&amp;s=add' method='post'><div>
 					{$this->lang->groups_create_new} <input class='input' name='group_name' /> {$this->lang->groups_based_on} " . $this->list_groups(USER_MEMBER) . "
 					<input type='submit' name='submit' value='Submit' /></div>
 				</form>");
@@ -70,9 +70,11 @@ class groups extends admin
 					return $this->message($this->lang->groups_create, $this->lang->groups_no_name);
 				}
 
-				$copying = $this->db->fetch("SELECT group_format, group_perms FROM {$this->pre}groups WHERE group_id={$this->post['user_group']}");
+				$copying = $this->db->fetch("SELECT group_format, group_perms FROM %pgroups WHERE group_id=%d", $this->post['user_group']);
 
-				$this->db->query("INSERT INTO {$this->pre}groups (group_name, group_format, group_perms) VALUES ('" . $this->format($this->post['group_name'], FORMAT_HTMLCHARS) . "', '" . addslashes($copying['group_format']) . "', '" . addslashes($copying['group_perms']) . "')");
+				$this->db->query("INSERT INTO %pgroups (group_name, group_format, group_perms)
+					VALUES ('%s', '%s', '%s')",
+					$this->format($this->post['group_name'], FORMAT_HTMLCHARS), $copying['group_format'], $copying['group_perms']);
 
 				return $this->message($this->lang->groups_create, $this->lang->groups_created);
 			}
@@ -84,7 +86,7 @@ class groups extends admin
 			if (!isset($this->post['submit'])) {
 				if (!isset($this->post['choose_group'])) {
 					return $this->message($this->lang->groups_edit, "
-					<form action='$this->self?a=groups&amp;s=edit' method='post'><div>
+					<form action='{$this->self}?a=groups&amp;s=edit' method='post'><div>
 						{$this->lang->groups_to_edit}: " . $this->list_groups(-1, 'group') . "<br /><br />
 						<input type='submit' name='choose_group' value='{$this->lang->submit}' /></div>
 					</form>");
@@ -95,7 +97,7 @@ class groups extends admin
 
 					$this->post['group'] = intval($this->post['group']);
 
-					$old = $this->db->fetch("SELECT group_name, group_type, group_format FROM {$this->pre}groups WHERE group_id={$this->post['group']}");
+					$old = $this->db->fetch("SELECT group_name, group_type, group_format FROM %pgroups WHERE group_id=%d", $this->post['group']);
 
 					if ($old['group_type'] == '') {
 						$old['group_type'] = 'CUSTOM';
@@ -120,7 +122,8 @@ class groups extends admin
 					return $this->message($this->lang->groups_edit, $this->lang->groups_bad_format);
 				}
 
-				$this->db->query("UPDATE {$this->pre}groups SET group_name='" . $this->format($this->post['group_name'], FORMAT_HTMLCHARS) . "', group_format='{$this->post['group_format']}' WHERE group_id={$this->post['group']}");
+				$this->db->query("UPDATE %pgroups SET group_name='%s', group_format='%s' WHERE group_id=%d",
+					$this->format($this->post['group_name'], FORMAT_HTMLCHARS), $this->post['group_format'], $this->post['group']);
 
 				return $this->message($this->lang->groups_edit, $this->lang->groups_edited);
 			}
@@ -129,7 +132,7 @@ class groups extends admin
 		case 'delete':
 			$this->tree($this->lang->groups_delete);
 
-			$test = $this->db->fetch("SELECT group_id FROM {$this->pre}groups WHERE group_type=''");
+			$test = $this->db->fetch("SELECT group_id FROM %pgroups WHERE group_type=''");
 
 			if (!$test) {
 				return $this->message($this->lang->groups_delete, $this->lang->groups_no_delete);
@@ -155,8 +158,8 @@ class groups extends admin
 					$this->post['new_group'] = USER_MEMBER;
 				}
 
-				$this->db->query("DELETE FROM {$this->pre}groups WHERE group_id={$this->post['old_group']} AND group_type=''");
-				$this->db->query("UPDATE {$this->pre}users SET user_group={$this->post['new_group']} WHERE user_group={$this->post['old_group']}");
+				$this->db->query("DELETE FROM %pgroups WHERE group_id=%d AND group_type=''", $this->post['old_group']);
+				$this->db->query("UPDATE %pusers SET user_group=%d WHERE user_group=%d", $this->post['new_group'], $this->post['old_group']);
 
 				return $this->message($this->lang->groups_delete, $this->lang->groups_deleted);
 			}

@@ -79,14 +79,15 @@ class topic extends qsfglobal
                 }
 		
 		$topic = $this->db->fetch('
-		SELECT
-		    t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum,
-		    t.topic_edited, t.topic_replies, t.topic_poll_options, f.forum_name
-		FROM
-		    ' . $this->pre . 'topics t, ' . $this->pre . 'forums f
-		WHERE
-		    t.topic_id=' . $this->get['t'] . ' AND
-		    f.forum_id=t.topic_forum');
+			SELECT
+				t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum,
+				t.topic_edited, t.topic_replies, t.topic_poll_options, f.forum_name
+			FROM
+				%ptopics t, %pforums f
+			WHERE
+				t.topic_id=%d AND
+				f.forum_id=t.topic_forum',
+			$this->get['t']);
 
 		if (!$topic) {
 			$this->set_title($this->lang->topic_not_found);
@@ -105,35 +106,37 @@ class topic extends qsfglobal
 		}
 
 		if ($this->get['view']) {
-                        if ($this->get['view'] == 'older') {
-                                $order = 'DESC';
-                                $where = "topic_edited < {$topic['topic_edited']}";
+			if ($this->get['view'] == 'older') {
+				$order = 'DESC';
+				$where = "topic_edited < %d";
+				
 				if ($topic['topic_modes'] & TOPIC_PINNED) {
 					$where .= ' OR ';
 				} else {
 					$where .= ' AND ';
 				}
 				$where .= "(topic_modes & " . TOPIC_PINNED . ") = 0";
-                        } else {
-                                $order = 'ASC';
-                                $where = "topic_edited > {$topic['topic_edited']}";
+			} else {
+				$order = 'ASC';
+				$where = "topic_edited > %d";
 				if (!($topic['topic_modes'] & TOPIC_PINNED)) {
 					$where .= ' OR ';
 				} else {
 					$where .= ' AND ';
 				}
 				$where .= "(topic_modes & " . TOPIC_PINNED . ") = " . TOPIC_PINNED;
-                        }
+            }
  
-                        $new_topic = $this->db->fetch("
-                                SELECT topic_id FROM {$this->pre}topics
-                                WHERE topic_forum={$topic['topic_forum']} AND
-                                    ($where)
-                                ORDER BY (topic_modes & " . TOPIC_PINNED . ") $order,
-                                    topic_edited $order
-                                LIMIT 1");
- 
-                        if ($new_topic) {
+			$new_topic = $this->db->fetch("
+					SELECT topic_id FROM %ptopics
+					WHERE topic_forum=%d AND
+						($where)
+					ORDER BY (topic_modes & %d) $order,
+						topic_edited $order
+					LIMIT 1",
+					$topic['topic_forum'], $topic['topic_edited'], TOPIC_PINNED);
+
+			if ($new_topic) {
                                 // Move to that topic
 				header('Location: ' . $this->self . '?a=topic&t=' . $new_topic['topic_id']);
 				return;
@@ -148,7 +151,8 @@ class topic extends qsfglobal
 		if ($this->get['unread']) {
 			// Jump to the first unread post (or the last post)
 			$timeread = $this->readmarker->topic_last_read($topic['topic_forum']);
-			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM {$this->pre}posts WHERE post_topic = {$this->get['t']} AND post_time < $timeread");
+			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM %pposts WHERE post_topic = %d AND post_time < %d",
+				$this->get['t'], $timeread);
 			if ($posts) $postCount = $posts['posts'] + 1;
 			else $postCount = 0;
 			$this->get['min'] = 0; // Start at the first page regardless
@@ -158,7 +162,8 @@ class topic extends qsfglobal
 		}
 		if ($this->get['p']) {
 			// We need to find what page this post exists on!
-			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM {$this->pre}posts WHERE post_topic = {$this->get['t']} AND post_id < {$this->get['p']}");
+			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM %pposts WHERE post_topic = %d AND post_id < %d",
+				$this->get['t'], $this->get['p']);
 			if ($posts) $postCount = $posts['posts'] + 1;
 			else $postCount = 0;
 			$this->get['min'] = 0; // Start at the first page regardless
@@ -167,7 +172,7 @@ class topic extends qsfglobal
 			}
 		}
 
-		$this->db->query('UPDATE ' . $this->pre . 'topics SET topic_views=topic_views+1 WHERE topic_id=' . $this->get['t']);
+		$this->db->query('UPDATE %ptopics SET topic_views=topic_views+1 WHERE topic_id=%d', $this->get['t']);
 
 		$topic['topic_title'] = $this->format($topic['topic_title'], FORMAT_CENSOR);
 		$title_html = $this->format($topic['topic_title'], FORMAT_HTMLCHARS);
@@ -274,14 +279,15 @@ class topic extends qsfglobal
 		$posts = null;
 
 		$query = $this->db->query("
-		SELECT
-		  a.attach_id, a.attach_name, a.attach_downloads, a.attach_size,
-		  p.post_id
-		FROM
-		  {$this->pre}posts p, {$this->pre}attach a
-		WHERE
-		  p.post_topic = {$this->get['t']} AND
-		  a.attach_post = p.post_id");
+			SELECT
+			  a.attach_id, a.attach_name, a.attach_downloads, a.attach_size,
+			  p.post_id
+			FROM
+			  %pposts p, %pattach a
+			WHERE
+			  p.post_topic = %d AND
+			  a.attach_post = p.post_id",
+			$this->get['t']);
 
 		$attachments = array();
 
@@ -295,25 +301,26 @@ class topic extends qsfglobal
 		}
 
 		$query = $this->db->query("
-		SELECT
-		  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
-		  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
-		  m.user_icq, m.user_yahoo, m.user_homepage, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_msn, m.user_pm, m.user_email_show, m.user_email_form, m.user_active,
-		  t.membertitle_icon,
-		  g.group_name,
-		  a.active_time
-		FROM
-		  ({$this->pre}posts p, {$this->pre}users m, {$this->pre}groups g)
-		LEFT JOIN {$this->pre}active a ON a.active_id=m.user_id
-		LEFT JOIN {$this->pre}membertitles t ON t.membertitle_id=m.user_level
-		WHERE
-		  p.post_topic = {$this->get['t']} AND
-		  p.post_author = m.user_id AND
-		  m.user_group = g.group_id
-		GROUP BY p.post_id
-		ORDER BY
-		  p.post_time
-		LIMIT {$this->get['min']}, {$this->get['num']}");
+			SELECT
+			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
+			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
+			  m.user_icq, m.user_yahoo, m.user_homepage, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_msn, m.user_pm, m.user_email_show, m.user_email_form, m.user_active,
+			  t.membertitle_icon,
+			  g.group_name,
+			  a.active_time
+			FROM
+			  (%pposts p, %pusers m, %pgroups g)
+			LEFT JOIN %pactive a ON a.active_id=m.user_id
+			LEFT JOIN %pmembertitles t ON t.membertitle_id=m.user_level
+			WHERE
+			  p.post_topic = %d AND
+			  p.post_author = m.user_id AND
+			  m.user_group = g.group_id
+			GROUP BY p.post_id
+			ORDER BY
+			  p.post_time
+			LIMIT %d, %d",
+			$this->get['t'], $this->get['min'], $this->get['num']);
 
 		$i = 0;
 		$split = '';
@@ -555,18 +562,18 @@ class topic extends qsfglobal
 		$this->get['id'] = intval($this->get['id']);
 
 		$data = $this->db->fetch("
-		SELECT
-		  a.attach_name, a.attach_file, t.topic_forum
-		FROM
-		  {$this->pre}attach a, {$this->pre}posts p, {$this->pre}topics t
-		WHERE
-		  a.attach_post = p.post_id AND
-		  p.post_topic = t.topic_id AND
-		  a.attach_id = {$this->get['id']}");
+			SELECT
+			  a.attach_name, a.attach_file, t.topic_forum
+			FROM
+			  %pattach a, %pposts p, %ptopics t
+			WHERE
+			  a.attach_post = p.post_id AND
+			  p.post_topic = t.topic_id AND
+			  a.attach_id = %d", $this->get['id']);
 
 		if ($this->perms->auth('post_attach_download', $data['topic_forum'])) {
 			$this->nohtml = true;
-			$this->db->query("UPDATE {$this->pre}attach SET attach_downloads=attach_downloads+1 WHERE attach_id={$this->get['id']}");
+			$this->db->query("UPDATE %pattach SET attach_downloads=attach_downloads+1 WHERE attach_id=%d", $this->get['id']);
 
 			header("Content-type: application/octet-stream");
 			header("Content-Disposition: attachment; filename=\"{$data['attach_name']}\"");
@@ -578,10 +585,10 @@ class topic extends qsfglobal
 
 	function get_poll($t, $f, $title_html, $topic_modes, $options)
 	{
-		$user_voted = $this->db->fetch('SELECT vote_option FROM ' . $this->pre . 'votes WHERE vote_user=' . $this->user['user_id'] . ' AND vote_topic=' . $t);
+		$user_voted = $this->db->fetch('SELECT vote_option FROM %pvotes WHERE vote_user=%d AND vote_topic=%d', $this->user['user_id'], $t);
 
 		if ($user_voted || !$this->perms->auth('poll_vote', $f) || ($topic_modes & TOPIC_LOCKED) || (isset($this->get['results']) && $this->sets['vote_after_results'])) {
-			$votes = $this->db->query("SELECT vote_option FROM {$this->pre}votes WHERE vote_topic=$t AND vote_option != -1");
+			$votes = $this->db->query("SELECT vote_option FROM %pvotes WHERE vote_topic=%d AND vote_option != -1", $t);
 
 			$results = array();
 			$total_votes = 0;

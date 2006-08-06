@@ -44,13 +44,8 @@ class stats extends admin
 		/**
 		 * Posts
 		 */
-		$query = $this->db->query("
-		SELECT
-		    COUNT(post_id) AS posts,
-		    FROM_UNIXTIME(post_time, '%b %y') AS month
-		FROM {$this->pre}posts
-		GROUP BY month
-		ORDER BY post_time");
+		$query = $this->db->query("SELECT COUNT(post_id) AS posts, FROM_UNIXTIME(post_time, '%%b %%y') AS month
+			FROM %pposts GROUP BY month	ORDER BY post_time");
 
 		$data = array();
 		while ($item = $this->db->nqfetch($query))
@@ -82,14 +77,11 @@ class stats extends admin
 		/**
 		 * Registrations
 		 */
-		$query = $this->db->query("
-		SELECT
-		    COUNT(user_id) AS users,
-		    FROM_UNIXTIME(user_joined, '%b %y') AS month
-		FROM {$this->pre}users
-		WHERE user_joined != 0
-		GROUP BY month
-		ORDER BY user_joined");
+		$query = $this->db->query("SELECT COUNT(user_id) AS users, FROM_UNIXTIME(user_joined, '%%b %%y') AS month
+			FROM %pusers
+			WHERE user_joined != 0
+			GROUP BY month
+			ORDER BY user_joined");
 
 		$data = array();
 		while ($item = $this->db->nqfetch($query))

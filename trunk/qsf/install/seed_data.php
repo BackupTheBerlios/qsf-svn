@@ -24,5 +24,4 @@ If you're having trouble and need some help. Be sure to visit the official [url=
 There is already lots of great skins and mods out there that are easy to setup and use. Go to [url=http://planet.quicksilverforums.com/]Planet QSF[/url] for the latest in mods and skins for your site as well as support in using them.
 [b]Show your appreciation[/b]
 There is no greater reward for the Quicksilver Forums Development Team than seeing you become a [url=http://www.quicksilverforums.com/contributing.html]regular contributor[/url]. There is always lots to do and your help can benefit everyone.";
-	$topicPost = addslashes($topicPost);
 ?>
