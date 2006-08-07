@@ -117,10 +117,10 @@ class new_install extends qsfglobal
 
 			$this->post['admin_pass'] = md5($this->post['admin_pass']);
 
-			if (!get_magic_quotes_gpc()) {
-				$this->set_magic_quotes_gpc($this->get);
-				$this->set_magic_quotes_gpc($this->post);
-				$this->set_magic_quotes_gpc($this->cookie);
+			if (get_magic_quotes_gpc()) {
+				$this->unset_magic_quotes_gpc($this->get);
+				$this->unset_magic_quotes_gpc($this->post);
+				$this->unset_magic_quotes_gpc($this->cookie);
 			}
 
 			$this->post['admin_name'] = str_replace(
