@@ -899,8 +899,7 @@ class mod extends qsfglobal
 				if (0 == $fid)
 					continue;
 
-				$this->db->query('UPDATE %porums SET forum_replies=forum_replies-%d WHERE forum_id=%d',
-					$ammount, $fid);
+				$this->db->query('UPDATE %pforums SET forum_replies=forum_replies-%d WHERE forum_id=%d', $ammount, $fid);
 
 				if (0 != $topic)
 					$this->db->query('UPDATE %pforums SET forum_topics=forum_topics-%d WHERE forum_id=%d',
