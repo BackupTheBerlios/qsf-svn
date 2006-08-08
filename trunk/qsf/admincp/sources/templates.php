@@ -467,7 +467,7 @@ class templates extends admin
 				
 				$xmlData = $tarTool->extract_file($xmlFilename);
 				
-				$xmlInfo->parseArray(array($xmlData));
+				$xmlInfo->parseString($xmlData);
 			}
 			else if (file_exists('../packages/' . $this->get['newskin'] . '.tar.gz')
 				&& $tarTool->can_gunzip())
@@ -478,7 +478,7 @@ class templates extends admin
 				
 				$xmlData = $tarTool->extract_file($xmlFilename);
 				
-				$xmlInfo->parseArray(array($xmlData));
+				$xmlInfo->parseString($xmlData);
 			}
 			else
 			{

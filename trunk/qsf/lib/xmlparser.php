@@ -91,6 +91,18 @@ class xmlparser
        return true;
     }
     
+    function parseString($string)
+    {
+	   if (!xml_parse($this->xml_obj, $string)) {
+		   return (sprintf("XML error: %s at line %d",
+		   xml_error_string(xml_get_error_code($this->xml_obj)),
+		   xml_get_current_line_number($this->xml_obj)));
+		   xml_parser_free($this->xml_obj);
+	   }
+    
+       return true;
+    }
+
     function startHandler($parser, $name, $attribs)
     {
        $_content = array('name' => $name);
