@@ -25,6 +25,8 @@ if (!defined('QUICKSILVERFORUMS')) {
 	die;
 }
 
+require_once $set['include_path'] . '/lib/tar.php';
+
 /**
  * Simple XML parser
  *
@@ -75,6 +77,40 @@ class xmlparser
        }
     
        return true;
+    }
+    
+    function parseTar($tarTool, $filename)
+    {
+		// First try and find the filename
+		$tarTool->rewind();
+		
+		$foundFile = $tarTool->next_file();
+		while ($foundFile != $filename && $foundFile !== false) {
+			$foundFile = $tarTool->skip_file();
+		}
+	
+		if ($foundFile === false) {
+			return "Cannot open XML data file: $filename";
+		} else {
+			// Now allow parsing chunk by chunk
+			$size = $tarTool->currentStat['size'];
+			
+			while ($size > 0) {
+				$chunk = 4096;
+				if ($size < $chunk) $chunk = $size;
+				$size -= $chunk;
+				while ($data = $tarTool->_read($chunk)) {
+					if (!xml_parse($this->xml_obj, $data, $size==0)) {
+					   return (sprintf("XML error: %s at line %d",
+					   xml_error_string(xml_get_error_code($this->xml_obj)),
+					   xml_get_current_line_number($this->xml_obj)));
+					   xml_parser_free($this->xml_obj);
+					}
+			   }
+			}
+		}
+		
+		return true;
     }
     
     function parseArray($array)

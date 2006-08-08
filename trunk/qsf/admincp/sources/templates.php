@@ -389,9 +389,7 @@ class templates extends admin
 
 						$xmlData = $tarTool->extract_file($xmlFilename);
 						
-						if ($xmlData === false) continue;
-						
-						$xmlInfo->parseArray(array($xmlData));
+						$xmlInfo->parseTar($tarTool, $xmlFilename);
 					} else {
 						continue;
 					}
@@ -465,9 +463,7 @@ class templates extends admin
 
 				$xmlFilename = $tarTool->extract_file('package.txt');
 				
-				$xmlData = $tarTool->extract_file($xmlFilename);
-				
-				$xmlInfo->parseString($xmlData);
+				$xmlInfo->parseTar($tarTool, $xmlFilename);
 			}
 			else if (file_exists('../packages/' . $this->get['newskin'] . '.tar.gz')
 				&& $tarTool->can_gunzip())
@@ -476,9 +472,7 @@ class templates extends admin
 
 				$xmlFilename = $tarTool->extract_file('package.txt');
 				
-				$xmlData = $tarTool->extract_file($xmlFilename);
-				
-				$xmlInfo->parseString($xmlData);
+				$xmlInfo->parseTar($tarTool, $xmlFilename);
 			}
 			else
 			{
