@@ -630,6 +630,37 @@ class qsfglobal
 			$this->feed_links .= "<link rel=\"alternate\" title=\"{$this->sets['rss_feed_title']}$subtitle\" href=\"$url\" type=\"application/rss+xml\" />\n";
 		}
 	}
+	
+	/**
+	 * Creates the contents of a settings file
+	 *
+	 * @since 1.2.2
+	 * @return string Contents for settings file
+	 **/
+	function create_settings_file()
+	{
+		$settings = array(
+			'db_host'   => $this->sets['db_host'],
+			'db_name'   => $this->sets['db_name'],
+			'db_pass'   => $this->sets['db_pass'],
+			'db_port'   => $this->sets['db_port'],
+			'db_socket' => $this->sets['db_socket'],
+			'db_user'   => $this->sets['db_user'],
+			'dbtype'    => $this->sets['dbtype'],
+			'prefix'    => $this->sets['prefix'],
+			'installed' => $this->sets['installed']
+			);
+				
+		$file = "<?php\n\$set = array();\n";
+		foreach ($settings as $set => $val)
+		{
+			$file .= "\$set['$set'] = '" . str_replace(array('\\', '\''), array('\\\\', '\\\''), $val) . "';\n";
+		}
+
+		$file .= '?' . '>';
+		return $file;
+	}
+	
 
 	/**
 	 * Saves all data in the $this->sets array into a file
@@ -641,26 +672,7 @@ class qsfglobal
 	 **/
 	function write_db_sets($sfile = './settings.php')
 	{
-		$settings = "<?php\n\$set = array();\n";
-
-		$db_settings = array(
-			'db_host'   => $this->sets['db_host'],
-			'db_name'   => $this->sets['db_name'],
-			'db_pass'   => $this->sets['db_pass'],
-			'db_port'   => $this->sets['db_port'],
-			'db_socket' => $this->sets['db_socket'],
-			'db_user'   => $this->sets['db_user'],
-			'dbtype'    => $this->sets['dbtype'],
-			'prefix'    => $this->sets['prefix'],
-			'installed' => $this->sets['installed']
-		);
-
-		foreach ($db_settings as $set => $val)
-		{
-			$settings .= "\$set['$set'] = '" . str_replace(array('\\', '\''), array('\\\\', '\\\''), $val) . "';\n";
-		}
-
-		$settings .= '?' . '>';
+		$settings = $this->create_settings_file();
 
 		$this->chmod($sfile, 0666);
 		$fp = @fopen($sfile, 'w');
