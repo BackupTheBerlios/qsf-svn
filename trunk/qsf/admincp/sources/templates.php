@@ -29,6 +29,7 @@ require_once $set['include_path'] . '/admincp/admin.php';
 require_once $set['include_path'] . '/lib/tar.php';
 require_once $set['include_path'] . '/lib/zip.php';
 require_once $set['include_path'] . '/lib/xmlparser.php';
+require_once $set['include_path'] . '/lib/packageutil.php';
 
 class templates extends admin
 {
@@ -484,54 +485,14 @@ class templates extends admin
 			$skin_dir = $node['attrs']['FOLDER'];
 
 			// Run the uninstall queries
-			$this->_run_queries($xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL'));
+			packageutil::run_queries($this->db, $xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL'));
 
 			// Run the install queries
-			$this->_run_queries($xmlInfo->GetNodeByPath('QSFMOD/INSTALL'));
+			packageutil::run_queries($this->db, $xmlInfo->GetNodeByPath('QSFMOD/INSTALL'));
 
 			// Add the templates
-			$nodes = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
-			foreach ($nodes['child'] as $node) {
-				if ($node['name'] == 'TEMPLATE') {
-					$temp_set = "";
-					$temp_name = "";
-					$temp_display = "";
-					$temp_desc = "";
-					$temp_html = "";
-
-					foreach ($node['child'] as $element) {
-						if (isset($element['content'])) {
-							switch($element['name']) {
-							case 'SET':
-								$temp_set = $element['content'];
-								break;
-							case 'NAME':
-								$temp_name = $element['content'];
-								break;
-							case 'DISPLAYNAME':
-								$temp_display = $element['content'];
-								break;
-							case 'DESCRIPTION':
-								$temp_desc = $element['content'];
-								break;
-							case 'HTML':
-								$temp_html = trim($element['content']);
-								break;
-							}
-						}
-					}
-					if (empty($temp_set) || empty($temp_name) || empty($temp_display)) {
-						echo "ERROR: No data available for template\n";
-						print_r($node);
-						die;
-					}
-					$this->db->query("INSERT INTO %ptemplates
-						(template_skin, template_set, template_name, template_html, template_displayname, template_description)
-						VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
-						$skin_dir, $temp_set, $temp_name, $temp_html, $temp_display, $temp_desc);
-				}
-			}
-
+			packageutil::insert_templates($skin_dir, $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'));
+			
 			// Extract the files
 
 			if (file_exists('../packages/' . $this->get['newskin'] . '.tar')) {
@@ -1147,35 +1108,5 @@ class templates extends admin
 			$check_dir_exists .= '/';
 		}
 	}
-	
-	function _run_queries($nodes)
-	{
-		foreach ($nodes['child'] as $node) {
-			if ($node['name'] == 'QUERY') {
-				// Build up query and data
-				$query = "";
-				$data = array();
-				foreach ($node['child'] as $element) {
-					if (isset($element['content'])) {
-						switch($element['name'])
-						{
-						case 'SQL':
-							$query = $element['content'];
-							break;
-						case 'DATA':
-							$data[] = $element['content'];
-							break;
-						}
-					}
-				}
-				
-				if ($query) {
-					array_unshift($data, $query);
-					$this->db->query($data);
-				}
-			}
-		}
-	}
-
 }
 ?>
