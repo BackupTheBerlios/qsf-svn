@@ -62,6 +62,7 @@ class database
 		$this->pass   = $db_pass;
 		$this->db     = $db_name;
 		$this->port   = $db_port;
+		$this->prefix = $db_prefix;
 	}
 
 	/**
