@@ -26,6 +26,8 @@ if (!defined('QUICKSILVERFORUMS')) {
 }
 
 require_once $set['include_path'] . '/global.php';
+require_once $set['include_path'] . '/lib/xmlparser.php';
+require_once $set['include_path'] . '/lib/packageutil.php';
 
 /**
  * Convert From Another Board
@@ -157,8 +159,8 @@ class convert extends qsfglobal
 				break;
 			}
 
-			if (!is_readable('./data_templates.php')) {
-				echo 'New database connected, settings written, but no templates could be loaded from data_templates.php';
+			if (!is_readable(SKIN_FILE)) {
+				echo 'New database connected, settings written, but no templates could be loaded from ' . SKIN_FILE;
 				break;
 			}
 
@@ -167,9 +169,15 @@ class convert extends qsfglobal
 			$this->pre = $this->sets['prefix'];
 
 			include './data_tables.php';
-			include './data_templates.php';
 
 			execute_queries($queries, $this->db);
+			$queries = NULL;
+			
+			// Create template
+			$xmlInfo = new xmlparser();
+			$xmlInfo->parse(SKIN_FILE);
+			packageutil::insert_templates('default', $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'));
+			$xmlInfo = null;
 
 			$this->pre  = $this->sets['prefix'];
 

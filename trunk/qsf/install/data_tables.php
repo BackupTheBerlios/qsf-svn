@@ -193,7 +193,6 @@ $queries[] = "CREATE TABLE %ptemplates (
   template_html text NOT NULL default '',
   template_displayname varchar(255) NOT NULL default '',
   template_description varchar(255) NOT NULL default '',
-  template_position tinyint(2) unsigned NOT NULL default '0',
   UNIQUE KEY Piece (template_name,template_skin),
   KEY Section (template_set,template_skin)
 ) TYPE=MyISAM";

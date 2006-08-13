@@ -40,12 +40,12 @@ function execute_queries($queries, $db)
 ob_start();
 error_reporting(E_ALL);
 
-require '../settings.php';
+require_once '../settings.php';
+require_once 'install_settings.php';
 $set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require_once $set['include_path'] . '/global.php';
 
-define('LATEST', 21);   // ID of most recent upgrade script
 define('INSTALLER', 1); // Used in query files
 
 // Check for any addons available

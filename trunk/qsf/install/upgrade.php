@@ -26,6 +26,8 @@ if (!defined('QUICKSILVERFORUMS')) {
 }
 
 require_once $set['include_path'] . '/global.php';
+require_once $set['include_path'] . '/lib/xmlparser.php';
+require_once $set['include_path'] . '/lib/packageutil.php';
 
 /**
  * Board Upgrade
@@ -71,7 +73,8 @@ class upgrade extends qsfglobal
 				$check++;
 			}
 
-			$db = new $this->modules['database']($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name'], $this->sets['prefix']);
+			$db = new $this->modules['database']($this->sets['db_host'], $this->sets['db_user'], $this->sets['db_pass'], $this->sets['db_name'],
+				$this->sets['db_port'], $this->sets['db_socket'], $this->sets['prefix']);
 
 			if (!$db->connection) {
 				if ($this->get['step'] == 15) {
@@ -133,15 +136,15 @@ class upgrade extends qsfglobal
 			 * it after the board is fully upgraded.
 			 **/
 
-			if ($need_templates && !is_readable('./data_templates.php')) {
-				echo 'No templates could be loaded from data_templates.php';
+			if ($need_templates && !is_readable(SKIN_FILE)) {
+				echo 'No templates could be loaded from ' . SKIN_FILE;
 				break;
 			}
 
 			execute_queries($queries, $this->db);
 
 			$queries = array();
-			include './data_templates.php';
+			
 			// Check the default skin still exists
 			$result = $this->db->fetch("SELECT * FROM %pskins WHERE skin_dir='default'");
 			if (!$result) {
@@ -161,45 +164,56 @@ class upgrade extends qsfglobal
 				if (($row['skin_name'] == 'QSF Comet' || $row['skin_name'] == 'Candy Corn') && $skin == 'default') {
 					if ($full_template_list || $template_list) {
 						if ($full_template_list) {
+							$template_list = null;
 							$this->db->query("DELETE FROM %ptemplates WHERE template_skin='default'");
-							execute_queries($queries, $this->db);
+						
 							$skinsupdated .= $row['skin_name'] . ": Full Template Replacement<br />";
-							$didsomething = true;
-						} else if ($template_list) {
-							foreach ($queries as $template => $insert)
-							{
-								if (in_array($template, $template_list)) {
-									$miss = $this->db->query("DELETE FROM %ptemplates WHERE template_name='%s' AND template_skin='default'", $template);
-									$skinsupdated .= $row['skin_name'] . ": " . $template ."<br />";
-									$this->db->query($insert);
-									$didsomething = true;
-								}
+						} else {
+							$template_list_string = '';
+							foreach ($template_list as $temp_name) {
+								$template_list_string .= "'$temp_name',";
+								$skinsupdated .= $row['skin_name'] . ": " . $temp_name ."<br />";
 							}
+							$template_list_string = substr($template_list_string, 0, -1);
+							$this->db->query("DELETE FROM %ptemplates WHERE template_name IN ($template_list_string) AND template_skin='default'");
 						}
+						
+						// Create template
+						$xmlInfo = new xmlparser();
+						$xmlInfo->parse(SKIN_FILE);
+						packageutil::insert_templates('default', $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'), $template_list);
+						$xmlInfo = null;
+						
+						$didsomething = true;
 					}
 					if ($row['skin_name'] == 'Candy Corn') {
 						$this->db->query("UPDATE %pskins SET skin_name='QSF Comet' WHERE skin_dir='%s'", $skin);
 					}
 				}
-				// Other skins
 				else
 				{
-					foreach ($queries as $template => $insert)
+					// Other skins
+					$xmlInfo = new xmlparser();
+					$xmlInfo->parse(SKIN_FILE);
+					$temp_names = packageutil::list_templates($xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'));
+					$temps_to_insert = array();
+						
+					foreach ($temp_names as $temp_name)
 					{
-						/* This query needed to be fudged up to work right */
-						$insert = str_replace( "'default'", "'{$skin}'", $insert );
-
-						$sql = ;
-
 						$miss = $this->db->query("SELECT template_name FROM %ptemplates WHERE template_skin='%s' AND template_name='%s'",
-							$skin, $template);
+							$skin, $temp_name);
 
 	                    if ($this->db->num_rows($miss) < 1) {
 							$skinsupdated .= $row['skin_name'] . ": Added: " . $template ."<br />";
-	                	   	$this->db->query($insert);
-							$didsomething = true;
+	                	   	$temps_to_insert[] = $temp_name;
 						}
 					}
+					
+					if ($temps_to_insert) {
+						packageutil::insert_templates($skin, $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'), $temps_to_insert);
+						$didsomething = true;
+					}
+					$xmlInfo = null;
 				}
 
 				/* Iterate over all our templates. This is excessive, but only needs to be done once anyway. */

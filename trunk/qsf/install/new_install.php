@@ -26,6 +26,8 @@ if (!defined('QUICKSILVERFORUMS')) {
 }
 
 require_once $set['include_path'] . '/global.php';
+require_once $set['include_path'] . '/lib/xmlparser.php';
+require_once $set['include_path'] . '/lib/packageutil.php';
 
 /**
  * New Board Installation
@@ -60,7 +62,7 @@ class new_install extends qsfglobal
 				echo "Couldn't connect to a database using the specified information.";
 				break;
 			}
-			$this->db = $db;
+			$this->db = &$db;
 
 			$this->sets['db_host']   = $this->post['db_host'];
 			$this->sets['db_user']   = $this->post['db_user'];
@@ -105,8 +107,8 @@ class new_install extends qsfglobal
 				break;
 			}
 
-			if (!is_readable('./data_templates.php')) {
-				echo 'Database connected, settings written, but no templates could be loaded from file: data_templates.php';
+			if (!is_readable(SKIN_FILE)) {
+				echo 'Database connected, settings written, but no templates could be loaded from file: ' . SKIN_FILE;
 				break;
 			}
 
@@ -131,10 +133,17 @@ class new_install extends qsfglobal
 			$pre = $this->sets['prefix'];
 			$this->pre = $this->sets['prefix'];
 
+			// Create tables
 			include './data_tables.php';
-			include './data_templates.php';
 
 			execute_queries($queries, $db);
+			$queries = null;
+			
+			// Create template
+			$xmlInfo = new xmlparser();
+			$xmlInfo->parse(SKIN_FILE);
+			packageutil::insert_templates('default', $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'));
+			$xmlInfo = null;
 
 			$this->sets = $this->get_settings($this->sets);
 			$this->sets['loc_of_board'] = $this->post['board_url'];
