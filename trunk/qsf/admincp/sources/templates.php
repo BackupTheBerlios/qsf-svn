@@ -209,145 +209,126 @@ class templates extends admin
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$messageclass}', '<MODLET messagelink(class)>', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$MessageLink}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$MessageLink}', '<MODLET messagelink(text)>', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$mercury' ) ) {
 					$didsomething = true;
-               	    $row['template_html'] = str_replace('$mercury', '$qsf', $row['template_html']);
+					$row['template_html'] = str_replace('$mercury', '$qsf', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsfboard' ) ) {
 					$didsomething = true;
-       	        	$row['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row['template_html']);
+		       	        	$row['template_html'] = str_replace('$qsfboard', '$quicksilverforums', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsf->lang->main_powered' ) ) {
 					$didsomething = true;
-                    $row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
+					$row['template_html'] = str_replace('$qsf->lang->main_powered', '$qsf->lang->powered', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsf->lang->main_seconds' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$qsf->lang->main_seconds', '$qsf->lang->seconds', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->pm_inbox' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->pm_inbox', '$foldername', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->board_topics_new' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->board_topics_new', '$this->lang->main_topics_new', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->board_topics_new' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->forum_topics_new', '$this->lang->main_topics_new', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->lang->recent_topics_new' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->lang->recent_topics_new', '$this->lang->main_topics_new', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], 'post_mbcode_' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('post_mbcode_', 'mbcode_', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$qsf->tree' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$qsf->tree', '$qsf->htmlwidgets->tree', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+					$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$admin->tree' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$admin->tree', '$admin->htmlwidgets->tree', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '$this->tree' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('$this->tree', '$this->htmlwidgets->tree', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'TOTALCOUNT\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'TOTALCOUNT\']}', 'Skin Update Required', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		              		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'USERS\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'USERS\']}', 'Skin Update Required', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'MEMBERCOUNT\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'MEMBERCOUNT\']}', 'Skin Update Required', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$active[\'GUESTCOUNT\']}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$active[\'GUESTCOUNT\']}', 'Skin Update Required', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
 				if( strstr( $row['template_html'], '{$birthdays}' ) ) {
 					$didsomething = true;
 					$row['template_html'] = str_replace('{$birthdays}', 'Skin Update Required', $row['template_html']);
 					$updated_temps[] = $row['template_name'];
-               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'",
-						$row['template_html'], $skin, $row['template_name']);
+		               		$this->db->query("UPDATE %ptemplates SET template_html='%s' WHERE template_skin='%s' AND template_name='%s'", $row['template_html'], $skin, $row['template_name']);
 				}
-	        }
+	       		}
 
-	        if ($didsomething) {
-				$message = $skin . " " . $this->lang->upgrade_skin_upgraded . "<br /><br />{$this->lang->upgraded_templates}:<br /><br />" . implode('<br/> ', $temps);
+		        if ($didsomething) {
+				$message = $skin . " " . $this->lang->upgrade_skin_upgraded . "<br /><br />{$this->lang->upgraded_templates}:<br /><br />" . implode('<br />', $new_temps) . implode('<br />', $updated_temps);
 				return $this->message($this->lang->upgrade_skin, $message);
 			} else {
 				return $this->message($this->lang->upgrade_skin, "{$skin} {$this->lang->upgrade_skin_already}");
 			}
 		}
-    }
+	}
 
 	function install_skin()
 	{
