@@ -214,15 +214,26 @@ class htmlwidgets extends htmltools
 	 * @param string $relative Path to look for avatars in (optional)
 	 * @return string HTML
 	 **/
-	function select_avatars($current, $relative = '.')
+	function select_avatars($current, $relative = '.', $subfolder = '/')
 	{
+		if (substr($subfolder, -1) != '/') {
+			$subfolder .= '/';
+		}
+
 		$out = null;
-		$dir = opendir($relative . '/avatars');
+		$dir = opendir($relative . '/avatars' . $subfolder);
 
 		while (($file = readdir($dir)) !== false)
 		{
-			if (is_dir('./avatars/' . $file)) {
-				continue;
+			if (is_dir('./avatars' . $subfolder . $file)) {
+				if ($file == 'uploaded' || $file[0] == '.') continue;
+				
+				$extra = $this->select_avatars($current, $relative, $subfolder . $file);
+				if ($extra) {
+					$out .= '<optgroup label="' . htmlspecialchars($file) . "\">\n";
+					$out .= $extra;
+					$out .= "</optgroup>\n";
+				}
 			}
 
 			$split = explode('.', $file);
@@ -234,7 +245,7 @@ class htmlwidgets extends htmltools
 				continue;
 			}
 
-			$out .= "<option value=\"./avatars/$file\"" . (("./avatars/$file" == $current) ? ' selected="selected"' : null) . '>' . implode('.', $split) . "</option>\n";
+			$out .= "<option value=\"./avatars$subfolder$file\"" . (("./avatars$subfolder$file" == $current) ? ' selected="selected"' : null) . '>' . implode('.', $split) . "</option>\n";
 		}
 
 		return $out;
