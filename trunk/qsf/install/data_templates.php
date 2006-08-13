@@ -1169,7 +1169,7 @@ $queries['ADMIN_MEMBER_PROFILE'] = "INSERT INTO %ptemplates (template_skin, temp
  {\$out}
  <tr>
   <td class=\"footer\" style=\"text-align:center\" colspan=\"2\">
-   <input type=\'submit\' name=\'submit\' value=\'{\$this->lang->submit}\' />
+   <input type=\"submit\" name=\"submit\" value=\"{\$this->lang->submit}\" />
   </td>
  </tr>
 {\$this->etable}

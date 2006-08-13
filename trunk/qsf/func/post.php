@@ -281,9 +281,9 @@ class post extends qsfglobal
 				} else {
 					if (($this->user['user_avatar_type'] != 'none') && $this->user['user_view_avatars']) {
 						if (substr($this->user['user_avatar'], -4) != '.swf') {
-							$avatar = "<img src='{$this->user['user_avatar']}' alt='Avatar' width='{$this->user['user_avatar_width']}' height='{$this->user['user_avatar_height']}' /><br /><br />";
+							$avatar = "<img src=\"{$this->user['user_avatar']}\" alt=\"Avatar\" width=\"{$this->user['user_avatar_width']}\" height=\"{$this->user['user_avatar_height']}\" /><br /><br />";
 						} else {
-							$avatar = "<object width='{$this->user['user_avatar_width']}' height='{$this->user['user_avatar_height']}' classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'><param name='movie' value='{$this->user['user_avatar']}'><param name='play' value='true'><param name='loop' value='true'><param name='quality' value='high'><embed src='{$this->user['user_avatar']}' width='{$this->user['user_avatar_width']}' height='{$this->user['user_avatar_height']}' play='true' loop='true' quality='high'></embed></object><br /><br />";
+							$avatar = "<object width=\"{$this->user['user_avatar_width']}\" height=\"{$this->user['user_avatar_height']}\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"><param name=\"movie\" value=\"{$this->user['user_avatar']}\"><param name=\"play\" value=\"true\"><param name=\"loop\" value=\"true\"><param name=\"quality\" value=\"high\"><embed src=\"{$this->user['user_avatar']}\" width=\"{$this->user['user_avatar_width']}\" height=\"{$this->user['user_avatar_height']}\" play=\"true\" loop=\"true\" quality=\"high\"></embed></object><br /><br />";
 						}
 					} else {
 						$avatar = null;
