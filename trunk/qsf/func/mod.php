@@ -286,6 +286,15 @@ class mod extends qsfglobal
 			$this->db->query("UPDATE %pposts SET post_text='%s', post_emoticons=%d, post_mbcode=%d, post_edited_by='%s', post_edited_time=%d, post_icon='%s' WHERE post_id=%d",
 				$this->post['post'], $emot , $code, $this->user['user_name'], $this->time, $this->post['icon'], $this->get['p']);
 
+			$first = $this->db->fetch( "SELECT p.post_id
+			 FROM %pposts p, %ptopics t
+			 WHERE p.post_topic=t.topic_id AND t.topic_id=%d
+			 ORDER BY p.post_time LIMIT 1", $data['post_topic'] );
+
+			if ($first['post_id'] == $this->get['p']) {
+				$this->db->query( "UPDATE %ptopics SET topic_icon='%s' WHERE topic_id='%d'", $this->post['icon'], $data['post_topic'] );
+			}
+
 			$jump = '&amp;p=' . $this->get['p'] . '#p' . $this->get['p'];
 
 			return $this->message($this->lang->mod_label_controls, $this->lang->mod_success_post_edit, $this->lang->continue, "{$this->self}?a=topic&amp;t={$data['post_topic']}$jump", "$this->self?a=topic&t={$data['post_topic']}$jump");
