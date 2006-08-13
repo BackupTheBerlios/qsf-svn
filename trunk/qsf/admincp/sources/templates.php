@@ -188,10 +188,6 @@ class templates extends admin
 
 					if ($this->db->num_rows($miss) < 1)
 					{
-						$thtml = $this->db->escape($row['template_html']);
-						$tdname = $this->db->escape($row['template_displayname']);
-						$tdesc = $this->db->escape($row['template_description']);
-
 						$this->db->query("INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description)
 							VALUES( '%s', '%s', '%s', '%s', '%s', '%s')", $skin, $row['template_set'], $row['template_name'], $row['template_html'], $row['template_displayname'], $row['template_description']);
 
