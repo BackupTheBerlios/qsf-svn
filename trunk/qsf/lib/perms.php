@@ -126,7 +126,7 @@ class permissions
 				$data  = $this->db->fetch("SELECT group_perms FROM %pgroups WHERE group_id=%d", $group);
 				$perms = $data['group_perms'];
 			} else {
-				$data  = $this->db->fetch("SELECT user_perms, user_group FROM %pusers WHERE user_id=%d", $group);
+				$data  = $this->db->fetch("SELECT user_perms, user_group FROM %pusers WHERE user_id=%d", $user);
 				$perms = $data['user_perms'];
 				$group = $data['user_group'];
 			}
