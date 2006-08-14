@@ -204,8 +204,6 @@ function strip_phpbb2_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   // And lastly, prep for database insertion.
-   $text = $qsf->db->escape( $text );
    return $text;
 }
 
@@ -408,15 +406,15 @@ else if( $_GET['action'] == 'confirmphpbbdrop' )
 else if( $_GET['action'] == 'censor' )
 {
    $result = $oldboard->db->query( "SELECT * FROM %pwords" );
-   $i = '0';
+   $i = 0;
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $qsf->db->query( "INSERT INTO %preplacements (replacement_search, replacement_type) VALUES( '{$row['word']}', 'censor' )" );
+      $qsf->db->query( "INSERT INTO %preplacements (replacement_search, replacement_type) VALUES( '%s', 'censor' )", $row['word'] );
       $i++;
    }
 
-   $oldset['censor'] = '1';
+   $oldset['censor'] = 1;
    $oldset['censor_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -424,13 +422,11 @@ else if( $_GET['action'] == 'censor' )
 
 else if( $_GET['action'] == 'members' )
 {
-   $i = '0';
    $qsf->db->query( "TRUNCATE %pusers" );
-   $sql = "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
-   $result = $qsf->db->query($sql);
+   $qsf->db->query( "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
 
-   $sql = "SELECT * FROM %pusers";
-   $result = $oldboard->db->query($sql);
+   $i = 0;
+   $result = $oldboard->db->query( "SELECT * FROM %pusers" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       if( $row['username'] != "Anonymous" )
@@ -488,12 +484,13 @@ else if( $_GET['action'] == 'members' )
          if( $row['user_icq'] )
             $icq = intval( $row['user_icq'] );
 
-         $qsf->db->query( "INSERT INTO %pusers VALUES( {$row['user_id']}, '{$row['username']}', '{$row['user_password']}', {$row['user_regdate']}, 1, '', 0, {$row['user_level']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['user_email']}', {$showmail}, 1, '0000-00-00', 151, '{$row['user_website']}', {$row['user_posts']}, '{$row['user_from']}', {$icq}, '{$row['user_msnm']}', '{$row['user_aim']}', '', 1, 1, '{$row['user_yim']}', '{$row['user_interests']}', '{$row['user_sig']}', {$row['user_lastvisit']}, 0, {$row['user_session_time']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
+         $qsf->db->query( "INSERT INTO %pusers VALUES( %d, '%s', '%s', %d, 1, '', 0, %d, 'default', 'en', '%s', '%s', %d, %d, '%s', %d, 1, '0000-00-00', 151, '%s', %d, '%s', %d, '%s', '%s', '', 1, 1, '%s', '%s', '%s', %d, 0, %d, 0, 0, 1, 1, 1, 0, 0, '' )",
+            $row['user_id'], $row['username'], $row['user_password'], $row['user_regdate'], $row['user_level'], $avatar, $type, $width, $height, $row['user_email'], $showmail, $row['user_website'], $row['user_posts'], $row['user_from'], $icq, $row['user_msnm'], $row['user_aim'], $row['user_yim'], $row['user_interests'], $row['user_sig'], $row['user_lastvisit'], $row['user_session_time'] );
          $i++;
       }
    }
 
-   $oldset['profiles'] = '1';
+   $oldset['profiles'] = 1;
    $oldset['prof_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -501,28 +498,27 @@ else if( $_GET['action'] == 'members' )
 
 else if( $_GET['action'] == 'pmessages' )
 {
-   $i = '0';
+   $i = 0;
    $qsf->db->query( "TRUNCATE %ppmsystem" );
-   $sql = "SELECT p.*, t.privmsgs_text_id, t.privmsgs_text
-      FROM %pprivmsgs p
-      LEFT JOIN %pprivmsgs_text t ON t.privmsgs_text_id = p.privmsgs_id";
 
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT p.*, t.privmsgs_text_id, t.privmsgs_text
+      FROM %pprivmsgs p
+      LEFT JOIN %pprivmsgs_text t ON t.privmsgs_text_id = p.privmsgs_id" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       // 0 and 5 are inbox messages, 1 and 2 are sent box messages. Anything else will be discarded.
-      if( $row['privmsgs_type'] == '0' || $row['privmsgs_type'] == '5' )
+      if( $row['privmsgs_type'] == 0 || $row['privmsgs_type'] == 5 )
       {
-         $folder = '0';
-         if( $row['privmsgs_type'] == '5' )
+         $folder = 0;
+         if( $row['privmsgs_type'] == 5 )
             $readstate = 0;
          else
             $readstate = 1;
       }
-      else if( $row['privmsgs_type'] == '1' || $row['privmsgs_type'] == '2' )
+      else if( $row['privmsgs_type'] == 1 || $row['privmsgs_type'] == 2 )
       {
          $folder = 1;
-         if( $row['privmsgs_type'] == '1' )
+         if( $row['privmsgs_type'] == 1 )
             $readstate = 0;
          else
             $readstate = 1;
@@ -530,7 +526,7 @@ else if( $_GET['action'] == 'pmessages' )
       else
          $folder = 2;
 
-      if( $folder == '0' || $folder == '1' )
+      if( $folder == 0 || $folder == 1 )
       {
          if( $row['privmsgs_to_userid'] == 1 )
             $row['privmsgs_to_userid'] = 2;
@@ -547,20 +543,20 @@ else if( $_GET['action'] == 'pmessages' )
          $i++;
 
          $bcc = '';
-         if( $folder == '1' )
+         if( $folder == 1 )
          {
             $bcc = $row['privmsgs_to_userid'];
             $row['privmsgs_to_userid'] = $row['privmsgs_from_userid'];
          }
          if( $row['privmsgs_subject'] == '' )
             $row['privmsgs_subject'] = "No Title";
-         $gip = get_ip( $row['privmsgs_ip'] );
-         $ip = ip2long( $gip );
-         $qsf->db->query( "INSERT INTO %ppmsystem VALUES( {$row['privmsgs_id']}, {$row['privmsgs_to_userid']}, {$row['privmsgs_from_userid']}, {$ip}, '{$bcc}', '{$row['privmsgs_subject']}', {$row['privmsgs_date']}, '{$message}', {$readstate}, {$folder} )" );
+         $ip = get_ip( $row['privmsgs_ip'] );
+         $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, INET_ATON('%s'), '%s', '%s', %d, '%s', %d, %d )",
+            $row['privmsgs_id'], $row['privmsgs_to_userid'], $row['privmsgs_from_userid'], $ip, $bcc, $row['privmsgs_subject'], $row['privmsgs_date'], $message, $readstate, $folder );
       }
    }
 
-   $oldset['pms'] = '1';
+   $oldset['pms'] = 1;
    $oldset['pm_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -568,22 +564,20 @@ else if( $_GET['action'] == 'pmessages' )
 
 else if( $_GET['action'] == 'categories' )
 {
-   $sql = "ALTER TABLE %pforums ADD phpbb INT(4) NOT NULL";
-   $result = $qsf->db->query($sql);
-
+   $qsf->db->query( "ALTER TABLE %pforums ADD phpbb INT(4) NOT NULL" );
    $qsf->db->query( "TRUNCATE %pforums" );
 
-   $sql = "SELECT * FROM %pcategories";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pcategories" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $position = $row['cat_order'] / 10;
-      $qsf->db->query( "INSERT INTO %pforums VALUES( {$row['cat_id']}, 0, '', '{$row['cat_title']}', {$position}, 'No Description', 0, 0, 0, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %pforums VALUES( %d, 0, '', '%s', %d, 'No Description', 0, 0, 0, 0, '' )",
+         $row['cat_id'], $row['cat_title'], $position );
       $i++;
    }
 
-   $oldset['cats'] = '1';
+   $oldset['cats'] = 1;
    $oldset['cat_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -591,20 +585,20 @@ else if( $_GET['action'] == 'categories' )
 
 else if( $_GET['action'] == 'forums' )
 {
-   $sql = "SELECT * FROM %pforums";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pforums" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['forum_name'] = strip_phpbb2_tags( $row['forum_name'] );
       $row['forum_desc'] = strip_phpbb2_tags( $row['forum_desc'] );
       $position = $row['forum_order'] / 10;
       $num = time();
-      $qsf->db->query( "INSERT INTO %pforums VALUES( '', {$row['cat_id']}, '', '{$row['forum_name']}', {$position}, '{$row['forum_desc']}', {$row['forum_topics']}, {$row['forum_posts']}, '{$num}', 0, {$row['forum_id']} )" );
+      $qsf->db->query( "INSERT INTO %pforums VALUES( '', %d, '', '%s', %d, '%s', %d, %d, %d, 0, %d )",
+         $row['cat_id'], $row['forum_name'], $position, $row['forum_desc'], $row['forum_topics'], $row['forum_posts'], $num, $row['forum_id'] );
       $i++;
    }
 
-   $oldset['forums'] = '1';
+   $oldset['forums'] = 1;
    $oldset['forum_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -613,49 +607,48 @@ else if( $_GET['action'] == 'forums' )
 else if( $_GET['action'] == 'topics' )
 {
    $qsf->db->query( "TRUNCATE %ptopics" );
-   $sql = "SELECT * FROM %ptopics";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %ptopics" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $sql1 = "SELECT forum_id FROM %pforums WHERE phpbb = {$row['forum_id']}";
-      $result1 = $qsf->db->query($sql1);
+      $result1 = $qsf->db->query( "SELECT forum_id FROM %pforums WHERE phpbb=%d", $row['forum_id'] );
       list($tid) = mysql_fetch_row($result1);
 
-      if( $row['topic_poster'] == '1' )
+      if( $row['topic_poster'] == 1 )
       {
-         $row['topic_poster'] = '2';
+         $row['topic_poster'] = 2;
       }
-      if( $row['topic_poster'] == '0' )
+      if( $row['topic_poster'] == 0 )
       {
-         $row['topic_poster'] = '1';
+         $row['topic_poster'] = 1;
       }
 
       $topic_modes = TOPIC_PUBLISH;
-      if( $row['topic_status'] == '1' )
+      if( $row['topic_status'] == 1 )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
-      if( $row['topic_type'] == '1' || $row['topic_type'] == '2' )
+      if( $row['topic_type'] == 1 || $row['topic_type'] == 2 )
          $topic_modes = ($topic_modes | TOPIC_PINNED);
-      if( $row['topic_vote'] == '1' )
+      if( $row['topic_vote'] == 1 )
          $topic_modes = ($topic_modes | TOPIC_POLL);
 
       $row['topic_title'] = strip_phpbb2_tags( $row['topic_title'] );
-      $qsf->db->query( "INSERT INTO %ptopics VALUES( {$row['topic_id']}, {$tid}, '{$row['topic_title']}', '', {$row['topic_poster']}, '{$row['topic_last_post_id']}', '{$row['topic_poster']}', '', '{$row['topic_time']}', {$row['topic_replies']}, {$row['topic_views']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %ptopics VALUES( %d, %d, '%s', '', %d, %d, %d, '', %d, %d, %d, %d, 0, '' )",
+         $row['topic_id'], $tid, $row['topic_title'], $row['topic_poster'], $row['topic_last_post_id'], $row['topic_poster'], $row['topic_time'], $row['topic_replies'], $row['topic_views'], $topic_modes );
       $i++;
    }
 
    $qsf->db->query( "TRUNCATE %psubscriptions" );
-   $sql = "SELECT * FROM %ptopics_watch";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %ptopics_watch" );
    $expire = time() + 2592000;
-   $sub_id = '0';
+   $sub_id = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $sub_id++;
-      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$sub_id}, {$row['user_id']}, 'topic', {$row['topic_id']}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, 'topic', %d, %d )",
+         $sub_id, $row['user_id'], $row['topic_id'], $expire );
    }
    $qsf->db->query( "ALTER TABLE %pforums DROP phpbb" );
-   $oldset['topics'] = '1';
+   $oldset['topics'] = 1;
    $oldset['topic_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -663,43 +656,40 @@ else if( $_GET['action'] == 'topics' )
 
 else if( $_GET['action'] == 'polls' )
 {
-   $sql = "SELECT * FROM %pvote_results";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pvote_results" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $resulttable[] = array( 'id' >= $row['vote_id'], 'option_id' => $row['vote_option_id'], 'option_text' => $row['vote_option_text'], 'option_result' => $row['vote_result'] );
    }
 
-   $sql = "SELECT * FROM %pvote_vote_desc";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pvote_vote_desc" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $pdesctable[] = array( 'id' >= $row['topic_id'], 'text' => $row['vote_text'] );
    }
 
-   $qsf->db->query( "UPDATE %ptopics SET topic_poll_options = '{$row['POLL_ANSWERS']}' WHERE topic_id = '{$row['POLL_ID']}'" );
+   $qsf->db->query( "UPDATE %ptopics SET topic_poll_options='%s' WHERE topic_id=%d", $row['POLL_ANSWERS'], $row['POLL_ID'] );
    $i++;
 
    $qsf->db->query( "TRUNCATE %pvotes" );
-   $sql = "SELECT * FROM %pforum_poll_voters";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %pforum_poll_voters" );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['MEMBER_ID'] == '1' )
+      if( $row['MEMBER_ID'] == 1 )
       {
-         $row['MEMBER_ID'] = '2';
+         $row['MEMBER_ID'] = 2;
       }
-      if( $row['MEMBER_ID'] == '0' )
+      if( $row['MEMBER_ID'] == 0 )
       {
-         $row['MEMBER_ID'] = '1';
+         $row['MEMBER_ID'] = 1;
       }
-      $qsf->db->query( "INSERT INTO %pvotes VALUES( {$row['MEMBER_ID']}, {$row['POLL_ID']}, '' )" );
+      $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, '' )", $row['MEMBER_ID'], $row['POLL_ID'] );
    }
 
-   $oldset['polls'] = '1';
+   $oldset['polls'] = 1;
    $oldset['poll_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
@@ -710,55 +700,53 @@ else if( $_GET['action'] == 'posts' )
    if( !isset($_GET['start']) || $_GET['start'] == '' )
    {
       $qsf->db->query( "TRUNCATE %pposts" );
-      $start = '0';
+      $start = 0;
    }
    else
       $start = $_GET['start'];
 
    if( !isset($_GET['i']) || $_GET['i'] == '' )
-      $i = '0';
+      $i = 0;
    else
       $i = $_GET['i'];
 
    $num = $oldboard->db->query( "SELECT * FROM %pposts" );
    $all = $oldboard->db->num_rows( $num );
-   $sql = "SELECT p.*, t.post_id, t.post_text
-      FROM %pposts p
-      LEFT JOIN %pposts_text t ON t.post_id = p.post_id
-      LIMIT {$start}, {$oldset['post_inc']}";
 
    $newstart = $start + $oldset['post_inc'];
 
-   $result= $oldboard->db->query($sql);
+   $result= $oldboard->db->query( "SELECT p.*, t.post_id, t.post_text
+      FROM %pposts p LEFT JOIN %pposts_text t ON t.post_id=p.post_id LIMIT %d, %d", $start, $oldset['post_inc'] );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['poster_id'] == '1' )
+      if( $row['poster_id'] == 1 )
       {
-         $row['poster_id'] = '2';
+         $row['poster_id'] = 2;
       }
-      if( $row['poster_id'] == '0' )
+      if( $row['poster_id'] == 0 )
       {
-         $row['poster_id'] = '1';
+         $row['poster_id'] = 1;
       }
 
       $message = strip_phpbb2_tags( $row['post_text'] );
 
       $ip = get_ip( $row['poster_ip'] );
-      $qsf->db->query( "INSERT INTO %pposts VALUES( {$row['post_id']}, {$row['topic_id']}, '{$row['poster_id']}', {$row['enable_smilies']}, {$row['enable_bbcode']}, 1, '{$message}', {$row['post_time']}, '', INET_ATON('{$ip}'), '', 0 )" );
+      $qsf->db->query( "INSERT INTO %pposts VALUES( %d, %d, %d, %d, %d, 1, '%s', %d, '', INET_ATON('%s'), '', 0 )",
+          $row['post_id'], $row['topic_id'], $row['poster_id'], $row['enable_smilies'], $row['enable_bbcode'], $message, $row['post_time'], $ip );
       $i++;
    }
    if( $i == $all )
    {
-      $oldset['posts'] = '2';
+      $oldset['posts'] = 2;
       $oldset['post_count'] = $i;
-      $oldset['converted'] = '2';
+      $oldset['converted'] = 2;
       write_olddb_sets( $oldset );
       echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
    }
    else
    {
-      $oldset['posts'] = '1';
+      $oldset['posts'] = 1;
       $oldset['post_count'] = $i;
       write_olddb_sets( $oldset );
       echo "<meta http-equiv='Refresh' content='0;URL=convert_phpbb2.php'>";
