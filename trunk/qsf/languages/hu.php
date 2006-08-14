@@ -446,6 +446,73 @@ class hu
 		$this->home_menu_title = 'Admin CP Menu'; //Translate
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'You could not be logged in. Check to see that your user name and password are correct.<br /><br />They are case sensitive, so \'UsErNaMe\' is different from \'Username\'. Also, check to see that cookies are enabled in your browser.'; //Translate
@@ -533,68 +600,6 @@ class hu
 		$this->mail_select_all = 'Select All'; //Translate
 		$this->mail_send = 'Send Mail'; //Translate
 		$this->mail_sent = 'Your message has been sent to'; //Translate
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'Adj meg egy címet';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Kék';
-		$this->mbcode_bold = 'Félkövér';
-		$this->mbcode_bold1 = 'F';
-		$this->mbcode_chocolate = 'Csokoládé';
-		$this->mbcode_code = 'Kód';
-		$this->mbcode_color = 'Szín';
-		$this->mbcode_coral = 'Korall';
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Crimson'; //Translate
-		$this->mbcode_darkblue = 'Sötétkék';
-		$this->mbcode_darkred = 'Sötét piros';
-		$this->mbcode_deepink = 'Sötét rózsaszín';
-		$this->mbcode_detail = 'Leírás';
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'Téglavörös';
-		$this->mbcode_font = 'Betûtípus';
-		$this->mbcode_green = 'Zöld';
-		$this->mbcode_huge = 'Hatalmas';
-		$this->mbcode_image = 'Kép';
-		$this->mbcode_image1 = 'KÉP';
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Indigó';
-		$this->mbcode_italic = 'Dõlt';
-		$this->mbcode_italic1 = 'D';
-		$this->mbcode_large = 'Széles';
-		$this->mbcode_length = 'A beírásod +length+ karaktert tartalmaz.';
-		$this->mbcode_limegreen = 'Zöld citrom';
-		$this->mbcode_medium = 'Közepes';
-		$this->mbcode_orange = 'Narancs';
-		$this->mbcode_orangered = 'Vérnarancs';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Lila';
-		$this->mbcode_quote = 'Idézet';
-		$this->mbcode_red = 'Vörös';
-		$this->mbcode_royalblue = 'Királykék';
-		$this->mbcode_sandybrown = 'Homokbarna';
-		$this->mbcode_seagreen = 'Tengerzöld';
-		$this->mbcode_sienna = 'Szienna';
-		$this->mbcode_silver = 'Ezüst';
-		$this->mbcode_size = 'Méret';
-		$this->mbcode_skyblue = 'Égszínkék';
-		$this->mbcode_small = 'Kicsi';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Áthúzás';
-		$this->mbcode_strike1 = 'Á';
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Mélyzöld';
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Apró';
-		$this->mbcode_tomato = 'Paradicsom';
-		$this->mbcode_underline = 'Aláhúzott';
-		$this->mbcode_underline1 = 'A';
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Égett fa';
-		$this->mbcode_yellow = 'Yellow'; //Translate
 	}
 
 	function member_control()
@@ -892,7 +897,6 @@ class hu
 		$this->post_reply_topic = 'Témára válaszol';
 		$this->post_replying = 'Témára válaszol';
 		$this->post_replying1 = 'Válaszol';
-		$this->post_smiles = 'Kattintással behelyezhetõ emotikonok';
 		$this->post_too_many_options = 'A szavazógép 2 és %d közötti opciókból áll.';
 		$this->post_topic_detail = 'Téma leírása';
 		$this->post_topic_title = 'Téma címe';

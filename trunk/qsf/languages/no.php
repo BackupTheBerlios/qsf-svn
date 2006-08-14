@@ -447,6 +447,73 @@ class no
 		$this->home_menu_title = 'Admin-kontrollpanel';
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'Du kunne ikke logges inn. Forsikre deg om at brukernavn og passord er riktig.<br /><br />Pass på store og små bokstaver, slik \'UsErNaMe\' ikke er det samme som \'Username\'. Informasjonskapsler (cookies) må være aktivert.';
@@ -534,68 +601,6 @@ class no
 		$this->mail_select_all = 'Velg alle';
 		$this->mail_send = 'Send epost';
 		$this->mail_sent = 'Meldingen din har blitt sendt til';
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'Skriv inn en adresse';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Blå';
-		$this->mbcode_bold = 'Uthevet';
-		$this->mbcode_bold1 = 'U';
-		$this->mbcode_chocolate = 'Sjokolade';
-		$this->mbcode_code = 'Kode';
-		$this->mbcode_color = 'Farge';
-		$this->mbcode_coral = 'Korall';
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Blodrød';
-		$this->mbcode_darkblue = 'Mørkeblå';
-		$this->mbcode_darkred = 'Mørkerød';
-		$this->mbcode_deepink = 'Rosa';
-		$this->mbcode_detail = 'Skriv inn en beskrivelse';
-		$this->mbcode_email = 'Epost';
-		$this->mbcode_firered = 'Ildrød';
-		$this->mbcode_font = 'Skrifttype';
-		$this->mbcode_green = 'Grønn';
-		$this->mbcode_huge = 'Størst';
-		$this->mbcode_image = 'Bilde';
-		$this->mbcode_image1 = 'Bilde';
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Indigo'; //Translate
-		$this->mbcode_italic = 'Kursiv';
-		$this->mbcode_italic1 = 'K';
-		$this->mbcode_large = 'Stor';
-		$this->mbcode_length = 'Ditt innlegg er +length+ tegn.';
-		$this->mbcode_limegreen = 'Limegrønn';
-		$this->mbcode_medium = 'Medium'; //Translate
-		$this->mbcode_orange = 'Oransje';
-		$this->mbcode_orangered = 'Oransjerød';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Purpur';
-		$this->mbcode_quote = 'Sitere';
-		$this->mbcode_red = 'Rød';
-		$this->mbcode_royalblue = 'Lyseblå';
-		$this->mbcode_sandybrown = 'Sandbrun';
-		$this->mbcode_seagreen = 'Sjøgrønn';
-		$this->mbcode_sienna = 'Brun';
-		$this->mbcode_silver = 'Sølv';
-		$this->mbcode_size = 'Størrelse';
-		$this->mbcode_skyblue = 'Himmelblå';
-		$this->mbcode_small = 'Liten';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Gjennomstreking';
-		$this->mbcode_strike1 = 'G';
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Turkis';
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Minst';
-		$this->mbcode_tomato = 'Tomat';
-		$this->mbcode_underline = 'Understreking';
-		$this->mbcode_underline1 = 'U'; //Translate
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Beige';
-		$this->mbcode_yellow = 'Gul';
 	}
 
 	function member_control()
@@ -893,7 +898,6 @@ class no
 		$this->post_reply_topic = 'Svare på emne';
 		$this->post_replying = 'Svarer på emne';
 		$this->post_replying1 = 'Svarer';
-		$this->post_smiles = 'Klikkbare smilies';
 		$this->post_too_many_options = 'Du må ha mellom 2 og %d alternativ i en avstemning.';
 		$this->post_topic_detail = 'Emnebeskrivelse';
 		$this->post_topic_title = 'Emnetittel';

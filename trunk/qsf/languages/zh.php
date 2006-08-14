@@ -446,6 +446,73 @@ class zh
 		$this->home_menu_title = 'Admin CP Menu'; //Translate
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = '���ź�����û�е�¼������û���������Ƿ���ȷ��<br /><br />��������ִ�Сд�ġ���Admin���롰aDmin���ǲ�ͬ�ġ�ͬʱҲ���������������Ƿ��Ѿ�����ciikie�ˡ�';
@@ -533,68 +600,6 @@ class zh
 		$this->mail_select_all = 'Select All'; //Translate
 		$this->mail_send = 'Send Mail'; //Translate
 		$this->mail_sent = 'Your message has been sent to'; //Translate
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = '����URL��ַ';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = '6ɫ';
-		$this->mbcode_bold = '�Ӵ�';
-		$this->mbcode_bold1 = '��';
-		$this->mbcode_chocolate = '�ɿ�fɫ';
-		$this->mbcode_code = '����';
-		$this->mbcode_color = '��ɫ';
-		$this->mbcode_coral = 'ɺ��ɫ';
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = '���';
-		$this->mbcode_darkblue = '��6';
-		$this->mbcode_darkred = '����';
-		$this->mbcode_deepink = '����';
-		$this->mbcode_detail = '����������';
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'ש��';
-		$this->mbcode_font = '����';
-		$this->mbcode_green = '��ɫ';
-		$this->mbcode_huge = '�޴�';
-		$this->mbcode_image = 'ͼƬ';
-		$this->mbcode_image1 = 'ͼ';
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = '��6';
-		$this->mbcode_italic = 'б��';
-		$this->mbcode_italic1 = 'б';
-		$this->mbcode_large = '��';
-		$this->mbcode_length = '��������ֳ�+length+���֡�';
-		$this->mbcode_limegreen = '���';
-		$this->mbcode_medium = '��';
-		$this->mbcode_orange = '��ɫ';
-		$this->mbcode_orangered = '�Ⱥ�';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = '��ɫ';
-		$this->mbcode_quote = '����';
-		$this->mbcode_red = '��ɫ';
-		$this->mbcode_royalblue = 'Ʒ6';
-		$this->mbcode_sandybrown = 'ɳ��';
-		$this->mbcode_seagreen = 'ˮ��';
-		$this->mbcode_sienna = '��ɫ';
-		$this->mbcode_silver = '��ɫ';
-		$this->mbcode_size = '��С';
-		$this->mbcode_skyblue = '��6';
-		$this->mbcode_small = 'С';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'ɾ����';
-		$this->mbcode_strike1 = 'ɾ';
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = '��ɫ';
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = '΢С';
-		$this->mbcode_tomato = '����ɫ';
-		$this->mbcode_underline = '�»���';
-		$this->mbcode_underline1 = '��';
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = '��ľɫ';
-		$this->mbcode_yellow = 'Yellow'; //Translate
 	}
 
 	function member_control()
@@ -892,7 +897,6 @@ class zh
 		$this->post_reply_topic = '�ظ�������';
 		$this->post_replying = '�ظ�����';
 		$this->post_replying1 = '�ظ�';
-		$this->post_smiles = '������';
 		$this->post_too_many_options = '��ѡ�������2��%d��֮�䡣';
 		$this->post_topic_detail = '����';
 		$this->post_topic_title = '����';

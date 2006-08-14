@@ -447,6 +447,73 @@ class sk
 		$this->home_menu_title = 'Administrátorské menu (CP)';
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'Pravdepodobne nie ste prihlásenı. Skúste skontrolova Váš login a heslo.<br /><br />Sú citlivé na ve¾ké a malé znaky, take \'UsErNaMe\' nie je to isté, èo \'Username\'. A taktie si overte, èi sú vo Vašom prehliadaèi povolené cookies.';
@@ -534,68 +601,6 @@ class sk
 		$this->mail_select_all = 'Oznaèi všetko';
 		$this->mail_send = 'Posla Mail';
 		$this->mail_sent = 'Vaša správa bola zaslaná na adresu';
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'Zadajte adresu';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Blue'; //Translate
-		$this->mbcode_bold = 'Bold'; //Translate
-		$this->mbcode_bold1 = 'B'; //Translate
-		$this->mbcode_chocolate = 'èokoláda';
-		$this->mbcode_code = 'zdrojovı kód';
-		$this->mbcode_color = 'Farba';
-		$this->mbcode_coral = 'Coral'; //Translate
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Karmínová';
-		$this->mbcode_darkblue = 'Tmavomodrá';
-		$this->mbcode_darkred = 'Tmavoèervená';
-		$this->mbcode_deepink = 'Sıta ruová';
-		$this->mbcode_detail = 'Zadajte popis';
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'Tehlová èervená';
-		$this->mbcode_font = 'Font'; //Translate
-		$this->mbcode_green = 'Zelená';
-		$this->mbcode_huge = 'Obrovskı';
-		$this->mbcode_image = 'Obrázok';
-		$this->mbcode_image1 = 'IMG'; //Translate
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Indigo'; //Translate
-		$this->mbcode_italic = 'Italic'; //Translate
-		$this->mbcode_italic1 = 'I'; //Translate
-		$this->mbcode_large = 'Ve¾kı';
-		$this->mbcode_length = 'Váš príspevok má +length+ znakov.';
-		$this->mbcode_limegreen = 'Limetová zelená';
-		$this->mbcode_medium = 'Strednı';
-		$this->mbcode_orange = 'Oranová';
-		$this->mbcode_orangered = 'Oranovoèervené';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Purpurová';
-		$this->mbcode_quote = 'Citova';
-		$this->mbcode_red = 'Èervená';
-		$this->mbcode_royalblue = 'Krá¾ovská modrá';
-		$this->mbcode_sandybrown = 'Pieskovo hnedá';
-		$this->mbcode_seagreen = 'Morská zelená';
-		$this->mbcode_sienna = 'Èervenohnedá';
-		$this->mbcode_silver = 'Strieborná';
-		$this->mbcode_size = 'Ve¾kos';
-		$this->mbcode_skyblue = 'Nebeská modrá';
-		$this->mbcode_small = 'Malı';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Preškrtnutı';
-		$this->mbcode_strike1 = 'S'; //Translate
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Modrozelená';
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Malinkı';
-		$this->mbcode_tomato = 'Paradajková';
-		$this->mbcode_underline = 'Podèiarknu';
-		$this->mbcode_underline1 = 'U'; //Translate
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Drevená';
-		$this->mbcode_yellow = 'ltá';
 	}
 
 	function member_control()
@@ -894,7 +899,6 @@ class sk
 		$this->post_reply_topic = 'Odpoveda na tému';
 		$this->post_replying = 'Odpovedá sa na tému';
 		$this->post_replying1 = 'Odpovedá sa';
-		$this->post_smiles = 'Smajlíky (kliknutím vloi)';
 		$this->post_too_many_options = 'Hlasovanie musí ma minimálne 2 a maximálne %d monıch odpovedí.';
 		$this->post_topic_detail = 'Popis témy';
 		$this->post_topic_title = 'Nadpis témy';

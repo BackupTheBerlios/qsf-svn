@@ -446,6 +446,73 @@ class he
 		$this->home_menu_title = 'תפריט לוח בקרת מנהל';
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'בדפדפן שלך. cookies . בנוסף, בדוק שמאופשר\'Username\' \' שונה מUsErNaMe\' ישנה רגישות לאותיות קטנות וגדולות, ז"א<br /><br />לא התאפשרה כניסתך למערכת. בדוק ששם המשתמש והסיסמא נכונים.';
@@ -533,68 +600,6 @@ class he
 		$this->mail_select_all = 'בחר הכל';
 		$this->mail_send = 'שלח אימייל';
 		$this->mail_sent = 'הודעתך נשלחה ל';
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'הכנס כתובת';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'כחול';
-		$this->mbcode_bold = 'מודגש';
-		$this->mbcode_bold1 = 'B'; //Translate
-		$this->mbcode_chocolate = 'חום שוקולד';
-		$this->mbcode_code = 'קוד';
-		$this->mbcode_color = 'צבע';
-		$this->mbcode_coral = 'קורל';
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'ארגמן';
-		$this->mbcode_darkblue = 'כחול כהה';
-		$this->mbcode_darkred = 'אדום כהה';
-		$this->mbcode_deepink = 'ורוד עמוק';
-		$this->mbcode_detail = 'הכנס תאור';
-		$this->mbcode_email = 'אימייל';
-		$this->mbcode_firered = 'אדום חום';
-		$this->mbcode_font = 'גופן';
-		$this->mbcode_green = 'ירוק';
-		$this->mbcode_huge = 'ענק';
-		$this->mbcode_image = 'צלמית';
-		$this->mbcode_image1 = 'IMG'; //Translate
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'אינדיגו';
-		$this->mbcode_italic = 'נטוי';
-		$this->mbcode_italic1 = 'I'; //Translate
-		$this->mbcode_large = 'גדול';
-		$this->mbcode_length = 'תווים. +length+ הודעתך באורך';
-		$this->mbcode_limegreen = 'צהוב לימון';
-		$this->mbcode_medium = 'בינוני';
-		$this->mbcode_orange = 'כתום';
-		$this->mbcode_orangered = 'אדום כתום';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'סגול';
-		$this->mbcode_quote = 'ציטוט';
-		$this->mbcode_red = 'אדום';
-		$this->mbcode_royalblue = 'כחול רויאל';
-		$this->mbcode_sandybrown = 'חום חול';
-		$this->mbcode_seagreen = 'ירוק כהה';
-		$this->mbcode_sienna = 'סיאנה';
-		$this->mbcode_silver = 'כסף';
-		$this->mbcode_size = 'גודל';
-		$this->mbcode_skyblue = 'כחול שמיים';
-		$this->mbcode_small = 'קטן';
-		$this->mbcode_spoiler = 'ספויילר';
-		$this->mbcode_strike = 'קו חוצה';
-		$this->mbcode_strike1 = 'S'; //Translate
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Teal'; //Translate
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'זעיר';
-		$this->mbcode_tomato = 'אדום עגבנייה';
-		$this->mbcode_underline = 'קו תחתון';
-		$this->mbcode_underline1 = 'U'; //Translate
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'חום בהיר';
-		$this->mbcode_yellow = 'צהוב';
 	}
 
 	function member_control()
@@ -892,7 +897,6 @@ class he
 		$this->post_reply_topic = 'תגובה לנושא';
 		$this->post_replying = 'מגיב לנושא';
 		$this->post_replying1 = 'מגיב';
-		$this->post_smiles = 'סמלי הבעה נלחצים';
 		$this->post_too_many_options = '.אפשרויות לסקר %d חובה שיהיו בין 2 ל';
 		$this->post_topic_detail = 'תאור נושא';
 		$this->post_topic_title = 'כותרת נושא';

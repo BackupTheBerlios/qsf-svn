@@ -446,6 +446,73 @@ class bg
 		$this->home_menu_title = 'Admin CP Menu'; //Translate
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'You could not be logged in. Check to see that your user name and password are correct.<br /><br />They are case sensitive, so \'UsErNaMe\' is different from \'Username\'. Also, check to see that cookies are enabled in your browser.'; //Translate
@@ -533,68 +600,6 @@ class bg
 		$this->mail_select_all = 'Select All'; //Translate
 		$this->mail_send = 'Send Mail'; //Translate
 		$this->mail_sent = 'Your message has been sent to'; //Translate
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'въвежда адрес';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Син';
-		$this->mbcode_bold = 'Bold'; //Translate
-		$this->mbcode_bold1 = 'B'; //Translate
-		$this->mbcode_chocolate = 'Шоколадов';
-		$this->mbcode_code = 'Code'; //Translate
-		$this->mbcode_color = 'Цвят';
-		$this->mbcode_coral = 'Коралов';
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Тъмно оранжев';
-		$this->mbcode_darkblue = 'Тъмно син';
-		$this->mbcode_darkred = 'Тъмно червен';
-		$this->mbcode_deepink = 'Розов';
-		$this->mbcode_detail = 'въведи описание';
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'Керемидено червен';
-		$this->mbcode_font = 'Шрифт';
-		$this->mbcode_green = 'Зелен';
-		$this->mbcode_huge = 'Огромен';
-		$this->mbcode_image = 'Картинка';
-		$this->mbcode_image1 = 'IMG'; //Translate
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Индигов';
-		$this->mbcode_italic = 'Italic'; //Translate
-		$this->mbcode_italic1 = 'I'; //Translate
-		$this->mbcode_large = 'Голям';
-		$this->mbcode_length = 'Постингът ти е +length+ символа.';
-		$this->mbcode_limegreen = 'Линмоново зелен';
-		$this->mbcode_medium = 'Среден';
-		$this->mbcode_orange = 'Оранжев';
-		$this->mbcode_orangered = 'Оранжево-червен ';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Виолетов';
-		$this->mbcode_quote = 'Цитат';
-		$this->mbcode_red = 'Червен';
-		$this->mbcode_royalblue = 'Кралски син';
-		$this->mbcode_sandybrown = 'Пясъчно кафяв';
-		$this->mbcode_seagreen = 'Морско зелен';
-		$this->mbcode_sienna = 'Кафеникав';
-		$this->mbcode_silver = 'Сребрист';
-		$this->mbcode_size = 'Размер';
-		$this->mbcode_skyblue = 'Небесно син';
-		$this->mbcode_small = 'малък';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Strikethrough'; //Translate
-		$this->mbcode_strike1 = 'S'; //Translate
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Синьозелем';
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Tiny'; //Translate
-		$this->mbcode_tomato = 'Оранжеовчервен';
-		$this->mbcode_underline = 'Underline'; //Translate
-		$this->mbcode_underline1 = 'U'; //Translate
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Светло кафяв';
-		$this->mbcode_yellow = 'Yellow'; //Translate
 	}
 
 	function member_control()
@@ -892,7 +897,6 @@ class bg
 		$this->post_reply_topic = 'Отговор на темата';
 		$this->post_replying = 'Отговори на темата';
 		$this->post_replying1 = 'Отговаря';
-		$this->post_smiles = 'Смайлита';
 		$this->post_too_many_options = 'Трава д аима между два и %d отговора на анкета.';
 		$this->post_topic_detail = 'Описание на темата';
 		$this->post_topic_title = 'Заглавие на темата';

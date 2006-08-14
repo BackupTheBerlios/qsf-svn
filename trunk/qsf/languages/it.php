@@ -447,6 +447,73 @@ class it
 		$this->home_menu_title = 'Menu Pannello d\'Amministrazione';
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'Non sei autenticato. Controlla di aver inserito Nome Utente e Password corretti.<br /><br />Sono case sensitive, quindi \'UsErNaMe\' è diverso da \'Username\'. Controlla anche che i cookies siano abilitati nel tuo bowser.';
@@ -534,68 +601,6 @@ class it
 		$this->mail_select_all = 'Seleziona Tutti';
 		$this->mail_send = 'Invia e-mail';
 		$this->mail_sent = 'Il tuo messaggio è stato spedito a';
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'Inserisci un indirizzo';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Blu';
-		$this->mbcode_bold = 'Grassetto';
-		$this->mbcode_bold1 = 'G';
-		$this->mbcode_chocolate = 'cioccolato';
-		$this->mbcode_code = 'Codice';
-		$this->mbcode_color = 'Colore';
-		$this->mbcode_coral = 'Corallo';
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Cremisi';
-		$this->mbcode_darkblue = 'Blu Scuro';
-		$this->mbcode_darkred = 'Rosso Scuro';
-		$this->mbcode_deepink = 'Rosa Scuro';
-		$this->mbcode_detail = 'Inserisci una descrizione';
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'Rosso Mattone';
-		$this->mbcode_font = 'Font'; //Translate
-		$this->mbcode_green = 'Verde';
-		$this->mbcode_huge = 'Enorme';
-		$this->mbcode_image = 'Immagine';
-		$this->mbcode_image1 = 'IMG'; //Translate
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Indigo'; //Translate
-		$this->mbcode_italic = 'Corsivo';
-		$this->mbcode_italic1 = 'C';
-		$this->mbcode_large = 'Largo';
-		$this->mbcode_length = 'Il tuo messaggio contiene +length+ caratteri.';
-		$this->mbcode_limegreen = 'Verde Lime ';
-		$this->mbcode_medium = 'Medio';
-		$this->mbcode_orange = 'Arancio';
-		$this->mbcode_orangered = 'Rosso Arancio';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Porpora';
-		$this->mbcode_quote = 'Apice';
-		$this->mbcode_red = 'Rosso';
-		$this->mbcode_royalblue = 'Blu Regale';
-		$this->mbcode_sandybrown = 'Marrone Sabbia';
-		$this->mbcode_seagreen = 'Verde Mare';
-		$this->mbcode_sienna = 'Sienna'; //Translate
-		$this->mbcode_silver = 'Argento';
-		$this->mbcode_size = 'Grandezza';
-		$this->mbcode_skyblue = 'Blu Cielo';
-		$this->mbcode_small = 'piccolo';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Segnato';
-		$this->mbcode_strike1 = 'S'; //Translate
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Teal'; //Translate
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Minuscolo';
-		$this->mbcode_tomato = 'Pomodoro';
-		$this->mbcode_underline = 'Sottolineato';
-		$this->mbcode_underline1 = 'S';
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Burly Wood'; //Translate
-		$this->mbcode_yellow = 'Giallo';
 	}
 
 	function member_control()
@@ -893,7 +898,6 @@ class it
 		$this->post_reply_topic = 'Rispondi alla discussione';
 		$this->post_replying = 'Rispondi Alla Discussione';
 		$this->post_replying1 = 'Rispondi';
-		$this->post_smiles = 'Smilies Cliccabili';
 		$this->post_too_many_options = 'Devono essere presenti da 2 a %d opzioni per un sondaggio.';
 		$this->post_topic_detail = 'Descrizione Discussione';
 		$this->post_topic_title = 'Titolo Discussione';

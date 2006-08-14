@@ -447,6 +447,73 @@ class de
 		$this->home_menu_title = 'Administrator Kontrollzentrum Menü';
 	}
 
+	function jslang()
+	{
+		$this->bbcode_address = 'Enter an address'; //Translate
+		$this->bbcode_arial = 'Arial'; //Translate
+		$this->bbcode_blue = 'Blue'; //Translate
+		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
+		$this->bbcode_bold1 = 'B'; //Translate
+		$this->bbcode_chocolate = 'Chocolate'; //Translate
+		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
+		$this->bbcode_code1 = 'Code'; //Translate
+		$this->bbcode_color = 'Color'; //Translate
+		$this->bbcode_coral = 'Coral'; //Translate
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
+		$this->bbcode_darkblue = 'Dark Blue'; //Translate
+		$this->bbcode_darkred = 'Dark Red'; //Translate
+		$this->bbcode_deepink = 'Deep Pink'; //Translate
+		$this->bbcode_detail = 'Enter a description'; //Translate
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
+		$this->bbcode_firered = 'Firebrick Red'; //Translate
+		$this->bbcode_font = 'Font'; //Translate
+		$this->bbcode_green = 'Green'; //Translate
+		$this->bbcode_huge = 'Huge'; //Translate
+		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
+		$this->bbcode_image1 = 'IMG'; //Translate
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
+		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
+		$this->bbcode_italic1 = 'I'; //Translate
+		$this->bbcode_large = 'Large'; //Translate
+		$this->bbcode_limegreen = 'Lime Green'; //Translate
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
+		$this->bbcode_orangered = 'Orange Red'; //Translate
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
+		$this->bbcode_purple = 'Purple'; //Translate
+		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
+		$this->bbcode_quote1 = 'Quote'; //Translate
+		$this->bbcode_red = 'Red'; //Translate
+		$this->bbcode_royalblue = 'Royal Blue'; //Translate
+		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
+		$this->bbcode_seagreen = 'Sea Green'; //Translate
+		$this->bbcode_sienna = 'Sienna'; //Translate
+		$this->bbcode_silver = 'Silver'; //Translate
+		$this->bbcode_size = 'Size'; //Translate
+		$this->bbcode_skyblue = 'Sky Blue'; //Translate
+		$this->bbcode_small = 'Small'; //Translate
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
+		$this->bbcode_tiny = 'Tiny'; //Translate
+		$this->bbcode_tomato = 'Tomato'; //Translate
+		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
+		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_smiles = 'Clickable Smilies'; //Translate
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'Sie konnten sich nicht anmelden. Überprüfen sie die Richtigkeit ihres Benutzernamens und des Passworts.<br /><br />Bitte achten sie auch auf Groß- und Kleinschreibung, also \'BeNuTzErNaMe\' ist nicht das gleiche wie \'Benutzername\'. Überprüfen sie auch das Cookies im Browser aktiviert sind.';
@@ -534,68 +601,6 @@ class de
 		$this->mail_select_all = 'Alle auswählen';
 		$this->mail_send = 'Mail schicken';
 		$this->mail_sent = 'Ihre Nachricht wurde gesendet an';
-	}
-
-	function mbcode()
-	{
-		$this->mbcode_address = 'Geben sie eine Adresse ein';
-		$this->mbcode_arial = 'Arial'; //Translate
-		$this->mbcode_blue = 'Blau';
-		$this->mbcode_bold = 'Fett';
-		$this->mbcode_bold1 = 'F';
-		$this->mbcode_chocolate = 'Schokolade';
-		$this->mbcode_code = 'Code'; //Translate
-		$this->mbcode_color = 'Farbe';
-		$this->mbcode_coral = 'Coral'; //Translate
-		$this->mbcode_courier = 'Courier'; //Translate
-		$this->mbcode_crimson = 'Crimson'; //Translate
-		$this->mbcode_darkblue = 'Dunkelblau';
-		$this->mbcode_darkred = 'Dunkelrot';
-		$this->mbcode_deepink = 'Dunkelrosa';
-		$this->mbcode_detail = 'Beschreibung eingeben';
-		$this->mbcode_email = 'Email'; //Translate
-		$this->mbcode_firered = 'Ziegelsteinrot';
-		$this->mbcode_font = 'Schriftart';
-		$this->mbcode_green = 'Grün';
-		$this->mbcode_huge = 'Riesig';
-		$this->mbcode_image = 'Bild';
-		$this->mbcode_image1 = 'IMG'; //Translate
-		$this->mbcode_impact = 'Impact'; //Translate
-		$this->mbcode_indigo = 'Indigo'; //Translate
-		$this->mbcode_italic = 'Kursiv';
-		$this->mbcode_italic1 = 'K';
-		$this->mbcode_large = 'Groß';
-		$this->mbcode_length = 'Ihre Nachricht hat +length+ Zeichen.';
-		$this->mbcode_limegreen = 'Limettengrün';
-		$this->mbcode_medium = 'Mittel';
-		$this->mbcode_orange = 'Orange'; //Translate
-		$this->mbcode_orangered = 'Orange-Rot';
-		$this->mbcode_php = 'PHP'; //Translate
-		$this->mbcode_purple = 'Lila';
-		$this->mbcode_quote = 'Zitat';
-		$this->mbcode_red = 'Rot';
-		$this->mbcode_royalblue = 'Königsblau';
-		$this->mbcode_sandybrown = 'Beige';
-		$this->mbcode_seagreen = 'Seegrün';
-		$this->mbcode_sienna = 'Sienna'; //Translate
-		$this->mbcode_silver = 'Silber';
-		$this->mbcode_size = 'Größe';
-		$this->mbcode_skyblue = 'Himmelblau';
-		$this->mbcode_small = 'Klein';
-		$this->mbcode_spoiler = 'Spoiler'; //Translate
-		$this->mbcode_strike = 'Durchgestrichen';
-		$this->mbcode_strike1 = 'S'; //Translate
-		$this->mbcode_tahoma = 'Tahoma'; //Translate
-		$this->mbcode_teal = 'Teal'; //Translate
-		$this->mbcode_times = 'Times'; //Translate
-		$this->mbcode_tiny = 'Winzig';
-		$this->mbcode_tomato = 'Tomate';
-		$this->mbcode_underline = 'Unterstrichen';
-		$this->mbcode_underline1 = 'U'; //Translate
-		$this->mbcode_url = 'URL'; //Translate
-		$this->mbcode_verdana = 'Verdana'; //Translate
-		$this->mbcode_wood = 'Wurzelholz';
-		$this->mbcode_yellow = 'Gelb';
 	}
 
 	function member_control()
@@ -893,7 +898,6 @@ class de
 		$this->post_reply_topic = 'Thema antworten';
 		$this->post_replying = 'Thema antworten';
 		$this->post_replying1 = 'Antworten';
-		$this->post_smiles = 'Klickbare Symbole';
 		$this->post_too_many_options = 'Sie brauchen zwischen 2 und %d Optionen für eine Umfrage.';
 		$this->post_topic_detail = 'Thema Beschreibung';
 		$this->post_topic_title = 'Thema Titel';
