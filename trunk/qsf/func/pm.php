@@ -177,13 +177,9 @@ class pm extends qsfglobal
 					}
 				}
 			}
-			$clickable = $this->htmlwidgets->make_clickable();
 			$this->templater->add_templates('post');
 			$this->lang->post();
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
-
-			$this->lang->mbcode(); // Load the mbcode values
-			$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
 
 			return eval($this->template('PM_SEND'));
 		} else {

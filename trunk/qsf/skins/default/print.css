@@ -109,8 +109,6 @@ div.spoilerbox   {
 .spoiler      {border:1px #555555 solid; color: gray;}
 
 .pages        {font-size: 0.9em; color:#333333;}
-.mbcSelect    {font-size: 0.9em; color:black;}
-.mbcButton    {font-size: 0.9em; color:black; border:1px #555555 solid;}
 .stats        {font-weight:bold;}
 .adminstat    {text-align:center; font-size: 0.7em;}
 td textarea   {width:100%} /* help give larger text areas */
@@ -226,7 +224,8 @@ ul.nav, td.footer, .adminstat, .useroptions, .validchecks, .posttop, .button, .b
 td.subheader div img { display: none; }
 td.posterinfo span.userimages { display: none; }
 .newerolder   {display: none;}
-.clickablesmilies {display: none;}
+#clickablesmilies {display: none;}
+#quicksmilies { display: none;}
 .messageicons {display: none;}
-.quickreply, img.topicicon {display: none;}
+div#qsf_bbcode_buttons {display: none;}
 

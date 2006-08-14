@@ -55,6 +55,8 @@ $modules['default_module'] = 'board';
 $modules['default_admin_module'] = 'home';
 $modules['public_modules'] = array(
 	'help',
+	'jsdata',
+	'jslang',
 	'mod',
 	'post',
 	'register',

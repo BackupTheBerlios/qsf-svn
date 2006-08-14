@@ -77,9 +77,6 @@ function buildSecondaryList(element)
 	}
 }
 
-// Try different methods of attaching
-if (document.addEventListener) {
-	document.addEventListener("DOMContentLoaded", rebuildAllTZSelect, null);
-}
+addLoadEvent(rebuildAllTZSelect);
                                
 

@@ -202,11 +202,14 @@ a.pagelinks:hover{color:#cc0000;}
 .iconslegend table {border-collapse: collapse; margin-left: auto; margin-right: auto;}
 
 /* Narrower */
-.clickablesmilies { text-align: center; }
-.clickablesmilies div { width: 80px; margin-left: auto; margin-right: auto; }
-.clickablesmilies strong { display: block; border:1px #555555 solid; background-color:#e0e0e0; padding: 5px; }
-.clickablesmilies ul { padding-left: 0; margin-left: 0; padding-top: 0; margin-top: 10px;}
-.clickablesmilies ul li {display: inline; padding: 2px; list-style-type: none;}
+#clickablesmilies { text-align: center; }
+#clickablesmilies div { width: 80px; margin-left: auto; margin-right: auto; }
+#clickablesmilies strong { display: block; border:1px #555555 solid; background-color:#e0e0e0; padding: 5px; }
+#clickablesmilies ul { padding-left: 0; margin-left: 0; padding-top: 0; margin-top: 10px;}
+#clickablesmilies ul li {display: inline; padding: 2px; list-style-type: none;}
+#quicksmilies strong { display: none;}
+#quicksmilies ul { padding: 0; margin: 0;}
+#quicksmilies ul li {display: inline; padding: 2px; list-style-type: none;}
 
 ul.messageicons { padding: 0; margin: 0; }
 ul.messageicons li {display: inline; padding: 2px; list-style-type: none; }
@@ -227,8 +230,8 @@ div.spoilerbox   {
 .spoiler      {border:1px #555555 solid; background-color:#fefefe; color:#fefefe;}
 .pages        {font-size: 0.9em; color:#333333;}
 .newerolder   {float: right; font-size: 0.9em; color:#333333;}
-.mbcSelect    {font-size: 0.9em; background-color:#ececec; color:black;}
-.mbcButton    {font-size: 0.9em; background-color:#ececec; color:black; border:1px #555555 solid;}
+#qsf_bbcode_buttons select {font-size: 0.9em; background-color:#ececec; color:black; margin: 1px;}
+#qsf_bbcode_buttons input  {font-size: 0.9em; background-color:#ececec; color:black; border:1px #555555 solid; margin: 1px;}
 .stats        {font-weight:bold;}
 .adminstat, .validchecks {text-align:center; font-size: 0.7em;}
 td textarea   {width:100%} /* help give larger text areas */

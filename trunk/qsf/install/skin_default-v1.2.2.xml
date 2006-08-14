@@ -2067,12 +2067,6 @@ enable('$init');
       <html><![CDATA[
 <form action="{$this->self}?a=cp&amp;s=sig" method="post" id="mbpost">
 <script type="text/javascript" src="./javascript/postboxplain.js"></script>
-<script type="text/javascript">
-<!--
-mbcodeSetLang("{$this->lang->mbcode_length}", "{$this->lang->mbcode_address}", "{$this->lang->mbcode_detail}", "{$this->lang->mbcode_url}");
-mbcodeInit("mbpost", "sig");
-//-->
-</script>
 {$this->table}
  <tr>
    <td class="header">{$this->lang->cp_label_edit_sig}</td>
@@ -2082,8 +2076,7 @@ mbcodeInit("mbpost", "sig");
  </tr>
  <tr>
   <td class="tablelight">
-    {$mbcodeButtons}
-    <textarea class="input" name="sig" rows="8" cols="39" onclick="storeCaret(this)" onkeyup="storeCaret(this)" onfocus="storeCaret(this)" onmouseout="storeCaret(this)">{$edit}</textarea>
+    <textarea class="input" name="sig" rows="8" cols="39" onfocus="bbcodeInit(this)">{$edit}</textarea>
     </td>
   </tr>
   <tr>
@@ -2635,6 +2628,7 @@ mbcodeInit("mbpost", "sig");
 <IF $qsf->debug_mode><link rel="stylesheet" type="text/css" href="./skins/{$qsf->skin}/hacks.css" /></IF>
 {$qsf->feed_links}
 
+<script src="./javascript/utils.js" type="text/javascript"></script>
 <!--[if lt IE 7]>
 <script src="./javascript/pngfix.js" type="text/javascript"></script>
 <![endif]-->
@@ -3211,14 +3205,7 @@ mbcodeInit("mbpost", "sig");
   {$smilies}
   <td class="tablelight">
    <script type="text/javascript" src="./javascript/postboxplain.js"></script>
-   <script type="text/javascript">
-   <!--
-    mbcodeSetLang("{$this->lang->mbcode_length}", "{$this->lang->mbcode_address}", "{$this->lang->mbcode_detail}", "{$this->lang->mbcode_url}");
-    mbcodeInit("mbpost", "message");
-   //-->
-   </script>
-   {$mbcodeButtons}
-   <textarea class="input" name="message" cols="60" rows="12">{$msg}</textarea>
+   <textarea class="input" name="message" cols="60" rows="12" onfocus="bbcodeInit(this)">{$msg}</textarea>
   </td>
  </tr>
  <tr>
@@ -3385,14 +3372,7 @@ mbcodeInit("mbpost", "sig");
   {$smilies}
   <td class="tablelight">
   <script type="text/javascript" src="./javascript/postboxplain.js"></script>
-  <script type="text/javascript">
-  <!--
-    mbcodeSetLang("{$this->lang->mbcode_length}", "{$this->lang->mbcode_address}", "{$this->lang->mbcode_detail}", "{$this->lang->mbcode_url}");
-    mbcodeInit("mbpost", "post");
-  //-->
-  </script>
-  {$mbcodeButtons}
-   <textarea class="input" name="post" rows="12" cols="60" onclick="storeCaret(this)" onkeyup="storeCaret(this)" onfocus="storeCaret(this)" onmouseout="storeCaret(this)">{$quote}</textarea>
+  <textarea class="input" name="post" rows="12" cols="60" onfocus="bbcodeInit(this)">{$quote}</textarea>
   </td>
  </tr>
       ]]></html>
@@ -3554,12 +3534,8 @@ mbcodeInit("mbpost", "sig");
       <html><![CDATA[
 <td class="tablelight" style="width:30%;" valign="top">
    <div><strong>{$this->lang->post_msg}</strong><br /><br /><br /></div>
-   <div class="clickablesmilies"><div>
-   <strong>{$this->lang->post_smiles}</strong>
-   <ul>
-       {$clickable}
-   </ul>
-   </div></div>
+   <div id="clickablesmilies">
+   </div>
   </td>
       ]]></html>
     </template>
@@ -4526,23 +4502,6 @@ mbcodeInit("mbpost", "sig");
       <description>The format of the Quick Reply box</description>
       <html><![CDATA[
 <script type="text/javascript" src="./javascript/postboxplain.js"></script>
-<script type="text/javascript">
-<!--
-   function showhide(element_id)
-   {
-     if (document.getElementById) {
-       node = document.getElementById(element_id);
-       if (node.style.display == 'none') {
-         node.style.display = 'block';
-       } else {
-         node.style.display = 'none';
-       }
-     }
-  }
-  mbcodeSetLang("{$this->lang->mbcode_length}", "{$this->lang->mbcode_address}", "{$this->lang->mbcode_detail}", "{$this->lang->mbcode_url}");
-  mbcodeInit("mbpost", "post");
-//-->
-</script>
 
 <form action="{$this->self}?a=post&amp;s=reply&amp;t={$this->get['t']}" method="post" id="mbpost">
 {$this->table}
@@ -4550,24 +4509,12 @@ mbcodeInit("mbpost", "sig");
  <h2>
    {$this->lang->topic_quickreply}
  </h2><div class="tabledark">
-
-   <div id="emot" style="display:none; float: left;">
-    <div class="clickablesmilies">
-     <ul>
-      {$clickable}
-     </ul>
+   {$this->lang->post_msg}
+   <div style="float: left;">
+    <div id="quicksmilies">
     </div>
    </div>
-
-   <div id="code" style="display:none; float: left;">
-    {$mbcodeButtons}
-   </div>
-
-   <div style="clear: left;">
-   <div style="float:right;">[ <a href="javascript:showhide('emot')" title="{$this->lang->topic_qr_open_emoticons}">{$this->lang->topic_qr_emoticons}</a> | <a href="javascript:showhide('code')" title="{$this->lang->topic_qr_open_mbcode}">MBCode</a> ]</div>
-   {$this->lang->post_msg}:
-   </div>
-   <textarea class="input" name="post" rows="8" cols="75" onclick="storeCaret(this)" onkeyup="storeCaret(this)" onfocus="storeCaret(this)" onmouseout="storeCaret(this)"></textarea><br />
+   <textarea class="input" name="post" rows="8" cols="75" onfocus="bbcodeInit(this)"></textarea><br />
  </div><div class="tablelight" style="text-align: center;">
    <input type="checkbox" name="parseEmot" value="1" id="parseEmot" checked="checked" /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label>
    <input type="checkbox" name="parseCode" value="1" id="parseCode" checked="checked" /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>

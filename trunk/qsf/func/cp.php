@@ -567,7 +567,6 @@ class cp extends qsfglobal
 	 **/
 	function edit_sig()
 	{
-		$this->lang->mbcode(); // Load the mbcode values
 		$this->set_title($this->lang->cp_label_edit_sig);
 		$this->tree($this->lang->cp_cp, $this->self . '?a=cp');
 		$this->tree($this->lang->cp_label_edit_sig);
@@ -582,7 +581,6 @@ class cp extends qsfglobal
 		$pr = $this->db->nqfetch($query);
 		$preview = $this->format($pr['user_signature'], $params);
 		$edit = $pr['user_signature'];
-		$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
 		return eval($this->template('CP_EDIT_SIG'));
 	}
 	 

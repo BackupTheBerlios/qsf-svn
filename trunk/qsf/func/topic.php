@@ -545,9 +545,6 @@ class topic extends qsfglobal
 
 		// Quickreply
 		$this->lang->post();
-		$this->lang->mbcode();
-		$clickable = $this->htmlwidgets->make_clickable();
-		$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
 		$quickreply = eval($this->template('TOPIC_QUICKREPLY'));
 
 		return eval($this->template('TOPIC_MAIN'));

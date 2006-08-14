@@ -250,12 +250,7 @@ class mod extends qsfglobal
 
 			$quote     = $this->format($data['post_text'], FORMAT_HTMLCHARS);
 			$msg_icons = $this->htmlwidgets->get_icons(($data['post_icon'] == '') ? -1 : $data['post_icon']);
-			$clickable = $this->htmlwidgets->make_clickable();
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
-			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
-
-			$this->lang->mbcode(); // Load the mbcode values
-			$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
 
 			if ($this->perms->auth('post_attach', $data['topic_forum'])) {
 				if ($attached) {

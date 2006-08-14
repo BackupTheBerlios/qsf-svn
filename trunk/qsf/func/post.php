@@ -345,12 +345,8 @@ class post extends qsfglobal
 			$icon = isset($this->post['icon']) ? $this->post['icon'] : -1;
 
 			$msg_icons = $this->htmlwidgets->get_icons($icon);
-			$clickable = $this->htmlwidgets->make_clickable();
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
-
-			$this->lang->mbcode(); // Load the mbcode values
-			$mbcodeButtons = eval($this->template('MAIN_MBCODE'));
 
 			if ($this->perms->auth('post_attach', $this->get['f'])) {
 				if ($attached) {
