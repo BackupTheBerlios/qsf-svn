@@ -1,12 +1,14 @@
-var timezone_arrays = new Object();
+var timezone_arrays = new Array();
+var oldSelectedValue = 0;
 
 function rebuildAllTZSelect()
 {
-  formSelectElements = document.getElementsByTagName("select");
-  for(i=0; i<formSelectElements.length; i++)
+  var formSelectElements = document.getElementsByTagName("select");
+  for(var i=0; i<formSelectElements.length; i++)
   {
     if (formSelectElements[i].className.indexOf("timezone") > -1) {
       rebuildTimezoneSelect(formSelectElements[i]);
+	  i++; // Jump past element
     }
   }
 }
@@ -14,36 +16,39 @@ function rebuildAllTZSelect()
 function rebuildTimezoneSelect(element)
 {
 	// Add the has to our element
-	tempHash = new Object();
+	var tempHash = new Object();
 	
-	re = /^([a-zA-Z]+)\/(.+)$/;
+	var re = /^([a-zA-Z]+)\/(.+)$/;
 	// Create a new select
-	selectFirst = document.createElement("select");
+	var selectFirst = document.createElement("select");
 	selectFirst.name = "selector_" + element.name;
 	selectFirst.className = element.className;
+	// selectFirst.style.width = "10em";
 	
-	oldSelectedValue = 0;
-
 	// Go through the options creating a new set of options
-	for (i=0; i<element.options.length; i++) {
-		optiontext = document.createTextNode(element.options[i].text);
-		matches = re.exec(element.options[i].text);
+	for (var i=0; i<element.options.length; i++) {
+		var text = element.options[i].firstChild.nodeValue;
+		var matches = re.exec(text);
 		
-		if (! tempHash[matches[1]]) {
-			optionline = document.createElement("option");
+		if (matches) {
+			if (! tempHash[matches[1]]) {
+				var optionline = document.createElement("option");
+				
+				tempHash[matches[1]] = new Array();
+				
+				optionline.value = matches[1];
+				
+				var optiontext = document.createTextNode(matches[1]);
+				optionline.appendChild(optiontext);
+				selectFirst.appendChild(optionline);
+			}
 			
-			tempHash[matches[1]] = new Array();
-			
-			optionline.text = matches[1];
-			optionline.value = matches[1];
-			selectFirst.appendChild(optionline);
+			if (element.options[i].selected) {
+				selectFirst.selectedIndex = selectFirst.length - 1;
+				oldSelectedValue = element.options[i].value;
+			}
+			tempHash[matches[1]][tempHash[matches[1]].length] = new Array(element.options[i].value, matches[2]);
 		}
-		
-		if (element.options[i].selected) {
-			selectFirst.selectedIndex = selectFirst.length - 1;
-			oldSelectedValue = element.options[i].value;
-		}
-		tempHash[matches[1]][tempHash[matches[1]].length] = new Array(element.options[i].value, matches[2]); 
 	}
 	selectFirst.setAttribute("onchange", "buildSecondaryList(this)");
 	element.parentNode.insertBefore(selectFirst, element);
@@ -54,21 +59,24 @@ function rebuildTimezoneSelect(element)
 
 function buildSecondaryList(element)
 {
-	re = /^selector_(.+)$/;
+	var re = /^selector_(.+)$/;
 	
-	selectedItem = element.options[element.selectedIndex].value;
-	matches = re.exec(element.name);
-	name = matches[1];
+	var selectedItem = element.options[element.selectedIndex].value;
+	var matches = re.exec(element.name);
+	var name = matches[1];
 	
 	// Remove all options
 	while (element.form[name].length)
 		element.form[name].remove(0);
 	
-	for (i=0; i<timezone_arrays[name][selectedItem].length; i++)
+	for (var i=0; i<timezone_arrays[name][selectedItem].length; i++)
 	{
-		optionline = document.createElement("option");
+		var optionline = document.createElement("option");
 		optionline.value = timezone_arrays[name][selectedItem][i][0];
-		optionline.text = timezone_arrays[name][selectedItem][i][1];
+		
+		var optiontext = document.createTextNode(timezone_arrays[name][selectedItem][i][1]);
+		optionline.appendChild(optiontext);
+
 		if (oldSelectedValue == optionline.value) {
 			optionline.selected = true;
 			oldSelectedValue = 0;
