@@ -3,14 +3,18 @@
 /* Use this when wanting a function to run onload. That way you allow
 multiple functions to run onload without needing to be aware of the other */
 function addLoadEvent(func) {
-	var oldonload = window.onload;
-	if (typeof window.onload != 'function') {
-		window.onload = func;
+	if (typeof window.attachEvent != 'undefined') {
+		window.attachEvent("onload", func);
 	} else {
-		window.onload = function() {
-			oldonload();
-			func();
-		};
+		var oldonload = window.onload;
+		if (typeof window.onload != 'function') {
+			window.onload = func;
+		} else {
+			window.onload = function() {
+				oldonload();
+				func();
+			};
+		}
 	}
 }
 
@@ -31,22 +35,33 @@ String.prototype.parseJSON = function () {
 /* Request a HTTP object. If there are multiple http requests going on then
 we may have more than one object being used at a time */
 function getHTTPObject(func) {
-	var waystation = null;
-	if (typeof window.XMLHttpRequest != 'undefined') {
-		waystation = new XMLHttpRequest();
-	} else if (typeof window.ActiveXObject != 'undefined') {
-		waystation = new ActiveXObject("Microsoft.XMLHTTP");
-	}
 	
-	if (waystation != null) {
-		// Now add some utility functions
-		
-		readystate = function() {
-			if (waystation.readyState == 4) {
-				func(waystation.responseText);
+	function requestHandler() {
+		var httpRequester = null;
+		if (typeof window.XMLHttpRequest != 'undefined') {
+			httpRequester = new XMLHttpRequest();
+		} else if (typeof window.ActiveXObject != 'undefined') {
+			try {
+				httpRequester = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch(e) {
+				try {
+					httpRequester = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch(e) {
+					httpRequester = null;
+				}
 			}
-		};
-		waystation.requestData = function() {
+		}
+		
+		if (httpRequester) this.ready = true;
+		else this.ready = false;
+		
+		var stateHandler = function() {
+				if (httpRequester.readyState == 4) {
+					func(httpRequester.responseText);
+				}                             
+			};
+			
+		this.requestData = function() {
 			var pathName = location.pathname;
 			
 			var url = pathName.substring(pathName.lastIndexOf("/") + 1, pathName.length);
@@ -58,13 +73,17 @@ function getHTTPObject(func) {
 				url += "&" + arguments[i] + "=" + escape(arguments[i+1]);
 			}
 			
-			this.open("GET", url, true);
-			this.onreadystatechange = readystate;
-			this.send(null);
+			httpRequester.open("GET", url, true);
+			httpRequester.onreadystatechange = stateHandler;
+			httpRequester.send(null);
 		};
 	}
 	
-	return waystation;
+	var waystation = new requestHandler();
+	
+	if (!waystation.ready) return null;
+	
+	return waystation
 }
 
 /* this can be run in an onload event. It will make an HTTP request for the language

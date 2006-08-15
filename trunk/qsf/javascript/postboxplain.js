@@ -115,14 +115,14 @@ function bbcodeInit(textarea) {
 			bbcodeInit(items[i]);
 		}
 	}
+
 	var oldButtons = document.getElementById('qsf_bbcode_buttons');
 	if (oldButtons) {
 		oldButtons.parentNode.removeChild(oldButtons);
 	}
 	
-	
 	textarea.buildButtons = function() {
-		if (!js_lang) return; // fail!
+		if (!js_lang) return false; // fail!
 		
 		// Insert the BB Code buttons above it
 		var bbCodeButtons = document.createElement("div");
@@ -315,8 +315,8 @@ function bbcodeInit(textarea) {
 			
 			if(window.event) // IE
 			{
-				keynum = e.keyCode;
-				if (!(e.modifiers & Event.CONTROL_MASK)) return true;
+				keynum = window.event.keyCode;
+				if (!(window.event.modifiers & window.event.CONTROL_MASK)) return true;
 			}
 			else if(e.which) // Netscape/Firefox/Opera
 			{
@@ -369,6 +369,8 @@ function bbcodeInit(textarea) {
 			textarea.buildButtons();
 		}
 	}
+	
+	return false;
 }
 
 /* Code to handle clickable smiley's */
@@ -396,26 +398,28 @@ function loadSmilies(textarea) {
 			smilesDiv.appendChild(heading);
 			
 			var list = document.createElement("ul");
-			smilesDiv.appendChild(list);
-			for (item in smiliesData) {
+			
+			for (var smileItem in smiliesData) {
 				var listItem = document.createElement("li");
 				var itemAnchor = document.createElement("a");
 				var itemImg = document.createElement("img");
 				
 				itemAnchor.href = "#";
-				itemAnchor.smile = item;
+				itemAnchor.smile = smileItem;
 				itemAnchor.onclick = function() {
 					insertSmiley(this.smile, textarea);
 					return false;
 				};
 				
-				itemImg.src = smiliesData[item];
-				itemImg.alt = item;
+				itemImg.src = smiliesData[smileItem];
+				itemImg.alt = smileItem;
 				
 				itemAnchor.appendChild(itemImg);
 				listItem.appendChild(itemAnchor);
 				list.appendChild(listItem);
 			}
+			
+			smilesDiv.appendChild(list);
 			
 			clickableArea.appendChild(smilesDiv);
 		};
