@@ -160,6 +160,8 @@ class ru
 		$this->board_last_post = 'Последнее сообщение';
 		$this->board_mark = 'Отметить все сообщения как прочитанные';
 		$this->board_mark1 = 'Все сообщения и форумы были отмечены как прочитанные.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'пользователи';
 		$this->board_message = '%s сообщение';
 		$this->board_most_online = 'Максимальное число пользователей на форуме -  %d  было %s.';
@@ -338,6 +340,7 @@ class ru
 		$this->forum_jump = 'Перейти к последнему сообщению в теме';
 		$this->forum_last = 'Последнее сообщение';
 		$this->forum_locked = 'Закрыта';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Перемещена';
 		$this->forum_msg = '%s Message'; //Translate
 		$this->forum_new = 'Новая';
@@ -570,6 +573,7 @@ class ru
 		$this->main_logout = 'выход';
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Извините, %s сейчас недоступны из-за большого количества посетителей.';
 		$this->main_members = 'пользователи';
 		$this->main_messenger = 'сообщения';

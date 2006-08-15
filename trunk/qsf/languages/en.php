@@ -159,6 +159,8 @@ class en
 		$this->board_last_post = 'Last Post';
 		$this->board_mark = 'Marking Posts As Read';
 		$this->board_mark1 = 'All posts and forums have been marked as read.';
+		$this->board_markforum = 'Marking Forum As Read';
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.';
 		$this->board_members = 'members';
 		$this->board_message = '%s Message';
 		$this->board_most_online = 'The most users ever online was %d on %s.';
@@ -337,6 +339,7 @@ class en
 		$this->forum_jump = 'Jump to newest post in topic';
 		$this->forum_last = 'Last Post';
 		$this->forum_locked = 'Locked';
+		$this->forum_mark_read = 'Mark forum as read';
 		$this->forum_moved = 'Moved';
 		$this->forum_msg = '%s Message';
 		$this->forum_new = 'New';
@@ -569,6 +572,7 @@ class en
 		$this->main_logout = 'logout';
 		$this->main_mark = 'mark all';
 		$this->main_mark1 = 'Mark all topics as read';
+		$this->main_markforum_read = 'Mark forum as read';
 		$this->main_max_load = 'We are sorry, but %s is currently unavailable, due to a massive amount of connected users.';
 		$this->main_members = 'members';
 		$this->main_messenger = 'messenger';

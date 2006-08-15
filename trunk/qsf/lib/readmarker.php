@@ -127,7 +127,7 @@ class readmarker extends forumutils
 	}
 
 	/**
-	 * Mark all topics within a forum and subforums as read to the time set
+	 * Mark all topics within a forum as read to the time set
 	 *
 	 * @param int $forum_id Forum being marked as read
 	 * @param int $time Time of the newest post read
@@ -136,18 +136,12 @@ class readmarker extends forumutils
 	 **/
 	function mark_forum_read($forum_id, $time)
 	{
-		$this->_load_forum_topics();
-
-		$forums = $this->forum_array($this->forum_grab(), $forum_id);
-		if ($forums) {
-			// Great. We've got a list of forums now. Now to track down the topics!
-			$query = $this->db->query("SELECT topic_id, topic_edited FROM %ptopics
-				WHERE topic_edited > %d AND topic_forum IN (%s)",
-				$this->last_read_all, implode(',', $forums));
-			
-			while ($row = $this->db->nqfetch($query)) {
-				$this->mark_topic_read($row['topic_id'], $time);
-			}
+		$query = $this->db->query("SELECT topic_id, topic_edited FROM %ptopics
+			WHERE topic_edited > %d AND topic_forum = %d",
+			$this->last_read_all, $forum_id);
+		
+		while ($row = $this->db->nqfetch($query)) {
+			$this->mark_topic_read($row['topic_id'], $time);
 		}
 	}
 	

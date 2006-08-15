@@ -159,6 +159,8 @@ class id
 		$this->board_last_post = 'Posting terakhir';
 		$this->board_mark = 'Marking Posts As Read'; //Translate
 		$this->board_mark1 = 'All posts and forums have been marked as read.'; //Translate
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'Anggota';
 		$this->board_message = '%s Pesan';
 		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
@@ -337,6 +339,7 @@ class id
 		$this->forum_jump = 'Lompat ke posting baru di dalam topik';
 		$this->forum_last = 'Posting terakhir';
 		$this->forum_locked = 'Dikunci';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Pindah';
 		$this->forum_msg = '%s Pesan';
 		$this->forum_new = 'Baru';
@@ -569,6 +572,7 @@ class id
 		$this->main_logout = 'logout'; //Translate
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Maaf, %s sudah tidak ada, karena banyaknya user yang terkoneksi.';
 		$this->main_members = 'Anggota';
 		$this->main_messenger = 'Messenger';

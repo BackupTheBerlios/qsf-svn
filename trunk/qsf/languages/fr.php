@@ -159,6 +159,8 @@ class fr
 		$this->board_last_post = 'Dernier message';
 		$this->board_mark = 'Marquer tous les messages comme lus';
 		$this->board_mark1 = 'Tous les forums et messages ont été marqués comme lus.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'membres';
 		$this->board_message = 'Message de %s';
 		$this->board_most_online = 'La plupart des utilisateurs(-trices) n\'ont jamais étaient en ligne %d sur %s.';
@@ -337,6 +339,7 @@ class fr
 		$this->forum_jump = 'Aller au dernier message de ce sujet';
 		$this->forum_last = 'Dernier message';
 		$this->forum_locked = 'Verrouillé';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Déplacé';
 		$this->forum_msg = 'Message de %s';
 		$this->forum_new = 'Nouveau';
@@ -569,6 +572,7 @@ class fr
 		$this->main_logout = 'Déconnexion';
 		$this->main_mark = 'marquer tout';
 		$this->main_mark1 = 'Marquer tous sujets comme a lu';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Nous sommes désolés, mais %s est actuellement indisponible, à cause d\'un trop grand nombre d\'utilisateurs connectés.';
 		$this->main_members = 'Membres';
 		$this->main_messenger = 'Messages persos';

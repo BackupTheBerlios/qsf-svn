@@ -160,6 +160,8 @@ class de
 		$this->board_last_post = 'Letzter Beitrag';
 		$this->board_mark = 'Beiträge als gelesen markieren';
 		$this->board_mark1 = 'Alle Beiträge und Foren wurden als gelesen markiert.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'Mitglieder';
 		$this->board_message = '%s Nachricht';
 		$this->board_most_online = 'Der Rekord liegt bei %d Benutzern gleichzeitig (%s).';
@@ -338,6 +340,7 @@ class de
 		$this->forum_jump = 'Springe zum neuesten Beitrag im Thema';
 		$this->forum_last = 'Letzter Beitrag';
 		$this->forum_locked = 'Gesperrt';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Verschoben';
 		$this->forum_msg = '%s Nachricht';
 		$this->forum_new = 'Neu';
@@ -570,6 +573,7 @@ class de
 		$this->main_logout = 'Abmelden';
 		$this->main_mark = 'Alle markieren';
 		$this->main_mark1 = 'Markiere alle Themen als gelesen';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Es tut uns leid, aber %s ist momentan nicht erreichbar, weil zu viele Benutzer online sind.';
 		$this->main_members = 'Mitglieder';
 		$this->main_messenger = 'Nachrichtenzentrale';

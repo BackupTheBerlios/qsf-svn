@@ -160,6 +160,8 @@ class sv
 		$this->board_last_post = 'Senaste Inlägg';
 		$this->board_mark = 'Markerar Inlägg Som Läst';
 		$this->board_mark1 = 'Alla inlägg och forum har markerats som lästa.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'medlemmar';
 		$this->board_message = '%s Meddelande';
 		$this->board_most_online = 'Flest användare online någonsin var %d %s.';
@@ -338,6 +340,7 @@ class sv
 		$this->forum_jump = 'Hoppa till nyaste inlägg i ämnet';
 		$this->forum_last = 'Senaste Inlägg';
 		$this->forum_locked = 'Låst';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Flyttad';
 		$this->forum_msg = '%s Meddelande';
 		$this->forum_new = 'Ny';
@@ -570,6 +573,7 @@ class sv
 		$this->main_logout = 'logga ut';
 		$this->main_mark = 'markera alla';
 		$this->main_mark1 = 'Markera alla ämnen som lästa';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Tyvärr är %s för tillfället otillgänglig p.g.a. hög belastning.';
 		$this->main_members = 'medlemmar';
 		$this->main_messenger = 'Snabbmeddelanden';

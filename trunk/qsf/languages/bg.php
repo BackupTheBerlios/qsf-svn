@@ -159,6 +159,8 @@ class bg
 		$this->board_last_post = 'Последно мнение';
 		$this->board_mark = 'Маркирайте мненията като прочетени';
 		$this->board_mark1 = 'ВСИЧКИ мнения и форуми са маркирани като прочетени.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'Потребители';
 		$this->board_message = '%s Съобщение';
 		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
@@ -337,6 +339,7 @@ class bg
 		$this->forum_jump = 'Иди на най-новото мнение';
 		$this->forum_last = 'Последно мнение';
 		$this->forum_locked = 'Заключена';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Преместена';
 		$this->forum_msg = '%s съобщение';
 		$this->forum_new = 'Нови мнения';
@@ -569,6 +572,7 @@ class bg
 		$this->main_logout = 'logout'; //Translate
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Много съжаляваме, но,  %s временно е недостъпен, защото има има голям брой потребители онлайн.';
 		$this->main_members = 'потребители';
 		$this->main_messenger = 'messenger'; //Translate

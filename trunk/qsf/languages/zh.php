@@ -159,6 +159,8 @@ class zh
 		$this->board_last_post = '�����';
 		$this->board_mark = '����Ѷ�';
 		$this->board_mark1 = '��������Ѷa�';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'λ��Ա';
 		$this->board_message = '%s ����Ϣ';
 		$this->board_most_online = '����������� %d ������ %s';
@@ -337,6 +339,7 @@ class zh
 		$this->forum_jump = '��ת��������';
 		$this->forum_last = '��󷢱�';
 		$this->forum_locked = '�ر�';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = '�ƶ�';
 		$this->forum_msg = '%s��Ϣ';
 		$this->forum_new = '��';
@@ -569,6 +572,7 @@ class zh
 		$this->main_logout = '�ǳ�';
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = '�Բ��� ���������û���࣬��ǰ%s�����á�';
 		$this->main_members = '��Ա�б�';
 		$this->main_messenger = '˽����Ϣ';

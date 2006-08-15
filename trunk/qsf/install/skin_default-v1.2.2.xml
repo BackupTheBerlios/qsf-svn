@@ -1755,7 +1755,12 @@
       <description>Format the look of a &quot;forum&quot; entry on the index page or subcategory pages.</description>
       <html><![CDATA[
 <tr>
-  <td class="tablelight" style="height:35px"><a href="{$this->self}?a=forum&amp;f={$forum['forum_id']}">{$forum['forum_name']}</a>{$forum['forum_description']}</td>
+  <td class="tablelight" style="height:35px">
+  <IF ($forum_unread)>
+  <a style="float: right" href="{$this->self}?s=mark&amp;f={$forum['forum_id']}"><img src="./skins/{$this->skin}/images/icons/forum_read.png" alt="{$this->lang->main_markforum_read}" title="{$this->lang->main_markforum_read}" /></a>
+  </IF>
+
+  <a href="{$this->self}?a=forum&amp;f={$forum['forum_id']}">{$forum['forum_name']}</a>{$forum['forum_description']}</td>
   <td class="tabledark" style="text-align:center;">{$forum['forum_topics']}</td>
   <td class="tabledark" style="text-align:center;">{$forum['forum_replies']}</td>
   <td class="tablelight">{$user_lastpostBox}</td>
@@ -1767,7 +1772,7 @@
       <description>Change the look of the last poster box on the forums.</description>
       <html><![CDATA[
 <IF ($topic_unread)>
- <img src="./skins/{$this->skin}/images/icons/topic_unread.png" alt="{$this->lang->main_topics_new}" title="{$this->lang->main_topics_new}" />
+ <img src="./skins/{$this->skin}/images/icons/topic_unread.png" alt="" />
 </IF>
 <a href="{$this->self}?a=topic&amp;t={$forum['LastTopicID']}" class="small" title="{$full_title}">{$forum['user_lastpost']}</a><br />
 {$this->lang->board_by} {$forum['user_lastposter']}<br />
@@ -2467,7 +2472,7 @@ enable('$init');
 
 {$this->table}
  <tr>
-  <td class="header" style="width:5%">&nbsp;</td>
+  <td class="header" style="width:5%; text-align:center"><a href="{$this->self}?s=mark&amp;f={$f}"><img src="./skins/{$this->skin}/images/icons/forum_read.png" alt="{$this->lang->forum_mark_read}" title="{$this->lang->forum_mark_read}" /></a></td>
   <td class="header" style="width:40%"><a href="{$this->self}?a=forum&amp;f={$f}&amp;min={$min}&amp;n={$n}&amp;order=title&amp;asc={$asc}" class="header">{$this->lang->forum_topic}</a></td>
   <td class="header" style="width:15%; text-align:center"><a href="{$this->self}?a=forum&amp;f={$f}&amp;min={$min}&amp;n={$n}&amp;order=starter&amp;asc={$asc}" class="header">{$this->lang->forum_starter}</a></td>
   <td class="header" style="width:10%; text-align:center"><a href="{$this->self}?a=forum&amp;f={$f}&amp;min={$min}&amp;n={$n}&amp;order=replies&amp;asc={$asc}" class="header">{$this->lang->forum_replies}</a></td>

@@ -159,6 +159,8 @@ class hu
 		$this->board_last_post = 'Utolsó beírás';
 		$this->board_mark = 'Beírás olvasottként jelölése';
 		$this->board_mark1 = 'Minden beírás olvasottként van jelölve.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'tag';
 		$this->board_message = '%s üzenet';
 		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
@@ -337,6 +339,7 @@ class hu
 		$this->forum_jump = 'Ugrás a legújabb bejegyzésre';
 		$this->forum_last = 'Utolsó bejegyzés';
 		$this->forum_locked = 'Zárolva';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Áthelyezve';
 		$this->forum_msg = '%s üzenet';
 		$this->forum_new = 'Új';
@@ -569,6 +572,7 @@ class hu
 		$this->main_logout = 'kijelentkezés';
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Sajnáljuk, de %s nem elérhetõ, túl sok a bejelentkezett felhasználó.';
 		$this->main_members = 'tagok';
 		$this->main_messenger = 'üzenõ';

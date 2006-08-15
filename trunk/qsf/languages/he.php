@@ -159,6 +159,8 @@ class he
 		$this->board_last_post = 'הודעה אחרונה';
 		$this->board_mark = 'סמן כל ההודעות כנקראו';
 		$this->board_mark1 = 'כל ההודועת פורומים סומנו כנקראו.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'משתמשים';
 		$this->board_message = '%s הודעה';
 		$this->board_most_online = '%s ב %d מספר המשתמשים המירבי שהיה מחובר הוא';
@@ -337,6 +339,7 @@ class he
 		$this->forum_jump = 'קפוץ להודעה אחרונה בנושא';
 		$this->forum_last = 'הודעה אחרונה';
 		$this->forum_locked = 'נעול';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'מועבר';
 		$this->forum_msg = '%s הודעה';
 		$this->forum_new = 'חדש';
@@ -569,6 +572,7 @@ class he
 		$this->main_logout = 'התנתק';
 		$this->main_mark = 'סמן הכל';
 		$this->main_mark1 = 'סמן את כל ההודעות כנקראו';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'לא נגיש, עקב מספר גדול של משתמשים מחוברים. %s אנו מצטערים, כרגע ה';
 		$this->main_members = 'משתמשים';
 		$this->main_messenger = 'הודעות פרטיות';

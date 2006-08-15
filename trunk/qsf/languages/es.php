@@ -159,6 +159,8 @@ class es
 		$this->board_last_post = 'Último mensaje';
 		$this->board_mark = 'Marcar todos los mensajes como leidos';
 		$this->board_mark1 = 'Todos los mensajes se han marcado como leidos';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'Miembros';
 		$this->board_message = '%s Mensaje';
 		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
@@ -337,6 +339,7 @@ class es
 		$this->forum_jump = 'Brincar al tópico más reciente';
 		$this->forum_last = 'Ultima publicación';
 		$this->forum_locked = 'Bloqueado';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Movido';
 		$this->forum_msg = '%s Mensaje';
 		$this->forum_new = 'Nuevo';
@@ -569,6 +572,7 @@ class es
 		$this->main_logout = 'Salir';
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Lo sentimos pero, %s no esta actualmente disponible debido a la cantidad masiva de usuaruios conectados';
 		$this->main_members = 'Miembros';
 		$this->main_messenger = 'Mensajero';

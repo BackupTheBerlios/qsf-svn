@@ -159,6 +159,8 @@ class sk
 		$this->board_last_post = 'Najnovší príspevok';
 		$this->board_mark = 'Preznaè všetky príspevky na "preèítané"';
 		$this->board_mark1 = 'Všetky príspevky a fóra boli preznaèené na "preèítané"';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'èlenovia';
 		$this->board_message = '%s Správa';
 		$this->board_most_online = 'Historicky maximálny poèet online užívate¾ov je %d a bol dosiahnutý %s.';
@@ -337,6 +339,7 @@ class sk
 		$this->forum_jump = 'Hop na najnovšie príspevky pod touto témou';
 		$this->forum_last = 'Najnovší príspevok';
 		$this->forum_locked = 'Zamknuté';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Presunuté';
 		$this->forum_msg = '%s Správa';
 		$this->forum_new = 'nové';
@@ -570,6 +573,7 @@ class sk
 		$this->main_logout = 'odhlásenie';
 		$this->main_mark = 'oznaèi všetko';
 		$this->main_mark1 = 'Oznaèi všetky témy ako preèítané';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Je nám ¾úto, ale %s momentálne nie je dostupné kvôli strašnej mase online užívate¾ov.';
 		$this->main_members = 'èlenovia';
 		$this->main_messenger = 'odkazovaè';

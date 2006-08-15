@@ -160,6 +160,8 @@ class no
 		$this->board_last_post = 'Siste innlegg';
 		$this->board_mark = 'Markér innlegg som lest';
 		$this->board_mark1 = 'Alle innlegg og fora har blitt markert som lest.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'medlemmer';
 		$this->board_message = '%s melding';
 		$this->board_most_online = 'Høyest antall samtidige brukere var %d den %s.';
@@ -338,6 +340,7 @@ class no
 		$this->forum_jump = 'Hoppe til nyeste innlegg i emnet';
 		$this->forum_last = 'Siste innlegg';
 		$this->forum_locked = 'Lest';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Flyttet';
 		$this->forum_msg = '%s melding';
 		$this->forum_new = 'Ny';
@@ -570,6 +573,7 @@ class no
 		$this->main_logout = 'Logg ut';
 		$this->main_mark = 'Markér alle';
 		$this->main_mark1 = 'Markér alle emner som lest';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Dessverre er %s utilgjengelig pga. for mange samtidige brukere.';
 		$this->main_members = 'Medlemmer';
 		$this->main_messenger = 'Meldinger';

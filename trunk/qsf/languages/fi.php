@@ -159,6 +159,8 @@ class fi
 		$this->board_last_post = 'Uusin viesti';
 		$this->board_mark = 'Merkataan viestejä luetuksi';
 		$this->board_mark1 = 'Kaikki viestit ja huoneet on merkattu luetuiksi.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'käyttäjää';
 		$this->board_message = '%s viesti';
 		$this->board_most_online = 'Parhaimmillaan paikalla on ollut %d käyttäjää %s.';
@@ -337,6 +339,7 @@ class fi
 		$this->forum_jump = 'Tarkasta keskustelun uusin viesti';
 		$this->forum_last = 'Uusin viesti';
 		$this->forum_locked = 'lukittu';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'siirretty';
 		$this->forum_msg = '%s viesti';
 		$this->forum_new = 'uusi';
@@ -569,6 +572,7 @@ class fi
 		$this->main_logout = 'poistu';
 		$this->main_mark = 'mark all'; //Translate
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Valitettavasti %s on tällä hetkellä pääsemättömissä liian monen paikalla olevan käyttäjän vuoksi.';
 		$this->main_members = 'käyttäjät';
 		$this->main_messenger = 'viestitin';

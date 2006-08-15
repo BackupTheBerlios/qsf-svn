@@ -59,8 +59,20 @@ class board extends qsfglobal
 
 		if (isset($this->get['s'])) {
 			if ($this->get['s'] == 'mark') {
-				$this->readmarker->mark_all_read($this->time);
-				return $this->message($this->lang->board_mark, $this->lang->board_mark1, $this->lang->continue, $this->self, $this->self);
+				if (isset($this->get['f']) && intval($this->get['f'])) {
+					$forum_id = intval($this->get['f']);
+					$forum_data = $this->htmlwidgets->get_forum($forum_id);
+					if ($forum_data) {
+						$forum_name = $forum_data['forum_name'];
+						$this->readmarker->mark_forum_read($forum_id, $this->time);
+						return $this->message($this->lang->board_markforum,
+							sprintf($this->lang->board_markforum1, $forum_name),
+							$this->lang->continue, $this->self, $this->self);
+					}
+				} else {
+					$this->readmarker->mark_all_read($this->time);
+					return $this->message($this->lang->board_mark, $this->lang->board_mark1, $this->lang->continue, $this->self, $this->self);
+				}
 			} else {
 				$this->get['s'] = null;
 			}
@@ -151,10 +163,11 @@ class board extends qsfglobal
 
 					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 					$topic_unread = false;
+					$forum_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
 
 					if ($forum['forum_lastpost']) {
-						$topic_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
-						if ($topic_unread) {
+						$topic_unread = !$this->readmarker->is_topic_read($forum['LastTopicID'], $forum['LastTime']);
+						if ($forum_unread) {
 							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
 						}
 						

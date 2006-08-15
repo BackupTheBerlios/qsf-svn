@@ -161,6 +161,8 @@ class nl
 		$this->board_last_post = 'Laatst geplaatst op';
 		$this->board_mark = 'Markeer berichten als gelezen';
 		$this->board_mark1 = 'Alle berichten en forums zijn als gelezen gemarkeerd.';
+		$this->board_markforum = 'Marking Forum As Read'; //Translate
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'Gebruikers';
 		$this->board_message = '%s bericht';
 		$this->board_most_online = 'Grootst aantal gebruikers online was %d op %s.';
@@ -339,6 +341,7 @@ class nl
 		$this->forum_jump = 'Ga naar het laatste bericht geplaatst in dit onderwerp.';
 		$this->forum_last = 'Laatste bericht';
 		$this->forum_locked = 'Gesloten';
+		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Verplaatst';
 		$this->forum_msg = '%s bericht';
 		$this->forum_new = 'Nieuw';
@@ -571,6 +574,7 @@ class nl
 		$this->main_logout = 'Log uit';
 		$this->main_mark = 'Markeer alles';
 		$this->main_mark1 = 'Markeer alle forums als gelezen';
+		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Onze excuses, maar %s is nu niet beschikbaar wegens een te groot aantal ingelogde gebruikers.';
 		$this->main_members = 'Gebruikers';
 		$this->main_messenger = 'Privé berichten';
