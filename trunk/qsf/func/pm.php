@@ -227,7 +227,7 @@ class pm extends qsfglobal
 			$this->db->query("INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read)
 				VALUES (%d, %d, INET_ATON('%s'), '%s', '%s', %d, '%s', 1, 1)",
 				$this->user['user_id'], $this->user['user_id'], $this->ip, implode(';', $ok_pm), $this->post['title'], $this->time, $this->post['message']);
-			$this->db->query("UPDATE %pusers SET user_lastpm='' WHERE user_id=%d", $this->time, $this->user['user_id']);
+			$this->db->query("UPDATE %pusers SET user_lastpm=%d WHERE user_id=%d", $this->time, $this->user['user_id']);
 
 			if ($bad_name || $bad_pm) {
 				return $this->message($this->lang->pm_personal_msging, sprintf($this->lang->pm_error, implode('; ', $bad_name), implode('; ', $bad_pm)));
