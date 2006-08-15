@@ -391,11 +391,9 @@ function loadSmilies(textarea) {
 	
 			var smiliesData = text.parseJSON();
 			
+			if (smiliesData.length == 0) return;
+			
 			var smilesDiv = document.createElement("div");
-			var heading = document.createElement("strong");
-			var headingText = document.createTextNode(js_lang.jslang_smiles);
-			heading.appendChild(headingText);
-			smilesDiv.appendChild(heading);
 			
 			var list = document.createElement("ul");
 			
@@ -421,7 +419,16 @@ function loadSmilies(textarea) {
 			
 			smilesDiv.appendChild(list);
 			
+			var heading = document.createElement("strong");
+			var headingText = document.createTextNode(js_lang.jslang_smiles);
+			heading.appendChild(headingText);
+			smilesDiv.insertBefore(heading, list);
+			
 			clickableArea.appendChild(smilesDiv);
+			
+			if (typeof fnLoadPngs != 'undefined') {
+				fnLoadPngs(); // IE needs extra processing on PNGs
+			}
 		};
 		
 		smiliesFetcher = getHTTPObject(handler);
