@@ -50,7 +50,7 @@ function rebuildTimezoneSelect(element)
 			tempHash[matches[1]][tempHash[matches[1]].length] = new Array(element.options[i].value, matches[2]);
 		}
 	}
-	selectFirst.setAttribute("onchange", "buildSecondaryList(this)");
+	selectFirst.onchange = function() { buildSecondaryList(selectFirst); };
 	element.parentNode.insertBefore(selectFirst, element);
 	timezone_arrays[element.name] = tempHash;
 	
