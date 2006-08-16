@@ -513,6 +513,8 @@ class en
 		$this->bbcode_verdana = 'Verdana';
 		$this->bbcode_wood = 'Burly Wood';
 		$this->bbcode_yellow = 'Yellow';
+		$this->jslang_avatar_size_height = 'Your avatar height must be between 1 and %d pixels';
+		$this->jslang_avatar_size_width = 'Your avatar width must be between 1 and %d pixels';
 		$this->jslang_smiles = 'Clickable Smilies';
 	}
 

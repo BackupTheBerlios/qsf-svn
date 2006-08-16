@@ -41,6 +41,11 @@ class jslang extends qsfglobal
 		
 		$json = new Services_JSON();
 		
+		// Add in the height and width settings
+		$this->lang->sets = array();
+		$this->lang->sets['avatar_width'] = $this->sets['avatar_width'];
+		$this->lang->sets['avatar_height'] = $this->sets['avatar_height'];
+		
 		return $json->encode($this->lang);
 	}
 	

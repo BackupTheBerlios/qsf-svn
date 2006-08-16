@@ -39,6 +39,7 @@ $need_templates = array(
 	'BOARD_FORUM',
 	'BOARD_LAST_POST_BOX',
 	'BOARD_MAIN',
+	'CP_AVATAR',
 	'CP_EDIT_SIG',
 	'CP_PREFS',
 	'PM_SEND',

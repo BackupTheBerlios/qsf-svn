@@ -513,6 +513,8 @@ class he
 		$this->bbcode_verdana = 'Verdana'; //Translate
 		$this->bbcode_wood = 'Burly Wood'; //Translate
 		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->jslang_avatar_size_height = 'Your avatar height must be between 1 and %d pixels'; //Translate
+		$this->jslang_avatar_size_width = 'Your avatar width must be between 1 and %d pixels'; //Translate
 		$this->jslang_smiles = 'Clickable Smilies'; //Translate
 	}
 
