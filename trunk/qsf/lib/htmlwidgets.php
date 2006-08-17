@@ -222,18 +222,14 @@ class htmlwidgets extends htmltools
 
 		$out = null;
 		$dir = opendir($relative . '/avatars' . $subfolder);
+		$subDirs = array();
 
 		while (($file = readdir($dir)) !== false)
 		{
 			if (is_dir('./avatars' . $subfolder . $file)) {
 				if ($file == 'uploaded' || $file[0] == '.') continue;
 				
-				$extra = $this->select_avatars($current, $relative, $subfolder . $file);
-				if ($extra) {
-					$out .= '<optgroup label="' . htmlspecialchars($file) . "\">\n";
-					$out .= $extra;
-					$out .= "</optgroup>\n";
-				}
+				$subDirs[] = $file;
 			}
 
 			$split = explode('.', $file);
@@ -248,6 +244,21 @@ class htmlwidgets extends htmltools
 			$out .= "<option value=\"./avatars$subfolder$file\"" . (("./avatars$subfolder$file" == $current) ? ' selected="selected"' : null) . '>' . implode('.', $split) . "</option>\n";
 		}
 
+		foreach ($subDirs as $file) {
+			$extra = $this->select_avatars($current, $relative, $subfolder . $file);
+			if ($extra) {
+				if ($subfolder == '/') {
+					$out .= '<optgroup label="' . htmlspecialchars($file) . "\">\n";
+					$out .= $extra;
+					$out .= "</optgroup>\n";
+				} else {
+					$out .= "</optgroup>\n";
+					$out .= '<optgroup label="' . htmlspecialchars(substr($subfolder . $file, 1)) . "\">\n";
+					$out .= $extra;
+				}
+			}
+		}
+		
 		return $out;
 	}
 
