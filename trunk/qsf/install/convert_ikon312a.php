@@ -57,9 +57,6 @@ if( !$olddb->connection )
 }
 $oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
 
-$qsf->pre  = $qsf->db->db . "." . $set['prefix'];
-$oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
-
 function write_olddb_sets( $oldset )
 {
    $settings = "<?php\n\$oldset = array();\n";
@@ -591,7 +588,7 @@ else if( $_GET['action'] == 'pmessages' )
             }
             if( $row['TITLE'] == '' )
                $row['TITLE'] = "No Title";
-            $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, %d, '%s', %d, '%s', %d, %d )",
+            $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, '%s', '%s', %d, '%s', %d, %d )",
                $row['MESSAGE_ID'], $row['RECIPIENT_ID'], $row['FROM_ID'], $bcc, $row['TITLE'], $row['DATE'], $row['MESSAGE'], $row['READ_STATE'], $folder );
          }
       }

@@ -57,9 +57,6 @@ if( !$olddb->connection )
 }
 $oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
 
-$qsf->pre  = $qsf->db->db . "." . $set['prefix'];
-$oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
-
 function write_olddb_sets( $oldset )
 {
    $settings = "<?php\n\$oldset = array();\n";
@@ -207,34 +204,32 @@ function strip_invision_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   // And lastly, prep for database insertion.
-   $text = $qsf->db->escape( $text );
    return $text;
 }
 
 if( !isset($_GET['action']) || $_GET['action'] == '' )
 {
-   if( $oldset['converted'] == '0' )
+   if( $oldset['converted'] == 0 )
    {
-      $oldset['converted'] = '1';
-      $oldset['censor'] = '0';
-      $oldset['censor_count'] = '0';
-      $oldset['profiles'] = '0';
-      $oldset['prof_count'] = '0';
-      $oldset['pms'] = '0';
-      $oldset['pm_count'] = '0';
-      $oldset['titles'] = '0';
-      $oldset['title_count'] = '0';
-      $oldset['cats'] = '0';
-      $oldset['cat_count'] = '0';
-      $oldset['forums'] = '0';
-      $oldset['forum_count'] = '0';
-      $oldset['topics'] = '0';
-      $oldset['topic_count'] = '0';
-      $oldset['polls'] = '0';
-      $oldset['poll_count'] = '0';
-      $oldset['posts'] = '0';
-      $oldset['post_count'] = '0';
+      $oldset['converted'] = 1;
+      $oldset['censor'] = 0;
+      $oldset['censor_count'] = 0;
+      $oldset['profiles'] = 0;
+      $oldset['prof_count'] = 0;
+      $oldset['pms'] = 0;
+      $oldset['pm_count'] = 0;
+      $oldset['titles'] = 0;
+      $oldset['title_count'] = 0;
+      $oldset['cats'] = 0;
+      $oldset['cat_count'] = 0;
+      $oldset['forums'] = 0;
+      $oldset['forum_count'] = 0;
+      $oldset['topics'] = 0;
+      $oldset['topic_count'] = 0;
+      $oldset['polls'] = 0;
+      $oldset['poll_count'] = 0;
+      $oldset['posts'] = 0;
+      $oldset['post_count'] = 0;
 
       write_olddb_sets( $oldset );
    }
@@ -272,7 +267,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight' align='left'><a href='convert_invision131f.php?action=censor'>Convert Censored Words</a>
      </td>";
 
-   if( $censor_count > '0' )
+   if( $censor_count > 0 )
       echo "<td class='tablelight' align='left'>".$censor_count." censored words converted.</td>\n";
    else
       echo "<td class='tablelight'>&nbsp;</td>\n";
@@ -282,68 +277,68 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight' align='left'><a href='convert_invision131f.php?action=members'>Convert Member Profiles</a>
      </td>";
 
-   if( $prof_count > '0' )
+   if( $prof_count > 0 )
       echo "<td class='tablelight' align='left'>".$prof_count." member profiles converted.</td>\n";
    else
       echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_invision131f.php?action=pmessages'>Convert Private Messages</a></td>\n";
-      if( $pms == '1' )
+      if( $pms == 1 )
          echo "<td class='tablelight' align='left'>".$pm_count." private messages converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_invision131f.php?action=mtitles'>Convert Member Titles</a></td>\n";
-      if( $titles == '1' )
+      if( $titles == 1 )
          echo "<td class='tablelight' align='left'>".$title_count." member titles converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_invision131f.php?action=forum'>Convert Forum Structure</a></td>\n";
-      if( $cats == '1' )
+      if( $cats == 1 )
          echo "<td class='tablelight' align='left'>".$cat_count." categories converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $cats == '1' )
+   if( $cats == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight'>&nbsp;</td>\n";
-      if( $forums == '1' )
+      if( $forums == 1 )
          echo "<td class='tablelight' align='left'>".$forum_count." forums converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $forums == '1' )
+   if( $prof == 1 && $forums == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight'>&nbsp;</td>\n";
-      if( $topics == '1' )
+      if( $topics == 1 )
          echo "<td class='tablelight' align='left'>".$topic_count." topics converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight'>&nbsp;</td>\n";
@@ -354,15 +349,15 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
-      if( $posts == '0' )
+      if( $posts == 0 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_invision131f.php?action=posts'>Convert Posts</a></td>\n";
          echo "<td class='tablelight'>&nbsp;</td>\n";
       }
-      else if( $posts == '1' )
+      else if( $posts == 1 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_invision131f.php?action=posts&start=".$post_count."&i=".$post_count."'>Continue post conversion</a></td>\n";
          echo "<td class='tablelight' align='left'>".$post_count." posts converted so far.</td>\n";
@@ -380,7 +375,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $posts == '2' || $oldset['converted'] == '2' )
+   if( $posts == 2 || $oldset['converted'] == 2 )
    {
       $qsf->sets = $qsf->get_settings($qsf->sets);
       $qsf->updateForumTrees();
@@ -466,11 +461,11 @@ else if( $_GET['action'] == 'censor' )
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $qsf->db->query( "INSERT INTO %preplacements (replacement_search, replacement_type) VALUES( '{$row['type']}', 'censor' )" );
+      $qsf->db->query( "INSERT INTO %preplacements (replacement_search, replacement_type) VALUES( '%s', 'censor' )", $row['type'] );
       $i++;
    }
 
-   $oldset['censor'] = '1';
+   $oldset['censor'] = 1;
    $oldset['censor_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
@@ -479,21 +474,19 @@ else if( $_GET['action'] == 'censor' )
 else if( $_GET['action'] == 'members' )
 {
    $qsf->db->query( "TRUNCATE %pusers" );
-   $sql = "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
-   $result = $qsf->db->query($sql);
+   $qsf->db->query( INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
 
-   $i = '0';
-   $sql = "SELECT * FROM %pmembers";
-   $result = $oldboard->db->query($sql);
+   $i = 0;
+   $result = $oldboard->db->query( "SELECT * FROM %pmembers" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['id'] == '0' )
+      if( $row['id'] == 0 )
          ;
       else
       {
          $row['id']++;
 
-         if( $row['hide_email'] == '' || $row['hide_email'] == '1' )
+         if( $row['hide_email'] == '' || $row['hide_email'] == 1 )
             $showmail = 0;
          else
             $showmail = 1;
@@ -527,7 +520,7 @@ else if( $_GET['action'] == 'members' )
             $row['mgroup'] = 2;
 
          $pos = strpos( $row['avatar'], '://' );
-         if( $pos == '4' )
+         if( $pos == 4 )
          {
             $avatar = $row['avatar'];
             $width = 64;
@@ -550,12 +543,13 @@ else if( $_GET['action'] == 'members' )
          if( $row['icq_number'] )
             $icq = intval( $row['icq_number'] );
 
-         $qsf->db->query( "INSERT INTO %pusers VALUES( {$row['id']}, '{$row['name']}', '{$row['password']}', {$row['joined']}, 1, '{$row['title']}', 0, {$row['mgroup']}, 'default', 'en', '{$avatar}', '{$type}', {$width}, {$height}, '{$row['email']}', {$showmail}, 1, '{$bday}', 151, '{$row['website']}', {$row['posts']}, '{$row['location']}', {$icq}, '{$row['msnname']}', '{$row['aim_name']}', '', 1, 1, '{$row['yahoo']}', '{$row['interests']}', '{$row['signature']}', {$row['last_visit']}, 0, {$row['last_activity']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
+         $qsf->db->query( "INSERT INTO %pusers VALUES( %d, '%s', '%s', %d, 1, '%s', 0, %d, 'default', 'en', '%s', '%s', %d, %d, '%s', %d, 1, '%s', 151, '%s', %d, '%s', %d, '%s', '%s', '', 1, 1, '%s', '%s', '%s', %d, 0, %d, 0, 0, 1, 1, 1, 0, 0, '' )",
+            $row['id'], $row['name'], $row['password'], $row['joined'], $row['title'], $row['mgroup'], $avatar, $type, $width, $height, $row['email'], $showmail, $bday, $row['website'], $row['posts'], $row['location'], $icq, $row['msnname'], $row['aim_name'], $row['yahoo'], $row['interests'], $row['signature'], $row['last_visit'], $row['last_activity'] );
          $i++;
       }
    }
 
-   $oldset['profiles'] = '1';
+   $oldset['profiles'] = 1;
    $oldset['prof_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
@@ -563,10 +557,9 @@ else if( $_GET['action'] == 'members' )
 
 else if( $_GET['action'] == 'pmessages' )
 {
-   $i = '0';
+   $i = 0;
    $qsf->db->query( "TRUNCATE %ppmsystem" );
-   $sql = "SELECT * FROM %pmessages";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %pmessages" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       if( $row['vid'] == "in" || $row['vid'] == "sent" )
@@ -583,12 +576,12 @@ else if( $_GET['action'] == 'pmessages' )
             $i++;
 
             if( $row['vid'] == "in" )
-               $folder = '0';
+               $folder = 0;
             else
-               $folder = '1';
+               $folder = 1;
 
             $bcc = '';
-            if( $folder == '1' )
+            if( $folder == 1 )
             {
                $bcc = $row['recipient_id'];
                $row['recipient_id'] = $row['from_id'];
@@ -597,11 +590,12 @@ else if( $_GET['action'] == 'pmessages' )
             if( $row['title'] == '' )
                $row['title'] = "No Title";
 
-            $qsf->db->query( "INSERT INTO %ppmsystem VALUES( {$row['msg_id']}, {$row['recipient_id']}, {$row['from_id']}, 0, '{$bcc}', '{$row['title']}', {$row['msg_date']}, '{$row['message']}', {$row['read_state']}, {$folder} )" );
+            $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, '%s', '%s', %d, '%s', %d, %d )",
+               $row['msg_id'], $row['recipient_id'], $row['from_id'], $bcc, $row['title'], $row['msg_date'], $row['message'], $row['read_state'], $folder );
          }
       }
    }
-   $oldset['pms'] = '1';
+   $oldset['pms'] = 1;
    $oldset['pm_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
@@ -611,31 +605,30 @@ else if( $_GET['action'] == 'mtitles' )
 {
    $num = $oldboard->db->query( "SELECT * FROM %ptitles" );
    $all = $oldboard->db->num_rows( $num );
-   $i = '0';
+   $i = 0;
 
    if( $all > 0 )
    {
       $qsf->db->query( "TRUNCATE %pmembertitles" );
 
-      $sql = "SELECT * FROM %ptitles";
-      $result = $oldboard->db->query($sql);
+      $result = $oldboard->db->query( "SELECT * FROM %ptitles" );
       while( $row = $oldboard->db->nqfetch($result) )
       {
-         if( $row['pips'] > '5' )
+         if( $row['pips'] > 5 )
             $icon = '5.png';
-         else if( $row['pips'] < '1' )
+         else if( $row['pips'] < 1 )
             $icon = '1.png';
          else
          {
             $icon = $row['pips'];
             $icon .= '.png';
          }
-         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( {$row['id']}, '{$row['title']}', '{$row['posts']}', '{$icon}' )" );
+         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( %d, '%s', %d, '%s' )", $row['id'], $row['title'], $row['posts'], $icon );
          $i++;
       }
    }
 
-   $oldset['titles'] = '1';
+   $oldset['titles'] = 1;
    $oldset['title_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
@@ -645,10 +638,9 @@ else if( $_GET['action'] == 'forum' )
 {
    $qsf->db->query( "TRUNCATE %pforums" );
 
-   $sql = "SELECT * FROM %pcategories";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
-   $fid = '1';
+   $result = $oldboard->db->query( "SELECT * FROM %pcategories" );
+   $i = 0;
+   $fid = 1;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       if( $row['name'] != '-' )
@@ -658,21 +650,20 @@ else if( $_GET['action'] == 'forum' )
       }
    }
 
-   $oldset['cats'] = '1';
+   $oldset['cats'] = 1;
    $oldset['cat_count'] = $i;
    write_olddb_sets( $oldset );
 
-   $sql = "SELECT * FROM %pforums";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pforums" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       if( $row['last_post'] == '' )
-         $row['last_post'] = '0';
-      if( $row['sub_can_post'] == '0' )
-         $subcat = '1';
+         $row['last_post'] = 0;
+      if( $row['sub_can_post'] == 0 )
+         $subcat = 1;
       else
-         $subcat = '0';
+         $subcat = 0;
       $forum_table[] = array( 'new_id' => $fid++, 'cat' => $row['category'], 'parent' => $row['parent_id'], 'name' => $row['name'], 'position' => $row['position'], 'description' => $row['description'], 'topics' => $row['topics'], 'replies' => $row['posts'], 'lastpost' => $row['last_post'], 'old_id' => $row['id'], 'old_subcat' => $subcat );
    }
 
@@ -691,13 +682,13 @@ else if( $_GET['action'] == 'forum' )
       $id = $forum_table[$x]['old_id'];
       $subcat = $forum_table[$x]['old_subcat'];
 
-      if( $parent == '-2' )
-         $parent = '0';
-      else if( $parent == '-1' )
+      if( $parent == -2 )
+         $parent = 0;
+      else if( $parent == -1 )
       {
          for( $y = 0; $y < sizeof( $forum_table ); $y++ )
          {
-            if( $forum_table[$y]['old_id'] == $cat && $forum_table[$y]['parent'] == '-2' )
+            if( $forum_table[$y]['old_id'] == $cat && $forum_table[$y]['parent'] == -2 )
             {
                $parent = $forum_table[$y]['new_id'];
                break;
@@ -708,7 +699,7 @@ else if( $_GET['action'] == 'forum' )
       {
          for( $y = 0; $y < sizeof( $forum_table ); $y++ )
          {
-            if( $forum_table[$y]['old_id'] == $parent && $forum_table[$y]['parent'] == '-1' )
+            if( $forum_table[$y]['old_id'] == $parent && $forum_table[$y]['parent'] == -1 )
             {
                $parent = $forum_table[$y]['new_id'];
                break;
@@ -716,18 +707,18 @@ else if( $_GET['action'] == 'forum' )
          }
       }
 
-      $qsf->db->query( "INSERT INTO %pforums VALUES( '', {$parent}, '', '{$name}', {$position}, '{$description}', '{$topics}', '{$replies}', '{$last_post}', '{$subcat}' )" );
+      $qsf->db->query( "INSERT INTO %pforums VALUES( '', %d, '', '%s', %d, '%s', %d, %d, %d, %d )",
+         $parent, $name, $position, $description, $topics, $replies, $last_post, $subcat );
       $i++;
    }
 
-   $oldset['forums'] = '1';
+   $oldset['forums'] = 1;
    $oldset['forum_count'] = $i;
    write_olddb_sets( $oldset );
 
    $qsf->db->query( "TRUNCATE %ptopics" );
-   $sql = "SELECT * FROM %ptopics";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %ptopics" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['starter_id']++;
@@ -736,40 +727,40 @@ else if( $_GET['action'] == 'forum' )
       $topic_modes = TOPIC_PUBLISH;
       if( $row['state'] == 'closed' )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
-      if( $row['pinned'] == '1' )
+      if( $row['pinned'] == 1 )
          $topic_modes = ($topic_modes | TOPIC_PINNED);
-      if( $row['poll_state'] != '0' )
+      if( $row['poll_state'] != 0 )
          $topic_modes = ($topic_modes | TOPIC_POLL);
 
       $row['title'] = strip_invision_tags( $row['title'] );
       $row['description'] = strip_invision_tags( $row['description'] );
 
-      $fid = '0';
+      $fid = 0;
       for( $x = 0; $x < sizeof( $forum_table ); $x++ )
       {
-         if( $row['forum_id'] == $forum_table[$x]['old_id'] && $forum_table[$x]['parent'] > '-2' )
+         if( $row['forum_id'] == $forum_table[$x]['old_id'] && $forum_table[$x]['parent'] > -2 )
          {
             $fid = $forum_table[$x]['new_id'];
             break;
          }
       }
-      $qsf->db->query( "INSERT INTO %ptopics VALUES( {$row['tid']}, {$fid}, '{$row['title']}', '{$row['description']}', {$row['starter_id']}, 0, {$row['last_poster_id']}, '', '{$row['last_post']}', {$row['posts']}, {$row['views']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %ptopics VALUES( %d, %d, '%s', '%s', %d, 0, %d, '', %d, %d, %d, %d, 0, '' )",
+         $row['tid'], $fid, $row['title'], $row['description'], $row['starter_id'], $row['last_poster_id'], $row['last_post'], $row['posts'], $row['views'], $topic_modes );
       $i++;
    }
 
-   $oldset['topics'] = '1';
+   $oldset['topics'] = 1;
    $oldset['topic_count'] = $i;
    write_olddb_sets( $oldset );
 
    $qsf->db->query( "TRUNCATE %psubscriptions" );
-   $sql = "SELECT * FROM %pforum_tracker";
-   $result = $qsf->db->query($sql);
+   $result = $qsf->db->query( "SELECT * FROM %pforum_tracker" );
    $frows = 0;
    while( $row = $qsf->db->nqfetch($result) )
    {
       $row['member_id']++;
 
-      $fid = '0';
+      $fid = 0;
       for( $x = 0; $x < sizeof( $forum_table ); $x++ )
       {
          if( $row['forum_id'] == $forum_table[$x]['old_id'] )
@@ -779,42 +770,39 @@ else if( $_GET['action'] == 'forum' )
          }
       }
       $expire = time() + 2592000;
-      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$row['frid']}, {$row['member_id']}, 'forum', {$fid}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, 'forum', %d, %d )", $row['frid'], $row['member_id'], $fid, $expire );
       if( $row['frid'] > $frows )
          $frows = $row['frid'];
    }
 
-   $sql = "SELECT * FROM %ptracker";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %ptracker" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['member_id']++;
 
       $lineid = $row['trid'] + $frows;
       $expire = time() + 2592000;
-      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$lineid}, {$row['member_id']}, 'topic', {$row['topic_id']}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, 'topic', %d, %d )", $lineid, $row['member_id'], $row['topic_id'], $expire );
    }
 
-   $sql = "SELECT * FROM %ppolls";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %ppolls" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options = '{$row['choices']}' WHERE topic_id = '{$row['tid']}'" );
+      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options='%s' WHERE topic_id=%d", $row['choices'], $row['tid'] );
       $i++;
    }
 
    $qsf->db->query( "TRUNCATE %pvotes" );
-   $sql = "SELECT * FROM %pvoters";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %pvoters" );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['member_id']++;
-      $qsf->db->query( "INSERT INTO %pvotes VALUES( {$row['member_id']}, {$row['tid']}, '' )" );
+      $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, '' )", $row['member_id'], $row['tid'] );
    }
 
-   $oldset['polls'] = '1';
+   $oldset['polls'] = 1;
    $oldset['poll_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
@@ -825,22 +813,21 @@ else if( $_GET['action'] == 'posts' )
    if( !isset($_GET['start']) || $_GET['start'] == '' )
    {
       $qsf->db->query( "TRUNCATE %pposts" );
-      $start = '0';
+      $start = 0;
    }
    else
       $start = $_GET['start'];
 
    if( !isset($_GET['i']) || $_GET['i'] == '' )
-      $i = '0';
+      $i = 0;
    else
       $i = $_GET['i'];
 
    $num = $oldboard->db->query( "SELECT * FROM %pposts" );
    $all = $oldboard->db->num_rows( $num );
-   $sql = "SELECT * FROM  %pposts LIMIT {$start}, {$oldset['post_inc']}";
    $newstart = $start + $oldset['post_inc'];
 
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM  %pposts LIMIT %d, %d", $start, $oldset['post_inc'] );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -849,24 +836,24 @@ else if( $_GET['action'] == 'posts' )
       /* Try and clean up some of the junk in Invisionboard posts. MySQL isn't happy about some of it. */
       $row['post'] = strip_invision_tags( $row['post'] );
 
-      $qsf->db->query( "INSERT INTO %pposts VALUES( {$row['pid']}, {$row['topic_id']}, '{$row['author_id']}', {$row['use_emo']}, 1, 1, '{$row['post']}', {$row['post_date']}, '', INET_ATON('{$row['ip_address']}'), '{$row['edit_name']}', '{$row['edit_time']}' )" );
+      $qsf->db->query( "INSERT INTO %pposts VALUES( %d, %d, %d, %d, 1, 1, '%s', %d, '', INET_ATON('%s'), '%s', %d )",
+         $row['pid'], $row['topic_id'], $row['author_id'], $row['use_emo'], $row['post'], $row['post_date'], $row['ip_address'], $row['edit_name'], $row['edit_time'] );
       $i++;
    }
    if( $i == $all )
    {
-      $oldset['posts'] = '2';
+      $oldset['posts'] = 2;
       $oldset['post_count'] = $i;
-      $oldset['converted'] = '2';
+      $oldset['converted'] = 2;
       write_olddb_sets( $oldset );
       echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
    }
    else
    {
-      $oldset['posts'] = '1';
+      $oldset['posts'] = 1;
       $oldset['post_count'] = $i;
       write_olddb_sets( $oldset );
       echo "<meta http-equiv='Refresh' content='0;URL=convert_invision131f.php'>";
    }
 }
-
 ?>

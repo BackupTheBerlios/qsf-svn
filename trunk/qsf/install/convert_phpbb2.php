@@ -57,9 +57,6 @@ if( !$olddb->connection )
 }
 $oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
 
-$qsf->pre  = $qsf->db->db . "." . $set['prefix'];
-$oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
-
 function write_olddb_sets( $oldset )
 {
    $settings = "<?php\n\$oldset = array();\n";
