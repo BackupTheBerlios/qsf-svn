@@ -210,32 +210,30 @@ function strip_ikon_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   // And lastly, prep for database insertion.
-   $text = $qsf->db->escape( $text );
    return $text;
 }
 
 if( !isset($_GET['action']) || $_GET['action'] == '' )
 {
-   if( $oldset['converted'] == '0' )
+   if( $oldset['converted'] == 0 )
    {
-      $oldset['converted'] = '1';
-      $oldset['profiles'] = '0';
-      $oldset['prof_count'] = '0';
-      $oldset['pms'] = '0';
-      $oldset['pm_count'] = '0';
-      $oldset['titles'] = '0';
-      $oldset['title_count'] = '0';
-      $oldset['cats'] = '0';
-      $oldset['cat_count'] = '0';
-      $oldset['forums'] = '0';
-      $oldset['forum_count'] = '0';
-      $oldset['topics'] = '0';
-      $oldset['topic_count'] = '0';
-      $oldset['polls'] = '0';
-      $oldset['poll_count'] = '0';
-      $oldset['posts'] = '0';
-      $oldset['post_count'] = '0';
+      $oldset['converted'] = 1;
+      $oldset['profiles'] = 0;
+      $oldset['prof_count'] = 0;
+      $oldset['pms'] = 0;
+      $oldset['pm_count'] = 0;
+      $oldset['titles'] = 0;
+      $oldset['title_count'] = 0;
+      $oldset['cats'] = 0;
+      $oldset['cat_count'] = 0;
+      $oldset['forums'] = 0;
+      $oldset['forum_count'] = 0;
+      $oldset['topics'] = 0;
+      $oldset['topic_count'] = 0;
+      $oldset['polls'] = 0;
+      $oldset['poll_count'] = 0;
+      $oldset['posts'] = 0;
+      $oldset['post_count'] = 0;
 
       write_olddb_sets( $oldset );
    }
@@ -271,87 +269,87 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight' align='left'><a href='convert_ikon312a.php?action=members'>Convert Member Profiles</a>
      </td>";
 
-   if( $prof_count > '0' )
+   if( $prof_count > 0 )
       echo "<td class='tablelight' align='left'>".$prof_count." member profiles converted.</td>\n";
    else
       echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=pmessages'>Convert Private Messages</a></td>\n";
-      if( $pms == '1' )
+      if( $pms == 1 )
          echo "<td class='tablelight' align='left'>".$pm_count." private messages converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=mtitles'>Convert Member Titles</a></td>\n";
-      if( $titles == '1' )
+      if( $titles == 1 )
          echo "<td class='tablelight' align='left'>".$title_count." member titles converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=categories'>Convert Categories</a></td>\n";
-      if( $cats == '1' )
+      if( $cats == 1 )
          echo "<td class='tablelight' align='left'>".$cat_count." categories converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $cats == '1' )
+   if( $cats == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=forums'>Convert Forums</a></td>\n";
-      if( $forums == '1' )
+      if( $forums == 1 )
          echo "<td class='tablelight' align='left'>".$forum_count." forums converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $forums == '1' )
+   if( $prof == 1 && $forums == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=topics'>Convert Topics</a></td>\n";
-      if( $topics == '1' )
+      if( $topics == 1 )
          echo "<td class='tablelight' align='left'>".$topic_count." topics converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=polls'>Convert Polls</a> ( BUGGY )</td>\n";
-      if( $polls == '1' )
+      if( $polls == 1 )
          echo "<td class='tablelight' align='left'>".$poll_count." polls converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
-      if( $posts == '0' )
+      if( $posts == 0 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=posts'>Convert Posts</a></td>\n";
          echo "<td class='tablelight'>&nbsp;</td>\n";
       }
-      else if( $posts == '1' )
+      else if( $posts == 1 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_ikon312a.php?action=posts&amp;start=".$post_count."&amp;i=".$post_count."'>Continue post conversion</a></td>\n";
          echo "<td class='tablelight' align='left'>".$post_count." posts converted so far.</td>\n";
@@ -369,7 +367,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $posts == '2' || $oldset['converted'] == '2' )
+   if( $posts == 2 || $oldset['converted'] == 2 )
    {
       $qsf->db->query( "DROP TABLE IF EXISTS %pikon_ids" );
       $qsf->sets = $qsf->get_settings($qsf->sets);
@@ -434,17 +432,15 @@ else if( $_GET['action'] == 'members' )
     * Safe bet - count up the number of existing Ikon profiles, add one, and start changing their ID numbers from there.
     * Some people will end up with ID numbers they don't expect, but who cares as long as it works, right?
     */
-   $i = '0';
+   $i = 0;
    $num = $oldboard->db->query( "SELECT * FROM %pmember_profiles" );
    $all = $oldboard->db->num_rows( $num );
    $MID = $all + 1;
 
    $qsf->db->query( "TRUNCATE %pusers" );
-   $sql = "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
-   $result = $qsf->db->query($sql);
+   $qsf->db->query( "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
 
-   $sql = "SELECT * FROM %pmember_profiles";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %pmember_profiles" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       while( $row['MEMBER_ID'] >= $MID )
@@ -467,7 +463,7 @@ else if( $_GET['action'] == 'members' )
          $row['MEMBER_ID'] = $MID;
          $MID++;
       }
-      if( $row['HIDE_EMAIL'] == '' || $row['HIDE_EMAIL'] == '1' )
+      if( $row['HIDE_EMAIL'] == '' || $row['HIDE_EMAIL'] == 1 )
          $showmail = 0;
       else
          $showmail = 1;
@@ -492,11 +488,11 @@ else if( $_GET['action'] == 'members' )
          $row['MEMBER_GROUP'] = 2;
 
       $level = $row['MEMBER_LEVEL'] + 1;
-      if( $level < '1' )
+      if( $level < 1 )
          $level = 1;
 
       $pos = strpos( $row['MEMBER_AVATAR'], '://' );
-      if( $pos == '4' )
+      if( $pos == 4 )
       {
          $avatar = $row['MEMBER_AVATAR'];
          $width = 64;
@@ -515,7 +511,8 @@ else if( $_GET['action'] == 'members' )
       if( $row['ICQNUMBER'] )
          $icq = intval( $row['ICQNUMBER'] );
 
-      $qsf->db->query( "INSERT INTO %pusers VALUES( {$row['MEMBER_ID']}, '{$row['MEMBER_NAME']}', '{$row['MEMBER_PASSWORD']}', {$row['MEMBER_JOINED']}, {$level}, '{$row['MEMBER_TITLE']}', 0, {$row['MEMBER_GROUP']}, 'default', 'en', '{$avatar}', '${type}', {$width}, {$height}, '{$row['MEMBER_EMAIL']}', {$showmail}, 1, '0000-00-00', 151, '{$row['WEBSITE']}', {$row['MEMBER_POSTS']}, '{$row['LOCATION']}', {$icq}, '{$row['MSNNAME']}', '{$row['AOLNAME']}', '', 1, 1, '{$row['YAHOONAME']}', '{$row['INTERESTS']}', '{$row['SIGNATURE']}', {$row['LAST_LOG_IN']}, 0, {$row['LAST_ACTIVITY']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %pusers VALUES( %d, '%s', '%s', %d, %d, '%s', 0, %d, 'default', 'en', '%s', '%s', %d, %d, '%s', %d, 1, '0000-00-00', 151, '%s', %d, '%s', %d, '%s', '%s', '', 1, 1, '%s', '%s', '%s', %d, 0, %d, 0, 0, 1, 1, 1, 0, 0, '' )",
+         $row['MEMBER_ID'], $row['MEMBER_NAME'], $row['MEMBER_PASSWORD'], $row['MEMBER_JOINED'], $level, $row['MEMBER_TITLE'], $row['MEMBER_GROUP'], $avatar, $type, $width, $height, $row['MEMBER_EMAIL'], $showmail, $row['WEBSITE'], $row['MEMBER_POSTS'], $row['LOCATION'], $icq, $row['MSNNAME'], $row['AOLNAME'], $row['YAHOONAME'], $row['INTERESTS'], $row['SIGNATURE'], $row['LAST_LOG_IN'], $row['LAST_ACTIVITY'] );
       $i++;
    }
 
@@ -529,10 +526,10 @@ else if( $_GET['action'] == 'members' )
       $oldid = $IDTABLE[$x]['oldid'];
       $newid = $IDTABLE[$x]['newid'];
 
-      $qsf->db->query( "INSERT INTO %pikon_ids VALUES( '$name', '$oldid', '$newid' )" );
+      $qsf->db->query( "INSERT INTO %pikon_ids VALUES( '%s', '%s', %d )", $name, $oldid, $newid );
    }
 
-   $oldset['profiles'] = '1';
+   $oldset['profiles'] = 1;
    $oldset['prof_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -540,17 +537,15 @@ else if( $_GET['action'] == 'members' )
 
 else if( $_GET['action'] == 'pmessages' )
 {
-   $sql = "SELECT * FROM %pikon_ids";
-   $result = $qsf->db->query($sql);
+   $result = $qsf->db->query( "SELECT * FROM %pikon_ids" );
    while( $row = $qsf->db->nqfetch($result) )
    {
       $IDTABLE[] = array( 'name' => $row['old_name'], 'oldid' => $row['old_id'], 'newid' => $row['new_id']  );
    }
 
-   $i = '0';
+   $i = 0;
    $qsf->db->query( "TRUNCATE %ppmsystem" );
-   $sql = "SELECT * FROM %pmessage_data";
-   $result= $oldboard->db->query($sql);
+   $result= $oldboard->db->query( "SELECT * FROM %pmessage_data" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       if( $row['VIRTUAL_DIR'] == "in" || $row['VIRTUAL_DIR'] == "sent" )
@@ -558,18 +553,18 @@ else if( $_GET['action'] == 'pmessages' )
          // An empty recipient ID is apparently just a message confirmation. No need to convert this.
          if( $row['RECIPIENT_ID'] != '' )
          {
-            if( $row['RECIPIENT_ID'] == '1' )
-               $row['RECIPIENT_ID'] = '2';
-            if( $row['RECIPIENT_ID'] == '0' )
-               $row['RECIPIENT_ID'] = '1';
-            if( $row['FROM_ID'] == '1' )
-               $row['FROM_ID'] = '2';
-            if( $row['FROM_ID'] == '0' )
-               $row['FROM_ID'] = '1';
-            if( $row['MEMBER_ID'] == '1' )
-               $row['MEMBER_ID'] = '2';
-            if( $row['MEMBER_ID'] == '0' )
-               $row['MEMBER_ID'] = '1';
+            if( $row['RECIPIENT_ID'] == 1 )
+               $row['RECIPIENT_ID'] = 2;
+            if( $row['RECIPIENT_ID'] == 0 )
+               $row['RECIPIENT_ID'] = 1;
+            if( $row['FROM_ID'] == 1 )
+               $row['FROM_ID'] = 2;
+            if( $row['FROM_ID'] == 0 )
+               $row['FROM_ID'] = 1;
+            if( $row['MEMBER_ID'] == 1 )
+               $row['MEMBER_ID'] = 2;
+            if( $row['MEMBER_ID'] == 0 )
+               $row['MEMBER_ID'] = 1;
 
             for( $x = 0; $x < sizeof( $IDTABLE ); $x++ )
             {
@@ -584,24 +579,25 @@ else if( $_GET['action'] == 'pmessages' )
             $i++;
 
             if( $row['VIRTUAL_DIR'] == "in" )
-               $folder = '0';
+               $folder = 0;
             else
-               $folder = '1';
+               $folder = 1;
 
             $bcc = '';
-            if( $folder == '1' )
+            if( $folder == 1 )
             {
                $bcc = $row['RECIPIENT_ID'];
                $row['RECIPIENT_ID'] = $row['MEMBER_ID'];
             }
             if( $row['TITLE'] == '' )
                $row['TITLE'] = "No Title";
-            $qsf->db->query( "INSERT INTO %ppmsystem VALUES( {$row['MESSAGE_ID']}, {$row['RECIPIENT_ID']}, {$row['FROM_ID']}, 0, '{$bcc}', '{$row['TITLE']}', {$row['DATE']}, '{$row['MESSAGE']}', {$row['READ_STATE']}, {$folder} )" );
+            $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, %d, '%s', %d, '%s', %d, %d )",
+               $row['MESSAGE_ID'], $row['RECIPIENT_ID'], $row['FROM_ID'], $bcc, $row['TITLE'], $row['DATE'], $row['MESSAGE'], $row['READ_STATE'], $folder );
          }
       }
    }
 
-   $oldset['pms'] = '1';
+   $oldset['pms'] = 1;
    $oldset['pm_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -611,29 +607,28 @@ else if( $_GET['action'] == 'mtitles' )
 {
    $num = $oldboard->db->query( "SELECT * FROM %pmember_titles" );
    $all = $oldboard->db->num_rows( $num );
-   $i = '0';
+   $i = 0;
 
    if( $all > 0 )
    {
       $qsf->db->query( "TRUNCATE %pmembertitles" );
 
-      $sql = "SELECT * FROM %pmember_titles";
-      $result= $oldboard->db->query($sql);
+      $result= $oldboard->db->query( "SELECT * FROM %pmember_titles" );
       while( $row = $oldboard->db->nqfetch($result) )
       {
-         if( $row['PIPS'] < '0' )
+         if( $row['PIPS'] < 0 )
             $icon = '0.png';
          else
          {
             $icon = $row['PIPS'];
             $icon .= '.png';
          }
-         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( {$row['ID']}, '{$row['TITLE']}', '{$row['POSTS']}', '{$icon}' )" );
+         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( %d, '%s', %d, '%s' )", $row['ID'], $row['TITLE'], $row['POSTS'], $icon );
          $i++;
       }
    }
 
-   $oldset['titles'] = '1';
+   $oldset['titles'] = 1;
    $oldset['title_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -641,25 +636,23 @@ else if( $_GET['action'] == 'mtitles' )
 
 else if( $_GET['action'] == 'categories' )
 {
-   $sql = "ALTER TABLE %pforums ADD ib INT(4) NOT NULL";
-   $result = $qsf->db->query($sql);
-
+   $qsf->db->query( "ALTER TABLE %pforums ADD ib INT(4) NOT NULL" );
    $qsf->db->query( "TRUNCATE %pforums" );
 
-   $sql = "SELECT * FROM %pcategories";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pcategories" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['SUB_CAT_ID'] > '0' )
-         $subcat = '1';
+      if( $row['SUB_CAT_ID'] > 0 )
+         $subcat = 1;
       else
-         $subcat = '0';
-      $qsf->db->query( "INSERT INTO %pforums VALUES( {$row['CAT_ID']}, {$row['SUB_CAT_ID']}, '', '{$row['CAT_NAME']}', {$row['CAT_POS']}, '{$row['CAT_DESC']}', 0, 0, 0, '{$subcat}', '' )" );
+         $subcat = 0;
+      $qsf->db->query( "INSERT INTO %pforums VALUES( %d, %d, '', '%s', %d, '%s', 0, 0, 0, %d, '' )",
+         $row['CAT_ID'], $row['SUB_CAT_ID'], $row['CAT_NAME'], $row['CAT_POS'], $row['CAT_DESC'], $subcat );
       $i++;
    }
 
-   $oldset['cats'] = '1';
+   $oldset['cats'] = 1;
    $oldset['cat_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -667,18 +660,18 @@ else if( $_GET['action'] == 'categories' )
 
 else if( $_GET['action'] == 'forums' )
 {
-   $sql = "SELECT * FROM %pforum_info";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pforum_info" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['FORUM_NAME'] = strip_ikon_tags( $row['FORUM_NAME'] );
       $row['FORUM_DESC'] = strip_ikon_tags( $row['FORUM_DESC'] );
-      $qsf->db->query( "INSERT INTO %pforums VALUES( '', {$row['CATEGORY']}, '', '{$row['FORUM_NAME']}', {$row['FORUM_POSITION']}, '{$row['FORUM_DESC']}', {$row['FORUM_TOPICS']}, {$row['FORUM_POSTS']}, '{$row['FORUM_LAST_POST']}', '0', {$row['FORUM_ID']} )" );
+      $qsf->db->query( "INSERT INTO %pforums VALUES( '', %d, '', '%s', %d, '%s', %d, %d, %d, 0, %d )",
+         $row['CATEGORY'], $row['FORUM_NAME'], $row['FORUM_POSITION'], $row['FORUM_DESC'], $row['FORUM_TOPICS'], $row['FORUM_POSTS'], $row['FORUM_LAST_POST'], $row['FORUM_ID'] );
       $i++;
    }
 
-   $oldset['forums'] = '1';
+   $oldset['forums'] = 1;
    $oldset['forum_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -686,38 +679,35 @@ else if( $_GET['action'] == 'forums' )
 
 else if( $_GET['action'] == 'topics' )
 {
-   $sql = "SELECT * FROM %pikon_ids";
-   $result = $qsf->db->query($sql);
+   $result = $qsf->db->query( "SELECT * FROM %pikon_ids" );
    while( $row = $qsf->db->nqfetch($result) )
    {
       $IDTABLE[] = array( 'name' => $row['old_name'], 'oldid' => $row['old_id'], 'newid' => $row['new_id']  );
    }
 
    $qsf->db->query( "TRUNCATE %ptopics" );
-   $sql = "SELECT * FROM %pforum_topics";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pforum_topics" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $sql1 = "SELECT forum_id FROM %pforums WHERE ib = {$row['FORUM_ID']}";
-      $result1 = $qsf->db->query($sql1);
+      $result1 = $qsf->db->query( "SELECT forum_id FROM %pforums WHERE ib=%d", $row['FORUM_ID'] );
       list($tid) = mysql_fetch_row($result1);
 
-      if( $row['TOPIC_STARTER'] == '1' )
+      if( $row['TOPIC_STARTER'] == 1 )
       {
-         $row['TOPIC_STARTER'] = '2';
+         $row['TOPIC_STARTER'] = 2;
       }
-      if( $row['TOPIC_STARTER'] == '0' )
+      if( $row['TOPIC_STARTER'] == 0 )
       {
-         $row['TOPIC_STARTER'] = '1';
+         $row['TOPIC_STARTER'] = 1;
       }
-      if( $row['TOPIC_LAST_POSTER'] == '1' )
+      if( $row['TOPIC_LAST_POSTER'] == 1 )
       {
-         $row['TOPIC_LAST_POSTER'] = '2';
+         $row['TOPIC_LAST_POSTER'] = 2;
       }
-      if( $row['TOPIC_LAST_POSTER'] == '0' )
+      if( $row['TOPIC_LAST_POSTER'] == 0 )
       {
-         $row['TOPIC_LAST_POSTER'] = '1';
+         $row['TOPIC_LAST_POSTER'] = 1;
       }
 
       // Loop over the remaining members and play games with the topic data to fix the blasted post names for the newer member IDs.
@@ -745,29 +735,28 @@ else if( $_GET['action'] == 'topics' )
 
       $row['TOPIC_TITLE'] = strip_ikon_tags( $row['TOPIC_TITLE'] );
       $row['TOPIC_DESC'] = strip_ikon_tags( $row['TOPIC_DESC'] );
-      $qsf->db->query( "INSERT INTO %ptopics VALUES( {$row['TOPIC_ID']}, {$tid}, '{$row['TOPIC_TITLE']}', '{$row['TOPIC_DESC']}', {$row['TOPIC_STARTER']}, 0, {$row['TOPIC_LAST_POSTER']}, '', '{$row['TOPIC_LAST_DATE']}', {$row['TOPIC_POSTS']}, {$row['TOPIC_VIEWS']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %ptopics VALUES( %d, %d, '%s', '%s', %d, 0, %d, '', %d, %d, %d, %d, 0, '' )",
+         $row['TOPIC_ID'], $tid, $row['TOPIC_TITLE'], $row['TOPIC_DESC'], $row['TOPIC_STARTER'], $row['TOPIC_LAST_POSTER'], $row['TOPIC_LAST_DATE'], $row['TOPIC_POSTS'], $row['TOPIC_VIEWS'], $topic_modes );
       $i++;
    }
 
    $qsf->db->query( "TRUNCATE %psubscriptions" );
-   $sql = "SELECT * FROM %pforum_subscriptions";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %pforum_subscriptions" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $sql1 = "SELECT forum_id FROM %pforums WHERE ib = {$row['FORUM_ID']}";
-      $result1 = $qsf->db->query($sql1);
+      $result1 = $qsf->db->query( "SELECT forum_id FROM %pforums WHERE ib=%d", $row['FORUM_ID'] );
       list($tid) = mysql_fetch_row($result1);
 
-      if( $row['MEMBER_ID'] == '1' )
+      if( $row['MEMBER_ID'] == 1 )
       {
-         $row['MEMBER_ID'] = '2';
+         $row['MEMBER_ID'] = 2;
       }
-      if( $row['MEMBER_ID'] == '0' )
+      if( $row['MEMBER_ID'] == 0 )
       {
-         $row['MEMBER_ID'] = '1';
+         $row['MEMBER_ID'] = 1;
       }
 
-      if( $row['TOPIC_ID'] == '0' )
+      if( $row['TOPIC_ID'] == 0 )
       {
          $subtype = 'forum';
          $item = $tid;
@@ -791,11 +780,11 @@ else if( $_GET['action'] == 'topics' )
             $row['MEMBER_ID'] = $newid;
          }
       }
-      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$row['ID']}, {$row['MEMBER_ID']}, '{$subtype}', {$item}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, '%s', %d, %d )", $row['ID'], $row['MEMBER_ID'], $subtype, $item, $expire );
    }
 
    $qsf->db->query( "ALTER TABLE %pforums DROP ib" );
-   $oldset['topics'] = '1';
+   $oldset['topics'] = 1;
    $oldset['topic_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -803,16 +792,14 @@ else if( $_GET['action'] == 'topics' )
 
 else if( $_GET['action'] == 'polls' )
 {
-   $sql = "SELECT * FROM %pikon_ids";
-   $result = $qsf->db->query($sql);
+   $result = $qsf->db->query( "SELECT * FROM %pikon_ids" );
    while( $row = $qsf->db->nqfetch($result) )
    {
       $IDTABLE[] = array( 'name' => $row['old_name'], 'oldid' => $row['old_id'], 'newid' => $row['new_id']  );
    }
 
-   $sql = "SELECT * FROM %pforum_polls";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pforum_polls" );
+   $i = 0;
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -828,23 +815,22 @@ else if( $_GET['action'] == 'polls' )
          $voting_data[$match[1]] = $match[2];
       }
 
-      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options = '{$pollanswers}' WHERE topic_id = '{$row['POLL_ID']}'" );
+      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options='%s' WHERE topic_id=%d", $pollanswers, $row['POLL_ID'] );
       $i++;
    }
 
    $qsf->db->query( "TRUNCATE %pvotes" );
-   $sql = "SELECT * FROM %pforum_poll_voters";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %pforum_poll_voters" );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['MEMBER_ID'] == '1' )
+      if( $row['MEMBER_ID'] == 1 )
       {
-         $row['MEMBER_ID'] = '2';
+         $row['MEMBER_ID'] = 2;
       }
-      if( $row['MEMBER_ID'] == '0' )
+      if( $row['MEMBER_ID'] == 0 )
       {
-         $row['MEMBER_ID'] = '1';
+         $row['MEMBER_ID'] = 1;
       }
 
       for( $x = 0; $x < sizeof( $IDTABLE ); $x++ )
@@ -857,10 +843,10 @@ else if( $_GET['action'] == 'polls' )
             $row['MEMBER_ID'] = $newid;
          }
       }
-      $qsf->db->query( "INSERT INTO %pvotes VALUES( {$row['MEMBER_ID']}, {$row['POLL_ID']}, '' )" );
+      $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, '' )", $row['MEMBER_ID'], $row['POLL_ID'] );
    }
 
-   $oldset['polls'] = '1';
+   $oldset['polls'] = 1;
    $oldset['poll_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
@@ -871,18 +857,17 @@ else if( $_GET['action'] == 'posts' )
    if( !isset($_GET['start']) || $_GET['start'] == '' )
    {
       $qsf->db->query( "TRUNCATE %pposts" );
-      $start = '0';
+      $start = 0;
    }
    else
       $start = $_GET['start'];
 
    if( !isset($_GET['i']) || $_GET['i'] == '' )
-      $i = '0';
+      $i = 0;
    else
       $i = $_GET['i'];
 
-   $sql = "SELECT * FROM %pikon_ids";
-   $result = $qsf->db->query($sql);
+   $result = $qsf->db->query( "SELECT * FROM %pikon_ids" );
    while( $row = $qsf->db->nqfetch($result) )
    {
       $IDTABLE[] = array( 'name' => $row['old_name'], 'oldid' => $row['old_id'], 'newid' => $row['new_id']  );
@@ -890,20 +875,19 @@ else if( $_GET['action'] == 'posts' )
 
    $num = $oldboard->db->query( "SELECT * FROM %pforum_posts" );
    $all = $oldboard->db->num_rows( $num );
-   $sql = "SELECT * FROM %pforum_posts LIMIT {$start}, {$oldset['post_inc']}";
    $newstart = $start + $oldset['post_inc'];
 
-   $result= $oldboard->db->query($sql);
+   $result= $oldboard->db->query( "SELECT * FROM %pforum_posts LIMIT %d, %d", $start, $oldset['post_inc'] );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      if( $row['AUTHOR'] == '1' )
+      if( $row['AUTHOR'] == 1 )
       {
-         $row['AUTHOR'] = '2';
+         $row['AUTHOR'] = 2;
       }
-      if( $row['AUTHOR'] == '0' )
+      if( $row['AUTHOR'] == 0 )
       {
-         $row['AUTHOR'] = '1';
+         $row['AUTHOR'] = 1;
       }
 
       // Loop over the remaining members and play games with the post data to fix the blasted post names.
@@ -921,24 +905,24 @@ else if( $_GET['action'] == 'posts' )
       /* Try and clean up some of the junk in Ikonboard posts. MySQL isn't happy about some of it. */
       $row['POST'] = strip_ikon_tags( $row['POST'] );
 
-      $qsf->db->query( "INSERT INTO %pposts VALUES( {$row['POST_ID']}, {$row['TOPIC_ID']}, '{$row['AUTHOR']}', {$row['ENABLE_EMO']}, 1, 1, '{$row['POST']}', {$row['POST_DATE']}, '', INET_ATON('{$row['IP_ADDR']}'), '', 0 )" );
+      $qsf->db->query( "INSERT INTO %pposts VALUES( %d, %d, %d, %d, 1, 1, '%s', %d, '', INET_ATON('%s'), '', 0 )",
+         $row['POST_ID'], $row['TOPIC_ID'], $row['AUTHOR'], $row['ENABLE_EMO'], $row['POST'], $row['POST_DATE'], $row['IP_ADDR'] );
       $i++;
    }
    if( $i == $all )
    {
-      $oldset['posts'] = '2';
+      $oldset['posts'] = 2;
       $oldset['post_count'] = $i;
-      $oldset['converted'] = '2';
+      $oldset['converted'] = 2;
       write_olddb_sets( $oldset );
       echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
    }
    else
    {
-      $oldset['posts'] = '1';
+      $oldset['posts'] = 1;
       $oldset['post_count'] = $i;
       write_olddb_sets( $oldset );
       echo "<meta http-equiv='Refresh' content='0;URL=convert_ikon312a.php'>";
    }
 }
-
 ?>
