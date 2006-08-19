@@ -40,7 +40,7 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'vBulliten 3.5.1 Convertor');
+define('CONVERTER_NAME', 'vBulliten 3.5.1 Converter');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -55,9 +55,6 @@ if( !$olddb->connection )
    error( QUICKSILVER_ERROR, 'A connection to the vBulliten database could not be established. Please check your settings and try again.', __FILE__, __LINE__ );
 }
 $oldboard = new qsfglobal($olddb); // Yes, I know this looks goofy, but we want to try and leverage the Mercury code as much as possible
-
-$qsf->pre  = $qsf->db->db . "." . $set['prefix'];
-$oldboard->pre = $oldboard->db->db . "." . $oldset['old_prefix'];
 
 function write_olddb_sets( $oldset )
 {
@@ -166,30 +163,28 @@ function strip_vb_tags( $text )
    $text = str_replace( "&#95;", "\_", $text );
    $text = str_replace( "&#124;", "|", $text );
 
-   // And lastly, prep for database insertion.
-   $text = $qsf->db->escape( $text );
    return $text;
 }
 
 if( !isset($_GET['action']) || $_GET['action'] == '' )
 {
-   if( $oldset['converted'] == '0' )
+   if( $oldset['converted'] == 0 )
    {
-      $oldset['converted'] = '1';
-      $oldset['profiles'] = '0';
-      $oldset['prof_count'] = '0';
-      $oldset['pms'] = '0';
-      $oldset['pm_count'] = '0';
-      $oldset['titles'] = '0';
-      $oldset['title_count'] = '0';
-      $oldset['forums'] = '0';
-      $oldset['forum_count'] = '0';
-      $oldset['topics'] = '0';
-      $oldset['topic_count'] = '0';
-      $oldset['polls'] = '0';
-      $oldset['poll_count'] = '0';
-      $oldset['posts'] = '0';
-      $oldset['post_count'] = '0';
+      $oldset['converted'] = 1;
+      $oldset['profiles'] = 0;
+      $oldset['prof_count'] = 0;
+      $oldset['pms'] = 0;
+      $oldset['pm_count'] = 0;
+      $oldset['titles'] = 0;
+      $oldset['title_count'] = 0;
+      $oldset['forums'] = 0;
+      $oldset['forum_count'] = 0;
+      $oldset['topics'] = 0;
+      $oldset['topic_count'] = 0;
+      $oldset['polls'] = 0;
+      $oldset['poll_count'] = 0;
+      $oldset['posts'] = 0;
+      $oldset['post_count'] = 0;
 
       write_olddb_sets( $oldset );
    }
@@ -223,76 +218,76 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight' align='left'><a href='convert_vb351.php?action=members'>Convert Member Profiles</a>
      </td>";
 
-   if( $prof_count > '0' )
+   if( $prof_count > 0 )
       echo "<td class='tablelight' align='left'>".$prof_count." member profiles converted.</td>\n";
    else
       echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_vb351.php?action=pmessages'>Convert Private Messages</a></td>\n";
-      if( $pms == '1' )
+      if( $pms == 1 )
          echo "<td class='tablelight' align='left'>".$pm_count." private messages converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_vb351.php?action=mtitles'>Convert Member Titles</a></td>\n";
-      if( $titles == '1' )
+      if( $titles == 1 )
          echo "<td class='tablelight' align='left'>".$title_count." member titles converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_vb351.php?action=forums'>Convert Forums</a></td>\n";
-      if( $forums == '1' )
+      if( $forums == 1 )
          echo "<td class='tablelight' align='left'>".$forum_count." forums converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $forums == '1' )
+   if( $prof == 1 && $forums == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_vb351.php?action=topics'>Convert Topics</a></td>\n";
-      if( $topics == '1' )
+      if( $topics == 1 )
          echo "<td class='tablelight' align='left'>".$topic_count." topics converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight'>&nbsp;</td>\n";
-      if( $polls == '1' )
+      if( $polls == 1 )
          echo "<td class='tablelight' align='left'>".$poll_count." polls converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
-      if( $posts == '0' )
+      if( $posts == 0 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_vb351.php?action=posts'>Convert Posts</a></td>\n";
          echo "<td class='tablelight'>&nbsp;</td>\n";
       }
-      else if( $posts == '1' )
+      else if( $posts == 1 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_vb351.php?action=posts&amp;start=".$post_count."&amp;i=".$post_count."'>Continue post conversion</a></td>\n";
          echo "<td class='tablelight' align='left'>".$post_count." posts converted so far.</td>\n";
@@ -309,7 +304,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $posts == '2' || $oldset['converted'] == '2' )
+   if( $posts == 2 || $oldset['converted'] == 2 )
    {
       $qsf->sets = $qsf->get_settings($qsf->sets);
       $qsf->updateForumTrees();
@@ -381,25 +376,22 @@ else if( $_GET['action'] == 'confirmvbdrop' )
 
 else if( $_GET['action'] == 'members' )
 {
-   $i = '0';
+   $i = 0;
    $qsf->db->query( "TRUNCATE %pusers" );
-   $sql = "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )";
-   $result = $qsf->db->query($sql);
+   $qsf->db->query( "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
 
-   $sql = "SELECT m.*, f.userid, f.signature
+   $result = $oldboard->db->query( "SELECT m.*, f.userid, f.signature
       FROM %puser m
-      LEFT JOIN %pusertextfield f ON f.userid = m.userid";
-
-   $result = $oldboard->db->query($sql);
+      LEFT JOIN %pusertextfield f ON f.userid = m.userid" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['userid']++;
 
       $showmail = 0; // No discernable setting for this - erring on the side of caution
 
-      if( $row['lastvisit'] == '' || $row['lastvisit'] == '0' )
+      if( $row['lastvisit'] == '' || $row['lastvisit'] == 0 )
          $row['lastvisit'] = $row['joindate'];
-      if( $row['lastactivity'] == '' || $row['lastactivity'] == '0' )
+      if( $row['lastactivity'] == '' || $row['lastactivity'] == 0 )
          $row['lastactivity'] = $row['joindate'];
 
       $row['username'] = strip_vb_tags( $row['username'] );
@@ -409,17 +401,17 @@ else if( $_GET['action'] == 'members' )
       $row['signature'] = strip_vb_tags( $row['signature'] );
 
       // The default vB groups
-      if( $row['usergroupid'] == '1' ) // Guests
+      if( $row['usergroupid'] == 1 ) // Guests
          $row['usergroupid'] = 3;
-      if( $row['usergroupid'] == '2' ) // Member
+      if( $row['usergroupid'] == 2 ) // Member
          $row['usergroupid'] = 2;
-      else if( $row['usergroupid'] == '3' || $row['usergroupid'] == '4') // Awating Activation
+      else if( $row['usergroupid'] == 3 || $row['usergroupid'] == 4 ) // Awating Activation
          $row['usergroupid'] = 5;
-      else if( $row['usergroupid'] == '5' ) // Super Moderators
+      else if( $row['usergroupid'] == 5 ) // Super Moderators
          $row['usergroupid'] = 6;
-      else if( $row['usergroupid'] == '6' ) // Admins
+      else if( $row['usergroupid'] == 6 ) // Admins
          $row['usergroupid'] = 1;
-      else if( $row['usergroupid'] == '8' ) // Banned
+      else if( $row['usergroupid'] == 8 ) // Banned
          $row['usergroupid'] = 4;
       else
          $row['usergroupid'] = 2; // anything else becomes a member
@@ -428,11 +420,12 @@ else if( $_GET['action'] == 'members' )
       if( $row['icq'] )
          $icq = intval( $row['icq'] );
 
-      $qsf->db->query( "INSERT INTO %pusers VALUES( {$row['userid']}, '{$row['username']}', '{$row['password']}', {$row['joindate']}, 1, '{$row['usertitle']}', {$row['customtitle']}, {$row['usergroupid']}, 'default', 'en', '', 'none', 0, 0, '{$row['email']}', {$showmail}, 1, '{$row['birthday']}', 151, '{$row['homepage']}', {$row['posts']}, '', {$icq}, '{$row['msn']}', '{$row['aim']}', '', 1, 1, '{$row['yahoo']}', '', '{$row['signature']}', {$row['lastvisit']}, 0, {$row['lastactivity']}, 0, 0, 1, 1, 1, 0, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %pusers VALUES( %d, '%s', '%s', %d, 1, '%s', %d, %d, 'default', 'en', '', 'none', 0, 0, '%s', %d, 1, '%s', 151, '%s', %d, '', %d, '%s', '%s', '', 1, 1, '%s', '', '%s', %d, 0, %d, 0, 0, 1, 1, 1, 0, 0, '' )",
+         $row['userid'], $row['username'], $row['password'], $row['joindate'], $row['usertitle'], $row['customtitle'], $row['usergroupid'], $row['email'], $showmail, $row['birthday'], $row['homepage'], $row['posts'], $icq, $row['msn'], $row['aim'], $row['yahoo'], $row['signature'], $row['lastvisit'], $row['lastactivity'] );
       $i++;
    }
 
-   $oldset['profiles'] = '1';
+   $oldset['profiles'] = 1;
    $oldset['prof_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_vb351.php'>";
@@ -440,26 +433,25 @@ else if( $_GET['action'] == 'members' )
 
 else if( $_GET['action'] == 'pmessages' )
 {
-   $i = '0';
+   $i = 0;
    $qsf->db->query( "TRUNCATE %ppmsystem" );
-   $sql = "SELECT p.*, m.*
+   $result = $oldboard->db->query( "SELECT p.*, m.*
       FROM %ppm p
-      LEFT JOIN %ppmtext m ON m.pmtextid = p.pmtextid";
-   $result = $oldboard->db->query($sql);
+      LEFT JOIN %ppmtext m ON m.pmtextid = p.pmtextid" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       // 0 = inbox, -1 = sent box
-      if( $row['folder'] == '0' || $row['folder'] == '-1' )
+      if( $row['folder'] == 0 || $row['folder'] == -1 )
       {
-         if( $row['folder'] == '0' )
-            $folder = '0';
+         if( $row['folder'] == 0 )
+            $folder = 0;
          else
-            $folder = '1';
+            $folder = 1;
       }
       else
-         $folder = '2';
+         $folder = 2;
 
-      if( $folder == '0' || $folder == '1' )
+      if( $folder == 0 || $folder == 1 )
       {
          $row['userid']++;
          $row['fromuserid']++;
@@ -469,18 +461,19 @@ else if( $_GET['action'] == 'pmessages' )
          $i++;
 
          $bcc = '';
-         if( $folder == '1' )
+         if( $folder == 1 )
          {
             $bcc = $row['userid'];
          //   $row['toid'] = $row['fromid'];
          }
          if( $row['subject'] == '' )
             $row['subject'] = "No Title";
-         $qsf->db->query( "INSERT INTO %ppmsystem VALUES( {$row['pmid']}, {$row['userid']}, {$row['fromuserid']}, 0, '{$bcc}', '{$row['title']}', {$row['dateline']}, '{$row['message']}', {$row['messageread']}, {$folder} )" );
+         $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, '%s', '%s', %d, '%s', %d, %d )",
+            $row['pmid'], $row['userid'], $row['fromuserid'], $bcc, $row['title'], $row['dateline'], $row['message'], $row['messageread'], $folder );
       }
    }
 
-   $oldset['pms'] = '1';
+   $oldset['pms'] = 1;
    $oldset['pm_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_vb351.php'>";
@@ -490,29 +483,28 @@ else if( $_GET['action'] == 'mtitles' )
 {
    $num = $oldboard->db->query( "SELECT * FROM %pusertitle" );
    $all = $oldboard->db->num_rows( $num );
-   $i = '0';
+   $i = 0;
 
    if( $all > 0 )
    {
       $qsf->db->query( "TRUNCATE %pmembertitles" );
 
-      $sql = "SELECT * FROM %pusertitle";
-      $result= $oldboard->db->query($sql);
+      $result= $oldboard->db->query( "SELECT * FROM %pusertitle" );
       while( $row = $oldboard->db->nqfetch($result) )
       {
-         if( $row['usertitleid'] < '1' )
+         if( $row['usertitleid'] < 1 )
             $icon = '1.png';
          else if( $row['usertitleid'] > 5 )
             $icon = '5.png';
          else
             $icon = $row['usertitleid'] . '.png';
 
-         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( {$row['usertitleid']}, '{$row['title']}', '{$row['minposts']}', '{$icon}' )" );
+         $qsf->db->query( "INSERT INTO %pmembertitles VALUES( %d, '%s', %d, '%s' )", $row['usertitleid'], $row['title'], $row['minposts'], $icon );
          $i++;
       }
    }
 
-   $oldset['titles'] = '1';
+   $oldset['titles'] = 1;
    $oldset['title_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_vb351.php'>";
@@ -521,9 +513,8 @@ else if( $_GET['action'] == 'mtitles' )
 else if( $_GET['action'] == 'forums' )
 {
    $qsf->db->query( "TRUNCATE %pforums" );
-   $sql = "SELECT * FROM %pforum";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pforum" );
+   $i = 0;
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -531,16 +522,17 @@ else if( $_GET['action'] == 'forums' )
       $row['description'] = strip_vb_tags( $row['description'] );
 
       // Insufficient data at this time to determine if a forum is really a subcategory.
-      $subcat = '0';
+      $subcat = 0;
 
-      if( $row['parentid'] == '-1' )
+      if( $row['parentid'] == -1 )
          $row['parentid'] = '0';
 
-      $qsf->db->query( "INSERT INTO %pforums VALUES( '{$row['forumid']}', {$row['parentid']}, '', '{$row['title']}', 1, '{$row['description']}', {$row['threadcount']}, {$row['replycount']}, '{$row['lastpost']}', {$subcat} )" );
+      $qsf->db->query( "INSERT INTO %pforums VALUES( %d, %d, '', '%s', 1, '%s', %d, %d, %d, %d )",
+         $row['forumid'], $row['parentid'], $row['title'], $row['description'], $row['threadcount'], $row['replycount'], $row['lastpost'], $subcat );
       $i++;
    }
 
-   $oldset['forums'] = '1';
+   $oldset['forums'] = 1;
    $oldset['forum_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_vb351.php'>";
@@ -549,60 +541,56 @@ else if( $_GET['action'] == 'forums' )
 else if( $_GET['action'] == 'topics' )
 {
    $qsf->db->query( "TRUNCATE %ptopics" );
-   $sql = "SELECT * FROM %pthread";
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT * FROM %pthread" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $row['postuserid']++;
 
       $topic_modes = TOPIC_PUBLISH;
-      if( $row['open'] == '0' )
+      if( $row['open'] == 0 )
          $topic_modes = ($topic_modes | TOPIC_LOCKED);
-      if( $row['sticky'] == '1' )
+      if( $row['sticky'] == 1 )
          $topic_modes = ($topic_modes | TOPIC_PINNED);
-      if( $row['pollid'] > '0' )
+      if( $row['pollid'] > 0 )
          $topic_modes = ($topic_modes | TOPIC_POLL);
 
       $row['title'] = strip_vb_tags( $row['title'] );
-      $qsf->db->query( "INSERT INTO %ptopics VALUES( {$row['threadid']}, {$row['forumid']}, '{$row['title']}', '', {$row['postuserid']}, 0, '{$row['postuserid']}', '', '{$row['dateline']}', {$row['replycount']}, {$row['views']}, {$topic_modes}, 0, '' )" );
+      $qsf->db->query( "INSERT INTO %ptopics VALUES( %d, %d, '%s', '', %d, 0, %d, '', %d, %d, %d, %d, 0, '' )",
+         $row['threadid'], $row['forumid'], $row['title'], $row['postuserid'], $row['postuserid'], $row['dateline'], $row['replycount'], $row['views'], $topic_modes );
       $i++;
    }
 
    $qsf->db->query( "TRUNCATE %psubscriptions" );
-   $sql = "SELECT * FROM %psubscribeforum";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %psubscribeforum" );
    $expire = time() + 2592000;
-   $sub_id = '0';
+   $sub_id = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $sub_id++;
-      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$sub_id}, {$row['userid']}, 'forum', {$row['forumid']}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, 'forum', %d, %d )", $sub_id, $row['userid'], $row['forumid'], $expire );
    }
 
-   $sql = "SELECT * FROM %psubscribethread";
-   $result = $oldboard->db->query($sql);
+   $result = $oldboard->db->query( "SELECT * FROM %psubscribethread" );
    while( $row = $oldboard->db->nqfetch($result) )
    {
       $sub_id++;
-      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( {$sub_id}, {$row['userid']}, 'topic', {$row['threadid']}, {$expire} )" );
+      $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, 'topic', %d, %d )", $sub_id, $row['userid'], $row['threadid'], $expire );
    }
 
-   $oldset['topics'] = '1';
+   $oldset['topics'] = 1;
    $oldset['topic_count'] = $i;
    write_olddb_sets( $oldset );
 
    $qsf->db->query( "TRUNCATE %pvotes" );
-   $sql = "SELECT p.*, v.pollid, v.userid, v.voteoption
-      FROM %ppoll p
-      LEFT JOIN %ppollvote v ON v.pollid = p.pollid";
 
-   $result = $oldboard->db->query($sql);
-   $i = '0';
+   $result = $oldboard->db->query( "SELECT p.*, v.pollid, v.userid, v.voteoption
+      FROM %ppoll p
+      LEFT JOIN %ppollvote v ON v.pollid = p.pollid" );
+   $i = 0;
    while( $row = $oldboard->db->nqfetch($result) )
    {
-      $sql2 = "SELECT * FROM %pthread WHERE pollid = '{$row['pollid']}'";
-      $result2 = $oldboard->db->query($sql2);
+      $result2 = $oldboard->db->query( "SELECT * FROM %pthread WHERE pollid=%d", $row['pollid'] );
       while( $row2 = $oldboard->db->nqfetch($result2) )
       {
          $tid = $row2['threadid'];
@@ -613,15 +601,15 @@ else if( $_GET['action'] == 'topics' )
 
       foreach( $polloptions as $options => $option )
          $pollanswers .= $option . "\n";
-      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options = '{$pollanswers}' WHERE topic_id = '{$tid}'" );
+      $qsf->db->query( "UPDATE %ptopics SET topic_poll_options='%s' WHERE topic_id=%d", $pollanswers, $tid );
 
       $user = $row['userid'] + 1;
       $vote = $row['voteoption'] - 1;
-      $qsf->db->query( "INSERT INTO %pvotes VALUES( {$user}, {$tid}, {$vote} )" );
+      $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, %d )", $user, $tid, $vote );
       $i++;
    }
 
-   $oldset['polls'] = '1';
+   $oldset['polls'] = 1;
    $oldset['poll_count'] = $i;
    write_olddb_sets( $oldset );
    echo "<meta http-equiv='Refresh' content='0;URL=convert_vb351.php'>";
@@ -632,22 +620,21 @@ else if( $_GET['action'] == 'posts' )
    if( !isset($_GET['start']) || $_GET['start'] == '' )
    {
       $qsf->db->query( "TRUNCATE %pposts" );
-      $start = '0';
+      $start = 0;
    }
    else
       $start = $_GET['start'];
 
    if( !isset($_GET['i']) || $_GET['i'] == '' )
-      $i = '0';
+      $i = 0;
    else
       $i = $_GET['i'];
 
    $num = $oldboard->db->query( "SELECT * FROM %ppost" );
    $all = $oldboard->db->num_rows( $num );
-   $sql = "SELECT * FROM %ppost LIMIT {$start}, {$oldset['post_inc']}";
    $newstart = $start + $oldset['post_inc'];
 
-   $result= $oldboard->db->query($sql);
+   $result= $oldboard->db->query( "SELECT * FROM %ppost LIMIT %d, %d", $start, $oldset['post_inc'] );
 
    while( $row = $oldboard->db->nqfetch($result) )
    {
@@ -655,23 +642,24 @@ else if( $_GET['action'] == 'posts' )
 
       $row['pagetext'] = strip_vb_tags( $row['pagetext'] );
 
-      if( $row['allowsmilie'] == '1' )
-         $smilies = '1';
+      if( $row['allowsmilie'] == 1 )
+         $smilies = 1;
       else
-         $smilies = '0';
+         $smilies = 0;
 
-      $qsf->db->query( "INSERT INTO %pposts VALUES( {$row['postid']}, {$row['threadid']}, '{$row['userid']}', {$smilies}, 1, 1, '{$row['pagetext']}', {$row['dateline']}, '', INET_ATON('{$row['ipaddress']}'), '', {$row['dateline']} )" );
+      $qsf->db->query( "INSERT INTO %pposts VALUES( %d, %d, %d, %d, 1, 1, '%s', %d, '', INET_ATON('%s'), '', %d )",
+         $row['postid'], $row['threadid'], $row['userid'], $smilies, $row['pagetext'], $row['dateline'], $row['ipaddress'], $row['dateline'] );
       $i++;
    }
    if( $i == $all )
    {
-      $oldset['posts'] = '2';
+      $oldset['posts'] = 2;
       $oldset['post_count'] = $i;
-      $oldset['converted'] = '2';
+      $oldset['converted'] = 2;
    }
    else
    {
-      $oldset['posts'] = '1';
+      $oldset['posts'] = 1;
       $oldset['post_count'] = $i;
    }
    write_olddb_sets( $oldset );
