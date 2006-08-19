@@ -532,7 +532,7 @@ else if( $_GET['action'] == 'censor' )
 else if( $_GET['action'] == 'members' )
 {
    $qsf->db->query( "TRUNCATE %pusers" );
-   $result = $qsf->db->query( "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
+   $qsf->db->query( "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
 
    $i = 0;
    $result = $oldboard->db->query( "SELECT u.*, m.* FROM %pmembers u LEFT JOIN %pmember_extra m ON m.id=u.id" );
