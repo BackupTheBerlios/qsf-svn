@@ -24,7 +24,7 @@
  * Ikonboard 3.12a Conversion Script.
  * Based on work by Yazinin Nick <admin@vk.net.ru>
  *
- * Roger Libiez [Samson] <http://mercuryboard.afkmud.com>
+ * Roger Libiez [Samson] <http://quicksilverforums.afkmud.com>
  *
  * Script tested on an unmodified Ikonboard 3.12a database.
  * Use with any other version is not advised!
@@ -41,7 +41,10 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'Ikonboard 3.12a Convertor');
+define('CONVERTER_NAME', 'Ikonboard 3.12a');
+define('CONVERTER_URL', 'convert_ikon312a.php');
+define('CONVERTER_DROPURL', 'convert_ikon312a.php?action=dropikon');
+define('CONVERTOR_DROPCONFIRMURL', 'convert_ikon312a.php?action=confirmikondrop');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -371,7 +374,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $qsf->updateForumTrees();
       $qsf->RecountForums();
       
-      include 'templates/convert_ikon_finished.php';
+      include 'templates/convert_finished.php';
    }
    include 'templates/convert_footer.php';
 }
@@ -379,7 +382,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
 else if( $_GET['action'] == 'dropikon' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_ikon_destroydata.php';
+    include 'templates/convert_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
@@ -417,7 +420,7 @@ else if( $_GET['action'] == 'confirmikondrop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS %ptopic_views" );
 
    include 'templates/convert_header.php';
-   include 'templates/convert_ikon_datadestroyed.php';
+   include 'templates/convert_datadestroyed.php';
    include 'templates/convert_footer.php';
 }
 

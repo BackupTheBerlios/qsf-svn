@@ -24,7 +24,7 @@
  * phpBB2 Conversion Script
  * Based on work by Yazinin Nick <admin@vk.net.ru>
  *
- * Roger Libiez [Samson] <http://mercuryboard.afkmud.com>
+ * Roger Libiez [Samson] <http://quicksilverforums.afkmud.com>
  *
  * This convertor has been tested on unmodified databases for versions 2.0.4 and 2.0.14 without errors.
  * It should be reasonably safe to use on any phpBB2 2.0.x version.
@@ -41,7 +41,10 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'phpBB2 2.x Convertor');
+define('CONVERTER_NAME', 'phpBB2 2.x');
+define('CONVERTER_URL', 'convert_phpbb2.php');
+define('CONVERTER_DROPURL', 'convert_phpbb2.php?action=dropphpbb');
+define('CONVERTOR_DROPCONFIRMURL', 'convert_phpbb2.php?action=confirmphpbbdrop');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -206,25 +209,25 @@ function strip_phpbb2_tags( $text )
 
 if( !isset($_GET['action']) || $_GET['action'] == '' )
 {
-   if( $oldset['converted'] == '0' )
+   if( $oldset['converted'] == 0 )
    {
-      $oldset['converted'] = '1';
-      $oldset['censor'] = '0';
-      $oldset['censor_count'] = '0';
-      $oldset['profiles'] = '0';
-      $oldset['prof_count'] = '0';
-      $oldset['pms'] = '0';
-      $oldset['pm_count'] = '0';
-      $oldset['cats'] = '0';
-      $oldset['cat_count'] = '0';
-      $oldset['forums'] = '0';
-      $oldset['forum_count'] = '0';
-      $oldset['topics'] = '0';
-      $oldset['topic_count'] = '0';
-      $oldset['polls'] = '0';
-      $oldset['poll_count'] = '0';
-      $oldset['posts'] = '0';
-      $oldset['post_count'] = '0';
+      $oldset['converted'] = 1;
+      $oldset['censor'] = 0;
+      $oldset['censor_count'] = 0;
+      $oldset['profiles'] = 0;
+      $oldset['prof_count'] = 0;
+      $oldset['pms'] = 0;
+      $oldset['pm_count'] = 0;
+      $oldset['cats'] = 0;
+      $oldset['cat_count'] = 0;
+      $oldset['forums'] = 0;
+      $oldset['forum_count'] = 0;
+      $oldset['topics'] = 0;
+      $oldset['topic_count'] = 0;
+      $oldset['polls'] = 0;
+      $oldset['poll_count'] = 0;
+      $oldset['posts'] = 0;
+      $oldset['post_count'] = 0;
 
       write_olddb_sets( $oldset );
    }
@@ -260,7 +263,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight' align='left'><a href='convert_phpbb2.php?action=censor'>Convert Censored Words</a>
      </td>";
 
-   if( $censor_count > '0' )
+   if( $censor_count > 0 )
       echo "<td class='tablelight' align='left'>".$censor_count." censored words converted.</td>\n";
    else
       echo "<td class='tablelight'>&nbsp;</td>\n";
@@ -270,65 +273,65 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
      <td class='tablelight' align='left'><a href='convert_phpbb2.php?action=members'>Convert Member Profiles</a>
      </td>";
 
-   if( $prof_count > '0' )
+   if( $prof_count > 0 )
       echo "<td class='tablelight' align='left'>".$prof_count." member profiles converted.</td>\n";
    else
       echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_phpbb2.php?action=pmessages'>Convert Private Messages</a></td>\n";
-      if( $pms == '1' )
+      if( $pms == 1 )
          echo "<td class='tablelight' align='left'>".$pm_count." private messages converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' )
+   if( $prof == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_phpbb2.php?action=categories'>Convert Categories</a></td>\n";
-      if( $cats == '1' )
+      if( $cats == 1 )
          echo "<td class='tablelight' align='left'>".$cat_count." categories converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $cats == '1' )
+   if( $cats == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_phpbb2.php?action=forums'>Convert Forums</a></td>\n";
-      if( $forums == '1' )
+      if( $forums == 1 )
          echo "<td class='tablelight' align='left'>".$forum_count." forums converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $forums == '1' )
+   if( $prof == 1 && $forums == 1 )
    {
       echo "<tr>\n";
       echo "<td class='tablelight' align='left'><a href='convert_phpbb2.php?action=topics'>Convert Topics</a></td>\n";
-      if( $topics == '1' )
+      if( $topics == 1 )
          echo "<td class='tablelight' align='left'>".$topic_count." topics converted.</td>\n";
       else
          echo "<td class='tablelight'>&nbsp;</td>\n";
       echo "</tr>\n";
    }
 
-   if( $prof == '1' && $topics == '1' )
+   if( $prof == 1 && $topics == 1 )
    {
       echo "<tr>\n";
-      if( $posts == '0' )
+      if( $posts == 0 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_phpbb2.php?action=posts'>Convert Posts</a></td>\n";
          echo "<td class='tablelight'>&nbsp;</td>\n";
       }
-      else if( $posts == '1' )
+      else if( $posts == 1 )
       {
          echo "<td class='tablelight' align='left'><a href='convert_phpbb2.php?action=posts&amp;start=".$post_count."&amp;i=".$post_count."'>Continue post conversion</a></td>\n";
          echo "<td class='tablelight' align='left'>".$post_count." posts converted so far.</td>\n";
@@ -345,13 +348,13 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
    echo "<td class='tablelight'>&nbsp;</td>\n";
    echo "</tr>\n";
 
-   if( $posts == '2' || $oldset['converted'] == '2' )
+   if( $posts == 2 || $oldset['converted'] == 2 )
    {
       $qsf->sets = $qsf->get_settings($qsf->sets);
       $qsf->updateForumTrees();
       $qsf->RecountForums();
 
-      include 'templates/convert_phpbb_finished.php';
+      include 'templates/convert_finished.php';
    }
    include 'templates/convert_footer.php';
 }
@@ -359,7 +362,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
 else if( $_GET['action'] == 'dropphpbb' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_phpbb_destroydata.php';
+    include 'templates/convert_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
@@ -396,7 +399,7 @@ else if( $_GET['action'] == 'confirmphpbbdrop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS %pwords" );
 
    include 'templates/convert_header.php';
-   include 'templates/convert_phpbb_datadestroyed.php';
+   include 'templates/convert_datadestroyed.php';
    include 'templates/convert_footer.php';
 }
 
@@ -428,17 +431,17 @@ else if( $_GET['action'] == 'members' )
    {
       if( $row['username'] != "Anonymous" )
       {
-         if( $row['user_id'] == '1' )
+         if( $row['user_id'] == 1 )
             $row['user_id'] = 2;
 
-         if( $row['user_viewemail'] == '' || $row['user_viewemail'] == '1' )
+         if( $row['user_viewemail'] == '' || $row['user_viewemail'] == 1 )
             $showmail = 1;
          else
             $showmail = 0;
 
-         if( $row['user_lastvisit'] == '' || $row['user_lastvisit'] == '0' )
+         if( $row['user_lastvisit'] == '' || $row['user_lastvisit'] == 0 )
             $row['user_lastvisit'] = $row['user_regdate'];
-         if( $row['user_session_time'] == '' || $row['user_session_time'] == '0' )
+         if( $row['user_session_time'] == '' || $row['user_session_time'] == 0 )
             $row['user_session_time'] = $row['user_regdate'];
 
          $row['username'] = strip_phpbb2_tags( $row['username'] );
@@ -449,7 +452,7 @@ else if( $_GET['action'] == 'members' )
          $row['user_sig'] = strip_phpbb2_tags( $row['user_sig'] );
 
          // The default phpBB2 groups: You're either an admin or you're not.
-         if( $row['user_level'] == '1' )
+         if( $row['user_level'] == 1 )
             $row['user_level'] = 1;
          else
             $row['user_level'] = 2;
@@ -462,7 +465,7 @@ else if( $_GET['action'] == 'members' )
          }
 
          $pos = strpos( $row['user_avatar'], '://' );
-         if( $pos == '4' )
+         if( $pos == 4 )
          {
             $avatar = $row['user_avatar'];
             $width = 64;

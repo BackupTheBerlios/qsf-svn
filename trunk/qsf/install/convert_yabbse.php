@@ -25,7 +25,7 @@
  *
  * Based on work by Yazinin Nick <admin@vk.net.ru>
  *
- * Roger Libiez [Samson] <http://mercuryboard.afkmud.com>
+ * Roger Libiez [Samson] <http://quicksilverforums.afkmud.com>
  *
  * This convertor has been tested on YaBB SE 1.5.5c as obtained from sourceforge.net.
  * I make no guarantees of it working with something older than that.
@@ -42,7 +42,10 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'YaBB SE 1.5.5 Converter');
+define('CONVERTER_NAME', 'YaBB SE 1.5.5');
+define('CONVERTER_URL', 'convert_yabbse.php');
+define('CONVERTER_DROPURL', 'convert_yabbse.php?action=dropyabbse');
+define('CONVERTOR_DROPCONFIRMURL', 'convert_yabbse.php?action=confirmyabbsedrop');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -353,7 +356,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $qsf->updateForumTrees();
       $qsf->RecountForums();
 
-      include 'templates/convert_yabbse_finished.php';
+      include 'templates/convert_finished.php';
 
    }
    include 'templates/convert_footer.php';
@@ -362,7 +365,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
 else if( $_GET['action'] == 'dropyabbse' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_yabbse_destroydata.php';
+    include 'templates/convert_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
@@ -399,7 +402,7 @@ else if( $_GET['action'] == 'confirmyabbsedrop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS %pwords" );
 
    include 'templates/convert_header.php';
-   include 'templates/convert_yabbse_datadestroyed.php';
+   include 'templates/convert_datadestroyed.php';
    include 'templates/convert_footer.php';
 }
 

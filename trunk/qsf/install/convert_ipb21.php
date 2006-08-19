@@ -24,7 +24,7 @@
  * Invision Power Board 2.1 Conversion Script
  * Based on work by Yazinin Nick <admin@vk.net.ru>
  *
- * Roger Libiez [Samson] <http://mercuryboard.afkmud.com>
+ * Roger Libiez [Samson] <http://quicksilverforums.afkmud.com>
  *
  * Script tested on an unmodified Invision Power Board 2.1 database.
  * Use with any other version has not been validated!
@@ -41,7 +41,10 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'Invision Power Board 2.1 Convertor');
+define('CONVERTER_NAME', 'Invision Power Board 2.1');
+define('CONVERTER_URL', 'convert_ipb21.php');
+define('CONVERTER_DROPURL', 'convert_ipb21.php?action=dropipb21');
+define('CONVERTOR_DROPCONFIRMURL', 'convert_ipb21.php?action=confirmipb21drop');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -414,16 +417,15 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $qsf->updateForumTrees();
       $qsf->RecountForums();
 
-      include 'templates/convert_ipb21_finished.php';
+      include 'templates/convert_finished.php';
    }
    include 'templates/convert_footer.php';
-   
 }
 
 else if( $_GET['action'] == 'dropipb21' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_ipb21_destroydata.php';
+    include 'templates/convert_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
@@ -508,7 +510,7 @@ else if( $_GET['action'] == 'confirmipb21drop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS %pwarn_logs" );
 
    include 'templates/convert_header.php';
-   include 'templates/convert_ipb21_datadestroyed.php';
+   include 'templates/convert_datadestroyed.php';
    include 'templates/convert_footer.php';
 }
 

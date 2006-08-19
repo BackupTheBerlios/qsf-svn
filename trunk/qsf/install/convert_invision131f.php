@@ -24,7 +24,7 @@
  * Invisionboard 1.31f Conversion Script
  * Based on work by Yazinin Nick <admin@vk.net.ru>
  *
- * Roger Libiez [Samson] <http://mercuryboard.afkmud.com>
+ * Roger Libiez [Samson] <http://quicksilverforums.afkmud.com>
  *
  * Script tested on an unmodified Invisionboard 1.31f database.
  * Use with any other version is not advised!
@@ -41,7 +41,10 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'Invisionboard 1.31f Convertor');
+define('CONVERTER_NAME', 'Invisionboard 1.31f');
+define('CONVERTER_URL', 'convert_invision131f.php');
+define('CONVERTER_DROPURL', 'convert_invision131f?action=dropinvision');
+define('CONVERTOR_DROPCONFIRMURL', 'convert_invision131f?action=confirminvisiondrop');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -381,16 +384,15 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $qsf->updateForumTrees();
       $qsf->RecountForums();
 
-      include 'templates/convert_invision_finished.php';
+      include 'templates/convert_finished.php';
    }
    include 'templates/convert_footer.php';
-   
 }
 
 else if( $_GET['action'] == 'dropinvision' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_invision_destroydata.php';
+    include 'templates/convert_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
@@ -450,7 +452,7 @@ else if( $_GET['action'] == 'confirminvisiondrop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS %pwarn_logs" );
 
    include 'templates/convert_header.php';
-   include 'templates/convert_invision_datadestroyed.php';
+   include 'templates/convert_datadestroyed.php';
    include 'templates/convert_footer.php';
 }
 

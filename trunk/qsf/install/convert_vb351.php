@@ -24,7 +24,7 @@
  * vBulliten Conversion Script
  * Based on work by Yazinin Nick <admin@vk.net.ru>
  *
- * Roger Libiez [Samson] <http://mercuryboard.afkmud.com>
+ * Roger Libiez [Samson] <http://quicksilverforums.afkmud.com>
  *
  * This convertor has only had limited testing on a vBulliten 3.5.1 live demo database
  **/
@@ -40,7 +40,10 @@ require_once $set['include_path'] . '/global.php';
 // Check for any addons available
 include_addons($set['include_path'] . '/addons/');
 
-define('CONVERTER_NAME', 'vBulliten 3.5.1 Converter');
+define('CONVERTER_NAME', 'vBulliten 3.5 Converter');
+define('CONVERTER_URL', 'convert_vb351.php');
+define('CONVERTER_DROPURL', 'convert_vb351.php?action=dropvb');
+define('CONVERTOR_DROPCONFIRMURL', 'convert_vb351.php?action=confirmvbdrop');
 
 $db = new $modules['database']( $set['db_host'], $set['db_user'], $set['db_pass'], $set['db_name'], $set['db_port'], $set['db_socket'], $set['prefix'] );
 if( !$db->connection )
@@ -310,7 +313,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
       $qsf->updateForumTrees();
       $qsf->RecountForums();
 
-      include 'templates/convert_vb351_finished.php';
+      include 'templates/convert_finished.php';
    }
    include 'templates/convert_footer.php';
 }
@@ -318,7 +321,7 @@ if( !isset($_GET['action']) || $_GET['action'] == '' )
 else if( $_GET['action'] == 'dropvb' )
 {
     include 'templates/convert_header.php';
-    include 'templates/convert_vb351_destroydata.php';
+    include 'templates/convert_destroydata.php';
     include 'templates/convert_footer.php';
 }
 
@@ -370,7 +373,7 @@ else if( $_GET['action'] == 'confirmvbdrop' )
    $oldboard->db->query( "DROP TABLE IF EXISTS %pusertitles" );
 
    include 'templates/convert_header.php';
-   include 'templates/convert_vb351_datadestroyed.php';
+   include 'templates/convert_datadestroyed.php';
    include 'templates/convert_footer.php';
 }
 
