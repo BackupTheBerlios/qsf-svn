@@ -461,6 +461,10 @@ class cp extends qsfglobal
 					$this->post['user_avatar_height'] = $data['Y'];
 				}
 
+				// Allows things such as rsync to backup avatars
+				$avatar_uploaded = './avatars/uploaded/' . $this->user['user_id'] . '.' . $fileExtension;
+				$this->chmod( $avatar_uploaded , 0644, false );
+
 				// Deliberate fall through
 			case 'use_uploaded':
 				$avatar = './avatars/uploaded/' . $this->user['user_id'] . '.' . $fileExtension;
