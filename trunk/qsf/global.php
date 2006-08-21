@@ -523,18 +523,19 @@ class qsfglobal
 	 * @param string $link_text Text for a link
 	 * @param string $link Destination for a link
 	 * @param string $redirect Target for an automated redirect
+	 * @param int $delay Sets an optional delay for automated redirect
 	 * @author Jason Warner <jason@mercuryboard.com>
 	 * @since Beta 2.0
 	 * @return string HTML-formatted message
 	 **/
-	function message($title, $message, $link_text = null, $link = null, $redirect = null)
+	function message($title, $message, $link_text = null, $link = null, $redirect = null, $delay = 4)
 	{
 		if ($link_text) {
 			$message .= '<br /><br /><a href="' . $link . '">' . $link_text . '</a>';
 		}
 
 		if ($redirect) {
-			@header('Refresh: 4;url=' . $redirect);
+			@header('Refresh: '.$delay.';url=' . $redirect);
 		}
 
 		return eval($this->template('MAIN_MESSAGE'));
