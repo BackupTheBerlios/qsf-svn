@@ -1340,7 +1340,7 @@
 <form action="{$this->self}" method="get">
 {$this->table}
  <tr>
-  <td class="header">{$this->lang->menu_title}</td>
+  <td class="header" colspan="2">{$this->lang->menu_title}</td>
  </tr>
  <tr>
   <td class="tabledark" colspan="2">
