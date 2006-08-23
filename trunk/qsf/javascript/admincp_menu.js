@@ -13,6 +13,8 @@ sfHover = function() {
 }
 
 // Only run in IE
-window.attachEvent("onload", sfHover);
+if (window.attachEvent) {
+	window.attachEvent("onload", sfHover);
+}
 
 
