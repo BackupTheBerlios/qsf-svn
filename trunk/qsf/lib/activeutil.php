@@ -171,7 +171,11 @@ class activeutil extends bbcode
 		{
 			if ($user['active_time'] < $oldtime) {
 				$oldusers[] = $user['active_id'];
-			} elseif ($user['user_active']) {
+			} else {
+				if (!$user['user_active'] && !$this->perms->auth('is_admin')) {
+					continue;
+				}
+
 				// Build up link
 				$link = '';
 				$name = '';
@@ -185,6 +189,9 @@ class activeutil extends bbcode
 				if ($user['active_id'] != USER_GUEST_UID) {
 					$link = "href=\"{$this->self}?a=profile&amp;w={$user['active_id']}\"";
 					$name = sprintf($user['group_format'], $user['user_name']);
+					if( !$user['user_active'] ) {
+						$name = sprintf( '<i>%s</i>', $name );
+					}
 					$this->totalMembers++;
 				} else {
 					$name = $user['user_name'];
