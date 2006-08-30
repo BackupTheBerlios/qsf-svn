@@ -246,7 +246,7 @@ class forums extends admin
 		}
 
 		$this->db->query("UPDATE %pforums SET
-			  forum_parent=%d, forum_name='%s', forum_description='%s', forum_subcat='%s'
+			  forum_parent=%d, forum_name='%s', forum_description='%s', forum_subcat=%d
 			  WHERE forum_id=%d",
 			  $this->post['parent'], $this->post['name'], $this->post['description'], $subcat, $id);
 
