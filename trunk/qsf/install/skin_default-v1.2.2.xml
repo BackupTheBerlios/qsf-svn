@@ -231,12 +231,6 @@
   </td>
  </tr>
  <tr>
-  <td class="tablelight">{$this->lang->template_position}</td>
-  <td class="tablelight">
-   <input type="text" name="pos" size="2" />
-  </td>
- </tr>
- <tr>
   <td class="tabledark">{$this->lang->template_html}</td>
   <td class="tabledark">
    <textarea name="html" rows="30" cols="70"></textarea>

@@ -865,7 +865,6 @@ class templates extends admin
 			if (empty($name) || empty($html) || empty($title) || empty($desc)) {
 				return $this->message($this->lang->add, $this->lang->all_fields_required);
 			}
-		        $pos = is_numeric($this->post['pos']) ? $this->post['pos'] : 1;
 
 		        $this->db->query("INSERT INTO %ptemplates (template_skin, template_set, template_name, template_html, template_displayname, template_description)
 					VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
