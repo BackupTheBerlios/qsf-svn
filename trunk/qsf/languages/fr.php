@@ -1175,6 +1175,7 @@ class fr
 		$this->settings_db_prefix = 'Préfixe des tables';
 		$this->settings_db_socket = 'Socket de la base de données';
 		$this->settings_db_username = 'Nom d\'utilisateur(-trice) de la base de données';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Langue par défaut';
 		$this->settings_default_no = 'Non par défaut';
 		$this->settings_default_skin = 'Peau par défaut';

@@ -48,8 +48,11 @@ $need_templates = array(
 	'TOPIC_MAIN',
 	'TOPIC_QUICKREPLY',
 	'RSSFEED_ITEM',
-	'ADMIN_LIST_TEMPLATES'
+	'ADMIN_LIST_TEMPLATES',
+	'ADMIN_EDIT_BOARD_SETTINGS'
 	);
+
+$this->sets['debug_mode'] = 0;
 
 // Permission changes	
 // $new_permissions['new_perm'] = true;

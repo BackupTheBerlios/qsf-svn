@@ -572,7 +572,7 @@ class fi
 		$this->main_load = 'kuorma';
 		$this->main_login = 'kirjaudu';
 		$this->main_logout = 'poistu';
-		$this->main_mark = 'mark all'; //Translate
+		$this->main_mark = 'mark all';
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
 		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Valitettavasti %s on tällä hetkellä pääsemättömissä liian monen paikalla olevan käyttäjän vuoksi.';
@@ -583,7 +583,7 @@ class fi
 		$this->main_prev = 'edellinen';
 		$this->main_queries = 'kutsua';
 		$this->main_quote = 'Lainaus';
-		$this->main_recent = 'recent posts'; //Translate
+		$this->main_recent = 'recent posts';
 		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
 		$this->main_register = 'rekisteröidy';
 		$this->main_reminder = 'Muistutus';
@@ -1175,6 +1175,7 @@ class fi
 		$this->settings_db_prefix = 'Table Prefix'; //Translate
 		$this->settings_db_socket = 'Database Socket'; //Translate
 		$this->settings_db_username = 'Database Username'; //Translate
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Default Language'; //Translate
 		$this->settings_default_no = 'Default No'; //Translate
 		$this->settings_default_skin = 'Default Skin'; //Translate

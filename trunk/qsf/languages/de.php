@@ -1176,6 +1176,7 @@ class de
 		$this->settings_db_prefix = 'Tabellenpräfix';
 		$this->settings_db_socket = 'Datenbanksocket';
 		$this->settings_db_username = 'Datenbankbenutzername';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Standardsprache';
 		$this->settings_default_no = 'Standardnummer';
 		$this->settings_default_skin = 'Standardskin';

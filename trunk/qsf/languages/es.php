@@ -563,7 +563,7 @@ class es
 	{
 		$this->main_activate = 'Su cuenta ha sido activada';
 		$this->main_activate_resend = 'Reenviar Correo de activacion';
-		$this->main_admincp = 'admin cp'; //Translate
+		$this->main_admincp = 'admin cp';
 		$this->main_banned = 'Le ha sido prohibido ver cualquier parte de este sistema';
 		$this->main_code = 'Codigo';
 		$this->main_cp = 'Panel de control';
@@ -572,7 +572,7 @@ class es
 		$this->main_load = 'Cargar';
 		$this->main_login = 'Firmar';
 		$this->main_logout = 'Salir';
-		$this->main_mark = 'mark all'; //Translate
+		$this->main_mark = 'mark all';
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
 		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Lo sentimos pero, %s no esta actualmente disponible debido a la cantidad masiva de usuaruios conectados';
@@ -583,7 +583,7 @@ class es
 		$this->main_prev = 'Anterior';
 		$this->main_queries = 'Busquedas';
 		$this->main_quote = 'Quote'; //Translate
-		$this->main_recent = 'recent posts'; //Translate
+		$this->main_recent = 'recent posts';
 		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
 		$this->main_register = 'Registar';
 		$this->main_reminder = 'Recordatorio';
@@ -1175,6 +1175,7 @@ class es
 		$this->settings_db_prefix = 'Table Prefix'; //Translate
 		$this->settings_db_socket = 'Database Socket'; //Translate
 		$this->settings_db_username = 'Database Username'; //Translate
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Default Language'; //Translate
 		$this->settings_default_no = 'Default No'; //Translate
 		$this->settings_default_skin = 'Default Skin'; //Translate

@@ -1175,6 +1175,7 @@ class he
 		$this->settings_db_prefix = 'תחילית הטבלה';
 		$this->settings_db_socket = 'מסד הנתונים Socket';
 		$this->settings_db_username = 'שם משתמש מסד הנתונים';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'שפת ברירת המחדל';
 		$this->settings_default_no = 'מספר ברירת המחדל';
 		$this->settings_default_skin = 'סקין ברירת המחדל';

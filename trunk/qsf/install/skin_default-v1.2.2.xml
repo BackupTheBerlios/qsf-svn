@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <qsfmod>
   <title>Skin: QSF Comet</title>
   <type folder="default">skin</type>
@@ -386,6 +386,13 @@
   <td class="tablelight">
    <input type="radio" name="closed" value="0" <IF !$this->sets['closed']>checked="checked"</IF> id="closed2" /><label for="closed2">{$this->lang->settings_enabled}</label><br />
    <input type="radio" name="closed" value="1" <IF $this->sets['closed']>checked="checked"</IF> id="closed1" /><label for="closed1">{$this->lang->settings_disabled}</label>
+  </td>
+ </tr>
+ <tr>
+  <td class="labellight">{$this->lang->settings_debug_mode}</td>
+  <td class="tablelight">
+   <input type="radio" name="debug_mode" value="0" <IF !$this->sets['debug_mode']>checked="checked"</IF> id="debug2" /><label for="debug2">{$this->lang->settings_disabled}</label><br />
+   <input type="radio" name="debug_mode" value="1" <IF $this->sets['debug_mode']>checked="checked"</IF> id="debug1" /><label for="debug1">{$this->lang->settings_enabled}</label>
   </td>
  </tr>
  <tr>

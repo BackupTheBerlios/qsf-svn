@@ -569,7 +569,7 @@ class sk
 		$this->main_code = 'zdrojovı kód';
 		$this->main_cp = 'ovládací panel';
 		$this->main_full = 'Detaily';
-		$this->main_help = 'help'; //Translate
+		$this->main_help = 'help';
 		$this->main_load = 'záa';
 		$this->main_login = 'prihlásenie';
 		$this->main_logout = 'odhlásenie';
@@ -1177,6 +1177,7 @@ class sk
 		$this->settings_db_prefix = 'Predpona Tabuliek';
 		$this->settings_db_socket = 'Socket Databázy';
 		$this->settings_db_username = 'Meno uívate¾a pre pripojenie k Databáze';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Prednastavenı Jazyk';
 		$this->settings_default_no = 'Prednastavi NIE';
 		$this->settings_default_skin = 'Prednastavenı Skin';

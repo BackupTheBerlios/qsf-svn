@@ -1176,6 +1176,7 @@ class sv
 		$this->settings_db_prefix = 'Tabellprefix';
 		$this->settings_db_socket = 'Databassocket';
 		$this->settings_db_username = 'Databasanvändarnamn';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Förvalt Språk';
 		$this->settings_default_no = 'Förvalt Nej';
 		$this->settings_default_skin = 'Förvalt Skal';

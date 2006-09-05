@@ -1176,6 +1176,7 @@ class it
 		$this->settings_db_prefix = 'Prefisso Tabelle';
 		$this->settings_db_socket = 'Socket Database';
 		$this->settings_db_username = 'Username Database';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Lingua di Default';
 		$this->settings_default_no = 'No Default';
 		$this->settings_default_skin = 'Skin di Default';

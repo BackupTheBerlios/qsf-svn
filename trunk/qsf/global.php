@@ -111,7 +111,7 @@ class qsfglobal
 	 **/
 	function init($admin = false)
 	{
-		if (@file_exists($this->sets['include_path'] . '/tools')) {
+		if ($this->sets['debug_mode']) {
 			$this->debug_mode = true;
 		}
 

@@ -572,7 +572,7 @@ class pt
 		$this->main_load = 'carrega';
 		$this->main_login = 'Entrar';
 		$this->main_logout = 'Sair';
-		$this->main_mark = 'mark all'; //Translate
+		$this->main_mark = 'mark all';
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
 		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Desculpe, mas %s não está disponivel, por causa do excessivo número de usuários.';
@@ -583,7 +583,7 @@ class pt
 		$this->main_prev = 'Anterior';
 		$this->main_queries = 'pesquisas';
 		$this->main_quote = 'Aspas';
-		$this->main_recent = 'recent posts'; //Translate
+		$this->main_recent = 'recent posts';
 		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
 		$this->main_register = 'Registre';
 		$this->main_reminder = 'Lembrete';
@@ -1175,6 +1175,7 @@ class pt
 		$this->settings_db_prefix = 'Table Prefix'; //Translate
 		$this->settings_db_socket = 'Database Socket'; //Translate
 		$this->settings_db_username = 'Database Username'; //Translate
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Default Language'; //Translate
 		$this->settings_default_no = 'Default No'; //Translate
 		$this->settings_default_skin = 'Default Skin'; //Translate

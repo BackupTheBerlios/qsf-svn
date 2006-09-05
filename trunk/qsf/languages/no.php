@@ -1176,6 +1176,7 @@ class no
 		$this->settings_db_prefix = 'Prefiks for tabell';
 		$this->settings_db_socket = 'Databaseutgang';
 		$this->settings_db_username = 'Brukernavn for database';
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Standardspråk';
 		$this->settings_default_no = 'Standardnummer';
 		$this->settings_default_skin = 'Standardskall';

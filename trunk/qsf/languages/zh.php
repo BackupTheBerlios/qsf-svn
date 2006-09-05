@@ -572,7 +572,7 @@ class zh
 		$this->main_load = '����';
 		$this->main_login = '��¼';
 		$this->main_logout = '�ǳ�';
-		$this->main_mark = 'mark all'; //Translate
+		$this->main_mark = 'mark all';
 		$this->main_mark1 = 'Mark all topics as read'; //Translate
 		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = '�Բ��� ���������û���࣬��ǰ%s�����á�';
@@ -583,7 +583,7 @@ class zh
 		$this->main_prev = 'ǰҳ';
 		$this->main_queries = 'queries'; //Translate
 		$this->main_quote = '����';
-		$this->main_recent = 'recent posts'; //Translate
+		$this->main_recent = 'recent posts';
 		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
 		$this->main_register = 'ע��';
 		$this->main_reminder = '����';
@@ -1175,6 +1175,7 @@ class zh
 		$this->settings_db_prefix = 'Table Prefix'; //Translate
 		$this->settings_db_socket = 'Database Socket'; //Translate
 		$this->settings_db_username = 'Database Username'; //Translate
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Default Language'; //Translate
 		$this->settings_default_no = 'Default No'; //Translate
 		$this->settings_default_skin = 'Default Skin'; //Translate

@@ -570,7 +570,7 @@ class nl
 		$this->main_code = 'Code'; //Translate
 		$this->main_cp = 'Instellingen';
 		$this->main_full = 'Vol';
-		$this->main_help = 'Help';
+		$this->main_help = 'Help'; //Translate
 		$this->main_load = 'Laad';
 		$this->main_login = 'Log in';
 		$this->main_logout = 'Log uit';
@@ -1177,6 +1177,7 @@ class nl
 		$this->settings_db_prefix = 'Table Prefix'; //Translate
 		$this->settings_db_socket = 'Database Socket'; //Translate
 		$this->settings_db_username = 'Database Username'; //Translate
+		$this->settings_debug_mode = 'Debug Mode'; //Translate
 		$this->settings_default_lang = 'Default Language'; //Translate
 		$this->settings_default_no = 'Default No'; //Translate
 		$this->settings_default_skin = 'Default Skin'; //Translate

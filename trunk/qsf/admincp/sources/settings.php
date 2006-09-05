@@ -100,6 +100,7 @@ class settings extends admin
 				'topics_per_page' => 'int',
 				'posts_per_page' => 'int',
 				'hot_limit' => 'int',
+				'debug_mode' => 'bool',
 				'default_skin' => 'string',
 				'default_email_shown' => 'bool',
 				'default_lang' => 'string',
