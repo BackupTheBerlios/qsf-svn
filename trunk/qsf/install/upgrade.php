@@ -203,9 +203,9 @@ class upgrade extends qsfglobal
 						$miss = $this->db->query("SELECT template_name FROM %ptemplates WHERE template_skin='%s' AND template_name='%s'",
 							$skin, $temp_name);
 
-	                    if ($this->db->num_rows($miss) < 1) {
+						if ($this->db->num_rows($miss) < 1) {
 							$skinsupdated .= $row['skin_name'] . ": Added: " . $template ."<br />";
-	                	   	$temps_to_insert[] = $temp_name;
+							$temps_to_insert[] = $temp_name;
 						}
 					}
 					
