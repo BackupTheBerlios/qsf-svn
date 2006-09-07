@@ -375,13 +375,13 @@ class bbcode extends htmltools
 	 **/
 	function _get_bbcode_matches()
 	{
-		$bbcode_matches = array('~\[b](.*?)\[/b]~i',
-			'~\[i](.*?)\[/i]~i',
-			'~\[u](.*?)\[/u]~i',
-			'~\[s](.*?)\[/s]~i',
-			'~\[sup](.*?)\[/sup]~i',
-			'~\[sub](.*?)\[/sub]~i',
-			'~\[indent](.*?)\[/indent]~i',
+		$bbcode_matches = array('~\[b](.*?)\[/b]~is',
+			'~\[i](.*?)\[/i]~is',
+			'~\[u](.*?)\[/u]~is',
+			'~\[s](.*?)\[/s]~is',
+			'~\[sup](.*?)\[/sup]~is',
+			'~\[sub](.*?)\[/sub]~is',
+			'~\[indent](.*?)\[/indent]~is',
 			'~\[email]([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)?\[/email]~i',
 			'~\[email=([^<]+?)](.*?)\[/email]~i',
 			'~\[img](h t t p|h t t p s|f t p) : / /(.*?)\[/img]~ise',
@@ -398,8 +398,8 @@ class bbcode extends htmltools
 
 		$bbcode_replacements = array('<strong>\\1</strong>',
 			'<em>\\1</em>',
-			'<span style="text-decoration: underline;">\\1</span>',
-			'<span style="text-decoration: line-through;">\\1</span>',
+			'<span style="text-decoration:underline;">\\1</span>',
+			'<span style="text-decoration:line-through;">\\1</span>',
 			'<sup>\\1</sup>',
 			'<sub>\\1</sub>',
 			'<p style=\'text-indent:2em\'>\\1</p>',
