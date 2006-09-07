@@ -840,6 +840,7 @@ $sets['spider_name'] = array(
 	'ArchitextSpider'=>'Excite-Bot',
 	'pipeLiner'	=> 'PipeLine Spider'
 );
+$sets['debug_mode'] = 0;
 $sets['rss_feed_title'] = '';
 $sets['rss_feed_desc'] = '';
 $sets['rss_feed_posts'] = 5;
