@@ -109,6 +109,7 @@ class de
 		$this->admin_prune = 'Alte Themen abschneiden';
 		$this->admin_recount_forums = 'Themen und Antworten nachzählen';
 		$this->admin_settings = 'Einstellungen';
+		$this->admin_settings_add = 'Add new board setting'; //Translate
 		$this->admin_skins = 'Skins'; //Translate
 		$this->admin_stats = 'Statistik-Zentrum';
 		$this->admin_upgrade_skin = 'Skin modernisieren';
@@ -1203,6 +1204,13 @@ class de
 		$this->settings_max_attach_size = 'Anhänge - Maximale Dateigröße';
 		$this->settings_members = 'Mitglieder Einstellungen';
 		$this->settings_modname_only = 'Modulname, ohne .php';
+		$this->settings_new = 'New Setting'; //Translate
+		$this->settings_new_add = 'Add Board Setting';
+		$this->settings_new_added = 'New settings added.'; //Translate
+		$this->settings_new_exists = 'That setting already exists. Choose another name for it.'; //Translate
+		$this->settings_new_name = 'New setting name'; //Translate
+		$this->settings_new_required = 'The new setting name is required.'; //Translate
+		$this->settings_new_value = 'New setting value'; //Translate
 		$this->settings_no_allow = 'Erlaube nicht';
 		$this->settings_nodata = 'Es wurden keine Daten von POST gesendet';
 		$this->settings_one_per = 'Einer pro Linie';

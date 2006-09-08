@@ -108,6 +108,7 @@ class en
 		$this->admin_prune = 'Prune old topics';
 		$this->admin_recount_forums = 'Recount topics and replies';
 		$this->admin_settings = 'Settings';
+		$this->admin_settings_add = 'Add new board setting';
 		$this->admin_skins = 'Skins';
 		$this->admin_stats = 'Statistics center';
 		$this->admin_upgrade_skin = 'Upgrade a Skin';
@@ -1202,6 +1203,13 @@ class en
 		$this->settings_max_attach_size = 'Attachments - Maximum File Size';
 		$this->settings_members = 'Member Settings';
 		$this->settings_modname_only = 'Module name only. Do not include .php';
+		$this->settings_new = 'New Setting';
+		$this->settings_new_add = 'Add New Board Setting';
+		$this->settings_new_added = 'New settings added.';
+		$this->settings_new_exists = 'That setting already exists. Choose another name for it.';
+		$this->settings_new_name = 'New setting name';
+		$this->settings_new_required = 'The new setting name is required.';
+		$this->settings_new_value = 'New setting value';
 		$this->settings_no_allow = 'Do Not Allow';
 		$this->settings_nodata = 'No data was sent from POST';
 		$this->settings_one_per = 'One per line';

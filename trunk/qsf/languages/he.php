@@ -108,6 +108,7 @@ class he
 		$this->admin_prune = 'מחיקת הודעות ישנות';
 		$this->admin_recount_forums = 'ספירת הודעות ותגובות';
 		$this->admin_settings = 'הגדרות';
+		$this->admin_settings_add = 'Add new board setting'; //Translate
 		$this->admin_skins = 'סקינים';
 		$this->admin_stats = 'מרכז הסטטיסטיקות';
 		$this->admin_upgrade_skin = 'סקין שידרוג';
@@ -1202,6 +1203,13 @@ class he
 		$this->settings_max_attach_size = 'קבצים מצורפים - גודל קובץ מירבי.';
 		$this->settings_members = 'הגדרות חבר';
 		$this->settings_modname_only = '.php שם מודול בלבד. אל תכלול';
+		$this->settings_new = 'New Setting'; //Translate
+		$this->settings_new_add = 'Add Board Setting';
+		$this->settings_new_added = 'New settings added.'; //Translate
+		$this->settings_new_exists = 'That setting already exists. Choose another name for it.'; //Translate
+		$this->settings_new_name = 'New setting name'; //Translate
+		$this->settings_new_required = 'The new setting name is required.'; //Translate
+		$this->settings_new_value = 'New setting value'; //Translate
 		$this->settings_no_allow = 'לא לאפשר';
 		$this->settings_nodata = 'לא נשלח נתון מההודעה';
 		$this->settings_one_per = 'אחד בכל שורה';

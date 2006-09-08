@@ -1204,6 +1204,7 @@
       <div class="fieldset">
        <div class="legend">{$this->lang->admin_settings}</div><br />
        <a href="{$this->self}?a=settings&amp;s=basic">{$this->lang->admin_edit_settings}</a><br />
+       <a href="{$this->self}?a=settings&amp;s=add">{$this->lang->admin_settings_add}</a><br />
        <a href="{$this->self}?a=censoring">{$this->lang->admin_censor}</a><br />
        <a href="{$this->self}?a=php_info">{$this->lang->admin_phpinfo}</a><br />
        <a href="{$this->self}?a=logs">{$this->lang->admin_logs}</a><br />
@@ -1311,6 +1312,7 @@
  <li><a href="#">{$admin->lang->admin_settings}</a>
   <ul>
    <li><a href="{$admin->self}?a=settings&amp;s=basic">{$admin->lang->admin_edit_settings}</a></li>
+   <li><a href="{$admin->self}?a=settings&amp;s=add">{$admin->lang->admin_settings_add}</a></li>
    <li><a href="{$admin->self}?a=censoring">{$admin->lang->admin_censor}</a></li>
    <li><a href="{$admin->self}?a=php_info">{$admin->lang->admin_phpinfo}</a></li>
    <li><a href="{$admin->self}?a=logs">{$admin->lang->admin_logs}</a></li>

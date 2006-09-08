@@ -108,6 +108,7 @@ class fr
 		$this->admin_prune = 'Elaguer de vieux sujets';
 		$this->admin_recount_forums = 'Les sujets de deuxième compte des suffrages et répond';
 		$this->admin_settings = 'Cadres';
+		$this->admin_settings_add = 'Add new board setting'; //Translate
 		$this->admin_skins = 'Peaux';
 		$this->admin_stats = 'Centre de statistique';
 		$this->admin_upgrade_skin = 'Améliorer une Peau';
@@ -1202,6 +1203,13 @@ class fr
 		$this->settings_max_attach_size = 'Pièces jointes - Taille de fichier maximum';
 		$this->settings_members = 'Paramètres des Membres';
 		$this->settings_modname_only = 'Nom du Module seulement. N\'incluez pas .php';
+		$this->settings_new = 'New Setting'; //Translate
+		$this->settings_new_add = 'Add Board Setting';
+		$this->settings_new_added = 'New settings added.'; //Translate
+		$this->settings_new_exists = 'That setting already exists. Choose another name for it.'; //Translate
+		$this->settings_new_name = 'New setting name'; //Translate
+		$this->settings_new_required = 'The new setting name is required.'; //Translate
+		$this->settings_new_value = 'New setting value'; //Translate
 		$this->settings_no_allow = 'Ne permettez pas';
 		$this->settings_nodata = 'Aucune donnée n\'a été envoyée depuis POST';
 		$this->settings_one_per = 'Un par ligne';

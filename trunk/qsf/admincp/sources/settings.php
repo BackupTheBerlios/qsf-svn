@@ -39,6 +39,39 @@ class settings extends admin
 
 		switch($this->get['s'])
 		{
+		case 'add':
+			$this->set_title($this->lang->settings_new_add);
+			$this->tree($this->lang->settings_new_add);
+
+			if(!isset($this->post['submit'])) {
+				return $this->message($this->lang->settings_new, "
+				<form action='{$this->self}?a=settings&amp;s=add' method='post'>
+				<div>
+				{$this->lang->settings_new_name}:  <input class='input' name='new_setting' type='text' value='' /><br /><br />
+				{$this->lang->settings_new_value}: <input class='input' name='new_value' type='text' value='' /><br />
+				<input type='submit' name='submit' value='{$this->lang->submit}' />
+				</div>
+				</form>" );
+			}
+			else {
+				if(empty($this->post['new_setting'])) {
+					return $this->message($this->lang->settings_new, $this->lang->settings_new_required);
+				}
+
+				$new_setting = $this->post['new_setting'];
+				$new_value = $this->post['new_value'];
+
+				if( isset($this->sets[$new_setting]) ) {
+					return $this->message($this->lang->settings_new, $this->lang->settings_new_exists);
+				}
+
+				$this->sets[$new_setting] = $new_value;
+				$this->write_sets();
+
+				return $this->message($this->lang->settings_new, $this->lang->settings_new_added);
+			}
+			break;
+
 		case 'db':
 			$this->set_title($this->lang->settings_db);
 			$this->tree($this->lang->settings_db);
@@ -179,7 +212,7 @@ class settings extends admin
 				$this->db->query("UPDATE %pusers SET user_language='%s', user_skin='%s' WHERE user_id=%d",
 					$this->post['default_lang'], $this->post['default_skin'], USER_GUEST_UID);
 				$this->write_sets();
-                $this->db->query("UPDATE %psettings SET settings_tos='%s'", $tos_text);
+				$this->db->query("UPDATE %psettings SET settings_tos='%s'", $tos_text);
 			}
 
 			return $this->message($this->lang->settings, $this->lang->settings_updated);

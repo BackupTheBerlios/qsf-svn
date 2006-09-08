@@ -108,6 +108,7 @@ class zh
 		$this->admin_prune = 'Prune old topics'; //Translate
 		$this->admin_recount_forums = 'Recount topics and replies'; //Translate
 		$this->admin_settings = 'Settings'; //Translate
+		$this->admin_settings_add = 'Add new board setting'; //Translate
 		$this->admin_skins = 'Skins'; //Translate
 		$this->admin_stats = 'Statistics center'; //Translate
 		$this->admin_upgrade_skin = 'Upgrade a Skin'; //Translate
@@ -1202,6 +1203,13 @@ class zh
 		$this->settings_max_attach_size = 'Attachments - Maximum File Size'; //Translate
 		$this->settings_members = 'Member Settings'; //Translate
 		$this->settings_modname_only = 'Module name only. Do not include .php'; //Translate
+		$this->settings_new = 'New Setting'; //Translate
+		$this->settings_new_add = 'Add Board Setting';
+		$this->settings_new_added = 'New settings added.'; //Translate
+		$this->settings_new_exists = 'That setting already exists. Choose another name for it.'; //Translate
+		$this->settings_new_name = 'New setting name'; //Translate
+		$this->settings_new_required = 'The new setting name is required.'; //Translate
+		$this->settings_new_value = 'New setting value'; //Translate
 		$this->settings_no_allow = 'Do Not Allow'; //Translate
 		$this->settings_nodata = 'No data was sent from POST'; //Translate
 		$this->settings_one_per = 'One per line'; //Translate
