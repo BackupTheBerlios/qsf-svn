@@ -2729,13 +2729,13 @@ enable('$init');
  <tr>
   <td class="tablelight" style="width:30%">{$this->lang->mod_label_title}</td>
   <td class="tablelight" style="width:70%">
-   <input class="input" type="text" size="40" name="title" value="{$topic['topic_title']}" />
+   <input class="input" type="text" size="40" maxlength="75" name="title" value="{$topic['topic_title']}" />
   </td>
  </tr>
  <tr>
   <td class="tabledark">{$this->lang->mod_label_description}</td>
   <td class="tabledark">
-   <input class="input" type="text" size="40" name="desc" value="{$topic['topic_description']}" />
+   <input class="input" type="text" size="40" maxlength="35" name="desc" value="{$topic['topic_description']}" />
   </td>
  </tr>
  {$global_topic}

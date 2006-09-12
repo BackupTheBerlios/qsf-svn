@@ -42,6 +42,7 @@ $need_templates = array(
 	'CP_AVATAR',
 	'CP_EDIT_SIG',
 	'CP_PREFS',
+	'MOD_EDIT_TOPIC',
 	'PM_SEND',
 	'POST_BOX_PLAIN',
 	'POST_CLICKABLE_SMILIES',
