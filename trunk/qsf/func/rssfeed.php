@@ -252,6 +252,12 @@ class rssfeed extends qsfglobal
 		$forum_name = 'Unknown';
 		$forum = $this->readmarker->get_forum($query_row['topic_forum']);
 		if ($forum != null) $forum_name = $forum['forum_name'];
+		$user_email = '"' . htmlspecialchars($query_row['user_name']) . '" ';
+		if ($query_row['user_email_show']) {
+			$user_email .= $query_row['user_email'];
+		} else {
+			$user_email .= 'nobody@example.com';
+		}
 		
 		return eval($this->template('RSSFEED_ITEM'));
 	}
