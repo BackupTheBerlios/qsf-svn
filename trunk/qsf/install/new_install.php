@@ -75,7 +75,7 @@ class new_install extends qsfglobal
 			if (!$this->write_db_sets('../settings.php') && !isset($this->post['downloadsettings'])) {
 				echo "The database connection was ok, but settings.php could not be updated.<br />\n";
 				echo "You can CHMOD settings.php to 0666 and hit reload to try again<br/>\n";
-				echo "Or you can force the install to continue and download the new settings.php file";
+				echo "Or you can force the install to continue and download the new settings.php file ";
 				echo "so you can later place it on the website manually<br/>\n";
 				echo "<form action=\"{$this->self}?mode=new_install&amp;step=2\" method=\"post\">\n
 					<input type=\"hidden\" name=\"downloadsettings\" value=\"yes\" />\n
