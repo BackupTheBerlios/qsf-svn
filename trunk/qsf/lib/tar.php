@@ -27,7 +27,7 @@ if (!defined('QUICKSILVERFORUMS')) {
  * Some functions are based off the work in Pear::File_Archive
  *
  * @author Geoffrey Dunn <geoff@warmage.com>
- * @since 1.2.2
+ * @since 1.3.0
  **/
 class archive_tar
 {

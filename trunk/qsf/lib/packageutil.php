@@ -28,7 +28,7 @@ require_once $set['include_path'] . '/lib/xmlparser.php';
  * Contains funtions to handle common package routines
  *
  * @author Geoffrey Dunn <geoff@warmage.com>
- * @since 1.2.2
+ * @since 1.3.0
  **/
 class packageutil
 {
@@ -39,7 +39,7 @@ class packageutil
 	 * @param array  XML node with query elements
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 **/
 	function run_queries(&$db, &$nodes)
 	{
@@ -78,7 +78,7 @@ class packageutil
 	 * @return array list of template names present
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 **/
 	function list_templates(&$nodes)
 	{
@@ -119,7 +119,7 @@ class packageutil
 	 * @return array list of template names inserted
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 **/
 	function insert_templates($skin_dir, &$db, &$nodes, $template_names = null)
 	{
@@ -174,7 +174,7 @@ class packageutil
 	 * Pulls out details for a summary of what the package is and does
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @return array Structured array of packages info
 	 **/
 	function fetch_package_details($filename)
@@ -185,7 +185,7 @@ class packageutil
 	 * Looks through all XML docs in packages folder and pulls basic list data for them
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @return array Structured array of packages info
 	 **/
 	function scan_packages($folder = '../packages/')

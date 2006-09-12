@@ -614,7 +614,7 @@ class cp extends qsfglobal
 	 * Delete the old uploaded avatar if any
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since v1.2.2
+	 * @since v1.3.0
 	 **/
 	function delete_avatar()
 	{

@@ -217,7 +217,7 @@ class database
 	/**
 	 * Returns a escaped string
 	 *
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @return string A string with the quotes and other charaters escaped
 	 * @param string $string The string to escape
 	 **/

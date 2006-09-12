@@ -32,7 +32,7 @@ class jslang extends qsfglobal
 	/**
 	 * Main interface. Get a JSON feed of language variables
 	 *
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @return string rss output
 	 **/
 	function execute()

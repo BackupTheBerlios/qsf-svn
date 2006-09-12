@@ -167,7 +167,7 @@ class db_mysql extends database
 	 * Returns a escaped string
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @return string A string with the quotes and other charaters escaped
 	 * @param string $string The string to escape
 	 **/

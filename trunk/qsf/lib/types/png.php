@@ -27,7 +27,7 @@ require_once $set['include_path'] . '/lib/types/decoder.php';
  * Class read a png's dimentions
  *
  * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
- * @since 1.2.2 
+ * @since 1.3.0 
  **/
 class png extends decoder
 {

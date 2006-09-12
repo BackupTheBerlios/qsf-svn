@@ -132,7 +132,7 @@ class readmarker extends forumutils
 	 * @param int $forum_id Forum being marked as read
 	 * @param int $time Time of the newest post read
 	 * @author Geoffrey Dunn <geoff@warmage.com>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 **/
 	function mark_forum_read($forum_id, $time)
 	{
@@ -316,7 +316,7 @@ class readmarker extends forumutils
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 * @since 1.2
-	 * @version 1.2.2 - Altered by Matt L to use fewer querys and removed unused parameter $forum_id.
+	 * @version 1.3.0 - Altered by Matt L to use fewer querys and removed unused parameter $forum_id.
 	 **/
 	function _load_forum_topics()
 	{

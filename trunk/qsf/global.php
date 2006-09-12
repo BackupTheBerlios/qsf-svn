@@ -34,7 +34,7 @@ if (!defined('QUICKSILVERFORUMS')) {
 class qsfglobal
 {
 	var $name    = 'Quicksilver Forums'; // The name of the software @var string
-	var $version = 'v1.2.2';            // Quicksilver Forums' version @var string
+	var $version = 'v1.3.0';            // Quicksilver Forums' version @var string
 	var $server  = array();           // Alias for $_SERVER @var array
 	var $get     = array();           // Alias for $_GET @var array
 	var $post    = array();           // Alias for $_POST @var array
@@ -635,7 +635,7 @@ class qsfglobal
 	/**
 	 * Creates the contents of a settings file
 	 *
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @return string Contents for settings file
 	 **/
 	function create_settings_file()

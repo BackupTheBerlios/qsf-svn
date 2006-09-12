@@ -880,7 +880,7 @@ class mod extends qsfglobal
 	 * @param int $f the forum identifier
 	 * @param int $ammount how much to decrement by
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
-	 * @since 1.2.2
+	 * @since 1.3.0
 	 * @returns void
 	**/
 	function update_reply_count($f, $ammount, $topic = 0)
