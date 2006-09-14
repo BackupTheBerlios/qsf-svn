@@ -1416,6 +1416,7 @@ class sk
 		$this->topic_lock = 'Zamknú';
 		$this->topic_locked = 'Téma je zamknutá';
 		$this->topic_move = 'Presunú';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Newer Topic'; //Translate
 		$this->topic_no_newer = 'There is no newer topic.'; //Translate
 		$this->topic_no_older = 'There is no older topic.'; //Translate

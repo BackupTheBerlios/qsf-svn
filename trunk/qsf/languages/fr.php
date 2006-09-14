@@ -1414,6 +1414,7 @@ class fr
 		$this->topic_lock = 'Verrouiller';
 		$this->topic_locked = 'Sujet verrouillé';
 		$this->topic_move = 'Déplacer';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Sujet plus récent';
 		$this->topic_no_newer = 'Il n\'y a aucun sujet plus récent.';
 		$this->topic_no_older = 'Il n\'y a aucun sujet plus ancien.';

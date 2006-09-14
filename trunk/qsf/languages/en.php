@@ -1414,6 +1414,7 @@ class en
 		$this->topic_lock = 'Lock';
 		$this->topic_locked = 'Topic Locked';
 		$this->topic_move = 'Move';
+		$this->topic_new_post = 'Post is unread';
 		$this->topic_newer = 'Newer Topic';
 		$this->topic_no_newer = 'There is no newer topic.';
 		$this->topic_no_older = 'There is no older topic.';

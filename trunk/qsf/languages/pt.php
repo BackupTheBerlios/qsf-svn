@@ -1414,6 +1414,7 @@ class pt
 		$this->topic_lock = 'Fechar';
 		$this->topic_locked = 'Tópico fechado';
 		$this->topic_move = 'Mover';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Newer Topic'; //Translate
 		$this->topic_no_newer = 'There is no newer topic.'; //Translate
 		$this->topic_no_older = 'There is no older topic.'; //Translate

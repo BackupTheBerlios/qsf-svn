@@ -1414,6 +1414,7 @@ class cs
 		$this->topic_lock = 'Zamknout';
 		$this->topic_locked = 'Téma zamèeno';
 		$this->topic_move = 'Pøesunout';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Newer Topic'; //Translate
 		$this->topic_no_newer = 'There is no newer topic.'; //Translate
 		$this->topic_no_older = 'There is no older topic.'; //Translate

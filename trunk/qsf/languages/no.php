@@ -1415,6 +1415,7 @@ class no
 		$this->topic_lock = 'Les';
 		$this->topic_locked = 'Emnet er låst';
 		$this->topic_move = 'Flytte';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Nyere emne';
 		$this->topic_no_newer = 'Det finnes ikke noe nyere emne.';
 		$this->topic_no_older = 'Det finnes ikke noe eldre emne.';

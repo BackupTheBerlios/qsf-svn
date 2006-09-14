@@ -1415,6 +1415,7 @@ class sv
 		$this->topic_lock = 'Lås';
 		$this->topic_locked = 'Ämnet Låst';
 		$this->topic_move = 'Flytta';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Nyare ämnen';
 		$this->topic_no_newer = 'Det finns inga nyare ämnen.';
 		$this->topic_no_older = 'Det finns inga äldre ämnen.';

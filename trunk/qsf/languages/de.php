@@ -1415,6 +1415,7 @@ class de
 		$this->topic_lock = 'Sperren';
 		$this->topic_locked = 'Thema gesperrt';
 		$this->topic_move = 'Verschiebe';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Neueres Thema';
 		$this->topic_no_newer = 'Es gibt kein neueres Thema.';
 		$this->topic_no_older = 'Es gibt kein älteres Thema.';

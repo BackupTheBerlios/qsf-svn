@@ -1414,6 +1414,7 @@ class hu
 		$this->topic_lock = 'Zárol';
 		$this->topic_locked = 'Téma lezárva';
 		$this->topic_move = 'Áthelyez';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Newer Topic'; //Translate
 		$this->topic_no_newer = 'There is no newer topic.'; //Translate
 		$this->topic_no_older = 'There is no older topic.'; //Translate

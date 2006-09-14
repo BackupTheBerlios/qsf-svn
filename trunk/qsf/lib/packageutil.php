@@ -179,6 +179,56 @@ class packageutil
 	 **/
 	function fetch_package_details($filename)
 	{
+		if (!is_readable($filename)) return false;
+		
+		if (strtolower(substr($filename, -4)) == '.tar' ||
+			(strtolower(substr($filename, -7)) == '.tar.gz' &&
+			$tarTool->can_gunzip()))
+		{
+			if ($tarTool->open_file_reader(filename)) {
+				// Okay. Look at packages.txt to find our xml file
+				$xmlFilename = $tarTool->extract_file('package.txt');
+				
+				if ($xmlFilename === false) return false;
+
+				$xmlInfo->parseTar($tarTool, $xmlFilename);
+			} else {
+				return false;
+			}
+
+		}
+		else if (strtolower(substr($file, -4)) == '.xml')
+		{
+			$xmlFilename = $filename;
+			$xmlInfo->parse($filename);
+		}
+		else
+		{
+			return false; // give up
+		}
+		
+		$results = array('file' => $xmlFilename);
+				
+		$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
+		$results['type'] = $node['content'];
+
+		$node = $xmlInfo->GetNodeByPath('QSFMOD/TITLE');
+		$results['title'] = $node['content'];
+
+		$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
+
+		if (isset($node['content']) && $node['content'])
+			$results['desc'] = $node['content'];
+		else
+			$results['desc'] = '';
+
+		$node = $xmlInfo->GetNodeByPath('QSFMOD/VERSION');
+		$results['version'] = $node['content'];
+
+		$node = $xmlInfo->GetNodeByPath('QSFMOD/AUTHORNAME');
+		$results['author'] = $node['content'];
+		
+		return $results;
 	}
 
 	/**

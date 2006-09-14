@@ -1414,6 +1414,7 @@ class he
 		$this->topic_lock = 'נעל';
 		$this->topic_locked = 'נושא נעול';
 		$this->topic_move = 'העבר';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'נושא חדש';
 		$this->topic_no_newer = 'אין נושאים חדשים.';
 		$this->topic_no_older = 'אין נושאים ישנים.';

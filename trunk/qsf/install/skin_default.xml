@@ -4225,7 +4225,8 @@ enable('$init');
      <td class="postbottom">
       <div class="signature">{$post['user_signature']}</div><hr />
       <div style="float:right">{$edited}</div>
-      <div>{$post['post_icon']} {$this->lang->topic_posted} {$post['post_time']}</div>
+      <div>{$post['post_icon']} <IF $post['newpost']><img src="./skins/{$this->skin}/images/icons/post_new.png" alt="{$this->lang->topic_new_post}" /></IF>
+	  {$this->lang->topic_posted} {$post['post_time']}</div>
      </td>
     </tr>
    </table>

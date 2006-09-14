@@ -1415,6 +1415,7 @@ class it
 		$this->topic_lock = 'Blocca';
 		$this->topic_locked = 'Discussione Bloccata';
 		$this->topic_move = 'Sposta';
+		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Discussioni recenti';
 		$this->topic_no_newer = 'Non ci sono nuove discussioni.';
 		$this->topic_no_older = 'Non ci sono vecchie discussioni.';
