@@ -15,6 +15,11 @@
  * GNU General Public License for more details.
  *
  **/
+ 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
 
 require_once $set['include_path'] . '/lib/bbcode.php';
 
