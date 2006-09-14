@@ -1844,7 +1844,7 @@ enable('$init');
  </tr>
  <tr>
   <td class="tablelight">
-    <textarea class="input" name="sig" rows="8" cols="39" onfocus="bbcodeInit(this)">{$edit}</textarea>
+    <textarea class="input" name="sig" id="bbcode" rows="8" cols="39">{$edit}</textarea>
     </td>
   </tr>
   <tr>
@@ -2973,7 +2973,7 @@ enable('$init');
   {$smilies}
   <td class="tablelight">
    <script type="text/javascript" src="./javascript/postboxplain.js"></script>
-   <textarea class="input" name="message" cols="60" rows="12" onfocus="bbcodeInit(this)">{$msg}</textarea>
+   <textarea class="input" name="message" id="bbcode" cols="60" rows="12">{$msg}</textarea>
   </td>
  </tr>
  <tr>
@@ -3140,7 +3140,7 @@ enable('$init');
   {$smilies}
   <td class="tablelight">
   <script type="text/javascript" src="./javascript/postboxplain.js"></script>
-  <textarea class="input" name="post" rows="12" cols="60" onfocus="bbcodeInit(this)">{$quote}</textarea>
+  <textarea class="input" name="post" id="bbcode" rows="12" cols="60">{$quote}</textarea>
   </td>
  </tr>
       ]]></html>
@@ -4277,7 +4277,7 @@ enable('$init');
     <div id="quicksmilies">
     </div>
    </div>
-   <textarea class="input" name="post" rows="8" cols="75" onfocus="bbcodeInit(this)"></textarea><br />
+   <textarea class="input" name="post" id="bbcodequick" rows="8" cols="75"></textarea><br />
  </div><div class="tablelight" style="text-align: center;">
    <input type="checkbox" name="parseEmot" value="1" id="parseEmot" checked="checked" /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label>
    <input type="checkbox" name="parseCode" value="1" id="parseCode" checked="checked" /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>

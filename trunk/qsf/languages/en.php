@@ -146,6 +146,70 @@ class en
 		$this->ban_users_banned = 'Users banned.';
 	}
 
+	function bbcode()
+	{
+		$this->bbcode_arial = 'Arial';
+		$this->bbcode_blue = 'Blue';
+		$this->bbcode_bold = 'Bold (CTRL-b)';
+		$this->bbcode_bold1 = 'B';
+		$this->bbcode_chocolate = 'Chocolate';
+		$this->bbcode_code = 'Code (CTRL-l)';
+		$this->bbcode_code1 = 'Code';
+		$this->bbcode_color = 'Color';
+		$this->bbcode_coral = 'Coral';
+		$this->bbcode_courier = 'Courier';
+		$this->bbcode_crimson = 'Crimson';
+		$this->bbcode_darkblue = 'Dark Blue';
+		$this->bbcode_darkred = 'Dark Red';
+		$this->bbcode_deeppink = 'Deep Pink';
+		$this->bbcode_email = 'Email (CTRL-e)';
+		$this->bbcode_firered = 'Firebrick Red';
+		$this->bbcode_font = 'Font';
+		$this->bbcode_green = 'Green';
+		$this->bbcode_huge = 'Huge';
+		$this->bbcode_image = 'Image (CTRL-j)';
+		$this->bbcode_image1 = 'IMG';
+		$this->bbcode_impact = 'Impact';
+		$this->bbcode_indigo = 'Indigo';
+		$this->bbcode_italic = 'Italic (CTRL-i)';
+		$this->bbcode_italic1 = 'I';
+		$this->bbcode_large = 'Large';
+		$this->bbcode_limegreen = 'Lime Green';
+		$this->bbcode_medium = 'Medium';
+		$this->bbcode_orange = 'Orange';
+		$this->bbcode_orangered = 'Orange Red';
+		$this->bbcode_php = 'PHP (CTRL-k)';
+		$this->bbcode_php1 = 'PHP';
+		$this->bbcode_purple = 'Purple';
+		$this->bbcode_quote = 'Quote (CTRL-q)';
+		$this->bbcode_quote1 = 'Quote';
+		$this->bbcode_red = 'Red';
+		$this->bbcode_royalblue = 'Royal Blue';
+		$this->bbcode_sandybrown = 'Sandy Brown';
+		$this->bbcode_seagreen = 'Sea Green';
+		$this->bbcode_sienna = 'Sienna';
+		$this->bbcode_silver = 'Silver';
+		$this->bbcode_size = 'Size';
+		$this->bbcode_skyblue = 'Sky Blue';
+		$this->bbcode_small = 'Small';
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)';
+		$this->bbcode_spoiler1 = 'Spoiler';
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)';
+		$this->bbcode_strike1 = 'S';
+		$this->bbcode_tahoma = 'Tahoma';
+		$this->bbcode_teal = 'Teal';
+		$this->bbcode_times = 'Times';
+		$this->bbcode_tiny = 'Tiny';
+		$this->bbcode_tomato = 'Tomato';
+		$this->bbcode_underline = 'Underline (CTRL-u)';
+		$this->bbcode_underline1 = 'U';
+		$this->bbcode_url = 'URL (CTRL-h)';
+		$this->bbcode_url1 = 'URL';
+		$this->bbcode_verdana = 'Verdana';
+		$this->bbcode_wood = 'Burly Wood';
+		$this->bbcode_yellow = 'Yellow';
+	}
+
 	function board()
 	{
 		$this->board_active_users = 'Active Users';
@@ -450,73 +514,18 @@ class en
 		$this->home_menu_title = 'Admin CP Menu';
 	}
 
+	function jsdata()
+	{
+		$this->jsdata_address = 'Enter an address';
+		$this->jsdata_detail = 'Enter a description';
+		$this->jsdata_smiles = 'Clickable Smilies';
+		$this->jsdata_url = 'URL';
+	}
+
 	function jslang()
 	{
-		$this->bbcode_address = 'Enter an address';
-		$this->bbcode_arial = 'Arial';
-		$this->bbcode_blue = 'Blue';
-		$this->bbcode_bold = 'Bold (CTRL-b)';
-		$this->bbcode_bold1 = 'B';
-		$this->bbcode_chocolate = 'Chocolate';
-		$this->bbcode_code = 'Code (CTRL-l)';
-		$this->bbcode_code1 = 'Code';
-		$this->bbcode_color = 'Color';
-		$this->bbcode_coral = 'Coral';
-		$this->bbcode_courier = 'Courier';
-		$this->bbcode_crimson = 'Crimson';
-		$this->bbcode_darkblue = 'Dark Blue';
-		$this->bbcode_darkred = 'Dark Red';
-		$this->bbcode_deepink = 'Deep Pink';
-		$this->bbcode_detail = 'Enter a description';
-		$this->bbcode_email = 'Email (CTRL-e)';
-		$this->bbcode_firered = 'Firebrick Red';
-		$this->bbcode_font = 'Font';
-		$this->bbcode_green = 'Green';
-		$this->bbcode_huge = 'Huge';
-		$this->bbcode_image = 'Image (CTRL-j)';
-		$this->bbcode_image1 = 'IMG';
-		$this->bbcode_impact = 'Impact';
-		$this->bbcode_indigo = 'Indigo';
-		$this->bbcode_italic = 'Italic (CTRL-i)';
-		$this->bbcode_italic1 = 'I';
-		$this->bbcode_large = 'Large';
-		$this->bbcode_limegreen = 'Lime Green';
-		$this->bbcode_medium = 'Medium';
-		$this->bbcode_orange = 'Orange';
-		$this->bbcode_orangered = 'Orange Red';
-		$this->bbcode_php = 'PHP (CTRL-k)';
-		$this->bbcode_php1 = 'PHP';
-		$this->bbcode_purple = 'Purple';
-		$this->bbcode_quote = 'Quote (CTRL-q)';
-		$this->bbcode_quote1 = 'Quote';
-		$this->bbcode_red = 'Red';
-		$this->bbcode_royalblue = 'Royal Blue';
-		$this->bbcode_sandybrown = 'Sandy Brown';
-		$this->bbcode_seagreen = 'Sea Green';
-		$this->bbcode_sienna = 'Sienna';
-		$this->bbcode_silver = 'Silver';
-		$this->bbcode_size = 'Size';
-		$this->bbcode_skyblue = 'Sky Blue';
-		$this->bbcode_small = 'Small';
-		$this->bbcode_spoiler = 'Spoiler (CTRL-r)';
-		$this->bbcode_spoiler1 = 'Spoiler';
-		$this->bbcode_strike = 'Strikethrough (CTRL-s)';
-		$this->bbcode_strike1 = 'S';
-		$this->bbcode_tahoma = 'Tahoma';
-		$this->bbcode_teal = 'Teal';
-		$this->bbcode_times = 'Times';
-		$this->bbcode_tiny = 'Tiny';
-		$this->bbcode_tomato = 'Tomato';
-		$this->bbcode_underline = 'Underline (CTRL-u)';
-		$this->bbcode_underline1 = 'U';
-		$this->bbcode_url = 'URL (CTRL-h)';
-		$this->bbcode_url1 = 'URL';
-		$this->bbcode_verdana = 'Verdana';
-		$this->bbcode_wood = 'Burly Wood';
-		$this->bbcode_yellow = 'Yellow';
 		$this->jslang_avatar_size_height = 'Your avatar height must be between 1 and %d pixels';
 		$this->jslang_avatar_size_width = 'Your avatar width must be between 1 and %d pixels';
-		$this->jslang_smiles = 'Clickable Smilies';
 	}
 
 	function login()

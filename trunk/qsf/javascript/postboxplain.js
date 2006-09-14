@@ -60,10 +60,10 @@ function bbcURL(type, textarea) {
     if (isURL) {
       var code = "[img]" + text + "[/img]";
     } else {
-      var code = text + "[img]" + prompt(js_lang.bbcode_url1 + ":","") + "[/img]";
+      var code = text + "[img]" + prompt(textarea.jsdata_url + ":","") + "[/img]";
     }
   } else {
-    var code = "[" + type + "=" + (isURL ? text : prompt(js_lang.bbcode_address + ":","")) + "]" + ((text && !isURL) ? text : prompt(js_lang.bbcode_detail + ":","")) + "[/" + type + "]";
+    var code = "[" + type + "=" + (isURL ? text : prompt(textarea.bbcode_address + ":","")) + "]" + ((text && !isURL) ? text : prompt(textarea.bbcode_detail + ":","")) + "[/" + type + "]";
   }
   insertCode(code, textarea);
 }
@@ -78,16 +78,13 @@ function bbcFont(attrib, list, textarea) {
   	},10);
 }
 
-function createButton(tag, title, value) {
-	var button = document.createElement("input");
+/* Code to handle clickable smiley's */
 
-	button.type = "button";
-	button.title = title;
-	button.value = value;
-	button.id = 'qsf_' + tag;
-	
-	return button;
+function insertSmiley(smiley, ta) {
+  insertCode(getText(ta) + ' ' + smiley, ta);
 }
+
+/* Functions related to creating the interfaces */
 
 function addOptions(select, options, styleColor) {
 	for	(var item in options) {
@@ -101,300 +98,106 @@ function addOptions(select, options, styleColor) {
 	}
 }
 
-// Note: This is normally run onfocus on the text area it's associated with
-function bbcodeInit(textarea) {
+function createSelect(descriptor, textarea) {
+	var select = document.createElement("select");
 
-	// Find all other textarea tags and REMOVE their buttons!
-	var items = document.getElementsByTagName("textarea");
-	for (var i=0; i<items.length; i++) {
-		items[i].buildButtons = null;
-		items[i].onclick = null;
-		items[i].onkeyup = null;
-		items[i].onmouseout = null;
-		items[i].onfocus = function() {
-			bbcodeInit(items[i]);
+	select.id = 'qsf_' + descriptor.tag;
+
+	var selectOption = document.createElement("option");
+	selectOption.appendChild(document.createTextNode(descriptor.title));
+	select.appendChild(selectOption);
+	
+	addOptions(select, descriptor.options, (descriptor.tag == 'color'));
+	
+	select.onchange = function() {
+		if (descriptor.action == 'bbcFont') {
+			bbcFont(descriptor.tag, this, textarea);
 		}
-	}
+	};
+	
+	return select;
+}
 
-	var oldButtons = document.getElementById('qsf_bbcode_buttons');
-	if (oldButtons) {
-		oldButtons.parentNode.removeChild(oldButtons);
+function createButton(descriptor, textarea) {
+	var button = document.createElement("input");
+
+	button.type = "button";
+	button.title = descriptor.title;
+	button.value = descriptor.value;
+	button.id = 'qsf_' + descriptor.tag;
+
+	button.onclick = function() {
+		if (descriptor.action == 'bbCode') {
+			bbCode(descriptor.tag, textarea);
+		} else if (descriptor.action == 'bbcURL') {
+			bbcURL(descriptor.tag, textarea);
+		}
+	};
+	if (descriptor.style) {
+		button.setAttribute('style', descriptor.style);
 	}
 	
-	textarea.buildButtons = function() {
-		if (!js_lang) return false; // fail!
+	return button;
+}
+
+// Note: This is normally run onfocus on the text area it's associated with
+function bbcodeInit() {
+	var textarea = document.getElementById("bbcode");
+	
+	if (!textarea) {
+		textarea = document.getElementById("bbcodequick");
+	}
+	
+	if (!textarea) return; // bail out
+	
+	textarea.buttonEvents = new Array();
 		
-		// Insert the BB Code buttons above it
+	textarea.buildButtons = function(buttonArray) {
+		// Builds the buttons before the text area based on the information in the array
 		var bbCodeButtons = document.createElement("div");
 		bbCodeButtons.id = 'qsf_bbcode_buttons';
 		
-		// Bold button
-		var boldButton = createButton('b', js_lang.bbcode_bold, js_lang.bbcode_bold1);
-		boldButton.onclick = function() {
-			bbCode('b', textarea);
-		};
-		boldButton.style.fontWeight = 'bold';
-		bbCodeButtons.appendChild(boldButton);
-
-		// Italic button
-		var italicButton = createButton('i', js_lang.bbcode_italic, js_lang.bbcode_italic1);
-		italicButton.onclick = function() {
-			bbCode('i', textarea);
-		};
-		italicButton.style.fontStyle = 'italic';
-		bbCodeButtons.appendChild(italicButton);
+		var oldButtonIndex = 0;
 		
-		// Underline button
-		var underlineButton = createButton('u', js_lang.bbcode_underline, js_lang.bbcode_underline1);
-		underlineButton.onclick = function() {
-			bbCode('u', textarea);
-		};
-		underlineButton.style.fontDecoration = 'underline';
-		bbCodeButtons.appendChild(underlineButton);
+		for (var buttonIndex in buttonArray) {
+			// Check if we want to add a break
+			if (buttonArray[buttonIndex].action == 'bbcFont' && 
+					buttonArray[oldButtonIndex].action != 'bbcFont') {
+				bbCodeButtons.appendChild(document.createElement("br"));		
+			}
+			
+			var button = null;
 		
-		// Strikethrough button
-		var strikethroughButton = createButton('s', js_lang.bbcode_strike, js_lang.bbcode_strike1);
-		strikethroughButton.onclick = function() {
-			bbCode('s', textarea);
-		};
-		strikethroughButton.style.fontDecoration = 'line-through';
-		bbCodeButtons.appendChild(strikethroughButton);
-		
-		bbCodeButtons.appendChild(document.createTextNode("\u00a0"));
-
-		// PHP button
-		var phpButton = createButton('php', js_lang.bbcode_php, js_lang.bbcode_php1);
-		phpButton.onclick = function() {
-			bbCode('php', textarea);
-		};
-		bbCodeButtons.appendChild(phpButton);
-
-		// Code button
-		var codeButton = createButton('code', js_lang.bbcode_code, js_lang.bbcode_code1);
-		codeButton.onclick = function() {
-			bbCode('code', textarea);
-		};
-		bbCodeButtons.appendChild(codeButton);
-
-		// Quote button
-		var quoteButton = createButton('quote', js_lang.bbcode_quote, js_lang.bbcode_quote1);
-		quoteButton.onclick = function() {
-			bbCode('quote', textarea);
-		};
-		bbCodeButtons.appendChild(quoteButton);
-
-		// Spoiler button
-		var spoilerButton = createButton('spoiler', js_lang.bbcode_spoiler, js_lang.bbcode_spoiler1);
-		spoilerButton.onclick = function() {
-			bbCode('spoiler', textarea);
-		};
-		bbCodeButtons.appendChild(spoilerButton);
-
-		bbCodeButtons.appendChild(document.createTextNode("\u00a0"));
-
-		// URL button
-		var codeButton = createButton('url', js_lang.bbcode_url, js_lang.bbcode_url1);
-		codeButton.onclick = function() {
-			bbcURL('code', textarea);
-		};
-		bbCodeButtons.appendChild(codeButton);
-
-		// Email button
-		var quoteButton = createButton('email', js_lang.bbcode_email, '@');
-		quoteButton.onclick = function() {
-			bbcURL('quote', textarea);
-		};
-		bbCodeButtons.appendChild(quoteButton);
-
-		// Img button
-		var spoilerButton = createButton('img', js_lang.bbcode_image, js_lang.bbcode_image1);
-		spoilerButton.onclick = function() {
-			bbcURL('spoiler', textarea);
-		};
-		bbCodeButtons.appendChild(spoilerButton);
-		
-		bbCodeButtons.appendChild(document.createElement("br"));
-		
-		// Color drop down
-		var colorSelect = document.createElement("select");
-		var selectOption = document.createElement("option");
-		selectOption.appendChild(document.createTextNode(js_lang.bbcode_color));
-		colorSelect.appendChild(selectOption);
-		var colors =  Array();
-		colors['skyblue'] = js_lang.bbcode_skyblue;
-		colors['royalblue'] = js_lang.bbcode_royalblue;
-		colors['blue'] = js_lang.bbcode_blue;
-		colors['darkblue'] = js_lang.bbcode_darkblue;
-		colors['yellow'] = js_lang.bbcode_yellow;
-		colors['orange'] = js_lang.bbcode_orange;
-		colors['orangered'] = js_lang.bbcode_orangered;
-		colors['crimson'] = js_lang.bbcode_crimson;
-		colors['red'] = js_lang.bbcode_red;
-		colors['firebrick'] = js_lang.bbcode_firebrick;
-		colors['darkred'] = js_lang.bbcode_darkred;
-		colors['green'] = js_lang.bbcode_green;
-		colors['limegreen'] = js_lang.bbcode_limegreen;
-		colors['seagreen'] = js_lang.bbcode_seagreen;
-		colors['deeppink'] = js_lang.bbcode_deeppink;
-		colors['tomato'] = js_lang.bbcode_tomato;
-		colors['coral'] = js_lang.bbcode_coral;
-		colors['purple'] = js_lang.bbcode_purple;
-		colors['indigo'] = js_lang.bbcode_indigo;
-		colors['burlywood'] = js_lang.bbcode_burlywood;
-		colors['sandybrown'] = js_lang.bbcode_sandybrown;
-		colors['sienna'] = js_lang.bbcode_sienna;
-		colors['chocolate'] = js_lang.bbcode_chocolate;
-		colors['teal'] = js_lang.bbcode_teal;
-		colors['silver'] = js_lang.bbcode_silver;
-		addOptions(colorSelect, colors, true);
-		colorSelect.onchange = function() {
-			bbcFont('color', this, textarea);
-		};
-		bbCodeButtons.appendChild(colorSelect);
-		
-		// Size drop down
-		var sizeSelect = document.createElement("select");
-		var selectOption = document.createElement("option");
-		selectOption.appendChild(document.createTextNode(js_lang.bbcode_size));
-		sizeSelect.appendChild(selectOption);
-		var sizes =  Array();
-		sizes['1'] = js_lang.bbcode_tiny;
-		sizes['2'] = js_lang.bbcode_small;
-		sizes['3'] = js_lang.bbcode_medium;
-		sizes['5'] = js_lang.bbcode_large;
-		sizes['7'] = js_lang.bbcode_huge;
-		addOptions(sizeSelect, sizes, false);
-		sizeSelect.onchange = function() {
-			bbcFont('size', this, textarea);
-		};
-		bbCodeButtons.appendChild(sizeSelect);
-
-		// Font drop down
-		var fontSelect = document.createElement("select");
-		var selectOption = document.createElement("option");
-		selectOption.appendChild(document.createTextNode(js_lang.bbcode_font));
-		fontSelect.appendChild(selectOption);
-		var fonts =  Array();
-		fonts['arial'] = js_lang.bbcode_arial;
-		fonts['courier'] = js_lang.bbcode_courier;
-		fonts['impact'] = js_lang.bbcode_impact;
-		fonts['tohoma'] = js_lang.bbcode_tohoma;
-		fonts['times'] = js_lang.bbcode_times;
-		fonts['verdana'] = js_lang.bbcode_verdana;
-		addOptions(fontSelect, fonts, false);
-		fontSelect.onchange = function() {
-			bbcFont('font', this, textarea);
-		};
-		bbCodeButtons.appendChild(fontSelect);
+			if (buttonArray[buttonIndex].action == 'bbcFont') {
+				button = createSelect(buttonArray[buttonIndex], textarea);
+			} else {
+				button = createButton(buttonArray[buttonIndex], textarea);
+			}
+			bbCodeButtons.appendChild(button);
+			
+			// If there is a keynum attached then add that to our events array
+			if (buttonArray[buttonIndex].keynum) {
+				textarea.buttonEvents[buttonArray[buttonIndex].keynum] = function() {
+					buttonArray[buttonIndex].action(buttonArray[buttonIndex].tag, textarea);
+				};
+			}
+			
+			oldButtonIndex = buttonIndex;
+		}
 
 		bbCodeButtons.appendChild(document.createElement("br"));
 		
 		textarea.parentNode.insertBefore(bbCodeButtons, textarea);
-		
-		loadSmilies(textarea);
 	};
 	
-	// Load language data
-	if (js_lang || load_js_lang(textarea.buildButtons)) {
-		
-		// Attach events to textarea
-		textarea.onclick= function() {
-			if (this.createTextRange) {
-				this.caretPos = document.selection.createRange().duplicate();
-			}
-		};
-		
-		textarea.onkeyup = textarea.onclick;
-		textarea.onmouseout = textarea.onclick;
-		textarea.onfocus = textarea.onclick;
-		
-		// Keyboard shortcuts
-		textarea.onkeydown = function(e) {
-			// Check if they are trying to move to another cell!
-			var keynum;
-			
-			if(window.event) // IE
-			{
-				keynum = window.event.keyCode;
-				if (!(window.event.modifiers & window.event.CONTROL_MASK)) return true;
-			}
-			else if(e.which) // Netscape/Firefox/Opera
-			{
-				keynum = e.which;
-				if (!e.ctrlKey) return true;
-			}
+	textarea.createSmilies = function(smiliesData, headingLabel) {
+		var clickableArea = document.getElementById('clickablesmilies');
 	
-			switch (keynum) {
-			case 66:
-				bbCode('b', textarea);
-				break;
-			case 73:
-				bbCode('i', textarea);
-				break;
-			case 85:
-				bbCode('u', textarea);
-				break;
-			case 83:
-				bbCode('s', textarea);
-				break;
-			case 75: // k
-				bbCode('php', textarea);
-				break;
-			case 76: // l
-				bbCode('code', textarea);
-				break;
-			case 81: // q
-				bbCode('quote', textarea);
-				break;
-			case 82: // r
-				bbCode('spoiler', textarea);
-				break;
-			case 72: // h
-				bbcURL('url', textarea);
-				break;
-			case 69: // e
-				bbcURL('email', textarea);
-				break;
-			case 74: // j
-				bbcURL('img', textarea);
-				break;
-			default:
-				return true
-			}
-			
-			return false;
-		};
-		
-		if (js_lang) {
-			textarea.buildButtons();
-		}
-	}
-	
-	return false;
-}
+		if (!clickableArea) clickableArea = document.getElementById('quicksmilies');
 
-/* Code to handle clickable smiley's */
-
-function loadSmilies(textarea) {
-	var clickableArea = document.getElementById('clickablesmilies');
-	
-	if (!clickableArea) clickableArea = document.getElementById('quicksmilies');
-	
-	if (clickableArea) {
-		//  clear out any previous child nodes
-		if (clickableArea.childNodes > 0) {
-			clickableArea.removeChild(clickableArea.childNodes[0]);
-		}
-		
-		// Load smilies
-		var handler = function(text) {
-	
-			var smiliesData = text.parseJSON();
-			
-			if (smiliesData.length == 0) return;
-			
+		if (clickableArea) {
 			var smilesDiv = document.createElement("div");
-			
+				
 			var list = document.createElement("ul");
 			
 			for (var smileItem in smiliesData) {
@@ -420,7 +223,7 @@ function loadSmilies(textarea) {
 			smilesDiv.appendChild(list);
 			
 			var heading = document.createElement("strong");
-			var headingText = document.createTextNode(js_lang.jslang_smiles);
+			var headingText = document.createTextNode(headingLabel);
 			heading.appendChild(headingText);
 			smilesDiv.insertBefore(heading, list);
 			
@@ -429,15 +232,67 @@ function loadSmilies(textarea) {
 			if (typeof fnLoadPngs != 'undefined') {
 				fnLoadPngs(); // IE needs extra processing on PNGs
 			}
-		};
+		}
+	};
+	
+	var handler = function(text) {
+		// Main data fetching handler
+		var responseData = text.parseJSON();
+			
+		if (responseData.length == 0) return;
 		
-		smiliesFetcher = getHTTPObject(handler);
-		smiliesFetcher.requestData('jsdata', 'data', 'clickablesmilies');
-	}
+		// copy across language variables
+		textarea.jsdata_address = responseData['lang']['jsdata_address'];
+		textarea.jsdata_detail = responseData['lang']['jsdata_detail'];
+		textarea.jsdata_url = responseData['lang']['jsdata_url'];
+		
+		// Create buttons using button data
+		textarea.buildButtons(responseData['buttons']);
+		
+		// Create smilies using clickable smilies data
+		textarea.createSmilies(responseData['clickablesmilies'], responseData['lang']['jsdata_smiles']);
+	};
+		
+	textarea.dataFetcher = getHTTPObject(handler);
+	textarea.dataFetcher.requestData('jsdata', 'data', 'bbcode');
+
+	// Attach events to textarea
+	textarea.onclick= function() {
+		if (this.createTextRange) {
+			this.caretPos = document.selection.createRange().duplicate();
+		}
+	};
+	
+	textarea.onkeyup = textarea.onclick;
+	textarea.onmouseout = textarea.onclick;
+	textarea.onfocus = textarea.onclick;
+
+	// Keyboard shortcuts
+	textarea.onkeydown = function(e) {
+		// Check if they are trying to move to another cell!
+		var keynum;
+		
+		if(window.event) // IE
+		{
+			keynum = window.event.keyCode;
+			if (!(window.event.modifiers & window.event.CONTROL_MASK)) return true;
+		}
+		else if(e.which) // Netscape/Firefox/Opera
+		{
+			keynum = e.which;
+			if (!e.ctrlKey) return true;
+		}
+		
+		// Handles a CTRL+keynum event to see if there's a control to use for it
+		for (var eventNum in textarea.buttonEvents) {
+			if (eventNum == keynum) {
+				textarea.buttonEvents[eventNum]();
+				return false;
+			}
+		}
+		return true;
+	};
 }
 
-function insertSmiley(smiley, ta) {
-  insertCode(getText(ta) + ' ' + smiley, ta);
-}
-
+addLoadEvent(bbcodeInit);
 
