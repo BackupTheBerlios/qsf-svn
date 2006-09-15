@@ -463,32 +463,32 @@ class qsfglobal
 			switch($format)
 			{
 			case DATE_LONG:
-				$date_format = 'M j, Y';
-				$time_format = ', g:i a';
+				$date_format = $this->lang->date_long;
+				$time_format = $this->lang->time_long;
 				break;
 
 			case DATE_SHORT:
-				$date_format = 'n/j/y';
-				$time_format = ', g:i a';
+				$date_format = $this->lang->date_short;
+				$time_format = $this->lang->time_long;
 				break;
 
 			case DATE_ONLY_LONG:
-				$date_format = 'M j, Y';
+				$date_format = $this->lang->date_long;
 				$time_format = '';
 				break;
 
 			case DATE_TIME:
 				$date_format = '';
-				$time_format = 'g:i a';
+				$time_format = $this->lang->time_only;
 				break;
 
-			case DATE_ISO822:
+			case DATE_ISO822: // Standard, no localisation
 				$date_format = 'D, j M Y';
 				$time_format = ' H:i:s T';
 				break;
 
 			default: // DATE_ONLY_SHORT
-				$date_format = 'n/j/y';
+				$date_format = $this->lang->date_short;
 				$time_format = '';
 				break;
 			}
@@ -757,8 +757,8 @@ class qsfglobal
 		}
 
 		$this->write_sets();
-		// TODO: Use a translatable string
-		return "Recounted forums! Total topics: {$this->sets['topics']}. Total posts: {$this->sets['posts']}.";
+		
+		return sprintf($this->lang->recount_forums, $this->sets['topics'], $this->sets['posts']);
 	}
 	
 	/**

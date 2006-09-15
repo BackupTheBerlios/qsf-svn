@@ -176,6 +176,7 @@ class register extends qsfglobal
 	{
 		$mailer = new $this->modules['mailer']($this->sets['admin_incoming'], $this->sets['admin_outgoing'], $this->sets['forum_name'], false);
 
+		// todo. Make this more friendly with internationlisation. Currenlty it's too limiting for Currently in grammar.
 		$message = "{$this->lang->register_requested} {$username}\n";
 		$message .= "{$this->lang->register_initiated} {$_SERVER['REMOTE_ADDR']}\n\n";
 		$message .= "{$this->lang->register_email_msg}\n";

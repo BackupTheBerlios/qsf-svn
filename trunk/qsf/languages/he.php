@@ -1465,6 +1465,8 @@ class he
 		$this->board_by = 'על ידי';
 		$this->charset = 'windows-1255';
 		$this->continue = 'המשך';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = 'מחיקה';
 		$this->direction = 'rtl';
 		$this->edit = 'עריכה';
@@ -1479,6 +1481,7 @@ class he
 		$this->powered = 'Powered by'; //Translate
 		$this->private_message = 'PM'; //Translate
 		$this->quote = 'ציטוט';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
 		$this->reply = 'השב';
 		$this->seconds = 'שניות';
 		$this->select_all = 'בחר הכל';
@@ -1487,6 +1490,8 @@ class he
 		$this->spoiler = 'ספויילר';
 		$this->submit = 'אישור';
 		$this->subscribe = 'הרשמה';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'היום';
 		$this->website = 'WWW'; //Translate
 		$this->yahoo = 'Yahoo'; //Translate

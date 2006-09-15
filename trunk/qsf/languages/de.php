@@ -1466,6 +1466,8 @@ class de
 		$this->board_by = 'Von';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Fortsetzen';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = 'Löschen';
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Bearbeiten';
@@ -1480,6 +1482,7 @@ class de
 		$this->powered = 'Powered by'; //Translate
 		$this->private_message = 'PN';
 		$this->quote = 'Zitat';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
 		$this->reply = 'Antwort';
 		$this->seconds = 'Sekunden';
 		$this->select_all = 'Alles auswählen';
@@ -1488,6 +1491,8 @@ class de
 		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Abschicken';
 		$this->subscribe = 'Abonnieren';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'Heute ';
 		$this->website = 'WWW'; //Translate
 		$this->yahoo = 'Yahoo'; //Translate

@@ -1466,6 +1466,8 @@ class sv
 		$this->board_by = 'Av';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Fortsätt';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = 'Ta bort';
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Ändra';
@@ -1480,6 +1482,7 @@ class sv
 		$this->powered = 'Drivs med';
 		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Citera';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
 		$this->reply = 'Svara';
 		$this->seconds = 'Sekunder';
 		$this->select_all = 'Välj alla';
@@ -1488,6 +1491,8 @@ class sv
 		$this->spoiler = 'Avslöjande';
 		$this->submit = 'Skicka';
 		$this->subscribe = 'Prenumerera';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'Idag';
 		$this->website = 'WWW'; //Translate
 		$this->yahoo = 'Yahoo'; //Translate

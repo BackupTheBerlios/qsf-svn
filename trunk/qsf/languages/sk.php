@@ -1467,6 +1467,8 @@ class sk
 		$this->board_by = 'Autor:';
 		$this->charset = 'windows-1250';
 		$this->continue = 'Pokraèova';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = 'Zmaza';
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Editova HTML Šablóny';
@@ -1481,6 +1483,7 @@ class sk
 		$this->powered = 'Powered by'; //Translate
 		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Citova';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
 		$this->reply = 'Odpoveda';
 		$this->seconds = 'sec';
 		$this->select_all = 'Select All'; //Translate
@@ -1489,6 +1492,8 @@ class sk
 		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'OK';
 		$this->subscribe = 'Objedna';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'Dnes';
 		$this->website = 'WWW'; //Translate
 		$this->yahoo = 'Yahoo'; //Translate

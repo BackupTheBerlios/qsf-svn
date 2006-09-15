@@ -351,7 +351,6 @@ class readmarker extends forumutils
 	 *
 	 * @author Geoffrey Dunn <geoff@warmage.com>
 	 * @since 1.2
-	 * @todo Implement this!
 	 **/
 	function _cleanup_readmarks()
 	{

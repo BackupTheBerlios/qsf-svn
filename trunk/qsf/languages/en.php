@@ -1465,6 +1465,8 @@ class en
 		$this->board_by = 'By';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Continue';
+		$this->date_long = 'M j, Y';
+		$this->date_short = 'n/j/y';
 		$this->delete = 'Delete';
 		$this->direction = 'ltr';
 		$this->edit = 'Edit';
@@ -1479,6 +1481,7 @@ class en
 		$this->powered = 'Powered by';
 		$this->private_message = 'PM';
 		$this->quote = 'Quote';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.';
 		$this->reply = 'Reply';
 		$this->seconds = 'Seconds';
 		$this->select_all = 'Select All';
@@ -1487,6 +1490,8 @@ class en
 		$this->spoiler = 'Spoiler';
 		$this->submit = 'Submit';
 		$this->subscribe = 'Subscribe';
+		$this->time_long = ', g:i a';
+		$this->time_only = 'g:i a';
 		$this->today = 'Today';
 		$this->website = 'WWW';
 		$this->yahoo = 'Yahoo';

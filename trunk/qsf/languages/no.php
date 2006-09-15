@@ -1466,6 +1466,8 @@ class no
 		$this->board_by = 'Av';
 		$this->charset = 'windows-1252';
 		$this->continue = 'Fortsett';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = 'Slett';
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Endre';
@@ -1480,6 +1482,7 @@ class no
 		$this->powered = 'Basert på';
 		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Sitat';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
 		$this->reply = 'Svar';
 		$this->seconds = 'Sekunder';
 		$this->select_all = 'Velg alle';
@@ -1488,6 +1491,8 @@ class no
 		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Send';
 		$this->subscribe = 'Abonnér';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'I dag';
 		$this->website = 'WWW'; //Translate
 		$this->yahoo = 'Yahoo!';

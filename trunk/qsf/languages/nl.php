@@ -1467,6 +1467,8 @@ class nl
 		$this->board_by = 'Door';
 		$this->charset = 'iso-8859-1';
 		$this->continue = 'Verder gaan';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = 'Verwijderen';
 		$this->direction = 'ltr'; //Translate
 		$this->edit = 'Aanpassen';
@@ -1481,6 +1483,7 @@ class nl
 		$this->powered = 'Powered by'; //Translate
 		$this->private_message = 'PB';
 		$this->quote = 'Citeer';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
 		$this->reply = 'Antwoord';
 		$this->seconds = 'Seconden';
 		$this->select_all = 'Selecteer alles';
@@ -1489,6 +1492,8 @@ class nl
 		$this->spoiler = 'Spoiler'; //Translate
 		$this->submit = 'Verzend';
 		$this->subscribe = 'Toeschrijven aan';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'Vandaag';
 		$this->website = 'WWW'; //Translate
 		$this->yahoo = 'Yahoo'; //Translate
