@@ -2452,7 +2452,7 @@ enable('$init');
       <description>Format the look of the copyright on the board.&lt;br&gt;&lt;br&gt;&lt;b&gt;Warning: Modification to anything other than the style of this copyright will result in a violation of your terms of service&lt;/b&gt;</description>
       <html><![CDATA[
 <p class="copyright">
-{$qsf->lang->powered} <a href="http://www.quicksilverforums.com" class="small"><b>{$qsf->name}</b></a> [{$qsf->version}] &copy; 2005-2006 The {$qsf->name} Development Team<br />
+{$qsf->lang->powered} <a href="http://www.quicksilverforums.com" class="small"><b>{$qsf->name}</b></a> &copy; 2005-2006 The {$qsf->name} Development Team<br />
 {$qsf->lang->based_on} <a href="http://www.mercuryboard.com" class="small"><b>MercuryBoard</b></a> &copy; 2001-2005 The Mercury Development Team
 </p>
       ]]></html>

@@ -56,6 +56,11 @@
  * @link        http://pear.php.net/pepr/pepr-proposal-show.php?id=198
  */
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /**
  * Marker constant for Services_JSON::decode(), used to flag stack state
  */

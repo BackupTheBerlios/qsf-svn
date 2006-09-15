@@ -36,6 +36,7 @@ $need_templates = array(
 	'ADMIN_INSTALL_SKIN',
 	// Changed templates
 	'MAIN',
+	'MAIN_COPYRIGHT',
 	'BOARD_FORUM',
 	'BOARD_LAST_POST_BOX',
 	'BOARD_MAIN',
