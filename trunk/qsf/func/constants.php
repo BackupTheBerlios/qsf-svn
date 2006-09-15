@@ -20,6 +20,11 @@
  *
  **/
 
+if (!defined('QUICKSILVERFORUMS')) {
+	header('HTTP/1.0 403 Forbidden');
+	die;
+}
+
 /* Error Reporting */
 define('QUICKSILVER_NOTICE', 3);
 define('QUICKSILVER_ERROR', 5);
