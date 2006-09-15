@@ -63,7 +63,7 @@ function bbcURL(type, textarea) {
       var code = text + "[img]" + prompt(textarea.jsdata_url + ":","") + "[/img]";
     }
   } else {
-    var code = "[" + type + "=" + (isURL ? text : prompt(textarea.bbcode_address + ":","")) + "]" + ((text && !isURL) ? text : prompt(textarea.bbcode_detail + ":","")) + "[/" + type + "]";
+    var code = "[" + type + "=" + (isURL ? text : prompt(textarea.jsdata_address + ":","")) + "]" + ((text && !isURL) ? text : prompt(textarea.jsdata_detail + ":","")) + "[/" + type + "]";
   }
   insertCode(code, textarea);
 }
@@ -111,7 +111,7 @@ function createSelect(descriptor, textarea) {
 	
 	select.onchange = function() {
 		if (descriptor.action == 'bbcFont') {
-			bbcFont(descriptor.tag, this, textarea);
+			bbcFont(descriptor.tag, select, textarea);
 		}
 	};
 	
@@ -256,16 +256,21 @@ function bbcodeInit() {
 	textarea.dataFetcher = getHTTPObject(handler);
 	textarea.dataFetcher.requestData('jsdata', 'data', 'bbcode');
 
-	// Attach events to textarea
-	textarea.onclick= function() {
-		if (this.createTextRange) {
-			this.caretPos = document.selection.createRange().duplicate();
-		}
-	};
-	
-	textarea.onkeyup = textarea.onclick;
-	textarea.onmouseout = textarea.onclick;
-	textarea.onfocus = textarea.onclick;
+	textarea.caretPos = false;
+
+	textarea.onfocus = function() {
+		// Attach events to textarea but only after it has gotten the focus once
+		
+		textarea.onclick= function() {
+			if (textarea.createTextRange) {
+				textarea.caretPos = document.selection.createRange().duplicate();
+			}
+		};
+		
+		textarea.onkeyup = textarea.onclick;
+		textarea.onmouseout = textarea.onclick;
+		textarea.onfocus = textarea.onclick;
+	}
 
 	// Keyboard shortcuts
 	textarea.onkeydown = function(e) {
