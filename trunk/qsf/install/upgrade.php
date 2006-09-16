@@ -209,7 +209,7 @@ class upgrade extends qsfglobal
 							$skin, $temp_name);
 
 						if ($this->db->num_rows($miss) < 1) {
-							$skinsupdated .= $row['skin_name'] . ": Added: " . $template ."<br />";
+							$skinsupdated .= $row['skin_name'] . ": Added: " . $temp_name ."<br />";
 							$temps_to_insert[] = $temp_name;
 						}
 					}
