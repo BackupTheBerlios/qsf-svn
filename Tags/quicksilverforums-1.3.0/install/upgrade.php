@@ -87,6 +87,11 @@ class upgrade extends qsfglobal
 				break;
 			}
 
+			if (!is_writeable('../settings.php')) {
+				echo "settings.php cannot be updated.<br /><br />CHMOD settings.php to 0666.";
+				break;
+			}
+
 			$queries = array();
 			$pre = $this->sets['prefix'];
 			$full_template_list = false;

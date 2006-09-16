@@ -69,7 +69,9 @@ $qsf->sets     = $set;
 $qsf->modules  = $modules;
 
 if ($qsf->sets['output_buffer'] && isset($qsf->server['HTTP_ACCEPT_ENCODING']) && stristr($qsf->server['HTTP_ACCEPT_ENCODING'], 'gzip')) {
-	ob_start('ob_gzhandler');
+	if( !@ob_start('ob_gzhandler') ) {
+		ob_start();
+	}
 }
 
 header( 'P3P: CP="CAO PSA OUR"' );

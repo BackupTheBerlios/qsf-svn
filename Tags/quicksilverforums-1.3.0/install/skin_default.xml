@@ -173,7 +173,7 @@
   <td class="header" style="text-align:center">{$this->lang->edit_css}: {$skin} - {$fname}</td>
  </tr>
  <tr>
-  <td class="tabledark"><textarea class="input" name="css_text" rows="25" cols="80" onclick="storeCaret(this)" onkeyup="storeCaret(this)" onfocus="storeCaret(this)" onmouseout="storeCaret(this)">{$text}</textarea>
+  <td class="tabledark"><textarea class="input" name="css_text" rows="25" cols="80">{$text}</textarea>
  </tr>
  <tr>
   <td class="footer" colspan="2" style="text-align:center">

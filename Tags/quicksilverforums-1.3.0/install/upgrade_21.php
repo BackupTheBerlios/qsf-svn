@@ -86,11 +86,12 @@ while( $row = $db->nqfetch($query) )
 		%ptopics t
 	WHERE
 		p.post_topic=t.topic_id AND
-		t.topic_id={$topic_id}
+		t.topic_id=%d
 	ORDER BY
 		p.post_time DESC
-	LIMIT 1");
+	LIMIT 1", $topic_id);
 
-	$db->query("UPDATE %ptopics SET topic_last_post={$last['post_id']}, topic_last_poster={$last['post_author']}, topic_edited={$last['post_time']} WHERE topic_id={$row['topic_id']}");
+	$db->query("UPDATE %ptopics SET topic_last_post=%d, topic_last_poster=%d, topic_edited=%d WHERE topic_id=%d",
+		$last['post_id'], $last['post_author'], $last['post_time'], $row['topic_id']);
 }
 ?>
