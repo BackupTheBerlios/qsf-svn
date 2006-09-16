@@ -162,6 +162,8 @@ class forum extends qsfglobal
 
 				$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 				$topic_unread = false;
+				$forum_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
+
 				if ($this->perms->auth('topic_view', $forum['forum_id'])) {
 					if ($this->perms->auth('topic_create', $forum['forum_id'])) {
 						$topic_perms = "<a href=\"{$this->self}?a=post&amp;s=topic&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_write.png\" alt=\"{$this->lang->forum_write_topics}\" title=\"{$this->lang->forum_write_topics}\" /></a>";

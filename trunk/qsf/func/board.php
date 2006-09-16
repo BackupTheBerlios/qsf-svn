@@ -167,7 +167,7 @@ class board extends qsfglobal
 
 					if ($forum['forum_lastpost']) {
 						$topic_unread = !$this->readmarker->is_topic_read($forum['LastTopicID'], $forum['LastTime']);
-						if ($forum_unread) {
+						if ($topic_unread) {
 							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
 						}
 						
