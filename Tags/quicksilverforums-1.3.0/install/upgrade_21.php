@@ -73,6 +73,10 @@ $db->query( "ALTER TABLE %ptopics ADD topic_last_post int(10) unsigned NOT NULL 
 $query = $db->query( "SELECT * FROM %ptopics" );
 while( $row = $db->nqfetch($query) )
 {
+	$topic_id = $row['topic_id'];
+	if ($row['topic_moved']) {
+		$topic_id = $row['topic_moved'];
+	}
 	// Ripped the code from update_last_post_topic in mod.php for this.
 	$last = $db->fetch("
 	SELECT
@@ -82,7 +86,7 @@ while( $row = $db->nqfetch($query) )
 		%ptopics t
 	WHERE
 		p.post_topic=t.topic_id AND
-		t.topic_id={$row['topic_id']}
+		t.topic_id={$topic_id}
 	ORDER BY
 		p.post_time DESC
 	LIMIT 1");
