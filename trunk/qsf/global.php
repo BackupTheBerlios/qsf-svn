@@ -757,8 +757,6 @@ class qsfglobal
 		}
 
 		$this->write_sets();
-		
-		return sprintf($this->lang->recount_forums, $this->sets['topics'], $this->sets['posts']);
 	}
 	
 	/**

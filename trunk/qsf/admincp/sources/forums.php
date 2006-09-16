@@ -129,7 +129,8 @@ class forums extends admin
 		case 'count':
 			$this->set_title($this->lang->forum_recount);
 			$this->tree($this->lang->forum_recount);
-			return $this->message($this->lang->forum_recount, $this->RecountForums());
+			$this->RecountForums();
+			return $this->message($this->lang->forum_recount, sprintf($this->lang->recount_forums, $this->sets['topics'], $this->sets['posts']) );
 			break;
 		}
 	}
