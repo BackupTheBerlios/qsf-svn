@@ -1,0 +1,46 @@
+#  Auto subscribe to thread on post ••
+#  SMTP Auth ••
+#  Allow login for banned groups (but not banned IPs) ••
+#  Better interface for selecting avatars ••
+#  Custom user info ••
+#  Mail queue for mass mail and subscriptions ••
+#  Smarter BBcode processing ••
+#  Smarter creation of XML (streaming?) ••
+#  Smarter writing to tarball (1024 byte chunks) ••
+#  Moderator CP •
+#  Optional cronjob script •
+#  Smarter handling of templates during upgrades (avoid killing customisations) •
+#  User controlled subscription period •
+#  View unread posts (as opposed to recent posts) •
+#  Block domains (typicially free email domains)
+#  Add page links to PMs
+#  Add support for OpenID
+#  Documentation for administrators
+#  Don't show full path to files on error messages
+#  edit forum perms
+#  edit poll options
+#  Examine techniques to help improve (lower) memory usage
+#  Fast login (form displayed using javascript rather than seperate page, reload page on success)
+#  Full documentation on using converters
+#  Get error page to link to bug record/tracker
+#  Hide emails from guests?
+#  Hide/reduce quick relpy until being used
+#  Interface to set header paramters
+#  ldap intergration
+#  load group perms when setting user perms for first time
+#  Lock down mode
+#  Make quote button use quick reply
+#  merge topics
+#  More statisitics
+#  notify admins of registration/activation
+#  PostgreSQL support
+#  Reply to email sent from mail form
+#  Rework PMs
+#  Run analysis of forum speed using xdebug
+#  shell scripts to run installs and upgrades
+#  Subscription option: Daily update
+#  Thumbnail big images
+#  Tweak marking forum as read to mark subforums (and sub sub forums)
+#  Write a bb code interpreter in javascript
+#  XML backup and restoration
+#  XML mod installer 
