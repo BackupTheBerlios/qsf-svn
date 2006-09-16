@@ -124,6 +124,8 @@ class mailer
 	 **/
 	function setSubject($subject)
 	{
+		// Basic security check
+		$subject = str_replace(array("\n", "\r"), array(' ', ' '), $subject);
 		$this->subject = $subject;
 	}
 
@@ -150,6 +152,8 @@ class mailer
 	 **/
 	function setHeader($header)
 	{
+		// Basic security check
+		$header = str_replace(array("\n", "\r"), array(' ', ' '), $header);
 		$this->headers[] = $header;
 	}
 
