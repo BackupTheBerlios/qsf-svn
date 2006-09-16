@@ -1,3 +1,31 @@
+Changes for 1.3.0:
+
+* Uploaded avatars now save using original extention
+* Can detect the size of uploaded avatars
+* Skin exporter/importer now uses XML and tar.gz files
+* Major rework on how addquotes is handled (now database end)
+* Installs now possible without making settings.php writable
+* Install now loads templates via XML
+* Avatars can now be grouped into sub-folders
+* Can now mark forums as read
+* Navigation links capitalised
+* Template position no longer exists
+* Debug mode can be toggled from admin cp
+* Can now add custom board settings via admin cp
+* BB Code buttons are now loaded via javascript
+* Added more strings to language files
+* Added date formats to language files
+
+  Bugs addressed:
+
+* Fix to ensure parent categories pick up changed post+reply count when topics are moved
+* Board admins can see users marked as 'hidden'
+* BBcode tags not working if split across lines
+* Fixed error in handing name/email display in RSS feeds
+* Maxlength added to topic title and description when editing topic
+* Fixed security hole in lib/activeutil.php
+* Fixing potential security hole in mailer subject
+
 Changes for 1.2.1:
 
   Bugs addressed:
