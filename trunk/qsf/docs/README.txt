@@ -1,5 +1,5 @@
 -------------------------------
-== Quicksilver Forums v1.3.0 ==
+== Quicksilver Forums v1.3.1 ==
 -------------------------------
 
 === Installation ===
@@ -21,6 +21,7 @@
  5. Delete the install directory
 
 === Upgrading ===
+
  Upgrading is done in the same way as installing. Make sure you select the
  "upgrade" option. Before upgrading, make a note of your current MercuryBoard
  or Quicksilver Forums installation version: you will need it to correctly
@@ -36,6 +37,7 @@
  See http://quicksilverforums.com for more information
 
 === Requirements ===
+
  Quicksilver Forums works with PHP 4.3.0 or higher. PHP 5 is also supported.
  MySQL 3.22 or higher is required. Quicksilver Forums works on any operating
  system and web server combination.
@@ -45,12 +47,14 @@
  Quicksilver Forums running its fastest and safest.
 
 === License ===
+
  This software is released under the GNU General Public License (GPL). For the
  terms of the license, see the file docs/license.txt included in this
  distribution. The license is also available in many languages at
  http://www.gnu.org
 
 === How You Can Help ===
+
  If you know PHP and MySQL, and would like to help develop Quicksilver Forums,
  then feel free to modify the board and join the discussion at 
  http://quicksilverforums.com or contact <qsfdev at lists dot berlios dot de>.
@@ -61,5 +65,6 @@
  created forums at our site for this kind of information.
 
 === Support ===
+
  If you're sure you've read the above information, and it simply will not work,
  visit http://quicksilverforums.com for support

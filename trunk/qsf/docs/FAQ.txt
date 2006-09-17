@@ -5,7 +5,7 @@
 === GENERAL ===
 
 * Q. What is Quicksilver Forums?
-* A. Quicksilver Forums is a bulletin board system written in PHP 4 and MySQL. http://www.quicksilverforums.com/
+* A. Quicksilver Forums is a bulletin board system written in PHP 4/5 and MySQL. http://www.quicksilverforums.com/
 
 * Q. What is Mercuryboard?
 * A. Mercuryboard is kind of like the father of Quicksilver Forums. QSF was created using it as a starting point. http://www.mercuryboard.com/
@@ -22,7 +22,7 @@
 * A. http://dev.mysql.com/doc/refman/5.0/en/database-use.html Also your hosting provider may have created tools to help you manage MySQL. Speak to your hosting provider, they are there to help you.
 
 * Q. Does Quicksilver Forums work on databases other than MySQL?
-* A. No.
+* A. Not at this time.
 
 * Q. I can't post! / How do you create forums?
 * A. Go into "admin cp -> Create a forum" and create a CATEGORY and set the permissions to default. Now go to" Create a forum" again and create a forum using that category and using the permissions from that category.
@@ -38,7 +38,7 @@
 
 === OPERATION ===
 
-* Q. The board is blank or gabled.
+* Q. The board is blank or garbled.
 * A. In your Admin CP, go to Edit Board Settings and disable GZIP. 
 
 === ADVANCED ===
@@ -57,5 +57,3 @@
 
 If you need further help please go to:
 http://forums.quicksilverforums.com/index.php?a=forum&f=7
-
-
