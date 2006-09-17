@@ -106,8 +106,9 @@ Remotely, navigate to the <tt>qsforums</tt> directory. Check the directory listi
 
 addons      attachments  databases         docs          global.php  
 admincp     avatars      defaultutils.php  func          index.php
-install     languages    modlets           robots.txt    skins       timezone
-javascript  lib          packages          settings.php  stats       tools
+install     languages    modlets           robots.txt    skins
+javascript  lib          packages          settings.php  stats
+timezone
 
 You have successfully uploaded Quicksilver Forums to your webspace!
 Now it is time to set permissions for the files, which affects both the security and operability of the installation.
