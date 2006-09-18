@@ -49,16 +49,18 @@ class packageutil
 				$query = "";
 				$data = array();
 				foreach ($node['child'] as $element) {
-					if (isset($element['content'])) {
-						switch($element['name'])
-						{
-						case 'SQL':
-							$query = $element['content'];
-							break;
-						case 'DATA':
+					switch($element['name'])
+					{
+					case 'SQL':
+						$query = $element['content'];
+						break;
+					case 'DATA':
+						if (isset($element['content'])) {
 							$data[] = $element['content'];
-							break;
+						} else {
+							$data[] = 0;
 						}
+						break;
 					}
 				}
 				

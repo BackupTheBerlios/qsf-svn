@@ -26,6 +26,7 @@ if (!defined('QUICKSILVERFORUMS') || !defined('QSF_ADMIN')) {
 }
 
 require_once $set['include_path'] . '/admincp/admin.php';
+require_once $set['include_path'] . '/lib/packageutil.php';
 
 /**
  * Database backup
@@ -36,24 +37,23 @@ require_once $set['include_path'] . '/admincp/admin.php';
 class backup extends admin
 {
 	var $tables = array(
-		'active' => '*',
-		'attach' => '*',
-		'forums' => '*',
-		'groups' => '*',
-		'help' => '*',
-		'logs' => '*',
-		'membertitles' => '*',
-		'pmsystem' => '*',
-		'posts' => '*',
-		'replacements' => '*',
-		'settings' => '*',
-		'skins' => '*',
-		'subscriptions' => '*',
-		'templates' => '*',
-		'timezones' => '*',
-		'topics' => '*',
-		'users' => '*',
-		'votes' => '*'
+		'active',
+		'attach',
+		'forums',
+		'groups',
+		'help',
+		'logs',
+		'membertitles',
+		'pmsystem',
+		'posts',
+		'readmarks',
+		'replacements',
+		'settings',
+		'skins',
+		'subscriptions',
+		'topics',
+		'users',
+		'votes'
 	);
 
 	/**
@@ -103,25 +103,77 @@ class backup extends admin
 				</ul>");
 		} else if ($this->get['option'] == 'download') {
 			$this->nohtml = true;
-			$data = $this->dump_database($this->tables);
-			$name = 'mb-' . date('y-m-d-H-i-s') . '.mbb';
+			$fullBackupName = "backup_" . $this->version . "-" . date('y-m-d-H-i-s');
 	
 			header("Content-type: application/octet-stream");
-			header("Content-Disposition: attachment; filename=\"$name\"");
-			echo $data;
+			header("Content-Disposition: attachment; filename=\"$fullBackupName.xml\"");
+			
+			echo "<?xml version='1.0' encoding='utf-8'?>\n";
+			echo "<qsfmod>\n";
+			echo "  <title>Backup: " . $this->version . " - " . date('y-m-d-H-i-s') . "</title>\n";
+			echo "  <type>backup</type>\n";
+			echo "  <version>{$this->version}-" . date('y-m-d-H-i-s') . "</version>\n";
+			echo "  <description></description>\n";
+			echo "  <authorname>Backup Tool</authorname>\n";
+			echo "  <files>\n";
+			echo "    <file>packages/$fullBackupName.xml</file>\n";
+			echo "  </files>\n";
+			echo "  <templates>\n";
+			echo "  </templates>\n";
+			echo "  <install>\n";
+			$this->create_dump($this->tables);
+			echo "  </install>\n";
+			echo "  <uninstall>\n";
+			$this->create_truncate($this->tables);
+			echo "  </uninstall>\n";
+			echo "</qsfmod>\n";
 			
 		} else if ($this->get['option'] == 'file') {
-			$data = $this->dump_database($this->tables);
-			$name = 'mb-' . date('y-m-d-H-i-s') . '.mbb';
-	
-			$this->chmod('../databases', 0777);
-	
-			$fp = fopen("../databases/$name", 'w');
-			fwrite($fp, $data);
-			fclose($fp);
-			$this->chmod("../databases/$name", 0777);
-	
-			return $this->message($this->lang->backup_create, $this->lang->backup_done, $name, "../databases/$name");
+			$fullBackupName = "backup_" . $this->version . "-" . date('y-m-d-H-i-s');
+
+			if (file_exists("../packages/$fullBackupName.xml")) {
+				die("../packages/$fullBackupName.xml already exists!");
+			}
+			
+			$xmlFile = fopen("../packages/$fullBackupName.xml", 'w');
+			
+			if ($xmlFile === false) {
+				return $this->message($this->lang->backup_create, "Error: Could not open file ../packages/$fullBackupName.xml for writing");
+			}
+			
+			fwrite($xmlFile, "<?xml version='1.0' encoding='utf-8'?>\n");
+			fwrite($xmlFile, "<qsfmod>\n");
+			fwrite($xmlFile, "  <title>Backup: " . $this->version . " - " . date('y-m-d-H-i-s') . "</title>\n");
+			fwrite($xmlFile, "  <type>backup</type>\n");
+			fwrite($xmlFile, "  <version>{$this->version}-" . date('y-m-d-H-i-s') . "</version>\n");
+			fwrite($xmlFile, "  <description></description>\n");
+			fwrite($xmlFile, "  <authorname>Backup Tool</authorname>\n");
+			fwrite($xmlFile, "  <files>\n");
+			fwrite($xmlFile, "    <file>packages/$fullBackupName.xml</file>\n");
+			fwrite($xmlFile, "  </files>\n");
+			fwrite($xmlFile, "  <templates>\n");
+			fwrite($xmlFile, "  </templates>\n");
+			fwrite($xmlFile, "  <install>\n");
+			$this->create_dump($this->tables, $xmlFile);
+			fwrite($xmlFile, "  </install>\n");
+			fwrite($xmlFile, "  <uninstall>\n");
+			$this->create_truncate($this->tables, $xmlFile);
+			fwrite($xmlFile, "  </uninstall>\n");
+			fwrite($xmlFile, "</qsfmod>\n");
+
+			fclose($xmlFile);
+						
+			$tarTool = new archive_tar();
+			$tarTool->open_file_writer("../packages/$fullBackupName", true);
+			$tarTool->add_as_file("packages/$fullBackupName.xml", 'package.txt');
+			$tarTool->add_file("../packages/$fullBackupName.xml", "packages/$fullBackupName.xml");
+			$filename = $tarTool->close_file();
+			
+			@unlink("../packages/$fullBackupName.xml");
+			
+			$this->chmod($filename, 0777);
+			
+			return $this->message($this->lang->backup_create, $this->lang->backup_done, $filename, "../packages/$filename");
 		}
 	}
 
@@ -134,117 +186,191 @@ class backup extends admin
 	 **/
 	function restore_backup()
 	{
-		if (!isset($this->post['submit'])) {
-			$box = '';
+		if (!isset($this->get['restore'])) {
+			$tarTool = new archive_tar();
 
-			$dp = opendir('../databases');
+			$xmlInfo = new xmlparser();
+
+			$new_backup_box = '';
+
+			$dp = opendir('../packages');
 			while (($file = readdir($dp)) !== false)
 			{
-				$ext = strtolower(substr($file, -4));
+				if (strtolower(substr($file, -4)) == '.tar' ||
+					(strtolower(substr($file, -7)) == '.tar.gz' &&
+					$tarTool->can_gunzip()))
+				{
+					if ($tarTool->open_file_reader('../packages/' . $file)) {
+						// Okay. Look at packages.txt to find our xml file
+						$xmlFilename = $tarTool->extract_file('package.txt');
+						
+						if ($xmlFilename === false) continue;
 
-				if ($ext == '.mbb') {
-					$box .= "<option value='../databases/$file'>" . substr($file, 0, -4) . "</option>\n";
+						$xmlData = $tarTool->extract_file($xmlFilename);
+						
+						$xmlInfo->parseTar($tarTool, $xmlFilename);
+					} else {
+						continue;
+					}
 				}
+				else if (strtolower(substr($file, -4)) == '.xml')
+				{
+					$xmlInfo->parse('../packages/' . $file);
+				}
+				else
+				{
+					$xmlInfo->reset();
+					continue; // skip file
+				}
+
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
+
+				if ($node['content'] != 'backup')
+					continue; // skip other mods
+
+				$new_backup_box .= "  <li><a href=\"{$this->self}?a=backup&amp;s=restore&amp;restore=";
+
+				if (strtolower(substr($file, -7)) == '.tar.gz')
+				{
+					$new_backup_box .= urlencode(substr($file, 0, -7)) . "\" ";
+				}
+				else
+				{
+					$new_backup_box .= urlencode(substr($file, 0, -4)) . "\" ";
+				}
+
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
+
+				if (isset($node['content']) && $node['content'])
+					$new_backup_box .= "title=\"" . htmlspecialchars($node['content']) . "\"";
+
+				$new_backup_box .= ">";
+
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/TITLE');
+				$new_backup_box .= "<strong>" . htmlspecialchars($node['content']) . "</strong></a>";
+
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/VERSION');
+				$new_backup_box .= " " . htmlspecialchars($node['content']);
+
+				$node = $xmlInfo->GetNodeByPath('QSFMOD/AUTHORNAME');
+				$new_backup_box .= " (" . htmlspecialchars($node['content']) . ")";
+
+				$new_backup_box .= "</li>\n";
+
+				$xmlInfo->reset();
 			}
 			closedir($dp);
 
-			if ($box) {
+			if ($new_backup_box) {
 				return $this->message($this->lang->backup_restore, "
-				<form action='$this->self?a=backup&amp;s=restore' method='post'><div>
+				<div>
 					{$this->lang->backup_found}:<br /><br />
-					<select name='restore'>
-						$box
-					</select>
-					<input type='submit' name='submit' value='{$this->lang->backup_restore}' /><br /><br />
-
-					<b>{$this->lang->backup_warning}</b></div>
-				</form>");
+					$new_backup_box
+					
+					<b>{$this->lang->backup_warning}</b>
+				</div>");
 			} else {
 				return $this->message($this->lang->backup_restore, $this->lang->backup_none);
 			}
 		} else {
-			$queries = array();
-			$pre = $this->pre;
+			$tarTool = new archive_tar();
 
-			include $this->post['restore'];
+			// Open and parse the XML file
+			$xmlInfo = new xmlparser();
 
-			if (!$queries) {
+			if (file_exists('../packages/' . $this->get['restore'] . '.xml'))
+			{
+				$xmlInfo->parse('../packages/' . $this->get['restore'] . '.xml');
+			}
+			else if (file_exists('../packages/' . $this->get['restore'] . '.tar'))
+			{
+				$tarTool->open_file_reader('../packages/' . $this->get['restore'] . '.tar');
+
+				$xmlFilename = $tarTool->extract_file('package.txt');
+				
+				$xmlInfo->parseTar($tarTool, $xmlFilename);
+			}
+			else if (file_exists('../packages/' . $this->get['restore'] . '.tar.gz')
+				&& $tarTool->can_gunzip())
+			{
+				$tarTool->open_file_reader('../packages/' . $this->get['restore'] . '.tar.gz');
+
+				$xmlFilename = $tarTool->extract_file('package.txt');
+				
+				$xmlInfo->parseTar($tarTool, $xmlFilename);
+			}
+			else
+			{
 				return $this->message($this->lang->backup_restore, $this->lang->backup_invalid);
 			}
 
-			foreach ($this->tables as $table => $where)
-			{
-				$this->db->query("DELETE FROM %p$table");
-			}
+			// Run the uninstall queries
+			packageutil::run_queries($this->db, $xmlInfo->GetNodeByPath('QSFMOD/UNINSTALL'));
 
-			$this->execute_queries($queries);
+			// Run the install queries
+			packageutil::run_queries($this->db, $xmlInfo->GetNodeByPath('QSFMOD/INSTALL'));
 
+			// Done!
 			return $this->message($this->lang->backup_restore, $this->lang->backup_restore_done);
 		}
 	}
 
-
+	
 	/**
 	 * Dumps a database
 	 *
-	 * @param array $tables Array of table names => where clauses
-	 * @param bool $drop Drop tables
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since 1.0.2
-	 * @return string PHP script
+	 * @param array $tables Array of table names
+	 * @param bool $fileHandle Open file to write to. If false then echo data
+	 * @since 1.3.1
 	 **/
-	function dump_database($tables, $drop = false)
-	{
-		$templates = "<?php\r\n";
-
-		foreach ($tables as $table => $where)
+	function create_dump($tables, $fileHandle = false) {
+		foreach ($tables as $table)
 		{
-			if ($drop) {
-				$templates .= '$queries[] = "DROP TABLE IF EXISTS %p' . $table . "\";\r\n";
-			}
-
-			$insert = '$queries[] = "INSERT INTO %p' . $table . ' (';
-
-			$query = $this->db->query("SELECT * FROM %p$table" . (($where == '*') ? '' : " WHERE $where"));
-			while ($temp = $this->db->nqfetch($query))
+			$query = $this->db->query("SELECT * FROM %p$table");
+			while ($row = $this->db->nqfetch($query))
 			{
-				if (!isset($firstrow)) {
-					$firstrow = true;
-
-					foreach ($temp as $key => $val)
-					{
-						$insert .= "$key, ";
-					}
-
-					$insert = substr($insert, 0, -2) . ') VALUES (';
+				$insert_keys = array_keys($row);
+				$columns = count($insert_keys);
+				
+				$sql = "INSERT INTO %p$table ";
+				$sql .= '(' . implode(', ', $insert_keys) .') VALUES';
+				$sql .= '(' . implode(', ', array_fill(0, $columns, "'%s'")) .')';
+				
+				$xml ="    <query>\n      <sql>$sql</sql>\n";
+				foreach ($insert_keys as $key) {
+					$xml .= "      <data>" . htmlspecialchars($row[$key]) . "</data>\n";
 				}
-
-				$templates .= $insert;
-
-				$temp = array_values($temp);
-
-				$count = count($temp);
-				for ($i=0; $i<$count; $i++)
-				{
-					if (is_numeric($temp[$i])) {
-						$templates .= $temp[$i];
-					} else {
-						$templates .= '\'' . str_replace('$', '\$', addslashes($temp[$i])) . '\'';
-					}
-
-					if (isset($temp[$i+1])) {
-						$templates .= ', ';
-					}
+				$xml .= "    </query>\n";
+				
+				if ($fileHandle === false) {
+					echo $xml;
+				} else {
+					fwrite($fileHandle, $xml);
 				}
-
-				$templates .= ")\";\r\n";
 			}
-
-			unset($firstrow);
-			$templates .= "\r\n";
 		}
+	}
 
-		return $templates . '?>';
+	/**
+	 * Creates XML formatted queries to truncate tables
+	 *
+	 * @param array $tables Array of table names
+	 * @param bool $fileHandle Open file to write to. If false then echo data
+	 * @since 1.3.1
+	 **/
+	function create_truncate($tables, $fileHandle = false) {
+		foreach ($tables as $table)
+		{
+			$xml = "    <query>\n";
+			$xml .= "      <sql>DELETE FROM %p$table</sql>\n";
+			$xml .= "    </query>\n";
+
+			if ($fileHandle === false) {
+				echo $xml;
+			} else {
+				fwrite($fileHandle, $xml);
+			}
+		}
 	}
 }
 ?>

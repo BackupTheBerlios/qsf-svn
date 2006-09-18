@@ -571,7 +571,7 @@ class templates extends admin
 			$xmlFile = fopen("../packages/skin_$fullSkinName.xml", 'w');
 			
 			if ($xmlFile === false) {
-				return $this->message($this->lang->export_skin, "Error: Could not open file skins/{$skin['skin_dir']}/skin_$fullSkinName.xml for writing");
+				return $this->message($this->lang->export_skin, "Error: Could not open file packages/skin_$fullSkinName.xml for writing");
 			}
 			
 			fwrite($xmlFile, "<?xml version='1.0' encoding='utf-8'?>\n");

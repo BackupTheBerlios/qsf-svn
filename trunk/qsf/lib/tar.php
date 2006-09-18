@@ -102,7 +102,6 @@ class archive_tar
 			$this->file_handle = gzopen($filename, 'rb');
 			$this->gz_mode = false;
 		} else {
-			$lastExt = array_pop($filenameParts);
 			// Check it's a tar file
 			if ($lastExt != 'tar') return false;
 			
