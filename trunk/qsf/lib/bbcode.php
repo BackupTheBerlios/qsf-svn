@@ -405,7 +405,7 @@ class bbcode extends htmltools
 			'<p style=\'text-indent:2em\'>\\1</p>',
 			'<a href="mailto:\\1">\\1</a>',
 			'<a href="mailto:\\1">\\2</a>',
-			'\'<img src="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" alt="\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'" />\'',
+			'\'<img src=\\\'\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'\\\' alt=\\\'\' . str_replace(\' \', \'\', \'\\1://\\2\') . \'\\\' />\'',
 			'<p style=\'text-align:\\1\'>\\2</p>',
 			'<span style=\'color:\\1\'>\\2</span>',
 			'<span style=\'font-family:\\1\'>\\2</span>',
