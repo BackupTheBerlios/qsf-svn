@@ -30,6 +30,7 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	// Changed templates
+	'ADMIN_INSTALL_SKIN'
 	);
 
 // Permission changes	

@@ -328,7 +328,9 @@ class templates extends admin
 
 	function install_skin()
 	{
-		if (!isset($this->post['submit']) && !isset($this->get['newskin']) && !isset($this->get['skindetails'])) {
+		if (!isset($this->post['submit']) && !isset($this->get['newskin'])
+				&& !isset($this->get['skindetails']) && !isset($this->get['temp']))
+		{
 			// Build drop down list for the OLD method
 			$skin_box = '';
 
@@ -1082,6 +1084,29 @@ class templates extends admin
 			}
 				
 			$check_dir_exists .= '/';
+		}
+	}
+
+
+	/**
+	 * Executes an array of queries
+	 *
+	 * Note: Only used for loading old templates
+	 *
+	 * @param $queries
+	 * @param $db
+	 * @author Jason Warner <jason@mercuryboard.com>
+	 * @since 1.0.2
+	 * @return void
+	 **/
+	function execute_queries($queries)
+	{
+		foreach ($queries as $query)
+		{
+			$query = str_replace('%', '%%', $query);
+			// Strip out reference to template position!
+			$query = preg_replace('/^(.+), template_position\)(.+), \d+\)$/s', '\1)\2)', $query);
+			$this->db->query($query);
 		}
 	}
 }

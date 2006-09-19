@@ -697,7 +697,7 @@
  <select name="install">
   {$skin_box}
  </select>
- <input type="submit" name="submit" value="" />
+ <input type="submit" name="submit" value="{$this->lang->install_skin}" />
 </div>
 </form>
 <br />

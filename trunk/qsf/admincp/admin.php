@@ -309,22 +309,5 @@ class admin extends qsfglobal
 
 		return $out . '</select>';
 	}
-
-	/**
-	 * Executes an array of queries
-	 *
-	 * @param $queries
-	 * @param $db
-	 * @author Jason Warner <jason@mercuryboard.com>
-	 * @since 1.0.2
-	 * @return void
-	 **/
-	function execute_queries($queries)
-	{
-		foreach ($queries as $query)
-		{
-			$this->db->query($query);
-		}
-	}
 }
 ?>
