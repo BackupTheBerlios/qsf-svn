@@ -31,7 +31,8 @@ $need_templates = array(
 	// Added templates
 	// Changed templates
 	'FORUM_TOPICS_MAIN',
-	'ADMIN_INSTALL_SKIN'
+	'ADMIN_INSTALL_SKIN',
+	'CP_PREFS'
 	);
 
 // Permission changes	
