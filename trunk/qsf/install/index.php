@@ -66,7 +66,7 @@ function check_writeable_files()
 
 	if( !$writeable ) {
 		echo "<tr><td>The following directories are not writeable. Some board functions will be impaired unless these are changed to 0777 permission.</td></tr>";
-		echo $fixme;
+		echo "<tr><td>" . $fixme . "</td></tr>";
 	}
 }
 
