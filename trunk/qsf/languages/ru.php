@@ -124,7 +124,7 @@ class ru
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = 'The following backups were found in the Quicksilver Forums directory';
 		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.'; //Translate
-		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.'; //Translate
+		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.';
 		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'Restore Backup'; //Translate
 		$this->backup_restore_done = 'The database has been restored successfully.'; //Translate
