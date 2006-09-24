@@ -44,6 +44,9 @@ class new_install extends qsfglobal
 
 			echo "<form action='{$this->self}?mode=new_install&amp;step=2' method='post'>
                               <table border='0' cellpadding='4' cellspacing='0'>\n";
+
+			check_writeable_files();
+
 			include 'templates/newdatabase.php';
 			include 'templates/newboardsettings.php';
 			include 'templates/newadmin.php';
@@ -305,9 +308,7 @@ class new_install extends qsfglobal
 			}
 			$perms->update();
 		}
-		
 		return $forumId;
 	}
 }
 ?>
-

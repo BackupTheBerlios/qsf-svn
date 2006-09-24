@@ -37,6 +37,39 @@ function execute_queries($queries, $db)
 	}
 }
 
+function check_writeable_files()
+{
+	// Need to check to see if the necessary directories are writeable.
+	$writeable = true;
+	$fixme = '';
+
+	if(!is_writeable('../attachments')) {
+		$fixme .= "../attachments/<br />";
+		$writeable = false;
+	}
+	if(!is_writeable('../avatars/uploaded')) {
+		$fixme .= "../avatars/uploaded/<br />";
+		$writeable = false;
+	}
+	if(!is_writeable('../packages')) {
+		$fixme .= "../packages/<br />";
+		$writeable = false;
+	}
+	if(!is_writeable('../skins')) {
+		$fixme .= "../skins/<br />";
+		$writeable = false;
+	}
+	if(!is_writeable('../stats')) {
+		$fixme .= "../stats/<br />";
+		$writeable = false;
+	}
+
+	if( !$writeable ) {
+		echo "<tr><td>The following directories are not writeable. Some board functions will be impaired unless these are changed to 0777 permission.</td></tr>";
+		echo $fixme;
+	}
+}
+
 ob_start();
 error_reporting(E_ALL);
 

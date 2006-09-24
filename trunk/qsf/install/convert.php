@@ -86,6 +86,9 @@ class convert extends qsfglobal
 
 			echo "<form action='{$this->self}?mode=convert&amp;step=2' method='post'>
 				<table border='0' cellpadding='4' cellspacing='0'>\n";
+
+			check_writeable_files();
+
 			include 'templates/convertfromforum.php';
 			include 'templates/convertfromdatabase.php';
 			include 'templates/converttodatabase.php';
