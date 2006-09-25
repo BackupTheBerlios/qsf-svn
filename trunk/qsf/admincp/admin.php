@@ -201,7 +201,8 @@ class admin extends qsfglobal
 		include $path . 'languages/' . $lang . '.php';
 		$obj = new $lang();
 
-		if ($a) {
+		// Check if language function is available before running it
+		if ($a && is_callable(array($obj,$a))) {
 			$obj->$a();
 		}
 
