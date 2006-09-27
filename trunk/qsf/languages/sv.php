@@ -1466,8 +1466,8 @@ class sv
 		$this->board_by = 'Av';
 		$this->charset = 'utf-8';
 		$this->continue = 'Fortsätt';
-		$this->date_long = 'M j, Y';  //Translate
-		$this->date_short = 'n/j/y'; //Translate
+		$this->date_long = 'j M Y';
+		$this->date_short = 'y/n/j';
 		$this->delete = 'Ta bort';
 		$this->direction = 'vth';
 		$this->edit = 'Ändra';
@@ -1491,8 +1491,8 @@ class sv
 		$this->spoiler = 'Avslöjande';
 		$this->submit = 'Skicka';
 		$this->subscribe = 'Prenumerera';
-		$this->time_long = ', g:i a'; //Translate
-		$this->time_only = 'g:i a'; //Translate
+		$this->time_long = ', G:i';
+		$this->time_only = 'G:i';
 		$this->today = 'Idag';
 		$this->website = 'WWW';
 		$this->yahoo = 'Yahoo';
