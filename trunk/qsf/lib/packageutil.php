@@ -309,6 +309,7 @@ class packageutil
 
 			$xmlInfo->reset();
 		}
+			
 		closedir($dp);
 		
 		return $packages;

@@ -348,79 +348,35 @@ class templates extends admin
 			// Now check for skins using the NEW method
 			// build a list of all the xml skin files
 
-			$tarTool = new archive_tar();
-
-			$xmlInfo = new xmlparser();
-
 			$new_skin_box = '';
+			$packages = packageutil::scan_packages();
 
-			$dp = opendir('../packages');
-			while (($file = readdir($dp)) !== false)
-			{
-				if (strtolower(substr($file, -4)) == '.tar' ||
-					(strtolower(substr($file, -7)) == '.tar.gz' &&
-					$tarTool->can_gunzip()))
-				{
-					if ($tarTool->open_file_reader('../packages/' . $file)) {
-						// Okay. Look at packages.txt to find our xml file
-						$xmlFilename = $tarTool->extract_file('package.txt');
-						
-						if ($xmlFilename === false) continue;
-
-						$xmlData = $tarTool->extract_file($xmlFilename);
-						
-						$xmlInfo->parseTar($tarTool, $xmlFilename);
-					} else {
-						continue;
-					}
-				}
-				else if (strtolower(substr($file, -4)) == '.xml')
-				{
-					$xmlInfo->parse('../packages/' . $file);
-				}
-				else
-				{
-					$xmlInfo->reset();
-					continue; // skip file
-				}
-
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
-
-				if ($node['content'] != 'skin')
+			foreach ($packages as $package) {
+				if ($package['type'] != 'skin')
 					continue; // skip other mods
 
 				$new_skin_box .= "  <li><a href=\"{$this->self}?a=templates&amp;s=load&amp;newskin=";
-
-				if (strtolower(substr($file, -7)) == '.tar.gz')
+				
+				if (strtolower(substr($package['file'], -7)) == '.tar.gz')
 				{
-					$new_skin_box .= urlencode(substr($file, 0, -7)) . "\" ";
+					$new_skin_box .= urlencode(substr($package['file'], 0, -7)) . "\" ";
 				}
 				else
 				{
-					$new_skin_box .= urlencode(substr($file, 0, -4)) . "\" ";
+					$new_skin_box .= urlencode(substr($package['file'], 0, -4)) . "\" ";
 				}
 
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
-
-				if (isset($node['content']) && $node['content'])
-					$new_skin_box .= "title=\"" . htmlspecialchars($node['content']) . "\"";
+				if ($package['desc'])
+					$new_skin_box .= "title=\"" . htmlspecialchars($package['desc']) . "\"";
 
 				$new_skin_box .= ">";
 
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/TITLE');
-				$new_skin_box .= "<strong>" . htmlspecialchars($node['content']) . "</strong></a>";
-
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/VERSION');
-				$new_skin_box .= " " . htmlspecialchars($node['content']);
-
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/AUTHORNAME');
-				$new_skin_box .= " (" . htmlspecialchars($node['content']) . ")";
+				$new_skin_box .= "<strong>" . htmlspecialchars($package['title']) . "</strong></a>";
+				$new_skin_box .= " " . htmlspecialchars($package['version']);
+				$new_skin_box .= " (" . htmlspecialchars($package['author']) . ")";
 
 				$new_skin_box .= "</li>\n";
-
-				$xmlInfo->reset();
 			}
-			closedir($dp);
 
 			return $this->message($this->lang->install_skin, eval($this->template('ADMIN_INSTALL_SKIN')));
 		} else if (isset($this->get['skindetails'])) {

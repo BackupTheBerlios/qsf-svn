@@ -193,73 +193,34 @@ class backup extends admin
 
 			$new_backup_box = '';
 
-			$dp = opendir('../packages');
-			while (($file = readdir($dp)) !== false)
-			{
-				if (strtolower(substr($file, -4)) == '.tar' ||
-					(strtolower(substr($file, -7)) == '.tar.gz' &&
-					$tarTool->can_gunzip()))
-				{
-					if ($tarTool->open_file_reader('../packages/' . $file)) {
-						// Okay. Look at packages.txt to find our xml file
-						$xmlFilename = $tarTool->extract_file('package.txt');
-						
-						if ($xmlFilename === false) continue;
+			$packages = packageutil::scan_packages();
 
-						$xmlData = $tarTool->extract_file($xmlFilename);
-						
-						$xmlInfo->parseTar($tarTool, $xmlFilename);
-					} else {
-						continue;
-					}
-				}
-				else if (strtolower(substr($file, -4)) == '.xml')
-				{
-					$xmlInfo->parse('../packages/' . $file);
-				}
-				else
-				{
-					$xmlInfo->reset();
-					continue; // skip file
-				}
-
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/TYPE');
-
-				if ($node['content'] != 'backup')
+			foreach ($packages as $package) {
+				if ($package['type'] != 'backup')
 					continue; // skip other mods
 
 				$new_backup_box .= "  <li><a href=\"{$this->self}?a=backup&amp;s=restore&amp;restore=";
 
-				if (strtolower(substr($file, -7)) == '.tar.gz')
+				if (strtolower(substr($package['file'], -7)) == '.tar.gz')
 				{
-					$new_backup_box .= urlencode(substr($file, 0, -7)) . "\" ";
+					$new_backup_box .= urlencode(substr($package['file'], 0, -7)) . "\" ";
 				}
 				else
 				{
-					$new_backup_box .= urlencode(substr($file, 0, -4)) . "\" ";
+					$new_backup_box .= urlencode(substr($package['file'], 0, -4)) . "\" ";
 				}
 
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/DESCRIPTION');
-
-				if (isset($node['content']) && $node['content'])
-					$new_backup_box .= "title=\"" . htmlspecialchars($node['content']) . "\"";
+				if ($package['desc'])
+					$new_backup_box .= "title=\"" . htmlspecialchars($package['desc']) . "\"";
 
 				$new_backup_box .= ">";
 
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/TITLE');
-				$new_backup_box .= "<strong>" . htmlspecialchars($node['content']) . "</strong></a>";
-
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/VERSION');
-				$new_backup_box .= " " . htmlspecialchars($node['content']);
-
-				$node = $xmlInfo->GetNodeByPath('QSFMOD/AUTHORNAME');
-				$new_backup_box .= " (" . htmlspecialchars($node['content']) . ")";
+				$new_backup_box .= "<strong>" . htmlspecialchars($package['title']) . "</strong></a>";
+				$new_backup_box .= " " . htmlspecialchars($package['version']);
+				$new_backup_box .= " (" . htmlspecialchars($package['author']) . ")";
 
 				$new_backup_box .= "</li>\n";
-
-				$xmlInfo->reset();
 			}
-			closedir($dp);
 
 			if ($new_backup_box) {
 				return $this->message($this->lang->backup_restore, "
