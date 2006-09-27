@@ -1463,7 +1463,7 @@ class en
 		$this->aim = 'AIM';
 		$this->based_on = 'Based on';
 		$this->board_by = 'By';
-		$this->charset = 'iso-8859-1';
+		$this->charset = 'utf-8';
 		$this->continue = 'Continue';
 		$this->date_long = 'M j, Y';
 		$this->date_short = 'n/j/y';
