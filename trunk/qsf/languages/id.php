@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -1463,7 +1463,7 @@ class id
 		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'based on';
 		$this->board_by = 'Oleh';
-		$this->charset = 'iso-8859-1';
+		$this->charset = 'utf-8';
 		$this->continue = 'Continue'; //Translate
 		$this->date_long = 'M j, Y'; //Translate
 		$this->date_short = 'n/j/y'; //Translate

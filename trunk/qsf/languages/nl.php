@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -28,7 +28,7 @@ if (!defined('QUICKSILVERFORUMS')) {
 /**
  * Dutch language module
  *
- * @author Daniël Rokven <rokven@gmail.com>
+ * @author DaniÃ«l Rokven <rokven@gmail.com>
  * @author Sander Knape <hetisik@gmail.com>
  * @author Bart Verellen <bartverellen@gmail.com>
  * @since 1.0.0 Beta 4.0
@@ -278,7 +278,7 @@ class nl
 		$this->cp_been_updated1 = 'Uw avatar is gewijzigd.';
 		$this->cp_been_updated_prefs = 'Uw instellingen zijn gewijzigd.';
 		$this->cp_changing_pass = 'Verander je wachtwoord';
-		$this->cp_contact_pm = 'Sta toe dat anderen je privé berichten sturen?';
+		$this->cp_contact_pm = 'Sta toe dat anderen je privÃ© berichten sturen?';
 		$this->cp_cp = 'Controlepaneel';
 		$this->cp_current_avatar = 'Huidige avatar';
 		$this->cp_current_time = 'Het is nu %s.';
@@ -329,7 +329,7 @@ class nl
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Verander je forum instellingen';
 		$this->cp_preview_sig = 'Signature Preview:'; //Translate
-		$this->cp_privacy = 'Privé Opties';
+		$this->cp_privacy = 'PrivÃ© Opties';
 		$this->cp_repeat_pass = 'Herhaal het nieuwe wachtwoord';
 		$this->cp_sept = 'September'; //Translate
 		$this->cp_show_active = 'Toon uw activiteiten wanneer u het forum gebruikt?';
@@ -410,7 +410,7 @@ class nl
 		$this->forum_moved = 'Verplaatst';
 		$this->forum_msg = '%s bericht';
 		$this->forum_new = 'Nieuw';
-		$this->forum_new_poll = 'Creeër een stembus';
+		$this->forum_new_poll = 'CreeÃ«r een stembus';
 		$this->forum_new_topic = 'Start  een nieuw onderwerp op.';
 		$this->forum_no_topics = 'Er zijn geen onderwerpen in dit forum om weer te geven.';
 		$this->forum_noexist = 'Het gekozen forum bestaat niet.';
@@ -589,7 +589,7 @@ class nl
 		$this->main_markforum_read = 'Mark forum as read'; //Translate
 		$this->main_max_load = 'Onze excuses, maar %s is nu niet beschikbaar wegens een te groot aantal ingelogde gebruikers.';
 		$this->main_members = 'Gebruikers';
-		$this->main_messenger = 'Privé berichten';
+		$this->main_messenger = 'PrivÃ© berichten';
 		$this->main_new = 'Nieuw';
 		$this->main_next = 'Volgende';
 		$this->main_prev = 'Vorige';
@@ -656,7 +656,7 @@ class nl
 		$this->mc_user_location = 'Woonplaats';
 		$this->mc_user_msn = 'MSN Messenger';
 		$this->mc_user_name = 'Naam';
-		$this->mc_user_pm = 'Accepteer privé berichten';
+		$this->mc_user_pm = 'Accepteer privÃ© berichten';
 		$this->mc_user_posts = 'Berichten';
 		$this->mc_user_signature = 'Handtekening';
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -771,7 +771,7 @@ class nl
 		$this->perms_override_user = 'This will override the group permissions for this user.'; //Translate
 		$this->perms_pm_noflood = 'Stel vrij van persoonlijke bericht flood controle';
 		$this->perms_poll_create = 'Start een poll op';
-		$this->perms_poll_vote = 'Creeër stemmen';
+		$this->perms_poll_vote = 'CreeÃ«r stemmen';
 		$this->perms_post_attach = 'Maak uploads vast aan berichten';
 		$this->perms_post_attach_download = 'Download bericht attachments';
 		$this->perms_post_create = 'Nieuw antwoord';
@@ -834,9 +834,9 @@ class nl
 		$this->pm_folder_sentbox = 'Verstuurd';
 		$this->pm_from = 'Van';
 		$this->pm_group = 'Groep';
-		$this->pm_guest = 'Als gast, kunt u geen privé berichten versturen. Login of Registreer, aub.';
+		$this->pm_guest = 'Als gast, kunt u geen privÃ© berichten versturen. Login of Registreer, aub.';
 		$this->pm_joined = 'Lid sinds';
-		$this->pm_messenger = 'Privé berichten';
+		$this->pm_messenger = 'PrivÃ© berichten';
 		$this->pm_msgtext = 'Bericht:';
 		$this->pm_multiple = 'Scheid verschillende ontvangers met een ;';
 		$this->pm_no_folder = 'U moet een map kiezen.';
@@ -858,7 +858,7 @@ class nl
 		$this->pm_sendamsg = 'Stuur een bericht';
 		$this->pm_sendingpm = 'Stuur een PB';
 		$this->pm_sendon = 'Verstuurd op';
-		$this->pm_success = 'Je privé bericht is met succes verstuurd';
+		$this->pm_success = 'Je privÃ© bericht is met succes verstuurd';
 		$this->pm_sure_del = 'Weet je zeker dat u dit bericht wilt verwijderen?';
 		$this->pm_sure_delall = 'Weet je zeker dat je alle berichten wilt verwijderen in deze map??';
 		$this->pm_title = 'Titel:';
@@ -886,7 +886,7 @@ class nl
 		$this->post_create_poll = 'Maak een stembus';
 		$this->post_create_topic = 'Maak onderwerp';
 		$this->post_creating = 'Maak onderwerp';
-		$this->post_creating_poll = 'Creeër stembus';
+		$this->post_creating_poll = 'CreeÃ«r stembus';
 		$this->post_flood = 'Je hebt een bericht geplaatst in de afgelopen %s seconden, en je kunt op dit ogenblik geen bericht plaatsen<br /><br />probeer aub nog eens over een paar seconden.';
 		$this->post_guest = 'Gast';
 		$this->post_icon = 'Bericht Icoontje';
@@ -960,7 +960,7 @@ class nl
 		$this->profile_not_post = 'Heeft nog niets geplaatst.';
 		$this->profile_offline = 'Deze gebruiker is momenteel offline';
 		$this->profile_online = 'Deze gebruiker is momenteel online';
-		$this->profile_pm = 'Privé Berichten';
+		$this->profile_pm = 'PrivÃ© Berichten';
 		$this->profile_postcount = '%s totaal, %s per dag';
 		$this->profile_posts = 'Berichten:';
 		$this->profile_private = '[ Prive ]';
@@ -1025,7 +1025,7 @@ class nl
 		$this->recent_moved = 'Verplaatst';
 		$this->recent_msg = '%s bericht';
 		$this->recent_new = 'Nieuw';
-		$this->recent_new_poll = 'Creeër een stembus';
+		$this->recent_new_poll = 'CreeÃ«r een stembus';
 		$this->recent_new_topic = 'Start nieuw onderwerp';
 		$this->recent_no_topics = 'Er zijn geen onderwerpen om weer te geven op dit forum.';
 		$this->recent_noexist = 'Het gekozen forum bestaat niet.';
@@ -1065,7 +1065,7 @@ class nl
 		$this->register_fields = 'Je hebt niet alle velden ingevuld.';
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Gelieve de tekst in te geven die in het beeld wordt getoond.';
-		$this->register_image_invalid = 'Om te verifiëren dat je een menselijke registrant bent en geen robot, moet je de tekst zoals aangetoond in het beeld typen.';
+		$this->register_image_invalid = 'Om te verifiÃ«ren dat je een menselijke registrant bent en geen robot, moet je de tekst zoals aangetoond in het beeld typen.';
 		$this->register_initiated = 'This request was initiated from IP:'; //Translate
 		$this->register_must_activate = 'Je bent geregistreerd. Er is een e-mail gestuurd naar %s met de activerings-informatie. Je account heeft beperkte mogelijkheden tot je account geactiveerd is.';
 		$this->register_name_invalid = 'Je hebt een ongeldige naam ingevoerd.';
@@ -1245,7 +1245,7 @@ class nl
 		$this->settings_show_email = 'Laat E-mailadres zien';
 		$this->settings_show_emotes = 'Laat Emoticons zien';
 		$this->settings_show_notice = 'Shown when the board is disabled'; //Translate
-		$this->settings_show_pm = 'Aanvaard Privé Berichten';
+		$this->settings_show_pm = 'Aanvaard PrivÃ© Berichten';
 		$this->settings_show_sigs = 'Laat handtekeningen zien';
 		$this->settings_spider_agent = 'Spider User Agent'; //Translate
 		$this->settings_spider_agent_msg = 'Enter all or part of the spider\'s unique HTTP USER AGENT.'; //Translate
@@ -1297,7 +1297,7 @@ class nl
 		$this->install_skin = 'Installeer Skin';
 		$this->menu_title = 'Selecteer een template section om aan te passen';
 		$this->no_file = 'No such file.'; //Translate
-		$this->only_skin = 'Er is slechts 1 skin geïnstalleerd. U mag deze skin niet verwijderen.';
+		$this->only_skin = 'Er is slechts 1 skin geÃ¯nstalleerd. U mag deze skin niet verwijderen.';
 		$this->or_new = 'Or create new template set named:'; //Translate
 		$this->select_skin = 'Selecteer een Skin';
 		$this->select_skin_edit = 'Selecteer een skin om aan te passen';
@@ -1347,7 +1347,7 @@ class nl
 		$this->temps_member_control = 'AdminCP Member Control'; //Translate
 		$this->temps_members = 'Gebruikerslijst';
 		$this->temps_mod = 'Moderator Opties';
-		$this->temps_pm = 'Privé Messenger';
+		$this->temps_pm = 'PrivÃ© Messenger';
 		$this->temps_polls = 'Polls'; //Translate
 		$this->temps_post = 'Posting'; //Translate
 		$this->temps_printer = 'Printer-Friendly Topics'; //Translate
@@ -1442,7 +1442,7 @@ class nl
 		$this->topic_quote = 'Citeer';
 		$this->topic_reply = 'Antwoord op onderwerp';
 		$this->topic_split = 'Verdeel';
-		$this->topic_split_finish = 'Beëindig Al het Verdelen';
+		$this->topic_split_finish = 'BeÃ«indig Al het Verdelen';
 		$this->topic_split_keep = 'Verplaats dit bericht niet';
 		$this->topic_split_move = 'Verplaats dit bericht';
 		$this->topic_subscribe = 'Stuur me een E-mail wanneer er gereageerd is op dit onderwerp';
@@ -1465,7 +1465,7 @@ class nl
 		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'Gebaseerd op';
 		$this->board_by = 'Door';
-		$this->charset = 'iso-8859-1';
+		$this->charset = 'utf-8';
 		$this->continue = 'Verder gaan';
 		$this->date_long = 'M j, Y'; //Translate
 		$this->date_short = 'n/j/y'; //Translate

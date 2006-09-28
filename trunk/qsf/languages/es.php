@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -35,9 +35,9 @@ class es
 {
 	function active()
 	{
-		$this->active_last_action = 'Última acción';
+		$this->active_last_action = 'Ãšltima acciÃ³n';
 		$this->active_modules_active = 'Desplegando usuarios activos';
-		$this->active_modules_board = 'Desplegando el íindice';
+		$this->active_modules_board = 'Desplegando el Ã­indice';
 		$this->active_modules_cp = 'Usando el panel de control';
 		$this->active_modules_forum = 'Viewing a forum: %s'; //Translate
 		$this->active_modules_help = 'Usando la ayuda';
@@ -213,15 +213,15 @@ class es
 	function board()
 	{
 		$this->board_active_users = 'Usuarios activos';
-		$this->board_birthdays = 'Cumpleaños de Hoy';
+		$this->board_birthdays = 'CumpleaÃ±os de Hoy';
 		$this->board_bottom_page = 'Go to the bottom of the page'; //Translate
 		$this->board_can_post = 'Puede contestar en este foro';
-		$this->board_can_topics = 'Puede ver, más no crear tópicos en este foro';
+		$this->board_can_topics = 'Puede ver, mÃ¡s no crear tÃ³picos en este foro';
 		$this->board_cant_post = 'No puede responder en este foro';
-		$this->board_cant_topics = 'No puede ver o crear tópicos en este foro';
+		$this->board_cant_topics = 'No puede ver o crear tÃ³picos en este foro';
 		$this->board_forum = 'Foro';
 		$this->board_guests = 'Invitados';
-		$this->board_last_post = 'Último mensaje';
+		$this->board_last_post = 'Ãšltimo mensaje';
 		$this->board_mark = 'Marcar todos los mensajes como leidos';
 		$this->board_mark1 = 'Todos los mensajes se han marcado como leidos';
 		$this->board_markforum = 'Marking Forum As Read'; //Translate
@@ -229,18 +229,18 @@ class es
 		$this->board_members = 'Miembros';
 		$this->board_message = '%s Mensaje';
 		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
-		$this->board_nobday = 'No hay cumpleaños de miembros hoy';
-		$this->board_nobody = 'No hay miembros en línea';
+		$this->board_nobday = 'No hay cumpleaÃ±os de miembros hoy';
+		$this->board_nobody = 'No hay miembros en lÃ­nea';
 		$this->board_nopost = 'No hay mensajes';
 		$this->board_noview = 'No tiene permiso para ver la lista de mensajes';
-		$this->board_regfirst = 'No tiene permiso para ver la lista de mensajes, pero si se registra, podrá tener esa capacidad';
+		$this->board_regfirst = 'No tiene permiso para ver la lista de mensajes, pero si se registra, podrÃ¡ tener esa capacidad';
 		$this->board_replies = 'Respuestas';
-		$this->board_stats = 'Estadísticas';
+		$this->board_stats = 'EstadÃ­sticas';
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
-		$this->board_topics = 'tópicos';
+		$this->board_topics = 'tÃ³picos';
 		$this->board_users = 'Usuarios';
-		$this->board_write_topics = 'Puede ver y crear tópicos en este foro';
+		$this->board_write_topics = 'Puede ver y crear tÃ³picos en este foro';
 	}
 
 	function censoring()
@@ -254,7 +254,7 @@ class es
 	function cp()
 	{
 		$this->cp_aim = 'AIM Screen Name'; //Translate
-		$this->cp_already_member = 'El correo electrónico que ha inscrito ya esta asignado a otro miembro';
+		$this->cp_already_member = 'El correo electrÃ³nico que ha inscrito ya esta asignado a otro miembro';
 		$this->cp_apr = 'Abril';
 		$this->cp_aug = 'Agosto';
 		$this->cp_avatar_current = 'Su avatar actual';
@@ -268,11 +268,11 @@ class es
 		$this->cp_avatar_upload = 'Cargar un avatar de su disco duro';
 		$this->cp_avatar_upload_failed = 'La carga de su avatar fallo. El Archivo no existe';
 		$this->cp_avatar_upload_not_image = 'Solo puede cargar imagenes para ser usada como su avatar';
-		$this->cp_avatar_upload_too_large = 'El archivo de avatar que especifico es muy grande, el tamaño maximo es de %d kilobytes.';
+		$this->cp_avatar_upload_too_large = 'El archivo de avatar que especifico es muy grande, el tamaÃ±o maximo es de %d kilobytes.';
 		$this->cp_avatar_url = 'Especificar un URL para su avatar';
 		$this->cp_avatar_use = 'Usar su avatar cargado';
-		$this->cp_bday = 'Cumpleaños';
-		$this->cp_been_updated = 'Su perfíl ha sido actualizados';
+		$this->cp_bday = 'CumpleaÃ±os';
+		$this->cp_been_updated = 'Su perfÃ­l ha sido actualizados';
 		$this->cp_been_updated1 = 'Su avatar ha sido actualizado';
 		$this->cp_been_updated_prefs = 'Sus preferencias han sido actualizadas';
 		$this->cp_changing_pass = 'Editanto Password';
@@ -285,11 +285,11 @@ class es
 		$this->cp_dec = 'Diciembre';
 		$this->cp_editing_avatar = 'Editando Avatar';
 		$this->cp_editing_profile = 'Editing Profile'; //Translate
-		$this->cp_email = 'Correo electrónico';
-		$this->cp_email_form = 'Permitir a otros contactarlo via formulario de correo electrónico?';
-		$this->cp_email_invaid = 'La cuenta de correo electrónico que especifico es invalida';
+		$this->cp_email = 'Correo electrÃ³nico';
+		$this->cp_email_form = 'Permitir a otros contactarlo via formulario de correo electrÃ³nico?';
+		$this->cp_email_invaid = 'La cuenta de correo electrÃ³nico que especifico es invalida';
 		$this->cp_err_avatar = 'Error al actualizar su avatar';
-		$this->cp_err_updating = 'Error al actualizar perfíl';
+		$this->cp_err_updating = 'Error al actualizar perfÃ­l';
 		$this->cp_feb = 'Febrero';
 		$this->cp_file_type = 'El avatar que especifico no es valido, cerciorese del formato. Los formatos validos son gif, jpg, o png';
 		$this->cp_format = 'Nombre de usuario';
@@ -304,12 +304,12 @@ class es
 		$this->cp_label_edit_avatar = 'Editar Avatar';
 		$this->cp_label_edit_pass = 'Editar Password';
 		$this->cp_label_edit_prefs = 'Editar Preferencias';
-		$this->cp_label_edit_profile = 'Editar perfíl';
+		$this->cp_label_edit_profile = 'Editar perfÃ­l';
 		$this->cp_label_edit_sig = 'Edit Signature'; //Translate
 		$this->cp_label_edit_subs = 'Editar Suscripciones';
 		$this->cp_language = 'Idioma';
 		$this->cp_less_charac = 'Su nOmbre de usuario debe ser menor de 32 caracteres';
-		$this->cp_location = 'Ubicación';
+		$this->cp_location = 'UbicaciÃ³n';
 		$this->cp_login_first = 'Debe de estar firmado para accesar al panel de control';
 		$this->cp_mar = 'Marzo';
 		$this->cp_may = 'Mayo';
@@ -331,9 +331,9 @@ class es
 		$this->cp_repeat_pass = 'Repetir el nuevo password';
 		$this->cp_sept = 'Septiembre';
 		$this->cp_show_active = 'Show your activities when you are using the board?'; //Translate
-		$this->cp_show_email = 'Mostrar correo electrónico en perfíl?';
+		$this->cp_show_email = 'Mostrar correo electrÃ³nico en perfÃ­l?';
 		$this->cp_signature = 'Firma';
-		$this->cp_size_max = 'El avatar especifiaco es muy grande. El tamaño maximo permitido es %s por %s pixeles.';
+		$this->cp_size_max = 'El avatar especifiaco es muy grande. El tamaÃ±o maximo permitido es %s por %s pixeles.';
 		$this->cp_skin = 'Esquema de despliegue';
 		$this->cp_sub_change = 'Cambiando suscripciones';
 		$this->cp_sub_delete = 'Borrar';
@@ -343,9 +343,9 @@ class es
 		$this->cp_sub_success = 'Esta ahora suscrito a %s.';
 		$this->cp_sub_type = 'Tipo de suscripcion';
 		$this->cp_sub_updated = 'Las suscripciones seleccionadas han sido borradas';
-		$this->cp_topic_option = 'Opciones de tópico';
+		$this->cp_topic_option = 'Opciones de tÃ³pico';
 		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
-		$this->cp_updated = 'perfíl actualizado';
+		$this->cp_updated = 'perfÃ­l actualizado';
 		$this->cp_updated1 = 'Avatar actualizado';
 		$this->cp_updated_prefs = 'Preferencias actualizadas';
 		$this->cp_user_exists = 'Ese nombre de usuario ya existe previamente';
@@ -353,7 +353,7 @@ class es
 		$this->cp_view_avatar = 'Ver avatars?';
 		$this->cp_view_emoticon = 'Ver emoticons?';
 		$this->cp_view_signature = 'Ver firmas?';
-		$this->cp_welcome = 'Bienvenido al panel de control de usuario. Aqui podrá configurar su cuenta. Seleccione de las opciones arriba';
+		$this->cp_welcome = 'Bienvenido al panel de control de usuario. Aqui podrÃ¡ configurar su cuenta. Seleccione de las opciones arriba';
 		$this->cp_width = 'Anchura';
 		$this->cp_www = 'Pagina Personal';
 		$this->cp_yahoo = 'Identidad de Yahoo!';
@@ -363,7 +363,7 @@ class es
 	function email()
 	{
 		$this->email_blocked = 'Ese miembro no acepta correo desde este formulario';
-		$this->email_email = 'Correo electrónico';
+		$this->email_email = 'Correo electrÃ³nico';
 		$this->email_msgtext = 'Cuerpo del mensaje:';
 		$this->email_no_fields = 'regrese y asegurese que todos los campos esten completos';
 		$this->email_no_member = 'No existe un miembro con ese nombre';
@@ -392,44 +392,44 @@ class es
 	{
 		$this->forum_by = 'De';
 		$this->forum_can_post = 'Puede contester en este foro';
-		$this->forum_can_topics = 'Puede ver tópicos en este foro';
+		$this->forum_can_topics = 'Puede ver tÃ³picos en este foro';
 		$this->forum_cant_post = 'No puede responder en este foro';
-		$this->forum_cant_topics = 'No puede ver tópicos en este foro';
+		$this->forum_cant_topics = 'No puede ver tÃ³picos en este foro';
 		$this->forum_dot = 'punto';
-		$this->forum_dot_detail = 'Muestra que ha publicado o contestado en este tópico';
+		$this->forum_dot_detail = 'Muestra que ha publicado o contestado en este tÃ³pico';
 		$this->forum_forum = 'Foro';
 		$this->forum_guest = 'Invitado';
 		$this->forum_hot = 'Activo';
-		$this->forum_icon = 'Ícono de Mensaje';
-		$this->forum_jump = 'Brincar al tópico más reciente';
-		$this->forum_last = 'Ultima publicación';
+		$this->forum_icon = 'Ãcono de Mensaje';
+		$this->forum_jump = 'Brincar al tÃ³pico mÃ¡s reciente';
+		$this->forum_last = 'Ultima publicaciÃ³n';
 		$this->forum_locked = 'Bloqueado';
 		$this->forum_mark_read = 'Mark forum as read'; //Translate
 		$this->forum_moved = 'Movido';
 		$this->forum_msg = '%s Mensaje';
 		$this->forum_new = 'Nuevo';
 		$this->forum_new_poll = 'Crear una nueva encuesta';
-		$this->forum_new_topic = 'Crear nuevo tópico';
-		$this->forum_no_topics = 'No hay tópicos para desplegar en este foro';
+		$this->forum_new_topic = 'Crear nuevo tÃ³pico';
+		$this->forum_no_topics = 'No hay tÃ³picos para desplegar en este foro';
 		$this->forum_noexist = 'El foro especificado no existe';
 		$this->forum_nopost = 'No hay publicaciones';
 		$this->forum_not = 'No';
 		$this->forum_noview = 'No tiene permiso para ver foros';
 		$this->forum_pages = 'Paginas';
 		$this->forum_pinned = 'Fijado';
-		$this->forum_pinned_topic = 'tópico Fijado';
+		$this->forum_pinned_topic = 'tÃ³pico Fijado';
 		$this->forum_poll = 'Encuesta';
-		$this->forum_regfirst = 'No tiene permiso para ver los foros, si se registra, podrá hacerlo';
+		$this->forum_regfirst = 'No tiene permiso para ver los foros, si se registra, podrÃ¡ hacerlo';
 		$this->forum_replies = 'Respuestas';
 		$this->forum_starter = 'Iniciador';
 		$this->forum_sub = 'Sub-Foro';
-		$this->forum_sub_last_post = 'Ultima publicación';
+		$this->forum_sub_last_post = 'Ultima publicaciÃ³n';
 		$this->forum_sub_replies = 'Respuestas';
-		$this->forum_sub_topics = 'tópicos';
-		$this->forum_subscribe = 'Notificarme via correo electrónico cuando se publique en este foro';
-		$this->forum_topic = 'tópico';
+		$this->forum_sub_topics = 'tÃ³picos';
+		$this->forum_subscribe = 'Notificarme via correo electrÃ³nico cuando se publique en este foro';
+		$this->forum_topic = 'tÃ³pico';
 		$this->forum_views = 'Vistas';
-		$this->forum_write_topics = 'Puede crear tópicos en este foro';
+		$this->forum_write_topics = 'Puede crear tÃ³picos en este foro';
 	}
 
 	function forums()
@@ -530,7 +530,7 @@ class es
 
 	function login()
 	{
-		$this->login_cant_logged = 'No pudo firmarse, verifique que su nombre de usuario y/o password sea correcto.<br /><br />Ambos son sensibles a mayusculas y minusculas, por lo que \'UsUARIO\' es diferente de \'Usuario\'. Tambien verifique, que las cookies estén habilitadas en su sistema o navegador.';
+		$this->login_cant_logged = 'No pudo firmarse, verifique que su nombre de usuario y/o password sea correcto.<br /><br />Ambos son sensibles a mayusculas y minusculas, por lo que \'UsUARIO\' es diferente de \'Usuario\'. Tambien verifique, que las cookies estÃ©n habilitadas en su sistema o navegador.';
 		$this->login_cookies = 'Las cookies deben de estar habilitadas para firmarse';
 		$this->login_forgot_pass = 'Forgot your password?'; //Translate
 		$this->login_header = 'Firmandose';
@@ -676,8 +676,8 @@ class es
 	function members()
 	{
 		$this->members_all = 'Todos';
-		$this->members_email = 'Correo electrónico';
-		$this->members_email_member = 'enviar correo electrónico a este miembro';
+		$this->members_email = 'Correo electrÃ³nico';
+		$this->members_email_member = 'enviar correo electrÃ³nico a este miembro';
 		$this->members_group = 'Grupo';
 		$this->members_joined = 'Se unio';
 		$this->members_list = 'Lista de Miembros';
@@ -692,14 +692,14 @@ class es
 
 	function mod()
 	{
-		$this->mod_confirm_post_delete = 'Esta seguro de borrar esta publicación?';
-		$this->mod_confirm_topic_delete = 'Esta seguro de borrar este tópico?';
-		$this->mod_error_first_post = 'No puede borrar la primera publicación en un tópico';
-		$this->mod_error_move_category = 'No puede mover un tópico a una categoria';
+		$this->mod_confirm_post_delete = 'Esta seguro de borrar esta publicaciÃ³n?';
+		$this->mod_confirm_topic_delete = 'Esta seguro de borrar este tÃ³pico?';
+		$this->mod_error_first_post = 'No puede borrar la primera publicaciÃ³n en un tÃ³pico';
+		$this->mod_error_move_category = 'No puede mover un tÃ³pico a una categoria';
 		$this->mod_error_move_create = 'You do not have permission to move topics to that forum.'; //Translate
-		$this->mod_error_move_forum = 'No puede mover un tópico a un foro que no existe';
+		$this->mod_error_move_forum = 'No puede mover un tÃ³pico a un foro que no existe';
 		$this->mod_error_move_global = 'You cannot move a global topic. Edit the topic before moving it.'; //Translate
-		$this->mod_error_move_same = 'No puede mover un tópico al foro al que ya existe';
+		$this->mod_error_move_same = 'No puede mover un tÃ³pico al foro al que ya existe';
 		$this->mod_label_controls = 'Controles de moderador';
 		$this->mod_label_description = 'Descripcion';
 		$this->mod_label_emoticon = 'Convertir emoticons a imagenes?';
@@ -707,44 +707,44 @@ class es
 		$this->mod_label_mbcode = 'Formatear MbCode?';
 		$this->mod_label_move_to = 'Mover a';
 		$this->mod_label_options = 'Opciones';
-		$this->mod_label_post_delete = 'Borrar publicación';
-		$this->mod_label_post_edit = 'Editar publicación';
+		$this->mod_label_post_delete = 'Borrar publicaciÃ³n';
+		$this->mod_label_post_edit = 'Editar publicaciÃ³n';
 		$this->mod_label_post_icon = 'Post Icon'; //Translate
 		$this->mod_label_publish = 'Publishing'; //Translate
 		$this->mod_label_title = 'Titulo';
 		$this->mod_label_title_original = 'Original Title'; //Translate
 		$this->mod_label_title_split = 'Split Title'; //Translate
-		$this->mod_label_topic_delete = 'Borrar tópico';
-		$this->mod_label_topic_edit = 'Editar tópico';
-		$this->mod_label_topic_lock = 'Bloquear tópico';
-		$this->mod_label_topic_move = 'Mover tópico';
-		$this->mod_label_topic_move_complete = 'Transferir completamente el tópico al nuevo foro';
-		$this->mod_label_topic_move_link = 'Transferir el tópico la nuevo foro, y dejar una liga a su nueva ubicacion en el foro anterior';
-		$this->mod_label_topic_pin = 'Fijar tópico';
+		$this->mod_label_topic_delete = 'Borrar tÃ³pico';
+		$this->mod_label_topic_edit = 'Editar tÃ³pico';
+		$this->mod_label_topic_lock = 'Bloquear tÃ³pico';
+		$this->mod_label_topic_move = 'Mover tÃ³pico';
+		$this->mod_label_topic_move_complete = 'Transferir completamente el tÃ³pico al nuevo foro';
+		$this->mod_label_topic_move_link = 'Transferir el tÃ³pico la nuevo foro, y dejar una liga a su nueva ubicacion en el foro anterior';
+		$this->mod_label_topic_pin = 'Fijar tÃ³pico';
 		$this->mod_label_topic_split = 'Split Topic'; //Translate
-		$this->mod_missing_post = 'La publicación especificada no existe';
-		$this->mod_missing_topic = 'El tópico especificado no existe';
-		$this->mod_no_action = 'Debe especificar una acción';
-		$this->mod_no_post = 'Debe especificar una publicación';
-		$this->mod_no_topic = 'Debe especificar un tópico';
-		$this->mod_perm_post_delete = 'No tiene permiso para borrar esta publicación';
-		$this->mod_perm_post_edit = 'No tiene permiso de editar esta publicación';
+		$this->mod_missing_post = 'La publicaciÃ³n especificada no existe';
+		$this->mod_missing_topic = 'El tÃ³pico especificado no existe';
+		$this->mod_no_action = 'Debe especificar una acciÃ³n';
+		$this->mod_no_post = 'Debe especificar una publicaciÃ³n';
+		$this->mod_no_topic = 'Debe especificar un tÃ³pico';
+		$this->mod_perm_post_delete = 'No tiene permiso para borrar esta publicaciÃ³n';
+		$this->mod_perm_post_edit = 'No tiene permiso de editar esta publicaciÃ³n';
 		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
-		$this->mod_perm_topic_delete = 'No tiene permiso de borrar este tópico';
-		$this->mod_perm_topic_edit = 'No tiene permiso de editar este tópico';
-		$this->mod_perm_topic_lock = 'No tiene permiso de bloquear este tópico';
-		$this->mod_perm_topic_move = 'No tiene permiso de mover este tópico';
-		$this->mod_perm_topic_pin = 'No tiene permiso para fijar este tópico';
+		$this->mod_perm_topic_delete = 'No tiene permiso de borrar este tÃ³pico';
+		$this->mod_perm_topic_edit = 'No tiene permiso de editar este tÃ³pico';
+		$this->mod_perm_topic_lock = 'No tiene permiso de bloquear este tÃ³pico';
+		$this->mod_perm_topic_move = 'No tiene permiso de mover este tÃ³pico';
+		$this->mod_perm_topic_pin = 'No tiene permiso para fijar este tÃ³pico';
 		$this->mod_perm_topic_split = 'You do not have permission to split this topic.'; //Translate
-		$this->mod_perm_topic_unlock = 'No tiene permiso para desbloquear este tópico';
-		$this->mod_perm_topic_unpin = 'No tiene permiso de quitar la fijacion a este tópico';
-		$this->mod_success_post_delete = 'La publicación fue borrada satisfactoriamente';
-		$this->mod_success_post_edit = 'La publicación fue editada satisfactoriamente';
+		$this->mod_perm_topic_unlock = 'No tiene permiso para desbloquear este tÃ³pico';
+		$this->mod_perm_topic_unpin = 'No tiene permiso de quitar la fijacion a este tÃ³pico';
+		$this->mod_success_post_delete = 'La publicaciÃ³n fue borrada satisfactoriamente';
+		$this->mod_success_post_edit = 'La publicaciÃ³n fue editada satisfactoriamente';
 		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
 		$this->mod_success_split = 'The topic was successfully split.'; //Translate
-		$this->mod_success_topic_delete = 'El tópico fue borrado satisfactoriamente';
-		$this->mod_success_topic_edit = 'El tópico fue editado satisfactoriamente';
-		$this->mod_success_topic_move = 'El tópico fue movido satisfactoriamente al nuevo foro';
+		$this->mod_success_topic_delete = 'El tÃ³pico fue borrado satisfactoriamente';
+		$this->mod_success_topic_edit = 'El tÃ³pico fue editado satisfactoriamente';
+		$this->mod_success_topic_move = 'El tÃ³pico fue movido satisfactoriamente al nuevo foro';
 		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
@@ -867,37 +867,37 @@ class es
 	{
 		$this->post_attach = 'Anexos';
 		$this->post_attach_add = 'Agregar Anexos';
-		$this->post_attach_disrupt = 'Agregar o borrar anexos no modificara su publicación';
+		$this->post_attach_disrupt = 'Agregar o borrar anexos no modificara su publicaciÃ³n';
 		$this->post_attach_failed = 'La carga del anexo fallo. El archivo especificado puede que no insista';
 		$this->post_attach_not_allowed = 'No puede anexar archivos de ese tipo';
 		$this->post_attach_remove = 'Remover Anexo';
-		$this->post_attach_too_large = 'El archivo es demasiado grande, el tamaño máximo es %d KB.';
-		$this->post_cant_create = 'Como Invitado, no tiene permiso de crear tópicos. Si lo desea, puede registrarse para hacerlo';
-		$this->post_cant_create1 = 'No tiene permiso para crear tópicos';
-		$this->post_cant_enter = 'Su voto no pudo ser incluido, porque ya había votado en esta encuesta o no tiene permiso para votar';
+		$this->post_attach_too_large = 'El archivo es demasiado grande, el tamaÃ±o mÃ¡ximo es %d KB.';
+		$this->post_cant_create = 'Como Invitado, no tiene permiso de crear tÃ³picos. Si lo desea, puede registrarse para hacerlo';
+		$this->post_cant_create1 = 'No tiene permiso para crear tÃ³picos';
+		$this->post_cant_enter = 'Su voto no pudo ser incluido, porque ya habÃ­a votado en esta encuesta o no tiene permiso para votar';
 		$this->post_cant_poll = 'As a guest, you do not have permission to create polls. If you register, you may be able to create them.'; //Translate
 		$this->post_cant_poll1 = 'No tiene permiso para crear encuestas';
-		$this->post_cant_reply = 'No tiene permiso para responder a tópicos en este foro';
-		$this->post_cant_reply1 = 'Como Invitado, no tiene permiso para responder a tópicos. Si lo desea, puede registrarse para hacerlo';
+		$this->post_cant_reply = 'No tiene permiso para responder a tÃ³picos en este foro';
+		$this->post_cant_reply1 = 'Como Invitado, no tiene permiso para responder a tÃ³picos. Si lo desea, puede registrarse para hacerlo';
 		$this->post_cant_reply2 = 'You do not have permission to reply to topics.'; //Translate
-		$this->post_closed = 'Este tópico ha sido cerrado';
+		$this->post_closed = 'Este tÃ³pico ha sido cerrado';
 		$this->post_create_poll = 'Crear encuesta';
-		$this->post_create_topic = 'Crear tópico';
-		$this->post_creating = 'Creando tópico';
+		$this->post_create_topic = 'Crear tÃ³pico';
+		$this->post_creating = 'Creando tÃ³pico';
 		$this->post_creating_poll = 'Creando Encuesta';
-		$this->post_flood = 'Ha hecho una publicación en los pasados %s segundos, y no puede hacerlo ahora mismo.<br /><br />Por favor intente más tarde.';
+		$this->post_flood = 'Ha hecho una publicaciÃ³n en los pasados %s segundos, y no puede hacerlo ahora mismo.<br /><br />Por favor intente mÃ¡s tarde.';
 		$this->post_guest = 'Invitado';
-		$this->post_icon = 'Ícono de publicación';
+		$this->post_icon = 'Ãcono de publicaciÃ³n';
 		$this->post_last_five = 'Ultimas cinco publicaciones en orden inverso';
 		$this->post_length = 'Revise la longitud';
 		$this->post_msg = 'Mensaje';
 		$this->post_must_msg = 'Debe incluir un mensaje cuando publica';
 		$this->post_must_options = 'Debe incluir opciones cuando crea una encuesta';
-		$this->post_must_title = 'Debe incluir un titulo cuando crea un tópico';
+		$this->post_must_title = 'Debe incluir un titulo cuando crea un tÃ³pico';
 		$this->post_new_poll = 'Nueva Encuesta';
-		$this->post_new_topic = 'Nuevo tópico';
+		$this->post_new_topic = 'Nuevo tÃ³pico';
 		$this->post_no_forum = 'El foro no fue encontrado';
-		$this->post_no_topic = 'No fue especificado ningun tópico';
+		$this->post_no_topic = 'No fue especificado ningun tÃ³pico';
 		$this->post_no_vote = 'Debe escojer una opcion para votar por esta';
 		$this->post_option_emoticons = 'Convertir emoticons a imagenes?';
 		$this->post_option_global = 'Make this topic global?'; //Translate
@@ -905,28 +905,28 @@ class es
 		$this->post_optional = 'opcional';
 		$this->post_options = 'Opciones';
 		$this->post_poll_options = 'Opciones de encuesta';
-		$this->post_poll_row = 'Uno por línea';
+		$this->post_poll_row = 'Uno por lÃ­nea';
 		$this->post_posted = 'Publicado en';
 		$this->post_posting = 'Publicando';
 		$this->post_preview = 'Preview'; //Translate
 		$this->post_reply = 'Responder';
-		$this->post_reply_topic = 'Responder al tópico';
-		$this->post_replying = 'Respondiendo a tópico';
+		$this->post_reply_topic = 'Responder al tÃ³pico';
+		$this->post_replying = 'Respondiendo a tÃ³pico';
 		$this->post_replying1 = 'Respondiendo';
 		$this->post_too_many_options = 'Tiene entre 2 y %d opciones para una encuesta';
-		$this->post_topic_detail = 'Descripción del tópico';
-		$this->post_topic_title = 'Titulo del tópico';
-		$this->post_view_topic = 'Ver el tópico completo';
+		$this->post_topic_detail = 'DescripciÃ³n del tÃ³pico';
+		$this->post_topic_title = 'Titulo del tÃ³pico';
+		$this->post_view_topic = 'Ver el tÃ³pico completo';
 		$this->post_voting = 'Votando';
 	}
 
 	function printer()
 	{
 		$this->printer_back = 'Atras';
-		$this->printer_not_found = 'El tópico no fue encontrado, pudo haber sido borrado, movido o pudo nunca haber existido';
-		$this->printer_not_found_title = 'tópico no encontrado';
-		$this->printer_perm_topics = 'No tiene permiso para ver los tópicos';
-		$this->printer_perm_topics_guest = 'No tiene permiso para ver los tópicos, si desea inscribirse, podrá hacerlo';
+		$this->printer_not_found = 'El tÃ³pico no fue encontrado, pudo haber sido borrado, movido o pudo nunca haber existido';
+		$this->printer_not_found_title = 'tÃ³pico no encontrado';
+		$this->printer_perm_topics = 'No tiene permiso para ver los tÃ³picos';
+		$this->printer_perm_topics_guest = 'No tiene permiso para ver los tÃ³picos, si desea inscribirse, podrÃ¡ hacerlo';
 		$this->printer_posted_on = 'Publicado el';
 		$this->printer_send = 'Enviado a la impresora';
 	}
@@ -936,9 +936,9 @@ class es
 		$this->profile_aim_sn = 'AIM Name'; //Translate
 		$this->profile_av_sign = 'Avatar y Firma';
 		$this->profile_avatar = 'Avatar'; //Translate
-		$this->profile_bday = 'Cumpleaños';
+		$this->profile_bday = 'CumpleaÃ±os';
 		$this->profile_contact = 'Contacto';
-		$this->profile_email_address = 'Correo electrónico';
+		$this->profile_email_address = 'Correo electrÃ³nico';
 		$this->profile_fav = 'Forum Favorito';
 		$this->profile_fav_forum = '%s (%d%% of this member\'s posts)'; //Translate
 		$this->profile_gtalk = 'GTalk Account'; //Translate
@@ -946,13 +946,13 @@ class es
 		$this->profile_info = 'Informacion';
 		$this->profile_interest = 'Intereses';
 		$this->profile_joined = 'Joined'; //Translate
-		$this->profile_last_post = 'Ultima publicación';
+		$this->profile_last_post = 'Ultima publicaciÃ³n';
 		$this->profile_list = 'Lista de Miembros';
 		$this->profile_location = 'Ubicacion';
 		$this->profile_member = 'Grupo de Miembros';
 		$this->profile_member_title = 'Titulo de Miembro';
 		$this->profile_msn = 'Identidad MSN';
-		$this->profile_must_user = 'Debe de teclear un nombre de usuario para ver su perfíl';
+		$this->profile_must_user = 'Debe de teclear un nombre de usuario para ver su perfÃ­l';
 		$this->profile_no_member = 'No hay ningun miembro con esa identificacion de  Usuario. la cuenta pudo haber sido borrada';
 		$this->profile_none = '[ Ninguno ]';
 		$this->profile_not_post = 'No ha publicado todavia';
@@ -962,10 +962,10 @@ class es
 		$this->profile_postcount = '%s total, %s per day'; //Translate
 		$this->profile_posts = 'Publicaciones';
 		$this->profile_private = '[ Privado ]';
-		$this->profile_profile = 'perfíl';
+		$this->profile_profile = 'perfÃ­l';
 		$this->profile_signature = 'Firma';
 		$this->profile_unkown = '[ Desconocido ]';
-		$this->profile_view_profile = 'Desplegando perfíl';
+		$this->profile_view_profile = 'Desplegando perfÃ­l';
 		$this->profile_www = 'Pagina Personal';
 		$this->profile_yahoo = 'Identidad de Yahoo!';
 	}
@@ -1008,43 +1008,43 @@ class es
 		$this->recent_active = 'Active topics since last visit'; //Translate
 		$this->recent_by = 'De';
 		$this->recent_can_post = 'Puede contester en este foro';
-		$this->recent_can_topics = 'Puede ver tópicos en este foro';
+		$this->recent_can_topics = 'Puede ver tÃ³picos en este foro';
 		$this->recent_cant_post = 'No puede responder en este foro';
-		$this->recent_cant_topics = 'No puede ver tópicos en este foro';
+		$this->recent_cant_topics = 'No puede ver tÃ³picos en este foro';
 		$this->recent_dot = 'punto';
-		$this->recent_dot_detail = 'Muestra que ha publicado o contestado en este tópico';
+		$this->recent_dot_detail = 'Muestra que ha publicado o contestado en este tÃ³pico';
 		$this->recent_forum = 'Foro';
 		$this->recent_guest = 'Invitado';
 		$this->recent_hot = 'Activo';
-		$this->recent_icon = 'Ícono de Mensaje';
-		$this->recent_jump = 'Brincar al tópico más reciente';
-		$this->recent_last = 'Ultima publicación';
+		$this->recent_icon = 'Ãcono de Mensaje';
+		$this->recent_jump = 'Brincar al tÃ³pico mÃ¡s reciente';
+		$this->recent_last = 'Ultima publicaciÃ³n';
 		$this->recent_locked = 'Bloqueado';
 		$this->recent_moved = 'Movido';
 		$this->recent_msg = '%s Mensaje';
 		$this->recent_new = 'Nuevo';
 		$this->recent_new_poll = 'Crear una nueva encuesta';
-		$this->recent_new_topic = 'Crear nuevo tópico';
-		$this->recent_no_topics = 'No hay tópicos para desplegar en este foro';
+		$this->recent_new_topic = 'Crear nuevo tÃ³pico';
+		$this->recent_no_topics = 'No hay tÃ³picos para desplegar en este foro';
 		$this->recent_noexist = 'El foro especificado no existe';
 		$this->recent_nopost = 'No hay publicaciones';
 		$this->recent_not = 'No';
 		$this->recent_noview = 'No tiene permiso para ver foros';
 		$this->recent_pages = 'Paginas';
 		$this->recent_pinned = 'Fijado';
-		$this->recent_pinned_topic = 'tópico Fijado';
+		$this->recent_pinned_topic = 'tÃ³pico Fijado';
 		$this->recent_poll = 'Encuesta';
-		$this->recent_regfirst = 'No tiene permiso para ver los foros, si se registra, podrá hacerlo';
+		$this->recent_regfirst = 'No tiene permiso para ver los foros, si se registra, podrÃ¡ hacerlo';
 		$this->recent_replies = 'Respuestas';
 		$this->recent_starter = 'Iniciador';
 		$this->recent_sub = 'Sub-Foro';
-		$this->recent_sub_last_post = 'Ultima publicación';
+		$this->recent_sub_last_post = 'Ultima publicaciÃ³n';
 		$this->recent_sub_replies = 'Respuestas';
-		$this->recent_sub_topics = 'tópicos';
-		$this->recent_subscribe = 'Notificarme via correo electrónico cuando se publique en este foro';
-		$this->recent_topic = 'tópico';
+		$this->recent_sub_topics = 'tÃ³picos';
+		$this->recent_subscribe = 'Notificarme via correo electrÃ³nico cuando se publique en este foro';
+		$this->recent_topic = 'tÃ³pico';
 		$this->recent_views = 'Vistas';
-		$this->recent_write_topics = 'Puede crear tópicos en este foro';
+		$this->recent_write_topics = 'Puede crear tÃ³picos en este foro';
 	}
 
 	function register()
@@ -1053,13 +1053,13 @@ class es
 		$this->register_activating = 'Activacion de cuenta';
 		$this->register_activation_error = 'Ha habido un error al activar su cuenta, verifique si su navegador contiene la cadena completa (url) enviada por correo. Si el problema persiste, contacte al administrador del sistema para reenviar el correo.';
 		$this->register_confirm_passwd = 'Confirmar Password';
-		$this->register_done = 'ya ha sido registrado, ahora se podrá firmar normalmente';
-		$this->register_email = 'Correo electrónico';
-		$this->register_email_invalid = 'La cuenta de correo electrónico es invalida, por favor verifiquela';
+		$this->register_done = 'ya ha sido registrado, ahora se podrÃ¡ firmar normalmente';
+		$this->register_email = 'Correo electrÃ³nico';
+		$this->register_email_invalid = 'La cuenta de correo electrÃ³nico es invalida, por favor verifiquela';
 		$this->register_email_msg = 'This is an automated email generated by Quicksilver Forums, and sent to you in order'; //Translate
 		$this->register_email_msg2 = 'for you to activate your account with'; //Translate
 		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
-		$this->register_email_used = 'La cuenta de correo electrónico ya esta registrada por otro miembro';
+		$this->register_email_used = 'La cuenta de correo electrÃ³nico ya esta registrada por otro miembro';
 		$this->register_fields = 'No todos los campos estan completos';
 		$this->register_flood = 'You have registered already.'; //Translate
 		$this->register_image = 'Please type the text shown in the image.'; //Translate
@@ -1098,7 +1098,7 @@ class es
 		$this->search_advanced = 'Opciones Advanzadas';
 		$this->search_avatar = 'Avatar'; //Translate
 		$this->search_basic = 'Busqueda Basica';
-		$this->search_characters = 'Caracteres de la publicación';
+		$this->search_characters = 'Caracteres de la publicaciÃ³n';
 		$this->search_day = 'dia';
 		$this->search_days = 'dias';
 		$this->search_exact_name = 'Nombre exacto';
@@ -1117,22 +1117,22 @@ class es
 		$this->search_month = 'Mes';
 		$this->search_months = 'months'; //Translate
 		$this->search_mysqldoc = 'Documentacion MySQL';
-		$this->search_newer = 'Más reciente';
+		$this->search_newer = 'MÃ¡s reciente';
 		$this->search_no_results = 'Su busqueda no produjo resultados';
-		$this->search_no_words = 'Debe especificar algunos términos para buscar.<br /><br />Cada uno de los términos de busqueda deberan ser de más de 4 caracteres, incluyendo Letras, Numeros, apostrofes y guiones bajos';
+		$this->search_no_words = 'Debe especificar algunos tÃ©rminos para buscar.<br /><br />Cada uno de los tÃ©rminos de busqueda deberan ser de mÃ¡s de 4 caracteres, incluyendo Letras, Numeros, apostrofes y guiones bajos';
 		$this->search_offline = 'This member is currently offline'; //Translate
-		$this->search_older = 'Más antiguo';
+		$this->search_older = 'MÃ¡s antiguo';
 		$this->search_online = 'This member is currently online'; //Translate
 		$this->search_only_display = 'Solo desplegar el primero';
 		$this->search_partial_name = 'Nombre parcial';
-		$this->search_post_icon = 'Ícono de publicación';
+		$this->search_post_icon = 'Ãcono de publicaciÃ³n';
 		$this->search_posted_on = 'Publicado en';
 		$this->search_posts = 'Publicaciones';
 		$this->search_posts_by = 'Solo publicaciones hechas por';
 		$this->search_regex = 'Buscar por expresiones regulares';
 		$this->search_regex_failed = 'Su expresion regular fallo, por favor revise la documentacion de MySQL para la ayuda de expresiones regulares';
-		$this->search_relevance = 'Relevancia de la publicación: %d%%';
-		$this->search_replies = 'publicación';
+		$this->search_relevance = 'Relevancia de la publicaciÃ³n: %d%%';
+		$this->search_replies = 'publicaciÃ³n';
 		$this->search_result = 'Resultados de la busqueda';
 		$this->search_search = 'Buscar';
 		$this->search_select_all = 'Seleccionar todos';
@@ -1140,11 +1140,11 @@ class es
 		$this->search_sound = 'Buscar foneticamente';
 		$this->search_starter = 'Iniciador';
 		$this->search_than = 'than'; //Translate
-		$this->search_topic = 'tópico';
+		$this->search_topic = 'tÃ³pico';
 		$this->search_unreg = 'Unregistered'; //Translate
 		$this->search_week = 'Semana';
 		$this->search_weeks = 'Semanas';
-		$this->search_year = 'Año';
+		$this->search_year = 'AÃ±o';
 	}
 
 	function settings()
@@ -1391,12 +1391,12 @@ class es
 		$this->topic_avatar = 'Avatar'; //Translate
 		$this->topic_bottom = 'Go to the bottom of the page'; //Translate
 		$this->topic_create_poll = 'Crear una nueva encuesta';
-		$this->topic_create_topic = 'Crear un nuevo tópico';
+		$this->topic_create_topic = 'Crear un nuevo tÃ³pico';
 		$this->topic_delete = 'Borrar';
-		$this->topic_delete_post = 'Borrar esta publicación';
+		$this->topic_delete_post = 'Borrar esta publicaciÃ³n';
 		$this->topic_edit = 'Editar';
-		$this->topic_edit_post = 'Editar esta publicación';
-		$this->topic_edited = 'La ultima modificacuón fue %s hecha por %s';
+		$this->topic_edit_post = 'Editar esta publicaciÃ³n';
+		$this->topic_edited = 'La ultima modificacuÃ³n fue %s hecha por %s';
 		$this->topic_error = 'Error'; //Translate
 		$this->topic_group = 'Grupo';
 		$this->topic_guest = 'Invitado';
@@ -1404,7 +1404,7 @@ class es
 		$this->topic_joined = 'Se unio';
 		$this->topic_level = 'Nivel de Miembro';
 		$this->topic_links_aim = 'enviar un mensaje AIM a%s';
-		$this->topic_links_email = 'Enviar correo electrónico a %s';
+		$this->topic_links_email = 'Enviar correo electrÃ³nico a %s';
 		$this->topic_links_gtalk = 'Send a GTalk message to %s'; //Translate
 		$this->topic_links_icq = 'Enviar Mensaje ICQ a %s';
 		$this->topic_links_msn = 'Ver el peril de MSN de %s';
@@ -1412,46 +1412,46 @@ class es
 		$this->topic_links_web = 'Visitar el sitio web de %s';
 		$this->topic_links_yahoo = 'Enviar un mensaje a %s con Yahoo! Messenger';
 		$this->topic_lock = 'Bloquear';
-		$this->topic_locked = 'tópico bloqueado';
+		$this->topic_locked = 'tÃ³pico bloqueado';
 		$this->topic_move = 'Mover';
 		$this->topic_new_post = 'Post is unread'; //Translate
 		$this->topic_newer = 'Newer Topic'; //Translate
 		$this->topic_no_newer = 'There is no newer topic.'; //Translate
 		$this->topic_no_older = 'There is no older topic.'; //Translate
 		$this->topic_no_votes = 'No existen votos para esta encuesta';
-		$this->topic_not_found = 'tópico No encontrado';
-		$this->topic_not_found_message = 'El tópico no fue encontrado, pudo haber sido borrado, movido o pudo nunca haber existido';
+		$this->topic_not_found = 'tÃ³pico No encontrado';
+		$this->topic_not_found_message = 'El tÃ³pico no fue encontrado, pudo haber sido borrado, movido o pudo nunca haber existido';
 		$this->topic_offline = 'This member is currently offline'; //Translate
 		$this->topic_older = 'Older Topic'; //Translate
 		$this->topic_online = 'This member is currently online'; //Translate
-		$this->topic_options = 'Opciones de tópico';
+		$this->topic_options = 'Opciones de tÃ³pico';
 		$this->topic_pages = 'Paginas';
-		$this->topic_perm_view = 'No tiene permiso de ver estos tópicos';
-		$this->topic_perm_view_guest = 'No tiene permiso de ver estos tópicos, si se registra, podrá hacerlo';
+		$this->topic_perm_view = 'No tiene permiso de ver estos tÃ³picos';
+		$this->topic_perm_view_guest = 'No tiene permiso de ver estos tÃ³picos, si se registra, podrÃ¡ hacerlo';
 		$this->topic_pin = 'Fijar';
 		$this->topic_posted = 'Posted'; //Translate
 		$this->topic_posts = 'Publicaciones';
-		$this->topic_print = 'Ver versión imprimible';
+		$this->topic_print = 'Ver versiÃ³n imprimible';
 		$this->topic_publish = 'Publish'; //Translate
 		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
 		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
 		$this->topic_quickreply = 'Quick Reply'; //Translate
-		$this->topic_quote = 'Responder citando a esta publicación';
-		$this->topic_reply = 'Responder al tópico';
+		$this->topic_quote = 'Responder citando a esta publicaciÃ³n';
+		$this->topic_reply = 'Responder al tÃ³pico';
 		$this->topic_split = 'Split'; //Translate
 		$this->topic_split_finish = 'Finish All Splitting'; //Translate
 		$this->topic_split_keep = 'Do not move this post'; //Translate
 		$this->topic_split_move = 'Move this post'; //Translate
-		$this->topic_subscribe = 'Enviarme correo electrónico cuando otros respondan a este tópico';
+		$this->topic_subscribe = 'Enviarme correo electrÃ³nico cuando otros respondan a este tÃ³pico';
 		$this->topic_top = 'Go to the top of the page'; //Translate
 		$this->topic_unlock = 'Desbloquear';
-		$this->topic_unpin = 'Quitar la fijación';
+		$this->topic_unpin = 'Quitar la fijaciÃ³n';
 		$this->topic_unpublish = 'UnPublish'; //Translate
 		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
 		$this->topic_unreg = 'No registrado';
 		$this->topic_view = 'Ver resultados';
-		$this->topic_viewing = 'Desplegando tópico';
+		$this->topic_viewing = 'Desplegando tÃ³pico';
 		$this->topic_vote = 'Vote'; //Translate
 		$this->topic_vote_count_plur = '%d votos';
 		$this->topic_vote_count_sing = '%d voto';
@@ -1463,7 +1463,7 @@ class es
 		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'based on';
 		$this->board_by = 'Por';
-		$this->charset = 'iso-8859-1';
+		$this->charset = 'utf-8';
 		$this->continue = 'Continue'; //Translate
 		$this->date_long = 'M j, Y'; //Translate
 		$this->date_short = 'n/j/y'; //Translate
