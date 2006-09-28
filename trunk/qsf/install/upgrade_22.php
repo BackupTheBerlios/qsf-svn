@@ -31,6 +31,7 @@ $need_templates = array(
 	// Added templates
 	// Changed templates
 	'FORUM_TOPICS_MAIN',
+	'RECENT_TOPIC',
 	'ADMIN_INSTALL_SKIN',
 	'CP_PREFS'
 	);

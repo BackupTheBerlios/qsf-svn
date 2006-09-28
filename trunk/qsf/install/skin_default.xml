@@ -3731,7 +3731,7 @@ enable('$init');
       <html><![CDATA[
 <tr>
   <td class="topicicons">
-   <div class="<IF ($state == 'locked' && $this->user['user_lastvisit'] < $row['edited'])>new</IF>{$state}<IF ($row['topic_modes'] & TOPIC_POLL)>poll</IF>">
+   <div class="{$state}<IF ($row['topic_modes'] & TOPIC_POLL)>poll</IF>">
    <IF $row['topic_modes'] & TOPIC_PINNED>
     <div class="pinned">&nbsp;</div>
    <ELSE>
