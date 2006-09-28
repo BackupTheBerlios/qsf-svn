@@ -1466,8 +1466,8 @@ class no
                $this->board_by = 'Av';
                $this->charset = 'utf-8';
                $this->continue = 'Fortsett';
-               $this->date_long = 'j. M Y';
-               $this->date_short = 'j/n.y';
+               $this->date_long = 'j. F Y';
+               $this->date_short = 'j/n/y';
                $this->delete = 'Slett';
                $this->direction = 'vth';
                $this->edit = 'Endre';
@@ -1491,8 +1491,8 @@ class no
                $this->spoiler = 'Spoiler';
                $this->submit = 'Send';
                $this->subscribe = 'Abonnér';
-               $this->time_long = ', g:i a';
-               $this->time_only = 'g:i a';
+               $this->time_long = ', G:i';
+               $this->time_only = 'G:i';
                $this->today = 'I dag';
                $this->website = 'WWW';
                $this->yahoo = 'Yahoo!';
