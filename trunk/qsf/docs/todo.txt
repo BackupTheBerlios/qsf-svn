@@ -5,8 +5,6 @@
 #  Custom user info ••
 #  Mail queue for mass mail and subscriptions ••
 #  Smarter BBcode processing ••
-#  Smarter creation of XML (streaming?) ••
-#  Smarter writing to tarball (1024 byte chunks) ••
 #  Moderator CP •
 #  Optional cronjob script •
 #  Smarter handling of templates during upgrades (avoid killing customisations) •
@@ -42,5 +40,4 @@
 #  Thumbnail big images
 #  Tweak marking forum as read to mark subforums (and sub sub forums)
 #  Write a bb code interpreter in javascript
-#  XML backup and restoration
 #  XML mod installer 
