@@ -68,6 +68,7 @@ class censoring extends admin
 
 			foreach ($words as $word)
 			{
+				$word = trim($word);
 				if ($word) {
 					$this->db->query("INSERT INTO %preplacements (replacement_search, replacement_replace, replacement_type) VALUES ('%s', '', 'censor')", $word);
 				}
