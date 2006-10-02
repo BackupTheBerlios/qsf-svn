@@ -92,7 +92,7 @@ class de
 		$this->admin_edit_settings = 'Forumseinstellungen bearbeiten';
 		$this->admin_edit_skin = 'Skin bearbeiten oder löschen';
 		$this->admin_edit_templates = 'HTML-Templates bearbeiten';
-		$this->admin_emoticons = 'Emoticons'; //Translate
+		$this->admin_emoticons = 'Emoticons';
 		$this->admin_export_skin = 'Skin exportieren';
 		$this->admin_fix_stats = 'Mitgliederstatistik festlegen';
 		$this->admin_forum_order = 'Ändere die Forenanordnung';
@@ -109,8 +109,8 @@ class de
 		$this->admin_prune = 'Alte Themen abschneiden';
 		$this->admin_recount_forums = 'Themen und Antworten nachzählen';
 		$this->admin_settings = 'Einstellungen';
-		$this->admin_settings_add = 'Add new board setting'; //Translate
-		$this->admin_skins = 'Skins'; //Translate
+		$this->admin_settings_add = 'Neue Forumeinstellung hinzufügen';
+		$this->admin_skins = 'Skins';
 		$this->admin_stats = 'Statistik-Zentrum';
 		$this->admin_upgrade_skin = 'Skin modernisieren';
 		$this->admin_your_board = 'Ihr Board';
@@ -149,66 +149,66 @@ class de
 
 	function bbcode()
 	{
-		$this->bbcode_arial = 'Arial'; //Translate
-		$this->bbcode_blue = 'Blue'; //Translate
-		$this->bbcode_bold = 'Bold (CTRL-b)'; //Translate
-		$this->bbcode_bold1 = 'B'; //Translate
-		$this->bbcode_chocolate = 'Chocolate'; //Translate
-		$this->bbcode_code = 'Code (CTRL-l)'; //Translate
-		$this->bbcode_code1 = 'Code'; //Translate
-		$this->bbcode_color = 'Color'; //Translate
-		$this->bbcode_coral = 'Coral'; //Translate
-		$this->bbcode_courier = 'Courier'; //Translate
-		$this->bbcode_crimson = 'Crimson'; //Translate
-		$this->bbcode_darkblue = 'Dark Blue'; //Translate
-		$this->bbcode_darkred = 'Dark Red'; //Translate
-		$this->bbcode_deeppink = 'Deep Pink'; //Translate
-		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
-		$this->bbcode_firered = 'Firebrick Red'; //Translate
-		$this->bbcode_font = 'Font'; //Translate
-		$this->bbcode_green = 'Green'; //Translate
-		$this->bbcode_huge = 'Huge'; //Translate
-		$this->bbcode_image = 'Image (CTRL-j)'; //Translate
-		$this->bbcode_image1 = 'IMG'; //Translate
-		$this->bbcode_impact = 'Impact'; //Translate
-		$this->bbcode_indigo = 'Indigo'; //Translate
-		$this->bbcode_italic = 'Italic (CTRL-i)'; //Translate
-		$this->bbcode_italic1 = 'I'; //Translate
-		$this->bbcode_large = 'Large'; //Translate
-		$this->bbcode_limegreen = 'Lime Green'; //Translate
-		$this->bbcode_medium = 'Medium'; //Translate
-		$this->bbcode_orange = 'Orange'; //Translate
-		$this->bbcode_orangered = 'Orange Red'; //Translate
-		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
-		$this->bbcode_php1 = 'PHP'; //Translate
-		$this->bbcode_purple = 'Purple'; //Translate
-		$this->bbcode_quote = 'Quote (CTRL-q)'; //Translate
-		$this->bbcode_quote1 = 'Quote'; //Translate
-		$this->bbcode_red = 'Red'; //Translate
-		$this->bbcode_royalblue = 'Royal Blue'; //Translate
-		$this->bbcode_sandybrown = 'Sandy Brown'; //Translate
-		$this->bbcode_seagreen = 'Sea Green'; //Translate
-		$this->bbcode_sienna = 'Sienna'; //Translate
-		$this->bbcode_silver = 'Silver'; //Translate
-		$this->bbcode_size = 'Size'; //Translate
-		$this->bbcode_skyblue = 'Sky Blue'; //Translate
-		$this->bbcode_small = 'Small'; //Translate
-		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
-		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
-		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
-		$this->bbcode_strike1 = 'S'; //Translate
-		$this->bbcode_tahoma = 'Tahoma'; //Translate
-		$this->bbcode_teal = 'Teal'; //Translate
-		$this->bbcode_times = 'Times'; //Translate
-		$this->bbcode_tiny = 'Tiny'; //Translate
-		$this->bbcode_tomato = 'Tomato'; //Translate
-		$this->bbcode_underline = 'Underline (CTRL-u)'; //Translate
-		$this->bbcode_underline1 = 'U'; //Translate
-		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
-		$this->bbcode_url1 = 'URL'; //Translate
-		$this->bbcode_verdana = 'Verdana'; //Translate
-		$this->bbcode_wood = 'Burly Wood'; //Translate
-		$this->bbcode_yellow = 'Yellow'; //Translate
+		$this->bbcode_arial = 'Arial';
+		$this->bbcode_blue = 'Blau';
+		$this->bbcode_bold = 'Fett (STRG-b)';
+		$this->bbcode_bold1 = 'F';
+		$this->bbcode_chocolate = 'Schokolade';
+		$this->bbcode_code = 'Code (STRG-l)';
+		$this->bbcode_code1 = 'Code';
+		$this->bbcode_color = 'Farbe';
+		$this->bbcode_coral = 'Coral';
+		$this->bbcode_courier = 'Courier';
+		$this->bbcode_crimson = 'Crimson';
+		$this->bbcode_darkblue = 'Dunkelblau';
+		$this->bbcode_darkred = 'Dunkelrot';
+		$this->bbcode_deeppink = 'Dunkelrosa';
+		$this->bbcode_email = 'E-Mail (STRG-e)';
+		$this->bbcode_firered = 'Ziegelrot';
+		$this->bbcode_font = 'Schriftart';
+		$this->bbcode_green = 'Grün';
+		$this->bbcode_huge = 'Riesig';
+		$this->bbcode_image = 'Bild (STRG-j)';
+		$this->bbcode_image1 = 'IMG';
+		$this->bbcode_impact = 'Impact';
+		$this->bbcode_indigo = 'Indigo';
+		$this->bbcode_italic = 'Kursiv (STRG-i)';
+		$this->bbcode_italic1 = 'K';
+		$this->bbcode_large = 'Groß';
+		$this->bbcode_limegreen = 'Kalkgrün';
+		$this->bbcode_medium = 'Mittel';
+		$this->bbcode_orange = 'Orange';
+		$this->bbcode_orangered = 'Orangerot ';
+		$this->bbcode_php = 'PHP (STRG-k)';
+		$this->bbcode_php1 = 'PHP';
+		$this->bbcode_purple = 'Purpur';
+		$this->bbcode_quote = 'Zitat (STRG-q)';
+		$this->bbcode_quote1 = 'Zitat';
+		$this->bbcode_red = 'Rot';
+		$this->bbcode_royalblue = 'Königsblau';
+		$this->bbcode_sandybrown = 'Sandbraun';
+		$this->bbcode_seagreen = 'Seegrün';
+		$this->bbcode_sienna = 'Sienna';
+		$this->bbcode_silver = 'Silber';
+		$this->bbcode_size = 'Größe';
+		$this->bbcode_skyblue = 'Himmelblau';
+		$this->bbcode_small = 'Klein';
+		$this->bbcode_spoiler = 'Spoiler (STRG-r)';
+		$this->bbcode_spoiler1 = 'Spoiler';
+		$this->bbcode_strike = 'Strikethrough (STRG-s)';
+		$this->bbcode_strike1 = 'S';
+		$this->bbcode_tahoma = 'Tahoma';
+		$this->bbcode_teal = 'Teal';
+		$this->bbcode_times = 'Times';
+		$this->bbcode_tiny = 'Winzig';
+		$this->bbcode_tomato = 'Tomato';
+		$this->bbcode_underline = 'Unterstrich (STRG-u)';
+		$this->bbcode_underline1 = 'U';
+		$this->bbcode_url = 'URL (STRG-h)';
+		$this->bbcode_url1 = 'URL';
+		$this->bbcode_verdana = 'Verdana';
+		$this->bbcode_wood = 'Holz';
+		$this->bbcode_yellow = 'Gelb';
 	}
 
 	function board()
@@ -220,13 +220,13 @@ class de
 		$this->board_can_topics = 'Sie können in diesem Forum Themen sehen aber keine erstellen.';
 		$this->board_cant_post = 'Sie können in diesem Forum nicht antworten.';
 		$this->board_cant_topics = 'Sie können in diesem Forum keine Themen sehen oder erstellen.';
-		$this->board_forum = 'Forum'; //Translate
+		$this->board_forum = 'Forum';
 		$this->board_guests = 'Gäste';
 		$this->board_last_post = 'Letzter Beitrag';
 		$this->board_mark = 'Beiträge als gelesen markieren';
 		$this->board_mark1 = 'Alle Beiträge und Foren wurden als gelesen markiert.';
-		$this->board_markforum = 'Marking Forum As Read'; //Translate
-		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
+		$this->board_markforum = 'Markiere Forum als gelesen';
+		$this->board_markforum1 = 'Alle Beiträge im Forum %s wurden als gelesen markiert.';
 		$this->board_members = 'Mitglieder';
 		$this->board_message = '%s Nachricht';
 		$this->board_most_online = 'Der Rekord liegt bei %d Benutzern gleichzeitig (%s).';
@@ -256,8 +256,8 @@ class de
 	{
 		$this->cp_aim = 'AIM Bildschirmname';
 		$this->cp_already_member = 'Die eingegebene Emailadresse ist bereits einem Mitglied zugeordnet.';
-		$this->cp_apr = 'April'; //Translate
-		$this->cp_aug = 'August'; //Translate
+		$this->cp_apr = 'April';
+		$this->cp_aug = 'August';
 		$this->cp_avatar_current = 'Ihr momentaner Avatar';
 		$this->cp_avatar_error = 'Avatarproblem';
 		$this->cp_avatar_must_select = 'Sie müssen einen Avatar auswählen.';
@@ -286,7 +286,7 @@ class de
 		$this->cp_dec = 'Dezember';
 		$this->cp_editing_avatar = 'Editiere Avatar';
 		$this->cp_editing_profile = 'Editiere Profil';
-		$this->cp_email = 'Email'; //Translate
+		$this->cp_email = 'E-Mail';
 		$this->cp_email_form = 'Erlaube es Anderen, mich via Email zu kontaktieren?';
 		$this->cp_email_invaid = 'Die eingegebene Emailadresse ist ungültig.';
 		$this->cp_err_avatar = 'Fehler beim Aktualisieren des Avatars';
@@ -320,17 +320,17 @@ class de
 		$this->cp_new_pass = 'Neues Passwort:';
 		$this->cp_no_flash = 'Flash Avatare sind auf diesem Board nicht erlaubt.';
 		$this->cp_not_exist = 'Das spezifizierte Datum (%s) existiert nicht!';
-		$this->cp_nov = 'November'; //Translate
+		$this->cp_nov = 'November';
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Das alte eingegebene Passwort stimmt nicht mit dem in der Datenbank überein.';
 		$this->cp_old_pass = 'Altes Passwort:';
 		$this->cp_pass_notvaid = 'Ihr Passwort ist nicht gültig. Gehen sie sicher, das nur gültige Zeichen benutzt werden wie z.B. Buchstaben, Zahlen, Bindestriche, Unterstriche oder Leerzeichen.';
-		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
+		$this->cp_posts_page = 'Beiträge pro Themenseite. Bei 0 wird Forumstandart genutzt.';
 		$this->cp_preferences = 'Verändere Einstellungen';
 		$this->cp_preview_sig = 'Signatur Vorschau:';
 		$this->cp_privacy = 'Private Optionen';
 		$this->cp_repeat_pass = 'Wiederholen sie das neue Passwort:';
-		$this->cp_sept = 'September'; //Translate
+		$this->cp_sept = 'September';
 		$this->cp_show_active = 'Ihre Aktionen anzeigen, wenn sie im Forum sind?';
 		$this->cp_show_email = 'Email Adresse im Profil anzeigen?';
 		$this->cp_signature = 'Signatur';
@@ -345,7 +345,7 @@ class de
 		$this->cp_sub_type = 'Abonnementtyp';
 		$this->cp_sub_updated = 'Ausgewählte Abonnements wurden gelöscht.';
 		$this->cp_topic_option = 'Themen Optionen';
-		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
+		$this->cp_topics_page = 'Themen pro Forumseite. Bei 0 wird Forumstandart genutzt.';
 		$this->cp_updated = 'Profile aktualisiert';
 		$this->cp_updated1 = 'Avatar aktualisiert';
 		$this->cp_updated_prefs = 'Einstellungen aktualisiert';
@@ -364,7 +364,7 @@ class de
 	function email()
 	{
 		$this->email_blocked = 'Das Mitglied akzeptiert über dieses Board keine Emails.';
-		$this->email_email = 'Email'; //Translate
+		$this->email_email = 'E-Mail';
 		$this->email_msgtext = 'Text:';
 		$this->email_no_fields = 'Gehen sie zurück und gehen sie sicher, das alle Felder ausgefüllt sind.';
 		$this->email_no_member = 'Es wurde kein Mitglied mit diesem Namen gefunden';
@@ -376,7 +376,7 @@ class de
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons'; //Translate
+		$this->emote = 'Emoticons';
 		$this->emote_add = 'Emoticons hinzufügen';
 		$this->emote_added = 'Emoticon hinzugefügt.';
 		$this->emote_clickable = 'Klickbar';
@@ -386,7 +386,7 @@ class de
 		$this->emote_install_done = 'Emoticons wurden erfolgreich installiert.';
 		$this->emote_install_warning = 'Alle bestehenden Emoticon-Einstellungen werden gelöscht und die Emoticons ihres aktuell ausgewählten Skins werden in die Datenbank importiert.';
 		$this->emote_no_text = 'Kein Emoticon Text.';
-		$this->emote_text = 'Text'; //Translate
+		$this->emote_text = 'Text';
 	}
 
 	function forum()
@@ -398,14 +398,14 @@ class de
 		$this->forum_cant_topics = 'Sie können in diesem Forum keine Themen sehen.';
 		$this->forum_dot = 'Punkt';
 		$this->forum_dot_detail = 'zeigt, das sie im Thema einen Beitrag verfasst hast';
-		$this->forum_forum = 'Forum'; //Translate
+		$this->forum_forum = 'Forum';
 		$this->forum_guest = 'Gast';
 		$this->forum_hot = 'Heiß';
 		$this->forum_icon = 'Nachrichtsymbol';
 		$this->forum_jump = 'Springe zum neuesten Beitrag im Thema';
 		$this->forum_last = 'Letzter Beitrag';
 		$this->forum_locked = 'Gesperrt';
-		$this->forum_mark_read = 'Mark forum as read'; //Translate
+		$this->forum_mark_read = 'Markiere Forum als gelesen';
 		$this->forum_moved = 'Verschoben';
 		$this->forum_msg = '%s Nachricht';
 		$this->forum_new = 'Neu';
@@ -448,7 +448,7 @@ class de
 		$this->forum_edited = 'Das Forum wurde erfolgreich bearbeitet.';
 		$this->forum_empty = 'Kein Forenname vergeben, bitte zurückgehen und einen Namen eintragen.';
 		$this->forum_is_subcat = 'Dieses Forum ist nur eine Unterkategorie.';
-		$this->forum_name = 'Name'; //Translate
+		$this->forum_name = 'Name';
 		$this->forum_no_orphans = 'Sie können ein Forum nicht verwaisen indem sie dessen Eltern löschen.';
 		$this->forum_none = 'Es gibt keine Foren zum Manipulieren.';
 		$this->forum_ordered = 'Forum Anordnung aktualisiert';
@@ -475,7 +475,7 @@ class de
 		$this->groups_edited = 'Gruppe bearbeitet.';
 		$this->groups_formatting = 'Anzeigenformatierung';
 		$this->groups_i_confirm = 'Ich bestätige das ich diese Benutzergruppe löschen möchte.';
-		$this->groups_name = 'Name'; //Translate
+		$this->groups_name = 'Name';
 		$this->groups_no_action = 'Keine Aktivitäten.';
 		$this->groups_no_delete = 'Keine individuellen Gruppen zum Löschen vorhanden.<br />Die Kerngruppen sind notwendig damit Quicksilver Forums funktioniert und können nicht gelöscht werden.';
 		$this->groups_no_group = 'Keine Gruppe spezifiziert.';
@@ -517,16 +517,16 @@ class de
 
 	function jsdata()
 	{
-		$this->jsdata_address = 'Enter an address'; //Translate
-		$this->jsdata_detail = 'Enter a description'; //Translate
-		$this->jsdata_smiles = 'Clickable Smilies'; //Translate
-		$this->jsdata_url = 'URL'; //Translate
+		$this->jsdata_address = 'Adresse eingeben';
+		$this->jsdata_detail = 'Beschreibung eingeben';
+		$this->jsdata_smiles = 'Klickbare Smilies';
+		$this->jsdata_url = 'URL';
 	}
 
 	function jslang()
 	{
-		$this->jslang_avatar_size_height = 'Your avatar height must be between 1 and %d pixels'; //Translate
-		$this->jslang_avatar_size_width = 'Your avatar width must be between 1 and %d pixels'; //Translate
+		$this->jslang_avatar_size_height = 'Die Höhe ihres Avatars muss zwischen 1 und %d Pixel betragen';
+		$this->jslang_avatar_size_width = 'Die Breite ihres Avatars muss zwischen 1 und %d Pixel betragen';
 	}
 
 	function login()
@@ -554,7 +554,7 @@ class de
 		$this->logs_deleted_topic = 'Thema gelöscht';
 		$this->logs_edited_post = 'Beitrag bearbeitet';
 		$this->logs_edited_topic = 'Thema bearbeitet';
-		$this->logs_id = 'IDs'; //Translate
+		$this->logs_id = 'IDs';
 		$this->logs_locked_topic = 'Thema geschlossen';
 		$this->logs_moved_from = 'von Forum';
 		$this->logs_moved_to = 'zu Forum';
@@ -576,7 +576,7 @@ class de
 		$this->main_activate_resend = 'Sende Aktivierungsmail erneut';
 		$this->main_admincp = 'Administrator Kontrollzentrum';
 		$this->main_banned = 'Sie wurden vom Board verbannt.';
-		$this->main_code = 'Code'; //Translate
+		$this->main_code = 'Code';
 		$this->main_cp = 'Kontrollzentrum';
 		$this->main_full = 'Voll';
 		$this->main_help = 'Hilfe';
@@ -585,7 +585,7 @@ class de
 		$this->main_logout = 'Abmelden';
 		$this->main_mark = 'Alle markieren';
 		$this->main_mark1 = 'Markiere alle Themen als gelesen';
-		$this->main_markforum_read = 'Mark forum as read'; //Translate
+		$this->main_markforum_read = 'Markiere Forum als gelesen';
 		$this->main_max_load = 'Es tut uns leid, aber %s ist momentan nicht erreichbar, weil zu viele Benutzer online sind.';
 		$this->main_members = 'Mitglieder';
 		$this->main_messenger = 'Nachrichtenzentrale';
@@ -633,8 +633,8 @@ class de
 		$this->mc_found = 'Die folgenden Mitglieder wurden gefunden. Bitte wählen sie einen aus.';
 		$this->mc_guest_needed = 'Das Gastkonto ist notwendig damit Quicksilver Forums funktionieren kann.';
 		$this->mc_not_found = 'Keine Treffer bei den Mitgliedern';
-		$this->mc_user_aim = 'AIM Name'; //Translate
-		$this->mc_user_avatar = 'Avatar'; //Translate
+		$this->mc_user_aim = 'AIM Name';
+		$this->mc_user_avatar = 'Avatar';
 		$this->mc_user_avatar_height = 'Avatar Höhe';
 		$this->mc_user_avatar_type = 'Avatar Typ';
 		$this->mc_user_avatar_width = 'Avatar Breite';
@@ -651,14 +651,14 @@ class de
 		$this->mc_user_language = 'Sprache';
 		$this->mc_user_lastpost = 'Letzter Beitrag';
 		$this->mc_user_lastvisit = 'Letzter Besuch';
-		$this->mc_user_level = 'Level'; //Translate
+		$this->mc_user_level = 'Level';
 		$this->mc_user_location = 'Ort';
 		$this->mc_user_msn = 'MSN Konto';
-		$this->mc_user_name = 'Name'; //Translate
+		$this->mc_user_name = 'Name';
 		$this->mc_user_pm = 'Private Nachrichten akzeptieren';
 		$this->mc_user_posts = 'Beiträge';
 		$this->mc_user_signature = 'Signatur';
-		$this->mc_user_skin = 'Skin'; //Translate
+		$this->mc_user_skin = 'Skin';
 		$this->mc_user_timezone = 'Zeitzone';
 		$this->mc_user_title = 'Mitgliedstitel';
 		$this->mc_user_title_custom = 'Benutze einen individuellen Mitgliedstitel';
@@ -677,7 +677,7 @@ class de
 	function members()
 	{
 		$this->members_all = 'Alle';
-		$this->members_email = 'Email'; //Translate
+		$this->members_email = 'E-Mail';
 		$this->members_email_member = 'Miglied Email senden?';
 		$this->members_group = 'Gruppe';
 		$this->members_joined = 'Teilgenommen';
@@ -818,7 +818,7 @@ class de
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar'; //Translate
+		$this->pm_avatar = 'Avatar';
 		$this->pm_cant_del = 'Sie haben nicht die Erlaubnis diese Nachricht zu löschen.';
 		$this->pm_delallmsg = 'Alle Nachrichten löschen';
 		$this->pm_delete = 'Löschen';
@@ -934,9 +934,9 @@ class de
 
 	function profile()
 	{
-		$this->profile_aim_sn = 'AIM Name'; //Translate
+		$this->profile_aim_sn = 'AIM Name';
 		$this->profile_av_sign = 'Avatar und Signatur';
-		$this->profile_avatar = 'Avatar'; //Translate
+		$this->profile_avatar = 'Avatar';
 		$this->profile_bday = 'Geburtstag';
 		$this->profile_contact = 'Kontakt';
 		$this->profile_email_address = 'Emailaddresse';
@@ -1014,7 +1014,7 @@ class de
 		$this->recent_cant_topics = 'Sie können in diesem Forum keine Themen sehen.';
 		$this->recent_dot = 'Punkt';
 		$this->recent_dot_detail = 'zeigt, das sie in diesem Thema einen Beitrag verfasst haben';
-		$this->recent_forum = 'Forum'; //Translate
+		$this->recent_forum = 'Forum';
 		$this->recent_guest = 'Gast';
 		$this->recent_hot = 'Heiß';
 		$this->recent_icon = 'Nachrichtsymbol';
@@ -1062,10 +1062,10 @@ class de
 		$this->register_email_msg3 = 'Bitte klicken sie den folgenden Link oder fügen sie ihn in die Adressleiste ihres Browsers ein:';
 		$this->register_email_used = 'Die eingegebene Emailadresse ist schon einem Mitglied zugeordnet.';
 		$this->register_fields = 'Nicht alle Felder wurden ausgefüllt.';
-		$this->register_flood = 'You have registered already.'; //Translate
+		$this->register_flood = 'Sie sind bereits registriert.';
 		$this->register_image = 'Bitte geben sie einen Text zum Bild ein.';
 		$this->register_image_invalid = 'Um ihre Identität zu prüfen, müssen sie den Text vom Bild eingeben.';
-		$this->register_initiated = 'This request was initiated from IP:'; //Translate
+		$this->register_initiated = 'Diese Anforderung wurde von folgender IP gesendet:';
 		$this->register_must_activate = 'Sie sind registriert. Eine Email wurde verschickt zu %s mit Informationen wie sie ihr Konto aktivieren können. Ihr Konto wird bis zur Aktivierung limitiert.';
 		$this->register_name_invalid = 'Der eingegebene Name ist zu lang.';
 		$this->register_name_taken = 'Der Mitgliedsname ist bereits vergeben.';
@@ -1075,7 +1075,7 @@ class de
 		$this->register_passwd = 'Passwort';
 		$this->register_reg = 'Registrierung';
 		$this->register_reging = 'Registrierung';
-		$this->register_requested = 'Account activation request for:'; //Translate
+		$this->register_requested = 'Konto Aktivierungs-Anforderung für:';
 		$this->register_tos = 'Nutzungsbestimmungen';
 		$this->register_tos_i_agree = 'Ich stimme den Obenstehenden Bestimmungen zu';
 		$this->register_tos_not_agree = 'Sie haben den Bestimmungen nicht zugestimmt.';
@@ -1089,7 +1089,7 @@ class de
 		$this->rssfeed_cannot_read_forum = 'Sie haben nicht die Berechtigung dieses Forum zu lesen';
 		$this->rssfeed_cannot_read_topic = 'Sie haben nicht die Berechtigung dieses Thema zu lesen';
 		$this->rssfeed_error = 'Fehler';
-		$this->rssfeed_forum = 'Forum:'; //Translate
+		$this->rssfeed_forum = 'Forum:';
 		$this->rssfeed_posted_by = 'Geschrieben von';
 		$this->rssfeed_topic = 'Thema:';
 	}
@@ -1097,7 +1097,7 @@ class de
 	function search()
 	{
 		$this->search_advanced = 'Erweitere Optionen';
-		$this->search_avatar = 'Avatar'; //Translate
+		$this->search_avatar = 'Avatar';
 		$this->search_basic = 'Einfache Suche';
 		$this->search_characters = 'Zeichen eines Beitrags anzeigen';
 		$this->search_day = 'Tag';
@@ -1105,12 +1105,12 @@ class de
 		$this->search_exact_name = 'Exakter Name';
 		$this->search_flood = 'Sie haben in den letzten %s Sekunden bereits eine Suchanfrage gestartet und können noch nicht wieder suchen.<br /><br />Versuchen sie es in ein paar Sekunden wieder.';
 		$this->search_for = 'Suche nach';
-		$this->search_forum = 'Forum'; //Translate
+		$this->search_forum = 'Forum';
 		$this->search_group = 'Gruppe';
 		$this->search_guest = 'Gast';
 		$this->search_in = 'Suche in';
 		$this->search_in_posts = 'Suche nur in Beiträgen';
-		$this->search_ip = 'IP'; //Translate
+		$this->search_ip = 'IP';
 		$this->search_joined = 'Angemeldet seit';
 		$this->search_level = 'Mitgliedslevel';
 		$this->search_match = 'Suche nach Treffern';
@@ -1165,7 +1165,7 @@ class de
 		$this->settings_blank = 'Benutze <i>_blank</i> für ein neues Fenster.';
 		$this->settings_board_enabled = 'Board aktiviert';
 		$this->settings_board_location = 'Ort des Boards';
-		$this->settings_board_name = 'Board Name'; //Translate
+		$this->settings_board_name = 'Forum Name';
 		$this->settings_board_rss = 'RSS Feed Einstellungen';
 		$this->settings_board_rssfeed_desc = 'RSS Feed Beschreibung';
 		$this->settings_board_rssfeed_posts = 'Anzahl der Beitrüge die via RSS Feed erscheinen sollen';
@@ -1174,7 +1174,7 @@ class de
 		$this->settings_clickable = 'Klickbare Smilies pro Zeile';
 		$this->settings_cookie = 'Cookie und Flood Einstellungen';
 		$this->settings_cookie_path = 'Cookie Pfad';
-		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
+		$this->settings_cookie_prefix = 'Cookie Prefix';
 		$this->settings_cookie_time = 'Verbleibende Zeit bei Login';
 		$this->settings_db = 'Bearbeite Verbindungseinstellungen';
 		$this->settings_db_host = 'Datenbankhost';
@@ -1186,7 +1186,7 @@ class de
 		$this->settings_db_prefix = 'Tabellenpräfix';
 		$this->settings_db_socket = 'Datenbanksocket';
 		$this->settings_db_username = 'Datenbankbenutzername';
-		$this->settings_debug_mode = 'Debug Mode'; //Translate
+		$this->settings_debug_mode = 'Debug Modus';
 		$this->settings_default_lang = 'Standardsprache';
 		$this->settings_default_no = 'Standardnummer';
 		$this->settings_default_skin = 'Standardskin';
@@ -1201,7 +1201,7 @@ class de
 		$this->settings_email_place3 = 'Benötigt keine Email-Aktivierung';
 		$this->settings_email_real = 'Es sollte eine echte Emailadresse sein.';
 		$this->settings_email_reply = 'E-mail Antwort-An-Adresse';
-		$this->settings_email_smtp = 'SMTP Mail Server'; //Translate
+		$this->settings_email_smtp = 'SMTP Mail Server';
 		$this->settings_email_valid = 'Neue Mitglieder Email-Bestätigung';
 		$this->settings_enabled = 'Aktiviert';
 		$this->settings_enabled_modules = 'Aktivierte Module';
@@ -1209,17 +1209,17 @@ class de
 		$this->settings_general = 'Allgemeine Einstellungen';
 		$this->settings_group_after = 'Gruppe nach der Regestrierung';
 		$this->settings_hot_topic = 'Beiträge für ein heißes Thema';
-		$this->settings_kilobytes = 'Kilobytes'; //Translate
+		$this->settings_kilobytes = 'Kilobytes';
 		$this->settings_max_attach_size = 'Anhänge - Maximale Dateigröße';
 		$this->settings_members = 'Mitglieder Einstellungen';
 		$this->settings_modname_only = 'Modulname, ohne .php';
-		$this->settings_new = 'New Setting'; //Translate
-		$this->settings_new_add = 'Add Board Setting';
-		$this->settings_new_added = 'New settings added.'; //Translate
-		$this->settings_new_exists = 'That setting already exists. Choose another name for it.'; //Translate
-		$this->settings_new_name = 'New setting name'; //Translate
-		$this->settings_new_required = 'The new setting name is required.'; //Translate
-		$this->settings_new_value = 'New setting value'; //Translate
+		$this->settings_new = 'Neue Einstellung';
+		$this->settings_new_add = 'Forumeinstellung hinzufügen';
+		$this->settings_new_added = 'Neue Einstellungen hinzugefügt.';
+		$this->settings_new_exists = 'Diese Einstellung existiert bereits. Bitte wählen sie einen anderen Namen dafür.';
+		$this->settings_new_name = 'Neuer Einstellungsname';
+		$this->settings_new_required = 'Ein neuer Einstellungsname wird benötigt.';
+		$this->settings_new_value = 'Neuer Einstellungswert';
 		$this->settings_no_allow = 'Erlaube nicht';
 		$this->settings_nodata = 'Es wurden keine Daten von POST gesendet';
 		$this->settings_one_per = 'Einer pro Linie';
@@ -1250,7 +1250,7 @@ class de
 		$this->settings_spider_agent_msg = 'Gib alles oder Teile des eindeutigen Spider-HTTP-USER AGENT ein.';
 		$this->settings_spider_enable = 'Spider Darstellung aktivieren';
 		$this->settings_spider_enable_msg = 'Aktiviere die Namen der Spider-Suchmaschinen in der aktiven Auflistung.';
-		$this->settings_spider_name = 'Spider Name'; //Translate
+		$this->settings_spider_name = 'Spider Name';
 		$this->settings_spider_name_msg = 'Geben sie den Namen ein den sie für jede der oberen Spiders in der aktiven Auflistung angezeigt haben möchten. Sie müssen den Spider-Namen in der gleichen Zeile wie den Spider-Benutzer Agent oben platzieren. Platzieren sie zum Beispiel \'googlebot\' in der dritten Zeile der Spider-Benutzer Agents, setze \'Google\' in die dritte Zeile der Spider-Namen.';
 		$this->settings_timezone = 'Zeitzone';
 		$this->settings_topics_page = 'Themen pro Forumseite';
@@ -1270,7 +1270,7 @@ class de
 		$this->add = 'HTML-Templates hinzufügen';
 		$this->add_in = 'Füge Template hinzu:';
 		$this->all_fields_required = 'Alle Felder werden benötigt um ein Template hinzuzufügen';
-		$this->choose_css = 'Choose CSS Template'; //Translate
+		$this->choose_css = 'Wähle CSS Template';
 		$this->choose_set = 'Wähle einen Template-Satz';
 		$this->choose_skin = 'Wähle ein Skin';
 		$this->confirm1 = 'Mit der Bestätigung löschen sie das';
@@ -1278,12 +1278,12 @@ class de
 		$this->create_new = 'Erstelle ein neues Skin mit dem Namen';
 		$this->create_skin = 'Skin erstellen';
 		$this->credit = 'Bitte nicht unseren einzigen Nachweis entfernen!';
-		$this->css_edited = 'CSS file has been updated.'; //Translate
-		$this->css_fioerr = 'The file could not be written to, you will need to CHMOD the file manually.'; //Translate
+		$this->css_edited = 'CSS Datei wurde aktualisiert.';
+		$this->css_fioerr = 'Die Datei konnte nicht geschrieben werden, ändern sie die Rechte an der Datei manuell.';
 		$this->delete_template = 'Template löschen';
 		$this->directory = 'Verzeichnis';
 		$this->display_name = 'Anzeigename';
-		$this->edit_css = 'Edit CSS'; //Translate
+		$this->edit_css = 'Bearbeite CSS';
 		$this->edit_skin = 'Skin bearbeiten';
 		$this->edit_templates = 'Templates bearbeiten';
 		$this->export_done = 'Skin wurde in das Quicksilver Forums Hauptverzeichnis exportiert.';
@@ -1295,7 +1295,7 @@ class de
 		$this->install_overwrite = 'Überschreiben';
 		$this->install_skin = 'Skin installieren';
 		$this->menu_title = 'Wähle einen Template-Bereich zum Bearbeiten';
-		$this->no_file = 'No such file.'; //Translate
+		$this->no_file = 'Datei nicht vorhanden.';
 		$this->only_skin = 'Es ist nur ein Skin installiert. Sie können diesen Skin nicht löschen.';
 		$this->or_new = 'Oder erstelle neuen Template-Satz mit dem Namen:';
 		$this->select_skin = 'Wähle ein Skin aus';
@@ -1326,11 +1326,11 @@ class de
 		$this->template_universal = 'Universelle Variable';
 		$this->template_universal2 = 'Einige Variablen können in jedem Template, andere nur in einem Template benutzt werden. Bestandteile des $this Objektes können überall benutzt werden.';
 		$this->template_updated = 'Template aktualisiert.';
-		$this->templates = 'Templates'; //Translate
+		$this->templates = 'Templates';
 		$this->temps_active = 'Aktive Benutzer Details';
 		$this->temps_admin = '<b>Administrator Kontrollzentrum Universell</b>';
 		$this->temps_ban = 'Administrator Kontrollzentrum Sperrungen';
-		$this->temps_board_index = 'Board Index'; //Translate
+		$this->temps_board_index = 'Board Index';
 		$this->temps_censoring = 'Administrator Kontrollzentrum Wörterzensierung';
 		$this->temps_cp = 'Mitglieder Kontrollzentrum';
 		$this->temps_email = 'Einem Mitglied eine Email senden';
@@ -1346,19 +1346,19 @@ class de
 		$this->temps_member_control = 'Administrator Kontrollzentrum Mitgliederkontrolle';
 		$this->temps_members = 'Mitgliederliste';
 		$this->temps_mod = 'Moderator-Kontrollen';
-		$this->temps_pm = 'Private Messenger'; //Translate
+		$this->temps_pm = 'Private Messenger';
 		$this->temps_polls = 'Umfragen';
 		$this->temps_post = 'Senden';
 		$this->temps_printer = 'Druckerfreundliche Themen';
 		$this->temps_profile = 'Profil-Betrachtung';
 		$this->temps_recent = 'Neueste Themen';
 		$this->temps_register = 'Registrierung';
-		$this->temps_rssfeed = 'RSS Feed'; //Translate
+		$this->temps_rssfeed = 'RSS Feed';
 		$this->temps_search = 'Suche';
 		$this->temps_settings = 'Administrator Kontrollzentrum Einstellungen';
 		$this->temps_templates = 'Administrator Kontrollzentrum Template-Editor';
 		$this->temps_titles = 'Administrator Kontrollzentrum Mitgliedertitel';
-		$this->temps_topic_prune = 'AdminCP Topic Pruning'; //Translate
+		$this->temps_topic_prune = 'AdminCP Topic Pruning';
 		$this->temps_topics = 'Themen';
 		$this->upgrade_skin = 'Modernisiere Skin';
 		$this->upgrade_skin_already = 'wurde schon modernisiert. Nichts zu tun.';
@@ -1376,20 +1376,20 @@ class de
 		$this->titles_error = 'Kein Titel oder Mindest-Beiträge angegeben';
 		$this->titles_image = 'Bild';
 		$this->titles_minpost = 'Mindest-Beiträge';
-		$this->titles_nodel_default = 'Removal of the default title has been disabled as it will break your board, please edit it instead.'; //Translate
+		$this->titles_nodel_default = 'Entfernung des Standarttitels wurde deaktiviert da es das Forum beschädigen würde, bitte bearbeiten sie es stattdessen.';
 		$this->titles_title = 'Titel';
 	}
 
 	function topic()
 	{
 		$this->topic_attached = 'Angehangene Datei:';
-		$this->topic_attached_downloads = 'Downloads'; //Translate
-		$this->topic_attached_filename = 'Filename:'; //Translate
-		$this->topic_attached_image = 'Attached image:'; //Translate
+		$this->topic_attached_downloads = 'Downloads';
+		$this->topic_attached_filename = 'Dateiname:';
+		$this->topic_attached_image = 'Angehanges Bild:';
 		$this->topic_attached_perm = 'Sie haben keine Erlaubnis diese Datei runterzuladen.';
-		$this->topic_attached_size = 'Size:'; //Translate
+		$this->topic_attached_size = 'Größe:';
 		$this->topic_attached_title = 'Angehangene Datei';
-		$this->topic_avatar = 'Avatar'; //Translate
+		$this->topic_avatar = 'Avatar';
 		$this->topic_bottom = 'Gehe zum Ende der Seite';
 		$this->topic_create_poll = 'Erstelle neue Umfrage';
 		$this->topic_create_topic = 'Erstelle neues Thema';
@@ -1401,7 +1401,7 @@ class de
 		$this->topic_error = 'Fehler';
 		$this->topic_group = 'Gruppe';
 		$this->topic_guest = 'Gast';
-		$this->topic_ip = 'IP'; //Translate
+		$this->topic_ip = 'IP';
 		$this->topic_joined = 'Teilgenommen';
 		$this->topic_level = 'Mitgliedslevel';
 		$this->topic_links_aim = 'Sende AIM Nachricht an %s';
@@ -1415,7 +1415,7 @@ class de
 		$this->topic_lock = 'Sperren';
 		$this->topic_locked = 'Thema gesperrt';
 		$this->topic_move = 'Verschiebe';
-		$this->topic_new_post = 'Post is unread'; //Translate
+		$this->topic_new_post = 'Beitrag ist ungelesen';
 		$this->topic_newer = 'Neueres Thema';
 		$this->topic_no_newer = 'Es gibt kein neueres Thema.';
 		$this->topic_no_older = 'Es gibt kein älteres Thema.';
@@ -1434,7 +1434,7 @@ class de
 		$this->topic_posts = 'Beiträge';
 		$this->topic_print = 'Zeige Druckversion';
 		$this->topic_publish = 'Veröffentlichen';
-		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_emoticons = 'Emoticons';
 		$this->topic_qr_open_emoticons = 'Öffne klickbare Emoticons';
 		$this->topic_qr_open_mbcode = 'Öffne MBCode';
 		$this->topic_quickreply = 'Schnell-Antwort';
@@ -1461,41 +1461,41 @@ class de
 
 	function universal()
 	{
-		$this->aim = 'AIM'; //Translate
+		$this->aim = 'AIM';
 		$this->based_on = 'basierend auf';
 		$this->board_by = 'Von';
 		$this->charset = 'utf-8';
 		$this->continue = 'Fortsetzen';
-		$this->date_long = 'M j, Y'; //Translate
-		$this->date_short = 'n/j/y'; //Translate
+		$this->date_long = 'M j, Y';
+		$this->date_short = 'n/j/y';
 		$this->delete = 'Löschen';
-		$this->direction = 'ltr'; //Translate
+		$this->direction = 'ltr';
 		$this->edit = 'Bearbeiten';
-		$this->email = 'Email'; //Translate
-		$this->gtalk = 'GT'; //Translate
-		$this->icq = 'ICQ'; //Translate
-		$this->msn = 'MSN'; //Translate
+		$this->email = 'E-Mail';
+		$this->gtalk = 'GT';
+		$this->icq = 'ICQ';
+		$this->msn = 'MSN';
 		$this->new_message = 'Neue Nachricht';
 		$this->new_poll = 'Neue Umfrage';
 		$this->new_topic = 'Neues Thema';
 		$this->no = 'Nein';
-		$this->powered = 'Powered by'; //Translate
+		$this->powered = 'Powered by';
 		$this->private_message = 'PN';
 		$this->quote = 'Zitat';
-		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
+		$this->recount_forums = 'Foren durchgezählt! Themen gesamt: %d. Beiträge gesamt: %d.';
 		$this->reply = 'Antwort';
 		$this->seconds = 'Sekunden';
 		$this->select_all = 'Alles auswählen';
 		$this->sep_decimals = ',';
 		$this->sep_thousands = '.';
-		$this->spoiler = 'Spoiler'; //Translate
+		$this->spoiler = 'Spoiler';
 		$this->submit = 'Abschicken';
 		$this->subscribe = 'Abonnieren';
-		$this->time_long = ', g:i a'; //Translate
-		$this->time_only = 'g:i a'; //Translate
+		$this->time_long = ', g:i a';
+		$this->time_only = 'g:i a';
 		$this->today = 'Heute ';
-		$this->website = 'WWW'; //Translate
-		$this->yahoo = 'Yahoo'; //Translate
+		$this->website = 'WWW';
+		$this->yahoo = 'Yahoo';
 		$this->yes = 'Ja';
 		$this->yesterday = 'Gestern ';
 	}
