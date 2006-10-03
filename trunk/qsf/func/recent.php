@@ -124,7 +124,7 @@ class recent extends qsfglobal
 				DISTINCT(t.topic_id), p.post_author as dot,
 				t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
 				t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
-				f.forum_id, f.forum_name,
+				t.topic_last_post, f.forum_id, f.forum_name,
 				s.user_name AS topic_starter_name,
 				m.user_name AS topic_last_poster_name
 			FROM
@@ -203,12 +203,7 @@ class recent extends qsfglobal
 				}
 			}
 
-			if ($row['topic_replies'] > $this->sets['posts_per_page']) {
-				$min = floor($row['topic_replies'] / $this->sets['posts_per_page']) * $this->sets['posts_per_page'];
-				$jump = "&amp;min=$min#" . ($row['topic_replies'] - $min);
-			} else {
-				$jump = '#' . $row['topic_replies'];
-			}
+			$jump = '&amp;p=' . $row['topic_last_post'] . '#p' . $row['topic_last_post'];
 
 			$row['edited'] = $row['topic_edited']; // Store so skin can access
 			$row['topic_edited'] = $this->mbdate('g:i a, M j, Y', $row['topic_edited']);

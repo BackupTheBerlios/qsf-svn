@@ -198,6 +198,8 @@ class new_install extends qsfglobal
 					VALUES (%d, %d, '%s', %d, 1, 1, INET_ATON('%s'), '%s')",
 					$topicId, $admin_uid, $topicPost, $this->time, $this->ip, $topicIcon);
 				$postId = $this->db->insert_id("posts");
+				
+				$this->db->query("UPDATE %ptopics SET topic_last_post=%d WHERE topic_id=%d", $postId, $topicId);
 					
 				$this->db->query("UPDATE %pusers SET user_posts=user_posts+1, user_lastpost=%d WHERE user_id=%d", $this->time, $admin_uid);
 
