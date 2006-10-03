@@ -111,7 +111,11 @@ div.spoilerbox   {
 .pages        {font-size: 0.9em; color:#333333;}
 .stats        {font-weight:bold;}
 .adminstat    {text-align:center; font-size: 0.7em;}
-td textarea   {width:100%} /* help give larger text areas */
+td textarea   {
+	width:100%;
+	color: #000000;
+	background-color: #ffffff;
+} /* help give larger text areas */
 
 p.reminder { padding: 2em; text-align: center; color: red; }
 .validchecks {text-align: center; }

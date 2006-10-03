@@ -234,7 +234,11 @@ div.spoilerbox   {
 #qsf_bbcode_buttons input  {font-size: 0.9em; background-color:#ececec; color:black; border:1px #555555 solid; margin: 1px;}
 .stats        {font-weight:bold;}
 .adminstat, .validchecks {text-align:center; font-size: 0.7em;}
-td textarea   {width:100%} /* help give larger text areas */
+td textarea   {
+	width:100%;
+	color: #000000;
+	background-color: #ffffff;
+} /* help give larger text areas */
 
 p.reminder  {padding:2em; text-align:center; color:red;}
 
