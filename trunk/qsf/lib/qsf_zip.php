@@ -33,7 +33,7 @@ if (!defined('QUICKSILVERFORUMS')) {
  * @since 1.0.2
  **/
 
-class zip
+class qsf_zip
 {
 	var $datasec = array();
 	var $ctrl_dir = array();

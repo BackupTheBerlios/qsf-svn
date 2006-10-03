@@ -27,7 +27,7 @@ if (!defined('QUICKSILVERFORUMS') || !defined('QSF_ADMIN')) {
 
 require_once $set['include_path'] . '/admincp/admin.php';
 require_once $set['include_path'] . '/lib/tar.php';
-require_once $set['include_path'] . '/lib/zip.php';
+require_once $set['include_path'] . '/lib/qsf_zip.php';
 require_once $set['include_path'] . '/lib/xmlparser.php';
 require_once $set['include_path'] . '/lib/packageutil.php';
 
@@ -463,7 +463,7 @@ class templates extends admin
 
 				$dir = md5(microtime());
 
-				$zip = new zip();
+				$zip = new qsf_zip();
 				$zip->extract($this->post['install'], "../skins/$dir");
 				$this->chmod("../skins/$dir", 0777, true);
 				include "../skins/$dir/info.php";
