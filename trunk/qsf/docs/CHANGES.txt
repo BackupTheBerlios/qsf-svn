@@ -1,7 +1,23 @@
 Changes for 1.3.1:
 
+* Updated German translation - Jens
+* Updated Norwegian translation - Ingvild
+* Updated Swedish tranlsation - ladyanna
+* Added a warning on install if folders are not writable
+* Quick reply bbcode and smileys load on focus
+* New backup tool uses XML
+
   Bugs addressed:
 
+* Renamed zip class to avoid conflict (#952)
+* Jump to newest post on recent posts was using old urls
+* Made sure textarea boxes are readable on usual windows themes - Matt
+* User posts can go negative (#957)
+* Censor words was not processing properly - harakiro
+* Converted most languages to utf-8 for JSON compatibility
+* Fixing icons in recent posts page (#888)
+* Not all backups and skins were showing in restore/install lists
+* Validation error in CP_PREFS template
 * Undefined string variable during board upgrade. Not fatal.
 * Topic marker crash for subforums.
 * Forum recount only needs to send the display when used from the AdminCP.
