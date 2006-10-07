@@ -40,9 +40,18 @@ class upgrade extends qsfglobal
 	{
 		switch($step) {
 		default:
+			echo "<form action='{$this->self}' method='get'>
+			    <table border='0' cellpadding='4' cellspacing='0'>\n";
+
 			check_writeable_files();
 
+			echo "<tr><td colspan='2' align='center'><b>Upgrade from what version?</b></td></tr>";
+
 			include 'templates/upgradefromversion.php';
+
+			echo "    </table>
+			    </form>\n";
+
 			break;
 
 		// Step 1.5 simply updates the database info
