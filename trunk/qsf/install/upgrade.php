@@ -40,6 +40,8 @@ class upgrade extends qsfglobal
 	{
 		switch($step) {
 		default:
+			check_writeable_files();
+
 			include 'templates/upgradefromversion.php';
 			break;
 
