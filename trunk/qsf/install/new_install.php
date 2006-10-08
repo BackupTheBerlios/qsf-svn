@@ -105,8 +105,9 @@ class new_install extends qsfglobal
 				break;
 			}
 
-			if (!is_readable('./data_tables.php')) {
-				echo 'Database connected, settings written, but no tables could be loaded from file: data_tables.php';
+			$filename = './' . $this->sets['dbtype'] . '_data_tables.php';
+			if (!is_readable($filename)) {
+				echo 'Database connected, settings written, but no tables could be loaded from file: ' . $filename;
 				break;
 			}
 
@@ -137,7 +138,7 @@ class new_install extends qsfglobal
 			$this->pre = $this->sets['prefix'];
 
 			// Create tables
-			include './data_tables.php';
+			include './' . $this->sets['dbtype'] . '_data_tables.php';
 
 			execute_queries($queries, $db);
 			$queries = null;
@@ -149,6 +150,7 @@ class new_install extends qsfglobal
 			$xmlInfo = null;
 
 			$this->sets = $this->get_settings($this->sets);
+
 			$this->sets['loc_of_board'] = $this->post['board_url'];
 			$this->sets['forum_name'] = $this->post['board_name'];
 
