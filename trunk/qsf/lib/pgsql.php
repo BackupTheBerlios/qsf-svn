@@ -113,9 +113,16 @@ class db_pgsql extends database
 	 **/
 	function query($query)
 	{
-		$this->querycount++;
+		$args = array();
+		if (is_array($query)) {
+			$args = $query; // only use arg 1
+		} else {
+			$args  = func_get_args();
+		}
 
-		$query = $this->_format_query(func_get_args());
+		$query = $this->_format_query($args);
+
+		$this->querycount++;
 
 		if (isset($this->get['debug'])) {
 			$this->debug($query);
