@@ -4,6 +4,10 @@
  * Copyright (c) 2005-2006 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
+ * based off MercuryBoard
+ * Copyright (c) 2001-2005 The Mercury Development Team
+ *  http://www.mercuryboard.com/
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -16,7 +20,25 @@
  *
  **/
 
-define('LATEST', 23);   // ID of most recent upgrade script
-define('SKIN_FILE', 'skin_default.xml');
+if (!defined('INSTALLER')) {
+	exit('Use index.php to upgrade.');
+}
+
+// Upgrade from 1.3.1 to 1.3.2
+
+// Template changes
+$need_templates = array(
+	// Added templates
+	// Changed templates
+	);
+
+// Permission changes	
+$new_permissions['edit_profile'] = true;
+$new_permissions['edit_avatar'] = true;
+$new_permissions['edit_sig'] = true;
+
+// Queries to run
+
+// New Timezones
 
 ?>
