@@ -245,6 +245,9 @@ class cp extends qsfglobal
 
 	function edit_profile()
 	{
+		if ( !$this->perms->auth('edit_profile')) {
+			return $this->message( $this->lang->cp_editing_profile, $this->lang->cp_no_edit_profile );
+		}
 		$this->set_title($this->lang->cp_editing_profile);
 		$this->tree($this->lang->cp_cp, $this->self . '?a=cp');
 		$this->tree($this->lang->cp_editing_profile);
@@ -361,6 +364,9 @@ class cp extends qsfglobal
 
 	function edit_avatar()
 	{
+		if ( !$this->perms->auth('edit_avatar')) {
+			return $this->message( $this->lang->cp_editing_avatar, $this->lang->cp_no_edit_avatar );
+		}
 		$this->set_title($this->lang->cp_editing_avatar);
 		$this->tree($this->lang->cp_cp, $this->self . '?a=cp');
 		$this->tree($this->lang->cp_editing_avatar);
@@ -571,6 +577,9 @@ class cp extends qsfglobal
 	 **/
 	function edit_sig()
 	{
+		if (!$this->perms->auth('edit_sig')) {
+			return $this->message($this->lang->cp_label_edit_sig, $this->lang->cp_no_edit_sig);
+		}
 		$this->set_title($this->lang->cp_label_edit_sig);
 		$this->tree($this->lang->cp_cp, $this->self . '?a=cp');
 		$this->tree($this->lang->cp_label_edit_sig);

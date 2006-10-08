@@ -317,6 +317,9 @@ class sk
 		$this->cp_must_orig = 'Vaše meno sa musí zhodova s originálom. Môžete zmeni iba ve¾kos a medzery.';
 		$this->cp_new_notmatch = 'Nové heslá, ktoré ste zadali, sa nezhodujú.';
 		$this->cp_new_pass = 'Nové heslo';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = 'Avatari typu ShockWaveFlash tu nie sú povolené.';
 		$this->cp_not_exist = 'Dátum, ktorý ste zadali (%s), neexistuje!';
 		$this->cp_nov = 'November'; //Translate
@@ -762,7 +765,10 @@ class sk
 		$this->perms_board_view = 'Zobrazi index fór';
 		$this->perms_board_view_closed = 'Používa Quicksilver Fórum ak je zatvorené';
 		$this->perms_do_anything = 'Používa Quicksilver Fórum';
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'Editova práva pre';
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Posla email užívate¾om cez fórum';
 		$this->perms_forum_view = 'Zobrazi fórum';
 		$this->perms_is_admin = 'Prístup k administrátorskému ovládaciemu panelu (CP)';

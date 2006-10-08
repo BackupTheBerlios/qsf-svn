@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -319,6 +319,9 @@ class nl
 		$this->cp_must_orig = 'U gebruikersnaam moet identiek aan het origineel zijn. U mag alleen gewone letters veranderen naar hoofdletters en cijfers toevoegen.';
 		$this->cp_new_notmatch = 'Het nieuwe wachtwoord dat u heeft opgegeven komt niet overeen.';
 		$this->cp_new_pass = 'Nieuw wachtwoord';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = 'Flash-avatars zijn niet toegestaan.';
 		$this->cp_not_exist = 'De datum die u heeft ingevoerd: (%s) bestaat niet!';
 		$this->cp_nov = 'November'; //Translate
@@ -763,7 +766,10 @@ class nl
 		$this->perms_board_view = 'Bekijk de board index';
 		$this->perms_board_view_closed = 'Gebruik Quicksilver Forums wanneer het gesloten is.';
 		$this->perms_do_anything = 'Gebruik Quicksilver Forums';
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'Pas toelatingen aan voor';
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Verstuur e-mails naar andere gebruikers via het board';
 		$this->perms_forum_view = 'Bekijk het forum';
 		$this->perms_is_admin = 'Verschaf toegang tot het administrators controlepaneel';

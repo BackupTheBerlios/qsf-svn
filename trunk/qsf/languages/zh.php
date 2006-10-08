@@ -317,6 +317,9 @@ class zh
 		$this->cp_must_orig = 'Your name must be identical to the original. You may only change the letter case and spacing.'; //Translate
 		$this->cp_new_notmatch = '}������������벻һ�¡�';
 		$this->cp_new_pass = '������';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = '������ʹ��Flashͷ��';
 		$this->cp_not_exist = '��ָ�������ڣ�%s������ȷ��';
 		$this->cp_nov = '11��';
@@ -761,7 +764,10 @@ class zh
 		$this->perms_board_view = 'View the board index'; //Translate
 		$this->perms_board_view_closed = 'Use Quicksilver Forums when it is closed'; //Translate
 		$this->perms_do_anything = 'Use Quicksilver Forums'; //Translate
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'Edit permissions for'; //Translate
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Send emails to members via the board'; //Translate
 		$this->perms_forum_view = 'View the forum'; //Translate
 		$this->perms_is_admin = 'Access the admin control panel'; //Translate

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -318,6 +318,9 @@ class it
 		$this->cp_must_orig = 'Il tuo nome deve essere identico all\'originale. Puoi cambiare solamente le lettere maiscole/minuscole e gli spazi.';
 		$this->cp_new_notmatch = 'Le nuove passwords che hai inserito non corrispondono.';
 		$this->cp_new_pass = 'Nuova Password';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = 'Gli avatar flash non sono permessi su questa bacheca.';
 		$this->cp_not_exist = 'La data che hai inserito (%s) non esiste!';
 		$this->cp_nov = 'Novembre';
@@ -762,7 +765,10 @@ class it
 		$this->perms_board_view = 'Mostra l\'indice della bacheca';
 		$this->perms_board_view_closed = 'Utilizza Quicksilver Forums quando è chiuso';
 		$this->perms_do_anything = 'Utilizza Quicksilver Forums';
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'Modifica permessi per';
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Invia email agli iscritti tramite il forum';
 		$this->perms_forum_view = 'Mostra la bacheca';
 		$this->perms_is_admin = 'Accedi al pannello d\'amministrazione';

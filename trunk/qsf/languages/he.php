@@ -317,6 +317,9 @@ class he
 		$this->cp_must_orig = '.השם שלך חייב להיות זהה למקור. באפשרותך לשנות את גודל האות ורווחים';
 		$this->cp_new_notmatch = 'הסיסמא החדשה שהכנסת אינה תואמת.';
 		$this->cp_new_pass = 'סיסמא חדשה';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = 'אווטרה בפלאש אסורים בלוח זה.';
 		$this->cp_not_exist = 'אינו קיים! (%s) התאריך שציינת';
 		$this->cp_nov = 'נובמבר';
@@ -761,7 +764,10 @@ class he
 		$this->perms_board_view = 'הצג את אינדקס הפורום';
 		$this->perms_board_view_closed = 'כשהם סגורים Quicksilver השתמש בפורומים של';
 		$this->perms_do_anything = 'השתמש בפורומים של Quicksilver ';
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'ערוך הרשאות ל';
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'שליחת מיילים לחברים דרך הפורום';
 		$this->perms_forum_view = 'הצג את הפורום';
 		$this->perms_is_admin = 'כניסה ללוח בקרת מנהל';

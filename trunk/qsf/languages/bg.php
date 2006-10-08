@@ -317,6 +317,9 @@ class bg
 		$this->cp_must_orig = 'Моля използвайте същото име.';
 		$this->cp_new_notmatch = 'Паролите не съвпадат.';
 		$this->cp_new_pass = 'Нова парола';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = 'Flash аватари не са разрешени.';
 		$this->cp_not_exist = 'дата, която сте въвели  (%s)е невалидна !';
 		$this->cp_nov = 'Ноември';
@@ -761,7 +764,10 @@ class bg
 		$this->perms_board_view = 'View the board index'; //Translate
 		$this->perms_board_view_closed = 'Use Quicksilver Forums when it is closed'; //Translate
 		$this->perms_do_anything = 'Use Quicksilver Forums'; //Translate
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'Edit permissions for'; //Translate
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Send emails to members via the board'; //Translate
 		$this->perms_forum_view = 'View the forum'; //Translate
 		$this->perms_is_admin = 'Access the admin control panel'; //Translate

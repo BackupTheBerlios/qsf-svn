@@ -317,6 +317,9 @@ class en
 		$this->cp_must_orig = 'Your name must be identical to the original. You may only change the letter case and spacing.';
 		$this->cp_new_notmatch = 'The new passwords you entered do not match.';
 		$this->cp_new_pass = 'New Password';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.';
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.';
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.';
 		$this->cp_no_flash = 'Flash avatars are not allowed on this board.';
 		$this->cp_not_exist = 'The date you specified (%s) does not exist!';
 		$this->cp_nov = 'November';
@@ -761,7 +764,10 @@ class en
 		$this->perms_board_view = 'View the board index';
 		$this->perms_board_view_closed = 'Use Quicksilver Forums when it is closed';
 		$this->perms_do_anything = 'Use Quicksilver Forums';
+		$this->perms_edit_avatar = 'Can edit user avatar';
 		$this->perms_edit_for = 'Edit permissions for';
+		$this->perms_edit_profile = 'Can edit user profile';
+		$this->perms_edit_sig = 'Can edit signatures';
 		$this->perms_email_use = 'Send emails to members via the board';
 		$this->perms_forum_view = 'View the forum';
 		$this->perms_is_admin = 'Access the admin control panel';

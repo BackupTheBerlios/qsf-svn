@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -149,7 +149,7 @@ class sv
 
 	function bbcode()
 	{
-		$this->bbcode_arial = 'Arial';
+		$this->bbcode_arial = 'Arial'; //Translate
 		$this->bbcode_blue = 'Blå';
 		$this->bbcode_bold = 'Fet (CTRL-b)';
 		$this->bbcode_bold1 = 'F';
@@ -158,8 +158,8 @@ class sv
 		$this->bbcode_code1 = 'Kod';
 		$this->bbcode_color = 'Färg';
 		$this->bbcode_coral = 'Korall';
-		$this->bbcode_courier = 'Courier';
-		$this->bbcode_crimson = 'Crimson';
+		$this->bbcode_courier = 'Courier'; //Translate
+		$this->bbcode_crimson = 'Crimson'; //Translate
 		$this->bbcode_darkblue = 'Mörkblå';
 		$this->bbcode_darkred = 'Mörkröd';
 		$this->bbcode_deeppink = 'Djuprosa';
@@ -170,17 +170,17 @@ class sv
 		$this->bbcode_huge = 'Enorm';
 		$this->bbcode_image = 'Bild (CTRL-j)';
 		$this->bbcode_image1 = 'Bild';
-		$this->bbcode_impact = 'Impact';
-		$this->bbcode_indigo = 'Indigo';
+		$this->bbcode_impact = 'Impact'; //Translate
+		$this->bbcode_indigo = 'Indigo'; //Translate
 		$this->bbcode_italic = 'Kursiv (CTRL-i)';
 		$this->bbcode_italic1 = 'K';
 		$this->bbcode_large = 'Stor';
 		$this->bbcode_limegreen = 'Lime Grön';
-		$this->bbcode_medium = 'Medium';
-		$this->bbcode_orange = 'Orange';
+		$this->bbcode_medium = 'Medium'; //Translate
+		$this->bbcode_orange = 'Orange'; //Translate
 		$this->bbcode_orangered = 'Orangeröd';
-		$this->bbcode_php = 'PHP (CTRL-k)';
-		$this->bbcode_php1 = 'PHP';
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
 		$this->bbcode_purple = 'Lila';
 		$this->bbcode_quote = 'Citat (CTRL-q)';
 		$this->bbcode_quote1 = 'Citat';
@@ -189,24 +189,24 @@ class sv
 		$this->bbcode_sandybrown = 'Sand';
 		$this->bbcode_seagreen = 'Sjögrön';
 		$this->bbcode_sienna = 'Brun';
-		$this->bbcode_silver = 'Silver';
+		$this->bbcode_silver = 'Silver'; //Translate
 		$this->bbcode_size = 'Storlek';
 		$this->bbcode_skyblue = 'Himmelsblå';
 		$this->bbcode_small = 'Liten';
 		$this->bbcode_spoiler = 'Avslöjande (CTRL-r)';
 		$this->bbcode_spoiler1 = 'Avslöjande';
 		$this->bbcode_strike = 'Genomstruken (CTRL-s)';
-		$this->bbcode_strike1 = 'S';
-		$this->bbcode_tahoma = 'Tahoma';
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
 		$this->bbcode_teal = 'Turkos';
-		$this->bbcode_times = 'Times';
+		$this->bbcode_times = 'Times'; //Translate
 		$this->bbcode_tiny = 'Mini';
 		$this->bbcode_tomato = 'Tomat';
 		$this->bbcode_underline = 'Understruken (CTRL-u)';
-		$this->bbcode_underline1 = 'U';
-		$this->bbcode_url = 'URL (CTRL-h)';
-		$this->bbcode_url1 = 'URL';
-		$this->bbcode_verdana = 'Verdana';
+		$this->bbcode_underline1 = 'U'; //Translate
+		$this->bbcode_url = 'URL (CTRL-h)'; //Translate
+		$this->bbcode_url1 = 'URL'; //Translate
+		$this->bbcode_verdana = 'Verdana'; //Translate
 		$this->bbcode_wood = 'Beige';
 		$this->bbcode_yellow = 'Gul';
 	}
@@ -220,13 +220,13 @@ class sv
 		$this->board_can_topics = 'Du kan läsa men inte skapa ämnen i detta forum.';
 		$this->board_cant_post = 'Du kan inte svara i detta forum.';
 		$this->board_cant_topics = 'Du kan inte läsa eller skapa ämnen i detta forum.';
-		$this->board_forum = 'Forum';
+		$this->board_forum = 'Forum'; //Translate
 		$this->board_guests = 'gäster';
 		$this->board_last_post = 'Senaste Inlägg';
 		$this->board_mark = 'Markerar Inlägg Som Läst';
 		$this->board_mark1 = 'Alla inlägg och forum har markerats som lästa.';
 		$this->board_markforum = 'Markerar forumet som läst';
-		$this->board_markforum1 = 'Alla inlägg i forumet har markerats som lästa.';
+		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
 		$this->board_members = 'medlemmar';
 		$this->board_message = '%s Meddelande';
 		$this->board_most_online = 'Flest användare online någonsin var %d %s.';
@@ -256,7 +256,7 @@ class sv
 	{
 		$this->cp_aim = 'AIM namn';
 		$this->cp_already_member = 'E-post adressen du skrev in är upptagen.';
-		$this->cp_apr = 'April';
+		$this->cp_apr = 'April'; //Translate
 		$this->cp_aug = 'Augusti';
 		$this->cp_avatar_current = 'Din nuvarande avatar';
 		$this->cp_avatar_error = 'Avatar Fel';
@@ -283,7 +283,7 @@ class sv
 		$this->cp_current_time = 'Klockan är %s.';
 		$this->cp_custom_title = 'Egen Medlemstitel';
 		$this->cp_custom_title2 = 'Detta är ett privilegie reserverat för forum administratörer';
-		$this->cp_dec = 'December';
+		$this->cp_dec = 'December'; //Translate
 		$this->cp_editing_avatar = 'Redigerar Avatar';
 		$this->cp_editing_profile = 'Redigerar Profil';
 		$this->cp_email = 'E-post';
@@ -318,9 +318,12 @@ class sv
 		$this->cp_must_orig = 'Ditt namn måste vara identiskt med originalet. Du får endast ändra versaler och avstånd.';
 		$this->cp_new_notmatch = 'De nya lösenorden du skrev in är olika.';
 		$this->cp_new_pass = 'Nytt Lösenord';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
 		$this->cp_no_flash = 'Flash avatarer är inte tillåtna.';
 		$this->cp_not_exist = 'Datumet du skrivit in (%s) finns inte!';
-		$this->cp_nov = 'November';
+		$this->cp_nov = 'November'; //Translate
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Ditt gamla lösenord är ej korrekt.';
 		$this->cp_old_pass = 'Gammalt Lösenord';
@@ -330,7 +333,7 @@ class sv
 		$this->cp_preview_sig = 'Förhandsgranska Signatur:';
 		$this->cp_privacy = 'Privata Inställningar';
 		$this->cp_repeat_pass = 'Repetera Nytt Lösenord';
-		$this->cp_sept = 'September';
+		$this->cp_sept = 'September'; //Translate
 		$this->cp_show_active = 'Visa dina aktiviteter när du använder forumet?';
 		$this->cp_show_email = 'Visa E-post adress i din profil?';
 		$this->cp_signature = 'Signatur';
@@ -376,7 +379,7 @@ class sv
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons';
+		$this->emote = 'Emoticons'; //Translate
 		$this->emote_add = 'Lägg till Emoticons';
 		$this->emote_added = 'Emoticon tillagd.';
 		$this->emote_clickable = 'Klickbar';
@@ -386,7 +389,7 @@ class sv
 		$this->emote_install_done = 'Ominstallationen av Emoticons lyckades.';
 		$this->emote_install_warning = 'Detta kommer att ta bort alla existerande emoticon inställningar och importera uppladdade emoticons från ditt nu valda skal till databasen.';
 		$this->emote_no_text = 'Ingen emoticon text gavs.';
-		$this->emote_text = 'Text';
+		$this->emote_text = 'Text'; //Translate
 	}
 
 	function forum()
@@ -398,7 +401,7 @@ class sv
 		$this->forum_cant_topics = 'Du kan inte läsa ämnen i detta forum.';
 		$this->forum_dot = 'Prick';
 		$this->forum_dot_detail = 'Visar att du skrivit inlägg i ämnet';
-		$this->forum_forum = 'Forum';
+		$this->forum_forum = 'Forum'; //Translate
 		$this->forum_guest = 'Gäst';
 		$this->forum_hot = 'Het';
 		$this->forum_icon = 'Meddelandeikon';
@@ -520,7 +523,7 @@ class sv
 		$this->jsdata_address = 'Skriv en address';
 		$this->jsdata_detail = 'Skriv en beskrivning';
 		$this->jsdata_smiles = 'Klickbara Smilies';
-		$this->jsdata_url = 'URL';
+		$this->jsdata_url = 'URL'; //Translate
 	}
 
 	function jslang()
@@ -554,7 +557,7 @@ class sv
 		$this->logs_deleted_topic = 'Tog bort ett ämne';
 		$this->logs_edited_post = 'Ändrade ett inlägg';
 		$this->logs_edited_topic = 'Ändrade ett ämne';
-		$this->logs_id = 'IDs';
+		$this->logs_id = 'IDs'; //Translate
 		$this->logs_locked_topic = 'Låste ett ämne';
 		$this->logs_moved_from = 'från forum';
 		$this->logs_moved_to = 'till forum';
@@ -683,7 +686,7 @@ class sv
 		$this->members_joined = 'Registreringsdatum';
 		$this->members_list = 'Medlemslista';
 		$this->members_member = 'Medlem';
-		$this->members_pm = 'PM';
+		$this->members_pm = 'PM'; //Translate
 		$this->members_posts = 'Inlägg';
 		$this->members_send_pm = 'Skicka ett personligt meddelande till denna användare';
 		$this->members_title = 'Titel';
@@ -762,7 +765,10 @@ class sv
 		$this->perms_board_view = 'Visa Forumets index';
 		$this->perms_board_view_closed = 'Använda Quicksilver Forumet när det är stängt';
 		$this->perms_do_anything = 'Använda Quicksilver Forumet';
+		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
 		$this->perms_edit_for = 'Ändra Rättigheter för';
+		$this->perms_edit_profile = 'Can edit user profile'; //Translate
+		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Skicka e-post till medlemmarna via forumet';
 		$this->perms_forum_view = 'Kolla Forumet';
 		$this->perms_is_admin = 'Komma åt adminkotrollpanelen';
@@ -848,7 +854,7 @@ class sv
 		$this->pm_online = 'Den här medlemmen är inloggad just nu';
 		$this->pm_personal = 'Snabbmeddelande';
 		$this->pm_personal_msging = 'Personligt Meddelande';
-		$this->pm_pm = 'PM';
+		$this->pm_pm = 'PM'; //Translate
 		$this->pm_posts = 'Inlägg';
 		$this->pm_preview = 'Förhandsgranska';
 		$this->pm_recipients = 'Mottagare';
@@ -944,7 +950,7 @@ class sv
 		$this->profile_fav_forum = '%s (%d%% av dessa medlemsinlägg)';
 		$this->profile_gtalk = 'GTalk Konto';
 		$this->profile_icq_uin = 'ICQ Nummer';
-		$this->profile_info = 'Information';
+		$this->profile_info = 'Information'; //Translate
 		$this->profile_interest = 'Intressen';
 		$this->profile_joined = 'Registrerade sig';
 		$this->profile_last_post = 'Senaste Inlägg';
@@ -1014,7 +1020,7 @@ class sv
 		$this->recent_cant_topics = 'Du kan inte läsa ämnen i detta forum.';
 		$this->recent_dot = 'Prick';
 		$this->recent_dot_detail = 'Visar att du skrivit inlägg i ämnet';
-		$this->recent_forum = 'Forum';
+		$this->recent_forum = 'Forum'; //Translate
 		$this->recent_guest = 'Gäst';
 		$this->recent_hot = 'Het';
 		$this->recent_icon = 'Meddelandeikon';
@@ -1089,7 +1095,7 @@ class sv
 		$this->rssfeed_cannot_read_forum = 'Du har inte tillstånd att läsa detta forum';
 		$this->rssfeed_cannot_read_topic = 'Du har inte tillstånd att läsa detta ämne';
 		$this->rssfeed_error = 'Ett fel uppstod';
-		$this->rssfeed_forum = 'Forum:';
+		$this->rssfeed_forum = 'Forum:'; //Translate
 		$this->rssfeed_posted_by = 'Skrivet av';
 		$this->rssfeed_topic = 'Ämne:';
 	}
@@ -1105,12 +1111,12 @@ class sv
 		$this->search_exact_name = 'exakt namn';
 		$this->search_flood = 'Du har sökt under de senaste %s sekunderna, och du kan inte söka just nu.<br /><br />Var snäll och försök igen om några sekunder.';
 		$this->search_for = 'Sök Efter';
-		$this->search_forum = 'Forum';
+		$this->search_forum = 'Forum'; //Translate
 		$this->search_group = 'Grupp';
 		$this->search_guest = 'Gäst';
 		$this->search_in = 'Sök inom';
 		$this->search_in_posts = 'Sök endast i inlägg';
-		$this->search_ip = 'IP';
+		$this->search_ip = 'IP'; //Translate
 		$this->search_joined = 'Gick Med';
 		$this->search_level = 'Medlemsstatus';
 		$this->search_match = 'Sök med matchning';
@@ -1174,7 +1180,7 @@ class sv
 		$this->settings_clickable = 'Klickbara Emoticons Per Rad';
 		$this->settings_cookie = 'Cookie och Flood Inställningar';
 		$this->settings_cookie_path = 'Cookie Sökväg';
-		$this->settings_cookie_prefix = 'Cookie Prefix';
+		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
 		$this->settings_cookie_time = 'Tid för att kvarstå som inloggad';
 		$this->settings_db = 'Ändra Inställningar för Anslutning';
 		$this->settings_db_host = 'Databas Värd';
@@ -1209,7 +1215,7 @@ class sv
 		$this->settings_general = 'Allmäna Inställningar';
 		$this->settings_group_after = 'Grupp Efter Registrering';
 		$this->settings_hot_topic = 'Inlägg för ett Hett Ämne';
-		$this->settings_kilobytes = 'Kilobytes';
+		$this->settings_kilobytes = 'Kilobytes'; //Translate
 		$this->settings_max_attach_size = 'Bifogade filer - Maximal Filstorlek';
 		$this->settings_members = 'Medlemsinställningar';
 		$this->settings_modname_only = 'Endast modulnamn. Inkludera inte .php';
@@ -1401,7 +1407,7 @@ class sv
 		$this->topic_error = 'Fel';
 		$this->topic_group = 'Grupp';
 		$this->topic_guest = 'Gäst';
-		$this->topic_ip = 'IP';
+		$this->topic_ip = 'IP'; //Translate
 		$this->topic_joined = 'Gick Med';
 		$this->topic_level = 'Medelemsnivå';
 		$this->topic_links_aim = 'Skicka ett AIM meddelande till %s';
@@ -1434,7 +1440,7 @@ class sv
 		$this->topic_posts = 'Inlägg';
 		$this->topic_print = 'Visa Utskriftsvänlig';
 		$this->topic_publish = 'Publicera';
-		$this->topic_qr_emoticons = 'Emoticons';
+		$this->topic_qr_emoticons = 'Emoticons'; //Translate
 		$this->topic_qr_open_emoticons = 'Öppna Klickbara Emoticons';
 		$this->topic_qr_open_mbcode = 'Öppna MBCode';
 		$this->topic_quickreply = 'Snabbsvar';
@@ -1461,7 +1467,7 @@ class sv
 
 	function universal()
 	{
-		$this->aim = 'AIM';
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = 'baserad på';
 		$this->board_by = 'Av';
 		$this->charset = 'utf-8';
@@ -1472,15 +1478,15 @@ class sv
 		$this->direction = 'vth';
 		$this->edit = 'Ändra';
 		$this->email = 'E-post';
-		$this->gtalk = 'GT';
-		$this->icq = 'ICQ';
-		$this->msn = 'MSN';
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
 		$this->new_message = 'Nytt Meddelande';
 		$this->new_poll = 'Ny Omröstning';
 		$this->new_topic = 'Nytt Ämne';
 		$this->no = 'Nej';
 		$this->powered = 'Drivs med';
-		$this->private_message = 'PM';
+		$this->private_message = 'PM'; //Translate
 		$this->quote = 'Citera';
 		$this->recount_forums = 'Forum omräknade! Totalt ämnen: %d. Totalt inlägg: %d.';
 		$this->reply = 'Svara';
@@ -1494,8 +1500,8 @@ class sv
 		$this->time_long = ', G:i';
 		$this->time_only = 'G:i';
 		$this->today = 'Idag';
-		$this->website = 'WWW';
-		$this->yahoo = 'Yahoo';
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = 'Ja';
 		$this->yesterday = 'Igår';
 	}
