@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -26,9 +26,9 @@ if (!defined('QUICKSILVERFORUMS')) {
 }
 
 /**
- * Czech language module
+ * English language module
  *
- * @author Yarda Horák <ryan69@seznam.cz>
+ * @author Ryan69 <ryan69@seznam.cz>
  * @since 1.1.0
  **/
 class cs
@@ -36,29 +36,29 @@ class cs
 	function active()
 	{
 		$this->active_last_action = 'Akce';
-		$this->active_modules_active = 'Prohlíží si aktivní uživatele';
-		$this->active_modules_board = 'Je na úvodní stránce';
-		$this->active_modules_cp = 'Používá kontrolní panel';
-		$this->active_modules_forum = 'Viewing a forum: %s'; //Translate
-		$this->active_modules_help = 'Používá nápovìdu';
-		$this->active_modules_login = 'Vstupuje/Odchází';
-		$this->active_modules_members = 'Prohlíží si seznam èlenù';
+		$this->active_modules_active = 'Prohl&#xED;&#x17E;&#xED; si aktivn&#xED; u&#x17E;ivatele';
+		$this->active_modules_board = 'Je na &#xFA;vodn&#xED; str&#xE1;nce';
+		$this->active_modules_cp = 'Pou&#x17E;&#xED;v&#xE1; kontroln&#xED; panel';
+		$this->active_modules_forum = 'Prohl&#xED;&#x17E;&#xED; si f&#xF3;rum: %s';
+		$this->active_modules_help = 'Pou&#x17E;&#xED;v&#xE1; n&#xE1;pov&#x11B;du';
+		$this->active_modules_login = 'Vstupuje/Odch&#xE1;z&#xED;';
+		$this->active_modules_members = 'Prohl&#xED;&#x17E;&#xED; si seznam &#x10D;len&#x16F;';
 		$this->active_modules_mod = 'Moderovat';
-		$this->active_modules_pm = 'Používá Messenger';
-		$this->active_modules_post = 'Píše nový pøíspìvek';
-		$this->active_modules_printer = 'Printing a topic: %s'; //Translate
-		$this->active_modules_profile = 'Viewing a profile: %s'; //Translate
-		$this->active_modules_recent = 'Viewing recent posts'; //Translate
-		$this->active_modules_search = 'Hledání';
-		$this->active_modules_topic = 'Viewing a topic: %s'; //Translate
-		$this->active_time = 'Èas';
-		$this->active_user = 'Uživatel';
-		$this->active_users = 'Aktivní uživatelé';
+		$this->active_modules_pm = 'Pou&#x17E;&#xED;v&#xE1; Messenger';
+		$this->active_modules_post = 'P&#xED;&#x161;e nov&#xFD; p&#x159;&#xED;sp&#x11B;vek';
+		$this->active_modules_printer = 'Tiskne si t&#xE9;ma: %s';
+		$this->active_modules_profile = 'Prohl&#xED;&#x17E;&#xED; si profil: %s';
+		$this->active_modules_recent = 'Prohl&#xED;&#x17E;&#xED; si nov&#xE9; p&#x159;&#xED;sp&#x11B;vky';
+		$this->active_modules_search = 'Hled&#xE1;n&#xED;';
+		$this->active_modules_topic = 'Prohl&#xED;&#x17E;&#xED; si t&#xE9;ma: %s';
+		$this->active_time = '&#x10D;as';
+		$this->active_user = 'U&#x17E;ivatel';
+		$this->active_users = 'Aktivn&#xED; u&#x17E;ivatel&#xE9;';
 	}
 
 	function admin()
 	{
-		$this->admin_add_emoticons = 'Add emoticons'; //Translate
+		$this->admin_add_emoticons = 'P&#x159;idat smajl&#xED;ky';
 		$this->admin_add_member_titles = 'Add automatic member titles'; //Translate
 		$this->admin_add_templates = 'Add HTML templates'; //Translate
 		$this->admin_ban_ips = 'Ban IP addresses'; //Translate
@@ -123,7 +123,7 @@ class cs
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
 		$this->backup_found = 'The following backups were found in the Quicksilver Forums directory';
 		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.'; //Translate
-		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.';
+		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.'; //Translate
 		$this->backup_options = 'Select how you want your backup created'; //Translate
 		$this->backup_restore = 'Restore Backup'; //Translate
 		$this->backup_restore_done = 'The database has been restored successfully.'; //Translate
@@ -212,245 +212,245 @@ class cs
 
 	function board()
 	{
-		$this->board_active_users = 'Aktivní uživatelé';
-		$this->board_birthdays = 'Dnes má narozeniny:';
-		$this->board_bottom_page = 'Go to the bottom of the page'; //Translate
-		$this->board_can_post = 'V tomto fóru mùžete odpovídat.';
-		$this->board_can_topics = 'Mùžete prohlížet, ale nemùžete vytváøet témata v tomto fóru. Prosím, zaregistrujte se.';
-		$this->board_cant_post = 'Nemùžete odpovídat v tomto fóru. Prosím, zaregistrujte se.';
-		$this->board_cant_topics = 'Nemùžete prohlížet ani vytváøet témata v tomto fóru. Prosím, zaregistrujte se.';
-		$this->board_forum = 'Fórum';
-		$this->board_guests = 'a hostù:';
-		$this->board_last_post = 'Poslední pøíspìvek';
-		$this->board_mark = 'Oznaèit pøíspìvek jako pøeètený';
-		$this->board_mark1 = 'Všechny pøíspìvky a fóra byly oznaèeny jako pøeètené.';
-		$this->board_markforum = 'Marking Forum As Read'; //Translate
-		$this->board_markforum1 = 'All posts in the forum %s have been marked as read.'; //Translate
-		$this->board_members = 'z toho registrovaných: ';
-		$this->board_message = '%s Zpráva';
-		$this->board_most_online = 'The most users ever online was %d on %s.'; //Translate
-		$this->board_nobday = 'Žádny èlen dnes nemá narozeniny.';
-		$this->board_nobody = 'Žádný èlen není on-line.';
-		$this->board_nopost = 'Žádné pøíspìvky';
-		$this->board_noview = 'Nemáte povolení prohlížet fórum.';
-		$this->board_regfirst = 'Nemáte povolení prohlížet fórum. Musíte se nejdøív zaregistrovat.';
-		$this->board_replies = 'Odpovìdí';
+		$this->board_active_users = 'Aktivn&#xED; u&#x17E;ivatel&#xE9;';
+		$this->board_birthdays = 'Dnes m&#xE1; narozeniny:';
+		$this->board_bottom_page = 'P&#x159;ejit dol&#x16F; na str&#xE1;nku';
+		$this->board_can_post = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete odpov&#xED;dat.';
+		$this->board_can_topics = 'M&#x16F;&#x17E;ete prohl&#xED;&#x17E;et, ale nem&#x16F;&#x17E;ete vytv&#xE1;&#x159;et t&#xE9;mata v tomto f&#xF3;ru. Pros&#xED;m, zaregistrujte se.';
+		$this->board_cant_post = 'Nem&#x16F;&#x17E;ete odpov&#xED;dat v tomto f&#xF3;ru. Pros&#xED;m, zaregistrujte se.';
+		$this->board_cant_topics = 'Nem&#x16F;&#x17E;ete prohl&#xED;&#x17E;et ani vytv&#xE1;&#x159;et t&#xE9;mata v tomto f&#xF3;ru. Pros&#xED;m, zaregistrujte se.';
+		$this->board_forum = 'F&#xF3;rum';
+		$this->board_guests = 'host&#xE9;';
+		$this->board_last_post = 'Posledn&#xED; p&#x159;&#xED;sp&#x11B;vek';
+		$this->board_mark = 'Ozna&#x10D;it p&#x159;&#xED;sp&#x11B;vek jako p&#x159;e&#x10D;ten&#xFD;';
+		$this->board_mark1 = 'V&#x161;echny p&#x159;&#xED;sp&#x11B;vky a f&#xF3;ra byly ozna&#x10D;eny jako p&#x159;e&#x10D;ten&#xE9;.';
+		$this->board_markforum = 'Ozna&#x10D;it f&#xF3;rum jako p&#x159;e&#x10D;ten&#xE9;';
+		$this->board_markforum1 = 'V&#x161;echny p&#x159;&#xED;sp&#x11B;vky ve f&#xF3;ru %s byly ozna&#x10D;eny jako p&#x159;e&#x10D;ten&#xE9;.';
+		$this->board_members = 'registrovan&#xED; ';
+		$this->board_message = '%s Zpr&#xE1;va';
+		$this->board_most_online = 'Nejv&#xED;ce u&#x17E;ivatel&#x16F; online (%d) tu bylo %s.';
+		$this->board_nobday = '&#x17E;&#xE1;dny &#x10D;len dnes nem&#xE1; narozeniny.';
+		$this->board_nobody = '&#x17E;&#xE1;dn&#xFD; &#x10D;len nen&#xED; on-line.';
+		$this->board_nopost = '&#x17E;&#xE1;dn&#xE9; p&#x159;&#xED;sp&#x11B;vky';
+		$this->board_noview = 'Nem&#xE1;te povolen&#xED; prohl&#xED;&#x17E;et f&#xF3;rum.';
+		$this->board_regfirst = 'Nem&#xE1;te povolen&#xED; prohl&#xED;&#x17E;et f&#xF3;rum. Mus&#xED;te se nejd&#x159;&#xED;v zaregistrovat.';
+		$this->board_replies = 'Odpov&#x11B;d&#xED;';
 		$this->board_stats = 'Statistiky';
-		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
-		$this->board_top_page = 'Go to the top of the page'; //Translate
-		$this->board_topics = 'Témat';
-		$this->board_users = 'Celkem uživatelù on-line:';
-		$this->board_write_topics = 'Mùžete prohlížet a vytváøet témata v tomto fóru.';
+		$this->board_stats_string = '%s u&#x17E;ivatel&#x16F; je registrov&#xE1;no. N&#xE1;&#x161; nejnov&#x11B;j&#x161;&#xED; &#x10D;len m&#xE1; p&#x159;ezd&#xED;vku %s.<br />Najdete zde %s t&#xE9;mat a %s odpov&#x11B;d&#xED;, celkem %s p&#x159;&#xED;sp&#x11B;vk&#x16F;.';
+		$this->board_top_page = 'P&#x159;ej&#xED;t nahoru na str&#xE1;nku';
+		$this->board_topics = 'T&#xE9;mat';
+		$this->board_users = 'u&#x17E;ivatel&#x16F; je on-line';
+		$this->board_write_topics = 'M&#x16F;&#x17E;ete prohl&#xED;&#x17E;et a vytv&#xE1;&#x159;et t&#xE9;mata v tomto f&#xF3;ru.';
 	}
 
 	function censoring()
 	{
-		$this->censor = 'Censor Words'; //Translate
-		$this->censor_one_per_line = 'One per line.'; //Translate
+		$this->censor = 'Cenzorovan&#xE1; slova';
+		$this->censor_one_per_line = 'Jedno na &#x159;&#xE1;dek.';
 		$this->censor_regex_allowed = 'Regular expressions are allowed. You can use a single * as a wildcard for one or more characters.'; //Translate
-		$this->censor_updated = 'Word list updated.'; //Translate
+		$this->censor_updated = 'Slovn&#xED;k byl aktualizov&#xE1;n.'; //Translate
 	}
 
 	function cp()
 	{
 		$this->cp_aim = 'AIM';
-		$this->cp_already_member = 'Vámi zadaná e-mailová adresa je již použita jiným èlenem..';
+		$this->cp_already_member = 'V&#xE1;mi zadan&#xE1; e-mailov&#xE1; adresa je ji&#x17E; pou&#x17E;ita jin&#xFD;m &#x10D;lenem..';
 		$this->cp_apr = 'Dubna';
 		$this->cp_aug = 'Srpna';
-		$this->cp_avatar_current = 'Stávající avatar';
-		$this->cp_avatar_error = 'Chybný avatar';
-		$this->cp_avatar_must_select = 'Musíte vybrat avatar.';
-		$this->cp_avatar_none = 'Nemá avatar';
-		$this->cp_avatar_pixels = 'pixelù';
+		$this->cp_avatar_current = 'St&#xE1;vaj&#xED;c&#xED; avatar';
+		$this->cp_avatar_error = 'Chybn&#xFD; avatar';
+		$this->cp_avatar_must_select = 'Mus&#xED;te vybrat avatar.';
+		$this->cp_avatar_none = 'Nem&#xE1; avatar';
+		$this->cp_avatar_pixels = 'pixel&#x16F;';
 		$this->cp_avatar_select = 'Vyberte avatar';
-		$this->cp_avatar_size_height = 'Avatar musí mít šíøku mezi 1 d';
-		$this->cp_avatar_size_width = 'Avatar musí mít výšku mezi 1 d';
-		$this->cp_avatar_upload = 'Nahrát avatara z Vašeho disku';
-		$this->cp_avatar_upload_failed = 'Chyba pøi nahrávání avatara. Soubour zøejmì neexistuje.';
-		$this->cp_avatar_upload_not_image = 'Mùžete nahrát jen avatar ?na be used for your avatar?.';
-		$this->cp_avatar_upload_too_large = 'Avatar je pøíliš velký. Maximální velikost je %d kilobytù.';
-		$this->cp_avatar_url = 'URL Vašeho avatara';
-		$this->cp_avatar_use = 'Použít nahraný avatar';
-		$this->cp_bday = 'Datum narození';
-		$this->cp_been_updated = 'Váš profil byl zmìnìn.';
-		$this->cp_been_updated1 = 'Váš avatar byl nahrán.';
-		$this->cp_been_updated_prefs = 'Nastavení bylo zmìnìno.';
-		$this->cp_changing_pass = 'Zmìnit heslo';
-		$this->cp_contact_pm = 'Umožnit ostatním uživatelùm, aby mi mohli zasílat soukromé zprávy';
-		$this->cp_cp = 'Nastavení';
-		$this->cp_current_avatar = 'Stávající avatar';
-		$this->cp_current_time = 'Nyní je %s.';
-		$this->cp_custom_title = 'Custom Member Title'; //Translate
-		$this->cp_custom_title2 = 'This is a privledge reserved for board administrators'; //Translate
+		$this->cp_avatar_size_height = 'Avatar mus&#xED; m&#xED;t &#x161;&#xED;&#x159;ku mezi 1 d';
+		$this->cp_avatar_size_width = 'Avatar mus&#xED; m&#xED;t v&#xFD;&#x161;ku mezi 1 d';
+		$this->cp_avatar_upload = 'Nahr&#xE1;t avatara z Va&#x161;eho disku';
+		$this->cp_avatar_upload_failed = 'Chyba p&#x159;i nahr&#xE1;v&#xE1;n&#xED; avatara. Soubour z&#x159;ejm&#x11B; neexistuje.';
+		$this->cp_avatar_upload_not_image = 'M&#x16F;&#x17E;ete nahr&#xE1;t jen avatar ?na be used for your avatar?.';
+		$this->cp_avatar_upload_too_large = 'Avatar je p&#x159;&#xED;li&#x161; velk&#xFD;. Maxim&#xE1;ln&#xED; velikost je %d kilobyt&#x16F;.';
+		$this->cp_avatar_url = 'URL Va&#x161;eho avatara';
+		$this->cp_avatar_use = 'Pou&#x17E;&#xED;t nahran&#xFD; avatar';
+		$this->cp_bday = 'Datum narozen&#xED;';
+		$this->cp_been_updated = 'V&#xE1;&#x161; profil byl zm&#x11B;n&#x11B;n.';
+		$this->cp_been_updated1 = 'V&#xE1;&#x161; avatar byl nahr&#xE1;n.';
+		$this->cp_been_updated_prefs = 'Nastaven&#xED; bylo zm&#x11B;n&#x11B;no.';
+		$this->cp_changing_pass = 'Zm&#x11B;nit heslo';
+		$this->cp_contact_pm = 'Umo&#x17E;nit ostatn&#xED;m u&#x17E;ivatel&#x16F;m, aby mi mohli zas&#xED;lat soukrom&#xE9; zpr&#xE1;vy';
+		$this->cp_cp = 'Nastaven&#xED;';
+		$this->cp_current_avatar = 'St&#xE1;vaj&#xED;c&#xED; avatar';
+		$this->cp_current_time = 'Nyn&#xED; je %s.';
+		$this->cp_custom_title = 'Osobn&#xED; titulek';
+		$this->cp_custom_title2 = 'Tato volba je p&#x159;&#xED;stupn&#xE1; jen administr&#xE1;tor&#x16F;m';
 		$this->cp_dec = 'Prosince';
-		$this->cp_editing_avatar = 'Zmìnit avatar';
-		$this->cp_editing_profile = 'Zmìnit profil';
+		$this->cp_editing_avatar = 'Zm&#x11B;nit avatar';
+		$this->cp_editing_profile = 'Zm&#x11B;nit profil';
 		$this->cp_email = 'E-mail';
-		$this->cp_email_form = 'Umožnit ostatním uživatelùm  kontaktovat mnì pøes e-mail';
-		$this->cp_email_invaid = 'Vámi vložená e-mailová adresa je neplatná.';
-		$this->cp_err_avatar = 'Chyba pøi nahrávání avatara';
-		$this->cp_err_updating = 'Chyba pøi zmìnì profilu';
-		$this->cp_feb = 'Února';
-		$this->cp_file_type = 'Vámi vložený avatar je neplatný. Ujistìte se že URL je ve správném tvaru, a formát obrázku je gif, jpg, nebo png.';
-		$this->cp_format = 'Jméno-pøezdívka';
-		$this->cp_gtalk = 'GTalk Account'; //Translate
-		$this->cp_header = 'Kontrolní panel uživatele';
-		$this->cp_height = 'Výška';
-		$this->cp_icq = 'ICQ (bez mezer, pomlèek, atd.).';
-		$this->cp_interest = 'Záliby';
+		$this->cp_email_form = 'Umo&#x17E;nit ostatn&#xED;m u&#x17E;ivatel&#x16F;m  kontaktovat mn&#x11B; p&#x159;es e-mail';
+		$this->cp_email_invaid = 'V&#xE1;mi vlo&#x17E;en&#xE1; e-mailov&#xE1; adresa je neplatn&#xE1;.';
+		$this->cp_err_avatar = 'Chyba p&#x159;i nahr&#xE1;v&#xE1;n&#xED; avatara';
+		$this->cp_err_updating = 'Chyba p&#x159;i zm&#x11B;n&#x11B; profilu';
+		$this->cp_feb = '&#xFA;nora';
+		$this->cp_file_type = 'V&#xE1;mi vlo&#x17E;en&#xFD; avatar je neplatn&#xFD;. Ujist&#x11B;te se &#x17E;e URL je ve spr&#xE1;vn&#xE9;m tvaru, a form&#xE1;t obr&#xE1;zku je gif, jpg, nebo png.';
+		$this->cp_format = 'Jm&#xE9;no-p&#x159;ezd&#xED;vka';
+		$this->cp_gtalk = 'GTalk &#xFA;&#x10D;et';
+		$this->cp_header = 'Kontroln&#xED; panel u&#x17E;ivatele';
+		$this->cp_height = 'V&#xFD;&#x161;ka';
+		$this->cp_icq = 'ICQ (bez mezer, poml&#x10D;ek, atd.).';
+		$this->cp_interest = 'Z&#xE1;liby';
 		$this->cp_jan = 'Ledna';
-		$this->cp_july = 'Èervence';
-		$this->cp_june = 'Èervna';
-		$this->cp_label_edit_avatar = 'Zmìnit avatar';
-		$this->cp_label_edit_pass = 'Zmìnit heslo';
-		$this->cp_label_edit_prefs = 'Zmìnit nastavení';
-		$this->cp_label_edit_profile = 'Zmìnit profil';
-		$this->cp_label_edit_sig = 'Edit Signature'; //Translate
-		$this->cp_label_edit_subs = 'Zmìnit zasílání infomailù';
+		$this->cp_july = '&#x10C;ervence';
+		$this->cp_june = '&#x10C;ervna';
+		$this->cp_label_edit_avatar = 'Zm&#x11B;nit avatar';
+		$this->cp_label_edit_pass = 'Zm&#x11B;nit heslo';
+		$this->cp_label_edit_prefs = 'Zm&#x11B;nit nastaven&#xED;';
+		$this->cp_label_edit_profile = 'Zm&#x11B;nit profil';
+		$this->cp_label_edit_sig = 'Zm&#x11B;nit podpis';
+		$this->cp_label_edit_subs = 'Zm&#x11B;nit zas&#xED;l&#xE1;n&#xED; infomail&#x16F;';
 		$this->cp_language = 'Jazyk';
-		$this->cp_less_charac = 'Vaše jméno mùže obsahovat max. 32 znakù.';
-		$this->cp_location = 'Mìsto';
-		$this->cp_login_first = 'Musíte být pøihlašeni, aby ste mohli používat kontrolní panel.';
-		$this->cp_mar = 'Bøezna';
-		$this->cp_may = 'Kvìtna';
+		$this->cp_less_charac = 'Va&#x161;e jm&#xE9;no m&#x16F;&#x17E;e obsahovat max. 32 znak&#x16F;.';
+		$this->cp_location = 'M&#x11B;sto';
+		$this->cp_login_first = 'Mus&#xED;te b&#xFD;t p&#x159;ihla&#x161;eni, aby ste mohli pou&#x17E;&#xED;vat kontroln&#xED; panel.';
+		$this->cp_mar = 'B&#x159;ezna';
+		$this->cp_may = 'Kv&#x11B;tna';
 		$this->cp_msn = 'MSN';
-		$this->cp_must_orig = 'Vaše jméno musí být stejné jako pùvodní. Mùžete jen zmìnit zpùsob jeho zobrazení (napø. pøidáním mezer atd.).';
-		$this->cp_new_notmatch = 'Vami zadané nové heslo je neplatné.';
-		$this->cp_new_pass = 'Nové heslo';
-		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
-		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
-		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
-		$this->cp_no_flash = 'Obrázky ve Flashi nejsou povoleny.';
-		$this->cp_not_exist = 'Špatnì zadaný datum (%s) !';
+		$this->cp_must_orig = 'Va&#x161;e jm&#xE9;no mus&#xED; b&#xFD;t stejn&#xE9; jako p&#x16F;vodn&#xED;. M&#x16F;&#x17E;ete jen zm&#x11B;nit zp&#x16F;sob jeho zobrazen&#xED; (nap&#x159;. p&#x159;id&#xE1;n&#xED;m mezer atd.).';
+		$this->cp_new_notmatch = 'Vami zadan&#xE9; nov&#xE9; heslo je neplatn&#xE9;.';
+		$this->cp_new_pass = 'Nov&#xE9; heslo';
+		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; // Translate
+		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; // Translate
+		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; // Translate
+		$this->cp_no_flash = 'Obr&#xE1;zky ve Flashi nejsou povoleny.';
+		$this->cp_not_exist = '&#x161;patn&#x11B; zadan&#xFD; datum (%s) !';
 		$this->cp_nov = 'Listopadu';
-		$this->cp_oct = 'Øíjna';
-		$this->cp_old_notmatch = 'Heslo nesouhlasí s heslem v databázi.';
-		$this->cp_old_pass = 'Staré heslo';
-		$this->cp_pass_notvaid = 'Vaše heslo je neplatné. Ujistìte se, že používaté jen platné znaky - písmena, èíslice, pomlèky, podrtžítka, nebo mezery.';
-		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
-		$this->cp_preferences = 'Zmìnit záliby';
-		$this->cp_preview_sig = 'Signature Preview:'; //Translate
-		$this->cp_privacy = 'Privátní volby';
-		$this->cp_repeat_pass = 'Zopakujte nové heslo';
-		$this->cp_sept = 'Záøí';
-		$this->cp_show_active = 'Být viditelný pro ostatní uživatele, pokud se pøihlasím na fórum';
-		$this->cp_show_email = 'Zobrazit mojí e-mailovou adresu v profilu';
+		$this->cp_oct = '&#x158;&#xED;jna';
+		$this->cp_old_notmatch = 'Heslo nesouhlas&#xED; s heslem v datab&#xE1;zi.';
+		$this->cp_old_pass = 'Star&#xE9; heslo';
+		$this->cp_pass_notvaid = 'Va&#x161;e heslo je neplatn&#xE9;. Ujist&#x11B;te se, &#x17E;e pou&#x17E;&#xED;vat&#xE9; jen platn&#xE9; znaky - p&#xED;smena, &#x10D;&#xED;slice, poml&#x10D;ky, podrt&#x17E;&#xED;tka, nebo mezery.';
+		$this->cp_posts_page = 'P&#x159;&#xED;sp&#x11B;vk&#x16F; na str&#xE1;nku. Zvolte 0 pro v&#xFD;choz&#xED; nastaven&#xED;.';
+		$this->cp_preferences = 'Zm&#x11B;nit z&#xE1;liby';
+		$this->cp_preview_sig = 'N&#xE1;hled podpisu:';
+		$this->cp_privacy = 'Priv&#xE1;tn&#xED; volby';
+		$this->cp_repeat_pass = 'Zopakujte nov&#xE9; heslo';
+		$this->cp_sept = 'Z&#xE1;&#x159;&#xED;';
+		$this->cp_show_active = 'B&#xFD;t viditeln&#xFD; pro ostatn&#xED; u&#x17E;ivatele, pokud se p&#x159;ihlas&#xED;m na f&#xF3;rum';
+		$this->cp_show_email = 'Zobrazit moj&#xED; e-mailovou adresu v profilu';
 		$this->cp_signature = 'Podpis';
-		$this->cp_size_max = 'Velikost avatara je pøíliš velká (max. %s na %s pixelù).';
-		$this->cp_skin = 'Vzhled fóra';
-		$this->cp_sub_change = 'Zmìnit zasílání infomailù';
+		$this->cp_size_max = 'Velikost avatara je p&#x159;&#xED;li&#x161; velk&#xE1; (max. %s na %s pixel&#x16F;).';
+		$this->cp_skin = 'Vzhled f&#xF3;ra';
+		$this->cp_sub_change = 'Zm&#x11B;nit zas&#xED;l&#xE1;n&#xED; infomail&#x16F;';
 		$this->cp_sub_delete = 'Smazat';
-		$this->cp_sub_expire = 'E-maily budou zásílany do';
-		$this->cp_sub_name = 'Název tématu';
-		$this->cp_sub_no_params = 'Žádné parametry nebyly zadány.';
-		$this->cp_sub_success = 'You are now subscribed to this %s.'; //Translate
+		$this->cp_sub_expire = 'E-maily budou z&#xE1;s&#xED;lany do';
+		$this->cp_sub_name = 'N&#xE1;zev t&#xE9;matu';
+		$this->cp_sub_no_params = '&#x17E;&#xE1;dn&#xE9; parametry nebyly zad&#xE1;ny.';
+		$this->cp_sub_success = 'Nyn&#xED; jste zaps&#xE1;ni k odb&#x11B;ru nov&#xFD;ch p&#x159;&#xED;sp&#x11B;vk&#x16F; z t&#xE9;matu %s.';
 		$this->cp_sub_type = 'Sekce';
-		$this->cp_sub_updated = 'Zasílaní informaèních e-mailù o tomto tématu bylo zrušeno.';
+		$this->cp_sub_updated = 'Zas&#xED;lan&#xED; informa&#x10D;n&#xED;ch e-mail&#x16F; o tomto t&#xE9;matu bylo zru&#x161;eno.';
 		$this->cp_topic_option = 'Zobrazovat';
-		$this->cp_topics_page = 'Topics per forum page. 0 resets to board default.'; //Translate
-		$this->cp_updated = 'Profil zmìnìn';
-		$this->cp_updated1 = 'Avatar zmìnìn';
-		$this->cp_updated_prefs = 'Nastavení zmìnìno';
-		$this->cp_user_exists = 'Uživatel s tímto jménem již existuje.';
-		$this->cp_valided = 'Vaše heslo bylo zmìnìno.';
-		$this->cp_view_avatar = 'obrázky';
-		$this->cp_view_emoticon = 'smajlíky';
+		$this->cp_topics_page = 'T&#xE9;mat na str&#xE1;nku. Zvolte 0 pro v&#xFD;choz&#xED; nastaven&#xED;.';
+		$this->cp_updated = 'Profil zm&#x11B;n&#x11B;n';
+		$this->cp_updated1 = 'Avatar zm&#x11B;n&#x11B;n';
+		$this->cp_updated_prefs = 'Nastaven&#xED; zm&#x11B;n&#x11B;no';
+		$this->cp_user_exists = 'U&#x17E;ivatel s t&#xED;mto jm&#xE9;nem ji&#x17E; existuje.';
+		$this->cp_valided = 'Va&#x161;e heslo bylo zm&#x11B;n&#x11B;no.';
+		$this->cp_view_avatar = 'obr&#xE1;zky';
+		$this->cp_view_emoticon = 'smajl&#xED;ci';
 		$this->cp_view_signature = 'podpisy';
-		$this->cp_welcome = 'Vítejte v ovládacím panelu pro registrované uživatele. Odtud mùžete mìnit Váš úèet. Prosím vyberte si z možností nahoøe.';
-		$this->cp_width = 'Šíøka';
-		$this->cp_www = 'WWW stránky';
+		$this->cp_welcome = 'V&#xED;tejte v ovl&#xE1;dac&#xED;m panelu pro registrovan&#xE9; u&#x17E;ivatele. Odtud m&#x16F;&#x17E;ete m&#x11B;nit V&#xE1;&#x161; &#xFA;&#x10D;et. Pros&#xED;m vyberte si z mo&#x17E;nost&#xED; naho&#x159;e.';
+		$this->cp_width = '&#x160;&#xED;&#x159;ka';
+		$this->cp_www = 'WWW str&#xE1;nky';
 		$this->cp_yahoo = 'Yahoo';
-		$this->cp_zone = 'Èasové pásmo';
+		$this->cp_zone = '&#x10C;asov&#xE9; p&#xE1;smo';
 	}
 
 	function email()
 	{
-		$this->email_blocked = 'Tento èlen neakceptuje pøijmutí e-mailových zpráv.';
+		$this->email_blocked = 'Tento &#x10D;len neakceptuje p&#x159;ijmut&#xED; e-mailov&#xFD;ch zpr&#xE1;v.';
 		$this->email_email = 'E-mail';
-		$this->email_msgtext = 'Zpráva:';
-		$this->email_no_fields = 'Vra?te se a ujistìte se, že jste vyplnili všechny údaje.';
-		$this->email_no_member = 'Pod tímto jménem nebyl nalezen žádný èlen';
-		$this->email_no_perm = 'Nemáte povolení posílat e-mailové zprávy v tomto fóru.';
-		$this->email_sent = 'E-mail byl odeslán.';
-		$this->email_subject = 'Pøedmìt:';
+		$this->email_msgtext = 'Zpr&#xE1;va:';
+		$this->email_no_fields = 'Vra?te se a ujist&#x11B;te se, &#x17E;e jste vyplnili v&#x161;echny &#xFA;daje.';
+		$this->email_no_member = 'Pod t&#xED;mto jm&#xE9;nem nebyl nalezen &#x17E;&#xE1;dn&#xFD; &#x10D;len';
+		$this->email_no_perm = 'Nem&#xE1;te povolen&#xED; pos&#xED;lat e-mailov&#xE9; zpr&#xE1;vy v tomto f&#xF3;ru.';
+		$this->email_sent = 'E-mail byl odesl&#xE1;n.';
+		$this->email_subject = 'P&#x159;edm&#x11B;t:';
 		$this->email_to = 'Pro:';
 	}
 
 	function emot_control()
 	{
-		$this->emote = 'Emoticons'; //Translate
-		$this->emote_add = 'Add Emoticons'; //Translate
-		$this->emote_added = 'Emoticon added.'; //Translate
-		$this->emote_clickable = 'Clickable'; //Translate
-		$this->emote_edit = 'Edit Emoticons'; //Translate
-		$this->emote_image = 'Image'; //Translate
-		$this->emote_install = 'Install Emoticons'; //Translate
+		$this->emote = 'Smajl&#xED;ci';
+		$this->emote_add = 'P&#x159;idat smajl&#xED;ka';
+		$this->emote_added = 'Smajl&#xED;k p&#x159;id&#xE1;n.';
+		$this->emote_clickable = 'Klikateln&#xFD;';
+		$this->emote_edit = 'Zm&#x11B;nit smajl&#xED;ka';
+		$this->emote_image = 'Obr&#xE1;zek';
+		$this->emote_install = 'Nainstalovat smajl&#xED;ky';
 		$this->emote_install_done = 'Emoticons have been successfully reinstalled.'; //Translate
 		$this->emote_install_warning = 'This will erase all existing emoticon settings and import uploaded emoticons from your currently selected skin into the database.'; //Translate
 		$this->emote_no_text = 'No emoticon text was given.'; //Translate
-		$this->emote_text = 'Text'; //Translate
+		$this->emote_text = 'Text';
 	}
 
 	function forum()
 	{
 		$this->forum_by = 'Od';
-		$this->forum_can_post = 'V tomto fóru mùžete odpovídat.';
-		$this->forum_can_topics = 'V tomto fóru mùžete prohlížet témata.';
-		$this->forum_cant_post = 'V tomto fóru nemùžete odpovídat. Prosím, zaregistrujte se.';
-		$this->forum_cant_topics = 'V tomto fóru nemùžete prohlížet témata. Prosím, zaregistrujte se.';
-		$this->forum_dot = 'teèka';
-		$this->forum_dot_detail = 'ukazuje, že jste v tomto fóru odpovídal(a)';
-		$this->forum_forum = 'Fórum';
+		$this->forum_can_post = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete odpov&#xED;dat.';
+		$this->forum_can_topics = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete prohl&#xED;&#x17E;et t&#xE9;mata.';
+		$this->forum_cant_post = 'V tomto f&#xF3;ru nem&#x16F;&#x17E;ete odpov&#xED;dat. Pros&#xED;m, zaregistrujte se.';
+		$this->forum_cant_topics = 'V tomto f&#xF3;ru nem&#x16F;&#x17E;ete prohl&#xED;&#x17E;et t&#xE9;mata. Pros&#xED;m, zaregistrujte se.';
+		$this->forum_dot = 'te&#x10D;ka';
+		$this->forum_dot_detail = 'ukazuje, &#x17E;e jste v tomto f&#xF3;ru odpov&#xED;dal(a)';
+		$this->forum_forum = 'F&#xF3;rum';
 		$this->forum_guest = 'Host';
 		$this->forum_hot = '"HOT"';
-		$this->forum_icon = 'Ikonka zprávy';
-		$this->forum_jump = 'Pøeskoèit na nejnovìjší pøíspìvek v tomto tématu.';
-		$this->forum_last = 'Poslední pøíspìvek';
+		$this->forum_icon = 'Ikonka zpr&#xE1;vy';
+		$this->forum_jump = 'P&#x159;esko&#x10D;it na nejnov&#x11B;j&#x161;&#xED; p&#x159;&#xED;sp&#x11B;vek v tomto t&#xE9;matu.';
+		$this->forum_last = 'Posledn&#xED; p&#x159;&#xED;sp&#x11B;vek';
 		$this->forum_locked = 'Zamknuto';
-		$this->forum_mark_read = 'Mark forum as read'; //Translate
-		$this->forum_moved = 'Pøesunuto';
-		$this->forum_msg = '%s Zpráva';
-		$this->forum_new = 'Nové';
-		$this->forum_new_poll = 'Vytvoøit nové téma s anketou';
-		$this->forum_new_topic = 'Vytvoøit nové téma';
-		$this->forum_no_topics = 'Ve fóru nejsou žádné pøíspìvky k zobrazení.';
-		$this->forum_noexist = 'Fórum neexistuje.';
-		$this->forum_nopost = 'Žádné pøíspìvky';
+		$this->forum_mark_read = 'Ozna&#x10D;it f&#xF3;rum jako p&#x159;e&#x10D;ten&#xE9;';
+		$this->forum_moved = 'P&#x159;esunuto';
+		$this->forum_msg = '%s Zpr&#xE1;va';
+		$this->forum_new = 'Nov&#xE9;';
+		$this->forum_new_poll = 'Vytvo&#x159;it nov&#xE9; t&#xE9;ma s anketou';
+		$this->forum_new_topic = 'Vytvo&#x159;it nov&#xE9; t&#xE9;ma';
+		$this->forum_no_topics = 'Ve f&#xF3;ru nejsou &#x17E;&#xE1;dn&#xE9; p&#x159;&#xED;sp&#x11B;vky k zobrazen&#xED;.';
+		$this->forum_noexist = 'F&#xF3;rum neexistuje.';
+		$this->forum_nopost = '&#x17E;&#xE1;dn&#xE9; p&#x159;&#xED;sp&#x11B;vky';
 		$this->forum_not = 'Ne';
-		$this->forum_noview = 'Nemáte opravnìní prohlížet fórum.';
-		$this->forum_pages = 'Pages'; //Translate
-		$this->forum_pinned = 'Dùležité';
-		$this->forum_pinned_topic = 'Zapinováné téma';
+		$this->forum_noview = 'Nem&#xE1;te opravn&#x11B;n&#xED; prohl&#xED;&#x17E;et f&#xF3;rum.';
+		$this->forum_pages = 'Str&#xE1;nky';
+		$this->forum_pinned = 'D&#x16F;le&#x17E;it&#xE9;';
+		$this->forum_pinned_topic = 'Zapinov&#xE1;n&#xE9; t&#xE9;ma';
 		$this->forum_poll = 'Anketa';
-		$this->forum_regfirst = 'Nemáte oprávnìní prohlížet fórum. Nejprve se musíte zaregistrovat.';
-		$this->forum_replies = 'Odpovìdí';
-		$this->forum_starter = 'Založil(a)';
-		$this->forum_sub = 'Sub-fórum';
-		$this->forum_sub_last_post = 'Poslední pøíspìvek';
-		$this->forum_sub_replies = 'Odpovìdí';
-		$this->forum_sub_topics = 'Témat';
-		$this->forum_subscribe = 'Informovat mnì e-mailem o nových pøíspìvcích';
-		$this->forum_topic = 'Téma';
-		$this->forum_views = 'Schlédnuto';
-		$this->forum_write_topics = 'V tomto fóru mùžete vytváøet témata.';
+		$this->forum_regfirst = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et f&#xF3;rum. Nejprve se mus&#xED;te zaregistrovat.';
+		$this->forum_replies = 'Odpov&#x11B;d&#xED;';
+		$this->forum_starter = 'Zalo&#x17E;il(a)';
+		$this->forum_sub = 'Sub-f&#xF3;rum';
+		$this->forum_sub_last_post = 'Posledn&#xED; p&#x159;&#xED;sp&#x11B;vek';
+		$this->forum_sub_replies = 'Odpov&#x11B;d&#xED;';
+		$this->forum_sub_topics = 'T&#xE9;mat';
+		$this->forum_subscribe = 'Informovat mn&#x11B; e-mailem o nov&#xFD;ch p&#x159;&#xED;sp&#x11B;vc&#xED;ch';
+		$this->forum_topic = 'T&#xE9;ma';
+		$this->forum_views = 'Schl&#xE9;dnuto';
+		$this->forum_write_topics = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete vytv&#xE1;&#x159;et t&#xE9;mata.';
 	}
 
 	function forums()
 	{
-		$this->forum_controls = 'Forum Controls'; //Translate
-		$this->forum_create = 'Create Forum'; //Translate
-		$this->forum_create_cat = 'Create a Category'; //Translate
-		$this->forum_created = 'Forum Created'; //Translate
-		$this->forum_default_perms = 'Default Permissions'; //Translate
-		$this->forum_delete = 'Delete Forum'; //Translate
+		$this->forum_controls = 'Nastevn&#xED; f&#xF3;ra';
+		$this->forum_create = 'Vytvo&#x159;it f&#xF3;rum';
+		$this->forum_create_cat = 'Vytvo&#x159;it kategorii';
+		$this->forum_created = 'F&#xF3;rum vytvo&#x159;eno';
+		$this->forum_default_perms = 'V&#xFD;choz&#xED; nastaven&#xED;';
+		$this->forum_delete = 'Smazat f&#xF3;rum';
 		$this->forum_delete_warning = 'Are you sure you want to delete this forum, its topics, and its posts?<br />This action cannot be reversed.'; //Translate
-		$this->forum_deleted = 'The forum has been deleted.'; //Translate
-		$this->forum_description = 'Description'; //Translate
-		$this->forum_edit = 'Edit Forum'; //Translate
-		$this->forum_edited = 'The forum was edited successfully.'; //Translate
+		$this->forum_deleted = 'F&#xF3;rum bylo smaz&#xE1;no.';
+		$this->forum_description = 'Popis';
+		$this->forum_edit = 'Editovat f&#xF3;rum';
+		$this->forum_edited = 'F&#xF3;rum bylo &#xFA;sp&#x11B;&#x161;n&#x11B; zm&#x11B;n&#x11B;no.';
 		$this->forum_empty = 'The forum name is empty. Please go back and enter a name.'; //Translate
 		$this->forum_is_subcat = 'This forum is a subcategory only.'; //Translate
-		$this->forum_name = 'Name'; //Translate
+		$this->forum_name = 'N&#xE1;zev';
 		$this->forum_no_orphans = 'You cannot orphan a forum by deleting its parent.'; //Translate
 		$this->forum_none = 'There are no forums to manipulate.'; //Translate
 		$this->forum_ordered = 'Forum Order Updated'; //Translate
@@ -461,7 +461,7 @@ class cs
 		$this->forum_quickperms = 'Quick Permissions'; //Translate
 		$this->forum_recount = 'Recount Topics and Replies'; //Translate
 		$this->forum_select_cat = 'Select an existing category to create a forum.'; //Translate
-		$this->forum_subcat = 'Subcategory'; //Translate
+		$this->forum_subcat = 'Podkategorie';
 	}
 
 	function groups()
@@ -494,7 +494,7 @@ class cs
 	{
 		$this->help_add = 'Add Help Article'; //Translate
 		$this->help_article = 'Help Article Control'; //Translate
-		$this->help_available_files = 'Nápovìda';
+		$this->help_available_files = 'N&#xE1;pov&#x11B;da';
 		$this->help_confirm = 'Are you sure you want to delete'; //Translate
 		$this->help_content = 'Article content'; //Translate
 		$this->help_delete = 'Delete Help Article'; //Translate
@@ -504,7 +504,7 @@ class cs
 		$this->help_inserted = 'Article inserted into the database.'; //Translate
 		$this->help_no_articles = 'No help articles were found in the database.'; //Translate
 		$this->help_no_title = 'You can\'t create a help article without a title.'; //Translate
-		$this->help_none = 'Databáze neobsahuje žádnou nápovìdu';
+		$this->help_none = 'Datab&#xE1;ze neobsahuje &#x17E;&#xE1;dnou n&#xE1;pov&#x11B;du';
 		$this->help_not_exist = 'That help article does not exist.'; //Translate
 		$this->help_select = 'Please select a help article to edit'; //Translate
 		$this->help_select_delete = 'Please select a help article to delete'; //Translate
@@ -519,39 +519,39 @@ class cs
 
 	function jsdata()
 	{
-		$this->jsdata_address = 'Enter an address'; //Translate
-		$this->jsdata_detail = 'Enter a description'; //Translate
-		$this->jsdata_smiles = 'Clickable Smilies'; //Translate
-		$this->jsdata_url = 'URL'; //Translate
+		$this->jsdata_address = 'Vlo&#x17E;te adresu';
+		$this->jsdata_detail = 'Vlo&#x17E;te popis';
+		$this->jsdata_smiles = 'Smajl&#xED;ci';
+		$this->jsdata_url = 'URL';
 	}
 
 	function jslang()
 	{
-		$this->jslang_avatar_size_height = 'Your avatar height must be between 1 and %d pixels'; //Translate
-		$this->jslang_avatar_size_width = 'Your avatar width must be between 1 and %d pixels'; //Translate
+		$this->jslang_avatar_size_height = '&#x161;&#xED;&#x159;ka va&#x161;eho avatara mus&#xED; b&#xFD;t mezi 1 a %d pixely';
+		$this->jslang_avatar_size_width = 'V&#xFD;&#x161;ka va&#x161;eho avatara mus&#xED; b&#xFD;t mezi 1 a %d pixely';
 	}
 
 	function login()
 	{
-		$this->login_cant_logged = 'Pøihlášení bylo neúspìšné. Zkontrolujte, že zadané jméno a heslo jsou správné.<br /><br />Aplikace rozeznává malá a velká písmena! \'hEsLo\' není \'heslo\'. Zkontrolujte si také, že máte ve svém prohlížeci povoleny Cookies.';
-		$this->login_cookies = 'Pro pøihlášení musí být ve Vašem prohlížeèi povoleny Cookies';
-		$this->login_forgot_pass = 'Zapomnìli jste heslo?';
-		$this->login_header = 'Pøihlášení';
-		$this->login_logged = 'Nyní jste pøihlášeni.';
-		$this->login_now_out = 'Nyní jste odhlášeni.';
-		$this->login_out = 'Odhlášení';
+		$this->login_cant_logged = 'P&#x159;ihl&#xE1;&#x161;en&#xED; bylo ne&#xFA;sp&#x11B;&#x161;n&#xE9;. Zkontrolujte, &#x17E;e zadan&#xE9; jm&#xE9;no a heslo jsou spr&#xE1;vn&#xE9;.<br /><br />Aplikace rozezn&#xE1;v&#xE1; mal&#xE1; a velk&#xE1; p&#xED;smena! \'hEsLo\' nen&#xED; \'heslo\'. Zkontrolujte si tak&#xE9;, &#x17E;e m&#xE1;te ve sv&#xE9;m prohl&#xED;&#x17E;eci povoleny Cookies.';
+		$this->login_cookies = 'Pro p&#x159;ihl&#xE1;&#x161;en&#xED; mus&#xED; b&#xFD;t ve Va&#x161;em prohl&#xED;&#x17E;e&#x10D;i povoleny Cookies';
+		$this->login_forgot_pass = 'Zapomn&#x11B;li jste heslo?';
+		$this->login_header = 'P&#x159;ihl&#xE1;&#x161;en&#xED;';
+		$this->login_logged = 'Nyn&#xED; jste p&#x159;ihl&#xE1;&#x161;eni.';
+		$this->login_now_out = 'Nyn&#xED; jste odhl&#xE1;&#x161;eni.';
+		$this->login_out = 'Odhl&#xE1;&#x161;en&#xED;';
 		$this->login_pass = 'Heslo';
-		$this->login_pass_no_id = 'Pod tímto jménem není registrován žádný uživatel.';
-		$this->login_pass_request = 'To complete the password reset, please click on the link sent to the email address associated with your account.'; //Translate
+		$this->login_pass_no_id = 'Pod t&#xED;mto jm&#xE9;nem nen&#xED; registrov&#xE1;n &#x17E;&#xE1;dn&#xFD; u&#x17E;ivatel.';
+		$this->login_pass_request = 'Pro obnoven&#xED; hesla klikn&#x11B;te na odkaz, kter&#xFD; v&#xE1;m byl zasl&#xE1;n na e-mail uveden&#xFD; p&#x159;i registraci.';
 		$this->login_pass_reset = 'Obnovit heslo';
-		$this->login_pass_sent = 'Vaše heslo bylo obnoveno. Nové heslo bylo odesláno na e-mailovou adresu, kterou jste zadali pøi pøi registraci Vašeho úètu.';
-		$this->login_sure = 'Jste si jisti, že se chcete odhlásit z \'%s\'?';
-		$this->login_user = 'Uživatelské jméno';
+		$this->login_pass_sent = 'Va&#x161;e heslo bylo obnoveno. Nov&#xE9; heslo bylo odesl&#xE1;no na e-mailovou adresu, kterou jste zadali p&#x159;i p&#x159;i registraci Va&#x161;eho &#xFA;&#x10D;tu.';
+		$this->login_sure = 'Jste si jisti, &#x17E;e se chcete odhl&#xE1;sit z \'%s\'?';
+		$this->login_user = 'U&#x17E;ivatelsk&#xE9; jm&#xE9;no';
 	}
 
 	function logs()
 	{
-		$this->logs_action = 'Action'; //Translate
+		$this->logs_action = 'Akce';
 		$this->logs_deleted_post = 'Deleted a post'; //Translate
 		$this->logs_deleted_topic = 'Deleted a topic'; //Translate
 		$this->logs_edited_post = 'Edited a post'; //Translate
@@ -574,39 +574,39 @@ class cs
 
 	function main()
 	{
-		$this->main_activate = 'Dosud jste neaktivovali Vaši registraci.';
-		$this->main_activate_resend = 'Poslat znovu aktivaèní E-mail';
+		$this->main_activate = 'Dosud jste neaktivovali Va&#x161;i registraci.';
+		$this->main_activate_resend = 'Poslat znovu aktiva&#x10D;n&#xED; e-mail';
 		$this->main_admincp = 'administrace';
-		$this->main_banned = 'Máte zakázáno prohlížet jakoukoli èást tohoto fóra.';
-		$this->main_code = 'Kód';
-		$this->main_cp = 'nastavení';
-		$this->main_full = 'Plné';
-		$this->main_help = 'nápovìda';
-		$this->main_load = 'zatížení';
-		$this->main_login = 'pøihlášení';
-		$this->main_logout = 'odhlášení';
-		$this->main_mark = 'mark all';
-		$this->main_mark1 = 'Mark all topics as read'; //Translate
-		$this->main_markforum_read = 'Mark forum as read'; //Translate
-		$this->main_max_load = 'Omlováme se, ale %s je v nyní nedostupné, protože server je pøetížen.';
-		$this->main_members = 'èlenové';
+		$this->main_banned = 'M&#xE1;te zak&#xE1;z&#xE1;no prohl&#xED;&#x17E;et jakoukoli &#x10D;&#xE1;st tohoto f&#xF3;ra.';
+		$this->main_code = 'K&#xF3;d';
+		$this->main_cp = 'nastaven&#xED;';
+		$this->main_full = 'Pln&#xE9;';
+		$this->main_help = 'n&#xE1;pov&#x11B;da';
+		$this->main_load = 'zat&#xED;&#x17E;en&#xED;';
+		$this->main_login = 'p&#x159;ihl&#xE1;sit';
+		$this->main_logout = 'odhl&#xE1;sit';
+		$this->main_mark = 'ozna&#x10D;it v&#x161;e';
+		$this->main_mark1 = 'Ozna&#x10D;it v&#x161;echna t&#xE9;mata jako p&#x159;e&#x10D;ten&#xE1;';
+		$this->main_markforum_read = 'Ozna&#x10D;it f&#xF3;rum jako p&#x159;e&#x10D;ten&#xE1;';
+		$this->main_max_load = 'Omlov&#xE1;me se, ale %s je v nyn&#xED; nedostupn&#xE9;, proto&#x17E;e server je p&#x159;et&#xED;&#x17E;en.';
+		$this->main_members = '&#x10D;lenov&#xE9;';
 		$this->main_messenger = 'messenger';
-		$this->main_new = 'nové';
-		$this->main_next = 'další';
-		$this->main_prev = 'pøedchozí';
-		$this->main_queries = 'požadavkù';
+		$this->main_new = 'nov&#xE9;';
+		$this->main_next = 'dal&#x161;&#xED;';
+		$this->main_prev = 'p&#x159;edchoz&#xED;';
+		$this->main_queries = 'po&#x17E;adavk&#x16F;';
 		$this->main_quote = 'Citovat';
-		$this->main_recent = 'recent posts';
-		$this->main_recent1 = 'View recent topics since your last visit'; //Translate
+		$this->main_recent = 'nov&#xE9; p&#x159;isp&#x11B;vky';
+		$this->main_recent1 = 'Zobrazit nov&#xE9; p&#x159;&#xED;sp&#x11B;vky od va&#x161;&#xED; posledn&#xED; n&#xE1;v&#x161;t&#x11B;vy';
 		$this->main_register = 'registrace';
-		$this->main_reminder = 'Upozornìní:';
-		$this->main_reminder_closed = 'Fórum je nyní uzavøeno, pøístupné jen administrátorùm.';
-		$this->main_said = 'øekl(a)';
+		$this->main_reminder = 'upozorn&#x11B;n&#xED;';
+		$this->main_reminder_closed = 'F&#xF3;rum je nyn&#xED; uzav&#x159;eno, p&#x159;&#xED;stupn&#xE9; jen administr&#xE1;tor&#x16F;m.';
+		$this->main_said = '&#x159;ekl(a)';
 		$this->main_search = 'hledat';
-		$this->main_topics_new = 'Ve fóru je nový pøíspìvek.';
-		$this->main_topics_old = 'Ve fóru nejsou žádné nové pøíspìvky.';
-		$this->main_welcome = 'Vítejte';
-		$this->main_welcome_guest = 'Vítejte!!';
+		$this->main_topics_new = 'Ve f&#xF3;ru je nov&#xFD; p&#x159;&#xED;sp&#x11B;vek.';
+		$this->main_topics_old = 'Ve f&#xF3;ru nejsou &#x17E;&#xE1;dn&#xE9; nov&#xE9; p&#x159;&#xED;sp&#x11B;vky.';
+		$this->main_welcome = 'V&#xED;tejte';
+		$this->main_welcome_guest = 'V&#xED;tejte!!';
 	}
 
 	function mass_mail()
@@ -672,89 +672,89 @@ class cs
 
 	function membercount()
 	{
-		$this->mcount = 'Fix Member Statistics'; //Translate
-		$this->mcount_updated = 'Member Count Updated.'; //Translate
+		$this->mcount = 'Opravit statistiky &#x10D;len&#x16F;';
+		$this->mcount_updated = 'Po&#x10D;et &#x10D;len&#x16F; byl aktualizov&#xE1;n.';
 	}
 
 	function members()
 	{
-		$this->members_all = 'všichni';
+		$this->members_all = 'v&#x161;ichni';
 		$this->members_email = 'E-mail';
-		$this->members_email_member = 'Poslat E-mail tomuto èlenovi';
+		$this->members_email_member = 'Poslat E-mail tomuto &#x10D;lenovi';
 		$this->members_group = 'Skupina';
-		$this->members_joined = 'Založeno';
-		$this->members_list = 'Seznam èlenù';
-		$this->members_member = 'Èlen';
-		$this->members_pm = 'Osobní zpráva';
-		$this->members_posts = 'Pøíspìvkù';
-		$this->members_send_pm = 'Poslat tomuto uživateli soukromou zprávu';
+		$this->members_joined = 'Zalo&#x17E;eno';
+		$this->members_list = 'Seznam &#x10D;len&#x16F;';
+		$this->members_member = '&#x10D;len';
+		$this->members_pm = 'Osobn&#xED; zpr&#xE1;va';
+		$this->members_posts = 'P&#x159;&#xED;sp&#x11B;vk&#x16F;';
+		$this->members_send_pm = 'Poslat tomuto u&#x17E;ivateli soukromou zpr&#xE1;vu';
 		$this->members_title = 'Titul';
-		$this->members_vist_www = 'Otevøít èlenovy www stránky';
+		$this->members_vist_www = 'Otev&#x159;&#xED;t &#x10D;lenovy www str&#xE1;nky';
 		$this->members_www = 'www';
 	}
 
 	function mod()
 	{
-		$this->mod_confirm_post_delete = 'Jste si jisti že chcete smazat tento pøíspìvek?';
-		$this->mod_confirm_topic_delete = 'Jste si jisti že chcete smazat toto téma?';
-		$this->mod_error_first_post = 'Nemùžete smazat první pøíspìvek v diskusi.';
-		$this->mod_error_move_category = 'Nemùžete pøesunout toto téma.';
-		$this->mod_error_move_create = 'You do not have permission to move topics to that forum.'; //Translate
-		$this->mod_error_move_forum = 'Nemùžete pøesunout téma do diskuse, která neexistuje.';
-		$this->mod_error_move_global = 'You cannot move a global topic. Edit the topic before moving it.'; //Translate
-		$this->mod_error_move_same = 'Nemùžete pøesunout téma do diskuse, ve které už je.';
-		$this->mod_label_controls = 'Úprava pøíspìvku';
+		$this->mod_confirm_post_delete = 'Jste si jisti &#x17E;e chcete smazat tento p&#x159;&#xED;sp&#x11B;vek?';
+		$this->mod_confirm_topic_delete = 'Jste si jisti &#x17E;e chcete smazat toto t&#xE9;ma?';
+		$this->mod_error_first_post = 'Nem&#x16F;&#x17E;ete smazat prvn&#xED; p&#x159;&#xED;sp&#x11B;vek v diskusi.';
+		$this->mod_error_move_category = 'Nem&#x16F;&#x17E;ete p&#x159;esunout toto t&#xE9;ma.';
+		$this->mod_error_move_create = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; p&#x159;esouvat t&#xE9;mata do tohoto f&#xF3;ra.';
+		$this->mod_error_move_forum = 'Nem&#x16F;&#x17E;ete p&#x159;esunout t&#xE9;ma do diskuse, kter&#xE1; neexistuje.';
+		$this->mod_error_move_global = 'Nem&#x16F;&#x17E;ete p&#x159;esunout glob&#xE1;ln&#xED; t&#xE9;ma. Upravte toto t&#xE9;ma p&#x159;ed p&#x159;esunut&#xED;m.';
+		$this->mod_error_move_same = 'Nem&#x16F;&#x17E;ete p&#x159;esunout t&#xE9;ma do diskuse, ve kter&#xE9; u&#x17E; je.';
+		$this->mod_label_controls = '&#xFA;prava p&#x159;&#xED;sp&#x11B;vku';
 		$this->mod_label_description = 'Popis';
-		$this->mod_label_emoticon = 'Pøevést textové "smajlíky" na obrázkové?';
-		$this->mod_label_global = 'Všeobecné téma';
-		$this->mod_label_mbcode = 'Zformátovat MbCodem?';
-		$this->mod_label_move_to = 'Pøesunout do';
+		$this->mod_label_emoticon = 'P&#x159;ev&#xE9;st textov&#xE9; "smajl&#xED;ky" na obr&#xE1;zkov&#xE9;?';
+		$this->mod_label_global = 'V&#x161;eobecn&#xE9; t&#xE9;ma';
+		$this->mod_label_mbcode = 'Zform&#xE1;tovat MbCodem?';
+		$this->mod_label_move_to = 'P&#x159;esunout do';
 		$this->mod_label_options = 'Volby';
-		$this->mod_label_post_delete = 'Smazat pøíspìvek';
-		$this->mod_label_post_edit = 'Editovat pøíspìvek';
-		$this->mod_label_post_icon = 'Post Icon'; //Translate
+		$this->mod_label_post_delete = 'Smazat p&#x159;&#xED;sp&#x11B;vek';
+		$this->mod_label_post_edit = 'Editovat p&#x159;&#xED;sp&#x11B;vek';
+		$this->mod_label_post_icon = 'Ikonka p&#x159;&#xED;sp&#x11B;vku';
 		$this->mod_label_publish = 'Publishing'; //Translate
-		$this->mod_label_title = 'Název';
-		$this->mod_label_title_original = 'Pùvodní název';
-		$this->mod_label_title_split = 'Spojit témata';
-		$this->mod_label_topic_delete = 'Smazat téma';
-		$this->mod_label_topic_edit = 'Editovat téma';
-		$this->mod_label_topic_lock = 'Zamknout téma';
-		$this->mod_label_topic_move = 'Pøesunout téma';
-		$this->mod_label_topic_move_complete = 'Pøesunout célé téma do nové diskuse';
-		$this->mod_label_topic_move_link = 'Pøesunou téma do nové diskuse, a nechat na nìj odkaz ve staré diskusi.';
-		$this->mod_label_topic_pin = 'Zvýraznit téma';
-		$this->mod_label_topic_split = 'Spojit témata';
-		$this->mod_missing_post = 'Zadaný pøíspìvìk neexistuje.';
-		$this->mod_missing_topic = 'Zadané téma neexistuje.';
-		$this->mod_no_action = 'Musíte zvolit úkol.';
-		$this->mod_no_post = 'Musíte zvolit pøíspìvek.';
-		$this->mod_no_topic = 'Musíte zvolit téma..';
-		$this->mod_perm_post_delete = 'Nemáte oprávnìní mazat pøíspìvky.';
-		$this->mod_perm_post_edit = 'Nemáte oprávnìní editovat pøíspìvky.';
+		$this->mod_label_title = 'N&#xE1;zev';
+		$this->mod_label_title_original = 'P&#x16F;vodn&#xED; n&#xE1;zev';
+		$this->mod_label_title_split = 'Spojit t&#xE9;mata';
+		$this->mod_label_topic_delete = 'Smazat t&#xE9;ma';
+		$this->mod_label_topic_edit = 'Editovat t&#xE9;ma';
+		$this->mod_label_topic_lock = 'Zamknout t&#xE9;ma';
+		$this->mod_label_topic_move = 'P&#x159;esunout t&#xE9;ma';
+		$this->mod_label_topic_move_complete = 'P&#x159;esunout c&#xE9;l&#xE9; t&#xE9;ma do nov&#xE9; diskuse';
+		$this->mod_label_topic_move_link = 'P&#x159;esunou t&#xE9;ma do nov&#xE9; diskuse, a nechat na n&#x11B;j odkaz ve star&#xE9; diskusi.';
+		$this->mod_label_topic_pin = 'Zv&#xFD;raznit t&#xE9;ma';
+		$this->mod_label_topic_split = 'Spojit t&#xE9;mata';
+		$this->mod_missing_post = 'Zadan&#xFD; p&#x159;&#xED;sp&#x11B;v&#x11B;k neexistuje.';
+		$this->mod_missing_topic = 'Zadan&#xE9; t&#xE9;ma neexistuje.';
+		$this->mod_no_action = 'Mus&#xED;te zvolit &#xFA;kol.';
+		$this->mod_no_post = 'Mus&#xED;te zvolit p&#x159;&#xED;sp&#x11B;vek.';
+		$this->mod_no_topic = 'Mus&#xED;te zvolit t&#xE9;ma..';
+		$this->mod_perm_post_delete = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; mazat p&#x159;&#xED;sp&#x11B;vky.';
+		$this->mod_perm_post_edit = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; editovat p&#x159;&#xED;sp&#x11B;vky.';
 		$this->mod_perm_publish = 'You do not have permission to publish this topic.'; //Translate
-		$this->mod_perm_topic_delete = 'Nemáte oprávnìní mazat toto téma.';
-		$this->mod_perm_topic_edit = 'Nemáte oprávnìní editovat toto téma.';
-		$this->mod_perm_topic_lock = 'Nemáte oprávnìní zamknout toto téma.';
-		$this->mod_perm_topic_move = 'Nemáte oprávnìní pøesunout toto téma.';
-		$this->mod_perm_topic_pin = 'Nemáte oprávnìní zvýraznit toto téma.';
-		$this->mod_perm_topic_split = 'Nemáte oprávnìní spojit tato témata.';
-		$this->mod_perm_topic_unlock = 'Nemáte oprávnìní odemknout toto téma.';
-		$this->mod_perm_topic_unpin = 'Nemáte oprávnìní odpinovat toto téma.';
-		$this->mod_success_post_delete = 'Pøíspìvek byl úspìšnì smazán.';
-		$this->mod_success_post_edit = 'Pøíspìvìk byl úspìšnì zmìnìn.';
+		$this->mod_perm_topic_delete = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; mazat toto t&#xE9;ma.';
+		$this->mod_perm_topic_edit = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; editovat toto t&#xE9;ma.';
+		$this->mod_perm_topic_lock = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; zamknout toto t&#xE9;ma.';
+		$this->mod_perm_topic_move = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; p&#x159;esunout toto t&#xE9;ma.';
+		$this->mod_perm_topic_pin = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; zv&#xFD;raznit toto t&#xE9;ma.';
+		$this->mod_perm_topic_split = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; spojit tato t&#xE9;mata.';
+		$this->mod_perm_topic_unlock = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; odemknout toto t&#xE9;ma.';
+		$this->mod_perm_topic_unpin = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; odpinovat toto t&#xE9;ma.';
+		$this->mod_success_post_delete = 'P&#x159;&#xED;sp&#x11B;vek byl &#xFA;sp&#x11B;&#x161;n&#x11B; smaz&#xE1;n.';
+		$this->mod_success_post_edit = 'P&#x159;&#xED;sp&#x11B;v&#x11B;k byl &#xFA;sp&#x11B;&#x161;n&#x11B; zm&#x11B;n&#x11B;n.';
 		$this->mod_success_publish = 'This topic was successfully published.'; //Translate
-		$this->mod_success_split = 'Témata byly úspìšnì spojeny.';
-		$this->mod_success_topic_delete = 'Téma bylo úspìšnì smazáno.';
-		$this->mod_success_topic_edit = 'Téma bylo úspìšnì zmìnìno.';
-		$this->mod_success_topic_move = 'Téma bylo úspìšnì pøesunuto do nové diskuse.';
+		$this->mod_success_split = 'T&#xE9;mata byly &#xFA;sp&#x11B;&#x161;n&#x11B; spojeny.';
+		$this->mod_success_topic_delete = 'T&#xE9;ma bylo &#xFA;sp&#x11B;&#x161;n&#x11B; smaz&#xE1;no.';
+		$this->mod_success_topic_edit = 'T&#xE9;ma bylo &#xFA;sp&#x11B;&#x161;n&#x11B; zm&#x11B;n&#x11B;no.';
+		$this->mod_success_topic_move = 'T&#xE9;ma bylo &#xFA;sp&#x11B;&#x161;n&#x11B; p&#x159;esunuto do nov&#xE9; diskuse.';
 		$this->mod_success_unpublish = 'This topic has been removed from the published list.'; //Translate
 	}
 
 	function optimize()
 	{
-		$this->optimize = 'Optimize Database'; //Translate
-		$this->optimized = 'The tables in the database have been optimized for maximum performance.'; //Translate
+		$this->optimize = 'Optimalizovat datab&#xE1;zi';
+		$this->optimized = 'Tabulky v datab&#xE1;zi byly optimalizovan&#xE9; pro maxim&#xE1;ln&#xED; v&#xFD;kon.';
 	}
 
 	function perms()
@@ -817,123 +817,123 @@ class cs
 
 	function php_info()
 	{
-		$this->php_error = 'Error'; //Translate
+		$this->php_error = 'Chyba';
 		$this->php_error_msg = 'phpinfo() can not be executed. It appears that your host has disabled this feature.'; //Translate
 	}
 
 	function pm()
 	{
-		$this->pm_avatar = 'Avatar'; //Translate
-		$this->pm_cant_del = 'Nemáte oprávnìní smazat tuto zprávu.';
-		$this->pm_delallmsg = 'Smazat všechny zprávy';
+		$this->pm_avatar = 'Avatar';
+		$this->pm_cant_del = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; smazat tuto zpr&#xE1;vu.';
+		$this->pm_delallmsg = 'Smazat v&#x161;echny zpr&#xE1;vy';
 		$this->pm_delete = 'Smazat';
-		$this->pm_delete_selected = 'Delete Selected Messages'; //Translate
-		$this->pm_deleted = 'Zpráva smazána.';
-		$this->pm_deleted_all = 'Zprávy smazány.';
+		$this->pm_delete_selected = 'Smazat ozna&#x10D;en&#xE9; zpr&#xE1;vy';
+		$this->pm_deleted = 'Zpr&#xE1;va smaz&#xE1;na.';
+		$this->pm_deleted_all = 'Zpr&#xE1;vy smaz&#xE1;ny.';
 		$this->pm_error = 'There were problems sending your message to some of the recipients.<br /><br />The following members do not exist: %s<br /><br />The following members are not accepting personal messages: %s'; //Translate
-		$this->pm_fields = 'Zpráva nemohla bý odeslána. Ujistìte se, že jste vyplnili všechny povinné údaje.';
+		$this->pm_fields = 'Zpr&#xE1;va nemohla b&#xFD; odesl&#xE1;na. Ujist&#x11B;te se, &#x17E;e jste vyplnili v&#x161;echny povinn&#xE9; &#xFA;daje.';
 		$this->pm_flood = 'You have sent a message in the past %s seconds, and you may not send another right now.<br /><br />Please try again in a few seconds.'; //Translate
-		$this->pm_folder_inbox = 'Schránka';
-		$this->pm_folder_new = '%s nové';
+		$this->pm_folder_inbox = 'Schr&#xE1;nka';
+		$this->pm_folder_new = '%s nov&#xE9;';
 		$this->pm_folder_sentbox = 'Sent';
 		$this->pm_from = 'Od';
 		$this->pm_group = 'Skupina';
-		$this->pm_guest = 'Jako HOST nemùžete používat Messenger. Prosím pøihlašte se nebo se zaregistrujte.';
-		$this->pm_joined = 'Založeno';
-		$this->pm_messenger = 'Messenger'; //Translate
-		$this->pm_msgtext = 'Text zprávy';
-		$this->pm_multiple = 'Separate multiple recipients with ;'; //Translate
-		$this->pm_no_folder = 'Musíte vybrat adresáø.';
-		$this->pm_no_member = 'Žádný èlen nebyl nalezen pod tímto ID.';
-		$this->pm_no_number = 'Žádná zpráva nebyla nalezena pod tímto èíslem.';
-		$this->pm_no_title = 'Žádný pøedmìt';
-		$this->pm_nomsg = 'V této složce nejsou žádné zprávy.';
-		$this->pm_noview = 'Nemáte oprávnìní prohlížet tuto zprávu.';
-		$this->pm_offline = 'This member is currently offline'; //Translate
-		$this->pm_online = 'This member is currently online'; //Translate
-		$this->pm_personal = 'Osobní Messenger';
-		$this->pm_personal_msging = 'Osobní Messaging';
-		$this->pm_pm = 'Soukromá zpráva';
-		$this->pm_posts = 'Pøíspìvkù';
-		$this->pm_preview = 'Preview'; //Translate
-		$this->pm_recipients = 'Recipients'; //Translate
-		$this->pm_reply = 'Odpovìï';
+		$this->pm_guest = 'Jako HOST nem&#x16F;&#x17E;ete pou&#x17E;&#xED;vat Messenger. Pros&#xED;m p&#x159;ihla&#x161;te se nebo se zaregistrujte.';
+		$this->pm_joined = 'Zalo&#x17E;eno';
+		$this->pm_messenger = 'Messenger';
+		$this->pm_msgtext = 'Text zpr&#xE1;vy';
+		$this->pm_multiple = 'V&#xED;ce p&#x159;&#xED;jemc&#x16F; mezi sebou odd&#x11B;lte st&#x159;edn&#xED;kem - ;';
+		$this->pm_no_folder = 'Mus&#xED;te vybrat adres&#xE1;&#x159;.';
+		$this->pm_no_member = '&#x17E;&#xE1;dn&#xFD; &#x10D;len nebyl nalezen pod t&#xED;mto ID.';
+		$this->pm_no_number = '&#x17E;&#xE1;dn&#xE1; zpr&#xE1;va nebyla nalezena pod t&#xED;mto &#x10D;&#xED;slem.';
+		$this->pm_no_title = '&#x17E;&#xE1;dn&#xFD; p&#x159;edm&#x11B;t';
+		$this->pm_nomsg = 'V t&#xE9;to slo&#x17E;ce nejsou &#x17E;&#xE1;dn&#xE9; zpr&#xE1;vy.';
+		$this->pm_noview = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et tuto zpr&#xE1;vu.';
+		$this->pm_offline = 'Tento &#x10D;len je nyn&#xED; nep&#x159;&#xED;tomen';
+		$this->pm_online = 'Tento &#x10D;len je nyn&#xED; p&#x159;&#xED;tomen';
+		$this->pm_personal = 'Osobn&#xED; Messenger';
+		$this->pm_personal_msging = 'Osobn&#xED; Messaging';
+		$this->pm_pm = 'Soukrom&#xE1; zpr&#xE1;va';
+		$this->pm_posts = 'P&#x159;&#xED;sp&#x11B;vk&#x16F;';
+		$this->pm_preview = 'N&#xE1;hled';
+		$this->pm_recipients = 'P&#x159;&#xED;jemci';
+		$this->pm_reply = 'Odpov&#x11B;&#x10F;';
 		$this->pm_send = 'Poslat';
-		$this->pm_sendamsg = 'Poslat privátní zprávu';
-		$this->pm_sendingpm = 'Poslat privátní zprávu';
-		$this->pm_sendon = 'Posláno';
-		$this->pm_success = 'Vaše zpráva byla úspìšnì odeslána.';
-		$this->pm_sure_del = 'Jste si jisti, že chcete smazat tuto zprávu?';
-		$this->pm_sure_delall = 'Jste si jisti, že chcete smazat všechny zprávy v této složce?';
-		$this->pm_title = 'Pøedmìt';
+		$this->pm_sendamsg = 'Poslat priv&#xE1;tn&#xED; zpr&#xE1;vu';
+		$this->pm_sendingpm = 'Poslat priv&#xE1;tn&#xED; zpr&#xE1;vu';
+		$this->pm_sendon = 'Posl&#xE1;no';
+		$this->pm_success = 'Va&#x161;e zpr&#xE1;va byla &#xFA;sp&#x11B;&#x161;n&#x11B; odesl&#xE1;na.';
+		$this->pm_sure_del = 'Jste si jisti, &#x17E;e chcete smazat tuto zpr&#xE1;vu?';
+		$this->pm_sure_delall = 'Jste si jisti, &#x17E;e chcete smazat v&#x161;echny zpr&#xE1;vy v t&#xE9;to slo&#x17E;ce?';
+		$this->pm_title = 'P&#x159;edm&#x11B;t';
 		$this->pm_to = 'Pro';
 	}
 
 	function post()
 	{
-		$this->post_attach = 'Pøílohy';
-		$this->post_attach_add = 'Pøidat pøílohu';
-		$this->post_attach_disrupt = 'Pøidáním nebo odebráním pøílohy nenarušíte Váš pøíspìvek.';
-		$this->post_attach_failed = 'Chyba pøi náhrávání pøílohy. Soubor neexistuje.';
-		$this->post_attach_not_allowed = 'Nemùžete pøiložit soubor tohoto typu.';
-		$this->post_attach_remove = 'Odstranit pøílohu';
-		$this->post_attach_too_large = 'Pøíloha je pøíliš velká (max. %d KB).';
-		$this->post_cant_create = 'Jako host nemáte oprávnìní vytváøet témata. Prosím pøihlašte se nebo se zaregistrujte.';
-		$this->post_cant_create1 = 'Nemáte oprávnìní vytváøet témata.';
-		$this->post_cant_enter = 'Váš hlas nemohl být zapoèítán. buï ste již hlasovali, or nemáte oprávnìní hlasovat.';
-		$this->post_cant_poll = 'Jako host nemáte oprávnìní vytváøet téma s anketou. Prosím pøihlašte se nebo se zaregistrujte.';
-		$this->post_cant_poll1 = 'Nemáte oprávnìní vytváøet téma s anketou.';
-		$this->post_cant_reply = 'Nemáte oprávnìní odpovídat na téma v této diskusi.';
-		$this->post_cant_reply1 = 'Jako host nemáte oprávnìní odpovídat na témata. Musíte být zaregistrováni, abyste mohli zasílat pøíspìvky.';
-		$this->post_cant_reply2 = 'Nemáte oprávnìní odpovídat na témata.';
-		$this->post_closed = 'Toto téma bylo zavøeno.';
-		$this->post_create_poll = 'Vytvoøit téma s anketou';
-		$this->post_create_topic = 'Vytvoøit téma';
-		$this->post_creating = 'Vytvoøit téma';
-		$this->post_creating_poll = 'Vytvoøit téma s anketou';
-		$this->post_flood = 'Odpovídal(a) jste v pøedešlých  %s vteøinách, nyní ještì nemùžete odeslat další pøíspìvek.<br /><br />Prosím zkuste to za nìkolik vteøin.';
+		$this->post_attach = 'P&#x159;&#xED;lohy';
+		$this->post_attach_add = 'P&#x159;idat p&#x159;&#xED;lohu';
+		$this->post_attach_disrupt = 'P&#x159;id&#xE1;n&#xED;m nebo odebr&#xE1;n&#xED;m p&#x159;&#xED;lohy nenaru&#x161;&#xED;te V&#xE1;&#x161; p&#x159;&#xED;sp&#x11B;vek.';
+		$this->post_attach_failed = 'Chyba p&#x159;i n&#xE1;hr&#xE1;v&#xE1;n&#xED; p&#x159;&#xED;lohy. Soubor neexistuje.';
+		$this->post_attach_not_allowed = 'Nem&#x16F;&#x17E;ete p&#x159;ilo&#x17E;it soubor tohoto typu.';
+		$this->post_attach_remove = 'Odstranit p&#x159;&#xED;lohu';
+		$this->post_attach_too_large = 'P&#x159;&#xED;loha je p&#x159;&#xED;li&#x161; velk&#xE1; (max. %d KB).';
+		$this->post_cant_create = 'Jako host nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; vytv&#xE1;&#x159;et t&#xE9;mata. Pros&#xED;m p&#x159;ihla&#x161;te se nebo se zaregistrujte.';
+		$this->post_cant_create1 = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; vytv&#xE1;&#x159;et t&#xE9;mata.';
+		$this->post_cant_enter = 'V&#xE1;&#x161; hlas nemohl b&#xFD;t zapo&#x10D;&#xED;t&#xE1;n. bu&#x10F; ste ji&#x17E; hlasovali, or nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; hlasovat.';
+		$this->post_cant_poll = 'Jako host nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; vytv&#xE1;&#x159;et t&#xE9;ma s anketou. Pros&#xED;m p&#x159;ihla&#x161;te se nebo se zaregistrujte.';
+		$this->post_cant_poll1 = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; vytv&#xE1;&#x159;et t&#xE9;ma s anketou.';
+		$this->post_cant_reply = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; odpov&#xED;dat na t&#xE9;ma v t&#xE9;to diskusi.';
+		$this->post_cant_reply1 = 'Jako host nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; odpov&#xED;dat na t&#xE9;mata. Mus&#xED;te b&#xFD;t zaregistrov&#xE1;ni, abyste mohli zas&#xED;lat p&#x159;&#xED;sp&#x11B;vky.';
+		$this->post_cant_reply2 = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; odpov&#xED;dat na t&#xE9;mata.';
+		$this->post_closed = 'Toto t&#xE9;ma bylo zav&#x159;eno.';
+		$this->post_create_poll = 'Vytvo&#x159;it t&#xE9;ma s anketou';
+		$this->post_create_topic = 'Vytvo&#x159;it t&#xE9;ma';
+		$this->post_creating = 'Vytvo&#x159;it t&#xE9;ma';
+		$this->post_creating_poll = 'Vytvo&#x159;it t&#xE9;ma s anketou';
+		$this->post_flood = 'Odpov&#xED;dal(a) jste v p&#x159;ede&#x161;l&#xFD;ch  %s vte&#x159;in&#xE1;ch, nyn&#xED; je&#x161;t&#x11B; nem&#x16F;&#x17E;ete odeslat dal&#x161;&#xED; p&#x159;&#xED;sp&#x11B;vek.<br /><br />Pros&#xED;m zkuste to za n&#x11B;kolik vte&#x159;in.';
 		$this->post_guest = 'Host';
-		$this->post_icon = 'Ikonka tématu';
-		$this->post_last_five = 'Posledních 5 pøíspìvkù';
-		$this->post_length = 'Zkontrolovat délku';
-		$this->post_msg = 'Zpráva';
-		$this->post_must_msg = 'Musíte napsat nìjaký text, když chcete založit nové téma.';
-		$this->post_must_options = 'Musíte urèit volby, když chtete založit nové téma s anketou.';
-		$this->post_must_title = 'Musíte vložit název nového tématu, když ho chcete založit.';
-		$this->post_new_poll = 'Nová anketa';
-		$this->post_new_topic = 'Nové téma';
-		$this->post_no_forum = 'Žádné téma nebylo nalezeno.';
-		$this->post_no_topic = 'Žádné téma nebylo vybráno.';
-		$this->post_no_vote = 'Musíte vybrat možnosti hlasování pro anketu.';
-		$this->post_option_emoticons = 'Pøevést textové "smajlíky" na obrázkové?';
-		$this->post_option_global = 'Udìlat toto téma globálním?';
-		$this->post_option_mbcode = 'Formátovat MbCodem? (doporuèeno)';
-		$this->post_optional = 'volitelné';
+		$this->post_icon = 'Ikonka t&#xE9;matu';
+		$this->post_last_five = 'Posledn&#xED;ch 5 p&#x159;&#xED;sp&#x11B;vk&#x16F;';
+		$this->post_length = 'Zkontrolovat d&#xE9;lku';
+		$this->post_msg = 'Zpr&#xE1;va';
+		$this->post_must_msg = 'Mus&#xED;te napsat n&#x11B;jak&#xFD; text, kdy&#x17E; chcete zalo&#x17E;it nov&#xE9; t&#xE9;ma.';
+		$this->post_must_options = 'Mus&#xED;te ur&#x10D;it volby, kdy&#x17E; chtete zalo&#x17E;it nov&#xE9; t&#xE9;ma s anketou.';
+		$this->post_must_title = 'Mus&#xED;te vlo&#x17E;it n&#xE1;zev nov&#xE9;ho t&#xE9;matu, kdy&#x17E; ho chcete zalo&#x17E;it.';
+		$this->post_new_poll = 'Nov&#xE1; anketa';
+		$this->post_new_topic = 'Nov&#xE9; t&#xE9;ma';
+		$this->post_no_forum = '&#x17E;&#xE1;dn&#xE9; t&#xE9;ma nebylo nalezeno.';
+		$this->post_no_topic = '&#x17E;&#xE1;dn&#xE9; t&#xE9;ma nebylo vybr&#xE1;no.';
+		$this->post_no_vote = 'Mus&#xED;te vybrat mo&#x17E;nosti hlasov&#xE1;n&#xED; pro anketu.';
+		$this->post_option_emoticons = 'P&#x159;ev&#xE9;st textov&#xE9; "smajl&#xED;ky" na obr&#xE1;zkov&#xE9;?';
+		$this->post_option_global = 'Ud&#x11B;lat toto t&#xE9;ma glob&#xE1;ln&#xED;m?';
+		$this->post_option_mbcode = 'Form&#xE1;tovat MbCodem? (doporu&#x10D;eno)';
+		$this->post_optional = 'voliteln&#xE9;';
 		$this->post_options = 'Volby';
 		$this->post_poll_options = 'Volby ankety';
-		$this->post_poll_row = 'Jedna možnost na každý øádek';
-		$this->post_posted = 'Posláno';
-		$this->post_posting = 'Zapoèítáno';
-		$this->post_preview = 'Náhled';
+		$this->post_poll_row = 'Jedna mo&#x17E;nost na ka&#x17E;d&#xFD; &#x159;&#xE1;dek';
+		$this->post_posted = 'Posl&#xE1;no';
+		$this->post_posting = 'Zapo&#x10D;&#xED;t&#xE1;no';
+		$this->post_preview = 'N&#xE1;hled';
 		$this->post_reply = 'Odeslat';
-		$this->post_reply_topic = 'Odpovìdìt na téma';
-		$this->post_replying = 'Odpovìdìt na téma';
-		$this->post_replying1 = 'Odpovìdìt';
-		$this->post_too_many_options = 'Musí být mezi 2 a %d volbami k hlasování.';
-		$this->post_topic_detail = 'Popis tématu';
-		$this->post_topic_title = 'Název tématu';
-		$this->post_view_topic = 'Prohlédnout celé téma';
-		$this->post_voting = 'Hlasování';
+		$this->post_reply_topic = 'Odpov&#x11B;d&#x11B;t na t&#xE9;ma';
+		$this->post_replying = 'Odpov&#x11B;d&#x11B;t na t&#xE9;ma';
+		$this->post_replying1 = 'Odpov&#x11B;d&#x11B;t';
+		$this->post_too_many_options = 'Mus&#xED; b&#xFD;t mezi 2 a %d volbami k hlasov&#xE1;n&#xED;.';
+		$this->post_topic_detail = 'Popis t&#xE9;matu';
+		$this->post_topic_title = 'N&#xE1;zev t&#xE9;matu';
+		$this->post_view_topic = 'Prohl&#xE9;dnout cel&#xE9; t&#xE9;ma';
+		$this->post_voting = 'Hlasov&#xE1;n&#xED;';
 	}
 
 	function printer()
 	{
-		$this->printer_back = 'Zpìt';
-		$this->printer_not_found = 'Téma  nebylo nalezeno. Buï bylo smazáno, pøesunuto, nebo neexistuje.';
-		$this->printer_not_found_title = 'Téma nenalezeno';
-		$this->printer_perm_topics = 'Nemáte oprávnìní prohlížet téma.';
-		$this->printer_perm_topics_guest = 'Nemáte oprávnìní prohlížet téma. Nejprve se musíte zaregistrovat.';
-		$this->printer_posted_on = 'Posláno';
+		$this->printer_back = 'Zp&#x11B;t';
+		$this->printer_not_found = 'T&#xE9;ma  nebylo nalezeno. Bu&#x10F; bylo smaz&#xE1;no, p&#x159;esunuto, nebo neexistuje.';
+		$this->printer_not_found_title = 'T&#xE9;ma nenalezeno';
+		$this->printer_perm_topics = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et t&#xE9;ma.';
+		$this->printer_perm_topics_guest = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et t&#xE9;ma. Nejprve se mus&#xED;te zaregistrovat.';
+		$this->printer_posted_on = 'Posl&#xE1;no';
 		$this->printer_send = 'Poslat na tisk';
 	}
 
@@ -941,51 +941,51 @@ class cs
 	{
 		$this->profile_aim_sn = 'AIM';
 		$this->profile_av_sign = 'Avatar a podpis';
-		$this->profile_avatar = 'Avatar'; //Translate
-		$this->profile_bday = 'Vìk / narozeniny';
+		$this->profile_avatar = 'Avatar';
+		$this->profile_bday = 'V&#x11B;k / narozeniny';
 		$this->profile_contact = 'Kontakt';
-		$this->profile_email_address = 'E-mailová adresa';
-		$this->profile_fav = 'Oblíbené fórum';
-		$this->profile_fav_forum = '%s (%d%% of this member\'s posts)'; //Translate
-		$this->profile_gtalk = 'GTalk Account'; //Translate
+		$this->profile_email_address = 'E-mailov&#xE1; adresa';
+		$this->profile_fav = 'Obl&#xED;ben&#xE9; f&#xF3;rum';
+		$this->profile_fav_forum = '%s (%d%% ze v&#x161;ech p&#x159;&#xED;sp&#x11B;vk&#x16F; u&#x17E;ivatele)';
+		$this->profile_gtalk = 'GTalk &#xFA;&#x10D;et';
 		$this->profile_icq_uin = 'ICQ';
 		$this->profile_info = 'Informace';
-		$this->profile_interest = 'Zájmy';
-		$this->profile_joined = 'Založeno';
-		$this->profile_last_post = 'Poslední pøíspìvek';
-		$this->profile_list = 'Seznam èlenù';
-		$this->profile_location = 'Bydlištì';
-		$this->profile_member = 'Uživatelská skupina';
-		$this->profile_member_title = 'Èlenský titul';
+		$this->profile_interest = 'Z&#xE1;jmy';
+		$this->profile_joined = 'Zalo&#x17E;eno';
+		$this->profile_last_post = 'Posledn&#xED; p&#x159;&#xED;sp&#x11B;vek';
+		$this->profile_list = 'Seznam &#x10D;len&#x16F;';
+		$this->profile_location = 'Bydli&#x161;t&#x11B;';
+		$this->profile_member = 'U&#x17E;ivatelsk&#xE1; skupina';
+		$this->profile_member_title = '&#x10D;lensk&#xFD; titul';
 		$this->profile_msn = 'MSN';
-		$this->profile_must_user = 'Abyste mohli prohlížet profil, musíte nejprve vybrat nìjakého uživatele.';
-		$this->profile_no_member = 'Pod tímto ID nebyl nalezen žádny èlen. Je možné, že jeho úèet byl smazán.';
-		$this->profile_none = '[ žádný ]';
-		$this->profile_not_post = 'ještì nepøispíval(a).';
-		$this->profile_offline = 'This member is currently offline'; //Translate
-		$this->profile_online = 'This member is currently online'; //Translate
-		$this->profile_pm = 'Privátní zpráva';
+		$this->profile_must_user = 'Abyste mohli prohl&#xED;&#x17E;et profil, mus&#xED;te nejprve vybrat n&#x11B;jak&#xE9;ho u&#x17E;ivatele.';
+		$this->profile_no_member = 'Pod t&#xED;mto ID nebyl nalezen &#x17E;&#xE1;dny &#x10D;len. Je mo&#x17E;n&#xE9;, &#x17E;e jeho &#xFA;&#x10D;et byl smaz&#xE1;n.';
+		$this->profile_none = '[ &#x17E;&#xE1;dn&#xFD; ]';
+		$this->profile_not_post = 'je&#x161;t&#x11B; nep&#x159;isp&#xED;val(a).';
+		$this->profile_offline = 'Tento &#x10D;len je nyn&#xED; nep&#x159;&#xED;tomen';
+		$this->profile_online = 'Tento &#x10D;len je nyn&#xED; p&#x159;&#xED;tomen';
+		$this->profile_pm = 'Priv&#xE1;tn&#xED; zpr&#xE1;va';
 		$this->profile_postcount = '%s celkem, %s za den';
-		$this->profile_posts = 'Celkem pøíspìvkù';
-		$this->profile_private = '[ Osobní ]';
+		$this->profile_posts = 'Celkem p&#x159;&#xED;sp&#x11B;vk&#x16F;';
+		$this->profile_private = '[ Osobn&#xED; ]';
 		$this->profile_profile = 'Profil';
 		$this->profile_signature = 'Podpis';
-		$this->profile_unkown = '[ Neznámý ]';
-		$this->profile_view_profile = 'Prohlédnout profil';
-		$this->profile_www = 'WWW stránky';
+		$this->profile_unkown = '[ Nezn&#xE1;m&#xFD; ]';
+		$this->profile_view_profile = 'Prohl&#xE9;dnout profil';
+		$this->profile_www = 'WWW str&#xE1;nky';
 		$this->profile_yahoo = 'Yahoo';
 	}
 
 	function prune()
 	{
 		$this->prune_action = 'Prune action to take'; //Translate
-		$this->prune_age_day = '1 Day'; //Translate
-		$this->prune_age_eighthours = '8 Hours'; //Translate
-		$this->prune_age_hour = '1 Hour'; //Translate
-		$this->prune_age_month = '1 Month'; //Translate
-		$this->prune_age_threemonths = '3 Months'; //Translate
-		$this->prune_age_week = '1 Week'; //Translate
-		$this->prune_age_year = '1 Year'; //Translate
+		$this->prune_age_day = '1 den';
+		$this->prune_age_eighthours = '8 hodin';
+		$this->prune_age_hour = '1 hodina';
+		$this->prune_age_month = '1 m&#x11B;s&#xED;c';
+		$this->prune_age_threemonths = '3 m&#x11B;s&#xED;ce';
+		$this->prune_age_week = '1 t&#xFD;den';
+		$this->prune_age_year = '1 rok';
 		$this->prune_forums = 'Select forums to prune'; //Translate
 		$this->prune_invalidage = 'Invalid age specified for pruning'; //Translate
 		$this->prune_move = 'Move'; //Translate
@@ -1011,80 +1011,80 @@ class cs
 
 	function recent()
 	{
-		$this->recent_active = 'Active topics since last visit'; //Translate
+		$this->recent_active = 'Aktivn&#xED; t&#xE9;mata od va&#x161;&#xED; n&#xE1;v&#x161;t&#x11B;vy';
 		$this->recent_by = 'Od';
-		$this->recent_can_post = 'V tomto fóru mùžete odpovídat.';
-		$this->recent_can_topics = 'V tomto fóru mùžete prohlížet témata.';
-		$this->recent_cant_post = 'V tomto fóru nemùžete odpovídat. Prosím, zaregistrujte se.';
-		$this->recent_cant_topics = 'V tomto fóru nemùžete prohlížet témata. Prosím, zaregistrujte se.';
-		$this->recent_dot = 'teèka';
-		$this->recent_dot_detail = 'ukazuje, že jste v tomto fóru odpovídal(a)';
-		$this->recent_forum = 'Fórum';
+		$this->recent_can_post = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete odpov&#xED;dat.';
+		$this->recent_can_topics = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete prohl&#xED;&#x17E;et t&#xE9;mata.';
+		$this->recent_cant_post = 'V tomto f&#xF3;ru nem&#x16F;&#x17E;ete odpov&#xED;dat. Pros&#xED;m, zaregistrujte se.';
+		$this->recent_cant_topics = 'V tomto f&#xF3;ru nem&#x16F;&#x17E;ete prohl&#xED;&#x17E;et t&#xE9;mata. Pros&#xED;m, zaregistrujte se.';
+		$this->recent_dot = 'te&#x10D;ka';
+		$this->recent_dot_detail = 'ukazuje, &#x17E;e jste v tomto f&#xF3;ru odpov&#xED;dal(a)';
+		$this->recent_forum = 'F&#xF3;rum';
 		$this->recent_guest = 'Host';
 		$this->recent_hot = '"HOT"';
-		$this->recent_icon = 'Ikonka zprávy';
-		$this->recent_jump = 'Pøeskoèit na nejnovìjší pøíspìvek v tomto tématu.';
-		$this->recent_last = 'Poslední pøíspìvek';
+		$this->recent_icon = 'Ikonka zpr&#xE1;vy';
+		$this->recent_jump = 'P&#x159;esko&#x10D;it na nejnov&#x11B;j&#x161;&#xED; p&#x159;&#xED;sp&#x11B;vek v tomto t&#xE9;matu.';
+		$this->recent_last = 'Posledn&#xED; p&#x159;&#xED;sp&#x11B;vek';
 		$this->recent_locked = 'Zamknuto';
-		$this->recent_moved = 'Pøesunuto';
-		$this->recent_msg = '%s Zpráva';
-		$this->recent_new = 'Nové';
-		$this->recent_new_poll = 'Vytvoøit nové téma s anketou';
-		$this->recent_new_topic = 'Vytvoøit nové téma';
-		$this->recent_no_topics = 'Ve fóru nejsou žádné pøíspìvky k zobrazení.';
-		$this->recent_noexist = 'Fórum neexistuje.';
-		$this->recent_nopost = 'Žádné pøíspìvky';
+		$this->recent_moved = 'P&#x159;esunuto';
+		$this->recent_msg = '%s Zpr&#xE1;va';
+		$this->recent_new = 'Nov&#xE9;';
+		$this->recent_new_poll = 'Vytvo&#x159;it nov&#xE9; t&#xE9;ma s anketou';
+		$this->recent_new_topic = 'Vytvo&#x159;it nov&#xE9; t&#xE9;ma';
+		$this->recent_no_topics = 'Ve f&#xF3;ru nejsou &#x17E;&#xE1;dn&#xE9; p&#x159;&#xED;sp&#x11B;vky k zobrazen&#xED;.';
+		$this->recent_noexist = 'F&#xF3;rum neexistuje.';
+		$this->recent_nopost = '&#x17E;&#xE1;dn&#xE9; p&#x159;&#xED;sp&#x11B;vky';
 		$this->recent_not = 'Ne';
-		$this->recent_noview = 'Nemáte opravnìní prohlížet fórum.';
-		$this->recent_pages = 'Pages'; //Translate
-		$this->recent_pinned = 'Dùležité';
-		$this->recent_pinned_topic = 'Zapinováné téma';
+		$this->recent_noview = 'Nem&#xE1;te opravn&#x11B;n&#xED; prohl&#xED;&#x17E;et f&#xF3;rum.';
+		$this->recent_pages = 'Str&#xE1;nky';
+		$this->recent_pinned = 'D&#x16F;le&#x17E;it&#xE9;';
+		$this->recent_pinned_topic = 'Zapinov&#xE1;n&#xE9; t&#xE9;ma';
 		$this->recent_poll = 'Anketa';
-		$this->recent_regfirst = 'Nemáte oprávnìní prohlížet fórum. Nejprve se musíte zaregistrovat.';
-		$this->recent_replies = 'Odpovìdí';
-		$this->recent_starter = 'Založil(a)';
-		$this->recent_sub = 'Sub-fórum';
-		$this->recent_sub_last_post = 'Poslední pøíspìvek';
-		$this->recent_sub_replies = 'Odpovìdí';
-		$this->recent_sub_topics = 'Témat';
-		$this->recent_subscribe = 'Informovat mnì e-mailem o nových pøíspìvcích';
-		$this->recent_topic = 'Téma';
-		$this->recent_views = 'Schlédnuto';
-		$this->recent_write_topics = 'V tomto fóru mùžete vytváøet témata.';
+		$this->recent_regfirst = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et f&#xF3;rum. Nejprve se mus&#xED;te zaregistrovat.';
+		$this->recent_replies = 'Odpov&#x11B;d&#xED;';
+		$this->recent_starter = 'Zalo&#x17E;il(a)';
+		$this->recent_sub = 'Sub-f&#xF3;rum';
+		$this->recent_sub_last_post = 'Posledn&#xED; p&#x159;&#xED;sp&#x11B;vek';
+		$this->recent_sub_replies = 'Odpov&#x11B;d&#xED;';
+		$this->recent_sub_topics = 'T&#xE9;mat';
+		$this->recent_subscribe = 'Informovat mn&#x11B; e-mailem o nov&#xFD;ch p&#x159;&#xED;sp&#x11B;vc&#xED;ch';
+		$this->recent_topic = 'T&#xE9;ma';
+		$this->recent_views = 'Schl&#xE9;dnuto';
+		$this->recent_write_topics = 'V tomto f&#xF3;ru m&#x16F;&#x17E;ete vytv&#xE1;&#x159;et t&#xE9;mata.';
 	}
 
 	function register()
 	{
-		$this->register_activated = 'Váš úèet byl aktivován!';
-		$this->register_activating = 'Aktivace úètu';
-		$this->register_activation_error = 'Pøi aktivaci Vašeho úètu nastala chyba. Zkontrolujte, zda aktivaèní e-mail obsahuje celou URL adresu. Pokud potíže pøetrvají, kontaktujte administrátora tohoto fóra.';
-		$this->register_confirm_passwd = 'Potvrïte heslo';
-		$this->register_done = 'Registrace probìhla úspìšnì. Nyní se prosím pøihlašte.';
-		$this->register_email = 'E-mailová adresa';
-		$this->register_email_invalid = 'Vámi zadaná e-mailová adresa je neplatná.';
+		$this->register_activated = 'V&#xE1;&#x161; &#xFA;&#x10D;et byl aktivov&#xE1;n!';
+		$this->register_activating = 'Aktivace &#xFA;&#x10D;tu';
+		$this->register_activation_error = 'P&#x159;i aktivaci Va&#x161;eho &#xFA;&#x10D;tu nastala chyba. Zkontrolujte, zda aktiva&#x10D;n&#xED; e-mail obsahuje celou URL adresu. Pokud pot&#xED;&#x17E;e p&#x159;etrvaj&#xED;, kontaktujte administr&#xE1;tora tohoto f&#xF3;ra.';
+		$this->register_confirm_passwd = 'Potvr&#x10F;te heslo';
+		$this->register_done = 'Registrace prob&#x11B;hla &#xFA;sp&#x11B;&#x161;n&#x11B;. Nyn&#xED; se pros&#xED;m p&#x159;ihla&#x161;te.';
+		$this->register_email = 'E-mailov&#xE1; adresa';
+		$this->register_email_invalid = 'V&#xE1;mi zadan&#xE1; e-mailov&#xE1; adresa je neplatn&#xE1;.';
 		$this->register_email_msg = 'This is an automated email generated by Quicksilver Forums, and sent to you in order'; //Translate
 		$this->register_email_msg2 = 'for you to activate your account with'; //Translate
-		$this->register_email_msg3 = 'Please click the following link, or paste it in to your web browser:'; //Translate
-		$this->register_email_used = 'Vámi zadanou e-mailovou adresu již používá jiný èlen.';
-		$this->register_fields = 'Nejsou vyplnìny všechny údaje.';
-		$this->register_flood = 'You have registered already.'; //Translate
-		$this->register_image = 'Prosím zadejte text, který vidíte na obrázku.';
-		$this->register_image_invalid = 'Musíte zadat text, který vidíte na obrázku.';
+		$this->register_email_msg3 = 'Pros&#xED;m otev&#x159;ete n&#xE1;sleduj&#xED;c&#xED; odkaz neob jej vlo&#x17E;te do va&#x161;eho internetov&#xE9;ho prohl&#xED;&#x17E;e&#x10D;e:';
+		$this->register_email_used = 'V&#xE1;mi zadanou e-mailovou adresu ji&#x17E; pou&#x17E;&#xED;v&#xE1; jin&#xFD; &#x10D;len.';
+		$this->register_fields = 'Nejsou vypln&#x11B;ny v&#x161;echny &#xFA;daje.';
+		$this->register_flood = 'Ji&#x17E; jste zaregistrov&#xE1;n.';
+		$this->register_image = 'Pros&#xED;m zadejte text, kter&#xFD; vid&#xED;te na obr&#xE1;zku.';
+		$this->register_image_invalid = 'Mus&#xED;te zadat text, kter&#xFD; vid&#xED;te na obr&#xE1;zku.';
 		$this->register_initiated = 'This request was initiated from IP:'; //Translate
-		$this->register_must_activate = 'Žádost o registraci byla podána. Na adresu %s byl zaslán e-mail s informacemi, jak aktivovat Váš úèet. Dokud nebude úèet aktivován, budete mít na fóru omezené nìkteré funkce.';
-		$this->register_name_invalid = 'Vámi zadané jméno je pøíliš dlouhé.';
-		$this->register_name_taken = 'Vámi zadané jméno je již obsazeno.';
-		$this->register_new_user = 'Uživatelské jméno';
-		$this->register_pass_invalid = 'Vámi zadané heslo je neplatné. Ujistìte se, že používaté jen platné znaky - písmena, èíslice, pomlèky, podrtžítka, nebo mezery a heslo má alespoò 5 znakù.';
-		$this->register_pass_match = 'Vámi zadané heslo neodpovídá.';
+		$this->register_must_activate = '&#x17E;&#xE1;dost o registraci byla pod&#xE1;na. Na adresu %s byl zasl&#xE1;n e-mail s informacemi, jak aktivovat V&#xE1;&#x161; &#xFA;&#x10D;et. Dokud nebude &#xFA;&#x10D;et aktivov&#xE1;n, budete m&#xED;t na f&#xF3;ru omezen&#xE9; n&#x11B;kter&#xE9; funkce.';
+		$this->register_name_invalid = 'V&#xE1;mi zadan&#xE9; jm&#xE9;no je p&#x159;&#xED;li&#x161; dlouh&#xE9;.';
+		$this->register_name_taken = 'V&#xE1;mi zadan&#xE9; jm&#xE9;no je ji&#x17E; obsazeno.';
+		$this->register_new_user = 'U&#x17E;ivatelsk&#xE9; jm&#xE9;no';
+		$this->register_pass_invalid = 'V&#xE1;mi zadan&#xE9; heslo je neplatn&#xE9;. Ujist&#x11B;te se, &#x17E;e pou&#x17E;&#xED;vat&#xE9; jen platn&#xE9; znaky - p&#xED;smena, &#x10D;&#xED;slice, poml&#x10D;ky, podrt&#x17E;&#xED;tka, nebo mezery a heslo m&#xE1; alespo&#x148; 5 znak&#x16F;.';
+		$this->register_pass_match = 'V&#xE1;mi zadan&#xE9; heslo neodpov&#xED;d&#xE1;.';
 		$this->register_passwd = 'Heslo';
 		$this->register_reg = 'Registrovat!';
 		$this->register_reging = 'Registrace';
-		$this->register_requested = 'Account activation request for:'; //Translate
-		$this->register_tos = 'Terms of Service'; //Translate
-		$this->register_tos_i_agree = 'I agree to the above terms'; //Translate
+		$this->register_requested = '&#x17E;&#xE1;dost o aktivaci &#xFA;&#x10D;tu pro:';
+		$this->register_tos = 'Podm&#xED;nky registrace';
+		$this->register_tos_i_agree = 'Souhlas&#xED;m s v&#xFD;&#x161;e uveden&#xFD;mi podm&#xED;nkami';
 		$this->register_tos_not_agree = 'You did not agree to the terms.'; //Translate
-		$this->register_tos_read = 'Please read the following terms of service'; //Translate
+		$this->register_tos_read = 'pros&#xED;m p&#x159;e&#x10D;t&#x11B;te si n&#xE1;sleduj&#xED;c&#xED; podm&#xED;nky registrace';
 	}
 
 	function rssfeed()
@@ -1093,71 +1093,71 @@ class cs
 		$this->rssfeed_cannot_find_topic = 'The topic does nto appear to exist'; //Translate
 		$this->rssfeed_cannot_read_forum = 'You do not have permission to read this forum'; //Translate
 		$this->rssfeed_cannot_read_topic = 'You do not have permission to read this topic'; //Translate
-		$this->rssfeed_error = 'Error'; //Translate
-		$this->rssfeed_forum = 'Forum:'; //Translate
-		$this->rssfeed_posted_by = 'Posted by'; //Translate
-		$this->rssfeed_topic = 'Topic:'; //Translate
+		$this->rssfeed_error = 'Chyba';
+		$this->rssfeed_forum = 'F&#xF3;rum:';
+		$this->rssfeed_posted_by = 'P&#x159;&#xED;sp&#x11B;vek od';
+		$this->rssfeed_topic = 'T&#xE9;ma:';
 	}
 
 	function search()
 	{
-		$this->search_advanced = 'Rozšíøené hledání';
-		$this->search_avatar = 'Avatar'; //Translate
-		$this->search_basic = 'Zákládní hledání';
-		$this->search_characters = 'znakù z pøíspìvku';
+		$this->search_advanced = 'Roz&#x161;&#xED;&#x159;en&#xE9; hled&#xE1;n&#xED;';
+		$this->search_avatar = 'Avatar';
+		$this->search_basic = 'Z&#xE1;kl&#xE1;dn&#xED; hled&#xE1;n&#xED;';
+		$this->search_characters = 'znak&#x16F; z p&#x159;&#xED;sp&#x11B;vku';
 		$this->search_day = 'den';
 		$this->search_days = 'dny';
-		$this->search_exact_name = 'pøesné znìní';
+		$this->search_exact_name = 'p&#x159;esn&#xE9; zn&#x11B;n&#xED;';
 		$this->search_flood = 'You have searched in the past %s seconds, and you may not search right now.<br /><br />Please try again in a few seconds.'; //Translate
 		$this->search_for = 'Vyhledat';
-		$this->search_forum = 'Fórum';
+		$this->search_forum = 'F&#xF3;rum';
 		$this->search_group = 'Skupina';
 		$this->search_guest = 'Host';
 		$this->search_in = 'Hledat v';
-		$this->search_in_posts = 'Hledat jen v pøíspìvcích';
-		$this->search_ip = 'IP'; //Translate
-		$this->search_joined = 'Založeno';
-		$this->search_level = 'Úroveò';
-		$this->search_match = 'vyhledat jen pøesnì zadaný výraz (napø. zadáte-li "AIM", ve výsledcích budou jen pøíspìvky, které obsahují právì slovo "AIM"';
-		$this->search_matches = 'Oznaèené';
-		$this->search_month = 'mìsíc';
-		$this->search_months = 'mìsíce';
+		$this->search_in_posts = 'Hledat jen v p&#x159;&#xED;sp&#x11B;vc&#xED;ch';
+		$this->search_ip = 'IP';
+		$this->search_joined = 'Zalo&#x17E;eno';
+		$this->search_level = '&#xFA;rove&#x148;';
+		$this->search_match = 'vyhledat jen p&#x159;esn&#x11B; zadan&#xFD; v&#xFD;raz (nap&#x159;. zad&#xE1;te-li "AIM", ve v&#xFD;sledc&#xED;ch budou jen p&#x159;&#xED;sp&#x11B;vky, kter&#xE9; obsahuj&#xED; pr&#xE1;v&#x11B; slovo "AIM"';
+		$this->search_matches = 'Ozna&#x10D;en&#xE9;';
+		$this->search_month = 'm&#x11B;s&#xED;c';
+		$this->search_months = 'm&#x11B;s&#xED;ce';
 		$this->search_mysqldoc = 'Dokumentace MySQL';
-		$this->search_newer = 'novìjších';
-		$this->search_no_results = 'Žádné výsledky nebyly nalezeny.';
-		$this->search_no_words = 'Musíte urèit alespoò jednu podmínku pro vyhledávání.<br/><br/>Každá podmínka musí obsahovat alespoò 3 znaky, (vèetnì písmen, èísel, apostrofù, a podtržítek).';
-		$this->search_offline = 'This member is currently offline'; //Translate
-		$this->search_older = 'starších';
-		$this->search_online = 'This member is currently online'; //Translate
-		$this->search_only_display = 'Zobrazit jen prvních';
-		$this->search_partial_name = 'èásteèné znìní';
-		$this->search_post_icon = 'Ikona pøíspìvku';
-		$this->search_posted_on = 'Posláno';
-		$this->search_posts = 'Pøíspìvky';
-		$this->search_posts_by = 'Jen v pøíspìvcích od';
-		$this->search_regex = 'vyhledat i slova obsahující hledaný výraz (napø. zadáte-li "hledat", ve výsledcích budou pøíspìvky obsahující slovo "hledat", ale i "vyhledat", "hledání" atd.';
-		$this->search_regex_failed = 'Hledanému výrazu nic neodpovídá. Prohlédnìte si prosím dokumentaci MySQL pro nápovìdu "pøesného znìní".';
-		$this->search_relevance = 'Hledanému výrazu odpovídá na %d%%';
-		$this->search_replies = 'Pøíspìvky';
-		$this->search_result = 'Vyhledat výsledky';
+		$this->search_newer = 'nov&#x11B;j&#x161;&#xED;ch';
+		$this->search_no_results = '&#x17E;&#xE1;dn&#xE9; v&#xFD;sledky nebyly nalezeny.';
+		$this->search_no_words = 'Mus&#xED;te ur&#x10D;it alespo&#x148; jednu podm&#xED;nku pro vyhled&#xE1;v&#xE1;n&#xED;.<br/><br/>Ka&#x17E;d&#xE1; podm&#xED;nka mus&#xED; obsahovat alespo&#x148; 3 znaky, (v&#x10D;etn&#x11B; p&#xED;smen, &#x10D;&#xED;sel, apostrof&#x16F;, a podtr&#x17E;&#xED;tek).';
+		$this->search_offline = 'Tento &#x10D;len je nyn&#xED; nep&#x159;&#xED;tomen';
+		$this->search_older = 'star&#x161;&#xED;ch';
+		$this->search_online = 'Tento &#x10D;len je nyn&#xED; p&#x159;&#xED;tomen';
+		$this->search_only_display = 'Zobrazit jen prvn&#xED;ch';
+		$this->search_partial_name = '&#x10D;&#xE1;ste&#x10D;n&#xE9; zn&#x11B;n&#xED;';
+		$this->search_post_icon = 'Ikona p&#x159;&#xED;sp&#x11B;vku';
+		$this->search_posted_on = 'Posl&#xE1;no';
+		$this->search_posts = 'P&#x159;&#xED;sp&#x11B;vky';
+		$this->search_posts_by = 'Jen v p&#x159;&#xED;sp&#x11B;vc&#xED;ch od';
+		$this->search_regex = 'vyhledat i slova obsahuj&#xED;c&#xED; hledan&#xFD; v&#xFD;raz (nap&#x159;. zad&#xE1;te-li "hledat", ve v&#xFD;sledc&#xED;ch budou p&#x159;&#xED;sp&#x11B;vky obsahuj&#xED;c&#xED; slovo "hledat", ale i "vyhledat", "hled&#xE1;n&#xED;" atd.';
+		$this->search_regex_failed = 'Hledan&#xE9;mu v&#xFD;razu nic neodpov&#xED;d&#xE1;. Prohl&#xE9;dn&#x11B;te si pros&#xED;m dokumentaci MySQL pro n&#xE1;pov&#x11B;du "p&#x159;esn&#xE9;ho zn&#x11B;n&#xED;".';
+		$this->search_relevance = 'Hledan&#xE9;mu v&#xFD;razu odpov&#xED;d&#xE1; na %d%%';
+		$this->search_replies = 'P&#x159;&#xED;sp&#x11B;vky';
+		$this->search_result = 'Vyhledat v&#xFD;sledky';
 		$this->search_search = 'Vyhledat';
-		$this->search_select_all = 'Oznaèit vše';
-		$this->search_show_posts = 'Zobrazit jen pøíspìvky (jinak se zobrazí téma celé téma)';
-		$this->search_sound = 'vyhledat i slova podobná zadanému výrazu';
-		$this->search_starter = 'Založil(a)';
-		$this->search_than = 'než';
-		$this->search_topic = 'Téma';
-		$this->search_unreg = 'Neregistrovaní';
-		$this->search_week = 'týden';
-		$this->search_weeks = 'týdny';
+		$this->search_select_all = 'Ozna&#x10D;it v&#x161;e';
+		$this->search_show_posts = 'Zobrazit jen p&#x159;&#xED;sp&#x11B;vky (jinak se zobraz&#xED; t&#xE9;ma cel&#xE9; t&#xE9;ma)';
+		$this->search_sound = 'vyhledat i slova podobn&#xE1; zadan&#xE9;mu v&#xFD;razu';
+		$this->search_starter = 'Zalo&#x17E;il(a)';
+		$this->search_than = 'ne&#x17E;';
+		$this->search_topic = 'T&#xE9;ma';
+		$this->search_unreg = 'Neregistrovan&#xED;';
+		$this->search_week = 't&#xFD;den';
+		$this->search_weeks = 't&#xFD;dny';
 		$this->search_year = 'rok';
 	}
 
 	function settings()
 	{
-		$this->settings = 'Settings'; //Translate
+		$this->settings = 'Nastaven&#xED;';
 		$this->settings_active = 'Active Users Settings'; //Translate
-		$this->settings_allow = 'Allow'; //Translate
+		$this->settings_allow = 'Povolit'; //Translate
 		$this->settings_antibot = 'Anti-Robot Registration'; //Translate
 		$this->settings_attach_ext = 'Attachments - File Extensions'; //Translate
 		$this->settings_attach_one_per = 'One per line. No periods.'; //Translate
@@ -1387,122 +1387,124 @@ class cs
 
 	function topic()
 	{
-		$this->topic_attached = 'Pøíloha:';
-		$this->topic_attached_downloads = 'x shlédnuto';
-		$this->topic_attached_filename = 'Filename:'; //Translate
-		$this->topic_attached_image = 'Attached image:'; //Translate
-		$this->topic_attached_perm = 'Nemáte oprávnìní stáhnout tento soubor.';
-		$this->topic_attached_size = 'Size:'; //Translate
-		$this->topic_attached_title = 'Pøíloha';
-		$this->topic_avatar = 'Avatar'; //Translate
-		$this->topic_bottom = 'Go to the bottom of the page'; //Translate
-		$this->topic_create_poll = 'Vytvoøit nové téma s anketou';
-		$this->topic_create_topic = 'Vytvoøit nové téma';
+		$this->topic_attached = 'P&#x159;&#xED;loha:';
+		$this->topic_attached_downloads = 'x shl&#xE9;dnuto';
+		$this->topic_attached_filename = 'Soubor:';
+		$this->topic_attached_image = 'P&#x159;ilo&#x17E;en&#xFD; obr&#xE1;zek:';
+		$this->topic_attached_perm = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; st&#xE1;hnout tento soubor.';
+		$this->topic_attached_size = 'Velikost:';
+		$this->topic_attached_title = 'P&#x159;&#xED;loha';
+		$this->topic_avatar = 'Avatar';
+		$this->topic_bottom = 'P&#x159;ej&#xED;t dol&#x16F; na str&#xE1;nku';
+		$this->topic_create_poll = 'Vytvo&#x159;it nov&#xE9; t&#xE9;ma s anketou';
+		$this->topic_create_topic = 'Vytvo&#x159;it nov&#xE9; t&#xE9;ma';
 		$this->topic_delete = 'Smazat';
-		$this->topic_delete_post = 'Smazat tento pøíspìvek';
+		$this->topic_delete_post = 'Smazat tento p&#x159;&#xED;sp&#x11B;vek';
 		$this->topic_edit = 'Editovat';
-		$this->topic_edit_post = 'Editovat tento pøíspìvek';
-		$this->topic_edited = 'Poslední zmìna: %s od %s';
+		$this->topic_edit_post = 'Editovat tento p&#x159;&#xED;sp&#x11B;vek';
+		$this->topic_edited = 'Posledn&#xED; zm&#x11B;na: %s od %s';
 		$this->topic_error = 'Chyba';
 		$this->topic_group = 'Skupina';
 		$this->topic_guest = 'Host';
-		$this->topic_ip = 'IP'; //Translate
-		$this->topic_joined = 'Založeno';
-		$this->topic_level = 'Úroveò';
-		$this->topic_links_aim = 'Poslat AIM zprávu uživateli %s';
-		$this->topic_links_email = 'Poslat e-mail uživateli %s';
-		$this->topic_links_gtalk = 'Send a GTalk message to %s'; //Translate
-		$this->topic_links_icq = 'Poslat ICQ zprávu uživateli %s';
-		$this->topic_links_msn = 'Poslat MSN zprávu uživateli %s';
-		$this->topic_links_pm = 'Poslat privátní zprávu uživateli %s';
-		$this->topic_links_web = 'Otevøít www stránky uživatele %s';
-		$this->topic_links_yahoo = 'Proslat zprávu %s pøes Yahoo! Messenger';
+		$this->topic_ip = 'IP';
+		$this->topic_joined = 'Zalo&#x17E;eno';
+		$this->topic_level = '&#xFA;rove&#x148;';
+		$this->topic_links_aim = 'Poslat AIM zpr&#xE1;vu u&#x17E;ivateli %s';
+		$this->topic_links_email = 'Poslat e-mail u&#x17E;ivateli %s';
+		$this->topic_links_gtalk = 'Poslat GTalk zpr&#xE1;vu u&#x17E;ivateli %s';
+		$this->topic_links_icq = 'Poslat ICQ zpr&#xE1;vu u&#x17E;ivateli %s';
+		$this->topic_links_msn = 'Poslat MSN zpr&#xE1;vu u&#x17E;ivateli %s';
+		$this->topic_links_pm = 'Poslat priv&#xE1;tn&#xED; zpr&#xE1;vu u&#x17E;ivateli %s';
+		$this->topic_links_web = 'Otev&#x159;&#xED;t www str&#xE1;nky u&#x17E;ivatele %s';
+		$this->topic_links_yahoo = 'Proslat zpr&#xE1;vu %s p&#x159;es Yahoo! Messenger';
 		$this->topic_lock = 'Zamknout';
-		$this->topic_locked = 'Téma zamèeno';
-		$this->topic_move = 'Pøesunout';
-		$this->topic_new_post = 'Post is unread'; //Translate
-		$this->topic_newer = 'Newer Topic'; //Translate
-		$this->topic_no_newer = 'There is no newer topic.'; //Translate
-		$this->topic_no_older = 'There is no older topic.'; //Translate
-		$this->topic_no_votes = 'V této anketì nejsou zaznamenány žádné hlasy.';
-		$this->topic_not_found = 'Téma nenalezeno';
-		$this->topic_not_found_message = 'Téma  nebylo nalezeno. Buï bylo smazáno, pøesunuto, nebo neexistuje.';
-		$this->topic_offline = 'This member is currently offline'; //Translate
-		$this->topic_older = 'Older Topic'; //Translate
-		$this->topic_online = 'This member is currently online'; //Translate
-		$this->topic_options = 'Volby tématu';
-		$this->topic_pages = 'Pages'; //Translate
-		$this->topic_perm_view = 'Nemáte oprávnìní prohlížet témata.';
-		$this->topic_perm_view_guest = 'Nemáte oprávnìní prohlížet témata. Musíte se nejprve zaregistrovat.';
-		$this->topic_pin = 'Zvýraznit';
-		$this->topic_posted = 'Posláno';
-		$this->topic_posts = 'Pøíspìvkù';
+		$this->topic_locked = 'T&#xE9;ma zam&#x10D;eno';
+		$this->topic_move = 'P&#x159;esunout';
+		$this->topic_new_post = 'P&#x159;&#xED;sp&#x11B;vek nen&#xED; p&#x159;e&#x10D;ten';
+		$this->topic_newer = 'Nov&#x11B;j&#x161;&#xED; t&#xE9;ma';
+		$this->topic_no_newer = 'Nen&#xED; tu &#x17E;&#xE1;dn&#xE9; nov&#x11B;j&#x161;&#xED; t&#xE9;ma.';
+		$this->topic_no_older = 'Nen&#xED; tu &#x17E;&#xE1;dn&#xE9; star&#x161;&#xED; t&#xE9;ma.';
+		$this->topic_no_votes = 'V t&#xE9;to anket&#x11B; nejsou zaznamen&#xE1;ny &#x17E;&#xE1;dn&#xE9; hlasy.';
+		$this->topic_not_found = 'T&#xE9;ma nenalezeno';
+		$this->topic_not_found_message = 'T&#xE9;ma  nebylo nalezeno. Bu&#x10F; bylo smaz&#xE1;no, p&#x159;esunuto, nebo neexistuje.';
+		$this->topic_offline = 'Tento &#x10D;len je nyn&#xED; nep&#x159;&#xED;tomen';
+		$this->topic_older = 'Star&#x161;&#xED; t&#xE9;ma';
+		$this->topic_online = 'Tento &#x10D;len je nyn&#xED; p&#x159;&#xED;tomen';
+		$this->topic_options = 'Volby t&#xE9;matu';
+		$this->topic_pages = 'Str&#xE1;nky';
+		$this->topic_perm_view = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et t&#xE9;mata.';
+		$this->topic_perm_view_guest = 'Nem&#xE1;te opr&#xE1;vn&#x11B;n&#xED; prohl&#xED;&#x17E;et t&#xE9;mata. Mus&#xED;te se nejprve zaregistrovat.';
+		$this->topic_pin = 'Zv&#xFD;raznit';
+		$this->topic_posted = 'Posl&#xE1;no';
+		$this->topic_posts = 'P&#x159;&#xED;sp&#x11B;vk&#x16F;';
 		$this->topic_print = 'Verze pro tisk';
 		$this->topic_publish = 'Publish'; //Translate
-		$this->topic_qr_emoticons = 'Emoticons'; //Translate
+		$this->topic_qr_emoticons = 'Smajl&#xED;ci';
 		$this->topic_qr_open_emoticons = 'Open Clickable Emoticons'; //Translate
-		$this->topic_qr_open_mbcode = 'Open MBCode'; //Translate
-		$this->topic_quickreply = 'Quick Reply'; //Translate
-		$this->topic_quote = 'Do odpovìdi "ocitovat" tento pøíspìvek';
-		$this->topic_reply = 'Odpovìdìt na téma';
+		$this->topic_qr_open_mbcode = 'Otev&#x159;&#xED;t MBCode';
+		$this->topic_quickreply = 'Rychl&#xE1; odpov&#x11B;&#x10F;';
+		$this->topic_quote = 'Do odpov&#x11B;di "ocitovat" tento p&#x159;&#xED;sp&#x11B;vek';
+		$this->topic_reply = 'Odpov&#x11B;d&#x11B;t na t&#xE9;ma';
 		$this->topic_split = 'Spojit';
-		$this->topic_split_finish = 'Dokonèit celé spojení';
-		$this->topic_split_keep = 'Nepøesouvat tento pøíspìvek';
-		$this->topic_split_move = 'Pøesunout tento pøíspìvek';
-		$this->topic_subscribe = 'Zaslat informace na mùj e-mail, pokud se zde objeví nový pøíspìvek';
-		$this->topic_top = 'Jít na zaèátek stránky';
+		$this->topic_split_finish = 'Dokon&#x10D;it cel&#xE9; spojen&#xED;';
+		$this->topic_split_keep = 'Nep&#x159;esouvat tento p&#x159;&#xED;sp&#x11B;vek';
+		$this->topic_split_move = 'P&#x159;esunout tento p&#x159;&#xED;sp&#x11B;vek';
+		$this->topic_subscribe = 'Zaslat informace na m&#x16F;j e-mail, pokud se zde objev&#xED; nov&#xFD; p&#x159;&#xED;sp&#x11B;vek';
+		$this->topic_top = 'J&#xED;t na za&#x10D;&#xE1;tek str&#xE1;nky';
 		$this->topic_unlock = 'Odemknout';
-		$this->topic_unpin = 'Zrušit zvýraznìní';
+		$this->topic_unpin = 'Zru&#x161;it zv&#xFD;razn&#x11B;n&#xED;';
 		$this->topic_unpublish = 'UnPublish'; //Translate
 		$this->topic_unpublished = 'This topic is classed as unpublished so you do not have permission to view it.'; //Translate
-		$this->topic_unreg = 'Neregistrován';
-		$this->topic_view = 'Prohlédnout výsledky';
-		$this->topic_viewing = 'Prohlížet téma';
+		$this->topic_unreg = 'Neregistrov&#xE1;n';
+		$this->topic_view = 'Prohl&#xE9;dnout v&#xFD;sledky';
+		$this->topic_viewing = 'Prohl&#xED;&#x17E;et t&#xE9;ma';
 		$this->topic_vote = 'Hlasovat';
-		$this->topic_vote_count_plur = '%d hlasù';
+		$this->topic_vote_count_plur = '%d hlas&#x16F;';
 		$this->topic_vote_count_sing = '%d hlas';
-		$this->topic_votes = 'hlasù celkem';
+		$this->topic_votes = 'hlas&#x16F; celkem';
 	}
 
 	function universal()
 	{
-		$this->aim = 'AIM'; //Translate
+		$this->aim = 'AIM';
 		$this->based_on = 'based on';
 		$this->board_by = 'Od:';
-		$this->charset = 'windows-1250';
-		$this->continue = 'Continue'; //Translate
-		$this->date_long = 'M j, Y'; //Translate
-		$this->date_short = 'n/j/y'; //Translate
-		$this->delete = 'Delete'; //Translate
-		$this->direction = 'ltr'; //Translate
-		$this->edit = 'Edit'; //Translate
-		$this->email = 'Email'; //Translate
-		$this->gtalk = 'GT'; //Translate
-		$this->icq = 'ICQ'; //Translate
-		$this->msn = 'MSN'; //Translate
-		$this->new_message = 'New Message'; //Translate
-		$this->new_poll = 'New Poll'; //Translate
-		$this->new_topic = 'New Topic'; //Translate
-		$this->no = 'No'; //Translate
-		$this->powered = 'Powered by'; //Translate
-		$this->private_message = 'PM'; //Translate
-		$this->quote = 'Quote'; //Translate
-		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.'; //Translate
-		$this->reply = 'Reply'; //Translate
-		$this->seconds = 'Seconds'; //Translate
-		$this->select_all = 'Select All'; //Translate
+		$this->charset = 'utf-8';
+		$this->continue = 'Pokra&#x10D;ovat';
+		$this->date_long = 'j.n.Y';
+		$this->date_short = 'j.n.Y';
+		$this->delete = 'Smazat';
+		$this->direction = 'ltr';
+		$this->edit = 'Editovat';
+		$this->email = 'Email';
+		$this->gtalk = 'GT';
+		$this->icq = 'ICQ';
+		$this->msn = 'MSN';
+		$this->new_message = 'Nov&#xE1; zpr&#xE1;va';
+		$this->new_poll = 'Nov&#xE1; anketa';
+		$this->new_topic = 'Nov&#xE9; t&#xE9;ma';
+		$this->no = 'Ne';
+		$this->powered = 'Powered by';
+		$this->private_message = 'PM';
+		$this->quote = 'Citovat';
+		$this->recount_forums = 'Recounted forums! Total topics: %d. Total posts: %d.';
+		$this->reply = 'Odpove&#x10F;';
+		$this->seconds = 'Vte&#x159;in';
+		$this->select_all = 'Vybrat v&#x161;e';
 		$this->sep_decimals = ',';
-		$this->sep_thousands = '.';
-		$this->spoiler = 'Spoiler'; //Translate
+		$this->sep_thousands = '.,';
+		$this->spoiler = 'Spoiler';
 		$this->submit = 'Odeslat';
-		$this->subscribe = 'Subscribe'; //Translate
-		$this->time_long = ', g:i a'; //Translate
-		$this->time_only = 'g:i a'; //Translate
+		$this->subscribe = 'Subscribe';
+		$this->time_long = ', H:i';
+		$this->time_only = 'H:i';
 		$this->today = 'dnes';
-		$this->website = 'WWW'; //Translate
-		$this->yahoo = 'Yahoo'; //Translate
-		$this->yes = 'Yes'; //Translate
-		$this->yesterday = 'vèera';
+		$this->website = 'WWW';
+		$this->yahoo = 'Yahoo';
+		$this->yes = 'Ano';
+		$this->yesterday = 'v&#x10D;era';
 	}
+
 }
 ?>
+
