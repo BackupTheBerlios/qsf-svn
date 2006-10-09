@@ -877,5 +877,5 @@ $sets['optional_modules'] = array(
 $settings = serialize($sets);
 $queries[] = "INSERT INTO %psettings (settings_id, settings_data) VALUES (1, '{$settings}')";
 $queries[] = "INSERT INTO %pskins (skin_name, skin_dir) VALUES ('QSF Comet', 'default')";
-$queries[] = "INSERT INTO %pusers (user_id, user_name, user_password, user_joined, user_level, user_title, user_group, user_skin, user_language, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_email_form, user_birthday, user_timezone, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_pm, user_active, user_yahoo, user_interests, user_signature, user_lastvisit, user_lastpost, user_view_avatars, user_view_signatures, user_view_emoticons, user_perms) VALUES (1, 'Guest', '', 0, 1, '', 3, 'default', 'en', '', 'none', 0, 0, '', 0, 1, '0000-00-00', '151', '', 0, '', 0, '', '', 0, 1, '', '', '', 0, 0, 1, 1, 1, '')";
+$queries[] = "INSERT INTO %pusers (user_id, user_name, user_group) VALUES (1, 'Guest', 3)";
 ?>

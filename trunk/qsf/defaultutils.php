@@ -57,7 +57,6 @@ $modules['public_modules'] = array(
 	'help',
 	'jsdata',
 	'jslang',
-	'mod',
 	'post',
 	'register',
 	'login',
