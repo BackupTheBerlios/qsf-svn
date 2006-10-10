@@ -146,7 +146,9 @@ class new_install extends qsfglobal
 			// Create template
 			$xmlInfo = new xmlparser();
 			$xmlInfo->parse(SKIN_FILE);
-			packageutil::insert_templates('default', $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'));
+			$templatesNode = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
+			packageutil::insert_templates('default', $this->db, $templatesNode);
+			unset($templatesNode);
 			$xmlInfo = null;
 
 			$this->sets = $this->get_settings($this->sets);

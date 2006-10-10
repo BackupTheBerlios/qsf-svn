@@ -197,7 +197,9 @@ class upgrade extends qsfglobal
 						// Create template
 						$xmlInfo = new xmlparser();
 						$xmlInfo->parse(SKIN_FILE);
-						packageutil::insert_templates('default', $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'), $template_list);
+						$templatesNode = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
+						packageutil::insert_templates('default', $this->db, $templatesNode, $template_list);
+						unset($templatesNode);
 						$xmlInfo = null;
 						
 						$didsomething = true;
@@ -211,7 +213,8 @@ class upgrade extends qsfglobal
 					// Other skins
 					$xmlInfo = new xmlparser();
 					$xmlInfo->parse(SKIN_FILE);
-					$temp_names = packageutil::list_templates($xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'));
+					$templatesNode = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
+					packageutil::list_templates($templatesNode);
 					$temps_to_insert = array();
 						
 					foreach ($temp_names as $temp_name)
@@ -226,7 +229,8 @@ class upgrade extends qsfglobal
 					}
 					
 					if ($temps_to_insert) {
-						packageutil::insert_templates($skin, $this->db, $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES'), $temps_to_insert);
+						$templatesNode = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
+						packageutil::insert_templates($skin, $this->db, $templatesNode, $temps_to_insert);
 						$didsomething = true;
 					}
 					$xmlInfo = null;
