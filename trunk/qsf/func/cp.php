@@ -395,7 +395,8 @@ class cp extends qsfglobal
 			$this->post['user_avatar_width'] = intval($this->post['user_avatar_width']);
 			$this->post['user_avatar_height'] = intval($this->post['user_avatar_height']);
 
-			$fileExtension  = array_pop(explode('.',  $this->user['user_avatar']));
+			$temp = explode('.',  $this->user['user_avatar']);
+			$fileExtension  = array_pop($temp);
 			if (!in_array($fileExtension, $this->fileExtensions)) {
 				$fileExtension = 'avtr';
 			}
