@@ -27,6 +27,7 @@
  */
 
 define('QUICKSILVERFORUMS', true);
+ini_set( "memory_limit", "24M" ); // Temporary hackishly bad thing until the real bug gets fixed
 error_reporting(E_ALL);
 require '../settings.php';
 $set['include_path'] = '..';
