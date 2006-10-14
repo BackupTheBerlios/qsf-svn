@@ -228,12 +228,12 @@ class cp extends qsfglobal
 
 			$this->post['user_language'] = preg_replace('/[^a-zA-Z0-9\-]/', '', $this->post['user_language']);
 
-			$this->db->query('
+			$this->db->query("
 				UPDATE %pusers SET user_view_avatars=%d, user_view_signatures=%d, user_view_emoticons=%d,
 				  user_email_show=%d, user_email_form=%d, user_active=%d, user_pm=%d,
-				  user_timezone=\'%s\', user_skin=\'%s\', user_language=\'%s\',
+				  user_timezone='%s', user_skin='%s', user_language='%s',
 				  user_topics_page=%d, user_posts_page=%d
-				WHERE user_id=%d',
+				WHERE user_id=%d",
 				intval($this->post['user_view_avatars']), intval($this->post['user_view_signatures']), intval($this->post['user_view_emoticons']),
 				intval($this->post['user_email_show']), intval($this->post['user_email_form']), intval($this->post['user_active']),
 				intval($this->post['user_pm']), $this->post['user_timezone'], $this->post['user_skin'], $this->post['user_language'],
