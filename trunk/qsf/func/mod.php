@@ -743,6 +743,7 @@ class mod extends qsfglobal
 		$this->db->query('DELETE FROM %pvotes WHERE vote_topic=%d', $t);
 		$this->db->query('DELETE FROM %ptopics WHERE topic_id=%d OR topic_moved=%d', $t, $t);
 		$this->db->query('DELETE FROM %pposts WHERE post_topic=%d', $t);
+		$this->db->query('DELETE FROM %preadmarks WHERE readmark_topic = %d', $t);
 
 		$this->update_reply_count($result['topic_forum'], $deleted);
 
