@@ -57,7 +57,7 @@ class membercount extends admin
 		$this->write_sets();
 
 		// Try to fix user post counts.
-		$users = $this->db->query( "SELECT user_id, user_posts, user_uploads FROM %pusers" );
+		$users = $this->db->query( "SELECT user_id, user_posts FROM %pusers" );
 		while( ($user = $this->db->nqfetch($users) ) )
 		{
 			$uid = $user['user_id'];
