@@ -712,7 +712,7 @@ class mod extends qsfglobal
 	function delete_topic($t)
 	{
 		$posts = $this->db->query("
-			SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count, u.user_posts
+			SELECT DISTINCT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count, u.user_posts
 			FROM (%ptopics t, %pposts p, %pusers u)
 			LEFT JOIN %pattach a ON p.post_id=a.attach_post
 			WHERE t.topic_id=%d AND t.topic_id=p.post_topic", $t);
@@ -722,12 +722,7 @@ class mod extends qsfglobal
 		while ($post = $this->db->nqfetch($posts))
 		{
 			if ($post['post_count']) {
-				$uposts = $post['user_posts'] - 1;
-
-				if ($uposts < 0) {
-					$uposts = 0;
-				}
-				$this->db->query('UPDATE %pusers SET user_posts=%d WHERE user_id=%d', $uposts, $post['post_author']);
+				$this->db->query('UPDATE %pusers SET user_posts=user_posts-1 WHERE user_id=%d', $post['post_author']);
 			}
 
 			if ($post['attach_file']) {
