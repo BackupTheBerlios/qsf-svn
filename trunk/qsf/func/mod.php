@@ -771,7 +771,7 @@ class mod extends qsfglobal
 		$result = $this->db->fetch("SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_count, u.user_posts
 			FROM (%ptopics t, %pposts p, %pusers u)
 			LEFT JOIN %pattach a ON p.post_id=a.attach_post
-			WHERE p.post_id=%d AND t.topic_id=p.post_topic", $p);
+			WHERE p.post_id=%d AND t.topic_id=p.post_topic AND u.user_id=p.post_author", $p);
 
 		$this->db->query('UPDATE %pforums SET forum_replies=forum_replies-1 WHERE forum_id=%d', $result['topic_forum']);
 		$this->db->query('UPDATE %ptopics SET topic_replies=topic_replies-1 WHERE topic_id=%d', $result['topic_id']);
