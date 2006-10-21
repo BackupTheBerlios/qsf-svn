@@ -278,6 +278,7 @@ class no
 		$this->cp_been_updated_prefs = 'Dine innstillinger er oppdatert.';
 		$this->cp_changing_pass = 'Endre passord';
 		$this->cp_contact_pm = 'Tillate at andre brukere kontakter deg via meldinger?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Kontrollpanel';
 		$this->cp_current_avatar = 'Nåværende avatar';
 		$this->cp_current_time = 'Klokken er %s.';
@@ -659,6 +660,7 @@ class no
 		$this->mc_user_msn = 'MSN-navn';
 		$this->mc_user_name = 'Navn';
 		$this->mc_user_pm = 'Tillater private meldinger';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Innlegg';
 		$this->mc_user_signature = 'Signatur';
 		$this->mc_user_skin = 'Skall';
@@ -863,6 +865,7 @@ class no
 		$this->pm_sendamsg = 'Send en melding';
 		$this->pm_sendingpm = 'Send en personlig melding';
 		$this->pm_sendon = 'Sending pågår';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Meldingen er sendt.';
 		$this->pm_sure_del = 'Er du sikker på at du vil slette denne meldingen?';
 		$this->pm_sure_delall = 'Er du sikker på at du vil slette alle meldinger i denne mappen?';

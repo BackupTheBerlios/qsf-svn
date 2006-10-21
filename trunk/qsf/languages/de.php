@@ -278,6 +278,7 @@ class de
 		$this->cp_been_updated_prefs = 'Ihre Präferenzen wurden aktualisiert.';
 		$this->cp_changing_pass = 'Passwort editieren';
 		$this->cp_contact_pm = 'Erlaube es Anderen, mich via Messenger zu kontaktieren?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Kontrollzentum';
 		$this->cp_current_avatar = 'Aktueller Avatar';
 		$this->cp_current_time = 'Es ist momentan %s.';
@@ -659,6 +660,7 @@ class de
 		$this->mc_user_msn = 'MSN Konto';
 		$this->mc_user_name = 'Name'; //Translate
 		$this->mc_user_pm = 'Private Nachrichten akzeptieren';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Beiträge';
 		$this->mc_user_signature = 'Signatur';
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -863,6 +865,7 @@ class de
 		$this->pm_sendamsg = 'Nachricht senden';
 		$this->pm_sendingpm = 'PN senden';
 		$this->pm_sendon = 'Gesendet';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Ihre Nachricht wurde erfolgreich verschickt.';
 		$this->pm_sure_del = 'Sind Sie sicher, das Sie diese Nachricht löschen wollen?';
 		$this->pm_sure_delall = 'Sind Sie sicher, das Sie alle Nachrichten in diesem Ordner löschen wollen?';
@@ -1501,7 +1504,7 @@ class de
 		$this->time_only = 'g:i a'; //Translate
 		$this->today = 'Heute ';
 		$this->website = 'WWW'; //Translate
-		$this->yahoo = 'Yahoo!'; //Translate
+		$this->yahoo = 'Yahoo!';
 		$this->yes = 'Ja';
 		$this->yesterday = 'Gestern ';
 	}

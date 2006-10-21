@@ -277,6 +277,7 @@ class sk
 		$this->cp_been_updated_prefs = 'Vaše nastavenia boli aktualizované.';
 		$this->cp_changing_pass = 'Zmena hesla';
 		$this->cp_contact_pm = 'Dovolíte ostatnım, aby Vás kontaktovali cez odkazovaè?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Ovládací panel';
 		$this->cp_current_avatar = 'Aktuálny avatar';
 		$this->cp_current_time = 'Teraz je %s.';
@@ -659,6 +660,7 @@ class sk
 		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Meno';
 		$this->mc_user_pm = 'Prijíma osobné odkazy (PM)';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Príspevky';
 		$this->mc_user_signature = 'Podpis';
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -864,6 +866,7 @@ class sk
 		$this->pm_sendamsg = 'Posla odkaz';
 		$this->pm_sendingpm = 'Posielanie odkazu';
 		$this->pm_sendon = 'Odoslané v';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Váš odkaz bol úspešne zaslanı.';
 		$this->pm_sure_del = 'Urèite chcete zmaza tento odkaz?';
 		$this->pm_sure_delall = 'Urèite chcete zmaza všetky odkazy v tomto adresári?';

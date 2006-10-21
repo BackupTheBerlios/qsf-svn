@@ -30,6 +30,7 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	// Changed templates
+	CP_PREFS
 	);
 
 // Permission changes	
@@ -38,6 +39,7 @@ $new_permissions['edit_avatar'] = true;
 $new_permissions['edit_sig'] = true;
 
 // Queries to run
+$queries[] = "ALTER TABLE %pusers ADD user_pm_mail tinyint(1) NOT NULL default '0' AFTER user_pm";
 
 // New Timezones
 

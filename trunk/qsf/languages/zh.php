@@ -277,6 +277,7 @@ class zh
 		$this->cp_been_updated_prefs = '���ϲ�������Ѿ����¡�';
 		$this->cp_changing_pass = '�������';
 		$this->cp_contact_pm = '���������û�ͨ�����Ϣjϵ����';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = '�������';
 		$this->cp_current_avatar = '��ǰͷ��';
 		$this->cp_current_time = '������%s��';
@@ -658,6 +659,7 @@ class zh
 		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Name'; //Translate
 		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Posts'; //Translate
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -862,6 +864,7 @@ class zh
 		$this->pm_sendamsg = '���Ͷ���Ϣ';
 		$this->pm_sendingpm = '���Ͷ���Ϣ';
 		$this->pm_sendon = '��Ԥ��';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = '�����Ϣ�Ѿ��ɹ����͡�';
 		$this->pm_sure_del = '��ȷ��Ҫɾ�����Ϣ��';
 		$this->pm_sure_delall = '��Ҫȷ��ɾ����ļ��е�����������';

@@ -277,6 +277,7 @@ class hu
 		$this->cp_been_updated_prefs = 'Beállításaid frissítve.';
 		$this->cp_changing_pass = 'Jelszó szerkesztése';
 		$this->cp_contact_pm = 'Megengeded, hogy a többiek priviben felkeressenek?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Beállítópult';
 		$this->cp_current_avatar = 'Aktuális kiskép';
 		$this->cp_current_time = 'Most %s.';
@@ -658,6 +659,7 @@ class hu
 		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Name'; //Translate
 		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Posts'; //Translate
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -862,6 +864,7 @@ class hu
 		$this->pm_sendamsg = 'Üzenet küldése';
 		$this->pm_sendingpm = 'Privát üzenet küldése';
 		$this->pm_sendon = 'Elküldve';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Sikeres küldés.';
 		$this->pm_sure_del = 'Biztos, hogy törölni akarod ezt az üzenetet?';
 		$this->pm_sure_delall = 'Biztos, hogy törölni akarsz minden üzenetet?';

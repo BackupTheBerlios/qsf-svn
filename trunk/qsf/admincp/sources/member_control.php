@@ -164,6 +164,7 @@ class member_control extends admin
 					'user_yahoo'		=> array($this->lang->mc_user_yahoo, U_TEXT, 100),
 					'user_email_show'	=> array($this->lang->mc_user_email_show, U_BOOL),
 					'user_pm'		=> array($this->lang->mc_user_pm, U_BOOL),
+					'user_pm_mail'		=> array($this->lang->mc_user_pm_mail, U_BOOL),
 					'user_view_avatars'	=> array($this->lang->mc_user_view_avatars, U_BOOL),
 					'user_view_signatures'	=> array($this->lang->mc_user_view_signatures, U_BOOL),
 					'user_view_emoticons'	=> array($this->lang->mc_user_view_emoticons, U_BOOL),

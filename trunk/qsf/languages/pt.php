@@ -277,6 +277,7 @@ class pt
 		$this->cp_been_updated_prefs = 'Preferências ajustadas.';
 		$this->cp_changing_pass = 'Trocando senha';
 		$this->cp_contact_pm = 'Permitir contato de outros via mensageiro ?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Painel de controle';
 		$this->cp_current_avatar = 'Figura atual';
 		$this->cp_current_time = 'Atualmente %s.';
@@ -658,6 +659,7 @@ class pt
 		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Name'; //Translate
 		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Posts'; //Translate
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -862,6 +864,7 @@ class pt
 		$this->pm_sendamsg = 'Envia mensagem';
 		$this->pm_sendingpm = 'Enviando mensagem privativa';
 		$this->pm_sendon = 'Sent on';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Mensagem enviada.';
 		$this->pm_sure_del = 'Tem certeza que quer apagar ?';
 		$this->pm_sure_delall = 'Apagar todas as mensagens da caixa de entrada ?';

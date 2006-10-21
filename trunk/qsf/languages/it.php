@@ -278,6 +278,7 @@ class it
 		$this->cp_been_updated_prefs = 'Le tue preferenze sono state aggiornate.';
 		$this->cp_changing_pass = 'Modifica Password';
 		$this->cp_contact_pm = 'Permetti agli altri iscritti di contattarti via messenger?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Pannello di Controllo';
 		$this->cp_current_avatar = 'Avatar Attuale';
 		$this->cp_current_time = 'Attualmente sono le %s.';
@@ -659,6 +660,7 @@ class it
 		$this->mc_user_msn = 'Identità MSN';
 		$this->mc_user_name = 'Nome';
 		$this->mc_user_pm = 'Accetta Messaggi Privati';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Messaggi';
 		$this->mc_user_signature = 'Firma';
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -863,6 +865,7 @@ class it
 		$this->pm_sendamsg = 'Invia un Messaggio';
 		$this->pm_sendingpm = 'Invio un PM';
 		$this->pm_sendon = 'Inviato il';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Il tuo messaggio è stato inviato.';
 		$this->pm_sure_del = 'Vuoi veramente eliminare questo messaggio?';
 		$this->pm_sure_delall = 'Vuoi veramente eliminare tutti i messaggi in questa cartella?';

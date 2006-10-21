@@ -278,6 +278,7 @@ class ru
 		$this->cp_been_updated_prefs = 'Твои настройки были обновлены.';
 		$this->cp_changing_pass = 'Изменение пароля';
 		$this->cp_contact_pm = 'Разрешить другим писать тебе личные сообщения?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Контрольная панель';
 		$this->cp_current_avatar = 'Текущая автара';
 		$this->cp_current_time = 'Сейчас %s.';
@@ -659,6 +660,7 @@ class ru
 		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Name'; //Translate
 		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Posts'; //Translate
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -863,6 +865,7 @@ class ru
 		$this->pm_sendamsg = 'Послать сообщение';
 		$this->pm_sendingpm = 'Посылаю сообщение';
 		$this->pm_sendon = 'Послано';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Твое сообщение было успешно послано.';
 		$this->pm_sure_del = 'Ты действительно хочешь удалить это сообщение?';
 		$this->pm_sure_delall = 'Ты действительно хочешь удалить все сообщения в этой папке?';

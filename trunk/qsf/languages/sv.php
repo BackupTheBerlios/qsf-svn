@@ -278,6 +278,7 @@ class sv
 		$this->cp_been_updated_prefs = 'Dina inställningar har uppdaterats.';
 		$this->cp_changing_pass = 'Ändrar Lösenord';
 		$this->cp_contact_pm = 'Tillåt att andra kontaktar dig via messenger?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Kontrollpanelen';
 		$this->cp_current_avatar = 'Nuvarande Avatar';
 		$this->cp_current_time = 'Klockan är %s.';
@@ -659,6 +660,7 @@ class sv
 		$this->mc_user_msn = 'MSN Identitet';
 		$this->mc_user_name = 'Namn';
 		$this->mc_user_pm = 'Accepterar Personliga Meddelanden';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Inlägg';
 		$this->mc_user_signature = 'Signatur';
 		$this->mc_user_skin = 'Skal';
@@ -863,6 +865,7 @@ class sv
 		$this->pm_sendamsg = 'Skicka Ett Meddelande';
 		$this->pm_sendingpm = 'Skicka Ett PM';
 		$this->pm_sendon = 'Skickat den';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Ditt meddelande skickades.';
 		$this->pm_sure_del = 'Är du säker på att du vill radera detta meddelande?';
 		$this->pm_sure_delall = 'Är du säker på att du vill radera alla meddelanden i denna katalog?';

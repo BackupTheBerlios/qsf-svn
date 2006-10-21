@@ -277,6 +277,7 @@ class he
 		$this->cp_been_updated_prefs = 'הגדרות שלך עודכנו.';
 		$this->cp_changing_pass = 'עריכת סיסמא';
 		$this->cp_contact_pm = 'הרשה לאחרים לשלוח לך הודעות פרטיות?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'לוח בקרה';
 		$this->cp_current_avatar = 'אווטרה';
 		$this->cp_current_time = 'השעה עכשיו %s.';
@@ -658,6 +659,7 @@ class he
 		$this->mc_user_msn = 'חשבון MSN';
 		$this->mc_user_name = 'שם';
 		$this->mc_user_pm = 'קבלת הודעות פרטיות';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'תגובות';
 		$this->mc_user_signature = 'חתימה';
 		$this->mc_user_skin = 'סקין';
@@ -862,6 +864,7 @@ class he
 		$this->pm_sendamsg = 'שלח הודעה פרטית';
 		$this->pm_sendingpm = 'שולח הודעה פרטית';
 		$this->pm_sendon = 'נשלח ב';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'הודעה שלך נשלחה בהצלחה.';
 		$this->pm_sure_del = 'הינן בטוח\ה שברצונך למחוק הודעה זו?';
 		$this->pm_sure_delall = 'הינך בטוח שברצונך למחוק כל ההודעות?';

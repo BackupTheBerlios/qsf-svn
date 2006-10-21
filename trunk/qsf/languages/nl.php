@@ -279,6 +279,7 @@ class nl
 		$this->cp_been_updated_prefs = 'Uw instellingen zijn gewijzigd.';
 		$this->cp_changing_pass = 'Verander je wachtwoord';
 		$this->cp_contact_pm = 'Sta toe dat anderen je privé berichten sturen?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Controlepaneel';
 		$this->cp_current_avatar = 'Huidige avatar';
 		$this->cp_current_time = 'Het is nu %s.';
@@ -660,6 +661,7 @@ class nl
 		$this->mc_user_msn = 'MSN Messenger';
 		$this->mc_user_name = 'Naam';
 		$this->mc_user_pm = 'Accepteer privé berichten';
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Berichten';
 		$this->mc_user_signature = 'Handtekening';
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -864,6 +866,7 @@ class nl
 		$this->pm_sendamsg = 'Stuur een bericht';
 		$this->pm_sendingpm = 'Stuur een PB';
 		$this->pm_sendon = 'Verstuurd op';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Je privé bericht is met succes verstuurd';
 		$this->pm_sure_del = 'Weet je zeker dat u dit bericht wilt verwijderen?';
 		$this->pm_sure_delall = 'Weet je zeker dat je alle berichten wilt verwijderen in deze map??';

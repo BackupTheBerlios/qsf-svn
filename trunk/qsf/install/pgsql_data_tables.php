@@ -273,6 +273,7 @@ $queries[] = "CREATE TABLE %pusers (
   user_aim varchar(32) NOT NULL default '',
   user_gtalk varchar(32) NOT NULL default '',
   user_pm bool NOT NULL default '1',
+  user_pm_mail bool NOT NULL default '0',
   user_active bool NOT NULL default '1',
   user_yahoo varchar(100) NOT NULL default '',
   user_interests varchar(255) NOT NULL default '',

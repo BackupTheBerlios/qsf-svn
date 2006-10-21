@@ -277,6 +277,7 @@ class id
 		$this->cp_been_updated_prefs = 'Preference berhasil diupdate.';
 		$this->cp_changing_pass = 'Editing Password'; //Translate
 		$this->cp_contact_pm = 'Memperbolehkan yang lain untuk menghubungi anda via messenger?';
+		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
 		$this->cp_cp = 'Control Panel'; //Translate
 		$this->cp_current_avatar = 'Avatar digunakan';
 		$this->cp_current_time = 'It is currently %s.'; //Translate
@@ -658,6 +659,7 @@ class id
 		$this->mc_user_msn = 'MSN Identity'; //Translate
 		$this->mc_user_name = 'Name'; //Translate
 		$this->mc_user_pm = 'Accepting Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Posts'; //Translate
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Skin'; //Translate
@@ -862,6 +864,7 @@ class id
 		$this->pm_sendamsg = 'Kirim pesan';
 		$this->pm_sendingpm = 'Mengirim Pesan Pribadi';
 		$this->pm_sendon = 'Terkirim pada';
+		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
 		$this->pm_success = 'Pesan anda berhasil dikirim.';
 		$this->pm_sure_del = 'Anda yakin ingin menghapus pesan ini?';
 		$this->pm_sure_delall = 'Anda yakin ingin menghapus semua pesan dalam folder ini?';
