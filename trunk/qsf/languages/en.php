@@ -432,6 +432,7 @@ class en
 		$this->forum_sub_topics = 'Topics';
 		$this->forum_subscribe = 'E-mail me when posts are made in this forum';
 		$this->forum_topic = 'Topic';
+		$this->forum_topic_posted = 'Posted';
 		$this->forum_views = 'Views';
 		$this->forum_write_topics = 'You can create topics in this forum.';
 	}
@@ -1052,6 +1053,7 @@ class en
 		$this->recent_sub_topics = 'Topics';
 		$this->recent_subscribe = 'E-mail me when posts are made in this forum';
 		$this->recent_topic = 'Topic';
+		$this->recent_topic_posted = 'Posted';
 		$this->recent_views = 'Views';
 		$this->recent_write_topics = 'You can create topics in this forum.';
 	}

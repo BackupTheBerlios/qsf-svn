@@ -432,6 +432,7 @@ class pt
 		$this->forum_sub_topics = 'Topicos';
 		$this->forum_subscribe = 'Enviar email quando tiverem postagens';
 		$this->forum_topic = 'Topico';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Visualizações';
 		$this->forum_write_topics = 'Você pode criar tópicos neste forum.';
 	}
@@ -1052,6 +1053,7 @@ class pt
 		$this->recent_sub_topics = 'Topicos';
 		$this->recent_subscribe = 'Enviar email quando tiverem postagens';
 		$this->recent_topic = 'Topico';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Visualizações';
 		$this->recent_write_topics = 'Você pode criar tópicos neste forum.';
 	}

@@ -123,7 +123,7 @@ class recent extends qsfglobal
 		$query = $this->db->query("SELECT
 				DISTINCT(t.topic_id), p.post_author as dot,
 				t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
-				t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
+				t.topic_posted, t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
 				t.topic_last_post, f.forum_id, f.forum_name,
 				s.user_name AS topic_starter_name,
 				m.user_name AS topic_last_poster_name
@@ -224,6 +224,8 @@ class recent extends qsfglobal
 				}
 			}
 
+			$topic_posted = $this->mbdate(DATE_LONG, $row['topic_posted']);
+
 			if (!($row['topic_modes'] & TOPIC_PUBLISH)) {
 				if (!$this->perms->auth('topic_view_unpublished', $row['topic_forum'])) {
 					$out .= '';
@@ -234,7 +236,6 @@ class recent extends qsfglobal
 				$out .= eval($this->template('RECENT_TOPIC'));
 			}
 		}
-
 		return $out;
 	}
 }

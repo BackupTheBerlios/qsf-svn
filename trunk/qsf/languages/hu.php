@@ -432,6 +432,7 @@ class hu
 		$this->forum_sub_topics = 'Témák';
 		$this->forum_subscribe = 'E-mail küldése új bejegyzéskor';
 		$this->forum_topic = 'Téma';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Megjelenítések';
 		$this->forum_write_topics = 'Nyithatsz témákat ebben a fórumban.';
 	}
@@ -1052,6 +1053,7 @@ class hu
 		$this->recent_sub_topics = 'Témák';
 		$this->recent_subscribe = 'E-mail küldése új bejegyzéskor';
 		$this->recent_topic = 'Téma';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Megjelenítések';
 		$this->recent_write_topics = 'Nyithatsz témákat ebben a fórumban.';
 	}

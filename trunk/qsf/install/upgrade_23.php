@@ -30,7 +30,9 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	// Changed templates
-	CP_PREFS
+	'CP_PREFS',
+	'FORUM_TOPIC',
+	'RECENT_TOPIC'
 	);
 
 // Permission changes	
@@ -40,6 +42,32 @@ $new_permissions['edit_sig'] = true;
 
 // Queries to run
 $queries[] = "ALTER TABLE %pusers ADD user_pm_mail tinyint(1) NOT NULL default '0' AFTER user_pm";
+
+// Required update for topic_posted setting
+$db->query( "ALTER TABLE %ptopics ADD topic_posted int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_icon" );
+$query = $db->query( "SELECT * FROM %ptopics" );
+while( $row = $db->nqfetch($query) )
+{
+	$topic_id = $row['topic_id'];
+	if ($row['topic_moved']) {
+		$topic_id = $row['topic_moved'];
+	}
+	// Ripped the code from update_last_post_topic in mod.php for this.
+	$first = $db->fetch("
+	SELECT
+		p.post_id, p.post_time
+	FROM
+		%pposts p,
+		%ptopics t
+	WHERE
+		p.post_topic=t.topic_id AND
+		t.topic_id=%d
+	ORDER BY
+		p.post_time ASC
+	LIMIT 1", $topic_id);
+
+	$db->query("UPDATE %ptopics SET topic_posted=%d WHERE topic_id=%d", $first['post_time'], $topic_id);
+}
 
 // New Timezones
 

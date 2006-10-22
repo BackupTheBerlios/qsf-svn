@@ -432,6 +432,7 @@ class sk
 		$this->forum_sub_topics = 'Témy';
 		$this->forum_subscribe = 'Posla emailom nové príspevky v tomto fóre';
 		$this->forum_topic = 'Téma';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Videné';
 		$this->forum_write_topics = 'V tomto fóre máte povolenie zaklada témy.';
 	}
@@ -1054,6 +1055,7 @@ class sk
 		$this->recent_sub_topics = 'Témy';
 		$this->recent_subscribe = 'Posla emailom nové príspevky v tomto fóre';
 		$this->recent_topic = 'Téma';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Videné';
 		$this->recent_write_topics = 'V tomto fóre máte povolenie zaklada témy.';
 	}

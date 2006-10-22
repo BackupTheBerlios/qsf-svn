@@ -433,6 +433,7 @@ class it
 		$this->forum_sub_topics = 'Argomenti';
 		$this->forum_subscribe = 'Mandami una e-mail quando qualcuno apre una nuova discussione';
 		$this->forum_topic = 'Discussioni';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Visite';
 		$this->forum_write_topics = 'Puoi aprire nuove discussioni in questo forum.';
 	}
@@ -1053,6 +1054,7 @@ class it
 		$this->recent_sub_topics = 'Argomenti';
 		$this->recent_subscribe = 'Mandami una e-mail quando qualcuno apre una nuova discussione';
 		$this->recent_topic = 'Discussioni';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Visite';
 		$this->recent_write_topics = 'Puoi aprire nuove discussioni in questo forum.';
 	}

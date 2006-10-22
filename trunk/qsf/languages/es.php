@@ -432,6 +432,7 @@ class es
 		$this->forum_sub_topics = 'tópicos';
 		$this->forum_subscribe = 'Notificarme via correo electrónico cuando se publique en este foro';
 		$this->forum_topic = 'tópico';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Vistas';
 		$this->forum_write_topics = 'Puede crear tópicos en este foro';
 	}
@@ -1052,6 +1053,7 @@ class es
 		$this->recent_sub_topics = 'tópicos';
 		$this->recent_subscribe = 'Notificarme via correo electrónico cuando se publique en este foro';
 		$this->recent_topic = 'tópico';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Vistas';
 		$this->recent_write_topics = 'Puede crear tópicos en este foro';
 	}

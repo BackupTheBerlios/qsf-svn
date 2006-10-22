@@ -433,6 +433,7 @@ class de
 		$this->forum_sub_topics = 'Themen';
 		$this->forum_subscribe = 'Benachrichtige mich per Email wenn Beiträge in diesem Forum geschrieben wurden';
 		$this->forum_topic = 'Thema';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Gesehen';
 		$this->forum_write_topics = 'Sie können in diesem Forum Themen erstellen.';
 	}
@@ -1053,6 +1054,7 @@ class de
 		$this->recent_sub_topics = 'Themen';
 		$this->recent_subscribe = 'Benachrichtige mich per Email wenn Beiträge in diesem Forum geschrieben wurden';
 		$this->recent_topic = 'Thema';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Gesehen';
 		$this->recent_write_topics = 'Sie können in diesem Forum Themen erstellen.';
 	}

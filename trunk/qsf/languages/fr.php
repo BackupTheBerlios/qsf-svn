@@ -432,6 +432,7 @@ class fr
 		$this->forum_sub_topics = 'Sujets';
 		$this->forum_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->forum_topic = 'Sujet';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Affichages';
 		$this->forum_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}
@@ -1052,6 +1053,7 @@ class fr
 		$this->recent_sub_topics = 'Sujets';
 		$this->recent_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->recent_topic = 'Sujet';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Affichages';
 		$this->recent_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}

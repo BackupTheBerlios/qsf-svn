@@ -2201,7 +2201,7 @@ enable('$init');
    <IF $row['icon']>
     <img src="./skins/{$this->skin}/mbicons/{$row['icon']}" alt="{$this->lang->forum_icon}" class="topicicon" />
    </IF>
-    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
+    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}" title="{$this->lang->forum_topic_posted}: {$topic_posted}">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
   <td class="tabledark" style="text-align:center">{$row['topic_starter']}</td>
   <td class="tablelight" style="text-align:center">{$row['topic_replies']}</td>
   <td class="tablelight" style="text-align:center">{$row['topic_views']}</td>
@@ -3744,7 +3744,7 @@ enable('$init');
    <IF $row['icon']>
     <img src="./skins/{$this->skin}/mbicons/{$row['icon']}" alt="{$this->lang->recent_icon}" class="topicicon" />
    </IF>
-    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}&amp;unread=1" class="medium">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
+    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}&amp;unread=1" class="medium" title="{$this->lang->recent_topic_posted}: {$topic_posted}">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
   <td class="tabledark" style="text-align:center">{$row['topic_starter']}</td>
   <td class="tablelight" style="text-align:center"><a href="{$this->self}?a=forum&amp;f={$row['forum_id']}">{$row['forum_name']}</a></td>
   <td class="tabledark">

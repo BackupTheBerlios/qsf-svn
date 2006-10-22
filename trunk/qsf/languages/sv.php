@@ -433,6 +433,7 @@ class sv
 		$this->forum_sub_topics = 'Ämnen';
 		$this->forum_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->forum_topic = 'Ämne';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Visningar';
 		$this->forum_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}
@@ -1053,6 +1054,7 @@ class sv
 		$this->recent_sub_topics = 'Ämnen';
 		$this->recent_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->recent_topic = 'Ämne';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Visningar';
 		$this->recent_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}

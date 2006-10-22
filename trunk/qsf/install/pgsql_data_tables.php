@@ -235,6 +235,7 @@ $queries[] = "CREATE TABLE %ptopics (
   topic_last_post int4 NOT NULL default '0',
   topic_last_poster int4 NOT NULL default '0',
   topic_icon varchar(32) NOT NULL default '',
+  topic_posted int4 NOT NULL default '0',
   topic_edited int4 NOT NULL default '0',
   topic_replies int4 NOT NULL default '0',
   topic_views int4 NOT NULL default '0',

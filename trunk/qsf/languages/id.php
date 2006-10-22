@@ -432,6 +432,7 @@ class id
 		$this->forum_sub_topics = 'Topik';
 		$this->forum_subscribe = 'Kirimkan E-mail ke saya ketika topik ini dibalas';
 		$this->forum_topic = 'Topik';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Dilihat';
 		$this->forum_write_topics = 'Anda dapat membuat topik di forum ini.';
 	}
@@ -1052,6 +1053,7 @@ class id
 		$this->recent_sub_topics = 'Topik';
 		$this->recent_subscribe = 'Kirimkan E-mail ke saya ketika topik ini dibalas';
 		$this->recent_topic = 'Topik';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Dilihat';
 		$this->recent_write_topics = 'Anda dapat membuat topik di forum ini.';
 	}

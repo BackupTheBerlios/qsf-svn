@@ -432,6 +432,7 @@ class he
 		$this->forum_sub_topics = 'נושאים';
 		$this->forum_subscribe = 'שלח לי הודעת מייל כשיגיבו לפורום זה';
 		$this->forum_topic = 'נושא';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'צפיות';
 		$this->forum_write_topics = 'הינך מורשה ליצור הודעות בפורום זה.';
 	}
@@ -1052,6 +1053,7 @@ class he
 		$this->recent_sub_topics = 'נושאים';
 		$this->recent_subscribe = 'שלח לי מייל כשהגיבו בפורום זה';
 		$this->recent_topic = 'נושא';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'צפיות';
 		$this->recent_write_topics = '.באפשרותך ליצור נושאים בפורום זה';
 	}

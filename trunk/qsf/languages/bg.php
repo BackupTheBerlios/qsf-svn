@@ -432,6 +432,7 @@ class bg
 		$this->forum_sub_topics = 'Теми';
 		$this->forum_subscribe = 'Уведоми ме, когато някой напише ново мнение';
 		$this->forum_topic = 'Тема';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Прегледа';
 		$this->forum_write_topics = 'Можете да пускате нова тема.';
 	}
@@ -1052,6 +1053,7 @@ class bg
 		$this->recent_sub_topics = 'Теми';
 		$this->recent_subscribe = 'Уведоми ме, когато някой напише ново мнение';
 		$this->recent_topic = 'Тема';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Прегледа';
 		$this->recent_write_topics = 'Можете да пускате нова тема.';
 	}

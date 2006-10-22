@@ -432,6 +432,7 @@ class fi
 		$this->forum_sub_topics = 'Keskustelua';
 		$this->forum_subscribe = 'Lähetä sähköpostia kun tähän huoneeseen kirjoitetaan viestejä';
 		$this->forum_topic = 'Keskustelu';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Näytetty';
 		$this->forum_write_topics = 'Voit aloittaa keskustelun tässä huoneessa.';
 	}
@@ -1052,6 +1053,7 @@ class fi
 		$this->recent_sub_topics = 'Keskustelua';
 		$this->recent_subscribe = 'Lähetä sähköpostia kun tähän huoneeseen kirjoitetaan viestejä';
 		$this->recent_topic = 'Keskustelu';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Näytetty';
 		$this->recent_write_topics = 'Voit aloittaa keskustelun tässä huoneessa.';
 	}

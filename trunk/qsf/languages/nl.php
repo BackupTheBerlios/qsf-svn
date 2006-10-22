@@ -434,6 +434,7 @@ class nl
 		$this->forum_sub_topics = 'Onderwerpen';
 		$this->forum_subscribe = 'Stuur mij een e-mail als er berichten geplaatst zijn in dit onderwerp';
 		$this->forum_topic = 'Onderwerp';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Bekeken';
 		$this->forum_write_topics = 'U kan onderwerpen aanmaken in dit forum.';
 	}
@@ -1054,6 +1055,7 @@ class nl
 		$this->recent_sub_topics = 'Onderwerpen';
 		$this->recent_subscribe = 'Stuur een e-mail als er berichten geplaatst zijn in dit onderwerp';
 		$this->recent_topic = 'Onderwerp';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Bekeken';
 		$this->recent_write_topics = 'Je kan onderwerpen aanmaken in dit forum.';
 	}

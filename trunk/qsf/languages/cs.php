@@ -432,6 +432,7 @@ class cs
 		$this->forum_sub_topics = 'Témat';
 		$this->forum_subscribe = 'Informovat mn&#x11B; e-mailem o nových p&#x159;ísp&#x11B;vcích';
 		$this->forum_topic = 'Téma';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = 'Schlédnuto';
 		$this->forum_write_topics = 'V tomto fóru m&#x16F;&#x17E;ete vytvá&#x159;et témata.';
 	}
@@ -1052,6 +1053,7 @@ class cs
 		$this->recent_sub_topics = 'Témat';
 		$this->recent_subscribe = 'Informovat mn&#x11B; e-mailem o nových p&#x159;ísp&#x11B;vcích';
 		$this->recent_topic = 'Téma';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = 'Schlédnuto';
 		$this->recent_write_topics = 'V tomto fóru m&#x16F;&#x17E;ete vytvá&#x159;et témata.';
 	}

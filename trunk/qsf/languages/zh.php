@@ -432,6 +432,7 @@ class zh
 		$this->forum_sub_topics = '����';
 		$this->forum_subscribe = '����̳�������ʼ����ҵ�Email�';
 		$this->forum_topic = '����';
+		$this->forum_topic_posted = 'Posted'; //Translate
 		$this->forum_views = '���';
 		$this->forum_write_topics = '������ڸ���̳�������⡣';
 	}
@@ -1052,6 +1053,7 @@ class zh
 		$this->recent_sub_topics = '����';
 		$this->recent_subscribe = '����̳�������ʼ����ҵ�Email�';
 		$this->recent_topic = '����';
+		$this->recent_topic_posted = 'Posted'; //Translate
 		$this->recent_views = '���';
 		$this->recent_write_topics = '������ڸ���̳�������⡣';
 	}
