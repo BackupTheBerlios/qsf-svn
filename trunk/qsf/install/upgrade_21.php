@@ -80,7 +80,7 @@ while( $row = $db->nqfetch($query) )
 	// Ripped the code from update_last_post_topic in mod.php for this.
 	$last = $db->fetch("
 	SELECT
-		p.post_id, p.post_author
+		p.post_id, p.post_time
 	FROM
 		%pposts p,
 		%ptopics t
