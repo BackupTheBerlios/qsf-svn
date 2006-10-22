@@ -1199,7 +1199,7 @@ class de
 		$this->settings_db_username = 'Datenbankbenutzername';
 		$this->settings_debug_mode = 'Debug Modus';
 		$this->settings_default_lang = 'Standardsprache';
-		$this->settings_default_no = 'Standardnummer';
+		$this->settings_default_no = 'Standard Nein';
 		$this->settings_default_skin = 'Standardskin';
 		$this->settings_default_yes = 'Standard Ja';
 		$this->settings_disabled = 'Deaktiviert';
