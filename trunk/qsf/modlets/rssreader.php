@@ -167,13 +167,13 @@ class rssreader extends modlet
 		$this->rssFeeds[$url] = new xmlparser();
 
 		// Check if RSS cache directory exists
-		if (!is_dir('../databases/rsscache/')) {
-			@mkdir('../databases/rsscache/');
-			$this->qsf->chmod('../databases/rsscache', 0777, false);
+		if (!is_dir('../stats/rsscache/')) {
+			@mkdir('../stats/rsscache/');
+			$this->qsf->chmod('../stats/rsscache', 0777, false);
 		}
 		
 		// Check if the cached file is there
-		$cacheFilename = '../databases/rsscache/' . md5($url) . '.xml';
+		$cacheFilename = '../stats/rsscache/' . md5($url) . '.xml';
 		$maxFileAge = time() - $this->cacheFilesFor;
 		if (!file_exists($cacheFilename) || filectime($cacheFilename) < $maxFileAge) {
 			// Download the file
