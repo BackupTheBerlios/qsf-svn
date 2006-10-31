@@ -27,6 +27,46 @@ if (!defined('QUICKSILVERFORUMS')) {
 
 $error_version = '2.0';
 
+function get_backtrace()
+{
+	$backtrace = debug_backtrace();
+	$out = "<span class='header'>Backtrace:</span><br /><br />";
+
+	foreach( $backtrace as $trace => $frame )
+	{
+		// 2 is the file that actually died. We don't need to list the error handlers in the trace.
+		if( $trace < 2 ) {
+			continue;
+		}
+		$args = array();
+
+		if( $trace > 2 ) { // The call in the error handler is irrelevent anyway, so don't bother with the arg list
+			foreach( $frame['args'] as $arg ) {
+				$argument = htmlspecialchars($arg[0]);
+				$args[] = "'{$argument}'";
+			}
+		}
+
+		$frame['class'] = (isset($frame['class'])) ? $frame['class'] : "";
+		$frame['type'] = (isset($frame['type'])) ? $frame['type'] : "";
+		$frame['file'] = (isset($frame['file'])) ? $frame['file'] : "";
+		$frame['line'] = (isset($frame['line'])) ? $frame['line'] : "";
+
+		$func = "";
+		$arg_list = implode(", ", $args);
+		if( $trace == 2 ) {
+			$func = "See above for details.";
+		} else {
+			$func = htmlspecialchars($frame['class'] . $frame['type'] . $frame['function']) . "(" . $arg_list . ")";
+		}
+
+		$out .= "<b>File:</b> " . $frame['file'] . "<br />";
+		$out .= "<b>Line:</b> " . $frame['line'] . "<br />";
+		$out .= "<b>Call:</b> " . $func . "<br /><br />";
+	}
+	return $out;
+}
+
 function error_fatal($type, $message, $file, $line = 0)
 {
 	switch($type)
@@ -61,19 +101,22 @@ function error_fatal($type, $message, $file, $line = 0)
 	}
 
 	$details = null;
+	$backtrace = null;
+
+	if (strpos($message, 'Template not found') === false) {
+		$backtrace = get_backtrace();
+	}
 
 	if ($type != QUICKSILVER_QUERY_ERROR) {
 		if (strpos($message, 'mysql_fetch_array(): supplied argument') === false) {
 			$lines = null;
 			$details2 = null;
 
-			if (function_exists('debug_backtrace')) {
-				$backtrace = debug_backtrace();
-
-				if (strpos($message, 'Template not found') !== false) {
-					$file = $backtrace[2]['file'];
-					$line = $backtrace[2]['line'];
-				}
+			if (strpos($message, 'Template not found') !== false) {
+				$backtrace = "";
+				$trace = debug_backtrace();
+				$file = $trace[2]['file'];
+				$line = $trace[2]['line'];
 			}
 
 			if (file_exists($file)) {
@@ -132,6 +175,10 @@ function error_fatal($type, $message, $file, $line = 0)
 	$details
 
 	<br /><hr><br />
+
+	$backtrace
+
+	<br /><hr><br />
 	<a href='http://developer.berlios.de/bugs/?group_id=5008' class='small'>Check status of problem (recommended)</a><br />
 	<a href='{$_SERVER['PHP_SELF']}?{$temp_querystring}&amp;debug=1' class='small'>View debug information (advanced)</a><br />
 	<a href='{$_SERVER['PHP_SELF']}' class='small'>Return to the board</a>
@@ -143,10 +190,10 @@ function error_getlines($lines, $line)
 {
 	$code    = null;
 	$padding = ' ';
-	$previ   = $line-2;
+	$previ   = $line-3;
 	$total_lines = count($lines);
 
-	for ($i = $line - 2; $i <= $line + 2; $i++)
+	for ($i = $line - 3; $i <= $line + 3; $i++)
 	{
 		if ((strlen($previ) < strlen($i)) && ($padding == ' ')) {
 			$padding = null;
