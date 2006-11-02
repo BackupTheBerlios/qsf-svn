@@ -204,6 +204,27 @@ class jsdata extends qsfglobal
 				);
 			
 			break;
+		case 'post':
+			if (isset($this->get['p'])) {
+				$post_id = intval($this->get['p']);
+				
+				$query = $this->db->fetch("SELECT p.post_text, t.topic_forum, t.topic_modes,
+						m.user_name, p.post_emoticons, p.post_mbcode
+						FROM %pposts p, %pusers m, %ptopics t
+						WHERE p.post_id=%d AND p.post_author=m.user_id AND p.post_topic=t.topic_id",
+						$post_id);
+				
+				if (!empty($query) &&
+					(($query['topic_modes'] & TOPIC_PUBLISH) || $this->perms->auth('topic_view_unpublished', $query['topic_forum'])) &&
+					$this->perms->auth('topic_view', $query['topic_forum']))
+				{
+					// All good. Save to return the data
+					$results = array('text' => $this->format($query['post_text'], FORMAT_CENSOR),
+						'user' => $query['user_name'],
+						'emoticons' => $query['post_emoticons'],
+						'mbcode' => $query['post_mbcode']);
+				}
+			}
 		}
 		return $json->encode($results);
 	}

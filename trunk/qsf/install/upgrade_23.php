@@ -32,7 +32,8 @@ $need_templates = array(
 	// Changed templates
 	'CP_PREFS',
 	'FORUM_TOPIC',
-	'RECENT_TOPIC'
+	'RECENT_TOPIC',
+	'TOPIC_QUICKREPLY'
 	);
 
 // Permission changes	

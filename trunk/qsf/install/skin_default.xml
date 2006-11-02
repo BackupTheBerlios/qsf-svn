@@ -4267,6 +4267,7 @@ enable('$init');
       <description>The format of the Quick Reply box</description>
       <html><![CDATA[
 <script type="text/javascript" src="./javascript/postboxplain.js"></script>
+<script type="text/javascript" src="./javascript/quickquote.js"></script>
 
 <form action="{$this->self}?a=post&amp;s=reply&amp;t={$this->get['t']}" method="post" id="mbpost">
 {$this->table}
