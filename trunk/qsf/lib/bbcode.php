@@ -388,7 +388,7 @@ class bbcode extends htmltools
 			'~\[(left|right|center|justify)](.*?)\[/\1]~is',
 			'~\[color=(#?[a-zA-Z0-9]+?)](.*?)\[/color]~is',
 			'~\[font=([a-zA-Z0-9 \-]+?)](.*?)\[/font]~is',
-			'~\[size=([0-9]+?)](.*?)\[/size]~is',
+			'~\[size=([1-9])](.*?)\[/size]~is',
 			'~\[spoiler](.*?)\[/spoiler]~is',
 			'~\[code](.*?)\[/code]~ise',
 			'~\[php](.*?)\[/php]~ise',
