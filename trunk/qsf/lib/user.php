@@ -84,8 +84,13 @@ class user
 			FROM %ptimezones z, %pusers m, %pskins s, %pgroups g, %pmembertitles t
 			WHERE m.user_id=%d AND s.skin_dir=m.user_skin AND g.group_id=m.user_group AND t.membertitle_id=m.user_level AND z.zone_id=m.user_timezone LIMIT 1",
 			USER_GUEST_UID);
-			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
-			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
+			if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+				setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path'].'; HttpOnly');
+				setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path'].'; HttpOnly');
+			} else {
+				setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path'], '', false, true );
+				setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path'], '', false, true );
+			}
 			unset($_SESSION['user']);
 			unset($_SESSION['pass']);
 			$user['user_language'] = $this->get_browser_lang($this->sets['default_lang']);

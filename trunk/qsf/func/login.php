@@ -85,8 +85,13 @@ class login extends qsfglobal
 			$this->post['pass'] = md5($this->post['pass']);
 
 			if ($this->post['pass'] == $pass) {
-				setcookie($this->sets['cookie_prefix'] . 'user', $user, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
-				setcookie($this->sets['cookie_prefix'] . 'pass', $pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
+				if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+					setcookie($this->sets['cookie_prefix'] . 'user', $user, $this->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+					setcookie($this->sets['cookie_prefix'] . 'pass', $pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+				} else {
+					setcookie($this->sets['cookie_prefix'] . 'user', $user, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+					setcookie($this->sets['cookie_prefix'] . 'pass', $pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+				}
 				$_SESSION['user'] = $user;
 				$_SESSION['pass'] = md5($pass . $this->ip);
 				
@@ -109,8 +114,13 @@ class login extends qsfglobal
 			$this->db->query('UPDATE %pusers SET user_lastvisit = %d WHERE user_id=%d',
 				$this->time, $this->user['user_id']);
 
-			setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path']);
-			setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path']);
+			if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+				setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path'].'; HttpOnly');
+				setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path'].'; HttpOnly');
+			} else {
+				setcookie($this->sets['cookie_prefix'] . 'user', '', $this->time - 9000, $this->sets['cookie_path'], '', false, true );
+				setcookie($this->sets['cookie_prefix'] . 'pass', '', $this->time - 9000, $this->sets['cookie_path'], '', false, true );
+			}
 			unset($_SESSION['user']);
 			unset($_SESSION['pass']);
 

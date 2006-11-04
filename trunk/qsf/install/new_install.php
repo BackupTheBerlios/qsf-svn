@@ -216,8 +216,13 @@ class new_install extends qsfglobal
 			$writeSetsWorked = $this->write_db_sets('../settings.php');
 			$this->write_sets();
 
-			setcookie($this->sets['cookie_prefix'] . 'user', $admin_uid, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
-			setcookie($this->sets['cookie_prefix'] . 'pass', $this->post['admin_pass'], $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
+			if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+				setcookie($this->sets['cookie_prefix'] . 'user', $admin_uid, $this->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+				setcookie($this->sets['cookie_prefix'] . 'pass', $this->post['admin_pass'], $this->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+			} else {
+				setcookie($this->sets['cookie_prefix'] . 'user', $admin_uid, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+				setcookie($this->sets['cookie_prefix'] . 'pass', $this->post['admin_pass'], $this->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+			}
 
 			if (!$writeSetsWorked) {
 				echo "Congratulations! Your board has been installed.<br />

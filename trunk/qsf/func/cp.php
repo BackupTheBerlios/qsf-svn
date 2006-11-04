@@ -149,7 +149,11 @@ class cp extends qsfglobal
 				$hashed_pass = md5($this->post['passA']);
 				$this->db->query('UPDATE %pusers SET user_password=\'%s\' WHERE user_id=%d', $hashed_pass, $this->user['user_id']);
 
-				setcookie($this->sets['cookie_prefix'] . 'pass', $hashed_pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path']);
+				if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+					setcookie($this->sets['cookie_prefix'] . 'pass', $hashed_pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+				} else {
+					setcookie($this->sets['cookie_prefix'] . 'pass', $hashed_pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+				}
 				$_SESSION['pass'] = md5($hashed_pass . $this->ip);
 				$this->user['user_password'] = $hashed_pass;
 
