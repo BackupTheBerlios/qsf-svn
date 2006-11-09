@@ -1966,8 +1966,8 @@ enable('$init');
    <input type="checkbox" name="user_view_avatars" id="user_view_avatars" value="1"{$ViewAvCheck} /> <label for="user_view_avatars">{$this->lang->cp_view_avatar}</label><br />
    <input type="checkbox" name="user_view_emoticons" id="user_view_emoticons" value="1"{$ViewEmCheck} /> <label for="user_view_emoticons">{$this->lang->cp_view_emoticon}</label><br />
    <input type="checkbox" name="user_view_signatures" id="user_view_signatures" value="1"{$ViewSiCheck} /> <label for="user_view_signatures">{$this->lang->cp_view_signature}</label><br />
-   <input type="text" name="user_topics_page" size="2" value="{$this->user['user_topics_page']}" {$this->lang->cp_topics_page}<br />
-   <input type="text" name="user_posts_page" size="2" value="{$this->user['user_posts_page']}" {$this->lang->cp_posts_page}
+   <input type="text" name="user_topics_page" size="2" value="{$this->user['user_topics_page']}" /> {$this->lang->cp_topics_page}<br />
+   <input type="text" name="user_posts_page" size="2" value="{$this->user['user_posts_page']}" /> {$this->lang->cp_posts_page}
   </td>
  </tr>
  <tr>
