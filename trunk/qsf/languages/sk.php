@@ -239,6 +239,7 @@ class sk
 		$this->board_stats_string = 'Registrovanıch uívate¾ov: %s. Privítajte našeho najnovšieho èlena, je to %s.<br />Vo fóre sa celkovo nachádza %s tém, %s odpovedí a %s príspevkov.';
 		$this->board_top_page = 'Na vrch stránky';
 		$this->board_topics = 'Témy';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'uívatelia';
 		$this->board_write_topics = 'V tomto fóre máte právo prezera témy a vytvárat nové .';
 	}
@@ -433,6 +434,7 @@ class sk
 		$this->forum_subscribe = 'Posla emailom nové príspevky v tomto fóre';
 		$this->forum_topic = 'Téma';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Videné';
 		$this->forum_write_topics = 'V tomto fóre máte povolenie zaklada témy.';
 	}

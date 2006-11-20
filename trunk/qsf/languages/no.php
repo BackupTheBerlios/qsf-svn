@@ -240,6 +240,7 @@ class no
 		$this->board_stats_string = '%s brukere er registrert. Velkommen til vårt nyeste medlem, %s.<br />Det er %s emner og %s svar med en total på %s innlegg.';
 		$this->board_top_page = 'Gå til toppen av siden';
 		$this->board_topics = 'Emner';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'Brukere';
 		$this->board_write_topics = 'Du kan lese og opprette emner i dette forumet.';
 	}
@@ -434,6 +435,7 @@ class no
 		$this->forum_subscribe = 'Motta epost når det kommer nye innlegg i dette forum.';
 		$this->forum_topic = 'Emne';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Visninger';
 		$this->forum_write_topics = 'Du kan lage nye emner i dette forumet.';
 	}

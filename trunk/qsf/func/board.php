@@ -187,6 +187,7 @@ class board extends qsfglobal
 						$full_title = $this->format($full_title, FORMAT_CENSOR | FORMAT_HTMLCHARS);
 						$forum['user_lastpost'] = $this->format($forum['user_lastpost'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 
+						$forum['forum_lastpost_topic'] = $forum['LastTopicID'];
 						$forum['LastTopicID'] .= '&amp;p=' . $forum['forum_lastpost'] . '#p' . $forum['forum_lastpost'];
 
 						$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));

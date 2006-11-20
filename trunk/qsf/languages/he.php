@@ -239,6 +239,7 @@ class he
 		$this->board_stats_string = 'הודעות. %s תגובות סה"כ %s נושאים ו %s ישנם <b /> .%s משתמשים נרשמו.ברוך הבא משתמש חדש  %s';
 		$this->board_top_page = 'עבור לראש העמוד';
 		$this->board_topics = 'נושאים';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'משתמשים';
 		$this->board_write_topics = 'הינך יכול לראות ולכתוב בפורום הזה.';
 	}
@@ -433,6 +434,7 @@ class he
 		$this->forum_subscribe = 'שלח לי הודעת מייל כשיגיבו לפורום זה';
 		$this->forum_topic = 'נושא';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'צפיות';
 		$this->forum_write_topics = 'הינך מורשה ליצור הודעות בפורום זה.';
 	}

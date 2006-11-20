@@ -1629,7 +1629,9 @@
       <description>Change the look of the last poster box on the forums.</description>
       <html><![CDATA[
 <IF ($topic_unread)>
- <img src="./skins/{$this->skin}/images/icons/topic_unread.png" alt="" />
+ <a href="{$this->self}?a=topic&amp;t={$forum['forum_lastpost_topic']}&amp;unread=1#unread">
+ <img src="./skins/{$this->skin}/images/icons/topic_unread.png" alt="{$this->lang->board_unread}" title="{$this->lang->board_unread}" />
+ </a>
 </IF>
 <a href="{$this->self}?a=topic&amp;t={$forum['LastTopicID']}" class="small" title="{$full_title}">{$forum['user_lastpost']}</a><br />
 {$this->lang->board_by} {$forum['user_lastposter']}<br />
@@ -2201,7 +2203,14 @@ enable('$init');
    <IF $row['icon']>
     <img src="./skins/{$this->skin}/mbicons/{$row['icon']}" alt="{$this->lang->forum_icon}" class="topicicon" />
    </IF>
-    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}" title="{$this->lang->forum_topic_posted}: {$topic_posted}">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
+   <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}" title="{$this->lang->forum_topic_posted}: {$topic_posted}">{$row['topic_title']}</a> {$Pages}
+   <IF $row['newpost']>
+      <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}&amp;unread=1#unread">
+       &nbsp;<img src="./skins/{$this->skin}/images/icons/topic_unread.png" title="{$this->lang->forum_unread}" alt="{$this->lang->forum_unread}" />
+	  </a>
+   </IF>
+   {$row['topic_description']}
+  </td>
   <td class="tabledark" style="text-align:center">{$row['topic_starter']}</td>
   <td class="tablelight" style="text-align:center">{$row['topic_replies']}</td>
   <td class="tablelight" style="text-align:center">{$row['topic_views']}</td>
@@ -2483,7 +2492,7 @@ enable('$init');
    <td style="width:30%; white-space:nowrap">
     {$qsf->lang->main_welcome_guest}
     <span class="useroptions">
-     ( <a href="{$qsf->self}?a=login&amp;s=on">{$qsf->lang->main_login}</a> | <a href="{$qsf->self}?a=register">{$qsf->lang->main_register}</a> )
+     ( <a href="{$qsf->self}?a=recent" title="{$qsf->lang->main_recent1}">{$qsf->lang->main_recent}</a> | <a href="{$qsf->self}?s=mark" title="{$qsf->lang->main_mark1}">{$qsf->lang->main_mark}</a> | <a href="{$qsf->self}?a=login&amp;s=on">{$qsf->lang->main_login}</a> | <a href="{$qsf->self}?a=register">{$qsf->lang->main_register}</a> )
     </span>
    </td>
    <td>{$qsf->htmlwidgets->tree}</td>
@@ -3744,7 +3753,7 @@ enable('$init');
    <IF $row['icon']>
     <img src="./skins/{$this->skin}/mbicons/{$row['icon']}" alt="{$this->lang->recent_icon}" class="topicicon" />
    </IF>
-    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}&amp;unread=1" class="medium" title="{$this->lang->recent_topic_posted}: {$topic_posted}">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
+    <a href="{$this->self}?a=topic&amp;t={$row['topic_id']}&amp;unread=1#unread" class="medium" title="{$this->lang->recent_topic_posted}: {$topic_posted}">{$row['topic_title']}</a> {$Pages}{$row['topic_description']}</td>
   <td class="tabledark" style="text-align:center">{$row['topic_starter']}</td>
   <td class="tablelight" style="text-align:center"><a href="{$this->self}?a=forum&amp;f={$row['forum_id']}">{$row['forum_name']}</a></td>
   <td class="tabledark">

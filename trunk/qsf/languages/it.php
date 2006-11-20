@@ -240,6 +240,7 @@ class it
 		$this->board_stats_string = '%s utenti si sono registrati. Diamo il benvenuto al nostro più recente iscritto: %s.<br /> Ci sono %s discussioni e %s risposte, per un totale di %s messaggi.';
 		$this->board_top_page = 'Vai in cima alla pagina';
 		$this->board_topics = 'Discussioni';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'utenti';
 		$this->board_write_topics = 'Puoi leggere ed inviare nuovi messaggi.';
 	}
@@ -434,6 +435,7 @@ class it
 		$this->forum_subscribe = 'Mandami una e-mail quando qualcuno apre una nuova discussione';
 		$this->forum_topic = 'Discussioni';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Visite';
 		$this->forum_write_topics = 'Puoi aprire nuove discussioni in questo forum.';
 	}

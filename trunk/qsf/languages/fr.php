@@ -239,6 +239,7 @@ class fr
 		$this->board_stats_string = '%s Les utilisateurs ont été enregistré. Bienvenue à notre plus nouveau membre, %s.<br />Il y a %s les sujets de s et %s les réponses de s pour un total de %s les postes. ';
 		$this->board_top_page = 'Aller au sommet de la page';
 		$this->board_topics = 'Sujets';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'utilisateurs(-trices)';
 		$this->board_write_topics = 'Vous pouvez créer un fil de discussions dans ce forum.';
 	}
@@ -433,6 +434,7 @@ class fr
 		$this->forum_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->forum_topic = 'Sujet';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Affichages';
 		$this->forum_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}

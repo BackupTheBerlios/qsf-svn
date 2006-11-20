@@ -240,6 +240,7 @@ class ru
 		$this->board_stats_string = '%s пользователей зарегистрировано. Приветствуем нового пользователя, %s.<br />Всего %s тем и %s ответов в %s сообщениях.';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Тем';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'пользователь(-ей)';
 		$this->board_write_topics = 'Ты можешь читать и создавать темы в этом форуме.';
 	}
@@ -434,6 +435,7 @@ class ru
 		$this->forum_subscribe = 'Уведомить по e-mail об ответах в этом форуме';
 		$this->forum_topic = 'Тема';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Просмотров';
 		$this->forum_write_topics = 'Ты можешь создавать темы в этом форуме.';
 	}

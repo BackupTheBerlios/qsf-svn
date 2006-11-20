@@ -239,6 +239,7 @@ class en
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.';
 		$this->board_top_page = 'Go to the top of the page';
 		$this->board_topics = 'Topics';
+		$this->board_unread = 'Jump to oldest unread post';
 		$this->board_users = 'users';
 		$this->board_write_topics = 'You can view and create topics in this forum.';
 	}
@@ -433,6 +434,7 @@ class en
 		$this->forum_subscribe = 'E-mail me when posts are made in this forum';
 		$this->forum_topic = 'Topic';
 		$this->forum_topic_posted = 'Posted';
+		$this->forum_unread = 'Jump to oldest unread post';
 		$this->forum_views = 'Views';
 		$this->forum_write_topics = 'You can create topics in this forum.';
 	}

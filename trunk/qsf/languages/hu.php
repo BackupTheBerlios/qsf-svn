@@ -239,6 +239,7 @@ class hu
 		$this->board_stats_string = '%s regisztrált tag. Üdvözöljük legújabb tagunkat, %s -t.<br /> Összesen %s téma és %s válasz a(z) %s beírásra.';
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Témák';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'tag';
 		$this->board_write_topics = 'Jogod van témát nyitni ebben a fórumban.';
 	}
@@ -433,6 +434,7 @@ class hu
 		$this->forum_subscribe = 'E-mail küldése új bejegyzéskor';
 		$this->forum_topic = 'Téma';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Megjelenítések';
 		$this->forum_write_topics = 'Nyithatsz témákat ebben a fórumban.';
 	}

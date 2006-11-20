@@ -241,6 +241,7 @@ class nl
 		$this->board_stats_string = '%s gebruikers hebben zich geregistreerd. Ons nieuwste lid is, %s.<br />Er zijn %s Onderwerpen en %s antwoorden in een totaal van %s berichten.';
 		$this->board_top_page = 'Ga naar bovenaan de pagina';
 		$this->board_topics = 'Onderwerpen';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'Gebruikers';
 		$this->board_write_topics = 'Je mag nieuwe onderwerpen plaatsen in dit forum.';
 	}
@@ -435,6 +436,7 @@ class nl
 		$this->forum_subscribe = 'Stuur mij een e-mail als er berichten geplaatst zijn in dit onderwerp';
 		$this->forum_topic = 'Onderwerp';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Bekeken';
 		$this->forum_write_topics = 'U kan onderwerpen aanmaken in dit forum.';
 	}

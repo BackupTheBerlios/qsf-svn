@@ -239,6 +239,7 @@ class cs
 		$this->board_stats_string = '%s u&#x17E;ivatel&#x16F; je registrováno. Ná&#x161; nejnov&#x11B;j&#x161;í &#x10D;len má p&#x159;ezdívku %s.<br />Najdete zde %s témat a %s odpov&#x11B;dí, celkem %s p&#x159;ísp&#x11B;vk&#x16F;.';
 		$this->board_top_page = 'P&#x159;ejít nahoru na stránku';
 		$this->board_topics = 'Témat';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'u&#x17E;ivatel&#x16F; je on-line';
 		$this->board_write_topics = 'M&#x16F;&#x17E;ete prohlí&#x17E;et a vytvá&#x159;et témata v tomto fóru.';
 	}
@@ -433,6 +434,7 @@ class cs
 		$this->forum_subscribe = 'Informovat mn&#x11B; e-mailem o nových p&#x159;ísp&#x11B;vcích';
 		$this->forum_topic = 'Téma';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Schlédnuto';
 		$this->forum_write_topics = 'V tomto fóru m&#x16F;&#x17E;ete vytvá&#x159;et témata.';
 	}

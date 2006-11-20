@@ -240,6 +240,7 @@ class sv
 		$this->board_stats_string = 'Hittills har %s personer registrerat sig. Våran nyaste medlem är: %s.<br /> Det finns %s ämnen och %s svar vilket totalt är %s inlägg.';
 		$this->board_top_page = 'Gå till toppen av sidan';
 		$this->board_topics = 'Ämnen';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'användare';
 		$this->board_write_topics = 'Du kan läsa och skapa ämnen i detta forum.';
 	}
@@ -434,6 +435,7 @@ class sv
 		$this->forum_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->forum_topic = 'Ämne';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Visningar';
 		$this->forum_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}

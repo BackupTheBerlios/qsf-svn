@@ -239,6 +239,7 @@ class id
 		$this->board_stats_string = '%s users have registered. Welcome to our newest member, %s.<br />There are %s topics and %s replies for a total of %s posts.'; //Translate
 		$this->board_top_page = 'Go to the top of the page'; //Translate
 		$this->board_topics = 'Topik';
+		$this->board_unread = 'Jump to oldest unread post'; //Translate
 		$this->board_users = 'user';
 		$this->board_write_topics = 'Anda dapat melihat dan membuat topik di forum ini.';
 	}
@@ -433,6 +434,7 @@ class id
 		$this->forum_subscribe = 'Kirimkan E-mail ke saya ketika topik ini dibalas';
 		$this->forum_topic = 'Topik';
 		$this->forum_topic_posted = 'Posted'; //Translate
+		$this->forum_unread = 'Jump to oldest unread post'; //Translate
 		$this->forum_views = 'Dilihat';
 		$this->forum_write_topics = 'Anda dapat membuat topik di forum ini.';
 	}
