@@ -272,10 +272,6 @@ class mod extends qsfglobal
 			$emot = isset($this->post['emoticons']) ? 1 : 0;
 			$code = isset($this->post['code']) ? 1 : 0;
 
-			if ($code && !$this->bbcode->quote_check($this->post['post'])) {
-				$code = 0;
-			}
-
 			$this->log_action('post_edit', $this->get['p']);
 			$this->post['icon'] = isset($this->post['icon']) ? $this->post['icon'] : '';
 

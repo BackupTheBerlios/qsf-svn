@@ -242,7 +242,7 @@ class post extends qsfglobal
 
 				$params = FORMAT_BREAKS | FORMAT_CENSOR | FORMAT_HTMLCHARS;
 
-				if (isset($this->post['parseCode']) && $this->bbcode->quote_check($this->post['post'])) {
+				if (isset($this->post['parseCode'])) {
 					$params |= FORMAT_MBCODE;
 					$checkCode = ' checked=\'checked\'';
 				} else {
@@ -393,10 +393,6 @@ class post extends qsfglobal
 			if (!isset($this->post['icon']))      $this->post['icon'] = '';
 			if (!isset($this->post['parseCode'])) $this->post['parseCode'] = 0;
 			if (!isset($this->post['parseEmot'])) $this->post['parseEmot'] = 0;
-
-			if ($this->post['parseCode'] && !$this->bbcode->quote_check($this->post['post'])) {
-				$this->post['parseCode'] = 0;
-			}
 
 			if (($s == 'topic') || ($s == 'poll')) {
 				$mode = 0;
