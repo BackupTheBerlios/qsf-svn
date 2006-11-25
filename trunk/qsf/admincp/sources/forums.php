@@ -62,7 +62,7 @@ class forums extends admin
 			if (isset($this->get['id'])) {
 				$f = $this->db->fetch("SELECT forum_name, forum_description, forum_parent, forum_subcat FROM %pforums WHERE forum_id=%d", $this->get['id']);
 
-				$this->tree('Edit a Forum', "{$this->self}?a=forums&amp;s=edit");
+				$this->tree($this->lang->forum_edit, "{$this->self}?a=forums&amp;s=edit");
 				$this->tree($f['forum_name']);
 
 				if (isset($this->post['editforum'])) {
@@ -83,7 +83,7 @@ class forums extends admin
 			if (isset($this->get['id'])) {
 				$f = $this->db->fetch("SELECT forum_name FROM %pforums WHERE forum_id=%d", intval($this->get['id']));
 
-				$this->tree('Delete a Forum', "{$this->self}?a=forums&amp;s=delete");
+				$this->tree($this->lang->forum_delete, "{$this->self}?a=forums&amp;s=delete");
 				$this->tree($f['forum_name']);
 
 				if (isset($this->get['confirm'])) {
