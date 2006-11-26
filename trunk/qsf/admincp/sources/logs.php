@@ -31,8 +31,8 @@ class logs extends admin
 {
 	function execute()
 	{
-		$this->set_title('View Moderator Actions');
-		$this->tree('View Moderator Actions');
+		$this->set_title($this->lang->logs_view);
+		$this->tree($this->lang->logs_view);
 
 		$data = $this->db->query("SELECT l.*, u.user_name FROM %plogs l, %pusers u WHERE u.user_id=l.log_user ORDER BY l.log_time DESC");
 
