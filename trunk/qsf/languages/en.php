@@ -913,7 +913,9 @@ class en
 		$this->post_no_vote = 'You must choose an option to vote for.';
 		$this->post_option_emoticons = 'Convert emoticons into images?';
 		$this->post_option_global = 'Make this topic global?';
+		$this->post_option_lock = 'Lock topic after posting?';
 		$this->post_option_mbcode = 'Format MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?';
 		$this->post_optional = 'optional';
 		$this->post_options = 'Options';
 		$this->post_poll_options = 'Poll Options';

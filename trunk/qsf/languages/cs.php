@@ -913,7 +913,9 @@ class cs
 		$this->post_no_vote = 'Musíte vybrat mo&#x17E;nosti hlasování pro anketu.';
 		$this->post_option_emoticons = 'P&#x159;evést textové "smajlíky" na obrázkové?';
 		$this->post_option_global = 'Ud&#x11B;lat toto téma globálním?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formátovat MbCodem? (doporu&#x10D;eno)';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'volitelné';
 		$this->post_options = 'Volby';
 		$this->post_poll_options = 'Volby ankety';

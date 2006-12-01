@@ -913,7 +913,9 @@ class zh
 		$this->post_no_vote = '�����ѡ��һ��ѡ�';
 		$this->post_option_emoticons = 'ʹ�ñ�����ת����';
 		$this->post_option_global = 'Make this topic global?'; //Translate
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'ʹ��Mb���룿';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = '��ѡ';
 		$this->post_options = 'ѡ��';
 		$this->post_poll_options = 'ѡ��';

@@ -915,7 +915,9 @@ class sk
 		$this->post_no_vote = 'Ak chcete hlasova, je vhodné zvoli si odpoveï.';
 		$this->post_option_emoticons = 'Konvertova textové smajlíky na obrázky?';
 		$this->post_option_global = 'Globalizova túto tému?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Interpretova Mb-kód?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'nepovinné';
 		$this->post_options = 'Možnosti';
 		$this->post_poll_options = 'Možnosti hlasovania';

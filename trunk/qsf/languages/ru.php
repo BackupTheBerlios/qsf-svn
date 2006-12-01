@@ -914,7 +914,9 @@ class ru
 		$this->post_no_vote = 'Ты должен выбрать пункт, за который голосуешь.';
 		$this->post_option_emoticons = 'Использовать графические смайлы?';
 		$this->post_option_global = 'Сделать тему глобальной?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Использовать MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'опционально';
 		$this->post_options = 'Настройки';
 		$this->post_poll_options = 'Настройки голосования';

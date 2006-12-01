@@ -29,11 +29,15 @@ if (!defined('INSTALLER')) {
 // Template changes
 $need_templates = array(
 	// Added templates
+	'POST_OPTIONS',
 	// Changed templates
 	'CP_PREFS',
 	'FORUM_TOPIC',
 	'RECENT_TOPIC',
-	'TOPIC_QUICKREPLY'
+	'TOPIC_QUICKREPLY',
+	'POST_POLL',
+	'POST_REPLY',
+	'POST_TOPIC'
 	);
 
 // Permission changes	

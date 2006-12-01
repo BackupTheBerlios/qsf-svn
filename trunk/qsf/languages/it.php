@@ -914,7 +914,9 @@ class it
 		$this->post_no_vote = 'Devi scegliere un\'opzione da votare.';
 		$this->post_option_emoticons = 'Convertire emoticon in immagine?';
 		$this->post_option_global = 'Imposta come Discussione Globale?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formatta MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'facoltativa';
 		$this->post_options = 'Opzioni';
 		$this->post_poll_options = 'Opzioni Sondaggio';

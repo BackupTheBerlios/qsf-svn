@@ -915,7 +915,9 @@ class nl
 		$this->post_no_vote = 'Je moet een keuze maken om te stemmen.';
 		$this->post_option_emoticons = 'Zet smilies om naar plaatjes';
 		$this->post_option_global = 'Maak dit onderwerp globaal?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'formaat MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'Opties';
 		$this->post_options = 'Opties';
 		$this->post_poll_options = 'stembus Opties';

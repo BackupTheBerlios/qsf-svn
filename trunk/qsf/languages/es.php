@@ -913,7 +913,9 @@ class es
 		$this->post_no_vote = 'Debe escojer una opcion para votar por esta';
 		$this->post_option_emoticons = 'Convertir emoticons a imagenes?';
 		$this->post_option_global = 'Make this topic global?'; //Translate
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formatear MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'opcional';
 		$this->post_options = 'Opciones';
 		$this->post_poll_options = 'Opciones de encuesta';

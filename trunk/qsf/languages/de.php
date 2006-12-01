@@ -914,7 +914,9 @@ class de
 		$this->post_no_vote = 'Sie müssen zum Abstimmen eine Option auswählen.';
 		$this->post_option_emoticons = 'Konvertiere Smilies zu Bildern?';
 		$this->post_option_global = 'Thema globalisieren?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formatiere MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'Optional';
 		$this->post_options = 'Optionen';
 		$this->post_poll_options = 'Umfrage Optionen';

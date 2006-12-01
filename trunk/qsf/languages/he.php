@@ -913,7 +913,9 @@ class he
 		$this->post_no_vote = 'חובה לבחור אפשרות בכדי להצביע.';
 		$this->post_option_emoticons = '?להמיר סמלי הבעה לתמונות';
 		$this->post_option_global = '?לעשות נושא זה גלובלי';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Format MbCode?'; //Translate
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'רשות';
 		$this->post_options = 'אפשרויות';
 		$this->post_poll_options = 'אפשרויות סקר';

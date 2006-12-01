@@ -3317,13 +3317,6 @@ enable('$init');
   </td>
       ]]></html>
     </template>
-    <template><set>post</set><name>POST_GLOBAL</name>
-      <displayname>Global Topic Checkbox</displayname>
-      <description>Displayed only to those able to make a topic global</description>
-      <html><![CDATA[
-<br /><input type="checkbox" name="global_topic" value="1" id="global_topic"{$checkGlob} /> <label for="global_topic">{$this->lang->post_option_global}</label><br />
-      ]]></html>
-    </template>
     <template><set>post</set><name>POST_MESSAGE_ICONS</name>
       <displayname>Message Icons</displayname>
       <description>Table row for message icons in a post</description>
@@ -3362,14 +3355,7 @@ enable('$init');
   <td class="tablelight"><textarea class="input" name="options" rows="12" cols="60">{$options}</textarea></td>
  </tr>
  {$post_box}
- <tr>
-  <td class="tabledark" valign="top"><b>{$this->lang->post_options}</b></td>
-  <td class="tabledark">
-   <input type="checkbox" name="parseEmot" value="1" id="parseEmot"{$checkEmot} /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label><br />
-   <input type="checkbox" name="parseCode" value="1" id="parseCode"{$checkCode} /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>
-   {$universal_topic}
-  </td>
- </tr>
+ {$post_options}
  {$attach_box}
  <tr>
   <td class="footer" style="text-align:center" colspan="2">
@@ -3379,6 +3365,28 @@ enable('$init');
  </tr>
 {$this->etable}
 </form>
+      ]]></html>
+    </template>
+    <template><set>post</set><name>POST_OPTIONS</name>
+      <displayname>Post Options</displayname>
+      <description>Format for posting option checkboxes.</description>
+      <html><![CDATA[
+ <tr>
+  <td class="tabledark" valign="top"><b>{$this->lang->post_options}</b></td>
+  <td class="tabledark">
+   <input type="checkbox" name="parseEmot" value="1" id="parseEmot"{$checkEmot} /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label>
+   <br /><input type="checkbox" name="parseCode" value="1" id="parseCode"{$checkCode} /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>
+   <IF $universal_topic>
+    <br /><input type="checkbox" name="global_topic" value="1" id="global_topic"{$checkGlob} /> <label for="global_topic">{$this->lang->post_option_global}</label>
+   </IF>
+   <IF $topic_lock>
+    <br /><input type="checkbox" name="locktopic" value="1" id="locktopic" /> <label for="locktopic">{$this->lang->post_option_lock}</label>
+   </IF>
+   <IF $topic_pin>
+    <br /><input type="checkbox" name="pintopic" value="1" id="pintopic" /> <label for="pintopic">{$this->lang->post_option_pin}</label>
+   </IF>
+  </td>
+ </tr>
       ]]></html>
     </template>
     <template><set>post</set><name>POST_POSTER_GUEST</name>
@@ -3445,13 +3453,7 @@ enable('$init');
   <td class="header" colspan="2">{$this->lang->post_reply_topic}</td>
  </tr>
  {$post_box}
- <tr>
-  <td class="tabledark" valign="top"><b>{$this->lang->post_options}</b></td>
-  <td class="tabledark">
-   <input type="checkbox" name="parseEmot" value="1" id="parseEmot"{$checkEmot} /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label><br />
-   <input type="checkbox" name="parseCode" value="1" id="parseCode"{$checkCode} /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>
-  </td>
- </tr>
+ {$post_options}
  {$attach_box}
  <tr>
   <td class="footer" style="text-align:center" colspan="2">
@@ -3512,14 +3514,7 @@ enable('$init');
   <td class="tablelight"><input class="input" type="text" name="desc" value="{$desc}" size="60" maxlength="35" /></td>
  </tr>
  {$post_box}
- <tr>
-  <td class="tabledark" valign="top"><b>{$this->lang->post_options}</b></td>
-  <td class="tabledark">
-   <input type="checkbox" name="parseEmot" value="1" id="parseEmot"{$checkEmot} /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label><br />
-   <input type="checkbox" name="parseCode" value="1" id="parseCode"{$checkCode} /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>
-   {$universal_topic}
-  </td>
- </tr>
+ {$post_options}
  {$attach_box}
  <tr>
   <td class="footer" style="text-align:center" colspan="2">

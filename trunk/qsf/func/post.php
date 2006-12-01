@@ -109,7 +109,7 @@ class post extends qsfglobal
 
 			$this->get['t'] = intval($this->get['t']);
 
-			$topic = $this->db->fetch("SELECT t.topic_modes, t.topic_title, f.forum_name, f.forum_id, t.topic_replies
+			$topic = $this->db->fetch("SELECT t.topic_modes, t.topic_title, f.forum_name, f.forum_id, t.topic_replies, t.topic_starter
 				FROM %ptopics t, %pforums f
 				WHERE t.topic_id=%d AND f.forum_id=t.topic_forum", $this->get['t']);
 
@@ -204,6 +204,9 @@ class post extends qsfglobal
 			$checkEmot = ' checked=\'checked\'';
 			$checkCode = ' checked=\'checked\'';
 			$checkGlob = '';
+			$universal_topic = false;
+			$topic_lock = false;
+			$topic_pin = false;
 
 			$title   = isset($this->post['title']) ? $this->format($this->post['title'], FORMAT_HTMLCHARS) : '';
 			$desc    = isset($this->post['desc']) ? $this->format($this->post['desc'], FORMAT_HTMLCHARS) : '';
@@ -334,11 +337,34 @@ class post extends qsfglobal
 						$quote = '[quote=' . $query['user_name'] . ']' . $this->format($query['post_text'], FORMAT_CENSOR | FORMAT_HTMLCHARS) . '[/quote]';
 					}
 				}
+				$is_owner = $this->user['user_id'] == $topic['topic_starter'];
+
+				if (!($topic['topic_modes'] & TOPIC_LOCKED)) {
+					if ($this->perms->auth('topic_lock', $topic['forum_id']) || ($is_owner && $this->perms->auth('topic_lock_own', $topic['forum_id']))) {
+						$topic_lock = true;
+					}
+				}
+
+				if (!($topic['topic_modes'] & TOPIC_PINNED)) {
+					if ($this->perms->auth('topic_pin', $topic['forum_id']) || ($is_owner && $this->perms->auth('topic_pin_own', $topic['forum_id']))) {
+						$topic_pin = true;
+					}
+				}
 			} else {
 				if ($this->perms->auth('topic_global')) {
-					$universal_topic = eval($this->template('POST_GLOBAL'));
-				} else {
-					$universal_topic = '';
+					$universal_topic = true;
+				}
+
+				// Able to lock? Yes if the forum allows "lock any", or if "lock own topics" is allowed.
+				// The person creating the topic is assumed to be the owner.
+				if ($this->perms->auth('topic_lock', $this->get['f']) || $this->perms->auth('topic_lock_own', $this->get['f'])) {
+					$topic_lock = true;
+				}
+
+				// Able to pin? Yes if the forum allows "pin any", or if "pin own topics" is allowed.
+				// The person creating the topic is assumed to be the owner.
+				if ($this->perms->auth('topic_pin', $this->get['f']) || $this->perms->auth('topic_pin_own', $this->get['f'])) {
+					$topic_pin = true;
 				}
 			}
 
@@ -347,6 +373,7 @@ class post extends qsfglobal
 			$msg_icons = $this->htmlwidgets->get_icons($icon);
 			$posticons = eval($this->template('POST_MESSAGE_ICONS'));
 			$smilies   = eval($this->template('POST_CLICKABLE_SMILIES'));
+			$post_options = eval($this->template('POST_OPTIONS'));
 
 			if ($this->perms->auth('post_attach', $this->get['f'])) {
 				if ($attached) {
@@ -403,6 +430,14 @@ class post extends qsfglobal
 
 				if ($this->perms->auth('topic_publish_auto', $this->get['f'])) {
 					$mode |= TOPIC_PUBLISH;
+				}
+
+				if (isset($this->post['locktopic']) && ($this->perms->auth('topic_lock', $this->get['f']) || $this->perms->auth('topic_lock_own', $this->get['f']))) {
+					$mode |= TOPIC_LOCKED;
+				}
+
+				if (isset($this->post['pintopic']) && ($this->perms->auth('topic_pin', $this->get['f']) || $this->perms->auth('topic_pin_own', $this->get['f']))) {
+					$mode |= TOPIC_PINNED;
 				}
 
 				if (trim($this->post['title']) == '') {
@@ -484,8 +519,20 @@ class post extends qsfglobal
 			}
 
 			if ($s == 'reply') {
-				$this->db->query("UPDATE %ptopics SET topic_replies=topic_replies+1, topic_edited=%d, topic_last_poster=%d WHERE topic_id=%d",
-					$this->time, $this->user['user_id'], $this->get['t']);
+				$mode = $topic['topic_modes'];
+
+				$is_owner = $this->user['user_id'] == $topic['topic_starter'];
+
+				if (isset($this->post['locktopic']) && ($this->perms->auth('topic_lock', $topic['forum_id']) || ($is_owner && $this->perms->auth('topic_lock_own', $topic['forum_id'])))) {
+					$mode |= TOPIC_LOCKED;
+				}
+
+				if (isset($this->post['pintopic']) && ($this->perms->auth('topic_pin', $topic['forum_id']) || ($is_owner && $this->perms->auth('topic_pin_own', $topic['forum_id'])))) {
+					$mode |= TOPIC_PINNED;
+				}
+
+				$this->db->query("UPDATE %ptopics SET topic_replies=topic_replies+1, topic_modes=%d, topic_edited=%d, topic_last_poster=%d WHERE topic_id=%d",
+					$mode, $this->time, $this->user['user_id'], $this->get['t']);
 				$field = 'forum_replies';
 			} else {
 				$field = 'forum_topics';

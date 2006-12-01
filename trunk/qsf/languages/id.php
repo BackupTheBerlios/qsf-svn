@@ -913,7 +913,9 @@ class id
 		$this->post_no_vote = 'Anda harus memilih option untuk voting.';
 		$this->post_option_emoticons = 'Konvert emoticon ke image ?';
 		$this->post_option_global = 'Make this topic global?'; //Translate
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Format MbCode?'; //Translate
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'optional'; //Translate
 		$this->post_options = 'Option';
 		$this->post_poll_options = 'Polling Option';

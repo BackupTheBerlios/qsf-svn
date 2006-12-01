@@ -913,7 +913,9 @@ class bg
 		$this->post_no_vote = 'Трябва да избереш отговор, за да гласуваш.';
 		$this->post_option_emoticons = 'Превърни емотиконите в картинки?';
 		$this->post_option_global = 'Make this topic global?'; //Translate
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Format MbCode?'; //Translate
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'optional'; //Translate
 		$this->post_options = 'Опции';
 		$this->post_poll_options = 'Опции на анкетата';

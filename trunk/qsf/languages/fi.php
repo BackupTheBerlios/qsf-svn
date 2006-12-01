@@ -913,7 +913,9 @@ class fi
 		$this->post_no_vote = 'Sinun tulee valita mitä äänestät.';
 		$this->post_option_emoticons = 'Muuta hymiöt kuviksi?';
 		$this->post_option_global = 'Tee tästä julkinen keskustelu?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Muotoile MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'vaihtoehtonen';
 		$this->post_options = 'Asetukset';
 		$this->post_poll_options = 'Kyselyn asetukset';

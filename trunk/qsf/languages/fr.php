@@ -913,7 +913,9 @@ class fr
 		$this->post_no_vote = 'Vous devez voter parmi les choix proposés.';
 		$this->post_option_emoticons = 'Convertir les smileys en images ?';
 		$this->post_option_global = 'Faire de ce sujet un sujet général?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formater le MbCode?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'facultatif';
 		$this->post_options = 'Options'; //Translate
 		$this->post_poll_options = 'Réponses';

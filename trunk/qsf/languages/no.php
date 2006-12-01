@@ -914,7 +914,9 @@ class no
 		$this->post_no_vote = 'Du må velge et alternativ når du skal stemme.';
 		$this->post_option_emoticons = 'Konvertere smilies til bilder?';
 		$this->post_option_global = 'Gjøre dette emnet globalt?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formatere MbKod?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'Valgfri';
 		$this->post_options = 'Alternativ';
 		$this->post_poll_options = 'Avstemningsvalg';

@@ -914,7 +914,9 @@ class sv
 		$this->post_no_vote = 'Du måste välja ett alternativ att rösta på.';
 		$this->post_option_emoticons = 'Konvertera Emoticons till bilder?';
 		$this->post_option_global = 'Visa ämnet i hela forumet?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'Formatera MbKod?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'valfri';
 		$this->post_options = 'Alternativ';
 		$this->post_poll_options = 'Omröstningsalternativ';

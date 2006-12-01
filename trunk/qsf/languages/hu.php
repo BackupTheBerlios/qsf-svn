@@ -913,7 +913,9 @@ class hu
 		$this->post_no_vote = 'Válassz, mire szavazol.';
 		$this->post_option_emoticons = 'Emotikonok képpé alakítása?';
 		$this->post_option_global = 'Globálissá tesszük a témát?';
+		$this->post_option_lock = 'Lock topic after posting?'; //Translate
 		$this->post_option_mbcode = 'MbKód formázás?';
+		$this->post_option_pin = 'Pin topic after posting?'; //Translate
 		$this->post_optional = 'választható';
 		$this->post_options = 'Opciók';
 		$this->post_poll_options = 'Szavazógép opciók';
