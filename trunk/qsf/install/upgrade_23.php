@@ -33,6 +33,8 @@ $need_templates = array(
 	// Changed templates
 	'CP_PREFS',
 	'BOARD_LAST_POST_BOX',
+	'MAIN_HEADER_GUEST',
+	'MAIN_HEADER_MEMBER',
 	'FORUM_TOPIC',
 	'RECENT_TOPIC',
 	'TOPIC_QUICKREPLY',
