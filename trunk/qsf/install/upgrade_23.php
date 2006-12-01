@@ -32,6 +32,7 @@ $need_templates = array(
 	'POST_OPTIONS',
 	// Changed templates
 	'CP_PREFS',
+	'BOARD_LAST_POST_BOX',
 	'FORUM_TOPIC',
 	'RECENT_TOPIC',
 	'TOPIC_QUICKREPLY',
