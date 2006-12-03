@@ -99,11 +99,12 @@ class rssfeed extends qsfglobal
 				%pposts p,
 				%pusers u
 			WHERE t.topic_forum IN (%s) AND
+				t.topic_modes & %d AND
 				p.post_topic = t.topic_id AND
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
 			LIMIT %d",
-			$forums_str, $this->sets['rss_feed_posts']);
+			$forums_str, TOPIC_PUBLISH, $this->sets['rss_feed_posts']);
 
 
 		$items = '';
@@ -145,11 +146,12 @@ class rssfeed extends qsfglobal
 				%pposts p,
 				%pusers u
 			WHERE t.topic_forum = %d AND
+				t.topic_modes & %d AND
 				p.post_topic = t.topic_id AND
 				u.user_id = p.post_author
 			ORDER BY p.post_time DESC
 			LIMIT %d",
-			$forum, $this->sets['rss_feed_posts']);
+			$forum, TOPIC_PUBLISH, $this->sets['rss_feed_posts']);
 			
 		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
