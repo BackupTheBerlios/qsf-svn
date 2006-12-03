@@ -102,6 +102,38 @@
 </form>
       ]]></html>
     </template>
+    <template><set>backup</set><name>ADMIN_BACKUP</name>
+      <displayname>Database Backup</displayname>
+      <description>Form for making a database backup.</description>
+      <html><![CDATA[
+<form action="{$this->self}?a=backup&amp;s=create" method="post">
+<div class="mainmessage">
+{$this->table}
+ <tr>
+  <td class="header" colspan="100%" style="text-align:center">{$this->lang->backup_options}</td>
+ </tr>
+ <tr>
+  <td class="tablelight">{$this->lang->backup_add_complete} INSERT {$this->lang->backup_statements}?</td>
+  <td class="tablelight">
+   <input type="checkbox" checked="checked" name="insert" value="1" />
+  </td>
+ </tr>
+ <tr>
+  <td class="tabledark">{$this->lang->backup_add} DROP TABLE {$this->lang->backup_statements}<a href="#" title="{$this->lang->backup_uncheck}">?</a></td>
+  <td class="tabledark">
+   <input type="checkbox" checked="checked" name="droptable" value="1" />
+  </td>
+ </tr>
+ <tr>
+  <td class="footer" style="text-align:center" colspan="100%">
+   <input type="submit" name="submit" value="{$this->lang->backup}" />
+  </td>
+ </tr>
+{$this->etable}
+</div>
+</form>
+      ]]></html>
+    </template>
     <template><set>ban</set><name>ADMIN_BAN_FORM</name>
       <displayname>Banned Users</displayname>
       <description>Form for editing ban information</description>

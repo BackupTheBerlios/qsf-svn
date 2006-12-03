@@ -117,17 +117,28 @@ class en
 
 	function backup()
 	{
+		$this->backup = 'Backup';
+		$this->backup_add = 'Add';
+		$this->backup_add_complete = 'Add complete';
 		$this->backup_create = 'Backup Database';
+		$this->backup_created = 'Backup successfully created in';
 		$this->backup_createfile = 'Backup and create a file on server';
 		$this->backup_done = 'The database has been backed up to the packages directory.';
 		$this->backup_download = 'Backup and download (recommended)';
+		$this->backup_failed = 'Failed to create backup.';
 		$this->backup_found = 'The following backups were found in the packages directory';
+		$this->backup_import_fail = 'Failed to import backup.';
 		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.';
+		$this->backup_no_packages = 'Failed to locate packages directory.';
+		$this->backup_noexist = 'Sorry, that backup does not exist.';
 		$this->backup_none = 'No backups were found in the packages directory.';
-		$this->backup_options = 'Select how you want your backup created';
+		$this->backup_options = 'Database Backup Options';
+		$this->backup_output = 'Output';
 		$this->backup_restore = 'Restore Backup';
 		$this->backup_restore_done = 'The database has been restored successfully.';
-		$this->backup_warning = 'Warning: This will overwrite all existing data used by Quicksilver Forums.';
+		$this->backup_statements = 'statements';
+		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!';
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.';
 	}
 
 	function ban()
@@ -1343,6 +1354,7 @@ class en
 		$this->templates = 'Templates';
 		$this->temps_active = 'Active Users Detail';
 		$this->temps_admin = '<b>AdminCP Universal</b>';
+		$this->temps_backup = 'AdminCP Database Backup';
 		$this->temps_ban = 'AdminCP Bans';
 		$this->temps_board_index = 'Board Index';
 		$this->temps_censoring = 'AdminCP Word Censoring';

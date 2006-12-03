@@ -38,6 +38,7 @@ class templates extends admin
 		$sections = array(
 			'Admin'          => $this->lang->temps_admin,
 			'active'         => $this->lang->temps_active,
+			'backup'         => $this->lang->temps_backup,
 			'ban'            => $this->lang->temps_ban,
 			'board'          => $this->lang->temps_board_index,
 			'censoring'      => $this->lang->temps_censoring,

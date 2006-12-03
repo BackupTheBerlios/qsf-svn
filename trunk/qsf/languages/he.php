@@ -117,17 +117,28 @@ class he
 
 	function backup()
 	{
+		$this->backup = 'Backup'; //Translate
+		$this->backup_add = 'Add'; //Translate
+		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'גיבוי מסד נתונים';
+		$this->backup_created = 'Backup successfully created in'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = '.Quicksilver מסד הנתונים גובה לספרייה הראשית של הפורומים של';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
+		$this->backup_failed = 'Failed to create backup.'; //Translate
 		$this->backup_found = '.Quicksilver הגיבויים הבאים נמצאו בספריית הפורומים של';
+		$this->backup_import_fail = 'Failed to import backup.'; //Translate
 		$this->backup_invalid = '.אין אפשרות לבצע גיבוי. לא נעשו שינויים במסד הנתונים';
+		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
+		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
 		$this->backup_none = '.Quicksilver לא נמצאו גיבויים בספריית הפורומים של';
-		$this->backup_options = 'Select how you want your backup created'; //Translate
+		$this->backup_options = 'Select how you want your backup created';
+		$this->backup_output = 'Output'; //Translate
 		$this->backup_restore = 'שחזר גיבוי';
 		$this->backup_restore_done = '.מסד הנתונים שוחזר בהצלחה';
-		$this->backup_warning = '.Quicksilver אזהרה: פעולה זו תשכתב את כל הנתונים בשימוש הפורומים של';
+		$this->backup_statements = 'statements'; //Translate
+		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
 	}
 
 	function ban()
@@ -1343,6 +1354,7 @@ class he
 		$this->templates = 'תבניות';
 		$this->temps_active = 'פרטי משתמשים פעילים';
 		$this->temps_admin = '<b>בקרת מנהל אוניברסלית</b>';
+		$this->temps_backup = 'AdminCP Database Backup'; //Translate
 		$this->temps_ban = 'בקרת מנהל לחסומים';
 		$this->temps_board_index = 'אינדקס לוח';
 		$this->temps_censoring = 'בקרת מנהל למילים מצונזרות';

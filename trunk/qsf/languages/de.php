@@ -118,17 +118,28 @@ class de
 
 	function backup()
 	{
+		$this->backup = 'Backup'; //Translate
+		$this->backup_add = 'Add'; //Translate
+		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Datenbank sichern';
+		$this->backup_created = 'Backup successfully created in'; //Translate
 		$this->backup_createfile = 'Sichern und eine Datei auf dem Server erstellen';
 		$this->backup_done = 'Die Datenbank wurde im Quicksilver Forums Hauptverzeichnis gesichert.';
 		$this->backup_download = 'Sichern und herunterladen (empfohlen)';
+		$this->backup_failed = 'Failed to create backup.'; //Translate
 		$this->backup_found = 'Die folgenden Sicherungen wurden im Quicksilver Forums Verzeichnis gefunden';
+		$this->backup_import_fail = 'Failed to import backup.'; //Translate
 		$this->backup_invalid = 'Die Sicherung scheint ungültig zu sein. Es wurden keine Veränderungen an der Datenbank vorgenommen.';
+		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
+		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
 		$this->backup_none = 'Es wurden keine Sicherungen im Quicksilver Forums Verzeichnis gefunden.';
 		$this->backup_options = 'Wählen Sie aus, wie Sie das Backup erstellen möchten';
+		$this->backup_output = 'Output'; //Translate
 		$this->backup_restore = 'Sicherung wiederherstellen';
 		$this->backup_restore_done = 'Die Datenbank wurde erfolgreich wieder hergestellt.';
-		$this->backup_warning = 'Warnung: Alle bestehenden Daten werden überschrieben.';
+		$this->backup_statements = 'statements'; //Translate
+		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
 	}
 
 	function ban()
@@ -1344,6 +1355,7 @@ class de
 		$this->templates = 'Templates'; //Translate
 		$this->temps_active = 'Aktive Benutzer Details';
 		$this->temps_admin = '<b>Administrator Kontrollzentrum Universell</b>';
+		$this->temps_backup = 'AdminCP Database Backup'; //Translate
 		$this->temps_ban = 'Administrator Kontrollzentrum Sperrungen';
 		$this->temps_board_index = 'Board Index'; //Translate
 		$this->temps_censoring = 'Administrator Kontrollzentrum Wörterzensierung';

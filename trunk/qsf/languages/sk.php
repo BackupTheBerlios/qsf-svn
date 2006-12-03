@@ -117,17 +117,28 @@ class sk
 
 	function backup()
 	{
+		$this->backup = 'Backup'; //Translate
+		$this->backup_add = 'Add'; //Translate
+		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Zálohova Databázu';
+		$this->backup_created = 'Backup successfully created in'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'Databáza bola zazálohovaná v hlavnom adresári Quicksilver Forums.';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
+		$this->backup_failed = 'Failed to create backup.'; //Translate
 		$this->backup_found = 'Nasledujúce zálohy boli nájdené v adresári Quicksilver Forums';
+		$this->backup_import_fail = 'Failed to import backup.'; //Translate
 		$this->backup_invalid = 'Táto záloha nie je použite¾ná - neplatný formát. Do databázi neboli zapísané žiadne zmeny.';
+		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
+		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
 		$this->backup_none = 'V adresári Quicksilver Forums neboli nájdené žiadne zálohy.';
-		$this->backup_options = 'Select how you want your backup created'; //Translate
+		$this->backup_options = 'Select how you want your backup created';
+		$this->backup_output = 'Output'; //Translate
 		$this->backup_restore = 'Obnovi zo zálohy';
 		$this->backup_restore_done = 'Databáza bola úspešne obnovená zo zálohy.';
-		$this->backup_warning = 'Upozornenie: týmto budú všetky existujúce dáta Quicksilver Fóra prepísané.';
+		$this->backup_statements = 'statements'; //Translate
+		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
 	}
 
 	function ban()
@@ -1345,6 +1356,7 @@ class sk
 		$this->templates = 'Šablony';
 		$this->temps_active = 'Detaily aktívneho užívate¾a';
 		$this->temps_admin = '<b>AdminCP Universal</b>'; //Translate
+		$this->temps_backup = 'AdminCP Database Backup'; //Translate
 		$this->temps_ban = 'AdminCP Blokovania';
 		$this->temps_board_index = 'Index Fór';
 		$this->temps_censoring = 'AdminCP Cenzúra Slov';

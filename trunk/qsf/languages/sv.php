@@ -118,17 +118,28 @@ class sv
 
 	function backup()
 	{
+		$this->backup = 'Backup'; //Translate
+		$this->backup_add = 'Add'; //Translate
+		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Skapa databasbackup';
+		$this->backup_created = 'Backup successfully created in'; //Translate
 		$this->backup_createfile = 'Gör en backup och spara filen på servern';
 		$this->backup_done = 'En backup av databasen har skapats i mappen "databases".';
 		$this->backup_download = 'Gör en backup och ladda ner filen (Rekommenderas)';
+		$this->backup_failed = 'Failed to create backup.'; //Translate
 		$this->backup_found = 'Följande backuper hittades i mappen "databases"';
+		$this->backup_import_fail = 'Failed to import backup.'; //Translate
 		$this->backup_invalid = 'Backupen verkar inte vara giltig. Inga förändingar gjordes av databasen.';
+		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
+		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
 		$this->backup_none = 'Inga backuper hittades i mappen "databases".';
 		$this->backup_options = 'Välj hur du vill ha din backup skapad';
+		$this->backup_output = 'Output'; //Translate
 		$this->backup_restore = 'Återställ Backup';
 		$this->backup_restore_done = 'Återställningen av Databasen lyckades.';
-		$this->backup_warning = 'Varning: Detta kommer att skriva över all befintlig information som används av Quicksilver Forums.';
+		$this->backup_statements = 'statements'; //Translate
+		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
 	}
 
 	function ban()
@@ -1344,6 +1355,7 @@ class sv
 		$this->templates = 'Mallar';
 		$this->temps_active = 'Detaljer för Aktiva Användare';
 		$this->temps_admin = '<b>AdminKP Universal</b>';
+		$this->temps_backup = 'AdminCP Database Backup'; //Translate
 		$this->temps_ban = 'AdminKP Blockeringar';
 		$this->temps_board_index = 'Forum Index';
 		$this->temps_censoring = 'AdminKP Ordcensurering';

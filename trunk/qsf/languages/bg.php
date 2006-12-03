@@ -117,17 +117,28 @@ class bg
 
 	function backup()
 	{
+		$this->backup = 'Backup'; //Translate
+		$this->backup_add = 'Add'; //Translate
+		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Backup Database'; //Translate
+		$this->backup_created = 'Backup successfully created in'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'The database has been backed up to the main Quicksilver Forums directory.';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
+		$this->backup_failed = 'Failed to create backup.'; //Translate
 		$this->backup_found = 'The following backups were found in the Quicksilver Forums directory';
+		$this->backup_import_fail = 'Failed to import backup.'; //Translate
 		$this->backup_invalid = 'The backup does not appear to be valid. No changes were made to your database.'; //Translate
+		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
+		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
 		$this->backup_none = 'No backups were found in the Quicksilver Forums directory.';
-		$this->backup_options = 'Select how you want your backup created'; //Translate
+		$this->backup_options = 'Select how you want your backup created';
+		$this->backup_output = 'Output'; //Translate
 		$this->backup_restore = 'Restore Backup'; //Translate
 		$this->backup_restore_done = 'The database has been restored successfully.'; //Translate
-		$this->backup_warning = 'Warning: This will overwrite all existing data used by Quicksilver Forums.'; //Translate
+		$this->backup_statements = 'statements'; //Translate
+		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
 	}
 
 	function ban()
@@ -1343,6 +1354,7 @@ class bg
 		$this->templates = 'Templates'; //Translate
 		$this->temps_active = 'Active Users Detail'; //Translate
 		$this->temps_admin = '<b>AdminCP Universal</b>'; //Translate
+		$this->temps_backup = 'AdminCP Database Backup'; //Translate
 		$this->temps_ban = 'AdminCP Bans'; //Translate
 		$this->temps_board_index = 'Board Index'; //Translate
 		$this->temps_censoring = 'AdminCP Word Censoring'; //Translate
