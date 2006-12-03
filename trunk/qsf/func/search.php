@@ -408,6 +408,8 @@ class search extends qsfglobal
 
 					$match['post_time'] = $this->mbdate(DATE_LONG, $match['post_time']);
 
+					$match['user_posts'] = number_format($match['user_posts'], 0, null, $this->lang->sep_thousands);
+
 					$params = FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_CENSOR;
 
 					if ($match['post_mbcode']) {
