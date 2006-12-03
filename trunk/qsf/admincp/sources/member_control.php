@@ -101,7 +101,7 @@ class member_control extends admin
 				$this->db->query("DELETE FROM %pvotes WHERE vote_user=%d", $this->get['id']);
 				$this->db->query("DELETE FROM %pusers WHERE user_id=%d", $this->get['id']);
 				$this->db->query("DELETE FROM %ppmsystem WHERE pm_to=%d", $this->get['id']);
-				$this->db->query('DELETE FROM %preadmarks WHERE readmark_user=%d', $this->get['id']);
+				$this->db->query("DELETE FROM %preadmarks WHERE readmark_user=%d", $this->get['id']);
 
 				$member = $this->db->fetch("SELECT user_id, user_name FROM %pusers ORDER BY user_id DESC LIMIT 1");
 				$counts = $this->db->fetch("SELECT COUNT(user_id) AS count FROM %pusers");
