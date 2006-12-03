@@ -30,6 +30,7 @@ Changes for 1.3.2:
 * Pass by reference error in avatar controls.
 * A fatal installer error was corrected.
 * RSS feed does not filter out unpublished topics.
+* RSS feed email addresses were not RFC 2822 compliant.
 
 Changes for 1.3.1:
 
