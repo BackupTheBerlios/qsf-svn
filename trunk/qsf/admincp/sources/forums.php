@@ -223,6 +223,9 @@ class forums extends admin
 			$perms->update();
 		}
 
+		// Recount after the carnage so the board totals are correct.
+		$this->RecountForums();
+
 		return $this->message($this->lang->forum_delete, $this->lang->forum_deleted);
 	}
 
