@@ -198,12 +198,11 @@ class bbcode extends htmltools
 			{
 				$in = $this->make_html();
 			} else {
-//				$in = htmlentities($in, ENT_COMPAT, 'UTF-8'); // This a good idea ???
 				$in = $this->make_html();
 			}
 		}
 
-		if ($this->options & FORMAT_BREAKS) {
+		if ($options & FORMAT_BREAKS) {
 			$strtr["\n"] = "<br />\n";
 		}
 
