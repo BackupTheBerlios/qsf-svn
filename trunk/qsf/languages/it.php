@@ -1199,8 +1199,11 @@ class it
 		$this->settings_board_rssfeed_title = 'Titolo RSS Feed';
 		$this->settings_clickable = 'Faccine Cliccabili per Riga';
 		$this->settings_cookie = 'Configurazione Cookie e AntiFlood';
+		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
 		$this->settings_cookie_path = 'Percorso Cookie';
 		$this->settings_cookie_prefix = 'Prefisso Cookie';
+		$this->settings_cookie_secure = 'Cookie Security'; //Translate
+		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
 		$this->settings_cookie_time = 'Tempo per rimanere loggati';
 		$this->settings_db = 'Modifica Configurazione Connessione';
 		$this->settings_db_host = 'Host Database';

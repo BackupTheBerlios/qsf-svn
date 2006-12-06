@@ -1199,8 +1199,11 @@ class sv
 		$this->settings_board_rssfeed_title = 'RSS Matningens Titel';
 		$this->settings_clickable = 'Klickbara Emoticons Per Rad';
 		$this->settings_cookie = 'Cookie och Flood Inställningar';
+		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
 		$this->settings_cookie_path = 'Cookie Sökväg';
 		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
+		$this->settings_cookie_secure = 'Cookie Security'; //Translate
+		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
 		$this->settings_cookie_time = 'Tid för att kvarstå som inloggad';
 		$this->settings_db = 'Ändra Inställningar för Anslutning';
 		$this->settings_db_host = 'Databas Värd';

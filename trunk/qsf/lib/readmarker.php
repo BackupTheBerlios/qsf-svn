@@ -61,9 +61,9 @@ class readmarker extends forumutils
 			} else {
 				$this->last_read_all = $this->time - DAY_IN_SECONDS;
 				if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
-					setcookie($this->sets['cookie_prefix'] . 'lastallread', $this->last_read_all, $qsf->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+					setcookie($this->sets['cookie_prefix'] . 'lastallread', $this->last_read_all, $qsf->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'].'; HttpOnly', $this->sets['cookie_secure']);
 				} else {
-					setcookie($this->sets['cookie_prefix'] . 'lastallread', $this->last_read_all, $qsf->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+					setcookie($this->sets['cookie_prefix'] . 'lastallread', $this->last_read_all, $qsf->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'], $this->sets['cookie_secure'], true );
 				}
 			}
 			if (!isset($_SESSION[$this->sets['cookie_prefix'] . 'read_topics'])) {
@@ -122,9 +122,9 @@ class readmarker extends forumutils
 				}
 			}
 			if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
-				setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path'].'; HttpOnly');
+				setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'].'; HttpOnly', $this->sets['cookie_secure']);
 			} else {
-				setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], '', false, true );
+				setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'], $this->sets['cookie_secure'], true );
 			}
 		} else {
 			$this->db->query("UPDATE %pusers SET user_lastallread=%s WHERE user_id=%d", $time, $this->user_id);

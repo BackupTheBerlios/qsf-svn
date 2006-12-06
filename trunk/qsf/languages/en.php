@@ -1198,8 +1198,11 @@ class en
 		$this->settings_board_rssfeed_title = 'RSS Feed Title';
 		$this->settings_clickable = 'Clickable Smilies Per Row';
 		$this->settings_cookie = 'Cookie and Flood Settings';
+		$this->settings_cookie_domain = 'Cookie Domain';
 		$this->settings_cookie_path = 'Cookie Path';
 		$this->settings_cookie_prefix = 'Cookie Prefix';
+		$this->settings_cookie_secure = 'Cookie Security';
+		$this->settings_cookie_secured = 'Is your site SSL secured?';
 		$this->settings_cookie_time = 'Time to Remain Logged In';
 		$this->settings_db = 'Edit Connection Settings';
 		$this->settings_db_host = 'Database Host';

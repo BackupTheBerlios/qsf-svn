@@ -1198,8 +1198,11 @@ class fr
 		$this->settings_board_rssfeed_title = 'Titre du fil RSS';
 		$this->settings_clickable = 'Nombre de Smilies par rangée pouvant être cliqué';
 		$this->settings_cookie = 'Paramètres des Cookies et des Floods';
+		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
 		$this->settings_cookie_path = 'Chemin du Cookie';
 		$this->settings_cookie_prefix = 'Préfixe du Cookie';
+		$this->settings_cookie_secure = 'Cookie Security'; //Translate
+		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
 		$this->settings_cookie_time = 'Temps pendant lequel rester connecté';
 		$this->settings_db = 'Editer les paramètres de Connexion';
 		$this->settings_db_host = 'Hôte de la base de données';

@@ -156,6 +156,8 @@ class settings extends admin
 				'flood_time_search' => 'int',
 				'cookie_prefix' => 'string',
 				'cookie_path' => 'string',
+				'cookie_domain' => 'string',
+				'cookie_secure' => 'bool',
 				'flash_avs' => 'bool',
 				'avatar_width' => 'int',
 				'avatar_height' => 'int',
@@ -193,6 +195,16 @@ class settings extends admin
 					}
 				} elseif ($vartypes[$var] == 'string') {
 					$val = $val;
+				}
+
+				if ($var == 'cookie_path' && $val != '/') {
+					$newval = '';
+					if ($val{0} != '/')
+						$newval .= '/';
+					$newval .= $val;
+					if ($val{strlen($val)-1} != '/')
+						$newval .= '/';
+					$val = $newval;
 				}
 
 				$this->sets[$var] = $val;

@@ -1198,8 +1198,11 @@ class zh
 		$this->settings_board_rssfeed_title = 'RSS Feed Title'; //Translate
 		$this->settings_clickable = 'Clickable Smilies Per Row'; //Translate
 		$this->settings_cookie = 'Cookie and Flood Settings'; //Translate
+		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
 		$this->settings_cookie_path = 'Cookie Path'; //Translate
 		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
+		$this->settings_cookie_secure = 'Cookie Security'; //Translate
+		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
 		$this->settings_cookie_time = 'Time to Remain Logged In'; //Translate
 		$this->settings_db = 'Edit Connection Settings'; //Translate
 		$this->settings_db_host = 'Database Host'; //Translate

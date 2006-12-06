@@ -1199,8 +1199,11 @@ class no
 		$this->settings_board_rssfeed_title = 'Tittel for RSS';
 		$this->settings_clickable = 'Klikkbare smilies pr. rad';
 		$this->settings_cookie = 'Innstillinger for informasjonskapsler og overflod';
+		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
 		$this->settings_cookie_path = 'Sti for informasjonskapsler';
 		$this->settings_cookie_prefix = 'Prefiks for informasjonskapsler';
+		$this->settings_cookie_secure = 'Cookie Security'; //Translate
+		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
 		$this->settings_cookie_time = 'Innloggingstid';
 		$this->settings_db = 'Endre tilkoblingsinnstillinger';
 		$this->settings_db_host = 'Database-vert';

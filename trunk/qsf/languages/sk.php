@@ -1200,8 +1200,11 @@ class sk
 		$this->settings_board_rssfeed_title = 'Názov RSS Feed';
 		$this->settings_clickable = 'Kliknute¾né smajlíky na jeden riadok';
 		$this->settings_cookie = 'Nastavenia Cookie a controly zahltenia';
+		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
 		$this->settings_cookie_path = 'Cesta pre Cookie';
 		$this->settings_cookie_prefix = 'Predpona pre Cookie';
+		$this->settings_cookie_secure = 'Cookie Security'; //Translate
+		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
 		$this->settings_cookie_time = 'Doba platnosti prihlásenia';
 		$this->settings_db = 'Editova nastavenia pripojenia';
 		$this->settings_db_host = 'Databázový server (Host)';

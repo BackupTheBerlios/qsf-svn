@@ -41,8 +41,12 @@ $need_templates = array(
 	'TOPIC_QUICKREPLY',
 	'POST_POLL',
 	'POST_REPLY',
-	'POST_TOPIC'
+	'POST_TOPIC',
+	'ADMIN_EDIT_BOARD_SETTINGS'
 	);
+
+$this->sets['cookie_domain'] = '';
+$this->sets['cookie_secure'] = 0;
 
 // Permission changes	
 $new_permissions['edit_profile'] = true;

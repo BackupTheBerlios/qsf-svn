@@ -498,6 +498,18 @@
   <td class="tabledark"><input class="input" type="text" name="cookie_path" value="{$this->sets['cookie_path']}" size="40" /></td>
  </tr>
  <tr>
+  <td class="labellight">{$this->lang->settings_cookie_domain}</td>
+  <td class="tablelight"><input class="input" type="text" name="cookie_domain" value="{$this->sets['cookie_domain']}" size="40" /></td>
+ </tr>
+ <tr>
+  <td class="labeldark">{$this->lang->settings_cookie_secure}<br /><span class="tiny">{$this->lang->settings_cookie_secured}</span></td>
+  <td class="tabledark">
+   <input type="radio" name="cookie_secure" value="1" <IF $this->sets['cookie_secure']>checked="checked"</IF> id="cookie_secure1" /><label for="cookie_secure1">{$this->lang->yes}</label><br />
+   <input type="radio" name="cookie_secure" value="0" <IF !$this->sets['cookie_secure']>checked="checked"</IF> id="cookie_secure2" /><label for="cookie_secure2">{$this->lang->no}</label>
+  </td>
+ </tr>
+ <tr>
+ <tr>
   <td class="footer" colspan="2">&nbsp;</td>
  </tr>
 {$this->etable}
