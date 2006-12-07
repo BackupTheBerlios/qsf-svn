@@ -40,6 +40,7 @@ class templates extends admin
 			'active'         => $this->lang->temps_active,
 			'backup'         => $this->lang->temps_backup,
 			'ban'            => $this->lang->temps_ban,
+			'backup'         => $this->lang->temps_backup,
 			'board'          => $this->lang->temps_board_index,
 			'censoring'      => $this->lang->temps_censoring,
 			'cp'             => $this->lang->temps_cp,
