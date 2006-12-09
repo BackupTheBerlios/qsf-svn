@@ -29,14 +29,16 @@ function quickQuoteInit() {
 			// Find the post id
 			var url = allLinks[i].href;
 			var post_id = url.substring(url.lastIndexOf('qu=') + 3, url.length);
+			allLinks[i].post_id = post_id;
 			allLinks[i].href = '#bottom';
+
 			allLinks[i].onclick = function() {
+				var post_id = this.post_id;
 				doQuickQuote(textarea, post_id);
 				return true;
-			}
+			};
 		}
 	}
 }
 
 addLoadEvent(quickQuoteInit);
-
