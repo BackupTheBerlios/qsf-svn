@@ -154,7 +154,7 @@ class bbcode extends htmltools
 			$this->clone = new bbcode( $qsf, false );
 		}
 	}
-	
+
 	/**
 	 * Formats a string
 	 *
@@ -188,6 +188,7 @@ class bbcode extends htmltools
 		}
 
 		if (($options & FORMAT_MBCODE)) {
+			$in = $this->_pre_parse_links( $in );
 			$this->reset( $in );
 
 			// make sure the class is aware of the current options
@@ -236,6 +237,25 @@ class bbcode extends htmltools
 		$this->root = null;
 		$this->rejoin = null;
 		$this->allow_branch = true;
+	}
+
+	/**
+	 * Preparse text for links and email addresses.
+	 * Converts the results into URL and EMAIL tags.
+	 *
+	 * @param string $in Text to parse
+	 * @return string $in with parsing applied.
+	 **/
+	function _pre_parse_links( $in )
+	{
+		$parse = array(
+			'matches' => array('~(^|\s)([a-z0-9-_.]+@[a-z0-9-.]+\.[a-z0-9-_.]+)~i',
+				'~(^|\s)(http|https|ftp)://(\w+[^\s\[\]]+)~ise'),
+			'replacements' => array('\\1[email]\\2[/email]',
+				'\'\\1[url]\\2://\\3[/url]\'')
+		);
+
+		return preg_replace($parse['matches'], $parse['replacements'], $in);
 	}
 
 	/**
