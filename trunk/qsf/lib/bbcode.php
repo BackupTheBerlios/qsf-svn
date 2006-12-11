@@ -403,7 +403,7 @@ class bbcode extends htmltools
 			$method = $this->handlers[ $node->type ];
 			return $this->$method( $node );
 		} else {
-			return '[' . $node->type . (($node->attribute) ? '=' . htmlentities( $node->attribute ) : null ) . ']' . $html . '[/' . $node->type . ']';
+			return '[' . $node->type . (($node->attribute) ? '=' . htmlentities( $node->attribute ) : null ) . ']' . $html;
 		}
 	}
 
