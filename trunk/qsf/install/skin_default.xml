@@ -4319,26 +4319,23 @@ enable('$init');
 
 <form action="{$this->self}?a=post&amp;s=reply&amp;t={$this->get['t']}" method="post" id="mbpost">
 {$this->table}
-<tr><td>
- <h2>
-   {$this->lang->topic_quickreply}
- </h2><div class="tabledark">
-   {$this->lang->post_msg}
-   <div style="float: left;">
-    <div id="quicksmilies">
-    </div>
+ <tr>
+  <td>
+   <h2>{$this->lang->topic_quickreply}</h2>
+   <div class="tabledark">
+    <div id="quicksmilies"></div><br />
+    <textarea class="input" name="post" id="bbcodequick" rows="8" cols="75"></textarea><br />
    </div>
-   <textarea class="input" name="post" id="bbcodequick" rows="8" cols="75"></textarea><br />
- </div><div class="tablelight" style="text-align: center;">
-   <input type="checkbox" name="parseEmot" value="1" id="parseEmot" checked="checked" /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label>
-   <input type="checkbox" name="parseCode" value="1" id="parseCode" checked="checked" /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>
-
- </div><div class="footer">
-   <input type="submit" name="submit" value="{$this->lang->reply}" />
-   <input type="submit" name="preview" value="{$this->lang->post_preview}" />
+   <div class="tablelight" style="text-align:center;">
+    <input type="checkbox" name="parseEmot" value="1" id="parseEmot" checked="checked" /> <label for="parseEmot">{$this->lang->post_option_emoticons}</label>
+    <input type="checkbox" name="parseCode" value="1" id="parseCode" checked="checked" /> <label for="parseCode">{$this->lang->post_option_mbcode}</label>
    </div>
-
- </td></tr>
+   <div class="footer">
+    <input type="submit" name="submit" value="{$this->lang->reply}" />
+    <input type="submit" name="preview" value="{$this->lang->post_preview}" />
+   </div>
+  </td>
+ </tr>
 {$this->etable}
 </form>
       ]]></html>
