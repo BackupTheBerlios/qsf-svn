@@ -339,6 +339,9 @@ class en
 		$this->cp_oct = 'October';
 		$this->cp_old_notmatch = 'The old password you entered does not match the one in our database.';
 		$this->cp_old_pass = 'Old Password';
+		$this->cp_pass = 'Password';
+		$this->cp_pass2 = 'Only required if changing Email';
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.';
 		$this->cp_pass_notvaid = 'Your password is not valid. Make sure it uses only valid characters such as letters, numbers, dashes, underscores, or spaces.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.';
 		$this->cp_preferences = 'Changing Preferences';

@@ -339,6 +339,9 @@ class he
 		$this->cp_oct = 'אוקטובר';
 		$this->cp_old_notmatch = 'הסיסמא הישנה שהקלדת אינה קיימת במס הנתונים.';
 		$this->cp_old_pass = 'סיסמא ישנה';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'הסיסמא שלך לא תקינה. וודא שהינך משתמש בתווים תקינים כגון אותיות, מספרים, קו מפריד, קו תחתון ורווחים.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'משנה הגדרות';

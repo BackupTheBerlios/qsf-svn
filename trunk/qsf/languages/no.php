@@ -340,6 +340,9 @@ class no
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Ditt gamle passord er feil.';
 		$this->cp_old_pass = 'Gammelt passord';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Ditt passord er ugyldig. Kun bokstaver, sifre, bindestreker, understreker og mellomrom er tillatt.';
 		$this->cp_posts_page = 'Innlegg per emneside. 0 tilbakesetter forumets innstillinger.';
 		$this->cp_preferences = 'Endre innstillinger';

@@ -339,6 +339,9 @@ class fi
 		$this->cp_oct = 'lokakuu';
 		$this->cp_old_notmatch = 'Entinen salasana ei täsmännyt tietokannassa olevan kanssa.';
 		$this->cp_old_pass = 'Vanha salasana';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Salasanasi ei kelpaa. Voit käyttää vain perusmerkkejä kuten kirjaimia, numeroita, viivoja, alaviivaa tai välilyöntejä.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Muutetaan asetuksia';

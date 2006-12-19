@@ -2057,6 +2057,12 @@ enable('$init');
   </td>
  </tr>
  <tr>
+  <td class="tablelight">{$this->lang->cp_pass}<br /><span class="tiny">{$this->lang->cp_pass2}</span></td>
+  <td class="tablelight">
+   <input class="input" type="password" name="passA" value="" size="40" autocomplete="off" />
+  </td>
+ </tr>
+ <tr>
   <td class="tabledark">{$this->lang->cp_bday}</td>
   <td class="tabledark">
    <select name="month">{$month_list}</select>
@@ -3240,7 +3246,7 @@ enable('$init');
         <td title="Strike-Through" class="button" onmouseover="over(this)" onmouseout="out(this)" onmousedown="down(this)" onmouseup="over(this)" onclick="format('strikethrough')" unselectable="on"><img src="./skins/{$this->skin}/images/wysiwyg/strike.gif" /></td>
 
         <td><span class="sep"></span></td>
-
+                                                                                                                         
         <td title="Foreground Color" class="button" onmouseover="over(this)" onmouseout="out(this)" onmousedown="down(this)" onmouseup="over(this)" onclick="forecolor()" unselectable="on"><img src="./skins/{$this->skin}/images/wysiwyg/tpaint.gif" /></td>
         <td title="Background Color" class="button" onmouseover="over(this)" onmouseout="out(this)" onmousedown="down(this)" onmouseup="over(this)" onclick="backcolor()" unselectable="on"><img src="./skins/{$this->skin}/images/wysiwyg/parea.gif" /></td>
 

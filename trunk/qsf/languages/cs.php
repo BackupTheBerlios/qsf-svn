@@ -339,6 +339,9 @@ class cs
 		$this->cp_oct = '&#x158;íjna';
 		$this->cp_old_notmatch = 'Heslo nesouhlasí s heslem v databázi.';
 		$this->cp_old_pass = 'Staré heslo';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Va&#x161;e heslo je neplatné. Ujist&#x11B;te se, &#x17E;e pou&#x17E;ívaté jen platné znaky - písmena, &#x10D;íslice, poml&#x10D;ky, podrt&#x17E;ítka, nebo mezery.';
 		$this->cp_posts_page = 'P&#x159;ísp&#x11B;vk&#x16F; na stránku. Zvolte 0 pro výchozí nastavení.';
 		$this->cp_preferences = 'Zm&#x11B;nit záliby';

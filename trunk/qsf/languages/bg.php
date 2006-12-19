@@ -339,6 +339,9 @@ class bg
 		$this->cp_oct = 'Октомври';
 		$this->cp_old_notmatch = 'Паролата, която сте въвели е грешна.';
 		$this->cp_old_pass = 'Стара парола';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Грешна парола.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Промяна на настойки';

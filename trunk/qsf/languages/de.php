@@ -340,6 +340,9 @@ class de
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Das alte eingegebene Passwort stimmt nicht mit dem in der Datenbank überein.';
 		$this->cp_old_pass = 'Altes Passwort:';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Ihr Passwort ist nicht gültig. Stellen Sie sicher, das nur gültige Zeichen benutzt werden wie z.B. Buchstaben, Zahlen, Bindestriche, Unterstriche oder Leerzeichen.';
 		$this->cp_posts_page = 'Beiträge pro Themenseite. Bei 0 wird Forumstandart genutzt.';
 		$this->cp_preferences = 'Verändere Einstellungen';

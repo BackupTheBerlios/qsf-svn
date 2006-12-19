@@ -340,6 +340,9 @@ class sv
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Ditt gamla lösenord är ej korrekt.';
 		$this->cp_old_pass = 'Gammalt Lösenord';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Ditt lösenord är ogiltigt. Endast bokstäver, nummer, streck, understreck och mellanslag är tillåtna.';
 		$this->cp_posts_page = 'Inlägg per ämnessida. 0 återställer till forumstandard.';
 		$this->cp_preferences = 'Ändrar Inställningar';

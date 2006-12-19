@@ -340,6 +340,9 @@ class it
 		$this->cp_oct = 'Ottobre';
 		$this->cp_old_notmatch = 'La vecchia password che hai inserito non combacia con quella nel nostro database.';
 		$this->cp_old_pass = 'Vecchia Password';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'La tua password non è valida. Assicurati di aver usato solo caratteri validi come lettere, numeri, trattini (-), underscore (_), o spazi.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Modifica Preferenze';

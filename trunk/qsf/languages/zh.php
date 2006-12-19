@@ -339,6 +339,9 @@ class zh
 		$this->cp_oct = '10��';
 		$this->cp_old_notmatch = '������ľ����벻��ȷ��';
 		$this->cp_old_pass = '������';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = '�������Ϊ�Ƿ����롣 ����ֻ������ĸ�����֣�-��_�Ϳո���ɡ�';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = '���ڸ��ƫ������';

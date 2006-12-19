@@ -339,6 +339,9 @@ class fr
 		$this->cp_oct = 'Octobre';
 		$this->cp_old_notmatch = 'L\'ancien mot de passe que vous avez saisi est incorrect.';
 		$this->cp_old_pass = 'Ancien mot de passe';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Votre mot de passe est invalide. Assurez vous que vous ne utilisez que des caractères permis.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Changer ses préférences';

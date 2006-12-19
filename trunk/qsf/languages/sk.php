@@ -339,6 +339,9 @@ class sk
 		$this->cp_oct = 'Octóber';
 		$this->cp_old_notmatch = 'Pôvodné heslo, ktoré ste zadali sa nezhoduje s heslom v databáze.';
 		$this->cp_old_pass = 'Pôvodné heslo';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Vaše heslo je neplatné. Uistite sa, e obsahuje len platné znaky ako sú písmená, èísla, pomlèka, podtrítko alebo medzera.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Zmena nastavení';

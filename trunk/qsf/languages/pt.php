@@ -339,6 +339,9 @@ class pt
 		$this->cp_oct = 'Outubro';
 		$this->cp_old_notmatch = 'Sua antiga senha não coincide com as do banco de dados.';
 		$this->cp_old_pass = 'Senha antiga';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Sua senha não é válida.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Trocando preferências';

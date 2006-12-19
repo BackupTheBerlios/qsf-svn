@@ -341,6 +341,9 @@ class nl
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Het oude wachtwoord dat u heeft ingegeven komt niet overeen met het wachtwoord in onze database.';
 		$this->cp_old_pass = 'Oude wachtwoord';
+		$this->cp_pass = 'Password'; //Translate
+		$this->cp_pass2 = 'Only required if changing Email'; //Translate
+		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
 		$this->cp_pass_notvaid = 'Uw wachtwoord is ongeldig. Zorg ervoor dat u alleen de toegestane leestekens zoals letters, nummers, verbindingsstreepjes, onderstreeptekens of spaties gebruikt.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Verander je forum instellingen';
