@@ -280,7 +280,7 @@ class forums extends admin
 
 		$this->db->query("INSERT INTO %pforums
 			(forum_tree, forum_parent, forum_name, forum_description, forum_position, forum_subcat) VALUES
-			('%s', '%s', '%s', '%s', '%s', '%s')",
+			('%s', %d, '%s', '%s', %d, %d)",
 			$this->CreateTree($forums, $this->post['parent']),
 			$this->post['parent'], $this->post['name'], $this->post['description'], $position, $subcat);
 
