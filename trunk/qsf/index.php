@@ -68,10 +68,15 @@ $qsf->get['a'] = $module;
 $qsf->sets     = $set;
 $qsf->modules  = $modules;
 
-if ($qsf->sets['output_buffer'] && isset($qsf->server['HTTP_ACCEPT_ENCODING']) && stristr($qsf->server['HTTP_ACCEPT_ENCODING'], 'gzip')) {
-	if( !@ob_start('ob_gzhandler') ) {
-		ob_start();
+// If zlib isn't available, then trying to use it doesn't make much sense.
+if (extension_loaded('zlib')) {
+	if ($qsf->sets['output_buffer'] && isset($qsf->server['HTTP_ACCEPT_ENCODING']) && stristr($qsf->server['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+		if( !@ob_start('ob_gzhandler') ) {
+			ob_start();
+		}
 	}
+} else {
+	ob_start();
 }
 
 header( 'P3P: CP="CAO PSA OUR"' );
