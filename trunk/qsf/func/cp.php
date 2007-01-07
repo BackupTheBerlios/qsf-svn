@@ -300,7 +300,7 @@ class cp extends qsfglobal
 				return $this->message($this->lang->cp_changing_pass, $this->lang->cp_pass_notmatch);
 			}
 
-			if ($this->db->fetch('SELECT user_email FROM %pusers WHERE user_email=\'%s\' AND user_id != %d',
+			if ($this->db->fetch("SELECT user_email FROM %pusers WHERE user_email='%s' AND user_id !=%d",
 				 $this->post['user_email'], $this->user['user_id']))
 			{
 				return $this->message($this->lang->cp_err_updating, $this->lang->cp_already_member);
