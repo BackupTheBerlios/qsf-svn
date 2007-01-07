@@ -74,6 +74,8 @@ if (extension_loaded('zlib')) {
 		if( !@ob_start('ob_gzhandler') ) {
 			ob_start();
 		}
+	} else {
+		ob_start();
 	}
 } else {
 	ob_start();
