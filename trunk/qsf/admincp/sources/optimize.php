@@ -41,28 +41,9 @@ class optimize extends admin
 
 	function opt_tables()
 	{
-		$tables = array(
-			'%pactive',
-			'%pattach',
-			'%pforums',
-			'%pgroups',
-			'%phelp',
-			'%plogs',
-			'%pmembertitles',
-			'%ppmsystem',
-			'%pposts',
-			'%preplacements',
-			'%psettings',
-			'%pskins',
-			'%psubscriptions',
-			'%ptemplates',
-			'%ptimezones',
-			'%ptopics',
-			'%pusers',
-			'%pvotes'
-		);
+		$tables = implode( ', ', $this->get_db_tables() );
 
-		$this->db->query('OPTIMIZE TABLE ' . implode(', ', $tables));
+		$this->db->query('OPTIMIZE TABLE ' . $tables);
 	}
 }
 ?>

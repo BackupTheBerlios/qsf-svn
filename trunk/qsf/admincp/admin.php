@@ -310,5 +310,27 @@ class admin extends qsfglobal
 
 		return $out . '</select>';
 	}
+
+	/**
+	 * Grabs the current list of table names in the database
+	 *
+	 * @author Roger Libiez [Samson] http://www.iguanadons.net
+	 * @since 1.3.2
+	 * @return array
+	 **/
+	function get_db_tables()
+	{
+		$tarray = array();
+
+		// This looks a bit strange, but it will pull all of the proper prefixed tables.
+		$tb = $this->db->query( "SHOW TABLES LIKE '%p%%'" );
+		while( $tb1 = $this->db->nqfetch($tb) )
+		{
+			foreach( $tb1 as $col => $data )
+				$tarray[] = $data;
+		}
+
+		return $tarray;
+	}
 }
 ?>
