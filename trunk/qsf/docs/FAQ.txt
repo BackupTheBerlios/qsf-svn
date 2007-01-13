@@ -46,7 +46,7 @@
 * Q. Can I look at the database?
 * A. There is a tool in the admin cp to allow running SQL queries for advanced users. Or we can recommend using phpMyAdmin for browsing the structure / data.
 
-* Q. Can I put PHP code into temmplates?
+* Q. Can I put PHP code into templates?
 * A. Generally no. But you can get createive using the following syntax: <tt><IF (php condition)>(html output)</IF></tt> And there are also modlets that allow you to drop in code <tt><MODLET mymodletname()></tt>
 
 * Q. I think I found a bug?
