@@ -1,13 +1,15 @@
 <?php
 /**
- * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
- *  http://www.quicksilverforums.com/
- * 
- * based off MercuryBoard
- * Copyright (c) 2001-2005 The Mercury Development Team
- *  http://www.mercuryboard.com/
+ * QSF Portal
+ * Copyright (c) 2006-2007 The QSF Portal Development Team
+ * http://www.qsfportal.com/
  *
+ * Based on:
+ *
+ * Quicksilver Forums
+ * Copyright (c) 2005-2006 The Quicksilver Forums Development Team
+ * http://www.quicksilverforums.com/
+ * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -427,7 +429,7 @@ else if( $_GET['action'] == 'members' )
 {
    $i = 0;
    $qsf->db->query( "TRUNCATE %pusers" );
-   $qsf->db->query( "INSERT INTO %pusers VALUES( 1, 'Guest', '', 0, 1, '', 0, 3, 'default', 'en', '', 'none', 0, 0, '', 0, 0, '0000-00-00', '151', '', 0, '', 0, '', '', '', 0, 1, '', '', '', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )" );
+   $qsf->db->query( "INSERT INTO %pusers (user_id, user_name, user_group) VALUES (1, 'Guest', 3)" );
 
    $result = $oldboard->db->query( "SELECT * FROM %pmembers" );
    while( $row = $oldboard->db->nqfetch($result) )
@@ -490,8 +492,10 @@ else if( $_GET['action'] == 'members' )
       if( $row['ICQ'] )
          $icq = intval( $row['ICQ'] );
 
-      $qsf->db->query( "INSERT INTO %pusers VALUES( %d, '%s', '%s', %d, 1, '%s', 0, %d, 'default', '%s', '%s', '%s', %d, %d, '%s', %d, 1, '%s', 151, '%s', %d, '%s', %d, '%s', '%s', '', 1, 1, '%s', '', '%s', %d, 0, 0, 0, 0, 1, 1, 1, 0, 0, '' )",
-         $row['ID_MEMBER'], $row['memberName'], $row['passwd'], $row['dateRegistered'], $row['usertitle'], $row['memberGroup'], $lang, $avatar, $type, $width, $height, $row['emailAddress'], $showmail, $row['birthdate'], $row['websiteUrl'], $row['posts'], $row['location'], $icq, $row['MSN'], $row['AIM'], $row['YIM'], $row['signature'], $row['lastLogin'] );
+      $qsf->db->query( "INSERT INTO %pusers
+         (user_id, user_name, user_password, user_joined, user_title, user_group, user_language, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_birthday, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_yahoo, user_signature, user_lastvisit, user_pm_mail)
+         VALUES( %d, '%s', '%s', %d, '%s', %d, '%s', '%s', '%s', %d, %d, '%s', %d, '%s', '%s', %d, '%s', %d, '%s', '%s', '%s', '%s', %d, %d )",
+         $row['ID_MEMBER'], $row['memberName'], $row['passwd'], $row['dateRegistered'], $row['usertitle'], $row['memberGroup'], $lang, $avatar, $type, $width, $height, $row['emailAddress'], $showmail, $row['birthdate'], $row['websiteUrl'], $row['posts'], $row['location'], $icq, $row['MSN'], $row['AIM'], $row['YIM'], $row['signature'], $row['lastLogin'], $row['im_email_notify'] );
       $i++;
    }
 
@@ -524,16 +528,19 @@ else if( $_GET['action'] == 'pmessages' )
       {
          $SNDTABLE[] = array( 'mbto' => $row['ID_MEMBER_FROM'], 'mbfrom' => $row['ID_MEMBER_FROM'], 'bcc' => $row['ID_MEMBER_TO'], 'subject' => $row['subject'], 'time' => $row['msgtime'], 'text' => $row['body'] );
       }
-      $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, '', '%s', %d, '%s', 0, 0 )",
+      $qsf->db->query( "INSERT INTO %ppmsystem
+         (pm_id, pm_to, pm_from, pm_title, pm_time, pm_message)
+         VALUES( %d, %d, %d, '%s', %d, '%s' )",
          $row['ID_IM'], $row['ID_MEMBER_TO'], $row['ID_MEMBER_FROM'], $row['subject'], $row['msgtime'], $row['body'] );
       $topid = $row['ID_IM'];
    }
 
    for( $x = 0; $x < sizeof( $SNDTABLE ); $x++ )
    {
-      $newid = ++$topid;
-      $qsf->db->query( "INSERT INTO %ppmsystem VALUES( %d, %d, %d, 0, '%s', '%s', %d, '%s', 0, 1 )",
-         $newid, $SNDTABLE[$x]['mbto'], $SNDTABLE[$x]['mbfrom'], $SNDTABLE[$x]['bcc'], $SNDTABLE[$x]['subject'], $SNDTABLE[$x]['msgtime'], $SNDTABLE[$x]['text'] );
+      $qsf->db->query( "INSERT INTO %ppmsystem
+         (pm_to, pm_from, pm_bcc, pm_title, pm_time, pm_message, pm_folder)
+         VALUES( %d, %d, '%s', '%s', %d, '%s', 1 )",
+         $SNDTABLE[$x]['mbto'], $SNDTABLE[$x]['mbfrom'], $SNDTABLE[$x]['bcc'], $SNDTABLE[$x]['subject'], $SNDTABLE[$x]['msgtime'], $SNDTABLE[$x]['text'] );
       $i++;
    }
 
@@ -554,8 +561,9 @@ else if( $_GET['action'] == 'categories' )
    {
       // YaBB SE has no checks in place on position numbering - have to assume cat_id is the position as well.
       $position = $row['ID_CAT'];
-      $qsf->db->query( "INSERT INTO %pforums VALUES( %d, 0, '', '%s', %d, 'No Description', 0, 0, 0, 0, '' )",
-         $row['ID_CAT'], $row['name'], $position );
+      $qsf->db->query( "INSERT INTO %pforums
+         (forum_id, forum_name, forum_position)
+         VALUES( %d, '%s', %d )", $row['ID_CAT'], $row['name'], $position );
       $i++;
    }
 
@@ -578,7 +586,9 @@ else if( $_GET['action'] == 'forums' )
       $position = $row['ID_BOARD'];
 
       $num = time();
-      $qsf->db->query( "INSERT INTO %pforums VALUES( '', %d, '', '%s', %d, '%s', %d, %d, %d, 0, %d )",
+      $qsf->db->query( "INSERT INTO %pforums
+         (forum_parent, forum_name, forum_position, forum_description, forum_topics, forum_replies, forum_lastpost, yabbse)
+         VALUES( %d, '%s', %d, '%s', %d, %d, %d, %d )",
          $row['ID_CAT'], $row['name'], $position, $row['description'], $row['numTopics'], $row['numPosts'], $num, $row['ID_BOARD'] );
       $i++;
    }
@@ -632,7 +642,9 @@ else if( $_GET['action'] == 'topics' )
             break;
          }
       }
-      $qsf->db->query( "INSERT INTO %ptopics VALUES( %d, %d, '%s', '', %d, %d, %d, '', %d, %d, %d, %d, 0, '' )",
+      $qsf->db->query( "INSERT INTO %ptopics
+         (topic_id, topic_forum, topic_title, topic_starter, topic_last_post, topic_last_poster, topic_edited, topic_replies, topic_views, topic_modes)
+         VALUES( %d, %d, '%s', %d, %d, %d, %d, %d, %d, %d )",
          $row['ID_TOPIC'], $tid, $subject, $row['ID_MEMBER_STARTED'], $row['ID_LAST_MSG'], $row['ID_MEMBER_UPDATED'], $topictime, $row['numReplies'], $row['numViews'], $topic_modes );
       $i++;
 
@@ -644,7 +656,9 @@ else if( $_GET['action'] == 'topics' )
          {
             $newsub++;
             $user = $subs[$x]+1;
-            $qsf->db->query( "INSERT INTO %psubscriptions VALUES( %d, %d, 'topic', %d, %d )", $newsub, $user, $row['ID_TOPIC'], $expire );
+            $qsf->db->query( "INSERT INTO %psubscriptions
+               (subscription_id, subscription_user, subscription_type, subscription_item, subscription_expire)
+               VALUES( %d, %d, 'topic', %d, %d )", $newsub, $user, $row['ID_TOPIC'], $expire );
          }
       }
    }
@@ -688,7 +702,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes1']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 0 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 0 )", $user, $tid );
          }
       }
       if( $row['votes2'] > 0 )
@@ -696,7 +710,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes2']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 1 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 1 )", $user, $tid );
          }
       }
       if( $row['votes3'] > 0 )
@@ -704,7 +718,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes3']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 2 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 2 )", $user, $tid );
          }
       }
       if( $row['votes4'] > 0 )
@@ -712,7 +726,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes4']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 3 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 3 )", $user, $tid );
          }
       }
       if( $row['votes5'] > 0 )
@@ -720,7 +734,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes5']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 4 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 4 )", $user, $tid );
          }
       }
       if( $row['votes6'] > 0 )
@@ -728,7 +742,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes6']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 5 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 5 )", $user, $tid );
          }
       }
       if( $row['votes7'] > 0 )
@@ -736,7 +750,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes7']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 6 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 6 )", $user, $tid );
          }
       }
       if( $row['votes8'] > 0 )
@@ -744,7 +758,7 @@ else if( $_GET['action'] == 'polls' )
          for( $x = 0; $x < $row['votes8']; $x++ )
          {
             $user = $voters[$x2++] + 1;
-            $qsf->db->query( "INSERT INTO %pvotes VALUES( %d, %d, 7 )", $user, $tid );
+            $qsf->db->query( "INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES( %d, %d, 7 )", $user, $tid );
          }
       }
       $i++;
@@ -786,7 +800,9 @@ else if( $_GET['action'] == 'posts' )
 
       $row['body'] = strip_yabbse_tags( $row['body'] );
 
-      $qsf->db->query( "INSERT INTO %pposts VALUES( %d, %d, %d, %d, 1, 1, '%s', %d, '', INET_ATON('%s'), '', %d )",
+      $qsf->db->query( "INSERT INTO %pposts
+         (post_id, post_topic, post_author, post_emoticons, post_text, post_time, post_ip, post_edited_time)
+         VALUES( %d, %d, %d, %d, '%s', %d, INET_ATON('%s'), %d )",
          $row['ID_MSG'], $row['ID_TOPIC'], $row['ID_MEMBER'], $row['smiliesEnabled'], $row['body'], $row['posterTime'], $row['posterIP'], $row['modifiedTime'] );
       $i++;
    }
