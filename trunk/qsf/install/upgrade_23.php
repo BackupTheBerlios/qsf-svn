@@ -55,6 +55,7 @@ $new_permissions['edit_sig'] = true;
 
 // Queries to run
 $queries[] = "ALTER TABLE %pusers ADD user_pm_mail tinyint(1) NOT NULL default '0' AFTER user_pm";
+$queries[] = "ALTER TABLE %pusers ADD user_regip INT UNSIGNED NOT NULL default '0' AFTER user_posts_page";
 
 // Required update for topic_posted setting
 $db->query( "ALTER TABLE %ptopics ADD topic_posted int(10) unsigned NOT NULL DEFAULT '0' AFTER topic_icon" );

@@ -678,6 +678,7 @@ class en
 		$this->mc_user_pm = 'Accepting Private Messages';
 		$this->mc_user_pm_mail = 'Email Private Messages';
 		$this->mc_user_posts = 'Posts';
+		$this->mc_user_regip = 'Registration IP';
 		$this->mc_user_signature = 'Signature';
 		$this->mc_user_skin = 'Skin';
 		$this->mc_user_timezone = 'Time Zone';

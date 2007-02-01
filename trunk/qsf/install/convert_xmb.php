@@ -487,9 +487,9 @@ else if( $_GET['action'] == 'members' )
          $icq = intval( $row['icq'] );
 
       $qsf->db->query( "INSERT INTO %pusers
-         (user_id, user_name, user_password, user_joined, user_group, user_language, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_yahoo, user_signature, user_lastvisit, user_active, user_pm_mail)
-         VALUES( %d, '%s', '%s', %d, %d, '%s', '%s', '%s', %d, %d, '%s', %d, '%s', %d, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d )",
-         $row['uid'], $row['username'], $row['password'], $row['regdate'], $group, $lang, $avatar, $type, $width, $height, $row['email'], $showmail, $row['site'], $row['postnum'], $row['location'], $icq, $row['msn'], $row['aim'], $row['yahoo'], $row['sig'], $row['lastvisit'], $row['invisible'], $pmnotify );
+         (user_id, user_name, user_password, user_joined, user_group, user_language, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_yahoo, user_signature, user_lastvisit, user_active, user_pm_mail, user_regip)
+         VALUES( %d, '%s', '%s', %d, %d, '%s', '%s', '%s', %d, %d, '%s', %d, '%s', %d, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, INET_ATON( '%s' ) )",
+         $row['uid'], $row['username'], $row['password'], $row['regdate'], $group, $lang, $avatar, $type, $width, $height, $row['email'], $showmail, $row['site'], $row['postnum'], $row['location'], $icq, $row['msn'], $row['aim'], $row['yahoo'], $row['sig'], $row['lastvisit'], $row['invisible'], $pmnotify, $row['regip'] );
       $i++;
    }
 

@@ -514,9 +514,9 @@ else if( $_GET['action'] == 'members' )
          $icq = intval( $row['ICQNUMBER'] );
 
       $qsf->db->query( "INSERT INTO %pusers
-         (user_id, user_name, user_password, user_joined, user_level, user_title, user_group, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_yahoo, user_interests, user_signature, user_lastvisit, user_lastpost, user_view_avatars, user_view_signatures)
-         VALUES( %d, '%s', '%s', %d, %d, '%s', %d, '%s', '%s', %d, %d, '%s', %d, '%s', %d, '%s', %d, '%s', '%s', '%s', '%s', '%s', %d, %d, %d, %d )",
-         $row['MEMBER_ID'], $row['MEMBER_NAME'], $row['MEMBER_PASSWORD'], $row['MEMBER_JOINED'], $level, $row['MEMBER_TITLE'], $row['MEMBER_GROUP'], $avatar, $type, $width, $height, $row['MEMBER_EMAIL'], $showmail, $row['WEBSITE'], $row['MEMBER_POSTS'], $row['LOCATION'], $icq, $row['MSNNAME'], $row['AOLNAME'], $row['YAHOONAME'], $row['INTERESTS'], $row['SIGNATURE'], $row['LAST_LOG_IN'], $row['LAST_ACTIVITY'], $row['VIEW_AVS'], $row['VIEW_SIGS'] );
+         (user_id, user_name, user_password, user_joined, user_level, user_title, user_group, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height, user_email, user_email_show, user_homepage, user_posts, user_location, user_icq, user_msn, user_aim, user_yahoo, user_interests, user_signature, user_lastvisit, user_lastpost, user_view_avatars, user_view_signatures, user_regip)
+         VALUES( %d, '%s', '%s', %d, %d, '%s', %d, '%s', '%s', %d, %d, '%s', %d, '%s', %d, '%s', %d, '%s', '%s', '%s', '%s', '%s', %d, %d, %d, %d, INET_ATON( '%s' ) )",
+         $row['MEMBER_ID'], $row['MEMBER_NAME'], $row['MEMBER_PASSWORD'], $row['MEMBER_JOINED'], $level, $row['MEMBER_TITLE'], $row['MEMBER_GROUP'], $avatar, $type, $width, $height, $row['MEMBER_EMAIL'], $showmail, $row['WEBSITE'], $row['MEMBER_POSTS'], $row['LOCATION'], $icq, $row['MSNNAME'], $row['AOLNAME'], $row['YAHOONAME'], $row['INTERESTS'], $row['SIGNATURE'], $row['LAST_LOG_IN'], $row['LAST_ACTIVITY'], $row['VIEW_AVS'], $row['VIEW_SIGS'], $row['MEMBER_IP] );
       $i++;
    }
 

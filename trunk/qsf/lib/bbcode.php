@@ -348,7 +348,6 @@ class bbcode extends htmltools
 		$strtr = array();
 		$html = null;
 
-
 		/* handle text as text is special */
 		if( 'text' === $node->type )
 		{
