@@ -679,6 +679,7 @@ class no
 		$this->mc_user_pm = 'Tillater private meldinger';
 		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Innlegg';
+		$this->mc_user_regip = 'Registration IP'; //Translate
 		$this->mc_user_signature = 'Signatur';
 		$this->mc_user_skin = 'Skall';
 		$this->mc_user_timezone = 'Tidssone';

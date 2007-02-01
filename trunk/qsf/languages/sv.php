@@ -679,6 +679,7 @@ class sv
 		$this->mc_user_pm = 'Accepterar Personliga Meddelanden';
 		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Inlägg';
+		$this->mc_user_regip = 'Registration IP'; //Translate
 		$this->mc_user_signature = 'Signatur';
 		$this->mc_user_skin = 'Skal';
 		$this->mc_user_timezone = 'Tids Zon';

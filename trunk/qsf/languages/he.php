@@ -678,6 +678,7 @@ class he
 		$this->mc_user_pm = 'קבלת הודעות פרטיות';
 		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'תגובות';
+		$this->mc_user_regip = 'Registration IP'; //Translate
 		$this->mc_user_signature = 'חתימה';
 		$this->mc_user_skin = 'סקין';
 		$this->mc_user_timezone = 'אזור זמן';

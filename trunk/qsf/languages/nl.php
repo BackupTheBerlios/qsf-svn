@@ -680,6 +680,7 @@ class nl
 		$this->mc_user_pm = 'Accepteer privé berichten';
 		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Berichten';
+		$this->mc_user_regip = 'Registration IP'; //Translate
 		$this->mc_user_signature = 'Handtekening';
 		$this->mc_user_skin = 'Skin'; //Translate
 		$this->mc_user_timezone = 'Tijdszone';

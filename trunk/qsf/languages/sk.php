@@ -679,6 +679,7 @@ class sk
 		$this->mc_user_pm = 'Prijíma osobné odkazy (PM)';
 		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Príspevky';
+		$this->mc_user_regip = 'Registration IP'; //Translate
 		$this->mc_user_signature = 'Podpis';
 		$this->mc_user_skin = 'Skin'; //Translate
 		$this->mc_user_timezone = 'Èasové Pásmo';

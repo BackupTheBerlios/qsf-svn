@@ -678,6 +678,7 @@ class fr
 		$this->mc_user_pm = 'Acceptant les messages privés';
 		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
 		$this->mc_user_posts = 'Messages';
+		$this->mc_user_regip = 'Registration IP'; //Translate
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Peau';
 		$this->mc_user_timezone = 'Fuseau horaire';
