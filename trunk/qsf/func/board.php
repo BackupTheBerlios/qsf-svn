@@ -67,11 +67,11 @@ class board extends qsfglobal
 						$this->readmarker->mark_forum_read($forum_id, $this->time);
 						return $this->message($this->lang->board_markforum,
 							sprintf($this->lang->board_markforum1, $forum_name),
-							$this->lang->continue, $this->self, $this->self);
+							$this->lang->continue, $this->self . "?a=forum&amp;f={$forum_id}", $this->self . "?a=forum&f={$forum_id}");
 					}
 				} else {
 					$this->readmarker->mark_all_read($this->time);
-					return $this->message($this->lang->board_mark, $this->lang->board_mark1, $this->lang->continue, $this->self, $this->self);
+					return $this->message($this->lang->board_mark, $this->lang->board_mark1, $this->lang->continue, $this->sets['loc_of_board'], $this->sets['loc_of_board']);
 				}
 			} else {
 				$this->get['s'] = null;
