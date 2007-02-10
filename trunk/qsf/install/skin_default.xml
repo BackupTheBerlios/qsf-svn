@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <qsfmod>
   <title>Skin: QSF Comet</title>
   <type folder="default">skin</type>
@@ -3246,7 +3246,7 @@ enable('$init');
         <td title="Strike-Through" class="button" onmouseover="over(this)" onmouseout="out(this)" onmousedown="down(this)" onmouseup="over(this)" onclick="format('strikethrough')" unselectable="on"><img src="./skins/{$this->skin}/images/wysiwyg/strike.gif" /></td>
 
         <td><span class="sep"></span></td>
-                                                                                                                         
+
         <td title="Foreground Color" class="button" onmouseover="over(this)" onmouseout="out(this)" onmousedown="down(this)" onmouseup="over(this)" onclick="forecolor()" unselectable="on"><img src="./skins/{$this->skin}/images/wysiwyg/tpaint.gif" /></td>
         <td title="Background Color" class="button" onmouseover="over(this)" onmouseout="out(this)" onmousedown="down(this)" onmouseup="over(this)" onclick="backcolor()" unselectable="on"><img src="./skins/{$this->skin}/images/wysiwyg/parea.gif" /></td>
 
