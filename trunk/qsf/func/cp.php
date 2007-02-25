@@ -147,7 +147,7 @@ class cp extends qsfglobal
 
 			case PASS_SUCCESS:
 				$hashed_pass = md5($this->post['passA']);
-				$this->db->query('UPDATE %pusers SET user_password=\'%s\' WHERE user_id=%d', $hashed_pass, $this->user['user_id']);
+				$this->db->query("UPDATE %pusers SET user_password='%s' WHERE user_id=%d", $hashed_pass, $this->user['user_id']);
 
 				if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
 					setcookie($this->sets['cookie_prefix'] . 'pass', $hashed_pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'].'; HttpOnly', $this->sets['cookie_secure']);
@@ -601,7 +601,7 @@ class cp extends qsfglobal
 		$params = FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS;
 		
 		if (isset($this->post['submit'])) {
-			$this->db->query('UPDATE %pusers SET user_signature=\'%s\' WHERE user_id=%d',
+			$this->db->query("UPDATE %pusers SET user_signature='%s' WHERE user_id=%d",
 				$this->post['sig'],  $this->user['user_id']);
 		}
 		
