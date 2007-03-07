@@ -65,7 +65,8 @@ class recent extends qsfglobal
 		$min = isset($this->get['min']) ? intval($this->get['min']) : 0;
 
 		$this->set_title($this->lang->recent_active);
-        
+        	$this->tree($this->lang->recent_active);
+
 		$forums_str = $this->readmarker->create_forum_permissions_string();
 
 		// Handle the unlikely case where the user cannot view ANY forums
