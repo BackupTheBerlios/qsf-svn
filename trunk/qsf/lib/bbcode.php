@@ -278,6 +278,16 @@ class bbcode extends htmltools
 				else
 					$this->allow_branch = true;
 
+				// don't allow unknown bbcode
+				if ( !array_key_exists( $element, $this->handlers ) )
+				{
+					// take into account end tags
+					if ( '/' !== $element{0} && !array_key_exists( substr( $element, 1 ), $this->handlers ) )
+					{
+						continue;
+					}
+				}
+
 				$text = $this->_tostring( $last_node + 1, $ix );
 
 				if ( 0 != strlen( $text ) )
@@ -288,8 +298,7 @@ class bbcode extends htmltools
 				unset( $text );
 
 				if ( '/' === $element{0} ) {
-					if ( false == $this->_pop( substr( $element, 1 ) ) )
-						return false;
+					$this->_pop( substr( $element, 1 ) );
 
 					$__temp = &$curser->parent;
 					$curser = &$__temp;
