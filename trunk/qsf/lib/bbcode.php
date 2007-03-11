@@ -190,6 +190,10 @@ class bbcode extends htmltools
 
 		$in = strtr($in, $strtr);
 
+		// FIXME: Hackish workaround.
+		// Bug reported: http://forums.quicksilverforums.com/index.php?a=topic&t=1134&p=6784#p6784
+		$in = str_replace( "[root]", "", $in );
+		$in = str_replace( "[/root]", "", $in );
 		return $in;
 	}
 
@@ -282,7 +286,8 @@ class bbcode extends htmltools
 				if ( !array_key_exists( $element, $this->handlers ) )
 				{
 					// take into account end tags
-					if ( '/' !== $element{0} && !array_key_exists( substr( $element, 1 ), $this->handlers ) )
+					if ( ( '/' !== $element{0} && !array_key_exists( substr( $element, 0 ), $this->handlers ) )
+					|| ( '/' === $element{0} && !array_key_exists( substr( $element, 1 ), $this->handlers ) ) )
 					{
 						continue;
 					}
