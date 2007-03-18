@@ -190,10 +190,6 @@ class bbcode extends htmltools
 
 		$in = strtr($in, $strtr);
 
-		// FIXME: Hackish workaround.
-		// Bug reported: http://forums.quicksilverforums.com/index.php?a=topic&t=1134&p=6784#p6784
-		$in = str_replace( "[root]", "", $in );
-		$in = str_replace( "[/root]", "", $in );
 		return $in;
 	}
 
@@ -303,10 +299,11 @@ class bbcode extends htmltools
 				unset( $text );
 
 				if ( '/' === $element{0} ) {
-					$this->_pop( substr( $element, 1 ) );
-
-					$__temp = &$curser->parent;
-					$curser = &$__temp;
+					if ( $this->_pop( substr( $element, 1 ) ) )
+					{
+						$__temp = &$curser->parent;
+						$curser = &$__temp;
+					}
 				} else {
 					if ( false == $this->_push( $element ) )
 						return false;
