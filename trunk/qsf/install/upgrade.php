@@ -214,7 +214,7 @@ class upgrade extends qsfglobal
 					$xmlInfo = new xmlparser();
 					$xmlInfo->parse(SKIN_FILE);
 					$templatesNode = $xmlInfo->GetNodeByPath('QSFMOD/TEMPLATES');
-					packageutil::list_templates($templatesNode);
+					$temp_names = packageutil::list_templates($templatesNode);
 					$temps_to_insert = array();
 						
 					foreach ($temp_names as $temp_name)
