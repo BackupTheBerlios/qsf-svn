@@ -120,7 +120,7 @@ class qsfglobal
 		/* set timezone offset */
 		if ($this->user['zone_updated'] < $this->time)
 		{
-			$tz = new $this->modules['timezone']('timezone/'.$this->user['zone_name']);
+			$tz = new $this->modules['timezone']( 'ptzf/' . $this->user['zone_name'] . '.php' );
 			$tz->magic2();
 			if (strlen($tz->abba)<1) $tz->abba='N/A';
 			$this->db->query("UPDATE %ptimezones SET zone_offset=%d, zone_updated=%d, zone_abbrev='%s' WHERE zone_id=%d",

@@ -101,6 +101,20 @@ class tz_decode2
         return ($this->tz_fhwnd = $to);
     }
 
+	function batsl2( $dat ) // 64bit safe
+	{
+		$bytes = unpack( 'C4', $dat );
+		$test = unpack( 'c4', $dat );
+
+		$retval = 0x00000000;
+		$retval = $retval | ( $test[1] <<  24 );
+		$retval = $retval | ( $bytes[2] <<  16 );
+		$retval = $retval | ( $bytes[3] <<  8 );
+		$retval = $retval |   $bytes[4];
+
+		return $retval;
+	}
+
 	/* loads the data from the file into memory */
 	function exec()
 	{
@@ -109,25 +123,20 @@ class tz_decode2
 		if ($this->fread(4) != 'TZif') return false;
 
 		/* load data from the header portion of file */
+
 		$this->fseek(20);
 
-		$tmp = unpack("N6", $this->fread(24));
+		$list = array( 'ttisgmtcnt', 'ttisstdcnt', 'leapcnt', 'timecnt', 'typecnt', 'charcnt' );
 
-		$tmp[0] = null;
-
-		list($dummy, 
-			$this->header['ttisgmtcnt'],
-			$this->header['ttisstdcnt'],
-			$this->header['leapcnt'],
-			$this->header['timecnt'],
-			$this->header['typecnt'],
-			$this->header['charcnt']) = $tmp;
+		foreach( $list as $index )
+		{
+			$this->header[ $index ] = $this->batsl2( $this->fread( 4 ) );
+		}
 
 		/* read in unix transition timestamps - 4bytes each */
 		for ($ix=0; $ix<$this->header['timecnt']; $ix++)
 		{
-			$temp = unpack('N', $this->fread(4));
-			$this->body['unix_time'][] = array_pop($temp);
+			$this->body['unix_time'][] = $this->batsl2( $this->fread( 4 ) );
 		}
 
 		/* read in `pointer` to the rule struct for, indexs match with the unix timestamps 1bytes each */
@@ -140,7 +149,10 @@ class tz_decode2
 		/* read in the rule structs */
 		for ($ix=0; $ix<$this->header['typecnt']; $ix++)
 		{
-			$this->body['ttinfo'][] = unpack('Ngmtoff/Cisdst/Cabbrind', $this->fread(6)) ;
+			$temp['gmtoff'] = $this->batsl2( $this->fread( 4 ) );
+			$temp['isdst'] = array_pop ( unpack( 'C' , $this->fread( 1 ) ) );
+			$temp['abbrind'] = array_pop ( unpack( 'C' , $this->fread( 1 ) ) );
+			$this->body['ttinfo'][] = $temp;
 		}
 
 		/* read in abbreiveiations(sp?) replace the nul char with a space */
