@@ -13,6 +13,7 @@ Changes for 1.3.2:
 * Hovering over a topic title shows date it was posted.
 * Optional email notification of private messages.
 * Less intrusive validator images.
+* Limit the maximum size of fonts in posts.
 
   Bugs addressed:
 

@@ -585,7 +585,10 @@ class bbcode extends htmltools
 
 	function _process_size(&$node)
 	{
-		return '<span style="font-size:'.$node->attribute.'ex">'.$node->text.'</span>';
+		$value = $node->attribute;
+		if( intval($value) > 10 )
+			$value = "10";
+		return '<span style="font-size:'.$value.'ex">'.$node->text.'</span>';
 	}
 	
 	function _process_spoiler(&$node)
