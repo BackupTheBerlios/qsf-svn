@@ -174,7 +174,6 @@ class mod extends qsfglobal
 			$ammount = $this->db->fetch('SELECT topic_replies FROM %ptopics WHERE topic_id = %d', $newtopic);
 			$ammount = intval($ammount['topic_replies']);
 
-			echo 'ammount='.$ammount;
 			$this->update_count_move($topic['topic_forum'], $this->post['newforum'], $ammount);
 
 			$this->log_action('topic_move', $this->get['t'], $topic['topic_forum'], $this->post['newforum']);
