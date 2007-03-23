@@ -332,6 +332,10 @@ class member_control extends admin
 				  $user_gtalk, $user_yahoo, $user_email_show, $user_pm, $user_pm_mail, $user_view_avatars,
 				  $user_view_signatures, $user_view_emoticons, $this->get['id'] );
 
+				if( $user_group == USER_BANNED ) {
+					$this->db->query( "DELETE FROM %psubscriptions WHERE subscription_user=%d",
+						$this->get['id'] );
+				}
 				if (($this->get['id'] == $this->sets['last_member_id'])
 				&& ($this->post['user_name'] != $this->sets['last_member'])) {
 					$this->sets['last_member'] = $this->post['user_name'];
