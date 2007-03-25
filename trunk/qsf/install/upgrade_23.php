@@ -42,7 +42,8 @@ $need_templates = array(
 	'POST_POLL',
 	'POST_REPLY',
 	'POST_TOPIC',
-	'ADMIN_EDIT_BOARD_SETTINGS'
+	'ADMIN_EDIT_BOARD_SETTINGS',
+	'ADMIN_EDIT_TEMPLATE_ENTRY'
 	);
 
 $this->sets['cookie_domain'] = '';

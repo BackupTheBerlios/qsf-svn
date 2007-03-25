@@ -785,7 +785,7 @@
   {$data['template_name']}
   <input type="submit" name="submitTemps" value="{$this->lang->edit_templates}" style="float:right" /><br />
   {$data['template_description']}<br /><br />
-  <textarea onchange="this.style.backgroundColor='#FFFFEE'; changed=true" name="code[{$data['template_name']}]" style="background-color:white; font-family:'courier new', courier, monospaced, serif; font-size:12px; width:100%" rows="18" cols="80" wrap="off">{$data['template_html']}</textarea>
+  <textarea onchange="this.style.backgroundColor='#AAAAAA'; changed=true" name="code[{$data['template_name']}]" style="background-color:white; font-family:'courier new', courier, monospaced, serif; font-size:12px; width:100%" rows="18" cols="80" wrap="off">{$data['template_html']}</textarea>
  </td>
 </tr>
       ]]></html>
