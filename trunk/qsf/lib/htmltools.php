@@ -48,6 +48,7 @@ class htmltools extends forumutils
 		$this->lang = &$qsf->lang;
 		$this->self = $qsf->self;
 		$this->skin = $qsf->skin;
+		$this->sets = $qsf->sets;
 		
 		// Make the properties static (even on PHP 4)
 		static $replaces_loaded = false;
