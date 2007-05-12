@@ -257,6 +257,7 @@ class new_install extends qsfglobal
 			$this->sets['db_name']   = $this->post['db_name'];
 			$this->sets['db_port']   = $this->post['db_port'];
 			$this->sets['db_socket'] = $this->post['db_socket'];
+			$this->sets['installed'] = 1;
 			$this->sets['prefix']    = trim(preg_replace('/[^a-zA-Z0-9_]/', '', $this->post['prefix']));
 
 			$settingsFile = $this->create_settings_file();
