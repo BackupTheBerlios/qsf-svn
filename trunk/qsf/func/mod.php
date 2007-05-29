@@ -710,7 +710,7 @@ class mod extends qsfglobal
 			SELECT DISTINCT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count, u.user_posts
 			FROM (%ptopics t, %pposts p, %pusers u)
 			LEFT JOIN %pattach a ON p.post_id=a.attach_post
-			WHERE t.topic_id=%d AND t.topic_id=p.post_topic", $t);
+			WHERE t.topic_id=%d AND t.topic_id=p.post_topic AND p.post_author=u.user_id", $t);
 
 		$deleted = -1;
 
