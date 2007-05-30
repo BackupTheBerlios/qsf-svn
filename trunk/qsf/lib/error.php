@@ -42,7 +42,13 @@ function get_backtrace()
 
 		if( $trace > 2 ) { // The call in the error handler is irrelevent anyway, so don't bother with the arg list
 			foreach( $frame['args'] as $arg ) {
-				$argument = htmlspecialchars($arg[0]);
+				if ( is_array( $arg ) && array_key_exists( 0, $arg ) ) {
+					$argument = htmlspecialchars( $arg[0] );
+				} elseif( is_string( $arg ) ) {
+					$argument = htmlspecialchars( $arg );
+				} else {
+					$argument = NULL;
+				}
 				$args[] = "'{$argument}'";
 			}
 		}
