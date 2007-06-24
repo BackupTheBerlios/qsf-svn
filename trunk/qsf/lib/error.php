@@ -151,7 +151,12 @@ function error_fatal($type, $message, $file, $line = 0)
 
 	$checkbug = error_report($type, $message, $file, $line);
 
-	$temp_querystring = str_replace("&","&amp;", $_SERVER['QUERY_STRING']);
+	// IIS does not use $_SERVER['QUERY_STRING'] in the same way as Apache and might not set it
+	if (isset($_SERVER['QUERY_STRING'])) {
+		$temp_querystring = str_replace("&","&amp;", $_SERVER['QUERY_STRING']);
+	} else {
+		$temp_querystring = "";
+	}
 
 	return "
 	<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
@@ -185,7 +190,7 @@ function error_fatal($type, $message, $file, $line = 0)
 	$backtrace
 
 	<br /><hr><br />
-	<a href='http://developer.berlios.de/bugs/?group_id=5008' class='small'>Check status of problem (recommended)</a><br />
+	<a href='http://forums.quicksilverforums.com/index.php?a=forum&amp;f=6' class='small'>Check status of problem (recommended)</a><br />
 	<a href='{$_SERVER['PHP_SELF']}?{$temp_querystring}&amp;debug=1' class='small'>View debug information (advanced)</a><br />
 	<a href='{$_SERVER['PHP_SELF']}' class='small'>Return to the board</a>
 	</body>
