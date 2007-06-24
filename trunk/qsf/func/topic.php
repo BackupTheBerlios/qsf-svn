@@ -573,9 +573,12 @@ class topic extends qsfglobal
 			$this->nohtml = true;
 			$this->db->query("UPDATE %pattach SET attach_downloads=attach_downloads+1 WHERE attach_id=%d", $this->get['id']);
 
+			// Need to terminate and unlock the session at this point or the site will stall for the current user.
+			session_write_close();
 			header("Content-type: application/octet-stream");
 			header("Content-Disposition: attachment; filename=\"{$data['attach_name']}\"");
-			readfile('./attachments/' . $data['attach_file']);
+			header("Content-Length: " . $data['attach_size']);
+			echo file_get_contents('./attachments/' . $data['attach_file']);
 		} else {
 			return $this->message($this->lang->topic_attached_title, $this->lang->topic_attached_perm);
 		}

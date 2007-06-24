@@ -41,7 +41,7 @@ class attachutil
 		$this->sets = &$qsf->sets;
 		$this->lang = &$qsf->lang;
 	}
-	
+
 	/**
 	 * Processes an attachment upload
 	 *
@@ -80,7 +80,7 @@ class attachutil
 		}
 		return $upload_error;
 	}
-	
+
 	/**
 	 * Deletes a file off disk and removes it from the attachment data
 	 *
@@ -94,7 +94,7 @@ class attachutil
 		unset($attached_data[$filename]);
 		@unlink('./attachments/' . $filename);
 	}
-	
+
 	/**
 	 * Processes an attachment upload and stores the record in the database
 	 *
@@ -108,7 +108,7 @@ class attachutil
 	{
 		$temp_attached_data = array();
 		$error = $this->attach($file, $temp_attached_data);
-		
+
 		if ($error == null) {
 			$md5 = key($temp_attached_data);
 			$filename = $temp_attached_data[$md5];
@@ -136,9 +136,7 @@ class attachutil
 		$this->db->query("DELETE FROM %pattach WHERE attach_post=%d AND attach_file = '%s'",
 			$post_id, $filename);
 	}
-	
-	
-	
+
 	/**
 	 * Processes attach data and builds form elements
 	 *
@@ -158,7 +156,7 @@ class attachutil
 			$hiddennames .= "<input type='hidden' name='attached_data[$md5]' value='$file' />\n";
 		}
 	}
-	
+
 	/**
 	 * Adds an attachment record to the database
 	 *
@@ -208,7 +206,7 @@ class attachutil
 		}
 		return UPLOAD_FAILURE;
 	}
-	
+
 	/**
 	 * Fetch attachment data from database and return it as an array
 	 *
@@ -226,7 +224,7 @@ class attachutil
 		{
 			$attached_data[$row['attach_file']] = $row['attach_name'];
 		}
-		
+
 		return $attached_data;
 	}
 }
