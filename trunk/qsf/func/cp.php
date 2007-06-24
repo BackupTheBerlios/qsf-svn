@@ -109,12 +109,12 @@ class cp extends qsfglobal
 			return PASS_NOT_VERIFIED;
 		}
 
-		if (!preg_match('/[a-z0-9_\- ]+/i', $passA)) {
-			return PASS_INVALID;
-		}
-
 		if ($passA != $passB) {
 			return PASS_NO_MATCH;
+		}
+
+		if (!$this->validator->validate($passA, TYPE_PASSWORD)) {
+			return PASS_INVALID;
 		}
 
 		return PASS_SUCCESS;

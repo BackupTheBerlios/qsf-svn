@@ -132,17 +132,17 @@ class register extends qsfglobal
 				return $this->message($this->lang->register_reging, $this->lang->register_email_invalid);
 			}
 
-			if (!preg_match("/^[a-z0-9_\- ]{5,}$/i", $pass)) {
+			if ($pass != $pass2) {
+				return $this->message($this->lang->register_reging, $this->lang->register_pass_match);
+			}
+
+			if (!this->validator->validate($pass, TYPE_PASSWORD)) {
 				return $this->message($this->lang->register_reging, $this->lang->register_pass_invalid);
 			}
 
 			$eexists = $this->db->fetch("SELECT user_email FROM %pusers WHERE user_email='%s'", $email);
 			if ($eexists) {
 				return $this->message($this->lang->register_reging, $this->lang->register_email_used);
-			}
-
-			if ($pass != $pass2) {
-				return $this->message($this->lang->register_reging, $this->lang->register_pass_match);
 			}
 
 			$pass = md5($pass);
