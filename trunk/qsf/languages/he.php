@@ -651,6 +651,7 @@ class he
 		$this->mc_err_updating = 'שגיאה בעדכון הפרופיל';
 		$this->mc_find = 'מצא חברים עם שמות המכילים';
 		$this->mc_found = 'החברים הבאים נמצאו. אנא בחר אחד.';
+		$this->mc_guest_banned = 'You cannot ban Guests, this would cause your board to become unusable.'; //Translate
 		$this->mc_guest_needed = 'Quicksilver חשבון האורח חיוני לפעילות הפורומים של';
 		$this->mc_not_found = 'לא נמצאו חברים מתאימים';
 		$this->mc_user_aim = 'AIM שם';
@@ -790,6 +791,8 @@ class he
 		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'שליחת מיילים לחברים דרך הפורום';
 		$this->perms_forum_view = 'הצג את הפורום';
+		$this->perms_guest1 = 'You cannot stop Guests from using the board. The board would become unusable by anyone.'; //Translate
+		$this->perms_guest2 = 'You cannot stop the Guest Group from using the board. The board would become unusable by anyone.'; //Translate
 		$this->perms_is_admin = 'כניסה ללוח בקרת מנהל';
 		$this->perms_only_user = 'השתמש רק בהרשאות קבוצה למשתמש זה';
 		$this->perms_override_user = '.זה יעקוף את הרשאות הקבוצה למשתמש זה';

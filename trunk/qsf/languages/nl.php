@@ -653,6 +653,7 @@ class nl
 		$this->mc_err_updating = 'Fout tijdens het upgraden van uw profiel.';
 		$this->mc_find = 'Zoek gebruikers waarin hetvolgende voorkomt:';
 		$this->mc_found = 'De volgende gebruikers werden gevonden. Selecteer er een van.';
+		$this->mc_guest_banned = 'You cannot ban Guests, this would cause your board to become unusable.'; //Translate
 		$this->mc_guest_needed = 'Het gastenaccount is noodzakelijk voor Quicksilver Forums om te kunnen functioneren.';
 		$this->mc_not_found = 'Er werden geen gebruikers teruggevonden met de gegevens';
 		$this->mc_user_aim = 'AIM Naam';
@@ -792,6 +793,8 @@ class nl
 		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Verstuur e-mails naar andere gebruikers via het board';
 		$this->perms_forum_view = 'Bekijk het forum';
+		$this->perms_guest1 = 'You cannot stop Guests from using the board. The board would become unusable by anyone.'; //Translate
+		$this->perms_guest2 = 'You cannot stop the Guest Group from using the board. The board would become unusable by anyone.'; //Translate
 		$this->perms_is_admin = 'Verschaf toegang tot het administrators controlepaneel';
 		$this->perms_only_user = 'Gebruik alleen groepstoelatingen voor deze gebruiker';
 		$this->perms_override_user = 'This will override the group permissions for this user.'; //Translate

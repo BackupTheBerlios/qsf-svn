@@ -652,6 +652,7 @@ class sk
 		$this->mc_err_updating = 'Error Updating Profile'; //Translate
 		$this->mc_find = 'Nájs užívate¾ov, ktorých meno obsahuje';
 		$this->mc_found = 'Boli nájdení nasledujúci užívatelia. Prosím, vyberte jedného.';
+		$this->mc_guest_banned = 'You cannot ban Guests, this would cause your board to become unusable.'; //Translate
 		$this->mc_guest_needed = 'Konto guest je potrebné pre chod Quicksilver Fóra.';
 		$this->mc_not_found = 'Neboli nájdení žiadni užívatelia';
 		$this->mc_user_aim = 'AIM Name'; //Translate
@@ -791,6 +792,8 @@ class sk
 		$this->perms_edit_sig = 'Can edit signatures'; //Translate
 		$this->perms_email_use = 'Posla email užívate¾om cez fórum';
 		$this->perms_forum_view = 'Zobrazi fórum';
+		$this->perms_guest1 = 'You cannot stop Guests from using the board. The board would become unusable by anyone.'; //Translate
+		$this->perms_guest2 = 'You cannot stop the Guest Group from using the board. The board would become unusable by anyone.'; //Translate
 		$this->perms_is_admin = 'Prístup k administrátorskému ovládaciemu panelu (CP)';
 		$this->perms_only_user = 'Pre tohoto užívate¾a aplikova iba práva jeho skupiny';
 		$this->perms_override_user = 'Týmto prekryjete práva skupiny pre tohoto užívate¾a.';
