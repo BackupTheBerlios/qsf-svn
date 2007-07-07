@@ -284,6 +284,16 @@ class perms extends admin
 				$this->post['perms'] = array();
 			}
 
+			if ($mode == 'user') {
+				if ((!isset($this->post['perms']['do_anything'])) && ($this->post['group'] == USER_GUEST_UID)) {
+					return $this->message($this->lang->perms, $this->lang->perms_guest1);
+				}
+			} else {
+				if ((!isset($this->post['perms']['do_anything'])) && ($this->post['group'] == USER_GUEST)) {
+					return $this->message($this->lang->perms, $this->lang->perms_guest2);
+				}
+			}
+
 			foreach ($this->post['perms'] as $name => $data)
 			{
 				if (isset($data[-1]) || isset($data['-1']) || (count($data) == count($forums_list))) {

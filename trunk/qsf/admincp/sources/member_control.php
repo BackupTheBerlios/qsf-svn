@@ -254,6 +254,11 @@ class member_control extends admin
 				return eval($this->template('ADMIN_MEMBER_PROFILE'));
 			} else {
 				$member = $this->db->fetch('SELECT user_name FROM %pusers WHERE user_id=%d LIMIT 1', $this->get['id']);
+
+				if (($this->post['user_group'] == USER_BANNED) && ($this->get['id'] == USER_GUEST_UID)) {
+					return $this->message($this->lang->mc, $this->lang->mc_guest_banned);
+				} 
+
 				$guest_email = $this->post['user_email'];
 				if ($member['user_name'] != 'Guest' && !$this->validator->validate($guest_email, TYPE_EMAIL)) {
 					return $this->message($this->lang->mc_err_updating, $this->lang->mc_email_invaid);

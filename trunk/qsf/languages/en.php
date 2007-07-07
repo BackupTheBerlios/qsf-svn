@@ -651,6 +651,7 @@ class en
 		$this->mc_err_updating = 'Error Updating Profile';
 		$this->mc_find = 'Find members with names containing';
 		$this->mc_found = 'The following members were found. Please select one.';
+		$this->mc_guest_banned = 'You cannot ban Guests, this would cause your board to become unusable.';
 		$this->mc_guest_needed = 'The guest account is necessary for Quicksilver Forums to function.';
 		$this->mc_not_found = 'No members were found matching';
 		$this->mc_user_aim = 'AIM Name';
@@ -790,6 +791,8 @@ class en
 		$this->perms_edit_sig = 'Can edit signatures';
 		$this->perms_email_use = 'Send emails to members via the board';
 		$this->perms_forum_view = 'View the forum';
+		$this->perms_guest1 = 'You cannot stop Guests from using the board. The board would become unusable by anyone.';
+		$this->perms_guest2 = 'You cannot stop the Guest Group from using the board. The board would become unusable by anyone.';
 		$this->perms_is_admin = 'Access the admin control panel';
 		$this->perms_only_user = 'Use only group permissions for this user';
 		$this->perms_override_user = 'This will override the group permissions for this user.';
