@@ -136,7 +136,7 @@ class register extends qsfglobal
 				return $this->message($this->lang->register_reging, $this->lang->register_pass_match);
 			}
 
-			if (!this->validator->validate($pass, TYPE_PASSWORD)) {
+			if (!$this->validator->validate($pass, TYPE_PASSWORD)) {
 				return $this->message($this->lang->register_reging, $this->lang->register_pass_invalid);
 			}
 
