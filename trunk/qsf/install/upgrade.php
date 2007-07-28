@@ -98,11 +98,6 @@ class upgrade extends qsfglobal
 				break;
 			}
 
-			if (!is_writeable('../settings.php')) {
-				echo "settings.php cannot be updated.<br /><br />CHMOD settings.php to 0666.";
-				break;
-			}
-
 			$queries = array();
 			$pre = $this->sets['prefix'];
 			$full_template_list = false;
@@ -134,11 +129,6 @@ class upgrade extends qsfglobal
 				} else {
 					$template_list = array_unique(array_merge($template_list, $need_templates));
 				}
-			}
-
-			if (!$this->write_db_sets('../settings.php')) {
-				echo 'settings.php could not be updated.<br /><br />CHMOD settings.php to 0666.';
-				break;
 			}
 
 			/**
