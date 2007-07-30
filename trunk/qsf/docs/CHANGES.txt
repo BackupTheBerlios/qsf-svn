@@ -33,6 +33,7 @@ Changes for 1.3.2:
 * A fatal installer error was corrected.
 * RSS feed does not filter out unpublished topics.
 * RSS feed email addresses were not RFC 2822 compliant.
+* Several holes in board_view permission checks have been plugged.
 
 Changes for 1.3.1:
 

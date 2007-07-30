@@ -37,6 +37,14 @@ class pm extends qsfglobal
 {
 	function execute()
 	{
+		if (!$this->perms->auth('board_view')) {
+			$this->lang->board();
+			return $this->message(
+				sprintf($this->lang->board_message, $this->sets['forum_name']),
+				($this->perms->is_guest) ? sprintf($this->lang->board_regfirst, $this->self) : $this->lang->board_noview
+			);
+		}
+
 		$this->set_title($this->lang->pm_messenger);
 		$this->tree($this->lang->pm_messenger);
 
