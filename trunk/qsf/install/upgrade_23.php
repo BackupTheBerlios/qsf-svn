@@ -24,7 +24,7 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to upgrade.');
 }
 
-// Upgrade from 1.3.1 to 1.3.2
+// Upgrade from 1.3.1 to 1.4.0
 
 // Template changes
 $need_templates = array(
