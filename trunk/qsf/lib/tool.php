@@ -109,7 +109,7 @@ class tool
 			break;
 		case TYPE_PASSWORD:
 			// $range is unused
-			if (strlen($var) < 5 && strlen($var) > 256) {
+			if (strlen($var) < 5 || strlen($var) > 256) {
 				$unchanged = false;
 				if ($default != null) $var = $default;
 			}
