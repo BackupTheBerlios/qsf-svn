@@ -27,26 +27,7 @@ if (!defined('INSTALLER')) {
 // Upgrade from 1.3.1 to 1.4.0
 
 // Template changes
-$need_templates = array(
-	// Added templates
-	'ADMIN_BACKUP',
-	'POST_OPTIONS',
-	// Changed templates
-	'CP_PREFS',
-	'BOARD_LAST_POST_BOX',
-	'MAIN_HEADER_GUEST',
-	'MAIN_HEADER_MEMBER',
-	'FORUM_TOPIC',
-	'RECENT_TOPIC',
-	'TOPIC_QUICKREPLY',
-	'POST_POLL',
-	'POST_REPLY',
-	'POST_TOPIC',
-	'ADMIN_EDIT_BOARD_SETTINGS',
-	'ADMIN_EDIT_TEMPLATE_ENTRY',
-	'MAIN_COPYRIGHT',
-	'ADMIN_COPYRIGHT'
-	);
+$need_templates = true;
 
 $this->sets['cookie_domain'] = '';
 $this->sets['cookie_secure'] = 0;
