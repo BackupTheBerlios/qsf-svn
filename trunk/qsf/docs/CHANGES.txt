@@ -3,6 +3,8 @@ Quicksilver Forums Changes
 
 Changes for 1.4.0:
 
+* New default skin based on Syridium HForum v3 skin © 2006-2007 Syridium SC.
+* Updated to latest available jpgraph library.
 * Added new anti-troll permissions for avatars, profiles, and sigs.
 * Added support for Internet Explorer HttpOnly cookies.
 * Added "quick quote" feature.
@@ -12,7 +14,6 @@ Changes for 1.4.0:
 * Move rsscache to the stats directory.
 * Hovering over a topic title shows date it was posted.
 * Optional email notification of private messages.
-* Less intrusive validator images.
 * Limit the maximum size of fonts in posts.
 * Changed template color change can be difficult or impossible to see on LCD monitors.
 
