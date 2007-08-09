@@ -101,7 +101,8 @@ class backup extends admin
 			$buf .= $c;
 		pclose($fp);
 		$this->chmod("../packages/".$filename, 0777);
-		return $this->message($this->lang->backup_create, $this->lang->backup_created ." ../packages/".$filename."<br />". $this->lang->backup_output .": ".$buf, $filename, "../packages/".$filename);
+		$backup = sprintf( $this->lang->backup_created, "../packages/" );
+		return $this->message($this->lang->backup_create, $backup."<br /><br />". $this->lang->backup_output .": ".$buf, $filename, "../packages/".$filename);
 	}
 
 	/**

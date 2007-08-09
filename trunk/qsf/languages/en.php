@@ -121,7 +121,7 @@ class en
 		$this->backup_add = 'Add';
 		$this->backup_add_complete = 'Add complete';
 		$this->backup_create = 'Backup Database';
-		$this->backup_created = 'Backup successfully created in';
+		$this->backup_created = 'Backup successfully created in %s';
 		$this->backup_createfile = 'Backup and create a file on server';
 		$this->backup_done = 'The database has been backed up to the packages directory.';
 		$this->backup_download = 'Backup and download (recommended)';
