@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -29,7 +29,8 @@ if (!defined('QUICKSILVERFORUMS')) {
  * Swedish language module
  *
  * @author Markus Höglund <markus@pidelipom.com>
- * @author Oskar Bergström <oskar@rapidfish.se
+ * @author Oskar Bergström <oskar@rapidfish.se>
+ * @author Anna <anna.lagerberg@gmail.com>
  * @since 1.0.1
  **/
 class sv
@@ -119,27 +120,27 @@ class sv
 	function backup()
 	{
 		$this->backup = 'Backup'; //Translate
-		$this->backup_add = 'Add'; //Translate
-		$this->backup_add_complete = 'Add complete'; //Translate
+		$this->backup_add = 'Lägg till';
+		$this->backup_add_complete = 'Lägg till färdigställd';
 		$this->backup_create = 'Skapa databasbackup';
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup har skapats i %s';
 		$this->backup_createfile = 'Gör en backup och spara filen på servern';
 		$this->backup_done = 'En backup av databasen har skapats i mappen "databases".';
 		$this->backup_download = 'Gör en backup och ladda ner filen (Rekommenderas)';
-		$this->backup_failed = 'Failed to create backup.'; //Translate
+		$this->backup_failed = 'Misslyckades med att skapa backup.';
 		$this->backup_found = 'Följande backuper hittades i mappen "databases"';
-		$this->backup_import_fail = 'Failed to import backup.'; //Translate
+		$this->backup_import_fail = 'Import av backup misslyckades.';
 		$this->backup_invalid = 'Backupen verkar inte vara giltig. Inga förändingar gjordes av databasen.';
-		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
-		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
+		$this->backup_no_packages = 'Kunde inte hitta packages mappen.';
+		$this->backup_noexist = 'Tyvädd, den backupen finns inte.';
 		$this->backup_none = 'Inga backuper hittades i mappen "databases".';
-		$this->backup_options = 'Välj hur du vill ha din backup skapad';
-		$this->backup_output = 'Output'; //Translate
+		$this->backup_options = 'Databas Backup Alternativ';
+		$this->backup_output = 'Utskrift';
 		$this->backup_restore = 'Återställ Backup';
 		$this->backup_restore_done = 'Återställningen av Databasen lyckades.';
 		$this->backup_statements = 'statements'; //Translate
-		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
-		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
+		$this->backup_uncheck = 'Avmarkering av denna kommer INTE tömma databastabellerna innan återställning av backupen!';
+		$this->backup_warning = '<b>Varning:</b> Detta kommer att skriva över alla existerande data som används av Quicksilver Forums.';
 	}
 
 	function ban()
@@ -251,7 +252,7 @@ class sv
 		$this->board_stats_string = 'Hittills har %s personer registrerat sig. Våran nyaste medlem är: %s.<br /> Det finns %s ämnen och %s svar vilket totalt är %s inlägg.';
 		$this->board_top_page = 'Gå till toppen av sidan';
 		$this->board_topics = 'Ämnen';
-		$this->board_unread = 'Jump to oldest unread post'; //Translate
+		$this->board_unread = 'Hoppa till äldsta olästa inlägg';
 		$this->board_users = 'användare';
 		$this->board_write_topics = 'Du kan läsa och skapa ämnen i detta forum.';
 	}
@@ -290,7 +291,7 @@ class sv
 		$this->cp_been_updated_prefs = 'Dina inställningar har uppdaterats.';
 		$this->cp_changing_pass = 'Ändrar Lösenord';
 		$this->cp_contact_pm = 'Tillåt att andra kontaktar dig via messenger?';
-		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
+		$this->cp_contact_pm_email = 'Skicka epost meddelande om personligt meddelande vid nytt?';
 		$this->cp_cp = 'Kontrollpanelen';
 		$this->cp_current_avatar = 'Nuvarande Avatar';
 		$this->cp_current_time = 'Klockan är %s.';
@@ -331,18 +332,18 @@ class sv
 		$this->cp_must_orig = 'Ditt namn måste vara identiskt med originalet. Du får endast ändra versaler och avstånd.';
 		$this->cp_new_notmatch = 'De nya lösenorden du skrev in är olika.';
 		$this->cp_new_pass = 'Nytt Lösenord';
-		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
-		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
-		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
+		$this->cp_no_edit_avatar = 'Du har inte tillåtelse att ändra din avatar.';
+		$this->cp_no_edit_profile = 'Du har inte tillåtelse att ändra din profil.';
+		$this->cp_no_edit_sig = 'Du har inte tillåtelse att ändra din signatur.';
 		$this->cp_no_flash = 'Flash avatarer är inte tillåtna.';
 		$this->cp_not_exist = 'Datumet du skrivit in (%s) finns inte!';
 		$this->cp_nov = 'November'; //Translate
 		$this->cp_oct = 'Oktober';
 		$this->cp_old_notmatch = 'Ditt gamla lösenord är ej korrekt.';
 		$this->cp_old_pass = 'Gammalt Lösenord';
-		$this->cp_pass = 'Password'; //Translate
-		$this->cp_pass2 = 'Only required if changing Email'; //Translate
-		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
+		$this->cp_pass = 'Lösenord';
+		$this->cp_pass2 = 'Krävs endast vid byte av Epost';
+		$this->cp_pass_notmatch = 'Lösenordet du angav stämmer inte med det i våran databas.';
 		$this->cp_pass_notvaid = 'Ditt lösenord är ogiltigt. Endast bokstäver, nummer, streck, understreck och mellanslag är tillåtna.';
 		$this->cp_posts_page = 'Inlägg per ämnessida. 0 återställer till forumstandard.';
 		$this->cp_preferences = 'Ändrar Inställningar';
@@ -448,8 +449,8 @@ class sv
 		$this->forum_sub_topics = 'Ämnen';
 		$this->forum_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->forum_topic = 'Ämne';
-		$this->forum_topic_posted = 'Posted'; //Translate
-		$this->forum_unread = 'Jump to oldest unread post'; //Translate
+		$this->forum_topic_posted = 'Inlagd';
+		$this->forum_unread = 'Hoppa till äldsta olästa inlägg';
 		$this->forum_views = 'Visningar';
 		$this->forum_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}
@@ -652,7 +653,7 @@ class sv
 		$this->mc_err_updating = 'Ett fel uppstod vid uppdatering av profil';
 		$this->mc_find = 'Hitta medlemmar vars namn innehåller';
 		$this->mc_found = 'Följande medlemmar hittades. Var snäll och välj en.';
-		$this->mc_guest_banned = 'You cannot ban Guests, this would cause your board to become unusable.'; //Translate
+		$this->mc_guest_banned = 'Du kan inte bannlysa Guests, detta skulle göra ditt forum oanvändbart.';
 		$this->mc_guest_needed = 'Gästkontot behövs för att Quicksilver Forumet ska fungera.';
 		$this->mc_not_found = 'Inga medlemmar som matchade hittades';
 		$this->mc_user_aim = 'AIM Namn';
@@ -678,9 +679,9 @@ class sv
 		$this->mc_user_msn = 'MSN Identitet';
 		$this->mc_user_name = 'Namn';
 		$this->mc_user_pm = 'Accepterar Personliga Meddelanden';
-		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Epost Privata Meddelanden';
 		$this->mc_user_posts = 'Inlägg';
-		$this->mc_user_regip = 'Registration IP'; //Translate
+		$this->mc_user_regip = 'Registrerings IP';
 		$this->mc_user_signature = 'Signatur';
 		$this->mc_user_skin = 'Skal';
 		$this->mc_user_timezone = 'Tids Zon';
@@ -784,16 +785,16 @@ class sv
 		$this->perm = 'Rättighet';
 		$this->perms = 'Rättigheter';
 		$this->perms_board_view = 'Visa Forumets index';
-		$this->perms_board_view_closed = 'Använda Quicksilver Forumet när det är stängt';
-		$this->perms_do_anything = 'Använda Quicksilver Forumet';
-		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
+		$this->perms_board_view_closed = 'Använda Quicksilver Forums när det är stängt';
+		$this->perms_do_anything = 'Använda Quicksilver Forums';
+		$this->perms_edit_avatar = 'Får ändra användar avatar';
 		$this->perms_edit_for = 'Ändra Rättigheter för';
-		$this->perms_edit_profile = 'Can edit user profile'; //Translate
-		$this->perms_edit_sig = 'Can edit signatures'; //Translate
+		$this->perms_edit_profile = 'Får ändra profil';
+		$this->perms_edit_sig = 'Får ändra signatur';
 		$this->perms_email_use = 'Skicka e-post till medlemmarna via forumet';
 		$this->perms_forum_view = 'Kolla Forumet';
-		$this->perms_guest1 = 'You cannot stop Guests from using the board. The board would become unusable by anyone.'; //Translate
-		$this->perms_guest2 = 'You cannot stop the Guest Group from using the board. The board would become unusable by anyone.'; //Translate
+		$this->perms_guest1 = 'Du kan inte hindra Guests från att använda forumet. Forumet kommer bli oanvändbart för alla.';
+		$this->perms_guest2 = 'Du kan inte hindra Guest gruppen från att använda forumet. Forumet kommer bli oanvändbart för alla.';
 		$this->perms_is_admin = 'Komma åt adminkotrollpanelen';
 		$this->perms_only_user = 'Använd endast grupprättigheter för den här användaren';
 		$this->perms_override_user = 'Detta kommer att ersätta grupprättigheterna för den här användaren.';
@@ -886,7 +887,7 @@ class sv
 		$this->pm_sendamsg = 'Skicka Ett Meddelande';
 		$this->pm_sendingpm = 'Skicka Ett PM';
 		$this->pm_sendon = 'Skickat den';
-		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
+		$this->pm_sent_mail = 'har skickat dig ett privat meddelande.';
 		$this->pm_success = 'Ditt meddelande skickades.';
 		$this->pm_sure_del = 'Är du säker på att du vill radera detta meddelande?';
 		$this->pm_sure_delall = 'Är du säker på att du vill radera alla meddelanden i denna katalog?';
@@ -932,9 +933,9 @@ class sv
 		$this->post_no_vote = 'Du måste välja ett alternativ att rösta på.';
 		$this->post_option_emoticons = 'Konvertera Emoticons till bilder?';
 		$this->post_option_global = 'Visa ämnet i hela forumet?';
-		$this->post_option_lock = 'Lock topic after posting?'; //Translate
+		$this->post_option_lock = 'Lås ämnet efter inlägget?';
 		$this->post_option_mbcode = 'Formatera MbKod?';
-		$this->post_option_pin = 'Pin topic after posting?'; //Translate
+		$this->post_option_pin = 'klistra ämne efter inlägget?';
 		$this->post_optional = 'valfri';
 		$this->post_options = 'Alternativ';
 		$this->post_poll_options = 'Omröstningsalternativ';
@@ -1076,7 +1077,7 @@ class sv
 		$this->recent_sub_topics = 'Ämnen';
 		$this->recent_subscribe = 'E-posta mig när nya inlägg skrivits i detta forum.';
 		$this->recent_topic = 'Ämne';
-		$this->recent_topic_posted = 'Posted'; //Translate
+		$this->recent_topic_posted = 'Inlagd';
 		$this->recent_views = 'Visningar';
 		$this->recent_write_topics = 'Du kan skapa nya ämnen i detta forum.';
 	}
@@ -1206,11 +1207,11 @@ class sv
 		$this->settings_board_rssfeed_title = 'RSS Matningens Titel';
 		$this->settings_clickable = 'Klickbara Emoticons Per Rad';
 		$this->settings_cookie = 'Cookie och Flood Inställningar';
-		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
+		$this->settings_cookie_domain = 'Cookie Domän';
 		$this->settings_cookie_path = 'Cookie Sökväg';
 		$this->settings_cookie_prefix = 'Cookie Prefix'; //Translate
-		$this->settings_cookie_secure = 'Cookie Security'; //Translate
-		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
+		$this->settings_cookie_secure = 'Cookie Säkerhet';
+		$this->settings_cookie_secured = 'Är din webbplats SSL säkrad?';
 		$this->settings_cookie_time = 'Tid för att kvarstå som inloggad';
 		$this->settings_db = 'Ändra Inställningar för Anslutning';
 		$this->settings_db_host = 'Databas Värd';
@@ -1365,7 +1366,7 @@ class sv
 		$this->templates = 'Mallar';
 		$this->temps_active = 'Detaljer för Aktiva Användare';
 		$this->temps_admin = '<b>AdminKP Universal</b>';
-		$this->temps_backup = 'AdminCP Database Backup'; //Translate
+		$this->temps_backup = 'AdminKP Databas Backup';
 		$this->temps_ban = 'AdminKP Blockeringar';
 		$this->temps_board_index = 'Forum Index';
 		$this->temps_censoring = 'AdminKP Ordcensurering';
