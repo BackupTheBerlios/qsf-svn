@@ -192,9 +192,9 @@ class new_install extends qsfglobal
 				$forumId = $this->create_forum($forumName, $forumDesc, $categoryId);
 				
 				// Create Topic
-				$this->db->query("INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_edited, topic_last_poster, topic_modes) 
+				$this->db->query("INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_posted, topic_edited, topic_last_poster, topic_modes) 
 					VALUES ('%s', %d, '%s', %d, '%s', %d, %d, %d)",
-					$topicName, $forumId, $topicDesc, $admin_uid, $topicIcon, $this->time, $admin_uid, TOPIC_PUBLISH);
+					$topicName, $forumId, $topicDesc, $admin_uid, $topicIcon, $this->time, $this->time, $admin_uid, TOPIC_PUBLISH);
 				$topicId = $this->db->insert_id("topics");
 				
 				// Create Post
