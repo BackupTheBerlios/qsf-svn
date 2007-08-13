@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -117,28 +117,28 @@ class fr
 
 	function backup()
 	{
-		$this->backup = 'Backup'; //Translate
-		$this->backup_add = 'Add'; //Translate
-		$this->backup_add_complete = 'Add complete'; //Translate
+		$this->backup = 'Sauvegarde';
+		$this->backup_add = 'Ajouter';
+		$this->backup_add_complete = 'Ajout terminŽ';
 		$this->backup_create = 'Sauvegarder la base de données';
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Sauvegarde crŽŽe avec succs dans %s';
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'La base de données a été reculée à l\'annuaire Quicksilver Forums principal. ';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
-		$this->backup_failed = 'Failed to create backup.'; //Translate
+		$this->backup_failed = 'La crŽation de sauvegarde a ŽchouŽe';
 		$this->backup_found = 'Les sauvegardes suivantes ont été trouvées dans l\'annuaire de Quicksilver Forums';
-		$this->backup_import_fail = 'Failed to import backup.'; //Translate
+		$this->backup_import_fail = 'L\'import de la sauvegarde a ŽchouŽ.';
 		$this->backup_invalid = 'La sauvegarde n\'a pas l\'air d\'être valide. Aucune modification n\'a été faite à votre base de données.';
-		$this->backup_no_packages = 'Failed to locate packages directory.'; //Translate
-		$this->backup_noexist = 'Sorry, that backup does not exist.'; //Translate
+		$this->backup_no_packages = 'Localisation de rŽpertoire des paquetages a ŽchouŽe.';
+		$this->backup_noexist = 'DŽsolŽ, cette sauvegarde n'existe pas.';
 		$this->backup_none = 'Aucune sauvegarde n\'a été trouvée dans l\'annuaire de Quicksilver Forums.';
-		$this->backup_options = 'Select how you want your backup created';
-		$this->backup_output = 'Output'; //Translate
+		$this->backup_options = 'Options de sauvegarde de la base de donnŽes';
+		$this->backup_output = 'Sortie';
 		$this->backup_restore = 'Restaurer la sauvegarde';
 		$this->backup_restore_done = 'La base de données a été restaurée avec succès.';
-		$this->backup_statements = 'statements'; //Translate
-		$this->backup_uncheck = 'Unchecking this will NOT empty the database tables before restoring the backup!'; //Translate
-		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
+		$this->backup_statements = 'phrases';
+		$this->backup_uncheck = 'DŽcochant ceci ne videra PAS les tables de la base de donnŽes avant de restaurer la sauvegarde!';
+		$this->backup_warning = '<b>Attention:</b> ceci effacera toutes les donnŽes existantes utilisŽes par les forums Quicksilver.';
 	}
 
 	function ban()
@@ -250,7 +250,7 @@ class fr
 		$this->board_stats_string = '%s Les utilisateurs ont été enregistré. Bienvenue à notre plus nouveau membre, %s.<br />Il y a %s les sujets de s et %s les réponses de s pour un total de %s les postes. ';
 		$this->board_top_page = 'Aller au sommet de la page';
 		$this->board_topics = 'Sujets';
-		$this->board_unread = 'Jump to oldest unread post'; //Translate
+		$this->board_unread = 'Aller au message non-lu le plus ancien';
 		$this->board_users = 'utilisateurs(-trices)';
 		$this->board_write_topics = 'Vous pouvez créer un fil de discussions dans ce forum.';
 	}
@@ -289,7 +289,7 @@ class fr
 		$this->cp_been_updated_prefs = 'Vos préférences ont été mises à jour. ';
 		$this->cp_changing_pass = 'Changer son mot de passe';
 		$this->cp_contact_pm = 'Permettre aux autres de vous contacter par le Messenger?';
-		$this->cp_contact_pm_email = 'Send email notification of personal messages when received?'; //Translate
+		$this->cp_contact_pm_email = 'Envoyer un email quand un message privŽ est reu?';
 		$this->cp_cp = 'Profil';
 		$this->cp_current_avatar = 'Avatar actuel';
 		$this->cp_current_time = 'Il est actuellement %s.';
@@ -330,18 +330,18 @@ class fr
 		$this->cp_must_orig = 'Votre nom doit être identique à celui que vous avez choisi. Vous ne pouvez changer que la casse et l\'espacement.';
 		$this->cp_new_notmatch = 'Les deux nouveaux mots de passe que vous avez saisis sont différents.';
 		$this->cp_new_pass = 'Nouveau mot de passe';
-		$this->cp_no_edit_avatar = 'You are not allowed to edit your avatar.'; //Translate
-		$this->cp_no_edit_profile = 'You are not allowed to edit your profile.'; //Translate
-		$this->cp_no_edit_sig = 'You are not allowed to edit your signature.'; //Translate
+		$this->cp_no_edit_avatar = 'Vous ne pouvez modifier votre avatar.';
+		$this->cp_no_edit_profile = 'Vous ne pouvez modifier votre profil.';
+		$this->cp_no_edit_sig = 'Vous ne pouvez modifier votre signature.';
 		$this->cp_no_flash = 'Les avatars au format Flash ne sont pas autorisés sur ce forum.';
 		$this->cp_not_exist = 'La date que vous avez spécifiée (%s) n\'existe pas!';
 		$this->cp_nov = 'Novembre';
 		$this->cp_oct = 'Octobre';
 		$this->cp_old_notmatch = 'L\'ancien mot de passe que vous avez saisi est incorrect.';
 		$this->cp_old_pass = 'Ancien mot de passe';
-		$this->cp_pass = 'Password'; //Translate
-		$this->cp_pass2 = 'Only required if changing Email'; //Translate
-		$this->cp_pass_notmatch = 'The password you entered does not match the one in our database.'; //Translate
+		$this->cp_pass = 'Mot de passe';
+		$this->cp_pass2 = 'NŽcessaire seulement si vous changez d'adresse email';
+		$this->cp_pass_notmatch = 'Le mot de passe entrŽ ne correspond pas avec celui dans notre base de donnŽes.';
 		$this->cp_pass_notvaid = 'Votre mot de passe est invalide. Assurez vous que vous ne utilisez que des caractères permis.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
 		$this->cp_preferences = 'Changer ses préférences';
@@ -447,8 +447,8 @@ class fr
 		$this->forum_sub_topics = 'Sujets';
 		$this->forum_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->forum_topic = 'Sujet';
-		$this->forum_topic_posted = 'Posted'; //Translate
-		$this->forum_unread = 'Jump to oldest unread post'; //Translate
+		$this->forum_topic_posted = 'PostŽ.';
+		$this->forum_unread = 'Aller au message non-lu le plus ancien';
 		$this->forum_views = 'Affichages';
 		$this->forum_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}
@@ -651,7 +651,7 @@ class fr
 		$this->mc_err_updating = 'Erreur dans la mise à jour du profil';
 		$this->mc_find = 'Trouver les membres avec un nom contenant';
 		$this->mc_found = 'Les membres suivants ont été trouvés. Veuillez en sélectionner un.';
-		$this->mc_guest_banned = 'You cannot ban Guests, this would cause your board to become unusable.'; //Translate
+		$this->mc_guest_banned = 'Vous ne pouvez interdire les invitŽs, cela rendrait inutilisable vos forums.';
 		$this->mc_guest_needed = 'Le compte invité est nécessaire pour que Quicksilver Forums puisse fonctionner.';
 		$this->mc_not_found = 'Aucun membre correspondant trouvé.';
 		$this->mc_user_aim = 'Nom AIM';
@@ -677,9 +677,9 @@ class fr
 		$this->mc_user_msn = 'Identité MSN';
 		$this->mc_user_name = 'Nom';
 		$this->mc_user_pm = 'Acceptant les messages privés';
-		$this->mc_user_pm_mail = 'Email Private Messages'; //Translate
+		$this->mc_user_pm_mail = 'Envoyer par email les Messages PrivŽs';
 		$this->mc_user_posts = 'Messages';
-		$this->mc_user_regip = 'Registration IP'; //Translate
+		$this->mc_user_regip = 'IP d\'Enregistrement';
 		$this->mc_user_signature = 'Signature'; //Translate
 		$this->mc_user_skin = 'Peau';
 		$this->mc_user_timezone = 'Fuseau horaire';
@@ -785,14 +785,14 @@ class fr
 		$this->perms_board_view = 'Visualisier l\'index du board';
 		$this->perms_board_view_closed = 'Utiliser Quicksilver Forums quand celui-ci est fermé.';
 		$this->perms_do_anything = 'Utiliser Quicksilver Forums';
-		$this->perms_edit_avatar = 'Can edit user avatar'; //Translate
+		$this->perms_edit_avatar = 'Peut modifier l\'avatar d\'utilisateur.';
 		$this->perms_edit_for = 'Editer les permissions de';
-		$this->perms_edit_profile = 'Can edit user profile'; //Translate
-		$this->perms_edit_sig = 'Can edit signatures'; //Translate
+		$this->perms_edit_profile = 'Peut modifier le profil d\'utilisateur';
+		$this->perms_edit_sig = 'Peut modifier les signatures.';
 		$this->perms_email_use = 'Envoyer des méls à des membres à travers le board';
 		$this->perms_forum_view = 'Visualiser le forum';
-		$this->perms_guest1 = 'You cannot stop Guests from using the board. The board would become unusable by anyone.'; //Translate
-		$this->perms_guest2 = 'You cannot stop the Guest Group from using the board. The board would become unusable by anyone.'; //Translate
+		$this->perms_guest1 = 'Vous ne pouvez empcher les invitŽs d\'utiliser les forums. Ces derniers deviendrait inutilisable pour tout le monde.';
+		$this->perms_guest2 = 'Vous ne pouvez empcher les invitŽs d\'utiliser les forums. Ces derniers deviendrait inutilisable pour tout le monde.';
 		$this->perms_is_admin = 'Accèder au panneau de contrôle administrateur';
 		$this->perms_only_user = 'N\'utiliser que les permissions de groupe pour cet(te) utilisateur(-trice)';
 		$this->perms_override_user = 'Ceci remplacera les permissions de groupe de cet(te) utilisateur(-trice).';
@@ -885,7 +885,7 @@ class fr
 		$this->pm_sendamsg = 'Envoyer un message';
 		$this->pm_sendingpm = 'Vous envoyez un message privé';
 		$this->pm_sendon = 'Envoyé';
-		$this->pm_sent_mail = 'has sent you a private message.'; //Translate
+		$this->pm_sent_mail = 'vous a envoyŽ un message privŽ.';
 		$this->pm_success = 'Votre messgae a été envoyé correctement.';
 		$this->pm_sure_del = 'Etes vous certain de vouloir supprimer ce message ?';
 		$this->pm_sure_delall = 'Etes vous certain de vouloir supprimer tous les messages de ce dossier?';
@@ -931,9 +931,9 @@ class fr
 		$this->post_no_vote = 'Vous devez voter parmi les choix proposés.';
 		$this->post_option_emoticons = 'Convertir les smileys en images ?';
 		$this->post_option_global = 'Faire de ce sujet un sujet général?';
-		$this->post_option_lock = 'Lock topic after posting?'; //Translate
+		$this->post_option_lock = 'Verrouiller le sujet aprs avoir postŽ le message?';
 		$this->post_option_mbcode = 'Formater le MbCode?';
-		$this->post_option_pin = 'Pin topic after posting?'; //Translate
+		$this->post_option_pin = 'Epingler le sujet aprs avoir postŽ le message?';
 		$this->post_optional = 'facultatif';
 		$this->post_options = 'Options'; //Translate
 		$this->post_poll_options = 'Réponses';
@@ -1075,7 +1075,7 @@ class fr
 		$this->recent_sub_topics = 'Sujets';
 		$this->recent_subscribe = 'M\envoyer un email en cas de nouveaux posts dans ce forum. ';
 		$this->recent_topic = 'Sujet';
-		$this->recent_topic_posted = 'Posted'; //Translate
+		$this->recent_topic_posted = 'PostŽ';
 		$this->recent_views = 'Affichages';
 		$this->recent_write_topics = 'Vous pouvez créer des sujets dans ce forum. ';
 	}
@@ -1205,11 +1205,11 @@ class fr
 		$this->settings_board_rssfeed_title = 'Titre du fil RSS';
 		$this->settings_clickable = 'Nombre de Smilies par rangée pouvant être cliqué';
 		$this->settings_cookie = 'Paramètres des Cookies et des Floods';
-		$this->settings_cookie_domain = 'Cookie Domain'; //Translate
+		$this->settings_cookie_domain = 'Domaine de Cookie';
 		$this->settings_cookie_path = 'Chemin du Cookie';
 		$this->settings_cookie_prefix = 'Préfixe du Cookie';
-		$this->settings_cookie_secure = 'Cookie Security'; //Translate
-		$this->settings_cookie_secured = 'Is your site SSL secured?'; //Translate
+		$this->settings_cookie_secure = 'SŽcuritŽ de Cookie';
+		$this->settings_cookie_secured = 'Votre site est-il sŽcurisŽ par le SSL?';
 		$this->settings_cookie_time = 'Temps pendant lequel rester connecté';
 		$this->settings_db = 'Editer les paramètres de Connexion';
 		$this->settings_db_host = 'Hôte de la base de données';
@@ -1364,7 +1364,7 @@ class fr
 		$this->templates = 'Maquettes';
 		$this->temps_active = 'Détails des Utilisateurs Actifs';
 		$this->temps_admin = '<b>Universel AdminCP</b>';
-		$this->temps_backup = 'AdminCP Database Backup'; //Translate
+		$this->temps_backup = 'Sauvegarde de la base de donnŽes AdminCP';
 		$this->temps_ban = 'Interdictions AdminCP';
 		$this->temps_board_index = 'Indexe du Board';
 		$this->temps_censoring = 'Censure des mots AdminCP';
