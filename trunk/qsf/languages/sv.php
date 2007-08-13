@@ -121,7 +121,7 @@ class sv
 	{
 		$this->backup = 'Backup'; //Translate
 		$this->backup_add = 'Lägg till';
-		$this->backup_add_complete = 'Lägg till färdigställd';
+		$this->backup_add_complete = 'Lägg till färdiga';
 		$this->backup_create = 'Skapa databasbackup';
 		$this->backup_created = 'Backup har skapats i %s';
 		$this->backup_createfile = 'Gör en backup och spara filen på servern';
@@ -138,7 +138,7 @@ class sv
 		$this->backup_output = 'Utskrift';
 		$this->backup_restore = 'Återställ Backup';
 		$this->backup_restore_done = 'Återställningen av Databasen lyckades.';
-		$this->backup_statements = 'statements'; //Translate
+		$this->backup_statements = 'kommandon';
 		$this->backup_uncheck = 'Avmarkering av denna kommer INTE tömma databastabellerna innan återställning av backupen!';
 		$this->backup_warning = '<b>Varning:</b> Detta kommer att skriva över alla existerande data som används av Quicksilver Forums.';
 	}
