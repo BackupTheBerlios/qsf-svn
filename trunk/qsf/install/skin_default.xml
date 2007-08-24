@@ -3769,38 +3769,38 @@ function toggleQuickReplyBox()
 <form action="{$this->self}?a=settings&amp;s=update&amp;db=1" method="post">
 {$this->table}
  <div class="title">{$this->lang->settings_db}</div>
- <span class="field">{$this->lang->settings_db_host}</td>
- <span class="form"><input type="text" name="db_host" value="{$this->sets['db_host']}" size="40" />
+ <span class="field">{$this->lang->settings_db_host}</span>
+ <span class="form"><input type="text" name="db_host" value="{$this->sets['db_host']}" size="40" /></span>
 
  <p class="line"></p>
 
- <span class="field">{$this->lang->settings_db_name}</td>
- <span class="form"><input type="text" name="db_name" value="{$this->sets['db_name']}" size="40" />
+ <span class="field">{$this->lang->settings_db_name}</span>
+ <span class="form"><input type="text" name="db_name" value="{$this->sets['db_name']}" size="40" /></span>
 
  <p class="line"></p>
 
- <span class="field">{$this->lang->settings_db_username}</td>
- <span class="form"><input type="text" name="db_user" value="{$this->sets['db_user']}" size="40" />
+ <span class="field">{$this->lang->settings_db_username}</span>
+ <span class="form"><input type="text" name="db_user" value="{$this->sets['db_user']}" size="40" /></span>
 
  <p class="line"></p>
 
- <span class="field">{$this->lang->settings_db_password}</td>
- <span class="form"><input type="password" name="db_pass" value="{$this->sets['db_pass']}" size="40" />
+ <span class="field">{$this->lang->settings_db_password}</span>
+ <span class="form"><input type="password" name="db_pass" value="{$this->sets['db_pass']}" size="40" /></span>
 
  <p class="line"></p>
 
- <span class="field">{$this->lang->settings_db_port}<br /><span class="tiny">{$this->lang->settings_db_leave_blank}</span></td>
- <span class="form"><input type="text" name="db_port" value="{$this->sets['db_port']}" size="40" />
+ <span class="field">{$this->lang->settings_db_port}<br /><span class="tiny">{$this->lang->settings_db_leave_blank}</span></span>
+ <span class="form"><input type="text" name="db_port" value="{$this->sets['db_port']}" size="40" /></span>
 
  <p class="line"></p>
 
- <span class="field">{$this->lang->settings_db_socket}<br /><span class="tiny">{$this->lang->settings_db_leave_blank}</span></td>
- <span class="form"><input type="text" name="db_socket" value="{$this->sets['db_socket']}" size="40" />
+ <span class="field">{$this->lang->settings_db_socket}<br /><span class="tiny">{$this->lang->settings_db_leave_blank}</span></span>
+ <span class="form"><input type="text" name="db_socket" value="{$this->sets['db_socket']}" size="40" /></span>
 
  <p class="line"></p>
 
- <span class="field">{$this->lang->settings_db_prefix}<br /><span class="tiny">{$this->lang->settings_db_multiple}</span></td>
- <span class="form"><input type="text" name="prefix" value="{$this->sets['prefix']}" size="40" />
+ <span class="field">{$this->lang->settings_db_prefix}<br /><span class="tiny">{$this->lang->settings_db_multiple}</span></span>
+ <span class="form"><input type="text" name="prefix" value="{$this->sets['prefix']}" size="40" /></span>
 
  <p class="line"></p>
  <input type="submit" value="{$this->lang->submit}" />
