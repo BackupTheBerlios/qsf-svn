@@ -583,9 +583,11 @@ class topic extends qsfglobal
 
 			// Need to terminate and unlock the session at this point or the site will stall for the current user.
 			session_write_close();
+
 			header("Content-type: application/octet-stream");
 			header("Content-Disposition: attachment; filename=\"{$data['attach_name']}\"");
 			header("Content-Length: " . $data['attach_size']);
+			header("X-Robots-Tag: noarchive, nosnippet, noindex");
 			echo file_get_contents('./attachments/' . $data['attach_file']);
 		} else {
 			return $this->message($this->lang->topic_attached_title, $this->lang->topic_attached_perm);
