@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -122,7 +122,7 @@ class no
 		$this->backup_add = 'Add'; //Translate
 		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Sikkerhetskopiér database';
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup successfully created in %s'; //Translate
 		$this->backup_createfile = 'Sikkerhetskopiér og lag en fil på server';
 		$this->backup_done = 'Databasen har blitt sikkerhetskopiert til Quicksilver Forums hovedregister.';
 		$this->backup_download = 'Sikkerhetskopiér og last ned (anbefales)';

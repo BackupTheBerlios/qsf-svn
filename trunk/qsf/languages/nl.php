@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -123,7 +123,7 @@ class nl
 		$this->backup_add = 'Add'; //Translate
 		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Maak een backup van de database';
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup successfully created in %s'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'De database heeft een backup gemaakt in de Quicksilver Forums.';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate

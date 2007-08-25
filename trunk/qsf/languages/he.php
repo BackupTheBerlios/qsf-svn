@@ -121,7 +121,7 @@ class he
 		$this->backup_add = 'Add'; //Translate
 		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'גיבוי מסד נתונים';
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup successfully created in %s'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = '.Quicksilver מסד הנתונים גובה לספרייה הראשית של הפורומים של';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate

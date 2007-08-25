@@ -121,7 +121,7 @@ class sk
 		$this->backup_add = 'Add'; //Translate
 		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Zálohova Databázu';
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup successfully created in %s'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'Databáza bola zazálohovaná v hlavnom adresári Quicksilver Forums.';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate

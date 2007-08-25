@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Quicksilver Forums
  * Copyright (c) 2005 The Quicksilver Forums Development Team
@@ -122,7 +122,7 @@ class it
 		$this->backup_add = 'Add'; //Translate
 		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Backup Database'; //Translate
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup successfully created in %s'; //Translate
 		$this->backup_createfile = 'Backup e file creati sul server';
 		$this->backup_done = 'Il backup del database è stato creato nella cartella principale di Quicksilver Forums.';
 		$this->backup_download = 'Backup e download (recommandato)';

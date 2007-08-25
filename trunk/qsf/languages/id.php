@@ -121,7 +121,7 @@ class id
 		$this->backup_add = 'Add'; //Translate
 		$this->backup_add_complete = 'Add complete'; //Translate
 		$this->backup_create = 'Backup Database'; //Translate
-		$this->backup_created = 'Backup successfully created in'; //Translate
+		$this->backup_created = 'Backup successfully created in %s'; //Translate
 		$this->backup_createfile = 'Backup and create a file on server'; //Translate
 		$this->backup_done = 'The database has been backed up to the main Quicksilver Forums directory.';
 		$this->backup_download = 'Backup and download (recommended)'; //Translate
