@@ -34,7 +34,14 @@ class logs extends admin
 		$this->set_title($this->lang->logs_view);
 		$this->tree($this->lang->logs_view);
 
-		$data = $this->db->query("SELECT l.*, u.user_name FROM %plogs l, %pusers u WHERE u.user_id=l.log_user ORDER BY l.log_time DESC");
+		$this->lang->main();
+
+		$this->get['min'] = array_key_exists( 'min', $this->get ) ? (int)$this->get['min'] : 0;
+		$this->get['num'] = array_key_exists( 'num', $this->get ) ? (int)$this->get['num'] : 60;
+		$pages = $this->htmlwidgets->get_pages( 'SELECT l.*, u.user_name FROM %plogs l, %pusers u WHERE u.user_id=l.log_user ORDER BY l.log_time DESC', 'a=logs', $this->get['min'], $this->get['num'] );
+
+		$data = $this->db->query('SELECT l.*, u.user_name FROM %plogs l, %pusers u WHERE u.user_id=l.log_user ORDER BY l.log_time DESC LIMIT %d, %d',
+		$this->get['min'], $this->get['num']);
 
 		$this->iterator_init('tablelight', 'tabledark');
 

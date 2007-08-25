@@ -502,6 +502,7 @@
       <displayname>View Moderator Logs</displayname>
       <description>Format of the moderator log view</description>
       <html><![CDATA[
+{$pages}
 {$this->table}
  <div class="title">{$this->lang->logs_view}</div>
  <span class="head">
@@ -512,6 +513,7 @@
  </span>
  {$out}
 {$this->etable}
+{$pages}
       ]]></html>
     </template>
     <template><set>logs</set><name>ADMIN_MOD_LOGS_ENTRY</name>
