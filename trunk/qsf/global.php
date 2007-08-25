@@ -651,8 +651,8 @@ class qsfglobal
 			'prefix'    => $this->sets['prefix'],
 			'installed' => $this->sets['installed']
 			);
-				
-		$file = "<?php\n\$set = array();\n";
+
+		$file = "<?php\n\$set = array();\n\nif (!defined('QUICKSILVERFORUMS')) {\n       header('HTTP/1.0 403 Forbidden');\n       die;\n}\n\n";
 		foreach ($settings as $set => $val)
 		{
 			$file .= "\$set['$set'] = '" . str_replace(array('\\', '\''), array('\\\\', '\\\''), $val) . "';\n";
