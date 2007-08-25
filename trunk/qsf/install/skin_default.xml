@@ -3272,7 +3272,7 @@ enable('$init');
    <ELSE>
     {$post['post_icon']}
    </IF>
-   {$post['post_time']}
+   <a href="{$this->self}?a=topic&amp;t={$this->get['t']}&amp;p={$post['post_id']}#p{$post['post_id']}">#{$post_num}</a> {$post['post_time']}
    <IF $edited>
     &nbsp;&nbsp;<span class="small_text">{$edited}</span>
    </IF>

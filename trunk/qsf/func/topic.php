@@ -544,6 +544,7 @@ class topic extends qsfglobal
 				$options .= ' <a href="' . $this->self . '?a=mod&amp;s=del_post&amp;p=' . $post['post_id'] . '"><img alt="' . $this->lang->topic_delete_post . '" src="./skins/' . $this->skin . '/images/delete.png" /></a>';
 			}
 
+			$post_num = ($i + 1) + $this->get['min'];
 			$posts .= eval($this->template('TOPIC_POST'));
 			$i++;
 		}
