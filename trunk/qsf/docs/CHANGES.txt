@@ -16,6 +16,10 @@ Changes for 1.4.0:
 * Optional email notification of private messages.
 * Limit the maximum size of fonts in posts.
 * Changed template color change can be difficult or impossible to see on LCD monitors.
+* Paging support added for moderator log viewing.
+* Added links to specific post numbers to make it easier to find and link back to a specific post.
+* Added support for Google's new X-Robots-Tag addition to stop bots from indexing attached files.
+* Updated to latest jpgraph library.
 
   Bugs addressed:
 

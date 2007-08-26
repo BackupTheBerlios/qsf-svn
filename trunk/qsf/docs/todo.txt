@@ -1,4 +1,4 @@
-#  Auto subscribe to thread on post ••
+﻿#  Auto subscribe to thread on post ••
 #  SMTP Auth ••
 #  Allow login for banned groups (but not banned IPs) ••
 #  Better interface for selecting avatars ••
@@ -22,12 +22,10 @@
 #  Full documentation on using converters
 #  Get error page to link to bug record/tracker
 #  Hide emails from guests?
-#  Hide/reduce quick relpy until being used
 #  Interface to set header paramters
 #  ldap intergration
 #  load group perms when setting user perms for first time
 #  Lock down mode
-#  Make quote button use quick reply
 #  merge topics
 #  More statisitics
 #  notify admins of registration/activation
@@ -40,4 +38,4 @@
 #  Thumbnail big images
 #  Tweak marking forum as read to mark subforums (and sub sub forums)
 #  Write a bb code interpreter in javascript
-#  XML mod installer 
+#  XML mod installer
