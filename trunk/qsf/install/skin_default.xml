@@ -112,7 +112,7 @@
  <link rel="stylesheet" type="text/css" href="../skins/{$admin->skin}/styles.css" />
  <link rel="stylesheet" type="text/css" href="../skins/{$admin->skin}/acp.css" />
  <script type="text/javascript" src="../javascript/admincp_menu.js"></script>
- <IF (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)>
+ <IF (strpos($admin->agent, 'MSIE') !== false)>
   <style type="text/css">
    input.button { padding: 0px; }
    input.check { border: none; margin: -2px 0px 0px; }
@@ -1695,7 +1695,7 @@
   <!--[if lt IE 7]>
    <script src="./javascript/pngfix.js" type="text/javascript"></script>
   <![endif]-->
-  <IF (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)>
+  <IF (strpos($qsf->agent, 'MSIE') !== false)>
    <style type="text/css">
     input.button { padding: 0px; }
     input.check { border: none; margin: -2px 0px 0px; }
