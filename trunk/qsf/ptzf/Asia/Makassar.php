@@ -5,6 +5,6 @@ http://www.quicksilverforums.com/
 */
 if (!defined('QUICKSILVERFORUMS')){header('HTTP/1.0 403 Forbidden');die;}
 $times = array();
-$times[-770634000] = array( 'offset' => '28800', 'abbrv' => 'CIT' );
+$times[-766054800] = array( 'offset' => '28800', 'abbrv' => 'CIT' );
 
 ?>
