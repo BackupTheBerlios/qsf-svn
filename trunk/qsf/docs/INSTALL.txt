@@ -1,4 +1,4 @@
-This guide was written to help with the initial installation and configuration of Quicksilver Forums (version 1.4.0),
+This guide was written to help with the initial installation and configuration of Quicksilver Forums (version 1.4.1),
 a MySQL and PHP-based forum/bulletin board system. You can peruse the features of Quicksilver Forums by
 [http://www.quicksilverforums.com/features.html clicking here].
 

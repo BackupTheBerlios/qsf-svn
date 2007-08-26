@@ -1,5 +1,5 @@
 -------------------------------
-== Quicksilver Forums v1.4.0 ==
+== Quicksilver Forums v1.4.1 ==
 -------------------------------
 
 === Installation ===
