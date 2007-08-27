@@ -570,7 +570,7 @@ class topic extends qsfglobal
 
 		$data = $this->db->fetch("
 			SELECT
-			  a.attach_name, a.attach_file, t.topic_forum
+			  a.attach_name, a.attach_file, a.attach_size, t.topic_forum
 			FROM
 			  %pattach a, %pposts p, %ptopics t
 			WHERE
