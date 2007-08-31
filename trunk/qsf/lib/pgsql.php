@@ -35,6 +35,8 @@ require_once $set['include_path'] . '/lib/database.php';
  **/
 class db_pgsql extends database
 {
+	var $last = null;
+
 	/**
 	 * Constructor; sets up variables and connection
 	 *
@@ -69,17 +71,20 @@ class db_pgsql extends database
 	function get_debug_info($query)
 	{
 		$data = array();
+		$new_query = 'EXPLAIN ' . $query;
+
 		if (substr(trim(strtoupper($query)), 0, 6) == 'SELECT') {
-			if (!pg_send_query($this->connection, "EXPLAIN $query"))
+			if (!pg_send_query($this->connection, $new_query))
 			{
 				$err = pg_get_result($this->connection);
-				error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
+				error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $new_query, 0);
 			} else {
 				$result = pg_get_result($this->connection);
 	
 				if (false === $this->last)
 				{
-					error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
+					$err = pg_get_result($this->connection);
+					error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $new_query, 0);
 				}
 			}
 			$data = pg_fetch_array($result);;
@@ -124,22 +129,10 @@ class db_pgsql extends database
 
 		$this->querycount++;
 
-		if (isset($this->get['debug'])) {
-			$this->debug($query);
-		}
+		$this->debug($query); // temp always debug
 
-		if (!pg_send_query($this->connection, $query))
-		{
-			$err = pg_get_result($this->connection);
-			error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
-		} else {
-			$this->last = pg_get_result($this->connection);
+		$this->last = pg_query( $this->connection, $query );
 
-			if (false === $this->last)
-			{
-				error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $query, 0);
-			}
-		}
 		return $this->last;
 	}
 
