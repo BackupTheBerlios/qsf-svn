@@ -57,7 +57,7 @@ $queries[] = 'COMMIT';
 $queries[] = "DROP TABLE IF EXISTS %pactive";
 $queries[] = "CREATE TABLE %pactive (
   active_id int4 NOT NULL default '0',
-  active_ip int4 NOT NULL default '0',
+  active_ip inet NOT NULL default '127.0.0.1',
   active_user_agent varchar(100) NOT NULL default 'Unknown',
   active_action varchar(32) NOT NULL default '',
   active_item int4 NOT NULL default '0',

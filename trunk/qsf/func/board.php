@@ -81,8 +81,8 @@ class board extends qsfglobal
 		$query = $this->db->query("
 			SELECT
 				f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
-				t.topic_id as LastTopicID, t.topic_title as user_lastpost, t.topic_edited as LastTime, t.topic_replies,
-				m.user_name as user_lastposter, m.user_id as user_lastposterID
+				t.topic_id as lasttopicid, t.topic_title as user_lastpost, t.topic_edited as lasttime, t.topic_replies,
+				m.user_name as user_lastposter, m.user_id as user_lastposterid
 			FROM %pforums f
 			LEFT JOIN %pposts p ON p.post_id = f.forum_lastpost
 			LEFT JOIN %ptopics t ON t.topic_id = p.post_topic
@@ -165,20 +165,20 @@ class board extends qsfglobal
 
 					$topic_new = "<img src='./skins/{$this->skin}/images/topic_old.png' alt='{$this->lang->main_topics_old}' title='{$this->lang->main_topics_old}' />";
 					$topic_unread = false;
-					$forum_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['LastTime']);
+					$forum_unread = !$this->readmarker->is_forum_read($forum['forum_id'], $forum['lasttime']);
 
 					if ($forum['forum_lastpost']) {
-						$topic_unread = !$this->readmarker->is_topic_read($forum['LastTopicID'], $forum['LastTime']);
+						$topic_unread = !$this->readmarker->is_topic_read($forum['lasttopicid'], $forum['lasttime']);
 						if ($topic_unread) {
 							$topic_new = "<a href=\"{$this->self}?s=mark&amp;f={$forum['forum_id']}\"><img src=\"./skins/{$this->skin}/images/topic_new.png\" alt=\"{$this->lang->main_topics_new}\" title=\"{$this->lang->main_topics_new}\" /></a>";
 						}
 						
-						$forum['TopicLastTime'] = $forum['LastTime']; // store so skins can access
+						$forum['topiclasttime'] = $forum['lasttime']; // store so skins can access
 
-						$forum['LastTime'] = $this->mbdate(DATE_LONG, $forum['LastTime']);
+						$forum['lasttime'] = $this->mbdate(DATE_LONG, $forum['lasttime']);
 
-						if ($forum['user_lastposterID'] != USER_GUEST_UID) {
-							$forum['user_lastposter'] = "<a href=\"{$this->self}?a=profile&amp;w={$forum['user_lastposterID']}\" class=\"small\">{$forum['user_lastposter']}</a>";
+						if ($forum['user_lastposterid'] != USER_GUEST_UID) {
+							$forum['user_lastposter'] = "<a href=\"{$this->self}?a=profile&amp;w={$forum['user_lastposterid']}\" class=\"small\">{$forum['user_lastposter']}</a>";
 						}
 
 						$full_title = $forum['user_lastpost'];
@@ -189,8 +189,8 @@ class board extends qsfglobal
 						$full_title = $this->format($full_title, FORMAT_CENSOR | FORMAT_HTMLCHARS);
 						$forum['user_lastpost'] = $this->format($forum['user_lastpost'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 
-						$forum['forum_lastpost_topic'] = $forum['LastTopicID'];
-						$forum['LastTopicID'] .= '&amp;p=' . $forum['forum_lastpost'] . '#p' . $forum['forum_lastpost'];
+						$forum['forum_lastpost_topic'] = $forum['lasttopicid'];
+						$forum['lasttopicid'] .= '&amp;p=' . $forum['forum_lastpost'] . '#p' . $forum['forum_lastpost'];
 
 						$user_lastpostBox = eval($this->template('BOARD_LAST_POST_BOX'));
 					} else {

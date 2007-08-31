@@ -202,6 +202,26 @@ class db_mysql extends database
 		$this->install_seed_post_create = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, 1, 1, INET_ATON(\'%s\'), \'%s\')';
 	}
 
+	// SQL for libs
+	private function activeutil()
+	{
+		$this->activeutil = 'REPLACE INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, INET_ATON(\'%s\'), \'%s\', \'%s\')';
+		$this->activeutil_load = 'SELECT a.*, INET_NTOA(a.active_ip) as active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
+			FROM (%pactive a, %pgroups g, %pusers u)
+			LEFT JOIN %pforums f ON f.forum_id=a.active_item
+			LEFT JOIN %ptopics t ON t.topic_id=a.active_item
+			LEFT JOIN %pusers u2 ON u2.user_id=a.active_item
+			WHERE
+			  a.active_id = u.user_id AND
+			  u.user_group = g.group_id
+			ORDER BY
+			  a.active_time DESC';
+	}
+
+	public function board()
+	{
+		self::activeutil();
+	}
 
 	public function register()
 	{

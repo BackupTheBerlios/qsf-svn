@@ -42,11 +42,35 @@ class sql
 		$this->install_seed_update_forums = 'UPDATE %pforums SET forum_topics=forum_topics+1, forum_lastpost=%d WHERE forum_id=%d';
 	}
 
+	// SQL for libs
+	private function activeutil()
+	{
+		$this->activeutil_update = 'UPDATE %pactive SET active_id=%d, active_action=\'%s\', active_item=%d, active_time=%d, active_ip=\'%s\', active_user_agent=\'%s\', active_session = \'%s\' WHERE active_session = \'%s\'';
+		$this->activeutil_load = 'SELECT a.*, a.active_ip AS active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
+			FROM %pgroups g, %pusers u, %pactive a
+			LEFT JOIN %pforums f ON f.forum_id=a.active_item
+			LEFT JOIN %ptopics t ON t.topic_id=a.active_item
+			LEFT JOIN %pusers u2 ON u2.user_id=a.active_item
+			WHERE
+			  a.active_id = u.user_id AND
+			  u.user_group = g.group_id
+			ORDER BY
+			  a.active_time DESC';
+	}
+
+	public function board()
+	{
+		self::activeutil();
+	}
+
+
+
 	public function register()
 	{
 		$this->register_create = 'INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES (\'%s\', \'%s\', %d, \'%s\', %d, \'%s\', \'%s\', %d, %d, %d, \'%s\', %d, %d, %d, \'%s\')';
 		$this->register_activate = 'UPDATE %pusers SET user_group=%d WHERE user_id=%d';
 	}
+
 }
 
 ?>

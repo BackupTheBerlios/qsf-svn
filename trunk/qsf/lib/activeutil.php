@@ -67,9 +67,8 @@ class activeutil extends bbcode
 		if (!$this->doneUpdate) {
 			$item = $this->_get_item($action);
 	
-			$this->db->query("REPLACE INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) 
-				VALUES (%d, '%s', %d, %d, INET_ATON('%s'), '%s', '%s')",
-				$userid, $action, $item, $this->time, $this->ip, $this->agent, $this->sessionid);
+			$this->db->query( $this->db->activeutil_update, 
+				$userid, $action, $item, $this->time, $this->ip, $this->agent, $this->sessionid, $this->sessionid );
 			$this->doneUpdate = true; // Flag to make sure we only call once
 		}
 	}
@@ -160,17 +159,7 @@ class activeutil extends bbcode
 		// Add self to top of list
 		$this->update($this->get['a'], $this->user_id);
 
-		$query = $this->db->query("
-			SELECT a.*, INET_NTOA(a.active_ip) as active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
-			FROM (%pactive a, %pgroups g, %pusers u)
-			LEFT JOIN %pforums f ON f.forum_id=a.active_item
-			LEFT JOIN %ptopics t ON t.topic_id=a.active_item
-			LEFT JOIN %pusers u2 ON u2.user_id=a.active_item
-			WHERE
-			  a.active_id = u.user_id AND
-			  u.user_group = g.group_id
-			ORDER BY
-			  a.active_time DESC");
+		$query = $this->db->query( $this->db->activeutil_load );
 			  
 		while ($user = $this->db->nqfetch($query))
 		{

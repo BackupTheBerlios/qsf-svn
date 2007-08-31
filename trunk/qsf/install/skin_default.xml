@@ -1831,9 +1831,9 @@
 <IF ($topic_unread)>
  <a href="{$this->self}?a=topic&amp;t={$forum['forum_lastpost_topic']}&amp;unread=1#unread"><img src="./skins/{$this->skin}/images/icons/topic_unread.png" alt="" /></a>
 </IF>
-<a href="{$this->self}?a=topic&amp;t={$forum['LastTopicID']}" title="{$full_title}">{$forum['user_lastpost']}</a><br />
+<a href="{$this->self}?a=topic&amp;t={$forum['lasttopicid']}" title="{$full_title}">{$forum['user_lastpost']}</a><br />
 {$this->lang->board_by} {$forum['user_lastposter']}<br />
-{$forum['LastTime']}
+{$forum['lasttime']}
       ]]></html>
     </template>
     <template><set>board</set><name>BOARD_MAIN</name>
