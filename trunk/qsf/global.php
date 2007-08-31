@@ -68,7 +68,9 @@ class qsfglobal
 	var $validator;			  // Handler for checking usernames, passwords, etc
 	var $activeutil;		  // Handler user activity
 	
-	var $debug_mode = false;	  // Switch to tell if debugging info is allowed
+	var $debug_mode = true;	  // Switch to tell if debugging info is allowed
+
+	var $plugin_events = array();
 
 	/**
 	 * Constructor; sets up variables
@@ -128,6 +130,9 @@ class qsfglobal
 		} else {
 			$this->tz_adjust = $this->user['zone_offset'];
 		}
+
+		// load plugins if any
+		$this->event_load();
 		
 		$this->attachmentutil = new $this->modules['attach']($this);
 		$this->htmlwidgets = new $this->modules['widgets']($this);
@@ -140,6 +145,7 @@ class qsfglobal
 		$this->templater->init_templates($this->get['a'], $admin);
 		
 		$this->set_table();
+
 	}
 	
 	/**
@@ -859,7 +865,63 @@ class qsfglobal
 		}
 		$tree .= $parent;
 		return $tree;
-	}	
+	}
+
+
+	/**
+	 * Initial plugin code
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @author Based on work by Roger Libiez
+	 * @since 1.4.1
+	 **/
+	function event_register( $event, $callback )
+	{
+		$this->plugin_events[$event][] = $callback;
+	}
+
+	function event_trigger( $event )
+	{
+		if ( isset( $this->plugin_events[$event] ) && is_array( $this->plugin_events[$event] ) )
+		{
+			foreach( $this->plugin_events[$event] as $call )
+			{
+				$return_val = call_user_func( $call, &$this );
+
+				switch( $return_val )
+				{
+					case PLUGIN_OK:
+						continue;
+					case PLUGIN_ERR:
+					case PLUGIN_EAT:
+						break 2;
+				}
+			}
+		}
+
+		return null;
+	}
+
+	function event_load()
+	{
+		$temp_events = array( 'bbcode_extend_example' ); // TODO: this is temp for testing
+
+		foreach( $temp_events as $event )
+		{
+//			require_once $this->sets['include_path'] .  '/addons/' . $event . '.php';
+
+			if ( class_exists( $event ) )
+			{
+				$class = new $event();
+				$class->register( $this );
+			} elseif( function_exists( $event . '_register' ) )
+			{
+				call_user_func( $event . '_register', $this );
+			} else {
+				trigger_error( 'Plugin failed to load, missing register ability.', E_USER_ERROR );
+			}
+		}
+	}
 }
 
 ?>

@@ -65,6 +65,10 @@ class new_install extends qsfglobal
 				echo "Couldn't connect to a database using the specified information.";
 				break;
 			}
+
+			// load the installer SQL
+			$db->install();
+
 			$this->db = &$db;
 
 			$this->sets['db_host']   = $this->post['db_host'];
@@ -170,8 +174,7 @@ class new_install extends qsfglobal
 				htmlspecialchars($this->post['admin_name'])
 			);
 
-			$this->db->query("INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_title_custom, user_joined, user_email, user_timezone)
-				VALUES ('%s', '%s', %d, 'Administrator', 1, %d, '%s', %d)",
+			$this->db->query( $this->db->install_new_user, 
 				$this->post['admin_name'], $this->post['admin_pass'], USER_ADMIN, $this->time, $this->post['admin_email'], $this->sets['servertime']);
 			$admin_uid = $this->db->insert_id("users");
 
@@ -192,22 +195,18 @@ class new_install extends qsfglobal
 				$forumId = $this->create_forum($forumName, $forumDesc, $categoryId);
 				
 				// Create Topic
-				$this->db->query("INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_posted, topic_edited, topic_last_poster, topic_modes) 
-					VALUES ('%s', %d, '%s', %d, '%s', %d, %d, %d, %d)",
+				$this->db->query( $this->db->install_seed_topic_create,
 					$topicName, $forumId, $topicDesc, $admin_uid, $topicIcon, $this->time, $this->time, $admin_uid, TOPIC_PUBLISH);
 				$topicId = $this->db->insert_id("topics");
 				
 				// Create Post
-				$this->db->query("INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon)
-					VALUES (%d, %d, '%s', %d, 1, 1, INET_ATON('%s'), '%s')",
+				$this->db->query( $this->db->install_seed_post_create,
 					$topicId, $admin_uid, $topicPost, $this->time, $this->ip, $topicIcon);
 				$postId = $this->db->insert_id("posts");
 				
-				$this->db->query("UPDATE %ptopics SET topic_last_post=%d WHERE topic_id=%d", $postId, $topicId);
-					
-				$this->db->query("UPDATE %pusers SET user_posts=user_posts+1, user_lastpost=%d WHERE user_id=%d", $this->time, $admin_uid);
-
-				$this->db->query("UPDATE %pforums SET forum_topics=forum_topics+1, forum_lastpost=%d WHERE forum_id=%d", $postId, $forumId);
+				$this->db->query( $this->db->install_seed_update_topic, $postId, $topicId);
+				$this->db->query( $this->db->install_seed_update_user, $this->time, $admin_uid);
+				$this->db->query( $this->db->install_seed_update_forums, $postId, $forumId);
 				
 				$this->sets['topics']++;
 				$this->sets['posts']++;

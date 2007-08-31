@@ -74,10 +74,18 @@ ob_start();
 error_reporting(E_ALL);
 
 require_once '../settings.php';
+
+// override database setting with newly entered data
+if ( isset( $_POST['dbtype'] ) )
+	$set['dbtype'] = $_POST['dbtype'];
+
 require_once 'install_settings.php';
 $set['include_path'] = '..';
 require_once $set['include_path'] . '/defaultutils.php';
 require_once $set['include_path'] . '/global.php';
+
+set_error_handler('error');
+
 
 define('INSTALLER', 1); // Used in query files
 

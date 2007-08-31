@@ -103,7 +103,7 @@ class db_pgsql extends database
 	 **/
 	function insert_id($table)
 	{
-		$results = $this->fetch("select currval('{$this->prefix}{$table}_seq') last_id");
+		$results = $this->fetch("select currval('{$this->prefix}{$table}_id_seq') AS last_id");
 		return $results['last_id'];
 	}
 
@@ -129,7 +129,7 @@ class db_pgsql extends database
 
 		$this->querycount++;
 
-		$this->debug($query); // temp always debug
+//		$this->debug($query); // temp always debug
 
 		$this->last = pg_query( $this->connection, $query );
 

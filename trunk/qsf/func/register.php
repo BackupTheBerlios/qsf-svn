@@ -154,8 +154,7 @@ class register extends qsfglobal
 				$group_id = $this->sets['default_group'];
 			}
 
-			$this->db->query("INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures,
-				user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES ('%s', '%s', %d, '%s', %d, '%s', '%s', %d, %d, %d, '%s', %d, %d, %d, INET_ATON('%s'))",
+			$this->db->query( $this->db->register_create,
 				$username, $pass, $group_id, $level['user_title'], $this->time, $email, $this->sets['default_skin'], $this->sets['default_view_avatars'], $this->sets['default_view_emots'], $this->sets['default_view_sigs'],
 				$this->user['user_language'], $this->sets['default_email_shown'], $this->sets['default_pm'], $this->sets['default_timezone'], $this->ip);
 
@@ -199,7 +198,7 @@ class register extends qsfglobal
 			$member = $this->db->fetch("SELECT user_id, user_group FROM %pusers WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' LIMIT 1", $this->get['e']);
 
 			if (isset($member['user_id']) && USER_GUEST_UID != $member['user_id'] && USER_AWAIT == $member['user_group']) {
-				$this->db->query("UPDATE %pusers SET user_group=%d WHERE user_id=%d",
+				$this->db->query( $this->db->register_activate,
 					 $this->sets['default_group'], $member['user_id']);
 				return $this->message($this->lang->register_activating, $this->lang->register_activated);
 			}

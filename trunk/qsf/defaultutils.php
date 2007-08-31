@@ -48,6 +48,8 @@ require_once $set['include_path'] . '/lib/readmarker.php';
 $modules['readmarker'] = 'readmarker';
 require_once $set['include_path'] . '/lib/activeutil.php';
 $modules['active'] = 'activeutil';
+require_once $set['include_path'] . '/lib/plugin.php';
+$modules['plugin'] = 'plugin';
 
 
 // Other variables that we can allow addons to change

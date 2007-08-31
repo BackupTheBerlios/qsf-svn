@@ -61,6 +61,9 @@ if (!isset($_GET['a']) || !in_array($_GET['a'],
 
 require './func/' . $module . '.php';
 
+if ( method_exists( $db, $module ) )
+	$db->$module();
+
 $qsf = new $module($db);
 $qsf->pre = $set['prefix'];
 

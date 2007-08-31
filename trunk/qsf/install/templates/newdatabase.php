@@ -2,6 +2,16 @@
         <td class='subheader' colspan='2'>New Database Configuration</td>
     </tr>
     <tr>
+        <td><b>Database type</b></td>
+        <td>
+		<select class='input' name='dbtype'>
+			<option value="mysql"<?php echo ('mysql' == $this->sets['dbtype']) ? ' selected="selected"' : null; ?>>MySQL</option>
+			<option value="mysqli"<?php echo ('mysqli' == $this->sets['dbtype']) ? ' selected="selected"' : null; ?>>MySQLi</option>
+			<option value="pgsql"<?php echo ('pgsql' == $this->sets['dbtype']) ? ' selected="selected"' : null; ?>>PostrgreSQL</option>
+		</select>
+	</td>
+    </tr>
+    <tr>
         <td><b>Host Server</b></td>
         <td><input class='input' type='text' name='db_host' value='<?php echo $this->sets['db_host']; ?>' /></td>
     </tr>

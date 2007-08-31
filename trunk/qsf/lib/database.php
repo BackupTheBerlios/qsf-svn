@@ -25,12 +25,14 @@ if (!defined('QUICKSILVERFORUMS')) {
 	die;
 }
 
+require_once $set['include_path'] . '/lib/sql.php';
+
 /**
  * Generic Database Inteface
  *
  * @since 1.1.9
  **/
-class database
+class database extends sql
 {
 	var $connection = false; // Connection link identifier @var resource
 	var $querytime  = 0;     // Time spent executing queries @var int
@@ -43,6 +45,7 @@ class database
 	var $db;                 // Database Name @var string
 	var $port = 3306;        // Database Port @var int
 	var $prefix = 'qsf_';    // Database Table Prefix @var string
+	var $querylog = array(); // Array of queries executed
 
 	/**
 	 * Constructor; sets up variables and connection

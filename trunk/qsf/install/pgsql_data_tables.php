@@ -24,20 +24,21 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to install.');
 }
 
-$queries[] = "DROP SEQUENCE %pattach_id_seq";
-$queries[] = "DROP SEQUENCE %pforums_id_seq";
-$queries[] = "DROP SEQUENCE %pgroups_id_seq";
-$queries[] = "DROP SEQUENCE %phelp_id_seq";
-$queries[] = "DROP SEQUENCE %plogs_id_seq";
-$queries[] = "DROP SEQUENCE %pmembertitles_id_seq";
-$queries[] = "DROP SEQUENCE %ppmsystem_id_seq";
-$queries[] = "DROP SEQUENCE %pposts_id_seq";
-$queries[] = "DROP SEQUENCE %preplacements_id_seq";
-$queries[] = "DROP SEQUENCE %psubscriptions_id_seq";
-$queries[] = "DROP SEQUENCE %ptimezones_id_seq";
-$queries[] = "DROP SEQUENCE %ptopics_id_seq";
-$queries[] = "DROP SEQUENCE %pusers_id_seq";
+$queries[] = "DROP SEQUENCE IF EXISTS %pattach_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %pforums_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %pgroups_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %phelp_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %plogs_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %pmembertitles_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %ppmsystem_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %pposts_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %preplacements_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %psubscriptions_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %ptimezones_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %ptopics_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %pusers_id_seq CASCADE";
 
+$queries[] = 'BEGIN TRANSACTION';
 $queries[] = "CREATE SEQUENCE %pattach_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %pforums_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %pgroups_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
@@ -51,8 +52,9 @@ $queries[] = "CREATE SEQUENCE %psubscriptions_id_seq START 1 INCREMENT 1 MAXVALU
 $queries[] = "CREATE SEQUENCE %ptimezones_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %ptopics_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %pusers_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
+$queries[] = 'COMMIT';
 
-$queries[] = "DROP TABLE %pactive";
+$queries[] = "DROP TABLE IF EXISTS %pactive";
 $queries[] = "CREATE TABLE %pactive (
   active_id int4 NOT NULL default '0',
   active_ip int4 NOT NULL default '0',
@@ -64,7 +66,7 @@ $queries[] = "CREATE TABLE %pactive (
   UNIQUE (active_session, active_ip)
 )"; //   UNIQUE KEY active_session (active_session),  UNIQUE KEY active_ip (active_ip)
 
-$queries[] = "DROP TABLE %pattach";
+$queries[] = "DROP TABLE IF EXISTS %pattach";
 $queries[] = "CREATE TABLE %pattach (
   attach_id int4 DEFAULT nextval('%pattach_id_seq') NOT NULL,
   attach_file varchar(32) NOT NULL default '',
@@ -75,7 +77,7 @@ $queries[] = "CREATE TABLE %pattach (
   PRIMARY KEY  (attach_id, attach_post)
 )";
 
-$queries[] = "DROP TABLE %pforums";
+$queries[] = "DROP TABLE IF EXISTS %pforums";
 $queries[] = "CREATE TABLE %pforums (
   forum_id int2 DEFAULT nextval('%pforums_id_seq') NOT NULL,
   forum_parent int2 NOT NULL default '0',
@@ -86,11 +88,11 @@ $queries[] = "CREATE TABLE %pforums (
   forum_topics int4 NOT NULL default '0',
   forum_replies int4 NOT NULL default '0',
   forum_lastpost int4 NOT NULL default '0',
-  forum_subcat bool NOT NULL default '0',
+  forum_subcat int2 NOT NULL default '0',
   PRIMARY KEY (forum_id, forum_parent)
 )";
 
-$queries[] = "DROP TABLE %pgroups";
+$queries[] = "DROP TABLE IF EXISTS %pgroups";
 $queries[] = "CREATE TABLE %pgroups (
   group_id int2 DEFAULT nextval('%pgroups_id_seq') NOT NULL,
   group_name varchar(255) NOT NULL default '',
@@ -100,7 +102,7 @@ $queries[] = "CREATE TABLE %pgroups (
   PRIMARY KEY  (group_id)
 )";
 
-$queries[] = "DROP TABLE %phelp";
+$queries[] = "DROP TABLE IF EXISTS %phelp";
 $queries[] = "CREATE TABLE %phelp (
   help_id int2 DEFAULT nextval('%phelp_id_seq') NOT NULL,
   help_title varchar(255) NOT NULL default '',
@@ -108,7 +110,7 @@ $queries[] = "CREATE TABLE %phelp (
   PRIMARY KEY  (help_id)
 )";
 
-$queries[] = "DROP TABLE %plogs";
+$queries[] = "DROP TABLE IF EXISTS %plogs";
 $queries[] = "CREATE TABLE %plogs (
   log_id int4 DEFAULT nextval('%plogs_id_seq') NOT NULL,
   log_user int4 NOT NULL default '0',
@@ -120,7 +122,7 @@ $queries[] = "CREATE TABLE %plogs (
   PRIMARY KEY  (log_id)
 )";
 
-$queries[] = "DROP TABLE %pmembertitles";
+$queries[] = "DROP TABLE IF EXISTS %pmembertitles";
 $queries[] = "CREATE TABLE %pmembertitles (
   membertitle_id int2 DEFAULT nextval('%pmembertitles_id_seq') NOT NULL,
   membertitle_title varchar(50) NOT NULL default '',
@@ -129,7 +131,7 @@ $queries[] = "CREATE TABLE %pmembertitles (
   PRIMARY KEY  (membertitle_id, membertitle_posts)
 )";
 
-$queries[] = "DROP TABLE %ppmsystem";
+$queries[] = "DROP TABLE IF EXISTS %ppmsystem";
 $queries[] = "CREATE TABLE %ppmsystem (
   pm_id int4 DEFAULT nextval('%ppmsystem_id_seq') NOT NULL,
   pm_to int4 NOT NULL default '0',
@@ -139,29 +141,29 @@ $queries[] = "CREATE TABLE %ppmsystem (
   pm_title varchar(255) NOT NULL default '[No Title]',
   pm_time int4 NOT NULL default '0',
   pm_message text NOT NULL default '',
-  pm_read bool NOT NULL default '0',
+  pm_read int2 NOT NULL default '0',
   pm_folder int2 NOT NULL default '0',
   PRIMARY KEY  (pm_id)
 )"; //   KEY NewPMs (pm_to,pm_read,pm_folder)
 
-$queries[] = "DROP TABLE %pposts";
+$queries[] = "DROP TABLE IF EXISTS %pposts";
 $queries[] = "CREATE TABLE %pposts (
   post_id int4 DEFAULT nextval('%pposts_id_seq') NOT NULL,
   post_topic int4 NOT NULL default '0',
   post_author int4 NOT NULL default '0',
-  post_emoticons bool NOT NULL default '1',
-  post_mbcode bool NOT NULL default '1',
-  post_count bool NOT NULL default '1',
+  post_emoticons int2 NOT NULL default '1',
+  post_mbcode int2 NOT NULL default '1',
+  post_count int2 NOT NULL default '1',
   post_text text NOT NULL default '',
   post_time int4 NOT NULL default '0',
   post_icon varchar(32) NOT NULL default '',
-  post_ip int4 NOT NULL default '0',
+  post_ip inet NOT NULL default '127.0.0.1',
   post_edited_by varchar(32) NOT NULL default '',
   post_edited_time int4 NOT NULL default '0',
   PRIMARY KEY  (post_id)
 )"; //   KEY Topic (post_topic),  FULLTEXT KEY post_text (post_text)
 
-$queries[] = "DROP TABLE %preadmarks";
+$queries[] = "DROP TABLE IF EXISTS %preadmarks";
 $queries[] = "CREATE TABLE %preadmarks (
   readmark_user int4 NOT NULL default '0',
   readmark_topic int4 NOT NULL default '0',
@@ -169,17 +171,17 @@ $queries[] = "CREATE TABLE %preadmarks (
   PRIMARY KEY  (readmark_user,readmark_topic)
 )";
 
-$queries[] = "DROP TABLE %preplacements";
+$queries[] = "DROP TABLE IF EXISTS %preplacements";
 $queries[] = "CREATE TABLE %preplacements (
   replacement_id int4 DEFAULT nextval('%preplacements_id_seq') NOT NULL,
   replacement_search varchar(50) NOT NULL default '',
   replacement_replace varchar(50) NOT NULL default '',
   replacement_type varchar(15) NOT NULL default '',
-  replacement_clickable bool NOT NULL default '0',
+  replacement_clickable int2 NOT NULL default '0',
   PRIMARY KEY  (replacement_id)
 )"; //   KEY Type (replacement_type)
 
-$queries[] = "DROP TABLE %psettings";
+$queries[] = "DROP TABLE IF EXISTS %psettings";
 $queries[] = "CREATE TABLE %psettings (
   settings_id int2 NOT NULL default '0',
   settings_tos text NOT NULL default '',
@@ -187,14 +189,14 @@ $queries[] = "CREATE TABLE %psettings (
   PRIMARY KEY  (settings_id)
 )";
 
-$queries[] = "DROP TABLE %pskins";
+$queries[] = "DROP TABLE IF EXISTS %pskins";
 $queries[] = "CREATE TABLE %pskins (
   skin_name varchar(32) NOT NULL default '',
   skin_dir varchar(32) NOT NULL default '',
   PRIMARY KEY  (skin_dir)
 )";
 
-$queries[] = "DROP TABLE %psubscriptions";
+$queries[] = "DROP TABLE IF EXISTS %psubscriptions";
 $queries[] = "CREATE TABLE %psubscriptions (
   subscription_id int4 DEFAULT nextval('%psubscriptions_id_seq') NOT NULL,
   subscription_user int4 NOT NULL default '0',
@@ -204,7 +206,7 @@ $queries[] = "CREATE TABLE %psubscriptions (
   PRIMARY KEY  (subscription_id)
 )"; //   KEY subscription_item (subscription_item)
 
-$queries[] = "DROP TABLE %ptemplates";
+$queries[] = "DROP TABLE IF EXISTS %ptemplates";
 $queries[] = "CREATE TABLE %ptemplates (
   template_skin varchar(32) NOT NULL default 'default',
   template_set varchar(20) NOT NULL default '',
@@ -215,7 +217,7 @@ $queries[] = "CREATE TABLE %ptemplates (
   UNIQUE (template_name,template_skin)
 )"; //   KEY Section (template_set,template_skin)
 
-$queries[] = "DROP TABLE %ptimezones";
+$queries[] = "DROP TABLE IF EXISTS %ptimezones";
 $queries[] = "CREATE TABLE %ptimezones (
   zone_id int4 DEFAULT nextval('%ptimezones_id_seq') NOT NULL,
   zone_name varchar(30) NOT NULL default '',
@@ -225,7 +227,7 @@ $queries[] = "CREATE TABLE %ptimezones (
   PRIMARY KEY  (zone_id)
 )"; //   KEY name (zone_name)
 
-$queries[] = "DROP TABLE %ptopics";
+$queries[] = "DROP TABLE IF EXISTS %ptopics";
 $queries[] = "CREATE TABLE %ptopics (
   topic_id int4 DEFAULT nextval('%ptopics_id_seq') NOT NULL,
   topic_forum int2 NOT NULL default '0',
@@ -245,7 +247,7 @@ $queries[] = "CREATE TABLE %ptopics (
   PRIMARY KEY  (topic_id)
 )"; //   KEY Forum (topic_forum)
 
-$queries[] = "DROP TABLE %pusers";
+$queries[] = "DROP TABLE IF EXISTS %pusers CASCADE";
 $queries[] = "CREATE TABLE %pusers (
   user_id int4 DEFAULT nextval('%pusers_id_seq') NOT NULL,
   user_name varchar(255) NOT NULL default '',
@@ -253,7 +255,7 @@ $queries[] = "CREATE TABLE %pusers (
   user_joined int4 NOT NULL default '0',
   user_level int2 NOT NULL default '1',
   user_title varchar(100) NOT NULL default '',
-  user_title_custom bool NOT NULL default '0',
+  user_title_custom int2 NOT NULL default '0',
   user_group int2 NOT NULL default '2',
   user_skin varchar(32) NOT NULL default 'default',
   user_language varchar(6) NOT NULL default 'en',
@@ -262,8 +264,8 @@ $queries[] = "CREATE TABLE %pusers (
   user_avatar_width int2 NOT NULL default '0',
   user_avatar_height int2 NOT NULL default '0',
   user_email varchar(100) NOT NULL default '',
-  user_email_show bool NOT NULL default '0',
-  user_email_form bool NOT NULL default '1',
+  user_email_show int2 NOT NULL default '0',
+  user_email_form int2 NOT NULL default '1',
   user_birthday date,
   user_timezone int2 NOT NULL default '151',
   user_homepage varchar(255) NOT NULL default '',
@@ -273,9 +275,9 @@ $queries[] = "CREATE TABLE %pusers (
   user_msn varchar(32) NOT NULL default '',
   user_aim varchar(32) NOT NULL default '',
   user_gtalk varchar(32) NOT NULL default '',
-  user_pm bool NOT NULL default '1',
-  user_pm_mail bool NOT NULL default '0',
-  user_active bool NOT NULL default '1',
+  user_pm int2 NOT NULL default '1',
+  user_pm_mail int2 NOT NULL default '0',
+  user_active int2 NOT NULL default '1',
   user_yahoo varchar(100) NOT NULL default '',
   user_interests varchar(255) NOT NULL default '',
   user_signature text NOT NULL default '',
@@ -284,9 +286,9 @@ $queries[] = "CREATE TABLE %pusers (
   user_lastpost int4 NOT NULL default '0',
   user_lastpm int4 NOT NULL default '0',
   user_lastsearch int4 NOT NULL default '0',
-  user_view_avatars bool NOT NULL default '1',
-  user_view_signatures bool NOT NULL default '1',
-  user_view_emoticons bool NOT NULL default '1',
+  user_view_avatars int2 NOT NULL default '1',
+  user_view_signatures int2 NOT NULL default '1',
+  user_view_emoticons int2 NOT NULL default '1',
   user_topics_page int2 NOT NULL DEFAULT '0',
   user_regip int4 NOT NULL default '0',
   user_posts_page int2 NOT NULL DEFAULT '0',
@@ -294,7 +296,7 @@ $queries[] = "CREATE TABLE %pusers (
   PRIMARY KEY  (user_id)
 )";
 
-$queries[] = "DROP TABLE %pvotes";
+$queries[] = "DROP TABLE IF EXISTS %pvotes";
 $queries[] = "CREATE TABLE %pvotes (
   vote_user int4 NOT NULL default '0',
   vote_topic int4 NOT NULL default '0',
@@ -882,5 +884,5 @@ $sets['optional_modules'] = array(
 $settings = serialize($sets);
 $queries[] = "INSERT INTO %psettings (settings_id, settings_data) VALUES (1, '{$settings}')";
 $queries[] = "INSERT INTO %pskins (skin_name, skin_dir) VALUES ('QSF Comet', 'default')";
-$queries[] = "INSERT INTO %pusers (user_id, user_name, user_group) VALUES (1, 'Guest', 3)";
+$queries[] = "INSERT INTO %pusers ( user_name, user_group) VALUES ( 'Guest', 3)";
 ?>

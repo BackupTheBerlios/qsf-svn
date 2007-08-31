@@ -46,7 +46,7 @@ function get_backtrace()
 			{
 				foreach( $frame['args'] as $arg )
 				{
-					if ( is_array( $arg ) && array_key_exists( 0, $arg ) ) {
+					if ( is_array( $arg ) && array_key_exists( 0, $arg ) && is_string( $arg[0] ) ) {
 						$argument = htmlspecialchars( $arg[0] );
 					} elseif( is_string( $arg ) ) {
 						$argument = htmlspecialchars( $arg );

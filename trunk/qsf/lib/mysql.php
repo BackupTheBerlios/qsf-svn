@@ -193,5 +193,21 @@ class db_mysql extends database
 	{
 		return mysql_result(mysql_query('SELECT VERSION() as version'), 0, 0);
 	}
+
+	// SQL over-rides
+
+	public function install()
+	{
+		parent::install();
+		$this->install_seed_post_create = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, 1, 1, INET_ATON(\'%s\'), \'%s\')';
+	}
+
+
+	public function register()
+	{
+		parent::register();
+
+		$this->register_create = 'INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES (\'%s\', \'%s\', %d, \'%s\', %d, \'%s\', \'%s\', %d, %d, %d, \'%s\', %d, %d, %d, INET_ATON(\'%s\'))';
+	}
 }
 ?>

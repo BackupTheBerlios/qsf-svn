@@ -93,4 +93,10 @@ define('TYPE_EMAIL', 10); // Check if string is a valid email
 /* General purpose */
 define('DAY_IN_SECONDS', 86400);
 define('SECONDS_IN_HOUR', 3600);
+
+/* Plugin system */
+
+define('PLUGIN_OK', 1 );
+define('PLUGIN_ERR', 2 );
+define('PLUGIN_EAT', 3 );
 ?>

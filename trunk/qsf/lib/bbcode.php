@@ -122,6 +122,8 @@ class bbcode extends htmltools
 		
 		$this->user_view_emoticons = $qsf->user['user_view_emoticons'];
 
+		$qsf->event_trigger( 'bbcode_init' );
+
 		if ($createChild) {
 			$this->clone = &new bbcode( $qsf, false );
 		}
@@ -399,7 +401,7 @@ class bbcode extends htmltools
 		/* process the current node */
 		if ( isset( $this->handlers[ $node->type ] ) ) {
 			$method = $this->handlers[ $node->type ];
-			return $this->$method( $node );
+			return (is_array($method) || !method_exists( $this, $method )) ? call_user_func( $method, $this, $node ) : $this->$method( $node );
 		} else {
 			return '[' . $node->type . (($node->attribute) ? '=' . htmlentities( $node->attribute ) : null ) . ']' . $html;
 		}
