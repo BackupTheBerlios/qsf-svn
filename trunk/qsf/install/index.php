@@ -109,19 +109,31 @@ if ($mode) {
 include 'templates/header.php';
 
 if (substr(PHP_VERSION, 0, 1) == '3') {
-	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP4 and PHP5 are supported.';
+	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP5 is supported.';
 	$failed = true;
-} else if (version_compare(PHP_VERSION, '4.3.0') == -1) {
-	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP 4.3.0 and higher are supported.';
+} else if (version_compare(PHP_VERSION, '5.2.0') == -1) {
+	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP 5.2.x and higher are supported.'; // 5.2 too high?
 	$failed = true;
 }
 
-if (!extension_loaded('mysql')) {
+$db_fail = 0;
+
+if (!extension_loaded('mysql'))
+	$db_fail++;
+
+if (!extension_loaded('mysqli'))
+	$db_fail++;
+
+if (!extension_loaded('pgsql'))
+	$db_fail++;
+
+if ( $db_fail > 2 )
+{
 	if ($failed) { // If we have already shown a message, show the next one two lines down
 		echo '<br /><br />';
 	}
 
-	echo 'Your PHP installation does not support MySQL.<br />Currently only MySQL is supported.';
+	echo 'Your PHP installation does not support MySQL, MySQLi or PostgreSQL.';
 	$failed = true;
 }
 
