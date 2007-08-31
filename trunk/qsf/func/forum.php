@@ -228,27 +228,8 @@ class forum extends qsfglobal
 	{
 		$out = null;
 
-		$query = $this->db->query("
-			SELECT
-				DISTINCT(p.post_author) as dot,
-				t.topic_id, t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
-				t.topic_posted, t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
-				s.user_name AS topic_starter_name, m.user_name AS topic_last_poster_name, p.post_id AS topic_last_post
-			FROM
-				(%ptopics t,
-				%pusers s)
-			LEFT JOIN %pposts p ON (t.topic_id = p.post_topic AND p.post_author = %d)
-			LEFT JOIN %pusers m ON m.user_id = t.topic_last_poster
-			WHERE
-				((t.topic_forum = %d) OR (t.topic_modes & %d)) AND
-				s.user_id = t.topic_starter
-			GROUP BY t.topic_id
-			ORDER BY
-				(t.topic_modes & %d) DESC,
-				$order
-			LIMIT
-				%d, %d",
-			$this->user['user_id'], $f, TOPIC_GLOBAL, TOPIC_PINNED, $min, $n);
+		$query = $this->db->query( $this->db->forum_get_topics, 
+			TOPIC_PINNED, $this->user['user_id'], $f, TOPIC_GLOBAL, TOPIC_PINNED, $order, $n, $min );
 
 		while ($row = $this->db->nqfetch($query))
 		{

@@ -37,8 +37,8 @@ $queries[] = "DROP SEQUENCE IF EXISTS %psubscriptions_id_seq CASCADE";
 $queries[] = "DROP SEQUENCE IF EXISTS %ptimezones_id_seq CASCADE";
 $queries[] = "DROP SEQUENCE IF EXISTS %ptopics_id_seq CASCADE";
 $queries[] = "DROP SEQUENCE IF EXISTS %pusers_id_seq CASCADE";
+$queries[] = "DROP SEQUENCE IF EXISTS %pactive_id_seq CASCADE";
 
-$queries[] = 'BEGIN TRANSACTION';
 $queries[] = "CREATE SEQUENCE %pattach_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %pforums_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %pgroups_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
@@ -52,11 +52,11 @@ $queries[] = "CREATE SEQUENCE %psubscriptions_id_seq START 1 INCREMENT 1 MAXVALU
 $queries[] = "CREATE SEQUENCE %ptimezones_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %ptopics_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 $queries[] = "CREATE SEQUENCE %pusers_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
-$queries[] = 'COMMIT';
+$queries[] = "CREATE SEQUENCE %pactive_id_seq START 1 INCREMENT 1 MAXVALUE 2147483647 MINVALUE 1 CACHE 1";
 
 $queries[] = "DROP TABLE IF EXISTS %pactive";
 $queries[] = "CREATE TABLE %pactive (
-  active_id int4 NOT NULL default '0',
+  active_id int4 NOT NULL default nextval('%pactive_id_seq'),
   active_ip inet NOT NULL default '127.0.0.1',
   active_user_agent varchar(100) NOT NULL default 'Unknown',
   active_action varchar(32) NOT NULL default '',
@@ -65,6 +65,7 @@ $queries[] = "CREATE TABLE %pactive (
   active_session varchar(32) NOT NULL default '',
   UNIQUE (active_session, active_ip)
 )"; //   UNIQUE KEY active_session (active_session),  UNIQUE KEY active_ip (active_ip)
+
 
 $queries[] = "DROP TABLE IF EXISTS %pattach";
 $queries[] = "CREATE TABLE %pattach (
@@ -266,7 +267,7 @@ $queries[] = "CREATE TABLE %pusers (
   user_email varchar(100) NOT NULL default '',
   user_email_show int2 NOT NULL default '0',
   user_email_form int2 NOT NULL default '1',
-  user_birthday date,
+  user_birthday date NOT NULL default '1970-01-01',
   user_timezone int2 NOT NULL default '151',
   user_homepage varchar(255) NOT NULL default '',
   user_posts int4 NOT NULL default '0',
@@ -885,4 +886,24 @@ $settings = serialize($sets);
 $queries[] = "INSERT INTO %psettings (settings_id, settings_data) VALUES (1, '{$settings}')";
 $queries[] = "INSERT INTO %pskins (skin_name, skin_dir) VALUES ('QSF Comet', 'default')";
 $queries[] = "INSERT INTO %pusers ( user_name, user_group) VALUES ( 'Guest', 3)";
+
+
+// extra rule so we can do inserts (replacement for replace into if you pardon the punn)
+$queries[] = '
+CREATE OR REPLACE RULE "replace_active" AS
+	ON INSERT TO "%pactive"
+WHERE
+	EXISTS( SELECT 1 FROM %pactive WHERE active_session=NEW.active_session AND active_ip=NEW.active_ip )
+DO INSTEAD
+	(UPDATE %pactive SET active_id=NEW.active_id, active_action=NEW.active_action, active_item=NEW.active_item, active_time=NEW.active_time, active_ip=NEW.active_ip, active_user_agent=NEW.active_user_agent, active_session=NEW.active_session WHERE active_session=NEW.active_session AND active_ip=NEW.active_ip);';
+
+
+$queries[] = '
+CREATE OR REPLACE RULE "replace_readmarks" AS
+	ON INSERT TO "%preadmarks"
+WHERE
+	EXISTS( SELECT 1 FROM %preadmarks WHERE readmark_user=NEW.readmark_user AND readmark_topic=NEW.readmark_topic )
+DO INSTEAD
+	(UPDATE %preadmarks SET readmark_lastread=NEW.readmark_lastread, readmark_user=NEW.readmark_user, readmark_topic=NEW.readmark_topic WHERE readmark_user=NEW.readmark_user AND readmark_topic=NEW.readmark_topic );';
+
 ?>

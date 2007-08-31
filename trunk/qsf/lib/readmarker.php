@@ -175,9 +175,8 @@ class readmarker extends forumutils
 			} else {
 				$this->_load_readmarkers();
 				if (!isset($this->readmarkers[$topic_id]) || $this->readmarkers[$topic_id] < $time) {
-					$this->db->query("REPLACE INTO %preadmarks
-						(readmark_user, readmark_topic, readmark_lastread)
-						VALUES (%d, %d, %d)", $this->user_id, $topic_id, $time);
+					$this->db->query( $this->db->readmarker_mark_topic_read_replace,
+						$this->user_id, $topic_id, $time);
 					$this->readmarkers[$topic_id] = $time;
 				}
 				

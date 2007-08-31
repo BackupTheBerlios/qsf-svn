@@ -309,27 +309,8 @@ class topic extends qsfglobal
 			$attachments[$attach['post_id']][] = $attach;
 		}
 
-		$query = $this->db->query("
-			SELECT
-			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
-			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
-			  m.user_icq, m.user_yahoo, m.user_homepage, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_msn, m.user_pm, m.user_email_show, m.user_email_form, m.user_active,
-			  t.membertitle_icon,
-			  g.group_name,
-			  a.active_time
-			FROM
-			  (%pposts p, %pusers m, %pgroups g)
-			LEFT JOIN %pactive a ON a.active_id=m.user_id
-			LEFT JOIN %pmembertitles t ON t.membertitle_id=m.user_level
-			WHERE
-			  p.post_topic = %d AND
-			  p.post_author = m.user_id AND
-			  m.user_group = g.group_id
-			GROUP BY p.post_id
-			ORDER BY
-			  p.post_time
-			LIMIT %d, %d",
-			$this->get['t'], $this->get['min'], $this->get['num']);
+		$query = $this->db->query( $this->db->topic_get_main,
+			$this->get['t'], $this->get['num'], $this->get['min']);
 
 		$i = 0;
 		$split = '';

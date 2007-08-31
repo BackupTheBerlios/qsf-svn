@@ -205,7 +205,7 @@ class db_mysql extends database
 	// SQL for libs
 	private function activeutil()
 	{
-		$this->activeutil = 'REPLACE INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, INET_ATON(\'%s\'), \'%s\', \'%s\')';
+		$this->activeutil_update = 'REPLACE INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, INET_ATON(\'%s\'), \'%s\', \'%s\')';
 		$this->activeutil_load = 'SELECT a.*, INET_NTOA(a.active_ip) as active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
 			FROM (%pactive a, %pgroups g, %pusers u)
 			LEFT JOIN %pforums f ON f.forum_id=a.active_item
@@ -218,9 +218,25 @@ class db_mysql extends database
 			  a.active_time DESC';
 	}
 
+	public function active()
+	{
+		self::activeutil();
+	}
+
 	public function board()
 	{
 		self::activeutil();
+	}
+
+	/**
+	 * SQL for the readmarker lib, used by topic
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function readmarker()
+	{
+		$this->readmarker_mark_topic_read_replace = 'REPLACE INTO %preadmarks (readmark_user, readmark_topic, readmark_lastread) VALUES (%d, %d, %d)';
 	}
 
 	public function register()
@@ -228,6 +244,36 @@ class db_mysql extends database
 		parent::register();
 
 		$this->register_create = 'INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES (\'%s\', \'%s\', %d, \'%s\', %d, \'%s\', \'%s\', %d, %d, %d, \'%s\', %d, %d, %d, INET_ATON(\'%s\'))';
+	}
+
+	/**
+	 * Over-riding SQL for the topic page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function topic()
+	{
+		self::readmarker();
+		$this->topic_get_main = 'SELECT
+			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
+			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
+			  m.user_icq, m.user_yahoo, m.user_homepage, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height, m.user_msn, m.user_pm, m.user_email_show, m.user_email_form, m.user_active,
+			  t.membertitle_icon,
+			  g.group_name,
+			  a.active_time
+			FROM
+			  (%pposts p, %pusers m, %pgroups g)
+			LEFT JOIN %pactive a ON a.active_id=m.user_id
+			LEFT JOIN %pmembertitles t ON t.membertitle_id=m.user_level
+			WHERE
+			  p.post_topic = %d AND
+			  p.post_author = m.user_id AND
+			  m.user_group = g.group_id
+			GROUP BY p.post_id
+			ORDER BY
+			  p.post_time
+			LIMIT %d OFFSET %d';
 	}
 }
 ?>
