@@ -1,7 +1,7 @@
 Quicksilver Forums Changes
 --------------------------
 
-Changes for 1.4.1:
+Changes for 2.0.0:
 
 Changes for 1.4.0:
 
