@@ -258,7 +258,7 @@ class sql
 				FROM %pusers WHERE user_name='%s' AND user_id != %d LIMIT 1";
 		$this->login_request_pass_fetch_target = "SELECT user_id, user_name, user_email FROM %pusers
 			WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' AND user_id != %d LIMIT 1";
-		this->login_request_pass_update_users = "UPDATE %pusers SET user_password='%s' WHERE user_id=%d";
+		$this->login_request_pass_update_users = "UPDATE %pusers SET user_password='%s' WHERE user_id=%d";
 	}
 
 	/**
