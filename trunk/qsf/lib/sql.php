@@ -78,7 +78,7 @@ class sql
 	 **/
 	public function active()
 	{
-		self::activeutil();
+		$this->activeutil();
 	}
 
 	/**
@@ -89,7 +89,7 @@ class sql
 	 **/
 	public function board()
 	{
-		self::activeutil();
+		$this->activeutil();
 	}
 
 	/**
@@ -100,7 +100,7 @@ class sql
 	 **/
 	public function forum()
 	{
-		self::activeutil();
+		$this->activeutil();
 		$this->forum_get_topics = '
 			SELECT DISTINCT 
 				p.post_author AS dot,
@@ -162,6 +162,15 @@ class sql
 		$this->mod_split_topic_update_topics3 = 'UPDATE %ptopics SET topic_replies=topic_replies-%d WHERE topic_id=%d';
 
 		$this->mod_delete_topic_select_posts = 'SELECT DISTINCT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count, u.user_posts FROM (%ptopics t, %pposts p, %pusers u) LEFT JOIN %pattach a ON p.post_id=a.attach_post WHERE t.topic_id=%d AND t.topic_id=p.post_topic AND p.post_author=u.user_id';
+		$this->mod_delete_topic_update_users = 'UPDATE %pusers SET user_posts=user_posts-1 WHERE user_id=%d';
+		$this->mod_delete_topic_delete_attach ='DELETE FROM %pattach WHERE attach_post=%d';
+		$this->mod_delete_topic_fetch_result = 'SELECT topic_forum FROM %ptopics WHERE topic_id=%d';
+		$this->mod_delete_topic_delete_votes = 'DELETE FROM %pvotes WHERE vote_topic=%d';
+		$this->mod_delete_topic_delete_topics = 'DELETE FROM %ptopics WHERE topic_id=%d OR topic_moved=%d';
+		$this->mod_delete_topic_delete_posts = 'DELETE FROM %pposts WHERE post_topic=%d';
+		$this->mod_delete_topic_delete_readmarks = 'DELETE FROM %preadmarks WHERE readmark_topic = %d';
+
+
 
 
 
@@ -219,7 +228,7 @@ class sql
 	 **/
 	public function topic()
 	{
-		self::readmarker();
+		$this->readmarker();
 		$this->topic_get_main = 'SELECT
 			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, p.post_ip as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
 			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
