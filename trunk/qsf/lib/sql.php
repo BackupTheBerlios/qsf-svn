@@ -104,6 +104,61 @@ class sql
 	}
 
 	/**
+	 * SQL for the usercp (cp) page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function cp()
+	{
+		$this->cp_edit_pass_update_users = "UPDATE %pusers SET user_password='%s' WHERE user_id=%d";
+
+		$this->cp_edit_prefs_update_users = "
+				UPDATE %pusers SET user_view_avatars=%d, user_view_signatures=%d, user_view_emoticons=%d,
+				  user_email_show=%d, user_email_form=%d, user_active=%d, user_pm=%d, user_pm_mail=%d,
+				  user_timezone='%s', user_skin='%s', user_language='%s',
+				  user_topics_page=%d, user_posts_page=%d
+				WHERE user_id=%d";
+
+		$this->cp_edit_profile_fetch_users = "SELECT user_id FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d";
+		$this->cp_edit_profile_fetch_users2 = "SELECT user_email FROM %pusers WHERE user_email='%s' AND user_id !=%d";
+		$this->cp_edit_profile_select_membertitles = 'SELECT membertitle_title FROM %pmembertitles';
+		$this->cp_edit_profile_update_users = "
+				UPDATE %pusers SET
+				  user_email='%s', user_birthday='%s', user_homepage='%s', user_location ='%s',
+				  user_interests='%s', user_icq=%d, user_msn='%s', user_aim='%s', user_yahoo='%s',
+				  user_gtalk='%s', user_title='%s', user_title_custom='%s', user_name='%s'
+				WHERE user_id=%d";
+
+		$this->cp_edit_avatar_update_users = "
+				UPDATE %pusers SET
+				  user_avatar='%s', user_avatar_type='%s',
+				  user_avatar_width=%d, user_avatar_height=%d
+				WHERE user_id=%d";
+
+		$this->cp_edit_subs_delete_subscriptions = 'DELETE FROM %psubscriptions WHERE subscription_expire < %d';
+		$this->cp_edit_subs_select_subscriptions = "
+				SELECT
+				  s.subscription_id, s.subscription_type, s.subscription_expire,
+				  f.forum_name, f.forum_id,
+				  t.topic_title, t.topic_id
+				FROM
+				  %psubscriptions s
+				LEFT JOIN %pforums f ON (s.subscription_type = 'forum' AND f.forum_id = s.subscription_item)
+				LEFT JOIN %ptopics t ON (s.subscription_type = 'topic' AND t.topic_id = s.subscription_item)
+				WHERE
+				  s.subscription_user = %d
+				ORDER BY s.subscription_expire";
+		$this->cp_edit_subs_delete_subscriptions2 = 'DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_id IN (%s)';
+
+		$this->cp_edit_sig_update_users = "UPDATE %pusers SET user_signature='%s' WHERE user_id=%d";
+		$this->cp_edit_sig_select_users = 'SELECT user_signature FROM %pusers WHERE user_id=%d';
+
+		$this->cp_add_sub_delete_subscriptions = "DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_type='%s' AND subscription_item=%d";
+		$this->cp_add_sub_insert_subscriptions = "INSERT INTO %psubscriptions (subscription_user, subscription_type, subscription_item, subscription_expire) VALUES (%d, '%s', %d, %d)";
+	}
+
+	/**
 	 * SQL for the forum page
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>

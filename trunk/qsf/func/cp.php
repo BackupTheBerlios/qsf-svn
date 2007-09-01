@@ -155,7 +155,7 @@ class cp extends qsfglobal
 
 			case PASS_SUCCESS:
 				$hashed_pass = md5($this->post['passA']);
-				$this->db->query("UPDATE %pusers SET user_password='%s' WHERE user_id=%d", $hashed_pass, $this->user['user_id']);
+				$this->db->query( $this->db->cp_edit_pass_update_users, $hashed_pass, $this->user['user_id']);
 
 				if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
 					setcookie($this->sets['cookie_prefix'] . 'pass', $hashed_pass, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'].'; HttpOnly', $this->sets['cookie_secure']);
@@ -245,12 +245,7 @@ class cp extends qsfglobal
 
 			$this->post['user_language'] = preg_replace('/[^a-zA-Z0-9\-]/', '', $this->post['user_language']);
 
-			$this->db->query("
-				UPDATE %pusers SET user_view_avatars=%d, user_view_signatures=%d, user_view_emoticons=%d,
-				  user_email_show=%d, user_email_form=%d, user_active=%d, user_pm=%d, user_pm_mail=%d,
-				  user_timezone='%s', user_skin='%s', user_language='%s',
-				  user_topics_page=%d, user_posts_page=%d
-				WHERE user_id=%d",
+			$this->db->query( $this->db->cp_edit_prefs_update_users,
 				intval($this->post['user_view_avatars']), intval($this->post['user_view_signatures']), intval($this->post['user_view_emoticons']),
 				intval($this->post['user_email_show']), intval($this->post['user_email_form']), intval($this->post['user_active']),
 				intval($this->post['user_pm']), intval($this->post['user_pm_mail']), $this->post['user_timezone'], $this->post['user_skin'], $this->post['user_language'],
@@ -284,7 +279,7 @@ class cp extends qsfglobal
 		} else {
 			$this->post['Newuser_name'] = str_replace('\\', '&#092;', $this->format($this->post['Newuser_name'], FORMAT_HTMLCHARS | FORMAT_CENSOR));
 
-			if ($this->db->fetch("SELECT user_id FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d",
+			if ($this->db->fetch( $this->db->cp_edit_profile_fetch_users,
 				$this->post['Newuser_name'], $this->user['user_id']))
 			{
 				return $this->message($this->lang->cp_err_updating, $this->lang->cp_user_exists);
@@ -308,7 +303,7 @@ class cp extends qsfglobal
 				return $this->message($this->lang->cp_changing_pass, $this->lang->cp_pass_notmatch);
 			}
 
-			if ($this->db->fetch("SELECT user_email FROM %pusers WHERE user_email='%s' AND user_id !=%d",
+			if ($this->db->fetch( $this->db->cp_edit_profile_fetch_users2,
 				 $this->post['user_email'], $this->user['user_id']))
 			{
 				return $this->message($this->lang->cp_err_updating, $this->lang->cp_already_member);
@@ -340,7 +335,7 @@ class cp extends qsfglobal
 			$this->post['user_yahoo']     = $this->format($this->post['user_yahoo'], FORMAT_HTMLCHARS);
 			$this->post['user_gtalk']     = $this->format($this->post['user_gtalk'], FORMAT_HTMLCHARS);
 			if ($this->perms->auth('is_admin')) {
-				$query = $this->db->query("SELECT membertitle_title FROM %pmembertitles");
+				$query = $this->db->query( $this->db->cp_edit_profile_select_membertitles);
 				if (!isset($this->post['user_title']) || $this->post['user_title'] == '' ) {
 					$usertitle = '';
 					$custom_title = 0;
@@ -367,12 +362,7 @@ class cp extends qsfglobal
 			if ($icq < 0 || $icq > 999999999999999)
 				$icq = 0;
 
-			$this->db->query("
-				UPDATE %pusers SET
-				  user_email='%s', user_birthday='%s', user_homepage='%s', user_location ='%s',
-				  user_interests='%s', user_icq=%d, user_msn='%s', user_aim='%s', user_yahoo='%s',
-				  user_gtalk='%s', user_title='%s', user_title_custom='%s', user_name='%s'
-				WHERE user_id=%d",
+			$this->db->query( $this->db->cp_edit_profile_update_users,
 				$this->post['user_email'], $user_birthday, $this->post['user_homepage'], $this->post['user_location'],
 				$this->post['user_interests'], $icq, $this->post['user_msn'], $this->post['user_aim'],
 				$this->post['user_yahoo'], $this->post['user_gtalk'], $usertitle, $custom_title, $this->post['Newuser_name'],
@@ -526,10 +516,7 @@ class cp extends qsfglobal
 				$this->post['user_avatar_height'] = $this->sets['avatar_height'];
 			}
 
-			$this->db->query("UPDATE %pusers SET
-				  user_avatar='%s', user_avatar_type='%s',
-				  user_avatar_width=%d, user_avatar_height=%d
-				WHERE user_id=%d",
+			$this->db->query( $this->db->cp_edit_avatar_update_users,
 				$avatar, $type, intval($this->post['user_avatar_width']),
 				intval($this->post['user_avatar_height']), $this->user['user_id']);
 
@@ -543,21 +530,10 @@ class cp extends qsfglobal
 		$this->tree($this->lang->cp_cp, $this->self . '?a=cp');
 		$this->tree($this->lang->cp_sub_change);
 
-		$this->db->query("DELETE FROM %psubscriptions WHERE subscription_expire < %d", $this->time);
+		$this->db->query( $this->db->cp_edit_subs_delete_subscriptions, $this->time);
 
 		if (!isset($this->post['submit'])) {
-			$query = $this->db->query("
-				SELECT
-				  s.subscription_id, s.subscription_type, s.subscription_expire,
-				  f.forum_name, f.forum_id,
-				  t.topic_title, t.topic_id
-				FROM
-				  %psubscriptions s
-				LEFT JOIN %pforums f ON (s.subscription_type = 'forum' AND f.forum_id = s.subscription_item)
-				LEFT JOIN %ptopics t ON (s.subscription_type = 'topic' AND t.topic_id = s.subscription_item)
-				WHERE
-				  s.subscription_user = %d
-				ORDER BY s.subscription_expire", $this->user['user_id']);
+			$query = $this->db->query( $this->db->cp_edit_subs_select_subscriptions, $this->user['user_id']);
 
 			$rows = null;
 
@@ -585,7 +561,7 @@ class cp extends qsfglobal
 					$delSubs[] = intval($id);
 				}
 
-				$this->db->query("DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_id IN (%s)",
+				$this->db->query( $this->db->cp_edit_subs_delete_subscriptions2,
 					$this->user['user_id'], implode(', ', $delSubs));
 			}
 
@@ -612,11 +588,11 @@ class cp extends qsfglobal
 		$params = FORMAT_CENSOR | FORMAT_HTMLCHARS | FORMAT_BREAKS | FORMAT_MBCODE | FORMAT_EMOTICONS;
 		
 		if (isset($this->post['submit'])) {
-			$this->db->query("UPDATE %pusers SET user_signature='%s' WHERE user_id=%d",
+			$this->db->query( $this->db->cp_edit_sig_update_users,
 				$this->post['sig'],  $this->user['user_id']);
 		}
 		
-		$query = $this->db->query("SELECT user_signature FROM %pusers WHERE user_id=%d", $this->user['user_id']);
+		$query = $this->db->query( $this->db->cp_edit_sig_select_users, $this->user['user_id']);
 		$pr = $this->db->nqfetch($query);
 		$preview = $this->format($pr['user_signature'], $params);
 		$edit = $pr['user_signature'];
@@ -636,10 +612,9 @@ class cp extends qsfglobal
 
 		$expires = $this->time + 2592000; // 30 days
 
-		$this->db->query("DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_type='%s' AND subscription_item=%d",
+		$this->db->query( $this->db->cp_add_sub_delete_subscriptions,
 			$this->user['user_id'], $this->get['type'], $this->get['item']);
-		$this->db->query("INSERT INTO %psubscriptions (subscription_user, subscription_type, subscription_item, subscription_expire)
-			VALUES (%d, '%s', %d, %d)",
+		$this->db->query( $this->db->cp_add_sub_insert_subscriptions,
 			$this->user['user_id'], $this->get['type'], $this->get['item'], $expires);
 
 		return $this->message($this->lang->cp_cp, sprintf($this->lang->cp_sub_success, $this->get['type']));
