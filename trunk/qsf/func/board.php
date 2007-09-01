@@ -78,16 +78,7 @@ class board extends qsfglobal
 			}
 		}
 
-		$query = $this->db->query("
-			SELECT
-				f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
-				t.topic_id as lasttopicid, t.topic_title as user_lastpost, t.topic_edited as lasttime, t.topic_replies,
-				m.user_name as user_lastposter, m.user_id as user_lastposterid
-			FROM %pforums f
-			LEFT JOIN %pposts p ON p.post_id = f.forum_lastpost
-			LEFT JOIN %ptopics t ON t.topic_id = p.post_topic
-			LEFT JOIN %pusers m ON m.user_id = p.post_author
-			ORDER BY f.forum_parent, f.forum_position");
+		$query = $this->db->query( $this->db->board_execute_select );
 
 		$_forums = array();
 
