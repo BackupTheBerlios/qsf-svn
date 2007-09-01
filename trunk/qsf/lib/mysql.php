@@ -218,16 +218,6 @@ class db_mysql extends database
 			  a.active_time DESC';
 	}
 
-	public function active()
-	{
-		self::activeutil();
-	}
-
-	public function board()
-	{
-		self::activeutil();
-	}
-
 	/**
 	 * Over-riding SQL for the post page
 	 *

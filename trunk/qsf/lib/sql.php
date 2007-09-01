@@ -100,6 +100,7 @@ class sql
 	 **/
 	public function forum()
 	{
+		self::activeutil();
 		$this->forum_get_topics = '
 			SELECT DISTINCT 
 				p.post_author AS dot,
@@ -117,6 +118,63 @@ class sql
 				(t.topic_modes & %d) DESC,
 				%s
 			LIMIT %d OFFSET %d';
+	}
+
+	/**
+	 * SQL for the mod page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function mod()
+	{
+		$this->mod_move_topic_fetch_topic = 'SELECT topic_title, topic_forum, topic_starter, topic_modes, topic_poll_options FROM %ptopics WHERE topic_id=%d';
+		$this->mod_move_topic_fetch_target = 'SELECT forum_parent FROM %pforums WHERE forum_id=%d';
+		$this->mod_move_topic_update_topic = 'UPDATE %ptopics SET topic_modes=%d, topic_moved=%d WHERE topic_id=%d OR topic_moved=%d';
+		$this->mod_move_topic_update_topic_forum = 'UPDATE %ptopics SET topic_forum=%d WHERE topic_id=%d';
+		$this->mod_move_topic_update_posts = 'UPDATE %pposts SET post_topic=%d WHERE post_topic=%d';
+		$this->mod_move_topic_update_votes = 'UPDATE %pvotes SET vote_topic=%d WHERE vote_topic=%d';
+		$this->mod_move_topic_fetch_ammount = 'SELECT topic_replies FROM %ptopics WHERE topic_id=%d';
+
+		$this->mod_edit_post_fetch_data = 'SELECT p.post_text, p.post_author, p.post_emoticons, p.post_mbcode, p.post_topic, p.post_icon, p.post_time, t.topic_forum, t.topic_replies FROM %pposts p, %ptopics t WHERE t.topic_id=p.post_topic AND p.post_id=%d';
+		$this->mod_edit_post_update_posts = 'UPDATE %pposts SET post_text=\'%s\', post_emoticons=%d, post_mbcode=%d, post_edited_by=\'%s\', post_edited_time=%d, post_icon=\'%s\' WHERE post_id=%d';
+		$this->mod_edit_post_fetch_first = 'SELECT p.post_id FROM %pposts p, %ptopics t WHERE p.post_topic=t.topic_id AND t.topic_id=%d ORDER BY p.post_time LIMIT 1';
+		$this->mod_edit_post_update_topics = 'UPDATE %ptopics SET topic_icon=\'%s\' WHERE topic_id=%d';
+
+		$this->mod_edit_topic_fetch_topic = 'SELECT topic_title, topic_description, topic_starter, topic_forum, topic_modes FROM %ptopics WHERE topic_id=%d';
+		$this->mod_edit_topic_update_topics = 'UPDATE %ptopics SET topic_title=\'%s\', topic_description=\'%s\', topic_modes=\'%s\' WHERE topic_id=%d';
+
+		$this->mod_pinlock_topic_fetch_topic = 'SELECT topic_modes, topic_starter, topic_forum FROM %ptopics WHERE topic_id=%d';
+
+		$this->mod_del_post_fetch_post = 'SELECT p.post_id, p.post_author, p.post_topic, p.post_time, t.topic_id, t.topic_forum FROM %pposts p, %ptopics t WHERE p.post_id=%d AND p.post_topic=t.topic_id';
+		$this->mod_del_post_fetch_first = 'SELECT p.post_id FROM %pposts p, %ptopics t WHERE p.post_topic=t.topic_id AND t.topic_id=%d ORDER BY p.post_time LIMIT 1';
+		$this->mod_del_post_fetch_prev = 'SELECT MAX(p.post_id) AS prev_post FROM %pposts p WHERE p.post_topic = %d AND p.post_time < %d';
+
+		$this->mod_del_topic_fetch_topic = 'SELECT topic_id, topic_forum, topic_starter FROM %ptopics WHERE topic_id=%d';
+
+		$this->mod_publish_topic_fetch_topic = 'SELECT topic_modes, topic_forum FROM %ptopics WHERE topic_id=%d';
+
+		$this->mod_split_topic_fetch_topic = 'SELECT topic_id, topic_forum, topic_starter, topic_title, topic_modes FROM %ptopics WHERE topic_id=%d';
+		$this->mod_split_topic_update_topics = 'UPDATE %ptopics SET topic_title=\'%s\', topic_replies=%d, topic_views=0, topic_description=\'\', topic_modes=%d WHERE topic_id=%d';
+		$this->mod_split_topic_update_posts = 'UPDATE %pposts SET post_topic=%d WHERE post_id IN (%s)';
+		$this->mod_split_topic_fetch_posts = 'SELECT post_author, post_icon, post_time FROM %pposts WHERE post_topic=%d ORDER BY post_time ASC';
+		$this->mod_split_topic_update_topics2 = 'UPDATE %ptopics SET topic_starter=%d, topic_icon=\'%s\' WHERE topic_id=%d';
+		$this->mod_split_topic_update_topics3 = 'UPDATE %ptopics SET topic_replies=topic_replies-%d WHERE topic_id=%d';
+
+		$this->mod_delete_topic_select_posts = 'SELECT DISTINCT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count, u.user_posts FROM (%ptopics t, %pposts p, %pusers u) LEFT JOIN %pattach a ON p.post_id=a.attach_post WHERE t.topic_id=%d AND t.topic_id=p.post_topic AND p.post_author=u.user_id';
+
+
+
+
+		$this->mod_delete_post = 'SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_count, u.user_posts
+			FROM %ptopics t, %pusers u, %pposts p
+			LEFT JOIN %pattach a ON p.post_id=a.attach_post
+			WHERE p.post_id=%d AND t.topic_id=p.post_topic AND u.user_id=p.post_author';
+		$this->mod_update_last_post = 'SELECT p.post_id FROM %pposts p JOIN %ptopics t ON (t.topic_id=p.post_topic) 
+			WHERE t.topic_forum=%d
+			ORDER BY t.topic_edited DESC, p.post_id DESC
+			LIMIT 1';
+		$this->mod_update_last_post_do = 'UPDATE %pforums SET forum_lastpost=%d WHERE forum_id=%d';
 	}
 
 	/**
