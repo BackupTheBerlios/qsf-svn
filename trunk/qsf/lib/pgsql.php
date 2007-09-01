@@ -73,22 +73,30 @@ class db_pgsql extends database
 		$data = array();
 		$new_query = 'EXPLAIN ' . $query;
 
-		if (substr(trim(strtoupper($query)), 0, 6) == 'SELECT') {
-			if (!pg_send_query($this->connection, $new_query))
+		if (substr(trim(strtoupper($query)), 0, 6) == 'SELECT')
+		{
+			$query = pg_query( $this->connection, $new_query );
+			$data = pg_fetch_array( $query );
+
+			if ( preg_match( '/\((.*)\)$/', $data[0], $p_data ) )
 			{
-				$err = pg_get_result($this->connection);
-				error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $new_query, 0);
-			} else {
-				$result = pg_get_result($this->connection);
-	
-				if (false === $this->last)
+				$e_data = explode( ' ', $p_data[1] );
+				$data = array();
+
+				foreach( $e_data as $item )
 				{
-					$err = pg_get_result($this->connection);
-					error(QUICKSILVER_QUERY_ERROR, pg_result_error($err), $new_query, 0);
+					list( $name, $value ) = explode( '=', $item );
+					$data[$name] = $value;
+					
+					if ( 'cost' == $name )
+					{
+						list( $scan, $total ) = explode( '..', $value );
+						$data['Extra'] = '<br />Scan: ' . $scan . 'ms<br /> Total: ' . $total . 'ms';
+					}
 				}
 			}
-			$data = pg_fetch_array($result);;
 		}
+
 		return $data;
 	}
 
