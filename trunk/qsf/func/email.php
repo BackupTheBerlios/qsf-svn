@@ -62,7 +62,7 @@ class email extends qsfglobal
 			$this->get['to'] = isset($this->get['to']) ? intval($this->get['to']) : '';
 
 			if ($this->get['to']) {
-				$target = $this->db->fetch("SELECT user_name FROM %pusers WHERE user_id=%d", $this->get['to']);
+				$target = $this->db->fetch( $this->db->email_execute_fetch_target, $this->get['to']);
 
 				if (!isset($target['user_name']) || ($this->get['to'] == USER_GUEST_UID)) {
 					return $this->message($this->lang->email_email, $this->lang->email_no_member);
@@ -77,8 +77,7 @@ class email extends qsfglobal
 				return $this->message($this->lang->email_email, $this->lang->email_no_fields);
 			}
 
-			$target = $this->db->fetch("SELECT user_id, user_email, user_email_form FROM %pusers
-				WHERE user_name='%s'", $this->post['to']);
+			$target = $this->db->fetch( $this->db->email_execute_fetch_target2, $this->post['to']);
 
 			if (!$target['user_email_form']) {
 				return $this->message($this->lang->email_email, $this->lang->email_blocked);

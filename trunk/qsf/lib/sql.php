@@ -159,6 +159,18 @@ class sql
 	}
 
 	/**
+	 * SQL for the email page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function email()
+	{
+		$this->email_execute_fetch_target = 'SELECT user_name FROM %pusers WHERE user_id=%d';
+		$this->email_execute_fetch_target2 = "SELECT user_id, user_email, user_email_form FROM %pusers WHERE user_name='%s'";
+	}
+
+	/**
 	 * SQL for the forum page
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
@@ -167,6 +179,22 @@ class sql
 	public function forum()
 	{
 		$this->activeutil();
+
+		$this->forum_execute_fetch_exists = 'SELECT forum_parent, forum_name, forum_subcat FROM %pforums WHERE forum_id=%d';
+		$this->forum_execute_fetch_topic = 'SELECT COUNT(topic_id) AS count FROM %ptopics WHERE topic_forum=%d';
+
+		$this->forum_getsubs_select_forums = '
+			SELECT
+				f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
+				t.topic_id as LastTopicID, t.topic_title as user_lastpost, t.topic_edited as LastTime,
+				m.user_name as user_lastposter, m.user_id as user_lastposterID
+			FROM %pforums f
+			LEFT JOIN %pposts p ON p.post_id = f.forum_lastpost
+			LEFT JOIN %ptopics t ON t.topic_id = p.post_topic
+			LEFT JOIN %pusers m ON m.user_id = p.post_author
+			WHERE f.forum_parent=%d
+			ORDER BY f.forum_parent, f.forum_position';
+
 		$this->forum_get_topics = '
 			SELECT DISTINCT 
 				p.post_author AS dot,
@@ -184,6 +212,17 @@ class sql
 				(t.topic_modes & %d) DESC,
 				%s
 			LIMIT %d OFFSET %d';
+	}
+
+	/**
+	 * SQL for the help page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function help()
+	{
+		$this->help_execute_select_help = 'SELECT help_id, help_title, help_article FROM %phelp ORDER BY help_title';
 	}
 
 	/**

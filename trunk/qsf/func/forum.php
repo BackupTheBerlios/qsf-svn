@@ -102,7 +102,7 @@ class forum extends qsfglobal
 		 * Check if the forum exists. We also cause an error if
 		 * $exists['forum_parent'] is 0 because categories can't be viewed as forums.
 		 */
-		$exists = $this->db->fetch("SELECT forum_parent, forum_name, forum_subcat FROM %pforums WHERE forum_id=%d", $f);
+		$exists = $this->db->fetch( $this->db->forum_execute_fetch_exists, $f);
 		if (!isset($exists['forum_parent']) || !$exists['forum_parent']) {
 			return $this->message($this->lang->forum_forum, $this->lang->forum_noexist);
 		}
@@ -113,7 +113,7 @@ class forum extends qsfglobal
 
 		$this->set_title($exists['forum_name']);
 
-		$topic = $this->db->fetch("SELECT COUNT(topic_id) AS count FROM %ptopics WHERE topic_forum=%d", $f);
+		$topic = $this->db->fetch( $this->db->forum_execute_fetch_topic, $f);
 
 		$pagelinks = $this->htmlwidgets->get_pages($topic['count'], "a=forum&amp;f=$f&amp;order={$this->get['order']}&amp;asc=$lasc", $min, $n);
 		$SubForums = $this->getSubs($f);
@@ -145,17 +145,7 @@ class forum extends qsfglobal
 	{
 		$out = null;
 
-		$query = $this->db->query("
-			SELECT
-				f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
-				t.topic_id as LastTopicID, t.topic_title as user_lastpost, t.topic_edited as LastTime,
-				m.user_name as user_lastposter, m.user_id as user_lastposterID
-			FROM %pforums f
-			LEFT JOIN %pposts p ON p.post_id = f.forum_lastpost
-			LEFT JOIN %ptopics t ON t.topic_id = p.post_topic
-			LEFT JOIN %pusers m ON m.user_id = p.post_author
-			WHERE f.forum_parent=%d
-			ORDER BY f.forum_parent, f.forum_position", $f);
+		$query = $this->db->query( $this->db->forum_getsubs_select_forums, $f);
 
 		if ($forum = $this->db->nqfetch($query)) {
 			$this->templater->add_templates('board');

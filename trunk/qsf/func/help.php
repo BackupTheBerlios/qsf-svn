@@ -35,7 +35,7 @@ class help extends qsfglobal
 		$this->set_title($this->lang->help_available_files);
 
 		$h = array();
-		$q = $this->db->query("SELECT help_id, help_title, help_article FROM %phelp ORDER BY help_title");
+		$q = $this->db->query( $this->db->help_execute_select_help );
 
 		while ($r = $this->db->nqfetch($q))
 		{
