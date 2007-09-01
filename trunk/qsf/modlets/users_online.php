@@ -125,12 +125,13 @@ class users_online extends modlet
 
 	function usersonline()
 	{
-		$which_day = gmdate("d F Y", $this->qsf->time + $this->qsf->tz_adjust);
-		$today_date = strtotime("$which_day");
+		$which_day = gmdate('d F Y', $this->qsf->time + $this->qsf->tz_adjust);
+		$today_date = strtotime( $which_day );
 
-		$query = $this->qsf->db->query( "SELECT user_id, user_name, user_lastvisit FROM %pusers
-			WHERE user_lastvisit >= %d AND user_name NOT LIKE 'Guest' ORDER BY user_name",
-			$today_date);
+		$query = $this->qsf->db->query( 'SELECT user_id, user_name, user_lastvisit, group_format FROM %pusers 
+			JOIN %pgroups ON (user_group = group_id)
+			WHERE user_lastvisit >= %d AND user_id != %d ORDER BY user_name',
+			$today_date, USER_GUEST_UID );
 
 		$count_users = $this->qsf->db->num_rows($query);
 		$user_names = '';
@@ -138,23 +139,29 @@ class users_online extends modlet
 		if($count_users == '0') {
 			$title_onlinetd_table = '<b>There have been no members online today.</b>';
 		} else {
-			for($i=0; $i < $count_users; $i++) {
-				$user_id = mysql_result($query, $i, "user_id");
-				$user_name = mysql_result($query, $i, "user_name");
+			$i=0;
+
+			while( $row = $this->qsf->db->nqfetch( $query ) )
+			{
+				$user_id = $row['user_id'];
+				$user_name = $row['user_name'];
+				$format = $row['group_format'];
 
 				if ($i == ($count_users - 1)) {
-					$comma = "";
+					$comma = '';
 				} else {
-					$comma = ", ";
+					$comma = ', ';
 				}
 
-               			if($count_users == '1') {
-					$title_onlinetd_table = "<b>There has been " . $count_users . " member online today:</b>";
-				}
-				if($count_users > '1') {
-					$title_onlinetd_table = "<b>There have been " . $count_users . " members online today:</b>";
-				}
-				$user_names = $user_names . "<a href='{$this->qsf->self}?a=profile&amp;w=$user_id' class='small'>" . $user_name . "</a>" . $comma;
+				$user_names .= "<a href='{$this->qsf->self}?a=profile&amp;w=$user_id' class='small'>" . sprintf( $format, $user_name ) . '</a>' . $comma;
+				$i++;
+			}
+
+               		if ($count_users == '1')
+			{
+				$title_onlinetd_table = '<b>There has been ' . $count_users . ' member online today:</b>';
+			} elseif ($count_users > '1') {
+				$title_onlinetd_table = '<b>There have been ' . $count_users . ' members online today:</b>';
 			}
 		}
 		return array( 'TITLEONTABLE'  => $title_onlinetd_table, 'USERNAMES' => $user_names );
