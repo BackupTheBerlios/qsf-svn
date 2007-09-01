@@ -141,6 +141,94 @@ class new_install extends qsfglobal
 			$pre = $this->sets['prefix'];
 			$this->pre = $this->sets['prefix'];
 
+			// Build settings array for the DB
+			$this->sets['attach_types'] = array('jpg', 'gif', 'png', 'bmp', 'zip', 'tgz', 'gz', 'rar');
+			$this->sets['attach_upload_size'] = 25600;
+			$this->sets['avatar_height'] = 75;
+			$this->sets['avatar_upload_size'] = 51200;
+			$this->sets['avatar_width'] = 75;
+			$this->sets['banned_ips'] = array();
+			$this->sets['clickable_per_row'] = 5;
+			$this->sets['closed'] = 0;
+			$this->sets['closedtext'] = 'We are upgrading to the latest version of Quicksilver Forums. Please check back later.';
+			$this->sets['cookie_path'] = '/';
+			$this->sets['cookie_prefix'] = 'qsf_';
+			$this->sets['cookie_domain'] = '';
+			$this->sets['cookie_secure'] = 0;
+			$this->sets['emailactivation'] = 1;
+			$this->sets['flash_avs'] = 1;
+			$this->sets['flood_time'] = 30;
+			$this->sets['hot_limit'] = 20;
+			$this->sets['loc_of_board'] = $this->post['board_url'];
+			$this->sets['forum_name'] = $this->post['board_name'];
+			$this->sets['last_member'] = '';
+			$this->sets['last_member_id'] = 0;
+			$this->sets['link_target'] = '_blank';
+			$this->sets['logintime'] = 31536000;
+			$this->sets['mailserver'] = 'localhost';
+			$this->sets['max_load'] = 0;
+			$this->sets['mostonline'] = 0;
+			$this->sets['mostonlinetime'] = 0;
+			$this->sets['output_buffer'] = (extension_loaded('zlib') ? 1 : 0);
+			$this->sets['posts'] = 0;
+			$this->sets['posts_per_page'] = 15;
+			$this->sets['register_image'] = 0;
+			$this->sets['servertime'] = 151;
+			$this->sets['topics'] = 0;
+			$this->sets['topics_per_page'] = 20;
+			$this->sets['vote_after_results'] = 0;
+			$this->sets['default_skin'] = 'default';
+			$this->sets['default_email_shown'] = 0;
+			$this->sets['default_lang'] = 'en';
+			$this->sets['default_group'] = 2;
+			$this->sets['default_timezone'] = 151;
+			$this->sets['default_pm'] = 1;
+			$this->sets['default_view_avatars'] = 1;
+			$this->sets['default_view_sigs'] = 1;
+			$this->sets['default_view_emots'] = 1;
+			$this->sets['flood_time_pm'] = 30;
+			$this->sets['flood_time_search'] = 10;
+			$this->sets['members'] = 0;
+			$this->sets['spider_active'] = 1;
+			$this->sets['spider_name'] = array(
+				'googlebot' 	=> 'Google',
+				'lycos' 	=> 'Google',
+				'ask jeeves' 	=> 'Google',
+				'scooter'	=> 'Altavista',
+				'fast-webcrawler'=>'AlltheWeb',
+				'slurp@inktomi' => 'Inktomi',
+				'turnitinbot'	=> 'Turnitin.com',
+				'gigabot'	=> 'Gigabot',
+				'yahoo'		=> 'Yahoo! Slurp',
+				'msnbot'	=> 'MSN Search',
+				'mediapartners-google'=>'AdSense',
+				'naverbot'	=> 'Naver',
+				'jetbot'	=> 'JetEye',
+				'alexa'		=> 'Alexa',
+				'ArchitextSpider'=>'Excite-Bot',
+				'pipeLiner'	=> 'PipeLine Spider'
+			);
+			$this->sets['debug_mode'] = 0;
+			$this->sets['rss_feed_title'] = '';
+			$this->sets['rss_feed_desc'] = '';
+			$this->sets['rss_feed_posts'] = 5;
+			$this->sets['rss_feed_time'] = 60;
+			$this->sets['optional_modules'] = array(
+				'active',
+				'cp',
+				'email',
+				'help',
+				'members',
+				'mod',
+				'pm',
+				'profile',
+				'search',
+				'recent',
+				'rssfeed'
+			);
+
+			$settings = serialize($this->sets);
+
 			// Create tables
 			include './' . $this->sets['dbtype'] . '_data_tables.php';
 
@@ -154,11 +242,6 @@ class new_install extends qsfglobal
 			packageutil::insert_templates('default', $this->db, $templatesNode);
 			unset($templatesNode);
 			$xmlInfo = null;
-
-			$this->sets = $this->get_settings($this->sets);
-
-			$this->sets['loc_of_board'] = $this->post['board_url'];
-			$this->sets['forum_name'] = $this->post['board_name'];
 
 			$this->post['admin_pass'] = md5($this->post['admin_pass']);
 
