@@ -100,15 +100,16 @@ class sql
 	 **/
 	public function forum()
 	{
-		$this->forum_get_topics = 'SELECT
-				DISTINCT(p.post_author) as dot,
+		$this->forum_get_topics = '
+			SELECT DISTINCT 
+				p.post_author AS dot,
 				t.topic_id, t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes,
 				t.topic_posted, t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
-				s.user_name AS topic_starter_name, m.user_name AS topic_last_poster_name, p.post_id AS topic_last_post, (t.topic_modes & %d)
+				s.user_name AS topic_starter_name, m.user_name AS topic_last_poster_name, p.post_id AS topic_last_post, (t.topic_modes & %d) AS nop
 			FROM
 				%pusers s
 			LEFT JOIN %ptopics t ON ( s.user_id = t.topic_starter )
-			LEFT JOIN %pposts p ON (t.topic_id = p.post_topic AND p.post_author = %d)
+			LEFT JOIN %pposts p ON (t.topic_id = p.post_topic AND p.post_author = %d AND p.post_id = t.topic_last_post )
 			LEFT JOIN %pusers m ON m.user_id = t.topic_last_poster
 			WHERE
 				((t.topic_forum = %d) OR ((t.topic_modes & %d) != 0))

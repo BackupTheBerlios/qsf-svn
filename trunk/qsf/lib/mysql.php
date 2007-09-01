@@ -203,7 +203,7 @@ class db_mysql extends database
 	}
 
 	// SQL for libs
-	private function activeutil()
+	protected function activeutil()
 	{
 		$this->activeutil_update = 'REPLACE INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, INET_ATON(\'%s\'), \'%s\', \'%s\')';
 		$this->activeutil_load = 'SELECT a.*, INET_NTOA(a.active_ip) as active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name

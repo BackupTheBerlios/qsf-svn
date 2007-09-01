@@ -291,7 +291,7 @@ $queries[] = "CREATE TABLE %pusers (
   user_view_signatures int2 NOT NULL default '1',
   user_view_emoticons int2 NOT NULL default '1',
   user_topics_page int2 NOT NULL DEFAULT '0',
-  user_regip int4 NOT NULL default '0',
+  user_regip inet NOT NULL default '127.0.0.1',
   user_posts_page int2 NOT NULL DEFAULT '0',
   user_perms text NOT NULL default '',
   PRIMARY KEY  (user_id)
