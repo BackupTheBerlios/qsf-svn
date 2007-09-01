@@ -54,7 +54,7 @@ class sql
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 2.0.0
 	 **/
-	private function activeutil()
+	protected function activeutil()
 	{
 //		$this->activeutil_update = 'UPDATE %pactive SET active_id=%d, active_action=\'%s\', active_item=%d, active_time=%d, active_ip=\'%s\', active_user_agent=\'%s\', active_session = \'%s\' WHERE active_session = \'%s\'';
 		$this->activeutil_update = 'INSERT INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, \'%s\', \'%s\', \'%s\')';
@@ -116,6 +116,17 @@ class sql
 				(t.topic_modes & %d) DESC,
 				%s
 			LIMIT %d OFFSET %d';
+	}
+
+	/**
+	 * SQL for the post page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function post()
+	{
+		$this->post_makepost = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, %d, %d, %d, \'%s\', \'%s\')';
 	}
 
 	/**

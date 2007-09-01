@@ -511,8 +511,7 @@ class post extends qsfglobal
 			}
 			*/
 
-			$this->db->query("INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon)
-				VALUES (%d, %d, '%s', %d, %d, %d, %d, INET_ATON('%s'), '%s')",
+			$this->db->query( $this->db->post_makepost,
 				$this->get['t'], $this->user['user_id'], $this->post['post'], $this->time, $this->post['parseEmot'], $this->post['parseCode'], $post_count, $this->ip, $this->post['icon']);
 			$post_id = $this->db->insert_id("posts");
 

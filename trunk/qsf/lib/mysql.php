@@ -229,7 +229,18 @@ class db_mysql extends database
 	}
 
 	/**
-	 * SQL for the readmarker lib, used by topic
+	 * Over-riding SQL for the post page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function post()
+	{
+		$this->post_makepost = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, %d, %d, %d, INET_ATON(\'%s\'), \'%s\')';
+	}
+
+	/**
+	 * Over-riding SQL for the readmarker lib, used by topic
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 2.0.0

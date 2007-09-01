@@ -159,7 +159,7 @@ class topic extends qsfglobal
 		if ($this->get['unread']) {
 			// Jump to the first unread post (or the last post)
 			$timeread = $this->readmarker->topic_last_read($this->get['t']);
-			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM %pposts WHERE post_topic = %d AND post_time < %d",
+			$posts = $this->db->fetch("SELECT COUNT(post_id) AS posts FROM %pposts WHERE post_topic = %d AND post_time < %d",
 				$this->get['t'], $timeread);
 			if ($posts) $postCount = $posts['posts'] + 1;
 			else $postCount = 0;
@@ -171,7 +171,7 @@ class topic extends qsfglobal
 		if ($this->get['p']) {
 			// We need to find what page this post exists on!
 			// TODO: find a better way to do this. if post_id cycles (unlikely) it'll stuff things up
-			$posts = $this->db->fetch("SELECT COUNT(post_id) posts FROM %pposts WHERE post_topic = %d AND post_id < %d",
+			$posts = $this->db->fetch("SELECT COUNT(post_id) AS posts FROM %pposts WHERE post_topic = %d AND post_id < %d",
 				$this->get['t'], $this->get['p']);
 			if ($posts) $postCount = $posts['posts'] + 1;
 			else $postCount = 0;

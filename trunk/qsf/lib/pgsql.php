@@ -129,7 +129,9 @@ class db_pgsql extends database
 
 		$this->querycount++;
 
-		$this->debug($query); // temp always debug for now
+		if (isset($this->get['debug'])) {
+			$this->debug($query);
+		}
 
 		$this->last = pg_query( $this->connection, $query );
 
