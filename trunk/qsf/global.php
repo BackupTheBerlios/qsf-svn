@@ -143,6 +143,18 @@ class qsfglobal
 		$this->activeutil = new $this->modules['active']($this);
 
 		$this->templater->init_templates($this->get['a'], $admin);
+
+		// generate text of database driver we are using
+		if ( $admin )
+		{
+			$version = $this->db->version();
+			switch( $this->sets['dbtype'] )
+			{
+				case 'mysql': $this->db_driver = 'MySQL: ' . $version; break;
+				case 'mysqli': $this->db_driver = 'MySQLi: ' . $version; break;
+				case 'pgsql': $this->db_driver = 'PgSQL: ' . $version; break;
+			}
+		}
 		
 		$this->set_table();
 

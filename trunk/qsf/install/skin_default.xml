@@ -1290,7 +1290,7 @@
       <html><![CDATA[
 {$admin->table}
    <a href="../" style="font-weight:bold">{$admin->lang->admin_your_board}</a>
-   -- {$admin->lang->powered} <a href="http://www.quicksilverforums.com" style="font-weight:bold">{$admin->name}</a>
+   -- {$admin->lang->powered} <a href="http://www.quicksilverforums.com" style="font-weight:bold">{$admin->name}</a> ({$admin->db_driver})
   {$admin->etable}
  </div>
 

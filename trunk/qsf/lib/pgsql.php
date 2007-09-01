@@ -187,5 +187,17 @@ class db_pgsql extends database
 	{
 		return pg_escape_string($string);
 	}
+
+	/**
+	 * Returns the current PgSQL server version
+	 *
+	 * @since 2.0.0
+	 * @return string A string with the version number
+	 **/
+	function version()
+	{
+		list( $version ) = $this->fetch( 'SELECT VERSION() as version' );
+		return $version;
+	}
 }
 ?>
