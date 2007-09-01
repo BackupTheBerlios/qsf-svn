@@ -120,8 +120,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_title, topic_forum, topic_starter, topic_modes, topic_poll_options
-			FROM %ptopics WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_move_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!isset($topic['topic_title'])) {
@@ -153,7 +152,7 @@ class mod extends qsfglobal
 				return $this->message($this->lang->mod_label_controls, $this->lang->mod_error_move_create, $this->lang->continue, "$this->self?a=topic&amp;t={$this->get['t']}");
 			}
 
-			$target = $this->db->fetch('SELECT forum_parent FROM %pforums WHERE forum_id=%d', $this->post['newforum']);
+			$target = $this->db->fetch( $this->db->mod_move_topic_fetch_target, $this->post['newforum']);
 			if (!isset($target['forum_parent'])) {
 				return $this->message($this->lang->mod_label_controls, $this->lang->mod_error_move_forum, $this->lang->continue, "$this->self?a=topic&amp;t={$this->get['t']}");
 			} elseif (!$target['forum_parent']) {
@@ -164,21 +163,21 @@ class mod extends qsfglobal
 				$this->db->clone_row('topics', 'topic_id', $this->get['t']);
 				$newtopic = $this->db->insert_id('topics');
 
-				$this->db->query('UPDATE %ptopics SET topic_modes=%d, topic_moved=%d WHERE topic_id=%d OR topic_moved=%d',
+				$this->db->query( $this->db->mod_move_topic_update_topic,
 					$topic['topic_modes'] | TOPIC_MOVED, $newtopic, $this->get['t'], $this->get['t']);
 			} else {
 				$newtopic = $this->get['t'];
 			}
 
-			$this->db->query("UPDATE %ptopics SET topic_forum=%d WHERE topic_id=%d", $this->post['newforum'], $newtopic);
-			$this->db->query("UPDATE %pposts SET post_topic=%d WHERE post_topic=%d", $newtopic, $this->get['t']);
-			$this->db->query("UPDATE %pvotes SET vote_topic=%d WHERE vote_topic=%d", $newtopic, $this->get['t']);
+			$this->db->query( $this->db->mod_move_topic_update_topic_forum, $this->post['newforum'], $newtopic);
+			$this->db->query( $this->db->mod_move_topic_update_posts, $newtopic, $this->get['t']);
+			$this->db->query( $this->db->mod_move_topic_update_votes, $newtopic, $this->get['t']);
 
 			$this->update_subscriptions( $newtopic );
 			$this->update_last_post($topic['topic_forum']);
 			$this->update_last_post($this->post['newforum']);
 
-			$ammount = $this->db->fetch("SELECT topic_replies FROM %ptopics WHERE topic_id=%d", $newtopic);
+			$ammount = $this->db->fetch( $this->db->mod_move_topic_fetch_ammount, $newtopic);
 			$ammount = intval($ammount['topic_replies']);
 
 			$this->update_count_move($topic['topic_forum'], $this->post['newforum'], $ammount);
@@ -207,9 +206,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['p'] = intval($this->get['p']);
-		$data = $this->db->fetch('SELECT p.post_text, p.post_author, p.post_emoticons, p.post_mbcode, p.post_topic, p.post_icon, p.post_time, t.topic_forum, t.topic_replies
-			FROM %pposts p, %ptopics t
-			WHERE t.topic_id=p.post_topic AND p.post_id=%d', $this->get['p']);
+		$data = $this->db->fetch( $this->db->mod_edit_post_fetch_data, $this->get['p']);
 
 		// Existence check
 		if (!isset($data['post_text'])) {
@@ -281,16 +278,13 @@ class mod extends qsfglobal
 			$this->log_action('post_edit', $this->get['p']);
 			$this->post['icon'] = isset($this->post['icon']) ? $this->post['icon'] : '';
 
-			$this->db->query("UPDATE %pposts SET post_text='%s', post_emoticons=%d, post_mbcode=%d, post_edited_by='%s', post_edited_time=%d, post_icon='%s' WHERE post_id=%d",
+			$this->db->query( $this->db->mod_edit_post_update_posts,
 				$this->post['post'], $emot , $code, $this->user['user_name'], $this->time, $this->post['icon'], $this->get['p']);
 
-			$first = $this->db->fetch( "SELECT p.post_id
-			 FROM %pposts p, %ptopics t
-			 WHERE p.post_topic=t.topic_id AND t.topic_id=%d
-			 ORDER BY p.post_time LIMIT 1", $data['post_topic'] );
+			$first = $this->db->fetch( $this->db->mod_edit_post_fetch_first, $data['post_topic'] );
 
 			if ($first['post_id'] == $this->get['p']) {
-				$this->db->query( "UPDATE %ptopics SET topic_icon='%s' WHERE topic_id='%d'", $this->post['icon'], $data['post_topic'] );
+				$this->db->query( $this->db->mod_edit_post_update_topics, $this->post['icon'], $data['post_topic'] );
 			}
 
 			$jump = '&amp;p=' . $this->get['p'] . '#p' . $this->get['p'];
@@ -317,8 +311,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_title, topic_description, topic_starter, topic_forum, topic_modes
-			FROM %ptopics WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_edit_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!isset($topic['topic_title'])) {
@@ -357,7 +350,7 @@ class mod extends qsfglobal
 				}
 			}
 
-			$this->db->query("UPDATE %ptopics SET topic_title='%s', topic_description='%s', topic_modes='%s' WHERE topic_id=%d",
+			$this->db->query( $this->db->mod_edit_topic_update_topics,
 				$this->post['title'], $this->post['desc'], $topic['topic_modes'], $this->get['t']);
 
 			$this->log_action('topic_edit', $this->get['t']);
@@ -384,7 +377,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_modes, topic_starter, topic_forum FROM %ptopics	WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_pinlock_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!$topic) {
@@ -431,7 +424,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_modes, topic_starter, topic_forum FROM %ptopics WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_pinlock_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!$topic) {
@@ -478,19 +471,14 @@ class mod extends qsfglobal
 		}
 
 		$this->get['p'] = intval($this->get['p']);
-		$post = $this->db->fetch('SELECT p.post_id, p.post_author, p.post_topic, p.post_time, t.topic_id, t.topic_forum
-			FROM %pposts p,	%ptopics t
-			WHERE p.post_id=%d AND p.post_topic=t.topic_id', $this->get['p']);
+		$post = $this->db->fetch( $this->db->mod_del_post_fetch_post, $this->get['p']);
 
 		// Existence check
 		if (!isset($post['post_id'])) {
 			return $this->message($this->lang->mod_label_controls, $this->lang->mod_missing_post,  $this->lang->continue, "javascript:history.go(-1)");
 		}
 
-		$first = $this->db->fetch('SELECT p.post_id
-			FROM %pposts p,	%ptopics t
-			WHERE p.post_topic=t.topic_id AND t.topic_id=%d
-			ORDER BY p.post_time LIMIT 1', $post['topic_id']);
+		$first = $this->db->fetch( $this->db->mod_del_post_fetch_first, $post['topic_id']);
 
 		if ($first['post_id'] == $this->get['p']) {
 			return $this->message($this->lang->mod_label_controls, $this->lang->mod_error_first_post);
@@ -508,9 +496,7 @@ class mod extends qsfglobal
 			return $this->message($this->lang->mod_label_controls, $this->lang->mod_confirm_post_delete, $this->lang->continue, "$this->self?a=mod&amp;s=del_post&amp;p={$this->get['p']}&amp;confirm=1");
 		}
 
-		$prev = $this->db->fetch("SELECT MAX(p.post_id) AS prev_post FROM %pposts p
-			WHERE p.post_topic = %d AND p.post_time < %d",
-			$post['post_topic'], $post['post_time']);
+		$prev = $this->db->fetch( $this->db->mod_del_post_fetch_prev, $post['post_topic'], $post['post_time'] );
 		  
 		$jump = '&amp;p=' . $prev['prev_post'] . '#p' . $prev['prev_post'];
 
@@ -541,7 +527,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_id, topic_forum, topic_starter FROM %ptopics WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_del_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!isset($topic['topic_id'])) {
@@ -585,7 +571,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_modes, topic_forum FROM %ptopics WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_publish_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!$topic) {
@@ -625,8 +611,7 @@ class mod extends qsfglobal
 		}
 
 		$this->get['t'] = intval($this->get['t']);
-		$topic = $this->db->fetch('SELECT topic_id, topic_forum, topic_starter, topic_title, topic_modes
-			FROM %ptopics WHERE topic_id=%d', $this->get['t']);
+		$topic = $this->db->fetch( $this->db->mod_split_topic_fetch_topic, $this->get['t']);
 
 		// Existence check
 		if (!isset($topic['topic_id'])) {
@@ -680,19 +665,19 @@ class mod extends qsfglobal
 					} else {
 						$mode = 0;
 					}
-					$this->db->query("UPDATE %ptopics SET topic_title='%s', topic_replies=%d, topic_views=0, topic_description='', topic_modes=%d WHERE topic_id=%d",
+					$this->db->query( $this->db->mod_split_topic_update_topics,
 						$this->post['topic'][$x], $where[$x]['count'], $mode, $id);
-					$this->db->query("UPDATE %pposts SET post_topic=%d WHERE post_id IN (%s)", $id, implode(',', $where[$x]['posts']));
+					$this->db->query( $this->db->mod_split_topic_update_posts, $id, implode(',', $where[$x]['posts']));
 
 					$this->update_last_post_topic($id);
 
-					$posts = $this->db->fetch("SELECT post_author, post_icon, post_time FROM %pposts WHERE post_topic=%d ORDER BY post_time ASC", $id);
-					$this->db->query("UPDATE %ptopics SET topic_starter=%d, topic_icon='%s' WHERE topic_id=%d",
+					$posts = $this->db->fetch( $this->db->mod_split_topic_fetch_posts, $id);
+					$this->db->query( $this->db->mod_split_topic_update_topics2,
 						$posts['post_author'], $posts['post_icon'], $id);
 				}
 			}
 
-			$this->db->query("UPDATE %ptopics SET topic_replies=topic_replies-%d WHERE topic_id=%d",
+			$this->db->query( $this->db->mod_split_topic_update_topics3,
 				$moved, $this->get['t']);
 
 			$this->update_last_post_topic($this->get['t']);
@@ -713,41 +698,36 @@ class mod extends qsfglobal
 	 **/
 	function delete_topic($t)
 	{
-		$posts = $this->db->query("
-			SELECT DISTINCT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_id, p.post_count, u.user_posts
-			FROM (%ptopics t, %pposts p, %pusers u)
-			LEFT JOIN %pattach a ON p.post_id=a.attach_post
-			WHERE t.topic_id=%d AND t.topic_id=p.post_topic AND p.post_author=u.user_id", $t);
+		$posts = $this->db->query( $this->db->mod_delete_topic_select_posts, $t);
 
 		$deleted = -1;
 
 		while ($post = $this->db->nqfetch($posts))
 		{
 			if ($post['post_count']) {
-				$this->db->query('UPDATE %pusers SET user_posts=user_posts-1 WHERE user_id=%d', $post['post_author']);
+				$this->db->query( $this->db->mod_delete_topic_update_users, $post['post_author']);
 			}
 
 			if ($post['attach_file']) {
-				$this->db->query('DELETE FROM %pattach WHERE attach_post=%d', $post['post_id']);
+				$this->db->query( $this->db->mod_delete_topic_delete_attach, $post['post_id']);
 				@unlink('./attachments/' . $post['attach_file']);
 			}
 
 			$deleted++;
 		}
 
-		$result = $this->db->fetch('SELECT topic_forum FROM %ptopics WHERE topic_id=%d', $t);
+		$result = $this->db->fetch( $this->db->mod_delete_topic_fetch_result, $t);
 
-		$this->db->query('DELETE FROM %pvotes WHERE vote_topic=%d', $t);
-		$this->db->query('DELETE FROM %ptopics WHERE topic_id=%d OR topic_moved=%d', $t, $t);
-		$this->db->query('DELETE FROM %pposts WHERE post_topic=%d', $t);
-		$this->db->query('DELETE FROM %preadmarks WHERE readmark_topic = %d', $t);
+		$this->db->query( $this->db->mod_delete_topic_delete_votes, $t);
+		$this->db->query( $this->db->mod_delete_topic_delete_topics, $t, $t);
+		$this->db->query( $this->db->mod_delete_topic_delete_posts, $t);
+		$this->db->query( $this->db->mod_delete_topic_delete_readmarks, $t);
 
 		$this->update_reply_count($result['topic_forum'], $deleted);
 
 		// Update all parent forums if any
-		$forums = $this->db->fetch("SELECT forum_tree FROM %pforums WHERE forum_id=%d", $result['topic_forum']);
-		$this->db->query("UPDATE %pforums SET forum_topics=forum_topics-1
-			WHERE forum_parent > 0 AND forum_id IN (%s) OR forum_id=%d",
+		$forums = $this->db->fetch( $this->db->mod_delete_topic_select_forums, $result['topic_forum']);
+		$this->db->query( $this->db->mod_delete_topic_update_forums, 
 			$forums['forum_tree'], $result['topic_forum']);
 
 		$this->sets['posts'] -= ($deleted+1);
@@ -765,28 +745,26 @@ class mod extends qsfglobal
 	 **/
 	function delete_post($p)
 	{
-		$result = $this->db->fetch("SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_count, u.user_posts
-			FROM (%ptopics t, %pposts p, %pusers u)
-			LEFT JOIN %pattach a ON p.post_id=a.attach_post
-			WHERE p.post_id=%d AND t.topic_id=p.post_topic AND u.user_id=p.post_author", $p);
+		$result = $this->db->fetch( $this->db->mod_delete_post_fetch_result, $p );
 
-		$this->db->query('UPDATE %pforums SET forum_replies=forum_replies-1 WHERE forum_id=%d', $result['topic_forum']);
-		$this->db->query('UPDATE %ptopics SET topic_replies=topic_replies-1 WHERE topic_id=%d', $result['topic_id']);
+		$this->db->query( $this->db->mod_delete_post_update_forums, $result['topic_forum']);
+		$this->db->query( $this->db->mod_delete_post_update_topics, $result['topic_id']);
 		if ($result['post_count']) {
 			$posts = $result['user_posts'] - 1;
 
 			if ($posts < 0) {
 				$posts = 0;
 			}
-			$this->db->query('UPDATE %pusers SET user_posts=%d WHERE user_id=%d', $posts, $result['post_author']);
+			$this->db->query( $this->db->mod_delete_post_update_users, $posts, $result['post_author']);
 		}
 
-		$this->db->query('DELETE FROM %pposts WHERE post_id=%d', $p);
+		$this->db->query( $this->db->mod_delete_post_delete_posts, $p);
 
 		if ($result['attach_file']) {
-			$this->db->query('DELETE FROM %pattach WHERE attach_post=%d', $p);
+			$this->db->query( $this->db->mod_delete_post_delete_attach, $p);
 			@unlink('./attachments/' . $result['attach_file']);
 		}
+
 
 		$this->update_last_post_topic($result['topic_id']);
 		$this->sets['posts'] -= 1;
@@ -804,7 +782,7 @@ class mod extends qsfglobal
 	 **/
 	function lock($t, $topic_modes)
 	{
-		$this->db->query('UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d',
+		$this->db->query( $this->db->mod_lock_update_topics,
 			$topic_modes | TOPIC_LOCKED, $t);
 	}
 
@@ -819,7 +797,7 @@ class mod extends qsfglobal
 	 **/
 	function unlock($t, $topic_modes)
 	{
-		$this->db->query('UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d',
+		$this->db->query( $this->db->mod_unlock_update_topics,
 			$topic_modes ^ TOPIC_LOCKED, $t);
 	}
 
@@ -834,7 +812,7 @@ class mod extends qsfglobal
 	 **/
 	function pin($t, $topic_modes)
 	{
-		$this->db->query('UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d',
+		$this->db->query( $this->db->mod_pin_update_topics,
 			$topic_modes | TOPIC_PINNED, $t);
 	}
 
@@ -849,9 +827,9 @@ class mod extends qsfglobal
 	 **/
 	function unpin($t, $topic_modes)
 	{
-		$topic = $this->db->fetch('SELECT topic_forum FROM %ptopics WHERE topic_id=%d', $t);
+		$topic = $this->db->fetch( $this->db->mod_unpin_fetch_topic, $t);
 
-		$this->db->query('UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d OR topic_moved=%d',
+		$this->db->query( $this->db->mod_unpin_update_topics,
 			$topic_modes ^ TOPIC_PINNED, $t, $t);
 		$this->update_last_post($topic['topic_forum']);
 	}
@@ -865,7 +843,7 @@ class mod extends qsfglobal
 	 **/
 	function publish($t, $topic_modes)
 	{
-		$this->db->query('UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d',
+		$this->db->query( $this->db->mod_publish_update_topics,
 			$topic_modes | TOPIC_PUBLISH, $t);
 	}
 
@@ -878,7 +856,7 @@ class mod extends qsfglobal
 	 **/
 	function unpublish($t, $topic_modes)
 	{
-		$this->db->query('UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d',
+		$this->db->query( $this->db->mod_unpublish_update_topics,
 			$topic_modes ^ TOPIC_PUBLISH, $t);
 	}
 
@@ -897,7 +875,7 @@ class mod extends qsfglobal
 			return;
 
 		/* decrement the parent forums */
-		$forums = $this->db->fetch("SELECT forum_tree FROM %pforums WHERE forum_id=%d", $f);
+		$forums = $this->db->fetch( $this->db->mod_update_reply_count_fetch_forums, $f);
 
 		if (isset($forums['forum_tree']) && 0 != strlen($forums['forum_tree']))
 		{
@@ -912,10 +890,10 @@ class mod extends qsfglobal
 				if (0 == $fid)
 					continue;
 
-				$this->db->query('UPDATE %pforums SET forum_replies=forum_replies-%d WHERE forum_id=%d', $ammount, $fid);
+				$this->db->query( $this->db->mod_update_reply_count_update_forums, $ammount, $fid);
 
 				if (0 != $topic)
-					$this->db->query('UPDATE %pforums SET forum_topics=forum_topics-%d WHERE forum_id=%d',
+					$this->db->query( $this->db->mod_update_reply_count_update_forums2,
 						intval($topic), $fid);
 
 			}
@@ -939,7 +917,7 @@ class mod extends qsfglobal
 	function update_last_post($f)
 	{
 		/* update any parent forums */
-		$forums = $this->db->fetch("SELECT forum_tree FROM %pforums WHERE forum_id=%d", $f);
+		$forums = $this->db->fetch( $this->db->mod_update_last_post_fetch_forums, $f);
 
 		if (isset($forums['forum_tree']) && 0 != strlen($forums['forum_tree']))
 		{
@@ -963,16 +941,13 @@ class mod extends qsfglobal
 
 	function _update_last_post($f)
 	{
-		$post = $this->db->fetch('SELECT p.post_id FROM (%pposts p, %ptopics t)
-			WHERE t.topic_id=p.post_topic AND t.topic_forum=%d
-			ORDER BY t.topic_edited DESC, p.post_id DESC
-			LIMIT 1', $f);
+		$post = $this->db->fetch( $this->db->mod_update_last_post_fetch_post, $f);
 
 		if (!isset($post['post_id'])) {
 			$post['post_id'] = 0;
 		}
 
-		$this->db->query('UPDATE %pforums SET forum_lastpost=%d WHERE forum_id=%d', $post['post_id'], $f);
+		$this->db->query( $this->db->mod_update_last_post_update_forums, $post['post_id'], $f);
 	}
 
 	/**
@@ -985,13 +960,9 @@ class mod extends qsfglobal
 	 **/
 	function update_last_post_topic($t)
 	{
-		$last = $this->db->fetch("SELECT p.post_id, p.post_author, p.post_time
-			FROM %pposts p, %ptopics t
-			WHERE p.post_topic=t.topic_id AND t.topic_id=%d
-			ORDER BY p.post_time DESC
-			LIMIT 1", $t);
+		$last = $this->db->fetch( $this->db->mod_update_last_post_topic_fetch_last, $t);
 
-		$this->db->query("UPDATE %ptopics SET topic_last_post=%d, topic_last_poster=%d, topic_edited=%d WHERE topic_id=%d",
+		$this->db->query( $this->db->mod_update_last_post_topic_update_topics,
 			$last['post_id'], $last['post_author'], $last['post_time'], $t);
 	}
 
@@ -1008,8 +979,7 @@ class mod extends qsfglobal
 	 **/
 	function log_action($action, $data1, $data2 = 0, $data3 = 0)
 	{
-		$this->db->query("INSERT INTO %plogs (log_user, log_time, log_action, log_data1, log_data2, log_data3)
-			VALUES (%d, %d, '%s', %d, %d, %d)",
+		$this->db->query( $this->db->mod_log_action_insert_logs,
 			$this->user['user_id'], $this->time, $action, $data1, $data2, $data3);
 	}
 
@@ -1023,14 +993,7 @@ class mod extends qsfglobal
 	 **/
 	function update_subscriptions($newtopic)
 	{
-		$query = $this->db->query("SELECT s.subscription_user, s.subscription_item, s.subscription_type,
-				u.user_id, u.user_group, u.user_perms,
-				g.group_id, g.group_perms,
-				t.topic_forum
-				FROM (%psubscriptions s, %pusers u, %pgroups g, %ptopics t)
-				WHERE s.subscription_user=u.user_id
-				AND u.user_group=g.group_id
-				AND t.topic_id=%d", $this->get['t']);
+		$query = $this->db->query( $this->db->mod_update_subscriptions, $this->get['t']);
 
 		while ($sub = $this->db->nqfetch($query))
 		{
@@ -1040,10 +1003,10 @@ class mod extends qsfglobal
 			$perms->get_perms($sub['user_group'], $sub['user_id'], ($sub['user_perms'] ? $sub['user_perms'] : $sub['group_perms']));
 
 			if(!$perms->auth('forum_view', $sub['topic_forum'])) {
-				$this->db->query("DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_item=%d",
+				$this->db->query( $this->db->mod_update_subscriptions_delete_subscriptions,
 				$sub['user_id'], $sub['subscription_item']);
 			} else {
-				$this->db->query("UPDATE %psubscriptions SET subscription_item=%d WHERE subscription_item=%d AND subscription_type='topic'",
+				$this->db->query( $this->db->mod_update_subscriptions_update_subscriptions,
 				$newtopic, $this->get['t']);
 			}
 		}

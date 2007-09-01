@@ -169,21 +169,60 @@ class sql
 		$this->mod_delete_topic_delete_topics = 'DELETE FROM %ptopics WHERE topic_id=%d OR topic_moved=%d';
 		$this->mod_delete_topic_delete_posts = 'DELETE FROM %pposts WHERE post_topic=%d';
 		$this->mod_delete_topic_delete_readmarks = 'DELETE FROM %preadmarks WHERE readmark_topic = %d';
+		$this->mod_delete_topic_select_forums = 'SELECT forum_tree FROM %pforums WHERE forum_id=%d';
+		$this->mod_delete_topic_update_forums = 'UPDATE %pforums SET forum_topics=forum_topics-1 WHERE forum_parent > 0 AND forum_id IN (%s) OR forum_id=%d';
 
-
-
-
-
-
-		$this->mod_delete_post = 'SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_count, u.user_posts
+		$this->mod_delete_post_fetch_result = 'SELECT t.topic_forum, t.topic_id, a.attach_file, p.post_author, p.post_count, u.user_posts
 			FROM %ptopics t, %pusers u, %pposts p
 			LEFT JOIN %pattach a ON p.post_id=a.attach_post
 			WHERE p.post_id=%d AND t.topic_id=p.post_topic AND u.user_id=p.post_author';
-		$this->mod_update_last_post = 'SELECT p.post_id FROM %pposts p JOIN %ptopics t ON (t.topic_id=p.post_topic) 
+		$this->mod_delete_post_update_forums = 'UPDATE %pforums SET forum_replies=forum_replies-1 WHERE forum_id=%d';
+		$this->mod_delete_post_update_topics = 'UPDATE %ptopics SET topic_replies=topic_replies-1 WHERE topic_id=%d';
+		$this->mod_delete_post_update_users = 'UPDATE %pusers SET user_posts=%d WHERE user_id=%d';
+		$this->mod_delete_post_delete_posts = 'DELETE FROM %pposts WHERE post_id=%d';
+		$this->mod_delete_post_delete_attach = 'DELETE FROM %pattach WHERE attach_post=%d';
+
+		$this->mod_lock_update_topics = 'UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d';
+
+		$this->mod_unlock_update_topics = 'UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d';
+
+		$this->mod_pin_update_topics = 'UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d';
+
+		$this->mod_unpin_fetch_topic = 'SELECT topic_forum FROM %ptopics WHERE topic_id=%d';
+		$this->mod_unpin_update_topics = 'UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d OR topic_moved=%d';
+
+		$this->mod_publish_update_topics = 'UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d'; // duplicated... fix... ^^ maybe
+
+		$this->mod_unpublish_update_topics = 'UPDATE %ptopics SET topic_modes=%d WHERE topic_id=%d';
+
+		$this->mod_update_reply_count_fetch_forums = 'SELECT forum_tree FROM %pforums WHERE forum_id=%d';
+		$this->mod_update_reply_count_update_forums = 'UPDATE %pforums SET forum_replies=forum_replies-%d WHERE forum_id=%d';
+		$this->mod_update_reply_count_update_forums2 = 'UPDATE %pforums SET forum_topics=forum_topics-%d WHERE forum_id=%d';
+
+		$this->mod_update_last_post_fetch_forums = 'SELECT forum_tree FROM %pforums WHERE forum_id=%d';
+		$this->mod_update_last_post_fetch_post = 'SELECT p.post_id FROM %pposts p JOIN %ptopics t ON (t.topic_id=p.post_topic) 
 			WHERE t.topic_forum=%d
 			ORDER BY t.topic_edited DESC, p.post_id DESC
 			LIMIT 1';
-		$this->mod_update_last_post_do = 'UPDATE %pforums SET forum_lastpost=%d WHERE forum_id=%d';
+
+
+		$this->mod_update_last_post_update_forums = 'UPDATE %pforums SET forum_lastpost=%d WHERE forum_id=%d';
+
+		$this->mod_update_last_post_topic_fetch_last = 'SELECT p.post_id, p.post_author, p.post_time FROM %pposts p, %ptopics t WHERE p.post_topic=t.topic_id AND t.topic_id=%d ORDER BY p.post_time DESC LIMIT 1';
+		$this->mod_update_last_post_topic_update_topics = 'UPDATE %ptopics SET topic_last_post=%d, topic_last_poster=%d, topic_edited=%d WHERE topic_id=%d';
+
+		$this->mod_log_action_insert_logs = 'INSERT INTO %plogs (log_user, log_time, log_action, log_data1, log_data2, log_data3) VALUES (%d, %d, \'%s\', %d, %d, %d)';
+		
+		$this->mod_update_subscriptions = 'SELECT s.subscription_user, s.subscription_item, s.subscription_type,
+			u.user_id, u.user_group, u.user_perms,
+			g.group_id, g.group_perms,
+			t.topic_forum
+			FROM (%psubscriptions s, %pusers u, %pgroups g, %ptopics t)
+			WHERE s.subscription_user=u.user_id
+			AND u.user_group=g.group_id
+			AND t.topic_id=%d';
+		$this->mod_update_subscriptions_delete_subscriptions = 'DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_item=%d';
+		$this->mod_update_subscriptions_update_subscriptions = 'UPDATE %psubscriptions SET subscription_item=%d WHERE subscription_item=%d AND subscription_type=\'topic\'';
 	}
 
 	/**
