@@ -56,10 +56,7 @@ class profile extends qsfglobal
 
 		$user = intval($this->get['w']);
 
-		$profile = $this->db->fetch("SELECT m.*, g.group_name, a.active_time
-			FROM (%pusers m, %pgroups g)
-			LEFT JOIN %pactive a ON a.active_id=m.user_id
-			WHERE m.user_id=%d AND g.group_id=m.user_group", $user);
+		$profile = $this->db->fetch( $this->db->profile_execute_fetch_profile, $user);
 
 		if (!$profile || ($user == USER_GUEST_UID)) {
 			return $this->message($this->lang->profile_view_profile, $this->lang->profile_no_member);
@@ -74,27 +71,19 @@ class profile extends qsfglobal
 
 			$user_postsPerDay = number_format($user_postsPerDay, 2, $this->lang->sep_decimals, $this->lang->sep_thousands);
 
-			$fav = $this->db->query("SELECT COUNT(p.post_id) AS Forumuser_posts, f.forum_id AS Forum, f.forum_name
-				FROM %pposts p, %ptopics t, %pforums f
-				WHERE p.post_topic=t.topic_id AND t.topic_forum=f.forum_id AND p.post_author=%d
-				GROUP BY t.topic_forum
-				ORDER BY Forumuser_posts DESC", $user);
+			$fav = $this->db->query( $this->db->profile_execute_select_fav, $user);
 
 			$final_fav = null;
 
 			while ($f = $this->db->nqfetch($fav))
 			{
-					if ($this->perms->auth('forum_view', $f['Forum'])) {
+					if ($this->perms->auth('forum_view', $f['forum'])) {
 						$final_fav = $f;
 						break;
 					}
 			}
 
-			$last = $this->db->fetch("SELECT t.topic_id, t.topic_forum, t.topic_title, p.post_time
-				FROM %ptopics t, %pposts p
-				WHERE t.topic_id = p.post_topic AND p.post_author=%d
-				ORDER BY p.post_time DESC
-				LIMIT 1", $profile['user_id']);
+			$last = $this->db->fetch( $this->db->profile_execute_select_last, $profile['user_id']);
 
 			if (isset($last['topic_forum']) && $this->perms->auth('topic_view', $last['topic_forum'])) {
 				if (strlen($last['topic_title']) > 25) {
@@ -106,13 +95,13 @@ class profile extends qsfglobal
 				$lastpost = $this->lang->profile_unkown;
 			}
 
-			if (isset($final_fav['Forum'])) {
-				$posts_total = $this->db->fetch('SELECT COUNT(post_id) as count FROM %pposts WHERE post_author=%d', $user);
+			if (isset($final_fav['forum'])) {
+				$posts_total = $this->db->fetch( $this->db->profile_execute_fetch_posts_total, $user);
 
 				if (!$posts_total['count']) {
 					$fav_forum = $this->lang->profile_unkown;
 				} else {
-					$fav_forum = sprintf($this->lang->profile_fav_forum, "<a href='{$this->self}?a=forum&amp;f={$final_fav['Forum']}'>{$final_fav['forum_name']}</a>", round($final_fav['Forumuser_posts'] / $posts_total['count'] * 100));
+					$fav_forum = sprintf($this->lang->profile_fav_forum, "<a href='{$this->self}?a=forum&amp;f={$final_fav['forum']}'>{$final_fav['forum_name']}</a>", round($final_fav['forumuser_posts'] / $posts_total['count'] * 100));
 				}
 			} else {
 				$fav_forum = $this->lang->profile_unkown;
