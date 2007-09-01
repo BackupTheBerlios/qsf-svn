@@ -226,6 +226,42 @@ class sql
 	}
 
 	/**
+	 * SQL for the jsdata module
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function jsdata()
+	{
+		$this->jsdata_execute_select_replace = "SELECT replacement_search, replacement_replace
+				FROM %preplacements
+				WHERE replacement_type = 'emoticon'
+				AND replacement_clickable = 1
+				ORDER BY LENGTH(replacement_search) DESC";
+		$this->jsdata_execute_select_post = 'SELECT p.post_text, t.topic_forum, t.topic_modes,
+						m.user_name, p.post_emoticons, p.post_mbcode
+						FROM %pposts p, %pusers m, %ptopics t
+						WHERE p.post_id=%d AND p.post_author=m.user_id AND p.post_topic=t.topic_id';
+	}
+
+	/**
+	 * SQL for the login page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function login()
+	{
+		$this->login_do_login_fetch_data = "SELECT user_id, user_password FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d LIMIT 1";
+		$this->login_do_logout_update_users = 'UPDATE %pusers SET user_lastvisit = %d WHERE user_id=%d';
+		$this->login_reset_pass_fetch_target = "SELECT user_id, user_name, user_password, user_joined, user_email
+				FROM %pusers WHERE user_name='%s' AND user_id != %d LIMIT 1";
+		$this->login_request_pass_fetch_target = "SELECT user_id, user_name, user_email FROM %pusers
+			WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' AND user_id != %d LIMIT 1";
+		this->login_request_pass_update_users = "UPDATE %pusers SET user_password='%s' WHERE user_id=%d";
+	}
+
+	/**
 	 * SQL for the mod page
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>

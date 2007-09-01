@@ -76,7 +76,7 @@ class login extends qsfglobal
 		} else {
 			$username = str_replace('\\', '&#092;', $this->format($this->post['user'], FORMAT_HTMLCHARS | FORMAT_CENSOR));
 
-			$data  = $this->db->fetch("SELECT user_id, user_password FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d LIMIT 1",
+			$data  = $this->db->fetch( $this->db->login_do_login_fetch_data,
 				str_replace(' ', '', strtolower($username)), USER_GUEST_UID);
 			$pass  = $data['user_password'];
 			$user  = $data['user_id'];
@@ -111,7 +111,7 @@ class login extends qsfglobal
 			return $this->message($this->lang->login_out, sprintf($this->lang->login_sure, $this->user['user_name']), $this->lang->continue, "$this->self?a=login&amp;s=off&amp;sure=1");
 		} else {
 			$this->activeutil->delete($this->user['user_id']);
-			$this->db->query('UPDATE %pusers SET user_lastvisit = %d WHERE user_id=%d',
+			$this->db->query( $this->db->login_do_logout_update_users,
 				$this->time, $this->user['user_id']);
 
 			if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
@@ -138,8 +138,7 @@ class login extends qsfglobal
 		if (!isset($this->post['submit'])) {
 			return eval($this->template('LOGIN_PASS'));
 		} else {
-			$target = $this->db->fetch("SELECT user_id, user_name, user_password, user_joined, user_email
-				FROM %pusers WHERE user_name='%s' AND user_id != %d LIMIT 1",
+			$target = $this->db->fetch( $this->db->login_reset_pass_fetch_target,
 				$this->format($this->post['user'], FORMAT_HTMLCHARS | FORMAT_CENSOR), USER_GUEST_UID);
 			if (!isset($target['user_id'])) {
 				return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_no_id);
@@ -173,8 +172,7 @@ class login extends qsfglobal
 			$this->get['e'] = null;
 		}
 
-		$target = $this->db->fetch("SELECT user_id, user_name, user_email FROM %pusers
-			WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' AND user_id != %d LIMIT 1",
+		$target = $this->db->fetch( $this->db->login_request_pass_fetch_target,
 			 preg_replace('/[^a-z0-9]/', '', $this->get['e']), USER_GUEST_UID);
 		if (!isset($target['user_id'])) {
 			return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_no_id);
@@ -194,7 +192,7 @@ class login extends qsfglobal
 		$mailer->setServer($this->sets['mailserver']);
 		$mailer->doSend();
 
-		$this->db->query("UPDATE %pusers SET user_password='%s' WHERE user_id=%d",
+		$this->db->query( $this->db->login_request_pass_update_users,
 			md5($newpass), $target['user_id']);
 
 		return $this->message($this->lang->login_pass_reset, $this->lang->login_pass_sent);

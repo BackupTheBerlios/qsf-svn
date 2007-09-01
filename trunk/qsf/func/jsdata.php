@@ -53,11 +53,7 @@ class jsdata extends qsfglobal
 			$results['lang'] = $this->lang;
 			
 			// Load smilies
-			$replace = $this->db->query("SELECT replacement_search, replacement_replace
-				FROM %preplacements
-				WHERE replacement_type = 'emoticon'
-				AND replacement_clickable = 1
-				ORDER BY LENGTH(replacement_search) DESC");
+			$replace = $this->db->query( $this->db->jsdata_execute_select_replace );
 			while ($r = $this->db->nqfetch($replace)) {
 				$results['clickablesmilies'][$r['replacement_search']] = "./skins/{$this->skin}/emoticons/{$r['replacement_replace']}";
 			}
@@ -208,11 +204,7 @@ class jsdata extends qsfglobal
 			if (isset($this->get['p'])) {
 				$post_id = intval($this->get['p']);
 				
-				$query = $this->db->fetch("SELECT p.post_text, t.topic_forum, t.topic_modes,
-						m.user_name, p.post_emoticons, p.post_mbcode
-						FROM %pposts p, %pusers m, %ptopics t
-						WHERE p.post_id=%d AND p.post_author=m.user_id AND p.post_topic=t.topic_id",
-						$post_id);
+				$query = $this->db->fetch( $this->db->jsdata_execute_select_post, $post_id);
 				
 				if (!empty($query) &&
 					(($query['topic_modes'] & TOPIC_PUBLISH) || $this->perms->auth('topic_view_unpublished', $query['topic_forum'])) &&
