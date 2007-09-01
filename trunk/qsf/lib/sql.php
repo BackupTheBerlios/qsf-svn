@@ -385,6 +385,7 @@ class sql
 	 **/
 	public function profile()
 	{
+		$this->activeutil();
 		$this->profile_execute_fetch_profile = 'SELECT m.*, g.group_name, a.active_time FROM %pgroups g, %pusers m LEFT JOIN %pactive a ON a.active_id=m.user_id WHERE m.user_id=%d AND g.group_id=m.user_group';
 		$this->profile_execute_select_fav = 'SELECT COUNT(p.post_id) AS forumuser_posts, f.forum_id AS forum, f.forum_name
 				FROM %pposts p, %ptopics t, %pforums f

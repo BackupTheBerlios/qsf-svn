@@ -226,6 +226,7 @@ class db_mysql extends database
 	 **/
 	public function post()
 	{
+		parent::post();
 		$this->post_makepost = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, %d, %d, %d, INET_ATON(\'%s\'), \'%s\')';
 	}
 
@@ -237,6 +238,7 @@ class db_mysql extends database
 	 **/
 	public function profile()
 	{
+		parent::profile();
 		$this->profile_execute_fetch_profile = 'SELECT m.*, g.group_name, a.active_time FROM (%pusers m, %pgroups g) LEFT JOIN %pactive a ON a.active_id=m.user_id WHERE m.user_id=%d AND g.group_id=m.user_group';
 		$this->profile_execute_select_fav = 'SELECT COUNT(p.post_id) AS forumuser_posts, f.forum_id AS forum, f.forum_name
 				FROM %pposts p, %ptopics t, %pforums f
@@ -271,7 +273,7 @@ class db_mysql extends database
 	 **/
 	public function topic()
 	{
-		self::readmarker();
+		parent::topic();
 		$this->topic_get_main = 'SELECT
 			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
 			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
