@@ -33,6 +33,17 @@ if (!defined('QUICKSILVERFORUMS')) {
 class sql
 {
 	/**
+	 * Constructor, loads all common SQL
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function sql()
+	{
+		$this->activeutil();
+	}
+
+	/**
 	 * SQL for the installer
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
@@ -56,7 +67,6 @@ class sql
 	 **/
 	protected function activeutil()
 	{
-//		$this->activeutil_update = 'UPDATE %pactive SET active_id=%d, active_action=\'%s\', active_item=%d, active_time=%d, active_ip=\'%s\', active_user_agent=\'%s\', active_session = \'%s\' WHERE active_session = \'%s\'';
 		$this->activeutil_update = 'INSERT INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, \'%s\', \'%s\', \'%s\')';
 		$this->activeutil_load = 'SELECT a.*, a.active_ip AS active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
 			FROM %pgroups g, %pusers u, %pactive a
@@ -78,7 +88,6 @@ class sql
 	 **/
 	public function active()
 	{
-		$this->activeutil();
 	}
 
 	/**
@@ -89,8 +98,6 @@ class sql
 	 **/
 	public function board()
 	{
-		$this->activeutil();
-
 		$this->board_execute_select = '
 			SELECT
 				f.forum_id, f.forum_parent, f.forum_name, f.forum_position, f.forum_description, f.forum_topics, f.forum_replies, f.forum_lastpost,
@@ -178,8 +185,6 @@ class sql
 	 **/
 	public function forum()
 	{
-		$this->activeutil();
-
 		$this->forum_execute_fetch_exists = 'SELECT forum_parent, forum_name, forum_subcat FROM %pforums WHERE forum_id=%d';
 		$this->forum_execute_fetch_topic = 'SELECT COUNT(topic_id) AS count FROM %ptopics WHERE topic_forum=%d';
 
@@ -385,7 +390,6 @@ class sql
 	 **/
 	public function profile()
 	{
-		$this->activeutil();
 		$this->profile_execute_fetch_profile = 'SELECT m.*, g.group_name, a.active_time FROM %pgroups g, %pusers m LEFT JOIN %pactive a ON a.active_id=m.user_id WHERE m.user_id=%d AND g.group_id=m.user_group';
 		$this->profile_execute_select_fav = 'SELECT COUNT(p.post_id) AS forumuser_posts, f.forum_id AS forum, f.forum_name
 				FROM %pposts p, %ptopics t, %pforums f

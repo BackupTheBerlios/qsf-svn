@@ -71,6 +71,8 @@ class database extends sql
 		$this->db     = $db_name;
 		$this->port   = $db_port;
 		$this->prefix = $db_prefix;
+
+		parent::sql();
 	}
 
 	/**
