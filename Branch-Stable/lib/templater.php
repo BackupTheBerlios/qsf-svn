@@ -221,7 +221,7 @@ class templater extends htmltools
 			}
 		}
         
-		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = (isset($this)) ? $this->templater->modlet_exec("'. $modlet . '", "' . $parameter . '") : $qsf->templater->modlet_exec("'. $modlet . '", "' . $parameter . '"); ';
+		$this->macro[$piece][$macro_id] = '$macro_replace[' . $macro_id . '] = (isset($this)) ? $this->templater->modlet_exec("'. $modlet . '", "' . $parameter . '") : $' . ( ( 'qsfglobal' == get_parent_class( $this->qsf ) ) ? 'qsf' : 'admin' ) . '->templater->modlet_exec("'. $modlet . '", "' . $parameter . '"); ';
 		return '{' . chr(36) . 'macro_replace[' . $macro_id . ']}';
 	}
     
