@@ -100,14 +100,16 @@ define('PLUGIN_CODE_QSF', "
 \$__local_vars = get_defined_vars();
 \$__local_vars_over = \$qsf->event_trigger( \$__event, \$__local_vars );
 foreach( \$__local_vars_over as \$__key => &\$__value )
-	\$\$__key = \$__value;
+	if ( is_string( \$__local_vars_over['\$__key'] )
+		\$\$__key = \$__value;
 " );
 
 define('PLUGIN_CODE_THIS', "
 \$__local_vars = get_defined_vars();
 \$__local_vars_over = \$this->event_trigger( \$__event, \$__local_vars );
 foreach( \$__local_vars_over as \$__key => &\$__value )
-	\$\$__key = \$__value;
+	if ( is_string( \$__local_vars_over['\$__key'] )
+		\$\$__key = \$__value;
 " );
 
 ?>
