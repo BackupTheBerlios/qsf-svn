@@ -8,28 +8,28 @@ $gpc_runtime = get_cfg_var('magic_quotes_runtime') ? 'on' : 'off';
 $server = isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 'unknown';
 
 if (extension_loaded('mysql')) {
-	$mysql_client = mysql_get_client_info();
+	$mysql_client = '<span class="avil_yes">Available</span> (' . mysql_get_client_info() . ')';
 } else {
-	$mysql_client = "Not available";
+	$mysql_client = '<span class="avil_no">Not available</span>';
 }
 
 if (extension_loaded('mysqli')) {
-	$mysqli_client = mysqli_get_client_info();
+	$mysqli_client = '<span class="avil_yes">Available</span> (' . mysqli_get_client_info() . ')';
 } else {
-	$mysqli_client = "Not available";
+	$mysqli_client = '<span class="avil_no">Not available</span>';
 }
 
 if (extension_loaded('pgsql')) {
-	$pgsql_client = "Available";
+	$pgsql_client = '<span class="avil_yes">Available</span>';
 } else {
-	$pgsql_client = "Not available";
+	$pgsql_client = '<span class="avil_no">Not available</span>';
 }
 
 echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' dir='ltr'>
 <head>
 
-<title><?php echo $qsf->name; ?></title>
+<title>{$qsf->name}</title>
 <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
 
 <style type='text/css'>
@@ -46,6 +46,8 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR
   .copyright  {font-size:10px; text-align:center; line-height:14px;}
   .grey       {background-color:transparent; color:#888888;}
   .tiny       {font-size:9px;}
+  .avil_yes   {color: green;font-weight:bold;}
+  .avil_no    {color: red;font-weight:bold;}
   hr          {height:1px; border:0px; border-top:1px solid; border-color:#666666;}
   img         {border:0px;}
   form        {margin:0px;}
