@@ -122,7 +122,8 @@ class bbcode extends htmltools
 		
 		$this->user_view_emoticons = $qsf->user['user_view_emoticons'];
 
-		$qsf->event_trigger( 'bbcode_init' );
+		$__event = 'bbcode_init'; eval( PLUGIN_CODE_QSF );
+//		var_dump( $pwned ); // $pwned is set in the plugin code...!
 
 		if ($createChild) {
 			$this->clone = &new bbcode( $qsf, false );
@@ -156,10 +157,12 @@ class bbcode extends htmltools
 
 		$strtr = array();
 
-		// Use of FORMAT_MBCODE implies FORMAT_HTMLCHARS otherwise the output could be un-safe.
+		// Use of FORMAT_MBCODE implies without FORMAT_HTMLCHARS otherwise the output could be un-safe.
 		if( ($options & FORMAT_HTMLCHARS && !($options & FORMAT_MBCODE) ) ) {
 			$in = htmlentities($in, ENT_COMPAT, 'UTF-8');
 		}
+
+		$backup_in = $in;
 
 		if (($options & FORMAT_MBCODE)) {
 			$in = $this->_pre_parse_links( $in );
@@ -173,7 +176,7 @@ class bbcode extends htmltools
 			{
 				$in = $this->make_html();
 			} else {
-				$in = $this->make_html();
+				$in = htmlentities($backup_in, ENT_COMPAT, 'UTF-8');
 			}
 		}
 
@@ -305,6 +308,8 @@ class bbcode extends htmltools
 					{
 						$__temp = &$curser->parent;
 						$curser = &$__temp;
+					} else {
+						return false;
 					}
 				} else {
 					if ( false == $this->_push( $element ) )
@@ -327,6 +332,7 @@ class bbcode extends htmltools
 
 		/* check for orphaned opening tags */
 		if ( 0 != count( $this->stack ) ) {
+			return false;
 			$temp = 'Missing close tag for ' . end( $this->stack ) . '.';
 			if ( 1 != count( $this->stack ) )
 				$temp .= ' (' . ( count( $this->stack ) - 1 ) . ' More...)';
@@ -433,7 +439,7 @@ class bbcode extends htmltools
 	function _format_code($input, $php, $start = 1)
 	{
 		if ($php) {
-			if( version_compare( PHP_VERSION, "5.0.0", ">=" ) ) {
+			if( version_compare( PHP_VERSION, '5.0.0', '>=' ) ) {
 				$input = html_entity_decode($input, ENT_COMPAT, 'UTF-8'); // contents is html so undo it
 			}
 

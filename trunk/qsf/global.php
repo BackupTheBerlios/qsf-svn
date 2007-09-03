@@ -892,26 +892,17 @@ class qsfglobal
 		$this->plugin_events[$event][] = $callback;
 	}
 
-	function event_trigger( $event )
+	function event_trigger( &$event, &$vars )
 	{
 		if ( isset( $this->plugin_events[$event] ) && is_array( $this->plugin_events[$event] ) )
 		{
 			foreach( $this->plugin_events[$event] as $call )
 			{
-				$return_val = call_user_func( $call, &$this );
-
-				switch( $return_val )
-				{
-					case PLUGIN_OK:
-						continue;
-					case PLUGIN_ERR:
-					case PLUGIN_EAT:
-						break 2;
-				}
+				$vars = call_user_func( $call, $this, $vars );
 			}
 		}
 
-		return null;
+		return $vars;
 	}
 
 	function event_load()
