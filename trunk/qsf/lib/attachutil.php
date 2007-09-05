@@ -40,6 +40,8 @@ class attachutil
 		$this->pre = &$qsf->pre;
 		$this->sets = &$qsf->sets;
 		$this->lang = &$qsf->lang;
+
+		$this->db->attachutil();
 	}
 
 	/**
@@ -112,8 +114,7 @@ class attachutil
 		if ($error == null) {
 			$md5 = key($temp_attached_data);
 			$filename = $temp_attached_data[$md5];
-			$this->db->query("INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES 
-				('%s', '%s', %d, %d)",
+			$this->db->query( $this->db->attachutil_attach_now_insert,
 				$md5, $filename, $post_id, filesize('./attachments/' . $md5));
 			
 			$attached_data = array_merge($attached_data, $temp_attached_data);
@@ -133,7 +134,7 @@ class attachutil
 	function delete_now($post_id, $filename, &$attached_data)
 	{
 		$this->delete($filename, $attached_data);
-		$this->db->query("DELETE FROM %pattach WHERE attach_post=%d AND attach_file = '%s'",
+		$this->db->query( $this->db->attachutil_delete_now_delete,
 			$post_id, $filename);
 	}
 
@@ -169,8 +170,8 @@ class attachutil
 	{
 		foreach ($attached_data as $md5 => $filename)
 		{
-			$this->db->query("INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES 
-				('%s', '%s', %d, %d)", $md5, $filename, $post_id, filesize('./attachments/' . $md5));
+			$this->db->query( $this->db->attachutil_insert_insert,
+				$md5, $filename, $post_id, filesize('./attachments/' . $md5));
 		}
 	}
 
@@ -219,7 +220,7 @@ class attachutil
 	{
 		$attached_data = array();
 
-		$query = $this->db->query("SELECT attach_file, attach_name FROM %pattach WHERE attach_post=%d", $post_id);
+		$query = $this->db->query( $this->db->attachutil_build_attached_data_select, $post_id);
 		while ($row = $this->db->nqfetch($query))
 		{
 			$attached_data[$row['attach_file']] = $row['attach_name'];

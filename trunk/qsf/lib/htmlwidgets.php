@@ -45,6 +45,8 @@ class htmlwidgets extends htmltools
 
 		// Need the time for timezone stuff
 		$this->time = &$qsf->time;
+
+		$qsf->db->htmlwidgets();
 	}
 	
 	/**
@@ -272,9 +274,9 @@ class htmlwidgets extends htmltools
 	function select_groups($val, $custom_only = false)
 	{
 		if ($custom_only) {
-			$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups WHERE group_type="" ORDER BY group_name');
+			$groups = $this->db->query( $this->db->htmlwidgets_select_groups_custonly );
 		} else {
-			$groups = $this->db->query('SELECT group_name, group_id FROM %pgroups ORDER BY group_name');
+			$groups = $this->db->query( $this->db->htmlwidgets_select_groups );
 		}
 
 		$out = null;
@@ -375,7 +377,7 @@ class htmlwidgets extends htmltools
 	{
 		$out = null;
 
-		$query = $this->db->query("SELECT * FROM %pskins");
+		$query = $this->db->query( $this->db->htmlwidgets_select_skins );
 		while ($s = $this->db->nqfetch($query))
 		{
 			if ($s['skin_dir'] == 'default') {
@@ -397,7 +399,7 @@ class htmlwidgets extends htmltools
 	{
 		$out = null;
 
-		$query = $this->db->query("SELECT zone_id, zone_name, zone_offset, zone_updated, zone_abbrev FROM %ptimezones ORDER BY zone_name ASC");
+		$query = $this->db->query( $this->db->htmlwidgets_select_timezones );
 		while($row = $this->db->nqfetch($query))
 		{
 			if ($row['zone_updated'] < $this->time)
@@ -405,7 +407,7 @@ class htmlwidgets extends htmltools
 				$tz = new $this->modules['timezone']( $row['zone_name'] );
 				$tz->magic2();
 				if (strlen($tz->abba)<1) $tz->abba='N/A';
-				$this->db->query("UPDATE %ptimezones SET zone_offset=%d, zone_updated=%d, zone_abbrev='%s' WHERE zone_id=%d",
+				$this->db->query( $this->db->htmlwidgets_select_timezones_update,
 					$tz->gmt_offset, $tz->next_update, $tz->abba, $row['zone_id']);
 				$row['zone_abbrev'] = $tz->abba;
 				$row['zone_offset'] = $tz->gmt_offset;

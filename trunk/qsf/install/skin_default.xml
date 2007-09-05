@@ -2812,6 +2812,7 @@
  </select>
  <input type="submit" name="detach" value="{$this->lang->post_attach_remove}" />
 </span>
+{$attached_data}
 <p class="line"></p>
       ]]></html>
     </template>

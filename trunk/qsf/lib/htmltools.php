@@ -60,6 +60,7 @@ class htmltools extends forumutils
 		$this->replaces_loaded =& $replaces_loaded;
 		$this->censor =& $censor;
 		$this->emotes =& $emotes;
+		$qsf->db->htmltools();
 	}
 
 	/**
@@ -100,7 +101,7 @@ class htmltools extends forumutils
 	{
 		$this->replaces_loaded = true;
 
-		$replace = $this->db->query("SELECT * FROM %preplacements ORDER BY LENGTH(replacement_search) DESC");
+		$replace = $this->db->query( $this->db->htmltools_get_replaces );
 		while ($r = $this->db->nqfetch($replace))
 		{
 			if ($r['replacement_type'] == 'emoticon') {

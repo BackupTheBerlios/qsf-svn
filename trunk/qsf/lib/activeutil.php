@@ -46,6 +46,8 @@ class activeutil extends bbcode
 	function activeutil(&$qsf)
 	{
 		parent::bbcode($qsf);
+
+		$qsf->db->activeutil();
 		
 		$this->get = &$qsf->get;
 		$this->user_id = $qsf->user['user_id'];
@@ -80,7 +82,7 @@ class activeutil extends bbcode
 	 **/
 	function delete($userid)
 	{
-		$this->db->query("DELETE FROM %pactive WHERE active_id=%d", $userid);
+		$this->db->query( $this->db->activeutil_delete, $userid);
 		if ($userid == $this->user_id)
 			$this->user_id = USER_GUEST_UID;
 	}
@@ -227,9 +229,9 @@ class activeutil extends bbcode
 		}
 
 		if ($oldusers) {
-			$this->db->query("UPDATE %pusers SET user_lastvisit=%d WHERE user_id IN (%s)",
+			$this->db->query( $this->db->activeutil__load_active_users_update,
 				$oldtime, implode(', ', $oldusers));
-			$this->db->query("DELETE FROM %pactive WHERE active_time < %d", $oldtime);
+			$this->db->query( $this->db->activeutil__load_active_users_delete, $oldtime);
 		}
 	}
 

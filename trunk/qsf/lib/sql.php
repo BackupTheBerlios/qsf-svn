@@ -33,17 +33,6 @@ if (!defined('QUICKSILVERFORUMS')) {
 class sql
 {
 	/**
-	 * Constructor, loads all common SQL
-	 *
-	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
-	 * @since 2.0.0
-	 **/
-	public function sql()
-	{
-		$this->activeutil();
-	}
-
-	/**
 	 * SQL for the installer
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
@@ -65,7 +54,7 @@ class sql
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 2.0.0
 	 **/
-	protected function activeutil()
+	public function activeutil()
 	{
 		$this->activeutil_update = 'INSERT INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, \'%s\', \'%s\', \'%s\')';
 		$this->activeutil_load = 'SELECT a.*, a.active_ip AS active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
@@ -78,6 +67,9 @@ class sql
 			  u.user_group = g.group_id
 			ORDER BY
 			  a.active_time DESC';
+		$this->activeutil_delete = 'DELETE FROM %pactive WHERE active_id=%d';
+		$this->activeutil__load_active_users_update = 'UPDATE %pusers SET user_lastvisit=%d WHERE user_id IN (%s)';
+		$this->activeutil__load_active_users_delete = 'DELETE FROM %pactive WHERE active_time < %d';
 	}
 
 	/**
@@ -88,6 +80,14 @@ class sql
 	 **/
 	public function active()
 	{
+	}
+
+	public function attachutil()
+	{
+		$this->attachutil_attach_now_insert = "INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES ('%s', '%s', %d, %d)";
+		$this->attachutil_delete_now_delete = "DELETE FROM %pattach WHERE attach_post=%d AND attach_file = '%s'";
+		$this->attachutil_insert_insert = "INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES ('%s', '%s', %d, %d)";
+		$this->attachutil_build_attached_data_select = 'SELECT attach_file, attach_name FROM %pattach WHERE attach_post=%d';
 	}
 
 	/**
@@ -219,6 +219,11 @@ class sql
 			LIMIT %d OFFSET %d';
 	}
 
+	public function forumutils()
+	{
+		$this->forumutils_load_forum_data = 'SELECT forum_id, forum_parent, forum_tree, forum_name, forum_position FROM %pforums ORDER BY forum_position';
+	}
+
 	/**
 	 * SQL for the help page
 	 *
@@ -228,6 +233,20 @@ class sql
 	public function help()
 	{
 		$this->help_execute_select_help = 'SELECT help_id, help_title, help_article FROM %phelp ORDER BY help_title';
+	}
+
+	public function htmltools()
+	{
+		$this->htmltools_get_replaces = 'SELECT * FROM %preplacements ORDER BY LENGTH(replacement_search) DESC';
+	}
+
+	public function htmlwidgets()
+	{
+		$this->htmlwidgets_select_groups_custonly = 'SELECT group_name, group_id FROM %pgroups WHERE group_type="" ORDER BY group_name';
+		$this->htmlwidgets_select_groups = 'SELECT group_name, group_id FROM %pgroups ORDER BY group_name';
+		$this->htmlwidgets_select_skins = 'SELECT * FROM %pskins';
+		$this->htmlwidgets_select_timezones = 'SELECT zone_id, zone_name, zone_offset, zone_updated, zone_abbrev FROM %ptimezones ORDER BY zone_name ASC';
+		$this->htmlwidgets_select_timezones_update = "UPDATE %ptimezones SET zone_offset=%d, zone_updated=%d, zone_abbrev='%s' WHERE zone_id=%d";
 	}
 
 	/**
@@ -369,6 +388,17 @@ class sql
 			AND t.topic_id=%d';
 		$this->mod_update_subscriptions_delete_subscriptions = 'DELETE FROM %psubscriptions WHERE subscription_user=%d AND subscription_item=%d';
 		$this->mod_update_subscriptions_update_subscriptions = 'UPDATE %psubscriptions SET subscription_item=%d WHERE subscription_item=%d AND subscription_type=\'topic\'';
+	}
+
+	public function permissions()
+	{
+		$this->permissions_get_perms_fetch_group = 'SELECT group_perms FROM %pgroups WHERE group_id=%d';
+		$this->permissions_get_perms_fetch_users = 'SELECT user_perms, user_group FROM %pusers WHERE user_id=%d';
+		$this->permissions_reset_cube_select = 'SELECT forum_id FROM %pforums ORDER BY forum_id';
+		$this->permissions_get_group_users = "SELECT user_id, user_perms FROM %pusers WHERE user_perms != ''";
+		$this->permissions_get_group_group = 'SELECT group_id, group_perms FROM %pgroups';
+		$this->permissions_update_groups = "UPDATE %pgroups SET group_perms='%s' WHERE group_id=%d";
+		$this->permissions_update_users = "UPDATE %pusers SET user_perms='%s' WHERE user_id=%d";
 	}
 
 	/**

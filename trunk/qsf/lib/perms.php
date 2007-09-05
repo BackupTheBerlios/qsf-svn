@@ -116,6 +116,8 @@ class permissions
 			$this->get_perms($qsf->user['user_group'], $qsf->user['user_id'],
 				($qsf->user['user_perms'] ? $qsf->user['user_perms'] : $qsf->user['group_perms']));
 		}
+
+		$this->db->permissions();
 	}
 
 	/**
@@ -129,10 +131,10 @@ class permissions
 	{
 		if (!$perms) {
 			if ($group != -1) {
-				$data  = $this->db->fetch("SELECT group_perms FROM %pgroups WHERE group_id=%d", $group);
+				$data  = $this->db->fetch( $this->db->permissions_get_perms_fetch_group, $group);
 				$perms = $data['group_perms'];
 			} else {
-				$data  = $this->db->fetch("SELECT user_perms, user_group FROM %pusers WHERE user_id=%d", $user);
+				$data  = $this->db->fetch( $this->db->permissions_get_perms_fetch_users, $user);
 				$perms = $data['user_perms'];
 				$group = $data['user_group'];
 			}
@@ -179,7 +181,7 @@ class permissions
 		$cube = $this->standard;
 		$forums = array();
 
-		$query = $this->db->query("SELECT forum_id FROM %pforums ORDER BY forum_id");
+		$query = $this->db->query( $this->db->permissions_reset_cube_select );
 		while ($forum = $this->db->nqfetch($query))
 		{
 			$forums[$forum['forum_id']] = $bool;
@@ -323,9 +325,9 @@ class permissions
 			$start = false;
 
 			if ($users) {
-				$query = $this->db->query("SELECT user_id, user_perms FROM %pusers WHERE user_perms != ''");
+				$query = $this->db->query( $this->db->permissions_get_group_users );
 			} else {
-				$query = $this->db->query("SELECT group_id, group_perms FROM %pgroups");
+				$query = $this->db->query( $this->db->permissions_get_group_group );
 			}
 
 			while ($group = $this->db->nqfetch($query))
@@ -390,10 +392,10 @@ class permissions
 		}
 
 		if ($this->user == -1) {
-			$this->db->query("UPDATE %pgroups SET group_perms='%s' WHERE group_id=%d",
+			$this->db->query( $this->db->permissions_update_groups,
 				$serialized, $this->group);
 		} else {
-			$this->db->query("UPDATE %pusers SET user_perms='%s' WHERE user_id=%d",
+			$this->db->query( $this->db->permissions_update_users,
 				$serialized, $this->user);
 		}
 	}

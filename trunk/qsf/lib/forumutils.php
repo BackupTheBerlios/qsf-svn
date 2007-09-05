@@ -49,6 +49,8 @@ require_once $set['include_path'] . '/lib/tool.php';
 		$this->perms = &$qsf->perms;
 		
 		$this->forum_data = &$forum_data;
+
+		$this->db->forumutils();
 	}
 
 	/**
@@ -161,8 +163,7 @@ require_once $set['include_path'] . '/lib/tool.php';
 		if ($this->forum_data === false) {
 			$this->forum_data = array();
 			
-			$q = $this->db->query("SELECT forum_id, forum_parent, forum_tree, forum_name, forum_position
-				FROM %pforums ORDER BY forum_position");
+			$q = $this->db->query( $this->db->forumutils_load_forum_data );
 
 			while ($f = $this->db->nqfetch($q))
 			{
