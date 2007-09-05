@@ -402,7 +402,7 @@ class htmlwidgets extends htmltools
 		{
 			if ($row['zone_updated'] < $this->time)
 			{
-				$tz = new $this->modules['timezone']( $this->sets['include_path'] . '/ptzf/' . $row['zone_name'] . '.php' );
+				$tz = new $this->modules['timezone']( $row['zone_name'] );
 				$tz->magic2();
 				if (strlen($tz->abba)<1) $tz->abba='N/A';
 				$this->db->query("UPDATE %ptimezones SET zone_offset=%d, zone_updated=%d, zone_abbrev='%s' WHERE zone_id=%d",

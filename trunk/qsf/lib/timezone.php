@@ -29,10 +29,11 @@ if (!defined('QUICKSILVERFORUMS')) {
  **/
 class timezone
 {
-	var $tz_file;
-	var $gmt_offset=0;
-	var $next_update;
-	var $abba;
+	private $tz_file;
+	public $gmt_offset=0;
+	public $next_update;
+	public $abba;
+	private $valid_names;
 
 	/**
 	 * Constructor, given a file to open
@@ -44,6 +45,8 @@ class timezone
 		$this->tz_file = $file;
 		/* some safe default */
 		$this->next_update=time() + (DAY_IN_SECONDS * 30);
+
+		$this->valid_names = timezone_identifiers_list();
 	}
 
 	/**
@@ -52,27 +55,33 @@ class timezone
 	 **/
 	function magic2()
 	{
-		require_once( $this->tz_file );
+		if ( !in_array( $this->tz_file, $this->valid_names ) )
+			trigger_error( sprintf( 'Bad timezone name given: %s', $this->tz_file ), E_USER_ERROR ); // TODO: move msg to lang
 
-		$last = reset( $times );
+
+		$tz_obj = timezone_open( $this->tz_file );
+
+		$tz_data = timezone_transitions_get( $tz_obj );
+
+		$last = reset( $tz_data );
 		$now = time();
 
-		foreach( $times as $time => $data )
+		foreach( $tz_data as $transition )
 		{
-			if ( $time > $now )
+			if ( $transition['ts'] > $now )
 			{
 				$this->gmt_offset = $last['offset'];
-				$this->abba = $last['abbrv'];
-				$this->next_update = $time;
+				$this->abba = $last['abbr'];
+				$this->next_update = $transition['ts'];
 				return;
 			} else {
-				$last = $data;
+				$last = $transition;
 			}
 		}
 
 		// default to the last entry if we get here
 		$this->gmt_offset = $last['offset'];
-		$this->abba = $last['abbrv'];
+		$this->abba = $last['abbr'];
 	}
 
 }
