@@ -186,7 +186,7 @@ class sql
 	public function forum()
 	{
 		$this->forum_execute_fetch_exists = 'SELECT forum_parent, forum_name, forum_subcat FROM %pforums WHERE forum_id=%d';
-		$this->forum_execute_fetch_topic = 'SELECT COUNT(topic_id) AS count FROM %ptopics WHERE topic_forum=%d';
+		$this->forum_execute_fetch_topic_count = 'SELECT COUNT(topic_id) AS count FROM %ptopics WHERE topic_forum=%d';
 
 		$this->forum_getsubs_select_forums = '
 			SELECT

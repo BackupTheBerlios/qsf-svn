@@ -113,7 +113,7 @@ class forum extends qsfglobal
 
 		$this->set_title($exists['forum_name']);
 
-		$topic = $this->db->fetch( $this->db->forum_execute_fetch_topic, $f);
+		$topic = $this->db->fetch( $this->db->forum_execute_fetch_topic_count, $f);
 
 		$pagelinks = $this->htmlwidgets->get_pages($topic['count'], "a=forum&amp;f=$f&amp;order={$this->get['order']}&amp;asc=$lasc", $min, $n);
 		$SubForums = $this->getSubs($f);
