@@ -3,6 +3,15 @@ Quicksilver Forums Changes
 
 Changes for 1.4.1:
 
+   Bugs addressed:
+
+* Unset username or password during login triggers QSF crash message instead of a graceful rejection message.
+* Undefined index when displaying an error message in certain cases.
+* The installer modules should not be checking for board add-ons.
+* Modlets added in AdminCP templates would crash with an unknown variable. -- Matt
+* The database installers need to use ENGINE instead of TYPE for table creation.
+* Attachment downloads corrupt with zlib.output_compression=on in PHP config
+
 Changes for 1.4.0:
 
 * New default skin based on Syridium HForum v3 skin © 2006-2007 Syridium SC.
