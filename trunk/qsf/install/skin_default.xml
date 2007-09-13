@@ -3399,7 +3399,7 @@ enable('$init');
 {$this->table}
  <div class="title">
   <img src="./skins/{$this->skin}/images/icons/comment_add_blured.png" alt="" />
-  {$this->lang->topic_quickreply}
+  {$this->lang->topic_quickreply}: {$title_html}
  </div>
  <span class="head">
   <strong>{$this->lang->post_msg}</strong>

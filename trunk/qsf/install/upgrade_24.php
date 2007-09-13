@@ -24,12 +24,13 @@ if (!defined('INSTALLER')) {
 	exit('Use index.php to upgrade.');
 }
 
-// Upgrade from 1.4.0 to 1.4.1
+// Upgrade from 1.4.0 to 2.0.0
 
 // Template changes
 $need_templates = array(
 	// Added templates
 	// Changed templates
+	'TOPIC_QUICKREPLY'
 	);
 
 // Permission changes	
