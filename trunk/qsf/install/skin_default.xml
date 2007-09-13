@@ -3272,7 +3272,7 @@ enable('$init');
 <div class="hidden"><a id="p{$post['post_id']}"></a><IF ($first_unread_post)><a id="unread"></a></IF></div>
 {$this->table}
  <div class="title">
-  <div style="float:left;">
+  <div style="float:left; position:relative;">
    <IF ($post['newpost'])>
     <img src="./skins/{$this->skin}/images/icons/post_new.png" alt="{$this->lang->topic_new_post}" />
    </IF>
