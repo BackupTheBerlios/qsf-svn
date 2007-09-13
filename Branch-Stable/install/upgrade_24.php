@@ -30,6 +30,7 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	// Changed templates
+	'TOPIC_POST',
 	'TOPIC_QUICKREPLY',
 	'POST_ATTACH_REMOVE'
 	);
