@@ -6,6 +6,8 @@ Changes for 2.0.0:
 * Added new support for plugin modules.
 * Added full support for PostgreSQL.
 * Added full support for MySQLi.
+* TimeZone code now uses native PHP5 calls.
+* TimeZone data files have been removed (small installation file)
 
    Bugs addressed:
 
