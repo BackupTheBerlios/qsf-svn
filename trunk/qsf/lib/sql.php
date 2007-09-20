@@ -285,6 +285,39 @@ class sql
 		$this->login_request_pass_update_users = "UPDATE %pusers SET user_password='%s' WHERE user_id=%d";
 	}
 
+	public function members()
+	{
+		$this->members_page_count_withl = "SELECT user_id FROM %pusers m, %pgroups g WHERE m.user_group = g.group_id AND m.user_id != %d AND UPPER(SUBSTRING(LTRIM(m.user_name), 1, 1)) = '%s'";
+		$this->members_page_count_withoutl = 'SELECT user_id FROM %pusers m, %pgroups g WHERE m.user_group = g.group_id AND m.user_id != %d';
+		$this->members_search_withl = "
+			SELECT
+				m.user_joined, m.user_email_show, m.user_email_form, m.user_email, m.user_pm, m.user_name, m.user_id, m.user_posts, m.user_title, m.user_homepage,
+				g.group_name
+			FROM
+				%pusers m,
+				%pgroups g
+			WHERE
+				m.user_group = g.group_id AND
+				m.user_id != %d AND
+				UPPER(substring(LTRIM(m.user_name), 1, 1)) = '%s'
+			ORDER BY
+				%s
+			LIMIT %d OFFSET %d";
+		$this->members_search_withoutl = '
+			SELECT
+				m.user_joined, m.user_email_show, m.user_email_form, m.user_email, m.user_pm, m.user_name, m.user_id, m.user_posts, m.user_title, m.user_homepage,
+				g.group_name
+			FROM
+				%pusers m,
+				%pgroups g
+			WHERE
+				m.user_group = g.group_id AND
+				m.user_id != %d
+			ORDER BY
+				%s
+			LIMIT %d OFFSET %d';
+	}
+
 	/**
 	 * SQL for the mod page
 	 *

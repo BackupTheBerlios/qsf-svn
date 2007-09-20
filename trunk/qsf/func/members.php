@@ -94,34 +94,22 @@ class members extends qsfglobal
 			$l = strtoupper(preg_replace('/[^A-Za-z]/', '', $this->get['l']));
 		}
 
-		if ($l) {
-		$PageNums = $this->htmlwidgets->get_pages(
-			array("SELECT user_id FROM %pusers m, %pgroups g
-			WHERE m.user_group = g.group_id AND m.user_id != %d AND UPPER(LEFT(LTRIM(m.user_name), 1)) = '%s'",
-			USER_GUEST_UID, $l),
-			"a=members&amp;l={$l}&amp;order=$order&amp;asc=$lasc", $this->get['min'], $this->get['num']);
+		if ($l)
+		{
+			$PageNums = $this->htmlwidgets->get_pages(
+				array( $this->db->members_page_count_withl, USER_GUEST_UID, $l),
+				"a=members&amp;l={$l}&amp;order=$order&amp;asc=$lasc", $this->get['min'], $this->get['num']);
+
+			$result = $this->db->query( $this->db->members_search_withl,
+				USER_GUEST_UID, $l, $sortby, $this->get['num'], $this->get['min']);
 		} else {
-		$PageNums = $this->htmlwidgets->get_pages(
-			array("SELECT user_id FROM %pusers m, %pgroups g WHERE m.user_group = g.group_id AND m.user_id != %d", USER_GUEST_UID),
-			"a=members&amp;l={$l}&amp;order=$order&amp;asc=$lasc", $this->get['min'], $this->get['num']);
+			$PageNums = $this->htmlwidgets->get_pages(
+				array( $this->db->members_page_count_withoutl, USER_GUEST_UID),
+				"a=members&amp;l={$l}&amp;order=$order&amp;asc=$lasc", $this->get['min'], $this->get['num']);
+			$result = $this->db->query( $this->db->members_search_withoutl,
+				USER_GUEST_UID, $sortby, $this->get['num'], $this->get['min']);
 		}
 
-		$result = $this->db->query("
-			SELECT
-				m.user_joined, m.user_email_show, m.user_email_form, m.user_email, m.user_pm, m.user_name, m.user_id, m.user_posts, m.user_title, m.user_homepage,
-				g.group_name
-			FROM
-				%pusers m,
-				%pgroups g
-			WHERE
-				m.user_group = g.group_id AND
-				m.user_id != %d" .
-				($l ? " AND UPPER(LEFT(LTRIM(m.user_name), 1)) = '{$l}'" : '') . "
-			ORDER BY
-				{$sortby}
-			LIMIT
-				%d, %d",
-			USER_GUEST_UID, $this->get['min'], $this->get['num']);
 
 		$Members = null;
 		$i = 0;
