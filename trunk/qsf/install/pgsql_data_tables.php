@@ -137,7 +137,7 @@ $queries[] = "CREATE TABLE %ppmsystem (
   pm_id int4 DEFAULT nextval('%ppmsystem_id_seq') NOT NULL,
   pm_to int4 NOT NULL default '0',
   pm_from int4 NOT NULL default '0',
-  pm_ip int4 NOT NULL default '0',
+  pm_ip inet NOT NULL default '127.0.0.1',
   pm_bcc text NOT NULL default '',
   pm_title varchar(255) NOT NULL default '[No Title]',
   pm_time int4 NOT NULL default '0',

@@ -423,6 +423,12 @@ class sql
 		$this->mod_update_subscriptions_update_subscriptions = 'UPDATE %psubscriptions SET subscription_item=%d WHERE subscription_item=%d AND subscription_type=\'topic\'';
 	}
 
+	/**
+	 * SQL for the permissions library
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function permissions()
 	{
 		$this->permissions_get_perms_fetch_group = 'SELECT group_perms FROM %pgroups WHERE group_id=%d';
@@ -435,6 +441,12 @@ class sql
 	}
 
 
+	/**
+	 * SQL for the private message page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function pm()
 	{
 		$this->pm_folder_list = 'SELECT p.*, m.user_name FROM %ppmsystem p, %pusers m WHERE p.pm_to = %d AND p.pm_folder = %d AND m.user_id = p.pm_from ORDER BY p.pm_time DESC';
@@ -443,14 +455,14 @@ class sql
 		$this->pm_send_load_reply = 'SELECT p.pm_to, p.pm_title, p.pm_message, m.user_name FROM %ppmsystem p, %pusers m WHERE p.pm_id=%d AND p.pm_from=m.user_id';
 		$this->pm_send_fetch_who = "SELECT user_id, user_pm, user_name, user_email, user_pm_mail FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d LIMIT 1";
 		$this->pm_send_do_send = "INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_title, pm_time, pm_message, pm_folder)
-					VALUES (%d, %d, INET_ATON('%s'), '%s', %d, '%s', 0)";
+					VALUES (%d, %d, '%s', '%s', %d, '%s', 0)";
 		$this->pm_send_do_send_with_bcc = "INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read)
-				VALUES (%d, %d, INET_ATON('%s'), '%s', '%s', %d, '%s', 1, 1)";
+				VALUES (%d, %d, '%s', '%s', '%s', %d, '%s', 1, 1)";
 		$this->pm_send_update_lastpm = 'UPDATE %pusers SET user_lastpm=%d WHERE user_id=%d';
 		$this->pm_view_fetch_pm = 'SELECT p.*,
 			  m.user_name, m.user_signature, g.group_name, m.user_posts, m.user_joined, m.user_title, m.user_avatar, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height,
 			  m.user_active, a.active_time
-			FROM (%ppmsystem p, %pusers m, %pgroups g)
+			FROM %ppmsystem p, %pgroups g, %pusers m
 			LEFT JOIN %pactive a ON a.active_id=m.user_id
 			WHERE p.pm_id = %d AND m.user_id = p.pm_from AND
 			  m.user_group = g.group_id';

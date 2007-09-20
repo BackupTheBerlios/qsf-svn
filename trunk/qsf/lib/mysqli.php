@@ -32,6 +32,8 @@ require_once $set['include_path'] . '/lib/mysql.php';
  **/
 class db_mysqli extends db_mysql
 {
+	var $socket;             // Database Socket @var string
+
 	function db_mysqli($db_host, $db_user, $db_pass, $db_name, $db_port = 3306, $db_socket = '', $db_prefix)
 	{
 		parent::database($db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket, $db_prefix);

@@ -578,7 +578,7 @@ class bbcode extends htmltools
 
 	function _process_lrj(&$node)
 	{
-		return '<p style="text-align:'.$node->type.'">'.$node->text.'</p>';
+		return '<div style="text-align:'.$node->type.'" class="aligned_text">'.$node->text.'</div>';
 	}
 
 	function _process_colour(&$node)

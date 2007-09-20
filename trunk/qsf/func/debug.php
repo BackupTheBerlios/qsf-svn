@@ -148,6 +148,7 @@ foreach ($this->db->querydebug as $debug) {
 $this->db->querytime = round($this->db->querytime, 5);
 $tempcount = count($this->templater->temps);
 $langcount = count(get_object_vars($this->lang));
+$sqlcount = count( get_object_vars($this->db) ) - 13; // 13 is the number of extra things
 
 $out .= "
 </table><br />
@@ -168,7 +169,8 @@ $out .= "
 <b>Execution Time</b>: $totaltime<br />
 <b>Query Time</b>: {$this->db->querytime} ($percent% of total execution time)<br />
 <b>Loaded Language</b>: " . get_class($this->lang) . "<br />
-<b>Loaded Words</b>: $langcount<br /><br />";
+<b>Loaded SQL</b>: {$sqlcount}<br />
+<b>Loaded Words</b>: {$langcount}<br /><br />";
 
 $out .= "<b>$tempcount Loaded Templates (Skin: $this->skin)</b>:<br />";
 

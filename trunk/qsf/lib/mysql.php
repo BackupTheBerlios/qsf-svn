@@ -245,6 +245,22 @@ class db_mysql extends database
 			LIMIT %d OFFSET %d";
 	}
 
+	public function pm()
+	{
+		parent::pm();
+		$this->pm_send_do_send = "INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_title, pm_time, pm_message, pm_folder)
+					VALUES (%d, %d, INET_ATON('%s'), '%s', %d, '%s', 0)";
+		$this->pm_send_do_send_with_bcc = "INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read)
+				VALUES (%d, %d, INET_ATON('%s'), '%s', '%s', %d, '%s', 1, 1)";
+		$this->pm_view_fetch_pm = 'SELECT p.*,
+			  m.user_name, m.user_signature, g.group_name, m.user_posts, m.user_joined, m.user_title, m.user_avatar, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height,
+			  m.user_active, a.active_time
+			FROM (%ppmsystem p, %pusers m, %pgroups g)
+			LEFT JOIN %pactive a ON a.active_id=m.user_id
+			WHERE p.pm_id = %d AND m.user_id = p.pm_from AND
+			  m.user_group = g.group_id';
+	}
+
 
 	/**
 	 * Over-riding SQL for the post page
