@@ -95,11 +95,7 @@ class pm extends qsfglobal
 
 		if (!isset($this->post['submit'])) {
 			$messages = null;
-			$query	  = $this->db->query("SELECT p.*, m.user_name
-				FROM %ppmsystem p, %pusers m
-				WHERE p.pm_to = %d AND p.pm_folder = %d AND m.user_id = p.pm_from
-				ORDER BY p.pm_time DESC",
-				$this->user['user_id'], $this->get['f']);
+			$query	  = $this->db->query( $this->db->pm_folder_list, $this->user['user_id'], $this->get['f'] );
 
 			while ($pm = $this->db->nqfetch($query))
 			{
@@ -128,7 +124,7 @@ class pm extends qsfglobal
 					$deleteMessages[] = intval($id);
 				}
 
-				$this->db->query("DELETE FROM %ppmsystem WHERE pm_id IN (%s)", implode(', ', $deleteMessages));
+				$this->db->query( $this->db->pm_folder_delete, implode(', ', $deleteMessages), $this->user['user_id'] );
 			}
 
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_deleted_all);
@@ -164,7 +160,7 @@ class pm extends qsfglobal
 					if (isset($this->get['to'])) {
 						$this->get['to'] = intval($this->get['to']);
 
-						$query = $this->db->fetch("SELECT user_name FROM %pusers WHERE user_id=%d", $this->get['to']);
+						$query = $this->db->fetch( $this->db->pm_send_find_user, $this->get['to']);
 
 						if (!isset($query['user_name']) || ($this->get['to'] == USER_GUEST_UID)) {
 							return $this->message($this->lang->pm_personal_msging, $this->lang->pm_no_member);
@@ -174,8 +170,7 @@ class pm extends qsfglobal
 					}
 				} else {
 					$this->get['re'] = intval($this->get['re']);
-					$reply = $this->db->fetch('SELECT p.pm_to, p.pm_title, p.pm_message, m.user_name
-						FROM %ppmsystem p, %pusers m WHERE p.pm_id=%d AND p.pm_from=m.user_id', $this->get['re']);
+					$reply = $this->db->fetch( $this->db->pm_send_load_reply, $this->get['re'] );
 
 					if ($reply['pm_to'] == $this->user['user_id']) {
 						$to    = $reply['user_name'];
@@ -217,8 +212,7 @@ class pm extends qsfglobal
 			foreach ($users as $username)
 			{
 				$username = str_replace('\\', '&#092;', $this->format(trim($username), FORMAT_HTMLCHARS | FORMAT_CENSOR));
-				$who = $this->db->fetch("SELECT user_id, user_pm, user_name, user_email, user_pm_mail FROM %pusers
-					WHERE REPLACE(LOWER(user_name), ' ', '')='%s' AND user_id != %d LIMIT 1",
+				$who = $this->db->fetch( $this->db->pm_send_fetch_who,
 					str_replace(' ', '', strtolower($username)), USER_GUEST_UID);
 
 				if (!isset($who['user_id'])) {
@@ -233,8 +227,7 @@ class pm extends qsfglobal
 
 				$ok_pm[] = $who['user_id'];
 
-				$this->db->query("INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_title, pm_time, pm_message, pm_folder)
-					VALUES (%d, %d, INET_ATON('%s'), '%s', %d, '%s', 0)",
+				$this->db->query( $this->db->pm_send_do_send,
 					$who['user_id'], $this->user['user_id'], $this->ip, $this->post['title'], $this->time, $this->post['message']);
 
 				$message_id = $this->db->insert_id("pmsystem");
@@ -250,10 +243,9 @@ class pm extends qsfglobal
 				}
 			}
 
-			$this->db->query("INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read)
-				VALUES (%d, %d, INET_ATON('%s'), '%s', '%s', %d, '%s', 1, 1)",
+			$this->db->query( $this->db->pm_send_do_send_with_bcc,
 				$this->user['user_id'], $this->user['user_id'], $this->ip, implode(';', $ok_pm), $this->post['title'], $this->time, $this->post['message']);
-			$this->db->query("UPDATE %pusers SET user_lastpm=%d WHERE user_id=%d", $this->time, $this->user['user_id']);
+			$this->db->query( $this->db->pm_send_update_lastpm, $this->time, $this->user['user_id']);
 
 			if ($bad_name || $bad_pm) {
 				return $this->message($this->lang->pm_personal_msging, sprintf($this->lang->pm_error, implode('; ', $bad_name), implode('; ', $bad_pm)));
@@ -271,13 +263,7 @@ class pm extends qsfglobal
 
 		$this->get['m'] = intval($this->get['m']);
 
-		$pm = $this->db->fetch("SELECT p.*,
-			  m.user_name, m.user_signature, g.group_name, m.user_posts, m.user_joined, m.user_title, m.user_avatar, m.user_avatar_type, m.user_avatar_width, m.user_avatar_height,
-			  m.user_active, a.active_time
-			FROM (%ppmsystem p, %pusers m, %pgroups g)
-			LEFT JOIN %pactive a ON a.active_id=m.user_id
-			WHERE p.pm_id = %d AND m.user_id = p.pm_from AND
-			  m.user_group = g.group_id", $this->get['m']);
+		$pm = $this->db->fetch( $this->db->pm_view_fetch_pm, $this->get['m']);
 
 		if (!$pm) {
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_no_number);
@@ -314,7 +300,7 @@ class pm extends qsfglobal
 		$foldername = $this->lang->pm_folder_inbox;
 
 		if ($pm['pm_folder'] == 1) {
-			$names = $this->db->query("SELECT user_name FROM %pusers WHERE user_id IN (%s)",
+			$names = $this->db->query( $this->db->pm_view_select_name,
 				implode(',', explode(';', $pm['pm_bcc'])));
 
 			while ($name = $this->db->nqfetch($names))
@@ -326,7 +312,7 @@ class pm extends qsfglobal
 			$foldername = $this->lang->pm_folder_sentbox;
 		}
 
-		$this->db->query("UPDATE %ppmsystem SET pm_read=1 WHERE pm_id=%d", $this->get['m']);
+		$this->db->query( $this->db->pm_view_update, $this->get['m']);
 
 		return eval($this->template('PM_VIEW'));
 	}
@@ -345,7 +331,7 @@ class pm extends qsfglobal
 		if (!isset($this->get['confirm'])) {
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_sure_del, $this->lang->continue, "$this->self?a=pm&amp;s=delete&amp;m={$this->get['m']}&amp;confirm=1");
 		} else {
-			$query = $this->db->query("DELETE FROM %ppmsystem WHERE pm_to=%d AND pm_id=%d",
+			$query = $this->db->query( $this->db->pm_delete_pm,
 				$this->user['user_id'], $this->get['m']);
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_deleted);
 		}
@@ -362,7 +348,7 @@ class pm extends qsfglobal
 		if (!isset($this->get['confirm'])) {
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_sure_delall, $this->lang->continue, "$this->self?a=pm&amp;s=clear&amp;f={$this->get['f']}&amp;confirm=1");
 		} else {
-			$query = $this->db->query("DELETE FROM %ppmsystem WHERE pm_to=%d AND pm_folder=%d",
+			$query = $this->db->query( $this->db->pm_clear,
 				$this->user['user_id'], $this->get['f']);
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_deleted_all);
 		}
@@ -370,7 +356,7 @@ class pm extends qsfglobal
 
 	function checkOwner($id)
 	{
-		$data = $this->db->fetch("SELECT pm_to FROM %ppmsystem WHERE pm_id=%d", $id);
+		$data = $this->db->fetch( $this->db->pm_checkOwner, $id);
 		return ($data['pm_to'] == $this->user['user_id']);
 	}
 
