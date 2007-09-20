@@ -69,11 +69,7 @@ class post extends qsfglobal
 	{
 		$review = null;
 
-		$query = $this->db->query("SELECT p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, m.user_name
-			FROM %pposts p, %pusers m
-			WHERE p.post_topic=%d AND p.post_author = m.user_id
-			ORDER BY p.post_time DESC
-			LIMIT %d", $this->get['t'], $limit);
+		$query = $this->db->query( $this->db->post_makeReview_select, $this->get['t'], $limit);
 
 		while ($last = $this->db->nqfetch($query))
 		{
@@ -117,9 +113,7 @@ class post extends qsfglobal
 
 			$this->get['t'] = intval($this->get['t']);
 
-			$topic = $this->db->fetch("SELECT t.topic_modes, t.topic_title, f.forum_name, f.forum_id, t.topic_replies, t.topic_starter
-				FROM %ptopics t, %pforums f
-				WHERE t.topic_id=%d AND f.forum_id=t.topic_forum", $this->get['t']);
+			$topic = $this->db->fetch( $this->db->post_makePost_fetch_topic, $this->get['t'] );
 
 			if ($topic && !$this->perms->auth('post_create', $topic['forum_id'])) {
 				if ($this->perms->is_guest) {
@@ -167,7 +161,7 @@ class post extends qsfglobal
 				}
 			}
 
-			if (!$this->db->num_rows($this->db->query("SELECT forum_id FROM %pforums WHERE forum_id=%d", $this->get['f']))) {
+			if (!$this->db->num_rows($this->db->query( $this->db->post_makePost_select_forum, $this->get['f']))) {
 				return $this->message($this->lang->post_creating, $this->lang->post_no_forum);
 			}
 
@@ -190,7 +184,7 @@ class post extends qsfglobal
 				}
 			}
 
-			if (!$this->db->num_rows($this->db->query("SELECT forum_id FROM %pforums WHERE forum_id=%d", $this->get['f']))) {
+			if (!$this->db->num_rows($this->db->query( $this->db->post_makePost_select_forum, $this->get['f']))) {
 				return $this->message($this->lang->post_creating, $this->lang->post_no_forum);
 			}
 
@@ -337,8 +331,7 @@ class post extends qsfglobal
 			if ($s == 'reply') {
 				if (isset($this->get['qu'])) {
 					$this->get['qu'] = intval($this->get['qu']);
-					$query = $this->db->fetch("SELECT p.post_text, m.user_name FROM %pposts p, %pusers m
-						WHERE p.post_id=%d AND p.post_author=m.user_id AND p.post_topic=%d",
+					$query = $this->db->fetch( $this->db->post_makePost_fetch_query,
 						$this->get['qu'], $this->get['t']);
 
 					if ($query['post_text'] != '') {
@@ -468,14 +461,12 @@ class post extends qsfglobal
 				$this->sets['topics']++;
 
 				if ($s != 'poll') {
-					$this->db->query("INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_posted, topic_edited, topic_last_poster, topic_modes)
-						VALUES ('%s', %d, '%s', %d, '%s', %d, %d, %d, %d)",
+					$this->db->query( $this->db->post_makePost_create_topic,
 						$this->post['title'], $this->get['f'], $this->post['desc'], $this->user['user_id'],
 						$this->post['icon'], $this->time, $this->time, $this->user['user_id'], $mode);
 				} else {
 					$mode |= TOPIC_POLL;
-					$this->db->query("INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_posted, topic_edited, topic_last_poster, topic_modes, topic_poll_options) VALUES
-						('%s', %d, '%s', %d, '%s', %d, %d, %d, %d, '%s')",
+					$this->db->query( $this->db->post_makePost_create_topic_poll,
 						$this->post['title'], $this->get['f'], $this->post['desc'], $this->user['user_id'],
 						$this->post['icon'], $this->time, $this->time, $this->user['user_id'], $mode, $this->post['options']);
 				}
@@ -515,13 +506,13 @@ class post extends qsfglobal
 				$this->get['t'], $this->user['user_id'], $this->post['post'], $this->time, $this->post['parseEmot'], $this->post['parseCode'], $post_count, $this->ip, $this->post['icon']);
 			$post_id = $this->db->insert_id("posts");
 
-			$this->db->query("UPDATE %ptopics SET topic_last_post=%d WHERE topic_id=%d", $post_id, $this->get['t']);
+			$this->db->query( $this->db->post_makePost_update_lastpost, $post_id, $this->get['t'] );
 
 			if ($post_count) {
-				$this->db->query("UPDATE %pusers SET user_posts=user_posts+1, user_lastpost=%d, user_level='%s', user_title='%s' WHERE user_id=%d",
+				$this->db->query( $this->db->post_makePost_update_postcount,
 					$this->time, $newlevel['user_level'], $membertitle, $this->user['user_id']);
 			} else {
-				$this->db->query("UPDATE %pusers SET user_lastpost=%d WHERE user_id=%d",
+				$this->db->query( $this->db->post_makePost_update_userlastpost,
 					$this->time, $this->user['user_id']);
 			}
 
@@ -538,7 +529,7 @@ class post extends qsfglobal
 					$mode |= TOPIC_PINNED;
 				}
 
-				$this->db->query("UPDATE %ptopics SET topic_replies=topic_replies+1, topic_modes=%d, topic_edited=%d, topic_last_poster=%d WHERE topic_id=%d",
+				$this->db->query( $this->db->post_makePost_update_topiccount,
 					$mode, $this->time, $this->user['user_id'], $this->get['t']);
 				$field = 'forum_replies';
 			} else {
@@ -546,29 +537,20 @@ class post extends qsfglobal
 			}
 
 			// Update all parent forums if any
-			$forums = $this->db->fetch("SELECT forum_tree FROM %pforums WHERE forum_id=%d", $this->get['f']);
-			$this->db->query("UPDATE %pforums SET {$field}={$field}+1, forum_lastpost=%d
-				WHERE forum_parent > 0 AND forum_id IN (%s) OR forum_id=%d",
-				$post_id, $forums['forum_tree'], $this->get['f']);
+			$forums = $this->db->fetch( $this->db->post_makePost_fetch_forums, $this->get['f']);
+			$this->db->query( $this->db->post_makePost_update_forumstats,
+				$field, $field, $post_id, $forums['forum_tree'], $this->get['f']);
 			
 			if (isset($this->post['attached_data']) && $this->perms->auth('post_attach', $this->get['f'])) {
 				$this->attachmentutil->insert($post_id, $this->post['attached_data']);
 			}
 
-			$this->db->query("DELETE FROM %psubscriptions WHERE subscription_expire < %d", $this->time);
-			$subs = $this->db->query("SELECT u.user_email
-				FROM %psubscriptions s, %pusers u
-				WHERE
-				  s.subscription_user = u.user_id AND
-				  u.user_id != %d AND
-				  ((s.subscription_type = 'topic' AND s.subscription_item = %d) OR
-				   (s.subscription_type = 'forum' AND s.subscription_item = %d))",
+			$this->db->query( $this->db->post_makePost_delete_subs, $this->time);
+			$subs = $this->db->query( $this->db->post_makePost_select_subs,
 				$this->user['user_id'], $this->get['t'], $this->get['f']);
 
 			if ($this->db->num_rows($subs)) {
-				$emailtopic = $this->db->fetch("SELECT t.topic_title, f.forum_name
-					FROM %ptopics t, %pforums f
-					WHERE t.topic_id=%d AND t.topic_forum=f.forum_id", $this->get['t']);
+				$emailtopic = $this->db->fetch( $this->db->post_makePost_fetch_emailtopic, $this->get['t'] );
 
 				$message  = "{$this->sets['forum_name']}\n";
 				$message .= "{$this->sets['loc_of_board']}{$this->mainfile}?a=topic&t={$this->get['t']}\n\n";
@@ -606,12 +588,12 @@ class post extends qsfglobal
 		$this->get['t'] = intval($this->get['t']);
 		$this->post['pollvote'] = intval($this->post['pollvote']);
 
-		$user_voted = $this->db->fetch("SELECT vote_option FROM %pvotes WHERE vote_user=%d AND vote_topic=%d",
+		$user_voted = $this->db->fetch( $this->db->post_vote_fetch_user_voted,
 			$this->user['user_id'], $this->get['t']);
-		$data = $this->db->fetch("SELECT topic_forum FROM %ptopics WHERE topic_id=%d", $this->get['t']);
+		$data = $this->db->fetch( $this->db->post_vote_fetch_data, $this->get['t']);
 
 		if (!$user_voted && $this->perms->auth('poll_vote', $data['topic_forum'])) {
-			$this->db->query("INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES (%d, %d, %d)",
+			$this->db->query( $this->db->post_vote_insert_votes,
 				$this->user['user_id'], $this->get['t'], $this->post['pollvote']);
 			header('Location: ' . $this->self . '?a=topic&t=' . $this->get['t']);
 			return;
@@ -630,7 +612,7 @@ class post extends qsfglobal
 		$this->get['t'] = intval($this->get['t']);
 
 		if (!$this->sets['vote_after_results']) {
-			$this->db->query("INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES (%d, %d, -1)",
+			$this->db->query( $this->db->post_nullvote,
 				$this->user['user_id'], $this->get['t']);
 		}
 

@@ -481,7 +481,28 @@ class sql
 	 **/
 	public function post()
 	{
+		$this->post_makeReview_select = 'SELECT p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, m.user_name FROM %pposts p, %pusers m WHERE p.post_topic=%d AND p.post_author = m.user_id ORDER BY p.post_time DESC LIMIT %d';
+
+		$this->post_makePost_fetch_topic = 'SELECT t.topic_modes, t.topic_title, f.forum_name, f.forum_id, t.topic_replies, t.topic_starter FROM %ptopics t, %pforums f WHERE t.topic_id=%d AND f.forum_id=t.topic_forum';
+		$this->post_makePost_select_forum = 'SELECT forum_id FROM %pforums WHERE forum_id=%d'; // used 2 places
+		$this->post_makePost_fetch_query = 'SELECT p.post_text, m.user_name FROM %pposts p, %pusers m WHERE p.post_id=%d AND p.post_author=m.user_id AND p.post_topic=%d';
+		$this->post_makePost_create_topic = "INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_posted, topic_edited, topic_last_poster, topic_modes) VALUES ('%s', %d, '%s', %d, '%s', %d, %d, %d, %d)";
+		$this->post_makePost_create_topic_poll = "INSERT INTO %ptopics (topic_title, topic_forum, topic_description, topic_starter, topic_icon, topic_posted, topic_edited, topic_last_poster, topic_modes, topic_poll_options) VALUES ('%s', %d, '%s', %d, '%s', %d, %d, %d, %d, '%s')";
+		$this->post_makePost_update_lastpost = 'UPDATE %ptopics SET topic_last_post=%d WHERE topic_id=%d';
+		$this->post_makePost_update_postcount = "UPDATE %pusers SET user_posts=user_posts+1, user_lastpost=%d, user_level='%s', user_title='%s' WHERE user_id=%d";
+		$this->post_makePost_update_userlastpost = 'UPDATE %pusers SET user_lastpost=%d WHERE user_id=%d';
+		$this->post_makePost_update_topiccount = 'UPDATE %ptopics SET topic_replies=topic_replies+1, topic_modes=%d, topic_edited=%d, topic_last_poster=%d WHERE topic_id=%d';
+		$this->post_makePost_fetch_forums = 'SELECT forum_tree FROM %pforums WHERE forum_id=%d';
+		$this->post_makePost_update_forumstats = 'UPDATE %pforums SET %s=%s+1, forum_lastpost=%d WHERE forum_parent > 0 AND forum_id IN (%s) OR forum_id=%d';
+		$this->post_makePost_delete_subs = 'DELETE FROM %psubscriptions WHERE subscription_expire < %d';
+		$this->post_makePost_select_subs = "SELECT u.user_email FROM %psubscriptions s, %pusers u WHERE s.subscription_user = u.user_id AND  u.user_id != %d AND ((s.subscription_type = 'topic' AND s.subscription_item = %d) OR (s.subscription_type = 'forum' AND s.subscription_item = %d))";
+		$this->post_makePost_fetch_emailtopic = 'SELECT t.topic_title, f.forum_name FROM %ptopics t, %pforums f WHERE t.topic_id=%d AND t.topic_forum=f.forum_id';
 		$this->post_makepost = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, %d, %d, %d, \'%s\', \'%s\')';
+
+		$this->post_vote_fetch_user_voted = 'SELECT vote_option FROM %pvotes WHERE vote_user=%d AND vote_topic=%d';
+		$this->post_vote_fetch_data = 'SELECT topic_forum FROM %ptopics WHERE topic_id=%d';
+		$this->post_vote_insert_votes = 'INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES (%d, %d, %d)';
+		$this->post_nullvote = 'INSERT INTO %pvotes (vote_user, vote_topic, vote_option) VALUES (%d, %d, -1)';
 	}
 
 	/**
