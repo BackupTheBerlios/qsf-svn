@@ -111,7 +111,6 @@
  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset={$admin->lang->charset}" />
  <link rel="stylesheet" type="text/css" href="../skins/{$admin->skin}/styles.css" />
  <link rel="stylesheet" type="text/css" href="../skins/{$admin->skin}/acp.css" />
- <script type="text/javascript" src="../javascript/admincp_menu.js"></script>
  <IF (strpos($admin->agent, 'MSIE') !== false)>
   <style type="text/css">
    input.button { padding: 0px; }
