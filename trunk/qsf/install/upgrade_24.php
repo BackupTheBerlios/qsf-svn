@@ -33,7 +33,8 @@ $need_templates = array(
 	'TOPIC_POST',
 	'TOPIC_QUICKREPLY',
 	'POST_ATTACH_REMOVE',
-	'ADMIN_INDEX'
+	'ADMIN_INDEX',
+	'MAIN'
 	);
 
 // Permission changes	
