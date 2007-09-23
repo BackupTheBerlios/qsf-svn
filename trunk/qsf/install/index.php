@@ -113,10 +113,10 @@ if ($mode) {
 include 'templates/header.php';
 
 if (substr(PHP_VERSION, 0, 1) == '3') {
-	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP5 is supported.';
+	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP 5.2.0 and higher are supported.';
 	$failed = true;
 } else if (version_compare(PHP_VERSION, '5.2.0') == -1) {
-	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP 5.2.x and higher are supported.'; // 5.2 too high?
+	echo 'Your PHP version is ' . PHP_VERSION . '.<br />Currently only PHP 5.2.0 and higher are supported.'; // 5.2 too high?
 	$failed = true;
 }
 

@@ -439,9 +439,7 @@ class bbcode extends htmltools
 	function _format_code($input, $php, $start = 1)
 	{
 		if ($php) {
-			if( version_compare( PHP_VERSION, '5.0.0', '>=' ) ) {
-				$input = html_entity_decode($input, ENT_COMPAT, 'UTF-8'); // contents is html so undo it
-			}
+			$input = html_entity_decode($input, ENT_COMPAT, 'UTF-8'); // contents is html so undo it
 
 			if (strpos($input, '<?') === false) {
 				$input  = '<?php ' . $input . '?>';
