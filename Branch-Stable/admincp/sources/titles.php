@@ -52,7 +52,7 @@ class titles extends admin
 					<select class='free' name='new_icon' id='new_icon' onchange='document.title_preview.src=\"../skins/{$this->skin}/images/\"+this.options[selectedIndex].value; document.title_preview.style.display=\"inline\"'>
 					" . $this->list_title_images(-1) . "
 					</select>
-					<img class='free' name='title_preview' src='null' style='display:none;' alt='' /><br class='free' />
+					<img class='free' name='title_preview' src='' style='display:none;' alt='' /><br class='free' />
 
 					<label class='free' for='new_posts'>{$this->lang->titles_minpost}:</label>
 					<input class='freec' name='new_posts' id='new_posts' /><br class='free' /><br class='free' />
