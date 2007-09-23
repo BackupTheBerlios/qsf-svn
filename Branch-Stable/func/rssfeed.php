@@ -55,11 +55,11 @@ class rssfeed extends qsfglobal
 
 		$this->nohtml = true;
 		$this->templater->debug_mode = false; // or else we end up with invalid XML
-		
+
 		$feed = null;
-		
+
 		$this->link = "{$this->sets['loc_of_board']}{$this->mainfile}?a=rssfeed";
-		
+
 		if (isset($this->get['f'])) {
 			$f = intval($this->get['f']);
 			$this->link .= "&amp;f=$f";
@@ -77,7 +77,7 @@ class rssfeed extends qsfglobal
 
 		return $feed;
 	}
-	
+
 	function cleanup()
 	{
 		// Do nothing!
@@ -92,7 +92,7 @@ class rssfeed extends qsfglobal
 	function generate_full_feed()
 	{
 		$forums_str = $this->readmarker->create_forum_permissions_string();
-		
+
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
@@ -115,7 +115,6 @@ class rssfeed extends qsfglobal
 			LIMIT %d",
 			$forums_str, TOPIC_PUBLISH, $this->sets['rss_feed_posts']);
 
-
 		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
 		{
@@ -125,7 +124,7 @@ class rssfeed extends qsfglobal
 		Header( "Content-type: text/xml", 1 );
 		return eval($this->template('RSSFEED_ALL_POSTS'));
 	}
-	
+
 	/**
 	 * Get a RSS feed of posts for a specific forum
 	 *
@@ -139,7 +138,7 @@ class rssfeed extends qsfglobal
 		if (!isset($exists['forum_parent']) || !$exists['forum_parent'] || $exists['forum_subcat']) {
 			return $this->rss_error_message($this->lang->rssfeed_cannot_find_forum);
 		}
-		
+
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
@@ -161,7 +160,7 @@ class rssfeed extends qsfglobal
 			ORDER BY p.post_time DESC
 			LIMIT %d",
 			$forum, TOPIC_PUBLISH, $this->sets['rss_feed_posts']);
-			
+
 		$items = '';
 		while( $row = $this->db->nqfetch( $query ) )
 		{
@@ -201,7 +200,7 @@ class rssfeed extends qsfglobal
 
 		$topicdata['topic_title'] = $this->format($topicdata['topic_title'], FORMAT_CENSOR | FORMAT_HTMLCHARS);
 		$topicdata['topic_description'] = $this->format($topicdata['topic_description'], FORMAT_HTMLCHARS | FORMAT_CENSOR);
-		
+
 		$query = $this->db->query( "SELECT
 				t.topic_id,
 				t.topic_title,
@@ -232,7 +231,7 @@ class rssfeed extends qsfglobal
 		Header( "Content-type: text/xml", 1 );
 		return eval($this->template('RSSFEED_TOPIC'));
 	}
-	
+
 	/**
 	 * Display an error in a format acceptable for an RSS reader
 	 *
@@ -245,7 +244,7 @@ class rssfeed extends qsfglobal
 		Header( "Content-type: text/xml", 1 );
 		return eval($this->template('RSSFEED_ERROR'));
 	}
-	
+
 	/**
 	 * Get the rss information for a single item
 	 *
@@ -256,14 +255,14 @@ class rssfeed extends qsfglobal
 	 **/
 	function get_post($query_row)
 	{
-		$title = htmlspecialchars( $query_row['topic_title'] );
+		$title = $this->format( $query_row['topic_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR );
 		$desc = substr( $query_row['post_text'], 0, 500 );
-		$desc = htmlspecialchars( $desc );
+		$desc = $this->format( $desc, FORMAT_HTMLCHARS | FORMAT_CENSOR );
 		$pubdate = $this->mbdate( DATE_ISO822, $query_row['post_time'], false );
 		$forum_name = 'Unknown';
 		$forum = $this->readmarker->get_forum($query_row['topic_forum']);
 		if ($forum != null) $forum_name = $forum['forum_name'];
-		$user_email = htmlspecialchars($query_row['user_name']);
+		$user_email = $this->format($query_row['user_name'], FORMAT_HTMLCHARS | FORMAT_CENSOR );
 		$user_email .= ' &lt;';
 		if ($query_row['user_email_show']) {
 			$user_email .= $query_row['user_email'];
@@ -271,7 +270,7 @@ class rssfeed extends qsfglobal
 			$user_email .= 'nobody@example.com';
 		}
 		$user_email .= '&gt;';
-		
+
 		return eval($this->template('RSSFEED_ITEM'));
 	}
 }
