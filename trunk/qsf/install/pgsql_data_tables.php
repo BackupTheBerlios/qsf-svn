@@ -63,7 +63,7 @@ $queries[] = "CREATE TABLE %pactive (
   active_item int4 NOT NULL default '0',
   active_time int4 NOT NULL default '0',
   active_session varchar(32) NOT NULL default '',
-  UNIQUE (active_session, active_ip)
+  UNIQUE (active_id, active_ip)
 )"; //   UNIQUE KEY active_session (active_session),  UNIQUE KEY active_ip (active_ip)
 
 

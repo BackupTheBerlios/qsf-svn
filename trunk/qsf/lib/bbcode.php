@@ -126,7 +126,7 @@ class bbcode extends htmltools
 //		var_dump( $pwned ); // $pwned is set in the plugin code...!
 
 		if ($createChild) {
-			$this->clone = &new bbcode( $qsf, false );
+			$this->clone = new bbcode( $qsf, false );
 		}
 	}
 
@@ -243,7 +243,7 @@ class bbcode extends htmltools
 	function make_tree( )
 	{
 		$len = strlen( $this->data );
-		$this->root = &new node( 'root', null, null, $null );
+		$this->root = new node( 'root', null, null, $null );
 		$curser = &$this->root;
 		$last_node = -1;
 
@@ -298,7 +298,7 @@ class bbcode extends htmltools
 
 				if ( 0 != strlen( $text ) )
 				{
-					$__temp = &new node( 'text', $text, null, $curser );
+					$__temp = new node( 'text', $text, null, $curser );
 					$curser->children[] = &$__temp;
 				}
 				unset( $text );
@@ -320,7 +320,7 @@ class bbcode extends htmltools
 						$this->rejoin = '/' . $element;
 					}
 
-					$__temp = &new node( $element, null, $attribute, $curser );
+					$__temp = new node( $element, null, $attribute, $curser );
 					$curser->children[] = &$__temp;
 					$curser = &$__temp;
 				}
@@ -345,7 +345,7 @@ class bbcode extends htmltools
 
 			if ( 0 != strlen( $text ) )
 			{
-				$__temp = &new node( 'text', $text, null, $curser );
+				$__temp = new node( 'text', $text, null, $curser );
 				$curser->children[] = &$__temp;
 			}
 			unset( $text );

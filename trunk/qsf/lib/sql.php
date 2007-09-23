@@ -528,6 +528,45 @@ class sql
 	}
 
 	/**
+	 * SQL for the recent topics page
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
+	public function recent()
+	{
+		$this->recent_countTopics_topic_count = 'SELECT COUNT(topic_id) AS count FROM %ptopics WHERE topic_forum IN (%s) AND topic_edited >= %d';
+		$this->recent_getTopics_list ='SELECT
+				DISTINCT(t.topic_id), p.post_author as dot,
+				t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes & %d AS topic_modes,
+				t.topic_posted, t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
+				t.topic_last_post, f.forum_id, f.forum_name,
+				s.user_name AS topic_starter_name,
+				m.user_name AS topic_last_poster_name
+			FROM
+				%pforums f,
+				%pusers m,
+				%pusers s,
+				%ptopics t
+			LEFT JOIN %pposts p ON (t.topic_id = p.post_topic AND p.post_author = %d)
+			LEFT JOIN %preadmarks rm ON (t.topic_id = rm.readmark_topic AND rm.readmark_user = %d)
+			WHERE
+				t.topic_forum IN (%s) AND
+				(t.topic_edited >= %d OR
+				 (t.topic_edited >= %d AND
+				  (rm.readmark_lastread IS NULL OR rm.readmark_lastread < t.topic_edited)
+				)) AND
+				t.topic_forum = f.forum_id AND
+				m.user_id = t.topic_last_poster AND
+				s.user_id = t.topic_starter AND
+				t.topic_modes & %d = 0
+			ORDER BY
+				t.topic_modes & %d DESC,
+				t.topic_edited DESC
+			LIMIT %d OFFSET %d'; // Still something wrong with the icons...
+	}
+
+	/**
 	 * SQL for the readmarker lib, used by topic
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
@@ -546,8 +585,49 @@ class sql
 	 **/
 	public function register()
 	{
+		$this->register_registration_fetch_tos = 'SELECT settings_tos FROM %psettings';
+		$this->register_registration_fetch_exists = "SELECT user_id FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s'";
+		$this->register_registration_fetch_eexists = "SELECT user_email FROM %pusers WHERE user_email='%s'";
+
 		$this->register_create = 'INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES (\'%s\', \'%s\', %d, \'%s\', %d, \'%s\', \'%s\', %d, %d, %d, \'%s\', %d, %d, %d, \'%s\')';
 		$this->register_activate = 'UPDATE %pusers SET user_group=%d WHERE user_id=%d';
+	}
+
+	public function rssfeed()
+	{
+		$this->rssfeed_generate_full_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum IN (%s) AND CAST(t.topic_modes & %d AS bool) AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d'; // too postgres specific, needs moving
+		$this->rssfeed_generate_forum_feed_fetch_exists = 'SELECT forum_parent, forum_name, forum_description, forum_subcat FROM %pforums WHERE forum_id=%d';
+		$this->rssfeed_generate_forum_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum = %d AND CAST(t.topic_modes & %d AS bool) AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d'; // too postgres specific, needs moving
+
+		$this->rssfeed_generate_topic_feed_fetch_topicdata = '
+			SELECT
+			    t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum, t.topic_replies, t.topic_poll_options, f.forum_name
+			FROM
+			    %ptopics t, %pforums f
+			WHERE
+			    t.topic_id=%d AND
+			    f.forum_id=t.topic_forum';
+
+		$this->rssfeed_generate_topic_feed = 'SELECT
+				t.topic_id,
+				t.topic_title,
+				t.topic_forum,
+				p.post_id,
+				p.post_time,
+				p.post_text,
+				u.user_name,
+				u.user_email,
+				u.user_email_show
+			FROM 
+				%ptopics t,
+				%pposts p,
+				%pusers u
+			WHERE   t.topic_id = %d AND
+				p.post_topic = t.topic_id AND
+				u.user_id = p.post_author
+			ORDER BY p.post_time DESC
+			LIMIT %d';
+
 	}
 
 	/**

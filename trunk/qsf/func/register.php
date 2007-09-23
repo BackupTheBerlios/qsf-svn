@@ -68,7 +68,7 @@ class register extends qsfglobal
 			} else {
 				$image = null;
 			}
-			$tos = $this->db->fetch("SELECT settings_tos FROM %psettings");
+			$tos = $this->db->fetch( $this->db->register_registration_fetch_tos );
 			$tos_text = $tos['settings_tos'];
 			$tos_text = nl2br($tos_text);
 
@@ -121,7 +121,7 @@ class register extends qsfglobal
 
 			$username = str_replace('\\', '&#092;', $this->format($username, FORMAT_HTMLCHARS | FORMAT_CENSOR));
 
-			$exists = $this->db->fetch("SELECT user_id FROM %pusers WHERE REPLACE(LOWER(user_name), ' ', '')='%s'",
+			$exists = $this->db->fetch( $this->db->register_registration_fetch_exists,
 				str_replace(' ', '', strtolower($username)));
 			if ($exists) {
 				return $this->message($this->lang->register_reging, $this->lang->register_name_taken);
@@ -140,7 +140,7 @@ class register extends qsfglobal
 				return $this->message($this->lang->register_reging, $this->lang->register_pass_invalid);
 			}
 
-			$eexists = $this->db->fetch("SELECT user_email FROM %pusers WHERE user_email='%s'", $email);
+			$eexists = $this->db $this->db->register_registration_fetch_eexistss, $email);
 			if ($eexists) {
 				return $this->message($this->lang->register_reging, $this->lang->register_email_used);
 			}

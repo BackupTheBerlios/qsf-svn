@@ -299,7 +299,42 @@ class db_mysql extends database
 	 **/
 	public function readmarker()
 	{
+		parent::readmarker();
 		$this->readmarker_mark_topic_read_replace = 'REPLACE INTO %preadmarks (readmark_user, readmark_topic, readmark_lastread) VALUES (%d, %d, %d)';
+	}
+
+
+	public function recent()
+	{
+		parent::recent();
+		$this->recent_getTopics_list ='SELECT
+				DISTINCT(t.topic_id), p.post_author as dot,
+				t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes & %d AS topic_modes,
+				t.topic_posted, t.topic_edited, t.topic_icon, t.topic_views, t.topic_description, t.topic_moved, t.topic_forum,
+				t.topic_last_post, f.forum_id, f.forum_name,
+				s.user_name AS topic_starter_name,
+				m.user_name AS topic_last_poster_name
+			FROM
+				(%ptopics t,
+				%pforums f,
+				%pusers m,
+				%pusers s)
+			LEFT JOIN %pposts p ON (t.topic_id = p.post_topic AND p.post_author = %d)
+			LEFT JOIN %preadmarks rm ON (t.topic_id = rm.readmark_topic AND rm.readmark_user = %d)
+			WHERE
+				t.topic_forum IN (%s) AND
+				(t.topic_edited >= %d OR
+				 (t.topic_edited >= %d AND
+				  (rm.readmark_lastread IS NULL OR rm.readmark_lastread < t.topic_edited)
+				)) AND
+				t.topic_forum = f.forum_id AND
+				m.user_id = t.topic_last_poster AND
+				s.user_id = t.topic_starter AND
+				t.topic_modes & %d = 0
+			ORDER BY
+				t.topic_modes & %d DESC,
+				t.topic_edited DESC
+			LIMIT %d OFFSET %d';
 	}
 
 	public function register()
@@ -307,6 +342,13 @@ class db_mysql extends database
 		parent::register();
 
 		$this->register_create = 'INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES (\'%s\', \'%s\', %d, \'%s\', %d, \'%s\', \'%s\', %d, %d, %d, \'%s\', %d, %d, %d, INET_ATON(\'%s\'))';
+	}
+
+	public function rssfeed()
+	{
+		parent::rssfeed();
+		$this->rssfeed_generate_full_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum IN (%s) AND t.topic_modes & %d AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d';
+		$this->rssfeed_generate_forum_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum = %d AND t.topic_modes & %d AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d';
 	}
 
 	/**
