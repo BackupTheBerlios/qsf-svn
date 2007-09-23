@@ -60,7 +60,7 @@ class readmarker extends forumutils
 				$this->last_read_all = intval($qsf->cookie[$this->sets['cookie_prefix'] . 'lastallread']);
 			} else {
 				$this->last_read_all = $this->time - DAY_IN_SECONDS;
-				if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+				if( version_compare( PHP_VERSION, '5.2.0', '<' ) ) {
 					setcookie($this->sets['cookie_prefix'] . 'lastallread', $this->last_read_all, $qsf->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'].'; HttpOnly', $this->sets['cookie_secure']);
 				} else {
 					setcookie($this->sets['cookie_prefix'] . 'lastallread', $this->last_read_all, $qsf->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'], $this->sets['cookie_secure'], true );
@@ -121,15 +121,14 @@ class readmarker extends forumutils
 					unset($_SESSION[$this->sets['cookie_prefix'] . 'read_topics'][$topic]);
 				}
 			}
-			if( version_compare( PHP_VERSION, "5.2.0", "<" ) ) {
+			if( version_compare( PHP_VERSION, '5.2.0', '<' ) ) {
 				setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'].'; HttpOnly', $this->sets['cookie_secure']);
 			} else {
 				setcookie($this->sets['cookie_prefix'] . 'lastallread', $time, $this->time + $this->sets['logintime'], $this->sets['cookie_path'], $this->sets['cookie_domain'], $this->sets['cookie_secure'], true );
 			}
 		} else {
-			$this->db->query("UPDATE %pusers SET user_lastallread=%s WHERE user_id=%d", $time, $this->user_id);
-			$this->db->query("DELETE FROM %preadmarks 
-				WHERE readmark_user=%d AND readmark_lastread<%d", $this->user_id, $time);
+			$this->db->query( $this->db->readmarker_mark_all_read_update, $time, $this->user_id);
+			$this->db->query( $this->db->readmarker_mark_all_read_delete, $this->user_id, $time);
 		}
 		$this->readmarkers_loaded = false;
 	}
@@ -144,8 +143,7 @@ class readmarker extends forumutils
 	 **/
 	function mark_forum_read($forum_id, $time)
 	{
-		$query = $this->db->query("SELECT topic_id, topic_edited FROM %ptopics
-			WHERE topic_edited > %d AND topic_forum = %d",
+		$query = $this->db->query( $this->db->readmarker_mark_forum_read,
 			$this->last_read_all, $forum_id);
 		
 		while ($row = $this->db->nqfetch($query)) {
@@ -307,7 +305,7 @@ class readmarker extends forumutils
 	{
 		if (!$this->readmarkers_loaded) {
 			$this->readmarkers = array();
-			$query = $this->db->query("SELECT * FROM %preadmarks WHERE readmark_user=%d", $this->user_id);
+			$query = $this->db->query( $this->db->readmarker__load_readmarkers, $this->user_id);
 			while ($mark = $this->db->nqfetch($query))
 			{
 				$this->readmarkers[$mark['readmark_topic']] = $mark['readmark_lastread'];
@@ -330,8 +328,7 @@ class readmarker extends forumutils
 		if (!$this->forum_topics_loaded)
 		{
 			/* find all topics since we pressed mark all read */
-			$query = $this->db->query("SELECT topic_id, topic_edited, topic_forum FROM %ptopics
-			   WHERE topic_edited > %d", $this->last_read_all);
+			$query = $this->db->query( $this->db->readmarker__load_forum_topics, $this->last_read_all);
 
 			/* read all the records*/
 			while ($row = $this->db->nqfetch($query))
@@ -363,8 +360,7 @@ class readmarker extends forumutils
 	{
 		$readable_forums = $this->create_forum_permissions_string();
 		// Find the OLDEST unread post
-		$query = $this->db->query("SELECT topic_id, topic_edited FROM %ptopics
-			WHERE topic_edited > %d AND topic_forum IN (%s)",
+		$query = $this->db->query( $this->db->readmarker__cleanup_readmarks,
 			$this->last_read_all, $readable_forums);
 		
 		$oldest_time = $this->time;

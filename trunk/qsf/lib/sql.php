@@ -576,6 +576,12 @@ class sql
 	public function readmarker()
 	{
 		$this->readmarker_mark_topic_read_replace = 'INSERT INTO %preadmarks (readmark_user, readmark_topic, readmark_lastread) VALUES (%d, %d, %d)';
+		$this->readmarker_mark_all_read_update = 'UPDATE %pusers SET user_lastallread=%s WHERE user_id=%d';
+		$this->readmarker_mark_all_read_delete = 'DELETE FROM %preadmarks WHERE readmark_user=%d AND readmark_lastread<%d';
+		$this->readmarker_mark_forum_read = 'SELECT topic_id, topic_edited FROM %ptopics WHERE topic_edited > %d AND topic_forum = %d';
+		$this->readmarker__load_readmarkers = 'SELECT * FROM %preadmarks WHERE readmark_user=%d';
+		$this->readmarker__load_forum_topics = 'SELECT topic_id, topic_edited, topic_forum FROM %ptopics WHERE topic_edited > %d';
+		$this->readmarker__cleanup_readmarks = 'SELECT topic_id, topic_edited FROM %ptopics WHERE topic_edited > %d AND topic_forum IN (%s)';
 	}
 
 	/**
@@ -632,6 +638,13 @@ class sql
 			ORDER BY p.post_time DESC
 			LIMIT %d';
 
+	}
+
+	public function templater()
+	{
+		$this->templater_get_templates_main = "SELECT template_name, template_html FROM %ptemplates WHERE template_skin='%s' AND (template_set='Main' OR template_set='%s')";
+		$this->templater_get_templates_admin = "SELECT template_name, template_html FROM %ptemplates WHERE template_skin='%s' AND (template_set='Admin' OR template_set='%s')";
+		$this->templater_get_templates_all = "SELECT template_name, template_html FROM %ptemplates WHERE template_skin='%s' AND template_set='%s'";
 	}
 
 	/**
