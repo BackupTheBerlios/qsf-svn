@@ -73,15 +73,11 @@ class sql
 	}
 
 	/**
-	 * SQL for the active page
+	 * SQL for the attachment utilities
 	 *
 	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
 	 * @since 2.0.0
 	 **/
-	public function active()
-	{
-	}
-
 	public function attachutil()
 	{
 		$this->attachutil_attach_now_insert = "INSERT INTO %pattach (attach_file, attach_name, attach_post, attach_size) VALUES ('%s', '%s', %d, %d)";
@@ -220,6 +216,12 @@ class sql
 			LIMIT %d OFFSET %d';
 	}
 
+	/**
+	 * SQL for the forum utilities
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function forumutils()
 	{
 		$this->forumutils_load_forum_data = 'SELECT forum_id, forum_parent, forum_tree, forum_name, forum_position FROM %pforums ORDER BY forum_position';
@@ -236,11 +238,23 @@ class sql
 		$this->help_execute_select_help = 'SELECT help_id, help_title, help_article FROM %phelp ORDER BY help_title';
 	}
 
+	/**
+	 * SQL for the html tools
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function htmltools()
 	{
 		$this->htmltools_get_replaces = 'SELECT * FROM %preplacements ORDER BY LENGTH(replacement_search) DESC';
 	}
 
+	/**
+	 * SQL for the html widgets
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function htmlwidgets()
 	{
 		$this->htmlwidgets_select_groups_custonly = 'SELECT group_name, group_id FROM %pgroups WHERE group_type="" ORDER BY group_name';
@@ -286,6 +300,12 @@ class sql
 		$this->login_request_pass_update_users = "UPDATE %pusers SET user_password='%s' WHERE user_id=%d";
 	}
 
+	/**
+	 * SQL for the members list
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function members()
 	{
 		$this->members_page_count_withl = "SELECT user_id FROM %pusers m, %pgroups g WHERE m.user_group = g.group_id AND m.user_id != %d AND UPPER(SUBSTRING(LTRIM(m.user_name), 1, 1)) = '%s'";
@@ -603,6 +623,12 @@ class sql
 		$this->register_activateUser_fetch_member = "SELECT user_id, user_group FROM %pusers WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' LIMIT 1";
 	}
 
+	/**
+	 * SQL for the rss feed
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function rssfeed()
 	{
 		$this->rssfeed_generate_full_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum IN (%s) AND CAST(t.topic_modes & %d AS bool) AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d'; // too postgres specific, needs moving
@@ -640,6 +666,12 @@ class sql
 
 	}
 
+	/**
+	 * SQL for the templater library
+	 *
+	 * @author Matthew Lawrence <matt@quicksilverforums.co.uk>
+	 * @since 2.0.0
+	 **/
 	public function templater()
 	{
 		$this->templater_get_templates_main = "SELECT template_name, template_html FROM %ptemplates WHERE template_skin='%s' AND (template_set='Main' OR template_set='%s')";
@@ -655,7 +687,6 @@ class sql
 	 **/
 	public function topic()
 	{
-		$this->readmarker();
 		$this->topic_get_topic_fetch_topic = '
 			SELECT
 				t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum,
@@ -711,7 +742,5 @@ class sql
 		$this->topic_get_poll_fetch_user_voted = 'SELECT vote_option FROM %pvotes WHERE vote_user=%d AND vote_topic=%d';
 		$this->topic_get_poll_select_vote_option = 'SELECT vote_option FROM %pvotes WHERE vote_topic=%d AND vote_option != -1';
 	}
-
 }
-
 ?>

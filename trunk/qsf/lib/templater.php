@@ -54,6 +54,8 @@ class templater extends htmltools
 		$this->debug_mode = $qsf->debug_mode;
 		// Needed for modlets
 		$this->qsf = &$qsf;
+
+		$qsf->db->templater();
 	}
 	
 	/**

@@ -199,12 +199,15 @@ class db_mysql extends database
 	public function install()
 	{
 		parent::install();
+
 		$this->install_seed_post_create = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, 1, 1, INET_ATON(\'%s\'), \'%s\')';
 	}
 
 	// SQL for libs
 	public function activeutil()
 	{
+		parent::activeutil();
+
 		$this->activeutil_update = 'REPLACE INTO %pactive (active_id, active_action, active_item, active_time, active_ip, active_user_agent, active_session) VALUES (%d, \'%s\', %d, %d, INET_ATON(\'%s\'), \'%s\', \'%s\')';
 		$this->activeutil_load = 'SELECT a.*, INET_NTOA(a.active_ip) as active_ip, u.user_name, u.user_active, g.group_format, f.forum_name, t.topic_title, t.topic_forum, u2.user_name AS profile_name
 			FROM (%pactive a, %pgroups g, %pusers u)
@@ -228,6 +231,7 @@ class db_mysql extends database
 	public function members()
 	{
 		parent::members();
+
 		$this->members_page_count_withl = "SELECT user_id FROM %pusers m, %pgroups g WHERE m.user_group = g.group_id AND m.user_id != %d AND UPPER(LEFT(LTRIM(m.user_name), 1)) = '%s'";
 		$this->members_search_withl = "
 			SELECT
@@ -248,6 +252,7 @@ class db_mysql extends database
 	public function pm()
 	{
 		parent::pm();
+
 		$this->pm_send_do_send = "INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_title, pm_time, pm_message, pm_folder)
 					VALUES (%d, %d, INET_ATON('%s'), '%s', %d, '%s', 0)";
 		$this->pm_send_do_send_with_bcc = "INSERT INTO %ppmsystem (pm_to, pm_from, pm_ip, pm_bcc, pm_title, pm_time, pm_message, pm_folder, pm_read)
@@ -271,6 +276,7 @@ class db_mysql extends database
 	public function post()
 	{
 		parent::post();
+
 		$this->post_makepost = 'INSERT INTO %pposts (post_topic, post_author, post_text, post_time, post_emoticons, post_mbcode, post_count, post_ip, post_icon) VALUES (%d, %d, \'%s\', %d, %d, %d, %d, INET_ATON(\'%s\'), \'%s\')';
 	}
 
@@ -283,6 +289,7 @@ class db_mysql extends database
 	public function profile()
 	{
 		parent::profile();
+
 		$this->profile_execute_fetch_profile = 'SELECT m.*, g.group_name, a.active_time FROM (%pusers m, %pgroups g) LEFT JOIN %pactive a ON a.active_id=m.user_id WHERE m.user_id=%d AND g.group_id=m.user_group';
 		$this->profile_execute_select_fav = 'SELECT COUNT(p.post_id) AS forumuser_posts, f.forum_id AS forum, f.forum_name
 				FROM %pposts p, %ptopics t, %pforums f
@@ -300,6 +307,7 @@ class db_mysql extends database
 	public function readmarker()
 	{
 		parent::readmarker();
+
 		$this->readmarker_mark_topic_read_replace = 'REPLACE INTO %preadmarks (readmark_user, readmark_topic, readmark_lastread) VALUES (%d, %d, %d)';
 	}
 
@@ -307,6 +315,7 @@ class db_mysql extends database
 	public function recent()
 	{
 		parent::recent();
+
 		$this->recent_getTopics_list ='SELECT
 				DISTINCT(t.topic_id), p.post_author as dot,
 				t.topic_title, t.topic_last_poster, t.topic_starter, t.topic_replies, t.topic_modes & %d AS topic_modes,
@@ -347,6 +356,7 @@ class db_mysql extends database
 	public function rssfeed()
 	{
 		parent::rssfeed();
+
 		$this->rssfeed_generate_full_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum IN (%s) AND t.topic_modes & %d AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d';
 		$this->rssfeed_generate_forum_feed = 'SELECT t.topic_id, t.topic_title, t.topic_forum, p.post_id, p.post_time, p.post_text, u.user_name, u.user_email, u.user_email_show FROM %ptopics t, %pposts p, %pusers u WHERE t.topic_forum = %d AND t.topic_modes & %d AND p.post_topic = t.topic_id AND u.user_id = p.post_author ORDER BY p.post_time DESC LIMIT %d';
 	}
@@ -360,6 +370,7 @@ class db_mysql extends database
 	public function topic()
 	{
 		parent::topic();
+
 		$this->topic_get_main = 'SELECT
 			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, INET_NTOA(p.post_ip) as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
 			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
