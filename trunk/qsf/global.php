@@ -68,7 +68,7 @@ class qsfglobal
 	var $validator;			  // Handler for checking usernames, passwords, etc
 	var $activeutil;		  // Handler user activity
 	
-	var $debug_mode = true;	  // Switch to tell if debugging info is allowed
+	var $debug_mode = false;	  // Switch to tell if debugging info is allowed
 
 	var $plugin_events = array();
 
