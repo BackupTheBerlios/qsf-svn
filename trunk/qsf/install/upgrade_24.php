@@ -32,7 +32,8 @@ $need_templates = array(
 	// Changed templates
 	'TOPIC_POST',
 	'TOPIC_QUICKREPLY',
-	'POST_ATTACH_REMOVE'
+	'POST_ATTACH_REMOVE',
+	'ADMIN_INDEX'
 	);
 
 // Permission changes	
