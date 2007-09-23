@@ -86,16 +86,7 @@ class topic extends qsfglobal
                         $this->get['unread']  = false;
                 }
 		
-		$topic = $this->db->fetch('
-			SELECT
-				t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum,
-				t.topic_edited, t.topic_replies, t.topic_poll_options, f.forum_name
-			FROM
-				%ptopics t, %pforums f
-			WHERE
-				t.topic_id=%d AND
-				f.forum_id=t.topic_forum',
-			$this->get['t']);
+		$topic = $this->db->fetch( $this->db->topic_get_topic_fetch_topic, $this->get['t']);
 
 		if (!$topic) {
 			$this->set_title($this->lang->topic_not_found);
@@ -113,37 +104,49 @@ class topic extends qsfglobal
 			);
 		}
 
-		if ($this->get['view']) {
-			if ($this->get['view'] == 'older') {
-				$order = 'DESC';
-				$where = "topic_edited < %d";
-				
-				if ($topic['topic_modes'] & TOPIC_PINNED) {
-					$where .= ' OR ';
+		if ($this->get['view'])
+		{
+			if ($this->get['view'] == 'older')
+			{
+				if ($topic['topic_modes'] & TOPIC_PINNED)
+				{
+					$new_topic = $this->db->fetch( $this->db->topic_get_topic_fetch_new_topic_ordesc,
+						$topic['topic_forum'],
+						$topic['topic_edited'],
+						TOPIC_PINNED,
+						0,
+						TOPIC_PINNED
+						);
 				} else {
-					$where .= ' AND ';
+					$new_topic = $this->db->fetch( $this->db->topic_get_topic_fetch_new_topic_anddesc,
+						$topic['topic_forum'],
+						$topic['topic_edited'],
+						TOPIC_PINNED,
+						0,
+						TOPIC_PINNED
+						);
 				}
-				$where .= "(topic_modes & " . TOPIC_PINNED . ") = 0";
 			} else {
-				$order = 'ASC';
-				$where = "topic_edited > %d";
-				if (!($topic['topic_modes'] & TOPIC_PINNED)) {
-					$where .= ' OR ';
+				if (!($topic['topic_modes'] & TOPIC_PINNED))
+				{
+					$new_topic = $this->db->fetch( $this->db->topic_get_topic_fetch_new_topic_orasc,
+						$topic['topic_forum'],
+						$topic['topic_edited'],
+						TOPIC_PINNED,
+						TOPIC_PINNED,
+						TOPIC_PINNED
+						);
 				} else {
-					$where .= ' AND ';
+					$new_topic = $this->db->fetch( $this->db->topic_get_topic_fetch_new_topic_andasc,
+						$topic['topic_forum'],
+						$topic['topic_edited'],
+						TOPIC_PINNED,
+						TOPIC_PINNED,
+						TOPIC_PINNED
+						);
 				}
-				$where .= "(topic_modes & " . TOPIC_PINNED . ") = " . TOPIC_PINNED;
-            }
- 
-			$new_topic = $this->db->fetch("
-					SELECT topic_id FROM %ptopics
-					WHERE topic_forum=%d AND
-						($where)
-					ORDER BY (topic_modes & %d) $order,
-						topic_edited $order
-					LIMIT 1",
-					$topic['topic_forum'], $topic['topic_edited'], TOPIC_PINNED);
-
+			}
+			 
 			if ($new_topic) {
                                 // Move to that topic
 				header('Location: ' . $this->self . '?a=topic&t=' . $new_topic['topic_id']);
@@ -159,7 +162,7 @@ class topic extends qsfglobal
 		if ($this->get['unread']) {
 			// Jump to the first unread post (or the last post)
 			$timeread = $this->readmarker->topic_last_read($this->get['t']);
-			$posts = $this->db->fetch("SELECT COUNT(post_id) AS posts FROM %pposts WHERE post_topic = %d AND post_time < %d",
+			$posts = $this->db->fetch( $this->db->topic_get_topic_fetch_posts_time,
 				$this->get['t'], $timeread);
 			if ($posts) $postCount = $posts['posts'] + 1;
 			else $postCount = 0;
@@ -171,7 +174,7 @@ class topic extends qsfglobal
 		if ($this->get['p']) {
 			// We need to find what page this post exists on!
 			// TODO: find a better way to do this. if post_id cycles (unlikely) it'll stuff things up
-			$posts = $this->db->fetch("SELECT COUNT(post_id) AS posts FROM %pposts WHERE post_topic = %d AND post_id < %d",
+			$posts = $this->db->fetch( $this->db->topic_get_topic_fetch_posts_id,
 				$this->get['t'], $this->get['p']);
 			if ($posts) $postCount = $posts['posts'] + 1;
 			else $postCount = 0;
@@ -181,7 +184,7 @@ class topic extends qsfglobal
 			}
 		}
 
-		$this->db->query('UPDATE %ptopics SET topic_views=topic_views+1 WHERE topic_id=%d', $this->get['t']);
+		$this->db->query( $this->db->topic_get_topic_update_topics, $this->get['t'] );
 
 		$topic['topic_title'] = $this->format($topic['topic_title'], FORMAT_CENSOR);
 		$title_html = $this->format($topic['topic_title'], FORMAT_HTMLCHARS);
@@ -287,15 +290,7 @@ class topic extends qsfglobal
 
 		$posts = null;
 
-		$query = $this->db->query("
-			SELECT
-			  a.attach_id, a.attach_name, a.attach_downloads, a.attach_size,
-			  p.post_id
-			FROM
-			  %pposts p, %pattach a
-			WHERE
-			  p.post_topic = %d AND
-			  a.attach_post = p.post_id",
+		$query = $this->db->query( $this->db->topic_get_get_attachments,
 			$this->get['t']);
 
 		$attachments = array();
@@ -549,19 +544,11 @@ class topic extends qsfglobal
 
 		$this->get['id'] = intval($this->get['id']);
 
-		$data = $this->db->fetch("
-			SELECT
-			  a.attach_name, a.attach_file, a.attach_size, t.topic_forum
-			FROM
-			  %pattach a, %pposts p, %ptopics t
-			WHERE
-			  a.attach_post = p.post_id AND
-			  p.post_topic = t.topic_id AND
-			  a.attach_id = %d", $this->get['id']);
+		$data = $this->db->fetch( $this->db->topic_get_attachment_fetch_data, $this->get['id']);
 
 		if ($this->perms->auth('post_attach_download', $data['topic_forum'])) {
 			$this->nohtml = true;
-			$this->db->query("UPDATE %pattach SET attach_downloads=attach_downloads+1 WHERE attach_id=%d", $this->get['id']);
+			$this->db->query( $this->db->topic_get_attachment_update_count, $this->get['id']);
 
 			// Need to terminate and unlock the session at this point or the site will stall for the current user.
 			session_write_close();
@@ -579,10 +566,10 @@ class topic extends qsfglobal
 
 	function get_poll($t, $f, $title_html, $topic_modes, $options)
 	{
-		$user_voted = $this->db->fetch('SELECT vote_option FROM %pvotes WHERE vote_user=%d AND vote_topic=%d', $this->user['user_id'], $t);
+		$user_voted = $this->db->fetch( $this->db->topic_get_poll_fetch_user_voted, $this->user['user_id'], $t);
 
 		if ($user_voted || !$this->perms->auth('poll_vote', $f) || ($topic_modes & TOPIC_LOCKED) || (isset($this->get['results']) && $this->sets['vote_after_results'])) {
-			$votes = $this->db->query("SELECT vote_option FROM %pvotes WHERE vote_topic=%d AND vote_option != -1", $t);
+			$votes = $this->db->query( $this->db->topic_get_poll_select_vote_option, $t);
 
 			$results = array();
 			$total_votes = 0;

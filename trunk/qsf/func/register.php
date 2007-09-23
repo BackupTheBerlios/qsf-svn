@@ -195,7 +195,7 @@ class register extends qsfglobal
 	function activateUser()
 	{
 		if (isset($this->get['e'])) {
-			$member = $this->db->fetch("SELECT user_id, user_group FROM %pusers WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' LIMIT 1", $this->get['e']);
+			$member = $this->db->fetch( $this->db->register_activateUser_fetch_member, $this->get['e']);
 
 			if (isset($member['user_id']) && USER_GUEST_UID != $member['user_id'] && USER_AWAIT == $member['user_group']) {
 				$this->db->query( $this->db->register_activate,

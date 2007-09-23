@@ -136,6 +136,7 @@ class sql
 				  user_interests='%s', user_icq=%d, user_msn='%s', user_aim='%s', user_yahoo='%s',
 				  user_gtalk='%s', user_title='%s', user_title_custom='%s', user_name='%s'
 				WHERE user_id=%d";
+		$this->cp_edit_profile_update_posts = "UPDATE %pposts SET post_edited_by='%s' WHERE post_edited_by='%s'";
 
 		$this->cp_edit_avatar_update_users = "
 				UPDATE %pusers SET
@@ -591,6 +592,9 @@ class sql
 
 		$this->register_create = 'INSERT INTO %pusers (user_name, user_password, user_group, user_title, user_joined, user_email, user_skin, user_view_avatars, user_view_emoticons, user_view_signatures, user_language, user_email_show, user_pm, user_timezone, user_regip) VALUES (\'%s\', \'%s\', %d, \'%s\', %d, \'%s\', \'%s\', %d, %d, %d, \'%s\', %d, %d, %d, \'%s\')';
 		$this->register_activate = 'UPDATE %pusers SET user_group=%d WHERE user_id=%d';
+
+
+		$this->register_activateUser_fetch_member = "SELECT user_id, user_group FROM %pusers WHERE MD5(CONCAT(user_email, user_name, user_password, user_joined))='%s' LIMIT 1";
 	}
 
 	public function rssfeed()
@@ -639,6 +643,25 @@ class sql
 	public function topic()
 	{
 		$this->readmarker();
+		$this->topic_get_topic_fetch_topic = '
+			SELECT
+				t.topic_title, t.topic_description, t.topic_modes, t.topic_starter, t.topic_forum,
+				t.topic_edited, t.topic_replies, t.topic_poll_options, f.forum_name
+			FROM
+				%ptopics t, %pforums f
+			WHERE
+				t.topic_id=%d AND
+				f.forum_id=t.topic_forum';
+
+		$this->topic_get_topic_fetch_new_topic_ordesc = 'SELECT topic_id FROM %ptopics WHERE topic_forum=%d AND ( topic_edited < %d OR (topic_modes & %d) = %d ) ORDER BY (topic_modes & %d) DESC, topic_edited DESC LIMIT 1';
+		$this->topic_get_topic_fetch_new_topic_anddesc = 'SELECT topic_id FROM %ptopics WHERE topic_forum=%d AND ( topic_edited < %d AND (topic_modes & %d) = %d ) ORDER BY (topic_modes & %d) DESC, topic_edited DESC LIMIT 1';
+		$this->topic_get_topic_fetch_new_topic_orasc = 'SELECT topic_id FROM %ptopics WHERE topic_forum=%d AND ( topic_edited < %d OR (topic_modes & %d) = %d ) ORDER BY (topic_modes & %d) ASC, topic_edited ASC LIMIT 1';
+		$this->topic_get_topic_fetch_new_topic_andasc = 'SELECT topic_id FROM %ptopics WHERE topic_forum=%d AND ( topic_edited < %d AND (topic_modes & %d) = %d ) ORDER BY (topic_modes & %d) ASC, topic_edited ASC LIMIT 1';
+		$this->topic_get_topic_fetch_posts_time = 'SELECT COUNT(post_id) AS posts FROM %pposts WHERE post_topic = %d AND post_time < %d';
+		$this->topic_get_topic_fetch_posts_id = 'SELECT COUNT(post_id) AS posts FROM %pposts WHERE post_topic = %d AND post_id < %d';
+		$this->topic_get_topic_update_topics = 'UPDATE %ptopics SET topic_views=topic_views+1 WHERE topic_id=%d';
+
+
 		$this->topic_get_main = 'SELECT
 			  p.post_emoticons, p.post_mbcode, p.post_time, p.post_text, p.post_author, p.post_id, p.post_ip as post_ip, p.post_icon, p.post_edited_by, p.post_edited_time,
 			  m.user_joined, m.user_signature, m.user_posts, m.user_id, m.user_title, m.user_group, m.user_avatar, m.user_name, m.user_email, m.user_aim, m.user_gtalk,
@@ -657,6 +680,23 @@ class sql
 			ORDER BY
 			  p.post_time
 			LIMIT %d OFFSET %d';
+
+
+		$this->topic_get_get_attachments = '
+			SELECT
+			  a.attach_id, a.attach_name, a.attach_downloads, a.attach_size,
+			  p.post_id
+			FROM
+			  %pposts p, %pattach a
+			WHERE
+			  p.post_topic = %d AND
+			  a.attach_post = p.post_id';
+
+		$this->topic_get_attachment_fetch_data = 'SELECT a.attach_name, a.attach_file, a.attach_size, t.topic_forum FROM %pattach a, %pposts p, %ptopics t WHERE a.attach_post = p.post_id AND p.post_topic = t.topic_id AND a.attach_id = %d';
+		$this->topic_get_attachment_update_count = 'UPDATE %pattach SET attach_downloads=attach_downloads+1 WHERE attach_id=%d';
+
+		$this->topic_get_poll_fetch_user_voted = 'SELECT vote_option FROM %pvotes WHERE vote_user=%d AND vote_topic=%d';
+		$this->topic_get_poll_select_vote_option = 'SELECT vote_option FROM %pvotes WHERE vote_topic=%d AND vote_option != -1';
 	}
 
 }

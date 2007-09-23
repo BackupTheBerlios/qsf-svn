@@ -369,7 +369,7 @@ class cp extends qsfglobal
 				$this->user['user_id']);
 
 			if ($this->post['Newuser_name'] != $this->user['user_name']) {
-				$this->db->query("UPDATE %pposts SET post_edited_by='%s' WHERE post_edited_by='%s'",
+				$this->db->query( $this->db->cp_edit_profile_update_posts,
 					$this->post['Newuser_name'], $this->user['user_name']);
 			}
 
