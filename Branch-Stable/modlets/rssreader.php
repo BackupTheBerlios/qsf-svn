@@ -57,6 +57,8 @@ class rssreader extends modlet
 	 **/
 	function run($param)
 	{
+		ini_set( 'user_agent', 'qsf-rssreader' );
+
 		if (!function_exists('xml_parser_create')) {
 			return "<!-- XML functions not enabled -->";
 		}
