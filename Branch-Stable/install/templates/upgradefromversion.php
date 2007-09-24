@@ -3,7 +3,7 @@
     </tr>
     <tr>
         <td><input type='radio' name='from' value='24' id='upgrade24' checked='checked' />
-        <label for='upgrade23'>Quicksilver Forums v1.4.0</label></td>
+        <label for='upgrade24'>Quicksilver Forums v1.4.0</label></td>
     </tr>
     <tr>
         <td><input type='radio' name='from' value='23' id='upgrade23' />
