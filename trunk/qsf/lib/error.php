@@ -166,13 +166,13 @@ function error_fatal($type, $message, $file, $line = 0)
 	}
 
 	// DO NOT allow this information into the error reports!!!
+	$details = str_replace( $set['db_name'], "****", $details );
 	$details = str_replace( $set['db_pass'], "****", $details );
 	$details = str_replace( $set['db_user'], "****", $details );
-	$details = str_replace( $set['db_name'], "****", $details );
 	$details = str_replace( $set['db_host'], "****", $details );
+	$backtrace = str_replace( $set['db_name'], "****", $backtrace );
 	$backtrace = str_replace( $set['db_pass'], "****", $backtrace );
 	$backtrace = str_replace( $set['db_user'], "****", $backtrace );
-	$backtrace = str_replace( $set['db_name'], "****", $backtrace );
 	$backtrace = str_replace( $set['db_host'], "****", $backtrace );
 
 	return "
