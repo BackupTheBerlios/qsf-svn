@@ -27,6 +27,8 @@ if (!defined('QUICKSILVERFORUMS')) {
 
 $error_version = '2.0';
 
+require './settings.php';
+
 function get_backtrace()
 {
 	$backtrace = debug_backtrace();
@@ -79,6 +81,8 @@ function get_backtrace()
 
 function error_fatal($type, $message, $file, $line = 0)
 {
+	global $set;
+
 	switch($type)
 	{
 	case E_USER_ERROR:
@@ -161,6 +165,16 @@ function error_fatal($type, $message, $file, $line = 0)
 	} else {
 		$temp_querystring = "";
 	}
+
+	// DO NOT allow this information into the error reports!!!
+	$details = str_replace( $set['db_pass'], "****", $details );
+	$details = str_replace( $set['db_user'], "****", $details );
+	$details = str_replace( $set['db_name'], "****", $details );
+	$details = str_replace( $set['db_host'], "****", $details );
+	$backtrace = str_replace( $set['db_pass'], "****", $backtrace );
+	$backtrace = str_replace( $set['db_user'], "****", $backtrace );
+	$backtrace = str_replace( $set['db_name'], "****", $backtrace );
+	$backtrace = str_replace( $set['db_host'], "****", $backtrace );
 
 	return "
 	<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
