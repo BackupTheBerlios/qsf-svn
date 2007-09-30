@@ -42,6 +42,12 @@ class db_mysqli extends db_mysql
 		$this->connection = @mysqli_connect( $db_host, $db_user, $db_pass, $db_name, $db_port, $db_socket );
 	}
 
+	function close()
+	{
+		if( $this->connection )
+			@mysqli_close( $this->connection );
+	}
+
 	function get_debug_info($query)
 	{
 		$data = array();

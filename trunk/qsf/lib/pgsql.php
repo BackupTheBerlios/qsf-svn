@@ -58,7 +58,13 @@ class db_pgsql extends database
 
 		$this->connection = @pg_connect($pg_connstr);
 	}
-	
+
+	function close()
+	{
+		if( $this->connection )
+			@pg_close( $this->connection );
+	}
+
 	/**
 	 * Runs an EXPLAIN or similar on a query
 	 *
