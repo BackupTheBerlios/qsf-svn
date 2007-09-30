@@ -11,6 +11,7 @@ Changes for 1.4.1:
 * Modlets added in AdminCP templates would crash with an unknown variable. -- Matt
 * The database installers need to use ENGINE instead of TYPE for table creation.
 * Attachment downloads corrupt with zlib.output_compression=on in PHP config
+* SECURITY: Error library will reveal database information when showing a connection error.
 
 Changes for 1.4.0:
 
