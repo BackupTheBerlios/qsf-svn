@@ -27,7 +27,10 @@ if (!defined('QUICKSILVERFORUMS')) {
 
 $error_version = '2.0';
 
-require './settings.php';
+if( is_readable( './settings.php' ) )
+	require './settings.php';
+else
+	require '../settings.php';
 
 function get_backtrace()
 {
