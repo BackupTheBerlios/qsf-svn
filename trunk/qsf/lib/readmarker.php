@@ -52,6 +52,8 @@ class readmarker extends forumutils
 		parent::forumutils($qsf);
 
 		$this->time = &$qsf->time;
+
+		$qsf->db->readmarker();
 		
 		// To initalise ourselves we need to look at the user
 		if ($qsf->perms->is_guest) {

@@ -85,6 +85,7 @@ function get_backtrace()
 
 function error_fatal($type, $message, $file, $line = 0)
 {
+	global $set;
 	switch($type)
 	{
 	case E_USER_ERROR:
