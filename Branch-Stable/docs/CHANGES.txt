@@ -1,6 +1,12 @@
 Quicksilver Forums Changes
 --------------------------
 
+Changes for 1.4.2:
+
+   Bugs addressed:
+
+* Poll icon on recent posts is missing.
+
 Changes for 1.4.1:
 
    Bugs addressed:
