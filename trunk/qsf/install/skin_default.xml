@@ -3009,7 +3009,7 @@ enable('$init');
   {$this->lang->recent_hot}
  </span>
  <span class="eight">
-  <img src="./skins/{$this->skin}/images/icons/poll.png" title="{$this->lang->recent_poll}" alt="{$this->lang->recent_poll}" />
+  <img src="./skins/{$this->skin}/images/icons/chart_bar.png" title="{$this->lang->recent_poll}" alt="{$this->lang->recent_poll}" />
   {$this->lang->recent_poll}
  </span>
  <span class="eight">
