@@ -257,7 +257,8 @@ class rssfeed extends qsfglobal
 	{
 		$title = $this->format( $query_row['topic_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR );
 		$desc = substr( $query_row['post_text'], 0, 500 );
-		$desc = $this->format( $desc, FORMAT_HTMLCHARS | FORMAT_CENSOR );
+		$desc = $this->format( $desc, FORMAT_CENSOR );
+		$desc = htmlspecialchars( $desc );
 		$pubdate = $this->mbdate( DATE_ISO822, $query_row['post_time'], false );
 		$forum_name = 'Unknown';
 		$forum = $this->readmarker->get_forum($query_row['topic_forum']);
