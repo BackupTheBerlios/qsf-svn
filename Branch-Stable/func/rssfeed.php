@@ -255,22 +255,29 @@ class rssfeed extends qsfglobal
 	 **/
 	function get_post($query_row)
 	{
-		$title = $this->format( $query_row['topic_title'], FORMAT_HTMLCHARS | FORMAT_CENSOR );
+		$title = $this->format( $query_row['topic_title'], FORMAT_CENSOR );
+		$title = htmlspecialchars( $title );
+
 		$desc = substr( $query_row['post_text'], 0, 500 );
 		$desc = $this->format( $desc, FORMAT_CENSOR );
 		$desc = htmlspecialchars( $desc );
+
 		$pubdate = $this->mbdate( DATE_ISO822, $query_row['post_time'], false );
+
 		$forum_name = 'Unknown';
 		$forum = $this->readmarker->get_forum($query_row['topic_forum']);
-		if ($forum != null) $forum_name = $forum['forum_name'];
-		$user_email = $this->format($query_row['user_name'], FORMAT_HTMLCHARS | FORMAT_CENSOR );
-		$user_email .= ' &lt;';
+		if ($forum != null) $forum_name = htmlspecialchars( $forum['forum_name'] );
+
+		$user_email = '';
 		if ($query_row['user_email_show']) {
 			$user_email .= $query_row['user_email'];
 		} else {
 			$user_email .= 'nobody@example.com';
 		}
-		$user_email .= '&gt;';
+		$user_email .= ' (';
+		$user_email .= $this->format( $query_row['user_name'], FORMAT_CENSOR );
+		$user_email .= ')';
+		$user_email = htmlspecialchars( $user_email );
 
 		return eval($this->template('RSSFEED_ITEM'));
 	}
