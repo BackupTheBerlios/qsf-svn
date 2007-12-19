@@ -155,7 +155,7 @@ class search extends qsfglobal
 		}
 
 		if (isset($this->get['member_check'])) {
-			$this->post['time_way_select'] = $this->get['member_check'];
+			$this->post['member_check'] = $this->get['member_check'];
 		}
 
 		if (isset($this->get['member_select'])) {
