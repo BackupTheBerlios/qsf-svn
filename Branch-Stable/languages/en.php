@@ -582,10 +582,12 @@ class en
 		$this->logs_moved_topic_num = 'Moved topic #';
 		$this->logs_pinned_topic = 'Pinned a topic';
 		$this->logs_post = 'Post';
+		$this->logs_published_topic = 'Published a topic';
 		$this->logs_time = 'Time';
 		$this->logs_topic = 'Topic';
 		$this->logs_unlocked_topic = 'Unlocked a topic';
 		$this->logs_unpinned_topic = 'Unpinned a topic';
+		$this->logs_unpublished_topic = 'Unpublished a topic';
 		$this->logs_user = 'User';
 		$this->logs_view = 'View Moderator Actions';
 	}

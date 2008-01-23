@@ -66,6 +66,16 @@ class logs extends admin
 				$id = $this->lang->logs_post . " #" . $log['log_data1'];
 				break;
 
+			case 'topic_publish':
+				$action = $this->lang->logs_published_topic;
+				$id = $this->lang->logs_topic . ' #' . $log['log_data1'];
+				break;
+
+			case 'topic_unpublish':
+				$action = $this->lang->logs_unpublished_topic;
+				$id = $this->lang->logs_topic . ' #' . $log['log_data1'];
+				break;
+
 			case 'topic_lock':
 				$action = $this->lang->logs_locked_topic;
 				$id = $this->lang->logs_topic . " #" . $log['log_data1'];
