@@ -35,7 +35,8 @@ $need_templates = array(
 	'POST_ATTACH_REMOVE',
 	'ADMIN_INDEX',
 	'MAIN',
-	'RECENT_MAIN'
+	'RECENT_MAIN',
+	'PM_FOLDER_MESSAGE'
 	);
 
 // Permission changes	
