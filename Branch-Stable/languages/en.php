@@ -865,6 +865,7 @@ class en
 		$this->pm_group = 'Group';
 		$this->pm_guest = 'As a guest, you cannot use the messenger. Please login or register.';
 		$this->pm_joined = 'Joined';
+		$this->pm_mark_unread = 'Message marked as unread.';
 		$this->pm_messenger = 'Messenger';
 		$this->pm_msgtext = 'Message Text';
 		$this->pm_multiple = 'Separate multiple recipients with ;';

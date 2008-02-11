@@ -74,6 +74,10 @@ class pm extends qsfglobal
 			return $this->clear();
 			break;
 
+		case 'unread':
+			return $this->mark_unread();
+			break;
+
 		default:
 			$this->get['s'] = null;
 			return $this->folder();
@@ -366,6 +370,27 @@ class pm extends qsfglobal
 				$this->user['user_id'], $this->get['f']);
 			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_deleted_all);
 		}
+	}
+
+	/**
+	 * Mark a message as unread
+	 *
+	 * @author Jonathan West <jon@quicksilverforums.com>
+	 * @since 1.4.3
+	 * @return HTML message
+	 **/
+	function mark_unread()
+	{
+		if (!isset($this->get['m'])) {
+			header('HTTP/1.0 404 Not Found');
+			return $this->message($this->lang->pm_personal_msging, $this->lang->pm_no_number);
+		}
+
+		$this->get['m'] = intval($this->get['m']);
+
+		$this->db->query( 'UPDATE %ppmsystem SET pm_read=0 WHERE pm_id=%d AND pm_to=%d', $this->get['m'], $this->user['user_id'] );
+
+		return $this->message($this->lang->pm_personal_msging, $this->lang->pm_mark_unread);
 	}
 
 	function checkOwner($id)

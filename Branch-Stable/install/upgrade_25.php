@@ -30,7 +30,8 @@ if (!defined('INSTALLER')) {
 $need_templates = array(
 	// Added templates
 	// Changed templates
-	'RECENT_MAIN'
+	'RECENT_MAIN',
+	'PM_FOLDER_MESSAGE'
 	);
 
 // Permission changes	

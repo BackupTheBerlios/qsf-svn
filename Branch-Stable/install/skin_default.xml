@@ -2170,9 +2170,9 @@
       <html><![CDATA[
 <span class="icon">
  <IF ($pm['pm_read'] == 'new')>
-  <img src="./skins/$this->skin/images/icons/new_message.png" alt="{$this->lang->pm_pm}" />
+  <img src="./skins/{$this->skin}/images/icons/new_message.png" alt="{$this->lang->pm_pm}" />
  <ELSE>
-  <img src="./skins/$this->skin/images/icons/messenger.png" alt="{$this->lang->pm_pm}" />
+  <a href="{$this->self}?a=pm&amp;s=unread&amp;m={$pm['pm_id']}"><img src="./skins/{$this->skin}/images/icons/messenger.png" alt="{$this->lang->pm_pm}" /></a>
  </IF>
 </span>
 <span class="message"><a href="{$this->self}?a=pm&amp;s=view&amp;m={$pm['pm_id']}" title="{$preview}">{$pm['pm_title']}</a></span>
