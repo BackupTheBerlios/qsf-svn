@@ -62,7 +62,7 @@ class user
 			$cookie_user = intval($this->cookie[$this->sets['cookie_prefix'] . 'user']);
 			$cookie_pass = $this->cookie[$this->sets['cookie_prefix'] . 'pass'];
 			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, z.*
-				FROM %pskins s, %pgroups g, %ptimezones z, %pusers
+				FROM (%pskins s, %pgroups g, %ptimezones z, %pusers)
 				LEFT JOIN %pmembertitles t ON t.membertitle_id = m.user_level
 				WHERE m.user_id=%d AND
 				      m.user_password='%s' AND
@@ -74,7 +74,7 @@ class user
 			$session_user = intval($this->session['user']);
 			$session_pass = $this->session['pass'];
 			$user = $this->db->fetch("SELECT m.*, s.skin_dir, g.group_perms, g.group_name, z.*
-				FROM %pskins s, %pgroups g, %ptimezones z, %pusers m
+				FROM (%pskins s, %pgroups g, %ptimezones z, %pusers m)
 				LEFT JOIN %pmembertitles t ON t.membertitle_id = m.user_level
 				WHERE m.user_id=%d AND
 				      MD5(CONCAT(m.user_password,'%s'))='%s' AND
