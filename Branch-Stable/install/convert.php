@@ -157,8 +157,8 @@ class convert extends qsfglobal
 				break;
 			}
 
-			if (!is_readable('./data_tables.php')) {
-				echo 'New database connected, settings written, but no data could be loaded from data_tables.php';
+			if (!is_readable('./mysql_data_tables.php')) {
+				echo 'New database connected, settings written, but no data could be loaded from mysql_data_tables.php';
 				break;
 			}
 
@@ -171,7 +171,7 @@ class convert extends qsfglobal
 			$pre = $this->sets['prefix'];
 			$this->pre = $this->sets['prefix'];
 
-			include './data_tables.php';
+			include './mysql_data_tables.php';
 
 			execute_queries($queries, $this->db);
 			$queries = NULL;
