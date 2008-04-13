@@ -1,13 +1,7 @@
 <?php
 /**
- * QSF Portal
- * Copyright (c) 2006-2007 The QSF Portal Development Team
- * http://www.qsfportal.com/
- *
- * Based on:
- *
  * Quicksilver Forums
- * Copyright (c) 2005-2006 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  * http://www.quicksilverforums.com/
  * 
  * This program is free software; you can redistribute it and/or

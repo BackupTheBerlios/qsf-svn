@@ -1,10 +1,10 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005-2006 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *

@@ -1,13 +1,9 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
- * Copyright (c) 2001-2005 The Mercury Development Team
- *  http://www.mercuryboard.com/
- *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
