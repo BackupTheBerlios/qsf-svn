@@ -6,6 +6,7 @@ Changes for 1.4.2:
    Bugs addressed:
 
 * Poll icon on recent posts is missing.
+* External http links are not setting _blank targets as needed. [Fixed by Detruire]
 
 Changes for 1.4.1:
 
