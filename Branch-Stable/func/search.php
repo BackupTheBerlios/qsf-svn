@@ -279,6 +279,10 @@ class search extends qsfglobal
 			// Limit forums being searched
 			if ($this->post['forums']) {
 				$sql .= 'f.forum_id IN (%s) AND ';
+
+				foreach( $this->post['forums'] as $forums_id => $forums_val )
+					$this->post['forums'][$forums_id] = (int)$forums_val;
+					
 				$sql_data[] = implode(',', $this->post['forums']);
 			}
 
