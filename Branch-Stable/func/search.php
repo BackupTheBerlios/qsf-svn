@@ -326,7 +326,7 @@ class search extends qsfglobal
 		} else {
 			$url = "results=1&amp;" .
 			'query=' . $this->format($this->post['query'], FORMAT_HTMLCHARS) . '&amp;' .
-			'forums=' . $this->format( @implode('f', $this->post['forums']), FORMAT_HTMLCHARS) . '&amp;' .
+			'forums=' . implode('f', $this->post['forums']) . '&amp;' .
 			'searchtype=' . $this->format($this->post['searchtype'], FORMAT_HTMLCHARS) . '&amp;' .
 			'time_select=' . intval($this->post['time_select']) . '&amp;' .
 			'time_way_select=' . $this->format($this->post['time_way_select']) . '&amp;' .
