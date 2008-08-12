@@ -277,13 +277,20 @@ class search extends qsfglobal
 			$this->post['limit_chars'] = intval($this->post['limit_chars']);
 
 			// Limit forums being searched
-			if ($this->post['forums']) {
-				$sql .= 'f.forum_id IN (%s) AND ';
+			if ($this->post['forums'])
+			{
+				if ( is_array( $this->post['forums'] ) )
+				{
+					$sql .= 'f.forum_id IN (%s) AND ';
 
-				foreach( $this->post['forums'] as $forums_id => $forums_val )
-					$this->post['forums'][$forums_id] = (int)$forums_val;
+					foreach( $this->post['forums'] as $forums_id => $forums_val )
+						$this->post['forums'][$forums_id] = (int)$forums_val;
 					
-				$sql_data[] = implode(',', $this->post['forums']);
+					$sql_data[] = implode(',', $this->post['forums']);
+				} else {
+					$sql .= 'f.forum_id = \'%d\' AND ';
+					$sql_data[] = (int)$this->post['forums'];
+				}
 			}
 
 			if (isset($this->post['time_check'])) {
@@ -319,7 +326,7 @@ class search extends qsfglobal
 		} else {
 			$url = "results=1&amp;" .
 			'query=' . $this->format($this->post['query'], FORMAT_HTMLCHARS) . '&amp;' .
-			'forums=' . implode('f', $this->post['forums']) . '&amp;' .
+			'forums=' . $this->format( @implode('f', $this->post['forums']), FORMAT_HTMLCHARS) . '&amp;' .
 			'searchtype=' . $this->format($this->post['searchtype'], FORMAT_HTMLCHARS) . '&amp;' .
 			'time_select=' . intval($this->post['time_select']) . '&amp;' .
 			'time_way_select=' . $this->format($this->post['time_way_select']) . '&amp;' .
