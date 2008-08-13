@@ -1,10 +1,10 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -582,10 +582,12 @@ class he
 		$this->logs_moved_topic_num = 'הועברה הודעה #';
 		$this->logs_pinned_topic = 'ננעצה הודעה';
 		$this->logs_post = 'תגובה';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'זמן';
 		$this->logs_topic = 'נושא';
 		$this->logs_unlocked_topic = 'שוחררה הודעה';
 		$this->logs_unpinned_topic = 'נותקה הודעה';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'משתמש';
 		$this->logs_view = 'הצג פעילות מבקר';
 	}
@@ -863,6 +865,7 @@ class he
 		$this->pm_group = 'קבוצה';
 		$this->pm_guest = '.כאורח, אינך יכול להשתמש במסנג\'ר. אנא הכינס למערכת או הירשם';
 		$this->pm_joined = 'הצטרף';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'מסנג\'ר פרטי';
 		$this->pm_msgtext = 'תוכן הודעה';
 		$this->pm_multiple = '; הפרד נמענים מרובים עם';

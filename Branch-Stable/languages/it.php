@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -583,10 +583,12 @@ class it
 		$this->logs_moved_topic_num = 'Ha spostato la discussione #';
 		$this->logs_pinned_topic = 'Ha messo in rilievo una discussione';
 		$this->logs_post = 'Messaggio';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Data';
 		$this->logs_topic = 'Discussione';
 		$this->logs_unlocked_topic = 'Ha sbloccato una discussione';
 		$this->logs_unpinned_topic = 'Topic sbloccati';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Utente';
 		$this->logs_view = 'Mostra Azioni di Moderazione';
 	}
@@ -864,6 +866,7 @@ class it
 		$this->pm_group = 'Gruppo';
 		$this->pm_guest = 'Come visitatore, non puoi usare la messaggistica. Per favore autenticati o registrati.';
 		$this->pm_joined = 'Registrato il';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Messaggistica';
 		$this->pm_msgtext = 'Testo messaggio';
 		$this->pm_multiple = 'Separa destinari multipli con ; (punto e virgola)';

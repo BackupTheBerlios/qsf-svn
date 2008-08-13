@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -584,10 +584,12 @@ class nl
 		$this->logs_moved_topic_num = 'Onderwerp # verplaatst';
 		$this->logs_pinned_topic = 'Een onderwerp sticky gemaakt';
 		$this->logs_post = 'Antwoord';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Tijd';
 		$this->logs_topic = 'Onderwerp';
 		$this->logs_unlocked_topic = 'Een topic heropend';
 		$this->logs_unpinned_topic = 'Een onderwerp van sticky verwijderd';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Gebruiker';
 		$this->logs_view = 'Bekijk de moderator acties';
 	}
@@ -865,6 +867,7 @@ class nl
 		$this->pm_group = 'Groep';
 		$this->pm_guest = 'Als gast, kunt u geen privé berichten versturen. Login of Registreer, aub.';
 		$this->pm_joined = 'Lid sinds';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Privé berichten';
 		$this->pm_msgtext = 'Bericht:';
 		$this->pm_multiple = 'Scheid verschillende ontvangers met een ;';

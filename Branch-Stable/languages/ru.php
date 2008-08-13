@@ -1,10 +1,10 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -583,10 +583,12 @@ class ru
 		$this->logs_moved_topic_num = 'Moved topic #'; //Translate
 		$this->logs_pinned_topic = 'Pinned a topic'; //Translate
 		$this->logs_post = 'Post'; //Translate
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Time'; //Translate
 		$this->logs_topic = 'Topic'; //Translate
 		$this->logs_unlocked_topic = 'Unlocked a topic'; //Translate
 		$this->logs_unpinned_topic = 'Unpinned a topic'; //Translate
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'User'; //Translate
 		$this->logs_view = 'View Moderator Actions'; //Translate
 	}
@@ -864,6 +866,7 @@ class ru
 		$this->pm_group = 'Группа';
 		$this->pm_guest = 'Ты не можешь отправлять сообщения незарегистрировавшись.';
 		$this->pm_joined = 'Присоединился';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Сообщения';
 		$this->pm_msgtext = 'Текст сообщения';
 		$this->pm_multiple = 'Перечислите адресатов через точку с запятой (;)';

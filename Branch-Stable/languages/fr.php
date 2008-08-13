@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -130,7 +130,7 @@ class fr
 		$this->backup_import_fail = 'L\'import de la sauvegarde a ŽchouŽ.';
 		$this->backup_invalid = 'La sauvegarde n\'a pas l\'air d\'être valide. Aucune modification n\'a été faite à votre base de données.';
 		$this->backup_no_packages = 'Localisation de rŽpertoire des paquetages a ŽchouŽe.';
-		$this->backup_noexist = 'DŽsolŽ, cette sauvegarde n'existe pas.';
+		$this->backup_noexist = 'DŽsolŽ, cette sauvegarde n\'existe pas.';
 		$this->backup_none = 'Aucune sauvegarde n\'a été trouvée dans l\'annuaire de Quicksilver Forums.';
 		$this->backup_options = 'Options de sauvegarde de la base de donnŽes';
 		$this->backup_output = 'Sortie';
@@ -340,7 +340,7 @@ class fr
 		$this->cp_old_notmatch = 'L\'ancien mot de passe que vous avez saisi est incorrect.';
 		$this->cp_old_pass = 'Ancien mot de passe';
 		$this->cp_pass = 'Mot de passe';
-		$this->cp_pass2 = 'NŽcessaire seulement si vous changez d'adresse email';
+		$this->cp_pass2 = 'NŽcessaire seulement si vous changez d\'adresse email';
 		$this->cp_pass_notmatch = 'Le mot de passe entrŽ ne correspond pas avec celui dans notre base de donnŽes.';
 		$this->cp_pass_notvaid = 'Votre mot de passe est invalide. Assurez vous que vous ne utilisez que des caractères permis.';
 		$this->cp_posts_page = 'Posts per topic page. 0 resets to board default.'; //Translate
@@ -582,10 +582,12 @@ class fr
 		$this->logs_moved_topic_num = 'A deplacé le sujet #';
 		$this->logs_pinned_topic = 'Un sujet epinglé';
 		$this->logs_post = 'Message';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Heure';
 		$this->logs_topic = 'Sujet';
 		$this->logs_unlocked_topic = 'Déverrouiller un sujet';
 		$this->logs_unpinned_topic = 'Détacher un sujet';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Utilisateur';
 		$this->logs_view = 'Visualiser les actions du modérateur';
 	}
@@ -863,6 +865,7 @@ class fr
 		$this->pm_group = 'Groupe';
 		$this->pm_guest = 'En tant qu\'invité, vous ne pouvez pas utiliser la messagerie privée. Merci de vous connecter ou de vous enregistrer.';
 		$this->pm_joined = 'Rejoint';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Messages persos';
 		$this->pm_msgtext = 'Texte du message';
 		$this->pm_multiple = 'Veuillez séparer les receveurs avec ;';

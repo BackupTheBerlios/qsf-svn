@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -583,10 +583,12 @@ class no
 		$this->logs_moved_topic_num = 'Flyttet emne nr.';
 		$this->logs_pinned_topic = 'Markerte et emne';
 		$this->logs_post = 'Innlegg';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Tid';
 		$this->logs_topic = 'Emne';
 		$this->logs_unlocked_topic = 'Gjenåpnet et emne';
 		$this->logs_unpinned_topic = 'Fjernet markeringen på et emne';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Bruker';
 		$this->logs_view = 'Se på moderatorenes handlinger';
 	}
@@ -864,6 +866,7 @@ class no
 		$this->pm_group = 'Gruppe';
 		$this->pm_guest = 'Som gjest kan du ikke benytte meldinger. Logg inn eller registrér deg.';
 		$this->pm_joined = 'Innmeldt';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Meldinger';
 		$this->pm_msgtext = 'Meldingstekst';
 		$this->pm_multiple = 'Separér forskjellige mottakere med ;';

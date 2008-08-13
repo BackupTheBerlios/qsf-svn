@@ -1,10 +1,10 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -583,10 +583,12 @@ class sk
 		$this->logs_moved_topic_num = 'Poèet presunutých tém';
 		$this->logs_pinned_topic = 'Prišpendlená téma';
 		$this->logs_post = 'Príspevok';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Èas';
 		$this->logs_topic = 'Téma';
 		$this->logs_unlocked_topic = 'Odomknutá téma';
 		$this->logs_unpinned_topic = 'Odšpendlená téma';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Užívate¾';
 		$this->logs_view = 'Prezeranie èinnosti moderátora';
 	}
@@ -865,6 +867,7 @@ class sk
 		$this->pm_group = 'Skupina';
 		$this->pm_guest = 'Ako návštevník (guest) nemáte povolenie používa odkazovaè. Prosím nalogujte sa alebo sa zaregistrujte.. alebo sa dajte vypcha.';
 		$this->pm_joined = 'Registrácia';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Odkazovaè';
 		$this->pm_msgtext = 'Text odkazu';
 		$this->pm_multiple = 'Viacerých adresátov odde¾te znakom ;';

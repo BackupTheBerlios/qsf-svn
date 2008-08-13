@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -584,10 +584,12 @@ class sv
 		$this->logs_moved_topic_num = 'Flyttade ämne #';
 		$this->logs_pinned_topic = 'Klistrade ett ämne';
 		$this->logs_post = 'Inlägg';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Tid';
 		$this->logs_topic = 'Ämne';
 		$this->logs_unlocked_topic = 'Låste upp ett ämne';
 		$this->logs_unpinned_topic = 'Klistrade av ett ämne';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Användare';
 		$this->logs_view = 'Visa Moderatorhändelser';
 	}
@@ -865,6 +867,7 @@ class sv
 		$this->pm_group = 'Grupp';
 		$this->pm_guest = 'Som gäst kan du inte använda snabbmeddelande. Logga in eller registrera dig.';
 		$this->pm_joined = 'Gick Med';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Snabbmeddelande';
 		$this->pm_msgtext = 'Meddelandetext';
 		$this->pm_multiple = 'Separera flera mottagare med ett ;';

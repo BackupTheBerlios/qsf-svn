@@ -1,13 +1,13 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
- *Chinese Transfer:Hanklu www.phpbs.com
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -138,7 +138,7 @@ class zh
 		$this->backup_restore_done = '該資料庫已經復原備份完成.';
 		$this->backup_statements = '說明';
 		$this->backup_uncheck = '未勾選將不會在復原備份時,清空資料庫中的資料表';
-		$this->backup_warning = '注意: 將會覆蓋寫入所有已經存在的資料(Quicksilver Forums).';
+		$this->backup_warning = '<b>Warning:</b> This will overwrite all existing data used by Quicksilver Forums.'; //Translate
 	}
 
 	function ban()
@@ -159,7 +159,7 @@ class zh
 
 	function bbcode()
 	{
-		$this->bbcode_arial = 'Arial';
+		$this->bbcode_arial = 'Arial'; //Translate
 		$this->bbcode_blue = '藍色';
 		$this->bbcode_bold = '粗體 (CTRL-b)';
 		$this->bbcode_bold1 = '粗';
@@ -168,19 +168,19 @@ class zh
 		$this->bbcode_code1 = '程式碼';
 		$this->bbcode_color = '顏色';
 		$this->bbcode_coral = '橘紅色';
-		$this->bbcode_courier = 'Courier';
+		$this->bbcode_courier = 'Courier'; //Translate
 		$this->bbcode_crimson = '深紅色';
 		$this->bbcode_darkblue = '深藍';
 		$this->bbcode_darkred = '殷紅';
 		$this->bbcode_deeppink = '桃紅色';
-		$this->bbcode_email = 'Email (CTRL-e)';
+		$this->bbcode_email = 'Email (CTRL-e)'; //Translate
 		$this->bbcode_firered = '磚紅色';
 		$this->bbcode_font = '字型';
 		$this->bbcode_green = '綠色';
 		$this->bbcode_huge = '大';
 		$this->bbcode_image = '圖片 (CTRL-j)';
 		$this->bbcode_image1 = '圖';
-		$this->bbcode_impact = 'Impact';
+		$this->bbcode_impact = 'Impact'; //Translate
 		$this->bbcode_indigo = '靛藍色';
 		$this->bbcode_italic = '斜體 (CTRL-i)';
 		$this->bbcode_italic1 = '斜';
@@ -189,8 +189,8 @@ class zh
 		$this->bbcode_medium = '中';
 		$this->bbcode_orange = '橘色';
 		$this->bbcode_orangered = '橘紅色';
-		$this->bbcode_php = 'PHP (CTRL-k)';
-		$this->bbcode_php1 = 'PHP';
+		$this->bbcode_php = 'PHP (CTRL-k)'; //Translate
+		$this->bbcode_php1 = 'PHP'; //Translate
 		$this->bbcode_purple = '紫色';
 		$this->bbcode_quote = '引用 (CTRL-q)';
 		$this->bbcode_quote1 = '引用';
@@ -203,21 +203,21 @@ class zh
 		$this->bbcode_size = '大小';
 		$this->bbcode_skyblue = '天空藍';
 		$this->bbcode_small = '小';
-		$this->bbcode_spoiler = 'Spoiler (CTRL-r)';
-		$this->bbcode_spoiler1 = 'Spoiler';
-		$this->bbcode_strike = 'Strikethrough (CTRL-s)';
-		$this->bbcode_strike1 = 'S';
-		$this->bbcode_tahoma = 'Tahoma';
-		$this->bbcode_teal = 'Teal';
-		$this->bbcode_times = 'Times';
+		$this->bbcode_spoiler = 'Spoiler (CTRL-r)'; //Translate
+		$this->bbcode_spoiler1 = 'Spoiler'; //Translate
+		$this->bbcode_strike = 'Strikethrough (CTRL-s)'; //Translate
+		$this->bbcode_strike1 = 'S'; //Translate
+		$this->bbcode_tahoma = 'Tahoma'; //Translate
+		$this->bbcode_teal = 'Teal'; //Translate
+		$this->bbcode_times = 'Times'; //Translate
 		$this->bbcode_tiny = '超小';
 		$this->bbcode_tomato = '番茄色';
 		$this->bbcode_underline = '底線 (CTRL-u)';
 		$this->bbcode_underline1 = '底';
 		$this->bbcode_url = '超連結 (CTRL-h)';
 		$this->bbcode_url1 = '連結';
-		$this->bbcode_verdana = 'Verdana';
-		$this->bbcode_wood = 'Burly Wood';
+		$this->bbcode_verdana = 'Verdana'; //Translate
+		$this->bbcode_wood = 'Burly Wood'; //Translate
 		$this->bbcode_yellow = '黃色';
 	}
 
@@ -298,7 +298,7 @@ class zh
 		$this->cp_dec = '十二月';
 		$this->cp_editing_avatar = '頭像編輯中';
 		$this->cp_editing_profile = '個人資料編輯中';
-		$this->cp_email = 'Email';
+		$this->cp_email = 'Email'; //Translate
 		$this->cp_email_form = '允許其他會員使用電子信件聯絡您?';
 		$this->cp_email_invaid = '您輸入的電子信箱是無效的.';
 		$this->cp_err_avatar = '上傳頭像發生錯誤';
@@ -382,14 +382,14 @@ class zh
 	function email()
 	{
 		$this->email_blocked = '該會員不允許別人寄信件給他.';
-		$this->email_email = 'Email';
+		$this->email_email = 'Email'; //Translate
 		$this->email_msgtext = 'Email內容:';
 		$this->email_no_fields = '返回並確認所有欄位已經填寫.';
 		$this->email_no_member = '沒有此會員名稱';
 		$this->email_no_perm = '您沒有權限利用此討論區寄信件出去.';
 		$this->email_sent = '您的信件已經寄出.';
 		$this->email_subject = '主題:';
-		$this->email_to = 'To:';
+		$this->email_to = 'To:'; //Translate
 	}
 
 	function emot_control()
@@ -574,7 +574,7 @@ class zh
 		$this->logs_deleted_topic = '刪除主題';
 		$this->logs_edited_post = '已修改的主題';
 		$this->logs_edited_topic = '已修改的主題';
-		$this->logs_id = 'IDs';
+		$this->logs_id = 'IDs'; //Translate
 		$this->logs_locked_topic = '禁止回覆主題';
 		$this->logs_moved_from = '從討論區';
 		$this->logs_moved_to = '到討論區';
@@ -582,10 +582,12 @@ class zh
 		$this->logs_moved_topic_num = '完成移動主題 #';
 		$this->logs_pinned_topic = '已經置頂主題';
 		$this->logs_post = '發表';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = '時間';
 		$this->logs_topic = '主題';
 		$this->logs_unlocked_topic = '取消禁止回覆主題';
 		$this->logs_unpinned_topic = '取消置頂主題';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = '會員';
 		$this->logs_view = '瀏覽版主操作紀錄';
 	}
@@ -596,7 +598,7 @@ class zh
 		$this->main_activate_resend = '重新寄出啟動郵件';
 		$this->main_admincp = '管理控制台';
 		$this->main_banned = '您已經被此討論區完全封鎖了.';
-		$this->main_code = 'Code';
+		$this->main_code = 'Code'; //Translate
 		$this->main_cp = '控制台';
 		$this->main_full = '全部';
 		$this->main_help = '說明';
@@ -700,7 +702,7 @@ class zh
 	function members()
 	{
 		$this->members_all = '全部的';
-		$this->members_email = 'Email';
+		$this->members_email = 'Email'; //Translate
 		$this->members_email_member = '寄信給該會員';
 		$this->members_group = '群組';
 		$this->members_joined = '註冊時間';
@@ -863,6 +865,7 @@ class zh
 		$this->pm_group = '群組';
 		$this->pm_guest = '您無法使用私人訊息功能. 請登入或是註冊.';
 		$this->pm_joined = '加入日期';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = '訊息';
 		$this->pm_msgtext = '訊息文字';
 		$this->pm_multiple = '使用;來區分多個收件人';
@@ -876,7 +879,7 @@ class zh
 		$this->pm_online = '此會員目前正在線上';
 		$this->pm_personal = '個人訊息';
 		$this->pm_personal_msging = '個人訊息';
-		$this->pm_pm = 'PM';
+		$this->pm_pm = 'PM'; //Translate
 		$this->pm_posts = '發表';
 		$this->pm_preview = '預覽';
 		$this->pm_recipients = '收件人';
@@ -1038,7 +1041,7 @@ class zh
 	function recent()
 	{
 		$this->recent_active = '自從上次瀏覽熱門主題';
-		$this->recent_by = 'By';
+		$this->recent_by = 'By'; //Translate
 		$this->recent_can_post = '您可以回覆此討論區.';
 		$this->recent_can_topics = '您可以瀏覽主題於此討論區.';
 		$this->recent_cant_post = '您不能回覆此討論區.';
@@ -1142,7 +1145,7 @@ class zh
 		$this->search_guest = '訪客';
 		$this->search_in = '搜尋於';
 		$this->search_in_posts = '僅搜尋回覆';
-		$this->search_ip = 'IP';
+		$this->search_ip = 'IP'; //Translate
 		$this->search_joined = '加入日期';
 		$this->search_level = '會員等級';
 		$this->search_match = '搜尋比對中';
@@ -1244,7 +1247,7 @@ class zh
 		$this->settings_general = '一般設定';
 		$this->settings_group_after = '註冊後群組';
 		$this->settings_hot_topic = '發表熱門主題';
-		$this->settings_kilobytes = 'Kilobytes';
+		$this->settings_kilobytes = 'Kilobytes'; //Translate
 		$this->settings_max_attach_size = '附件 -檔案最大限制';
 		$this->settings_members = '會員設定';
 		$this->settings_modname_only = '僅限於模組名稱. 不包含 .php';
@@ -1258,7 +1261,7 @@ class zh
 		$this->settings_no_allow = '不允許';
 		$this->settings_nodata = '沒有資料被寄出來自於 POST';
 		$this->settings_one_per = '每一行';
-		$this->settings_pixels = 'Pixels';
+		$this->settings_pixels = 'Pixels'; //Translate
 		$this->settings_pm_flood = '個人短訊連續發表控制';
 		$this->settings_pm_min_time = '兩次訊息間隔時間.';
 		$this->settings_polls = '投票';
@@ -1364,7 +1367,7 @@ class zh
 		$this->templates = '模板';
 		$this->temps_active = '啟動會員細節';
 		$this->temps_admin = '<b>一般的管理後台</b>';
-		$this->temps_backup = 'AdminCP Database Backup';
+		$this->temps_backup = 'AdminCP Database Backup'; //Translate
 		$this->temps_ban = '封鎖設定';
 		$this->temps_board_index = '討論區首頁';
 		$this->temps_censoring = '不良文字過濾';
@@ -1389,7 +1392,7 @@ class zh
 		$this->temps_profile = '個人資訊瀏覽中';
 		$this->temps_recent = '最新的主題';
 		$this->temps_register = '註冊';
-		$this->temps_rssfeed = 'RSS Feed';
+		$this->temps_rssfeed = 'RSS Feed'; //Translate
 		$this->temps_search = '搜尋中';
 		$this->temps_settings = '一般設定';
 		$this->temps_templates = '模板編輯';
@@ -1437,7 +1440,7 @@ class zh
 		$this->topic_error = '錯誤';
 		$this->topic_group = '群組';
 		$this->topic_guest = '訪客';
-		$this->topic_ip = 'IP';
+		$this->topic_ip = 'IP'; //Translate
 		$this->topic_joined = '已加入';
 		$this->topic_level = '會員等級';
 		$this->topic_links_aim = '寄出 AIM 訊息給 %s';
@@ -1497,41 +1500,41 @@ class zh
 
 	function universal()
 	{
-		$this->aim = 'AIM';
+		$this->aim = 'AIM'; //Translate
 		$this->based_on = '基於';
 		$this->board_by = '作者';
 		$this->charset = 'utf-8';
 		$this->continue = '繼續';
-		$this->date_long = 'M j, Y';
-		$this->date_short = 'n/j/y';
+		$this->date_long = 'M j, Y'; //Translate
+		$this->date_short = 'n/j/y'; //Translate
 		$this->delete = '刪除';
-		$this->direction = 'ltr';
+		$this->direction = 'ltr'; //Translate
 		$this->edit = '修改';
-		$this->email = 'Email';
-		$this->gtalk = 'GT';
-		$this->icq = 'ICQ';
-		$this->msn = 'MSN';
+		$this->email = 'Email'; //Translate
+		$this->gtalk = 'GT'; //Translate
+		$this->icq = 'ICQ'; //Translate
+		$this->msn = 'MSN'; //Translate
 		$this->new_message = '新訊息';
 		$this->new_poll = '新增投票';
 		$this->new_topic = '新增主題';
 		$this->no = '否';
-		$this->powered = 'Powered by';
+		$this->powered = 'Powered by'; //Translate
 		$this->private_message = '短訊';
 		$this->quote = '引用';
 		$this->recount_forums = '討論區內容已重新計算! 全部主題數: %d. 全部的回覆數: %d.';
 		$this->reply = '回覆';
 		$this->seconds = '秒';
 		$this->select_all = '選擇全部';
-		$this->sep_decimals = '.';
-		$this->sep_thousands = ',';
+		$this->sep_decimals = '.'; //Translate
+		$this->sep_thousands = ','; //Translate
 		$this->spoiler = '掠奪者';
 		$this->submit = '送出';
 		$this->subscribe = '訂閱';
-		$this->time_long = ', g:i a';
-		$this->time_only = 'g:i a';
+		$this->time_long = ', g:i a'; //Translate
+		$this->time_only = 'g:i a'; //Translate
 		$this->today = '今天';
-		$this->website = 'WWW';
-		$this->yahoo = 'Yahoo';
+		$this->website = 'WWW'; //Translate
+		$this->yahoo = 'Yahoo'; //Translate
 		$this->yes = '是';
 		$this->yesterday = '昨天';
 	}

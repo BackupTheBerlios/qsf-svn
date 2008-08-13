@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -134,7 +134,7 @@ class de
 		$this->backup_noexist = 'Sorry, diese Sicherung existiert nicht.';
 		$this->backup_none = 'Es wurden keine Sicherungen im Quicksilver Forums Verzeichnis gefunden.';
 		$this->backup_options = 'Datenbank Sicherungs-Einstellungen';
-		$this->backup_output = 'Ausgabe'; // Ausgabe auf Bildschirm "Ausgabe: blah blah blah blah blah"
+		$this->backup_output = 'Ausgabe';
 		$this->backup_restore = 'Sicherung wiederherstellen';
 		$this->backup_restore_done = 'Die Datenbank wurde erfolgreich wieder hergestellt.';
 		$this->backup_statements = 'Angaben';
@@ -583,10 +583,12 @@ class de
 		$this->logs_moved_topic_num = 'Thema # bewegt';
 		$this->logs_pinned_topic = 'Thema genagelt';
 		$this->logs_post = 'Beitrag';
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Zeit';
 		$this->logs_topic = 'Thema';
 		$this->logs_unlocked_topic = 'Thema geöffnet';
 		$this->logs_unpinned_topic = 'Thema entnagelt';
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'Benutzer';
 		$this->logs_view = 'Moderator Aktivitäten anschauen';
 	}
@@ -864,6 +866,7 @@ class de
 		$this->pm_group = 'Gruppe';
 		$this->pm_guest = 'Als Gast können Sie die Nachrichtenzentrale nicht benutzen. Bitte melden Sie sich an oder registrieren Sie sich.';
 		$this->pm_joined = 'Teilgenommen';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Nachrichtenzentrale';
 		$this->pm_msgtext = 'Text';
 		$this->pm_multiple = 'Trenne mehrere Empfänger mit ;';

@@ -1,10 +1,10 @@
 <?php
 /**
  * Quicksilver Forums
- * Copyright (c) 2005 The Quicksilver Forums Development Team
+ * Copyright (c) 2005-2008 The Quicksilver Forums Development Team
  *  http://www.quicksilverforums.com/
  * 
- * based off MercuryBoard
+ * Based on MercuryBoard
  * Copyright (c) 2001-2005 The Mercury Development Team
  *  http://www.mercuryboard.com/
  *
@@ -582,10 +582,12 @@ class cs
 		$this->logs_moved_topic_num = 'Moved topic #'; //Translate
 		$this->logs_pinned_topic = 'Pinned a topic'; //Translate
 		$this->logs_post = 'Post'; //Translate
+		$this->logs_published_topic = 'Published a topic'; //Translate
 		$this->logs_time = 'Time'; //Translate
 		$this->logs_topic = 'Topic'; //Translate
 		$this->logs_unlocked_topic = 'Unlocked a topic'; //Translate
 		$this->logs_unpinned_topic = 'Unpinned a topic'; //Translate
+		$this->logs_unpublished_topic = 'Unpublished a topic'; //Translate
 		$this->logs_user = 'User'; //Translate
 		$this->logs_view = 'View Moderator Actions'; //Translate
 	}
@@ -863,6 +865,7 @@ class cs
 		$this->pm_group = 'Skupina';
 		$this->pm_guest = 'Jako HOST nem&#x16F;&#x17E;ete pou&#x17E;ívat Messenger. Prosím p&#x159;ihla&#x161;te se nebo se zaregistrujte.';
 		$this->pm_joined = 'Zalo&#x17E;eno';
+		$this->pm_mark_unread = 'Message marked as unread.'; //Translate
 		$this->pm_messenger = 'Messenger'; //Translate
 		$this->pm_msgtext = 'Text zprávy';
 		$this->pm_multiple = 'Více p&#x159;íjemc&#x16F; mezi sebou odd&#x11B;lte st&#x159;edníkem - ;';
