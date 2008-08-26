@@ -1,6 +1,12 @@
 Quicksilver Forums Changes
 --------------------------
 
+Changes for 1.4.3:
+
+   Bugs addressed:
+
+* Registration process errors out when bots submit unset forms that are missing data.
+
 Changes for 1.4.2:
 
    Bugs addressed:

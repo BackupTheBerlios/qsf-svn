@@ -76,13 +76,18 @@ class register extends qsfglobal
 
 			return eval($this->template('REGISTER_MAIN'));
 		} else {
-			$username = $this->post['desuser'];
-			$email    = $this->post['email'];
-			$pass     = $this->post['passA'];
-			$pass2    = $this->post['passB'];
+			// Make sure the nasty bots who are deliberately not setting this stuff don't trigger a swarm of error emails!
+			$username = isset($this->post['desuser']) ? $this->post['desuser'] : '';
+			$email    = isset($this->post['email']) ? $this->post['email'] : '';
+			$pass     = isset($this->post['passA']) ? $this->post['passA'] : '';
+			$pass2    = isset($this->post['passB']) ? $this->post['passB'] : '';
 
 			if ($this->sets['register_image']) {
-				$image = strtoupper($this->post['imagetext']);
+				if( isset($this->post['imagetext']) ) {
+					$image = strtoupper($this->post['imagetext']);
+				} else {
+					error(QUICKSILVER_NOTICE, "BAD BOT! You know better. But if you're a user you shoudln't be seeing this unless your browser malfunctioned.");
+				}
 			} else {
 				$image = '-';
 			}
