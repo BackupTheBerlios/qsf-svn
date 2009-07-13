@@ -1302,7 +1302,7 @@
 </div>
 
 <div id="footer">
- {$admin->lang->powered} <a href="http://www.quicksilverforums.com">{$admin->name}</a> [{$admin->version}] &copy; 2005-2007 -- {$admin->lang->based_on} <a href="http://www.mercuryboard.com">MercuryBoard</a><br />
+ {$admin->lang->powered} <a href="http://www.quicksilverforums.com">{$admin->name}</a> [{$admin->version}] &copy; 2005-2008 -- {$admin->lang->based_on} <a href="http://www.mercuryboard.com">MercuryBoard</a><br />
  QSF Comet {$admin->lang->based_on} Syridium HForum v3 skin &copy; 2006-2007 <a href="http://www.syridium.com/">Syridium SC</a><br />
  {$time_exec} seconds - {$admin->db->querycount} queries - {$server_load} load
 </div>
@@ -1822,7 +1822,7 @@
       <displayname>Copyright</displayname>
       <description>Format the look of the copyright on the board.&lt;br&gt;&lt;br&gt;&lt;b&gt;Warning: Modification to anything other than the style of this copyright will result in a violation of your terms of service&lt;/b&gt;</description>
       <html><![CDATA[
-{$qsf->lang->powered} <a href="http://www.quicksilverforums.com">{$qsf->name}</a> &copy; 2005-2007 -- {$qsf->lang->based_on} <a href="http://www.mercuryboard.com">MercuryBoard</a><br />
+{$qsf->lang->powered} <a href="http://www.quicksilverforums.com">{$qsf->name}</a> &copy; 2005-2008 -- {$qsf->lang->based_on} <a href="http://www.mercuryboard.com">MercuryBoard</a><br />
  QSF Comet {$qsf->lang->based_on} HForumv3.1 skin &copy; 2006-2007 <a href="http://www.syridium.com/">Syridium SC</a>
  - 100% Valid &lsaquo;&rsaquo; <a href="http://validator.w3.org/check?uri=referer">XHTML1.1</a>
  + <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
