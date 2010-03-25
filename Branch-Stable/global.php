@@ -301,7 +301,7 @@ class qsfglobal
 			$lang = $this->get['lang'];
 		}
 
-		if (strstr($lang, '/') || !file_exists($path . 'languages/' . $lang . '.php')) {
+		if (strstr($lang, '\\') || strstr($lang, '/') || !file_exists($path . 'languages/' . $lang . '.php')) {
 			$lang = 'en';
 		}
 
