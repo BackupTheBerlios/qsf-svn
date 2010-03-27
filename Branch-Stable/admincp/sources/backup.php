@@ -78,7 +78,10 @@ class backup extends admin
 		if(!isset($this->post['submit'] ) )
 			return eval($this->template('ADMIN_BACKUP'));
 
-		$filename = "backup_".$this->version."-".date('y-m-d-H-i-s').".sql";
+		srand();
+		$mcookie = sha1( crc32( rand() ) );
+
+		$filename = 'backup_'.$this->version.'-'.date('y-m-d-H-i-s').'-'.$mcookie.'.sql';
 		$options = "";
 
 		foreach($this->post as $key => $value )
