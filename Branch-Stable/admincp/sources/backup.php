@@ -103,7 +103,7 @@ class backup extends admin
 		while( $c = fgetc($fp) )
 			$buf .= $c;
 		pclose($fp);
-		$this->chmod("../packages/".$filename, 0777);
+		$this->chmod("../packages/".$filename, 0440);
 		$backup = sprintf( $this->lang->backup_created, "../packages/" );
 		return $this->message($this->lang->backup_create, $backup."<br /><br />". $this->lang->backup_output .": ".$buf, $filename, "../packages/".$filename);
 	}
