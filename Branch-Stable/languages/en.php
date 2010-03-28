@@ -549,6 +549,13 @@ class en
 		$this->jslang_avatar_size_width = 'Your avatar width must be between 1 and %d pixels';
 	}
 
+	function alogin()
+	{
+		$this->login();
+
+		$this->login_cant_logged = 'You could not be logged in.';
+	}
+
 	function login()
 	{
 		$this->login_cant_logged = 'You could not be logged in. Check to see that your user name and password are correct.<br /><br />They are case sensitive, so \'UsErNaMe\' is different from \'Username\'. Also, check to see that cookies are enabled in your browser.';

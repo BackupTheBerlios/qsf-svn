@@ -83,7 +83,8 @@ $modules['admin_modules'] = array(
 	'settings',
 	'stats',
 	'templates',
-	'titles');
+	'titles',
+	'alogin');
 
 // These are generic enough that you shouldn't need to customise them
 require_once $set['include_path'] . '/lib/modlet.php';

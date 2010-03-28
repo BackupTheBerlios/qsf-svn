@@ -22,6 +22,7 @@
 
 define('QUICKSILVERFORUMS', true);
 define('QSF_ADMIN', true);
+define('ADMINCP_TIMEOUT', 900 ); // 15 mins of inactivity logs a user out.
 
 $time_now   = explode(' ', microtime());
 $time_start = $time_now[1] + $time_now[0];
@@ -32,6 +33,7 @@ require_once $set['include_path'] . '/defaultutils.php';
 
 if (!$set['installed']) {
 	header('Location: ../install/index.php');
+	exit();
 }
 
 ob_start();
@@ -69,6 +71,21 @@ $admin->user_cl  = new $admin->modules['user']($admin);
 $admin->user     = $admin->user_cl->login();
 $admin->lang     = $admin->get_lang($admin->user['user_language'], $admin->get['a']);
 $server_load     = $admin->get_load();
+
+
+// on every module other than login, restrict
+if ( 'alogin' != $module )
+{
+	// check last visit time is set and delta does not exceed ADMINCP_TIMEOUT
+	if ( !array_key_exists( 'admincp_timeout', $_SESSION ) 
+		|| (time() - $_SESSION['admincp_timeout']) > ADMINCP_TIMEOUT )
+	{
+		header('Location: ./?a=alogin');
+		exit();
+	} else {
+		$_SESSION['admincp_timeout'] = time();
+	}
+}
 
 if (!isset($admin->get['skin'])) {
 	$admin->skin = $admin->user['skin_dir'];
