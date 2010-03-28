@@ -29,6 +29,7 @@ if (!defined('INSTALLER')) {
 // Template changes
 $need_templates = array(
 	// Added templates
+	'ADMIN_LOGIN'
 	// Changed templates
 	);
 

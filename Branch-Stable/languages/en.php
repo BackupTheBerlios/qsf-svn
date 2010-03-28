@@ -1376,6 +1376,7 @@ class en
 		$this->templates = 'Templates';
 		$this->temps_active = 'Active Users Detail';
 		$this->temps_admin = '<b>AdminCP Universal</b>';
+		$this->temps_alogin = 'Admin Login';
 		$this->temps_backup = 'AdminCP Database Backup';
 		$this->temps_ban = 'AdminCP Bans';
 		$this->temps_board_index = 'Board Index';

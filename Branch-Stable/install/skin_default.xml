@@ -3954,6 +3954,27 @@ function toggleQuickReplyBox()
 <p class="line"></p>
       ]]></html>
     </template>
+    <template><set>alogin</set><name>ADMIN_LOGIN</name>
+      <displayname>Admin Control panel login</displayname>
+      <description>Admin users must periodically re-authenticate</description>
+      <html><![CDATA[
+<form action="{$this->self}?a=alogin" method="post">
+{$this->table}
+ <div class="title">
+  <img src="../skins/{$this->skin}/images/icons/login.png" alt="" />
+  {$this->lang->login_header}
+ </div>
+
+ <span class="field">{$this->lang->login_pass}</span>
+ <span class="form"><input type="password" name="pass" size="30" tabindex="1" /></span>
+
+ <p class="line"></p>
+
+ <input type="submit" name="submit" value="{$this->lang->submit}" tabindex="2" />
+{$this->etable}
+</form>
+      ]]></html>
+    </template>
   </templates>
   <install>
     <query>
