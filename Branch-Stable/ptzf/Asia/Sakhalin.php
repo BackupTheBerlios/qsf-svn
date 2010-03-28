@@ -5,12 +5,11 @@ http://www.quicksilverforums.com/
 */
 if (!defined('QUICKSILVERFORUMS')){header('HTTP/1.0 403 Forbidden');die;}
 $times = array();
-$times[1174752000] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
-$times[1193500800] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
-$times[1206806400] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
-$times[1224950400] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
-$times[1238256000] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
-$times[1256400000] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
 $times[1269705600] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
+$times[1288454400] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
+$times[1301155200] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
+$times[1319904000] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
+$times[1332604800] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
+$times[1351353600] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
 
 ?>
