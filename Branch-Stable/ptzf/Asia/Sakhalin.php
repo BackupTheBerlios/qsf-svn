@@ -11,5 +11,6 @@ $times[1301155200] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
 $times[1319904000] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
 $times[1332604800] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
 $times[1351353600] = array( 'offset' => '36000', 'abbrv' => 'SAKT' );
+$times[1364659200] = array( 'offset' => '39600', 'abbrv' => 'SAKST' );
 
 ?>
